@@ -22,9 +22,9 @@ ECRANS = [
     ("Mise à jour obligatoire", "maquette", "maquette", ("mise-a-jour", "maquettes/mise-a-jour-obligatoire.html")),
     ("Délai de connexion", "a-venir", "à venir", None),
     ("Produit inconnu", "maquette", "maquette", ("inconnu", "maquettes/produit-inconnu.html")),
-    ("Service indisponible", "a-venir", "à venir", None),
+    ("Service indisponible", "maquette", "maquette", ("service", "maquettes/service-indisponible.html")),
 ]
-DEFAUT = "inconnu"  # l'écran affiché à l'ouverture : le dernier travaillé
+DEFAUT = "service"  # l'écran affiché à l'ouverture : le dernier travaillé
 
 POLICE = "'Atkinson Hyperlegible Next','Atkinson Hyperlegible',system-ui,sans-serif"
 
