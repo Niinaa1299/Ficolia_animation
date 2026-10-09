@@ -9,12 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
 /*
-  Ficolia — maquette animée de l'écran « produit inconnu », quatre pistes à comparer.
+  Ficolia — maquette animée de l'écran « produit inconnu », cinq pistes à comparer.
   Écran d'échec : ni feu vert, ni alerte, et cela vaut pour l'humeur et la couleur de la figue
   (FICOLIA_DESIGN.md §4). La figue est neutre, sans cercle, comme sur la connexion insuffisante.
   Le titre est acté (D-113 B3) : l'humour passe par le geste, jamais par le texte.
   Les présentations : la figue tend la main à un flacon inconnu, en pointillés ; il ne répond pas.
   Le tiroir vide : elle plonge tête la première dans le fichier, et en ressort avec une fiche blanche.
+  La cagette vide : la même chose dans sa cagette ; la paille vole, elle ressort bredouille.
   Le haussement d'épaules : elle penche la tête, puis hausse les épaules.
   Les lunettes : elle chausse des lunettes pour lire le code, les essuie, les remet : rien.
   Tout est proposition (FICOLIA_DESIGN.md §3).
@@ -131,19 +132,27 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
               <g id="etiquette" opacity="0"></g>
               <!-- Le tiroir vide : le fond du fichier et ses fiches -->
               <g id="boiteFond" opacity="0"></g>
+              <!-- La cagette vide : le fond de la cagette et sa paille -->
+              <g id="cagetteFond" opacity="0"></g>
               <g id="figSpace" transform="translate(127.8 62) scale(0.6)">
                 <g id="figMove">
                   <g id="figLive"></g>
                   <!-- La fiche blanche qu'elle ramène au bout de sa queue -->
                   <g id="fiche" opacity="0"></g>
+                  <!-- Les brins de paille restés au bout de sa queue -->
+                  <g id="brins" opacity="0"></g>
                   <!-- Ses lunettes rondes -->
                   <g id="lunettes" opacity="0"></g>
                 </g>
               </g>
               <!-- Le devant du fichier, devant la figue quand elle y plonge -->
               <g id="boiteFace" opacity="0"></g>
+              <!-- Les lattes de la cagette, devant la figue quand elle y plonge -->
+              <g id="cagetteFace" opacity="0"></g>
               <!-- Les fiches qui volent pendant qu'elle fouille -->
               <g id="volees"></g>
+              <!-- La paille qui vole pendant qu'elle fouille la cagette -->
+              <g id="pailles"></g>
             </svg>
           </div>
           <div class="copy">
@@ -199,7 +208,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
       <h2>Produit inconnu</h2>
-      <p class="lead">Quatre pistes à comparer. Figue neutre et sans cercle, comme sur la connexion : ni feu vert, ni alerte.</p>
+      <p class="lead">Cinq pistes à comparer. Figue neutre et sans cercle, comme sur la connexion : ni feu vert, ni alerte.</p>
     </div>
 
     <div class="group">
@@ -207,6 +216,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
       <div class="seg" role="group" aria-labelledby="lblPiste" data-key="piste">
         <button type="button" data-val="presentations">Les présentations</button>
         <button type="button" data-val="tiroir">Le tiroir vide</button>
+        <button type="button" data-val="cagette">La cagette vide</button>
         <button type="button" data-val="epaules">Le haussement d'épaules</button>
         <button type="button" data-val="lunettes">Les lunettes</button>
       </div>
@@ -473,6 +483,25 @@ const BOITE = { x: 285, rim: 162, ground: 212 };
   // La fiche qu'elle ramène, à l'échelle du symbole : elle est plantée au bout de sa queue.
   svgEl('rect', { x: -20, y: -56, width: 40, height: 50, rx: 3, fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 2.6 }, fiche);
 })();
+// La cagette, au même endroit que le fichier : un fond, de la paille qui dépasse, trois lattes, deux montants.
+const cagetteFond = ROOT.getElementById('cagetteFond');
+const cagetteFace = ROOT.getElementById('cagetteFace');
+const pailles = ROOT.getElementById('pailles');
+const brins = ROOT.getElementById('brins');
+(() => {
+  svgEl('rect', { x: 239, y: 160, width: 92, height: 52, fill: '#F3EFEA', stroke: TRAIT, 'stroke-width': 1.6 }, cagetteFond);
+  // La paille qui dépasse : des brins piqués dans tous les sens.
+  svgEl('path', { d: 'M245 163l-5 -12M251 163l4 -14M258 163l-2 -15M264 163l7 -12M271 163l-6 -13M277 163l3 -15M284 163l-4 -11M290 163l6 -14M297 163l-3 -12M303 163l5 -13M310 163l-6 -14M316 163l3 -12M322 163l5 -10', fill: 'none', stroke: TRAIT, 'stroke-width': 1.8, 'stroke-linecap': 'round' }, cagetteFond);
+  for (const y of [164, 181, 198]) svgEl('rect', { x: 237, y, width: 96, height: 12, rx: 1.5, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 2 }, cagetteFace);
+  for (const x of [232, 330]) svgEl('rect', { x, y: 156, width: 8, height: 56, rx: 1.5, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 2 }, cagetteFace);
+  // Les brins qui volent, et les deux brins restés accrochés au bout de sa queue (à l'échelle du symbole).
+  for (let i = 0; i < 6; i++) svgEl('path', { d: 'M-12 1Q0 -3 12 -1', fill: 'none', stroke: TRAIT, 'stroke-width': 2.4, 'stroke-linecap': 'round', opacity: 0 }, pailles);
+  svgEl('path', { d: 'M-30 -2Q-2 -14 26 -14M-22 12Q2 0 30 2', fill: 'none', stroke: TRAIT, 'stroke-width': 4, 'stroke-linecap': 'round' }, brins);
+})();
+function drawCagette(o) {
+  cagetteFond.setAttribute('opacity', o.toFixed(3));
+  cagetteFace.setAttribute('opacity', o.toFixed(3));
+}
 function drawBoite(o) {
   boiteFond.setAttribute('opacity', o.toFixed(3));
   boiteFace.setAttribute('opacity', o.toFixed(3));
@@ -523,6 +552,9 @@ function clearExtras() {
   fiche.setAttribute('opacity', 0);
   etiquette.setAttribute('opacity', 0);
   lunettes.setAttribute('opacity', 0);
+  drawCagette(0);
+  for (const el of pailles.children) el.setAttribute('opacity', 0);
+  brins.setAttribute('opacity', 0);
 }
 
 /* ---------- Textes ---------- */
@@ -577,6 +609,32 @@ const PRESENTATIONS = {
   },
   still() { placeFig(this.home, 0, 0); drawFlacon(1, 1); }
 };
+// Le plongeon, commun au tiroir et à la cagette : elle prend son élan, plonge tête la première, fouille,
+// et ressort d'un bond à sa place. arm : un geste de la queue en plus. Rend la pose et le regard.
+function plongeon(t, H, arm) {
+  const crouch = EASE_IN_OUT(prog(t, 300, 200)) * (1 - EASE_OUT(prog(t, 500, 120)));
+  const j = EASE_IN_OUT(prog(t, 500, 420)), jArc = bump(t, 500, 420);      // le plongeon
+  const o = EASE_IN_OUT(prog(t, 1700, 420)), oArc = bump(t, 1700, 420);    // la sortie
+  // Dedans, tête en bas : le milieu de sa chair à (285, 118), la queue au fond.
+  let dx, dy, deg;
+  if (t < 1700) { dx = mix(H, 90, j); dy = mix(0, -34, j) - 75 * jArc; deg = 180 * j; }
+  else { dx = mix(90, H, o); dy = mix(-34, 0, o) - 70 * oArc; deg = 180 + 180 * o; }
+  const r = prog(t, 950, 750), dig = r > 0 && r < 1 ? Math.sin(Math.PI * r) : 0;   // elle fouille
+  deg += 7 * Math.sin(6 * Math.PI * r) * dig;
+  dy += 2.5 * Math.sin(12 * Math.PI * r) * dig;
+  placeFig(dx, dy, deg % 360);
+  const imp = t >= 920 && t < 1700 ? 1 - spring((t - 920) / 1000) : 0;     // elle s'enfonce
+  const imp2 = t >= 2120 ? 1 - spring((t - 2120) / 1000) : 0;              // elle retombe à sa place
+  const look = EASE_IN_OUT(prog(t, 2150, 300)) * (1 - EASE_IN_OUT(prog(t, 2500, 350)));
+  const P = {
+    k: 1, tilt: 0.4 * look, curl: 0, arm, sh: 0,
+    sx: 1 + 0.05 * crouch + 0.06 * imp + 0.05 * imp2 - 0.03 * (jArc + oArc),
+    sy: 1 - 0.09 * crouch + 0.05 * (jArc + oArc) - 0.08 * imp2,
+    lean: 0.05 * crouch + 0.04 * look
+  };
+  drawFig(P);
+  return { P, look };
+}
 // Le tiroir vide : elle plonge tête la première dans le fichier, fouille (des fiches blanches volent),
 // et ressort bredouille, une fiche vierge au bout de la queue, qu'elle laisse tomber.
 const VOLEES = [[1000, 1, 70], [1250, -1, 95], [1500, 1, 105]];
@@ -596,28 +654,7 @@ const TIROIR = {
   render(t) {
     textsAt(t);
     drawBoite(EASE_OUT(prog(t, 0, 300)));
-    const H = this.home;
-    const crouch = EASE_IN_OUT(prog(t, 300, 200)) * (1 - EASE_OUT(prog(t, 500, 120)));
-    const j = EASE_IN_OUT(prog(t, 500, 420)), jArc = bump(t, 500, 420);      // le plongeon
-    const o = EASE_IN_OUT(prog(t, 1700, 420)), oArc = bump(t, 1700, 420);    // la sortie
-    // Dans le fichier, tête en bas : le milieu de sa chair à (285, 118), la queue au fond.
-    let dx, dy, deg;
-    if (t < 1700) { dx = mix(H, 90, j); dy = mix(0, -34, j) - 75 * jArc; deg = 180 * j; }
-    else { dx = mix(90, H, o); dy = mix(-34, 0, o) - 70 * oArc; deg = 180 + 180 * o; }
-    const r = prog(t, 950, 750), dig = r > 0 && r < 1 ? Math.sin(Math.PI * r) : 0;   // elle fouille
-    deg += 7 * Math.sin(6 * Math.PI * r) * dig;
-    dy += 2.5 * Math.sin(12 * Math.PI * r) * dig;
-    placeFig(dx, dy, deg % 360);
-    const imp = t >= 920 && t < 1700 ? 1 - spring((t - 920) / 1000) : 0;     // elle s'enfonce
-    const imp2 = t >= 2120 ? 1 - spring((t - 2120) / 1000) : 0;              // elle retombe à sa place
-    const look = EASE_IN_OUT(prog(t, 2150, 300)) * (1 - EASE_IN_OUT(prog(t, 2500, 350)));
-    const P = {
-      k: 1, tilt: 0.4 * look, curl: 0, arm: 0, sh: 0,
-      sx: 1 + 0.05 * crouch + 0.06 * imp + 0.05 * imp2 - 0.03 * (jArc + oArc),
-      sy: 1 - 0.09 * crouch + 0.05 * (jArc + oArc) - 0.08 * imp2,
-      lean: 0.05 * crouch + 0.04 * look
-    };
-    drawFig(P);
+    const { P, look } = plongeon(t, this.home, 0);
     VOLEES.forEach(([t0, side, reach], i) => drawVolee(volees.children[i], prog(t, t0, 700), side, reach));
     // La fiche ramenée : au bout de la queue dès la sortie, puis elle tombe.
     if (t >= 1700) {
@@ -628,6 +665,38 @@ const TIROIR = {
     }
   },
   still() { placeFig(this.home, 0, 0); drawBoite(1); }
+};
+// La cagette vide : le même plongeon, dans sa cagette. La paille vole ; elle ressort bredouille,
+// deux brins de paille au bout de la queue, et s'ébroue pour les faire tomber.
+const PAILLES = [[980, 1, 60], [1080, -1, 80], [1230, 1, 100], [1330, -1, 55], [1480, 1, 85], [1580, -1, 105]];
+const CAGETTE = {
+  duration: 3000,
+  home: -55,
+  beats: [
+    [0, 'Le titre s’affiche ; une cagette est posée à côté de la figue.'],
+    [300, 'Elle prend son élan…'],
+    [500, '… et plonge tête la première dans la cagette.'],
+    [950, 'Elle fouille : la paille vole.'],
+    [1700, 'Elle ressort d’un bond, bredouille : deux brins de paille au bout de la queue.'],
+    [2150, 'Elle les regarde.'],
+    [2450, 'Elle s’ébroue : ils tombent.'],
+    [3000, 'Fin : l’image reste fixe, la figue et la cagette côte à côte.']
+  ],
+  render(t) {
+    textsAt(t);
+    drawCagette(EASE_OUT(prog(t, 0, 300)));
+    const w = prog(t, 2450, 320);
+    const shake = w > 0 && w < 1 ? Math.sin(6 * Math.PI * w) * Math.sin(Math.PI * w) : 0;   // elle s'ébroue
+    const { P } = plongeon(t, this.home, 0.16 * shake);
+    PAILLES.forEach(([t0, side, reach], i) => drawVolee(pailles.children[i], prog(t, t0, 650), side, reach));
+    if (t >= 1700) {
+      const drop = prog(t, 2520, 420);
+      warp(TIP.x, TIP.y + 3, P);
+      brins.setAttribute('opacity', (1 - smooth(0.5, 1, drop)).toFixed(3));
+      brins.setAttribute('transform', `translate(${WX.toFixed(1)} ${(WY + 240 * drop * drop).toFixed(1)}) rotate(${(-10 + 20 * shake + 30 * drop).toFixed(1)})`);
+    }
+  },
+  still() { placeFig(this.home, 0, 0); drawCagette(1); }
 };
 // Le haussement d'épaules : elle penche la tête, intriguée, puis hausse les épaules.
 const EPAULES = {
@@ -691,11 +760,11 @@ const LUNETTES = {
     drawLunettes(REST, 1, 1, 9, 5);
   }
 };
-const PISTES = { presentations: PRESENTATIONS, tiroir: TIROIR, epaules: EPAULES, lunettes: LUNETTES };
+const PISTES = { presentations: PRESENTATIONS, tiroir: TIROIR, cagette: CAGETTE, epaules: EPAULES, lunettes: LUNETTES };
 
 // Mouvement réduit : rien ne bouge, l'image finale de la piste apparaît en fondu.
 function reduit(piste) {
-  const extra = { presentations: 'le flacon', tiroir: 'le fichier', lunettes: 'ses lunettes, l’étiquette' }[piste];
+  const extra = { presentations: 'le flacon', tiroir: 'le fichier', cagette: 'la cagette', lunettes: 'ses lunettes, l’étiquette' }[piste];
   return {
     duration: 600,
     beats: [
@@ -710,6 +779,7 @@ function reduit(piste) {
       figLive.setAttribute('opacity', o.toFixed(3));
       if (piste === 'presentations') flacon.setAttribute('opacity', o.toFixed(3));
       if (piste === 'tiroir') drawBoite(o);
+      if (piste === 'cagette') drawCagette(o);
       if (piste === 'lunettes') { etiquette.setAttribute('opacity', o.toFixed(3)); lunettes.setAttribute('opacity', o.toFixed(3)); }
     }
   };
