@@ -60,7 +60,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 .copy{flex:none;padding:8px 28px 0;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
 .copy h1{margin:0;font-size:30px;font-weight:700;line-height:1.15;text-wrap:balance}
 .copy p{margin:0;font-size:17px;line-height:1.45;text-wrap:pretty}
-.copy .tag{margin-top:4px;font-size:12px;line-height:1;padding:5px 9px;border-radius:999px;background:var(--cadre);border:1px solid var(--bordure);color:var(--texte-2)}
+.copy .tag{margin-top:4px;padding:3px 10px;border:1px dashed var(--texte-2);border-radius:999px;font-size:13px;line-height:1.3;color:var(--texte-2)}
 .actions{flex:none;padding:20px 20px 34px;display:flex;flex-direction:column;gap:10px}
 .cta{min-height:56px;padding:0 20px;border:0;border-radius:999px;background:var(--aubergine);color:var(--ivoire-rose);font:inherit;font-size:17px;font-weight:700;cursor:pointer;touch-action:manipulation;transition:transform 160ms var(--ease-out)}
 .cta:active{transform:scale(.97)}
@@ -222,7 +222,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 <svg id="probe" width="0" height="0" style="position:absolute;left:-9999px" aria-hidden="true" focusable="false"></svg>
 
 <script>
-(() => {
+((ROOT) => {
 'use strict';
 
 /* ---------- Le dessin de la figue (coordonnées du symbole, 212 × 254) ---------- */
@@ -317,7 +317,7 @@ function warp(x, y, p, a) {
 
 /* ---------- Échantillonnage des tracés ---------- */
 const NS = 'http://www.w3.org/2000/svg';
-const probe = document.getElementById('probe');
+const probe = ROOT.getElementById('probe');
 function sample(d, step) {
   const el = document.createElementNS(NS, 'path');
   el.setAttribute('d', d);
@@ -352,7 +352,7 @@ const SOURCES = [
 const HUB_DIST = s => Math.hypot(s.cx - HUB.x, s.cy - HUB.y);
 
 function makeFig(group, gradId) {
-  const grad = document.getElementById(gradId);
+  const grad = ROOT.getElementById(gradId);
   const layers = SOURCES.map(s => {
     const el = document.createElementNS(NS, 'path');
     group.appendChild(el);
@@ -361,8 +361,8 @@ function makeFig(group, gradId) {
   });
   return { layers, grad, stops: grad.querySelectorAll('stop') };
 }
-const live = makeFig(document.getElementById('figLive'), 'chairLive');
-const alt = makeFig(document.getElementById('figAlt'), 'chairAlt');
+const live = makeFig(ROOT.getElementById('figLive'), 'chairLive');
+const alt = makeFig(ROOT.getElementById('figAlt'), 'chairAlt');
 
 // p : 0 frais, 1 sec. a : angle de la queue. colour(s) : couleur de chaque tracé.
 function drawFig(fig, p, a, colour) {
@@ -385,10 +385,10 @@ function drawFig(fig, p, a, colour) {
 const colourAt = k => s => mix(COL.frais[s.role], COL.sec[s.role], k);
 
 /* ---------- Goutte, onde, poussière ---------- */
-const dropEl = document.getElementById('drop');
-const rippleEl = document.getElementById('ripple');
-document.getElementById('clipChairPath').setAttribute('d', FIG.flesh);
-const dustG = document.getElementById('dust');
+const dropEl = ROOT.getElementById('drop');
+const rippleEl = ROOT.getElementById('ripple');
+ROOT.getElementById('clipChairPath').setAttribute('d', FIG.flesh);
+const dustG = ROOT.getElementById('dust');
 warp(HUB.x, HUB.y, 1, DROOP); const HUB_DRY = { x: WX, y: WY };
 warp(146, 50, 1, DROOP); const DUST_O = { x: WX, y: WY };
 const DUST = [
@@ -424,14 +424,14 @@ const TEXTS = {
   }
 };
 const els = {
-  screen: document.getElementById('screen'),
-  title: document.getElementById('title'),
-  body: document.getElementById('body'),
-  tag: document.getElementById('tag'),
-  cta: document.getElementById('cta'),
-  note: document.getElementById('note'),
-  store: document.getElementById('store'),
-  figAlt: document.getElementById('figAlt')
+  screen: ROOT.getElementById('screen'),
+  title: ROOT.getElementById('title'),
+  body: ROOT.getElementById('body'),
+  tag: ROOT.getElementById('tag'),
+  cta: ROOT.getElementById('cta'),
+  note: ROOT.getElementById('note'),
+  store: ROOT.getElementById('store'),
+  figAlt: ROOT.getElementById('figAlt')
 };
 function textIn(el, k, rm) {
   el.style.opacity = k.toFixed(3);
@@ -568,10 +568,10 @@ const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 const reduced = () => state.motion === 'reduit' || (state.motion === 'systeme' && mqReduce.matches);
 const timeline = () => TIMELINES[state.screen][reduced() ? 'reduit' : 'normal'];
 
-const scrub = document.getElementById('scrub');
-const scrubOut = document.getElementById('scrubOut');
-const playPause = document.getElementById('playPause');
-const beatsEl = document.getElementById('beats');
+const scrub = ROOT.getElementById('scrub');
+const scrubOut = ROOT.getElementById('scrubOut');
+const playPause = ROOT.getElementById('playPause');
+const beatsEl = ROOT.getElementById('beats');
 const fmt = ms => (ms / 1000).toFixed(2).replace('.', ',') + ' s';
 
 function applyTexts() {
@@ -598,7 +598,7 @@ function applyBeats() {
   }
 }
 function syncControls() {
-  for (const seg of document.querySelectorAll('.seg')) {
+  for (const seg of ROOT.querySelectorAll('.seg')) {
     const key = seg.dataset.key;
     for (const b of seg.querySelectorAll('button')) b.setAttribute('aria-pressed', String(b.dataset.val === String(state[key])));
   }
@@ -647,7 +647,7 @@ function resetAll() {
 }
 
 /* ---------- Commandes ---------- */
-for (const seg of document.querySelectorAll('.seg')) {
+for (const seg of ROOT.querySelectorAll('.seg')) {
   seg.addEventListener('click', e => {
     const b = e.target.closest('button');
     if (!b) return;
@@ -663,7 +663,7 @@ for (const seg of document.querySelectorAll('.seg')) {
     play(true);
   });
 }
-document.getElementById('replay').addEventListener('click', () => play(true));
+ROOT.getElementById('replay').addEventListener('click', () => play(true));
 playPause.addEventListener('click', () => {
   if (state.playing) pause();
   else play(state.t >= timeline().duration);
@@ -692,8 +692,8 @@ els.cta.addEventListener('click', () => {
 });
 
 /* ---------- Mise à l'échelle de la planche ---------- */
-const stageWrap = document.getElementById('stageWrap');
-const stage = document.getElementById('stage');
+const stageWrap = ROOT.getElementById('stageWrap');
+const stage = ROOT.getElementById('stage');
 function fit() {
   const narrow = window.innerWidth < 760;
   const byW = (window.innerWidth - 32) / 390;
@@ -711,7 +711,7 @@ const fixed = params.get('t');
 resetAll();
 if (fixed !== null) { state.t = +fixed; pause(); render(); }
 else play(true);
-})();
+})(window.__ficoliaRacine || document); // ROOT : le document, ou la zone isolée qui accueille la maquette dans l'aperçu en ligne
 </script>
 </body>
 </html>
