@@ -112,8 +112,6 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
           </div>
           <div class="illu">
             <svg viewBox="0 0 390 262" aria-hidden="true" focusable="false">
-              <!-- Le cercle du filigrane, ouvert en haut : la queue en sort pour chercher du réseau -->
-              <path id="ring" fill="none" stroke="#E7E1DA" stroke-width="2" stroke-linecap="round"></path>
               <g id="figSpace" transform="translate(125.6 78) scale(0.62)">
                 <g id="figLive" fill="var(--figue-neutre)"></g>
                 <g id="figAlt" fill="var(--figue-neutre)" opacity="0"></g>
@@ -257,7 +255,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
       <ol class="beats" id="beats"></ol>
     </div>
 
-    <p class="small">Figue, ondes, cercle, carte « Scan en attente » et barre d'onglets : repris du prototype (étape 3 et décision 81). La figue reste neutre, sans couleur de marque ni de verdict.</p>
+    <p class="small">Figue, ondes, carte « Scan en attente » et barre d'onglets : repris du prototype (étape 3 et décision 81). La figue reste neutre, sans couleur de marque ni de verdict.</p>
   </aside>
 </main>
 
@@ -327,7 +325,8 @@ function warp(x, y, P) {
       const yExt = y - (P.k - 1) * (STEM.y - y) * base;
       const h = clamp01((STEM.y - yExt) / ((STEM.y - TIP.y) * P.k));
       const ang = (P.follow * h + P.curl * Math.pow(h, 2.2)) * base;
-      const dx = x - STEM.x, dy = yExt - STEM.y, c = Math.cos(ang), s = Math.sin(ang);
+      const thin = 1 - 0.18 * (P.k - 1) * h * base;   // plus elle s'étire, plus elle s'affine
+      const dx = (x - STEM.x) * thin, dy = yExt - STEM.y, c = Math.cos(ang), s = Math.sin(ang);
       x = STEM.x + dx * c - dy * s;
       y = STEM.y + dx * s + dy * c;
     }
@@ -381,14 +380,6 @@ function drawFig(fig, P) {
     if (d !== L.last) { L.el.setAttribute('d', d); L.last = d; }
   }
 }
-
-/* ---------- Le cercle du filigrane, ouvert en haut ---------- */
-(() => {
-  const cx = 195, cy = 176, r = 82, gap = 34 * Math.PI / 180;
-  const a0 = -Math.PI / 2 + gap, a1 = -Math.PI / 2 - gap;
-  const p = a => (cx + r * Math.cos(a)).toFixed(1) + ' ' + (cy + r * Math.sin(a)).toFixed(1);
-  ROOT.getElementById('ring').setAttribute('d', 'M' + p(a0) + 'A' + r + ' ' + r + ' 0 1 1 ' + p(a1));
-})();
 
 /* ---------- Les ondes, qui partent de la pointe de la queue et se cassent ---------- */
 const wavesG = ROOT.getElementById('waves');
@@ -455,28 +446,30 @@ function leanAt(t) {
 }
 function poseAt(t) {
   const rise = EASE_OUT(prog(t, 300, 350));
+  const reachL = EASE_IN_OUT(prog(t, 800, 450));   // à chaque tentative, la queue s'étire un peu plus
+  const reachR = EASE_IN_OUT(prog(t, 1400, 550));
   const settle = EASE_OUT(prog(t, 2050, 500));
   const u = rise * (1 - settle);
   const lean = leanAt(t);
   return {
-    k: 1 + 0.4 * rise - 0.25 * settle,
+    k: 1 + 0.6 * rise + 0.3 * reachL + 0.3 * reachR - 1.0 * settle,
     follow: (leanAt(t - 110) - lean) * 1.6,
     curl: CURL * spring((t - 2100) / 1000),
     sx: 1 - 0.035 * u,
-    sy: 1 + 0.07 * u,
+    sy: 1 + 0.09 * u,
     lean
   };
 }
-const END_POSE = { k: 1.15, follow: 0, curl: CURL, sx: 1, sy: 1, lean: 0 };
+const END_POSE = { k: 1.2, follow: 0, curl: CURL, sx: 1, sy: 1, lean: 0 };
 
 const TIMELINES = {
   normal: {
     duration: 2700,
     beats: cause => [
       [0, "L'écran s'affiche : la figue au repos, la carte « Scan en attente »."],
-      [300, 'Elle se hisse, la queue se dresse comme une antenne.'],
-      [800, cause === 'faible' ? 'Elle penche à gauche : deux ondes partent et se cassent.' : 'Elle penche à gauche : un point paraît, puis rien.'],
-      [1400, cause === 'faible' ? 'Elle penche à droite : une onde faible, qui se casse aussi.' : 'Elle penche à droite : toujours rien.'],
+      [300, 'Elle se hisse sur la pointe, la queue se dresse comme une antenne.'],
+      [800, cause === 'faible' ? 'Elle penche à gauche, la queue s’étire encore : deux ondes partent et se cassent.' : 'Elle penche à gauche, la queue s’étire encore : un point paraît, puis rien.'],
+      [1400, cause === 'faible' ? 'Elle penche à droite, la queue tendue au maximum : une onde faible, qui se casse aussi.' : 'Elle penche à droite, la queue tendue au maximum : toujours rien.'],
       [2050, 'Elle se repose ; la queue se courbe en point d’interrogation.'],
       [2700, "Fin : l'image reste fixe."]
     ],
