@@ -9,13 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
 /*
-  Ficolia — maquette animée de l'écran « service indisponible », quatre pistes à comparer.
+  Ficolia — maquette animée de l'écran « service indisponible », cinq pistes à comparer.
   Écran d'échec : ni feu vert, ni alerte, aucune promesse de retour (décision 54). Figue neutre,
   objets au trait neutre. Pas de barre d'onglets (décision 78).
   La pause : elle saute sur sa cagette retournée, s'y laisse tomber, s'étire, souffle, reste détendue.
   La pause café : la même assise, une tasse au bout de la queue ; la vapeur monte trois fois, puis s'arrête.
   À l'ombre du figuier : elle bondit sous une grande feuille plantée comme un parasol, et s'évente.
   Le store de l'étal : l'auvent descend à moitié ; elle en soulève le bord pour jeter un œil dehors.
+  La partie de pétanque : elle lance une boule, la regarde rouler et s'arrêter près du cochonnet.
   Tout est proposition (FICOLIA_DESIGN.md §3).
 */
 :root{
@@ -127,6 +128,8 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
               <g id="parasol" opacity="0"></g>
               <!-- Le store de l'étal : les montants, la barre, la cagette de l'étal -->
               <g id="etal" opacity="0"></g>
+              <!-- La partie de pétanque : le terrain et le cochonnet -->
+              <g id="terrain" opacity="0"></g>
               <!-- La pause : la cagette retournée qui lui sert de siège -->
               <g id="cagette" opacity="0"></g>
               <g id="figSpace" transform="translate(136.76 84) scale(0.52)">
@@ -139,6 +142,8 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
               </g>
               <!-- L'auvent rayé, devant la figue -->
               <g id="store" opacity="0"></g>
+              <!-- La boule, par-dessus tout -->
+              <g id="boule" opacity="0"></g>
             </svg>
           </div>
           <div class="copy">
@@ -159,7 +164,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
       <h2>Service indisponible</h2>
-      <p class="lead">Quatre pistes à comparer. Figue neutre, objets au trait neutre : ni feu vert, ni alerte, et rien qui promette un retour.</p>
+      <p class="lead">Cinq pistes à comparer. Figue neutre, objets au trait neutre : ni feu vert, ni alerte, et rien qui promette un retour.</p>
     </div>
 
     <div class="group">
@@ -169,6 +174,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
         <button type="button" data-val="cafe">La pause café</button>
         <button type="button" data-val="ombre">À l'ombre du figuier</button>
         <button type="button" data-val="store">Le store de l'étal</button>
+        <button type="button" data-val="petanque">La partie de pétanque</button>
       </div>
     </div>
 
@@ -472,11 +478,30 @@ function drawStore(b, lift, cx) {
   });
 }
 
+/* ---------- La partie de pétanque : le terrain, le cochonnet, la boule ---------- */
+const terrain = ROOT.getElementById('terrain');
+const boule = ROOT.getElementById('boule');
+const COCHONNET = { x: 322, y: 210 };
+const ARRET = { x: 304, y: 205 };   // où la boule s'arrête, tout près du cochonnet
+const R_BOULE = 9;
+const bouleRayures = (() => {
+  svgEl('path', { d: 'M34 214H364', fill: 'none', stroke: '#E7E1DA', 'stroke-width': 2, 'stroke-linecap': 'round' }, terrain);
+  for (const [x, y] of [[150, 218], [196, 217], [236, 219], [272, 217], [344, 218]]) svgEl('circle', { cx: x, cy: y, r: 1.2, fill: '#D6CEC6' }, terrain);
+  svgEl('circle', { cx: COCHONNET.x, cy: COCHONNET.y, r: 4, fill: TRAIT }, terrain);
+  svgEl('circle', { r: R_BOULE, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 2 }, boule);
+  return svgEl('path', { d: 'M-8 -3Q0 2 8 -3M-8 3Q0 8 8 3', fill: 'none', stroke: TRAIT, 'stroke-width': 1.4, 'stroke-linecap': 'round' }, boule);
+})();
+function drawBoule(o, x, y, deg) {
+  boule.setAttribute('opacity', o.toFixed(3));
+  boule.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)})`);
+  bouleRayures.setAttribute('transform', `rotate(${deg.toFixed(1)})`);
+}
+
 // Chaque image repart de zéro : chaque déroulé n'allume que ce dont il a besoin.
 function clearExtras() {
   figLive.setAttribute('opacity', 1);
   figMove.removeAttribute('transform');
-  for (const el of [cagette, tasse, parasol, eventail, etal, store]) el.setAttribute('opacity', 0);
+  for (const el of [cagette, tasse, parasol, eventail, etal, store, terrain, boule]) el.setAttribute('opacity', 0);
   for (const el of vapeurs) el.setAttribute('opacity', 0);
 }
 
@@ -656,7 +681,73 @@ const STORE = {
     drawStore(AUVENT.half, 0, 195 + this.home);
   }
 };
-const PISTES = { pause: PAUSE, cafe: CAFE, ombre: OMBRE, store: STORE };
+// La partie de pétanque : une pause à la provençale. Elle tient une boule au bout de sa queue, prend son élan,
+// lance ; la boule décrit sa courbe, retombe, roule et s'arrête tout près du cochonnet. Elle hoche la tête.
+const PETANQUE = {
+  duration: 3200,
+  home: -110,
+  beats: [
+    [0, 'Le titre s’affiche ; la figue tient une boule au bout de sa queue ; au loin, le cochonnet.'],
+    [300, 'Elle se met en position et prend son élan.'],
+    [700, 'Elle lance.'],
+    [800, 'La boule décrit sa courbe…'],
+    [1450, '… retombe et roule…'],
+    [2400, '… et s’arrête tout près du cochonnet.'],
+    [2500, 'La figue hoche la tête.'],
+    [3200, 'Fin : l’image reste fixe.']
+  ],
+  pose(t) {
+    const aim = EASE_IN_OUT(prog(t, 300, 400));                                // l'élan : la queue part en arrière
+    const swing = EASE_OUT(prog(t, 700, 180));                                 // le lancer
+    const back = EASE_IN_OUT(prog(t, 1000, 450));                              // la queue revient
+    const watch = EASE_IN_OUT(prog(t, 1000, 500)) * (1 - EASE_IN_OUT(prog(t, 2500, 400)));   // elle suit la boule
+    const nod = bump(t, 2500, 400);                                            // elle hoche la tête
+    const throwArm = mix(-0.6 * aim, 0.8, swing) * (1 - back);
+    return {
+      k: 1 + 0.15 * aim * (1 - back), tilt: 0, curl: 0, arm: throwArm, sh: 0,
+      sx: 1 + 0.04 * aim * (1 - swing) - 0.02 * swing * (1 - back) + 0.03 * nod,
+      sy: 1 - 0.07 * aim * (1 - swing) + 0.05 * swing * (1 - back) - 0.05 * nod,
+      lean: -0.05 * aim * (1 - swing) + 0.08 * swing * (1 - back) + 0.06 * watch
+    };
+  },
+  // Le bout de la queue, en pixels de l'illustration : la boule y est posée tant qu'elle n'est pas lancée.
+  tip(P) {
+    warp(TIP.x, TIP.y, P);
+    return { x: 136.76 + WX * S + this.home, y: 84 + WY * S - R_BOULE + 1 };
+  },
+  render(t) {
+    textsAt(t);
+    terrain.setAttribute('opacity', EASE_OUT(prog(t, 0, 300)).toFixed(3));
+    placeFig(this.home, 0, 0);
+    const P = this.pose(t);
+    drawFig(P);
+    const appear = EASE_OUT(prog(t, 100, 250));
+    if (t < 800) {
+      const q = this.tip(P);
+      drawBoule(appear, q.x, q.y, 0);
+      return;
+    }
+    const r = this.tip(this.pose(800));                                       // le point de lâcher
+    const LAND = { x: 250, y: ARRET.y };
+    const u = prog(t, 800, 650);
+    if (u < 1) {
+      const x = mix(r.x, LAND.x, u), y = mix(r.y, LAND.y, u) - 120 * 4 * u * (1 - u);
+      drawBoule(1, x, y, 360 * u);
+      return;
+    }
+    const roll = EASE_OUT(prog(t, 1450, 950));                                 // elle roule, de plus en plus lentement
+    const hop = 6 * bump(t, 1450, 160);                                        // un petit rebond en touchant le sol
+    const x = mix(LAND.x, ARRET.x, roll);
+    drawBoule(1, x, LAND.y - hop, 360 + (x - LAND.x) / R_BOULE * 180 / Math.PI);
+  },
+  still() {
+    placeFig(this.home, 0, 0);
+    terrain.setAttribute('opacity', 1);
+    drawFig(REST);
+    drawBoule(1, ARRET.x, ARRET.y, 0);
+  }
+};
+const PISTES = { pause: PAUSE, cafe: CAFE, ombre: OMBRE, store: STORE, petanque: PETANQUE };
 
 // Mouvement réduit : rien ne bouge, l'image finale de la piste apparaît en fondu.
 function reduit(piste) {
@@ -670,7 +761,7 @@ function reduit(piste) {
       textsAt(t, true);
       PISTES[piste].still();
       const o = EASE_OUT(prog(t, 0, 300)).toFixed(3);
-      for (const el of [figLive, cagette, tasse, parasol, eventail, etal, store]) if (el.getAttribute('opacity') !== '0') el.setAttribute('opacity', o);
+      for (const el of [figLive, cagette, tasse, parasol, eventail, etal, store, terrain, boule]) if (el.getAttribute('opacity') !== '0') el.setAttribute('opacity', o);
     }
   };
 }
