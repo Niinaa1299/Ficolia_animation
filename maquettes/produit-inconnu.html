@@ -3,20 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ficolia · Formulaire envoyé</title>
+<title>Ficolia · Produit inconnu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
 /*
-  Ficolia — maquette animée de l'écran « formulaire envoyé », en trois variantes.
-  Fil commun : la queue de la figue est son bras. Elle tire son chapeau pour remercier.
-  Signalement : le coup de chapeau. Contribution photo : clic, puis le coup de chapeau.
-  Support : sobre, sans humour (porteuse, 09/10) ; la figue s'incline une fois, lentement.
-  Trois autres pistes à comparer au coup de chapeau (porteuse, 09/10) : le tampon (elle oblitère
-  le timbre d'une lettre, qui s'envole), la feuille qui salue, le photomaton (contribution photo
-  seulement). Tampon bis : la lettre oblitérée se plie en avion de papier, qui s'envole en rétrécissant.
-  Le support reste sobre dans tous les cas.
+  Ficolia — maquette animée de l'écran « produit inconnu », trois pistes à comparer.
+  Écran d'échec : ni feu vert, ni alerte, et cela vaut pour l'humeur et la couleur de la figue
+  (FICOLIA_DESIGN.md §4). La figue est neutre, sans cercle, comme sur la connexion insuffisante.
+  Le titre est acté (D-113 B3) : l'humour passe par le geste, jamais par le texte.
+  Les présentations : la figue tend la main à un flacon inconnu, en pointillés ; il ne répond pas.
+  Le tiroir vide : elle plonge tête la première dans le fichier, et en ressort avec une fiche blanche.
+  Le haussement d'épaules : elle penche la tête, puis hausse les épaules.
   Tout est proposition (FICOLIA_DESIGN.md §3).
 */
 :root{
@@ -32,6 +31,9 @@
   --bordure:#E7E1DA;
   --texte-2:#6E5A6B;
   --decor:#D6CEC6;
+  /* Écrans d'échec : la figue neutre, et le trait des objets qui l'entourent (proposition) */
+  --figue-neutre:#C9BEC4;
+  --trait-neutre:#B3A6B0;
   /* Courbes, déjà employées par le prototype */
   --ease-out:cubic-bezier(0.23,1,0.32,1);
   --ease-in-out:cubic-bezier(0.77,0,0.175,1);
@@ -67,16 +69,22 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 @media (prefers-reduced-motion:reduce){.screen a,.screen button{transition:none}.screen a:active,.screen button:active{transform:none}}
 .screen.rm a,.screen.rm button{transition:none}
 .screen.rm a:active,.screen.rm button:active{transform:none}
-.screen-main{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;padding-top:64px}
-.illu{flex:none;height:250px}
-.illu svg{display:block;width:390px;height:250px;overflow:visible}
-.copy{flex:none;padding:10px 24px 0;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.screen [hidden]{display:none!important}
+.screen-main{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+.top{flex:none;padding:50px 20px 0;display:flex;align-items:center}
+.back{width:44px;height:44px;border-radius:999px;border:1px solid var(--bordure);background:var(--cadre);display:flex;align-items:center;justify-content:center}
+.illu{flex:none;height:228px;margin-top:-14px}
+.illu svg{display:block;width:390px;height:228px;overflow:visible}
+.copy{flex:none;padding:6px 24px 0;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
 .copy h1{margin:0;font-size:30px;font-weight:700;line-height:1.15;text-wrap:balance}
 .copy p{margin:0;font-size:17px;line-height:1.45;text-wrap:pretty}
-.copy .sub{font-size:15px;color:var(--texte-2)}
+.copy .code{font-size:15px;color:var(--texte-2)}
+.copy .premier{font-size:15px;color:var(--texte-2)}
 .copy .tag{padding:3px 10px;border:1px dashed var(--texte-2);border-radius:999px;font-size:13px;line-height:1.3;color:var(--texte-2)}
-.second{flex:none;margin:22px 20px 0;min-height:56px;padding:0 20px;border:1px solid var(--texte-2);border-radius:999px;background:#FFFFFF;color:var(--texte);font:inherit;font-size:17px;font-weight:700;cursor:pointer}
-.note{margin:14px 24px 0;font-size:13px;line-height:1.4;color:var(--texte-2);text-align:center}
+.contrib{flex:none;margin:18px 20px 0;display:flex;flex-direction:column;gap:12px;text-align:center}
+.contrib p{margin:0;font-size:16px;line-height:1.4}
+.contrib button{min-height:56px;border:0;border-radius:999px;background:var(--aubergine);color:var(--ivoire-rose);font:inherit;font-size:17px;font-weight:700;cursor:pointer}
+.note{margin:12px 24px 0;font-size:13px;line-height:1.4;color:var(--texte-2);text-align:center}
 .hidden-notes .note,.hidden-notes .tag{display:none}
 .nav-wrap{flex:none;padding-top:8px}
 
@@ -89,7 +97,6 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 .seg{display:flex;flex-wrap:wrap;gap:6px}
 .seg button,.btn{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--page-trait);background:var(--surface);color:var(--page-texte);font:inherit;font-size:15px;cursor:pointer;touch-action:manipulation;transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease}
 .seg button[aria-pressed="true"]{background:var(--choix);border-color:var(--choix);color:var(--choix-texte)}
-.seg button:disabled{opacity:.45;cursor:not-allowed}
 .seg button:focus-visible,.btn:focus-visible,.scrub input:focus-visible{outline:2px solid var(--choix);outline-offset:2px}
 .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .btn.primary{background:var(--choix);border-color:var(--choix);color:var(--choix-texte);font-weight:700}
@@ -110,37 +117,46 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
     <div class="stage" id="stage">
       <div class="screen" id="screen">
         <div class="screen-main">
+          <div class="top">
+            <a class="back" href="#" aria-label="Retour au scan">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+            </a>
+          </div>
           <div class="illu">
-            <svg viewBox="0 0 390 250" aria-hidden="true" focusable="false">
-              <!-- Le viseur, pour la contribution photo -->
-              <g id="viseur" fill="none" stroke="#4C2944" stroke-width="2.4" stroke-linecap="round" opacity="0"></g>
-              <!-- Les rayons du flash : un seul éclair, jamais répété (WCAG 2.3.1) -->
-              <g id="flash" stroke="#4C2944" stroke-width="2.4" stroke-linecap="round" opacity="0"></g>
-              <!-- Piste « tampon » : la lettre, son timbre, le cachet que la figue y imprime -->
-              <g id="lettre" opacity="0"></g>
-              <!-- Piste « photomaton » : la bande des trois photos -->
-              <g id="bande" opacity="0"></g>
-              <g id="figSpace" transform="translate(121.1 62) scale(0.66)">
+            <svg viewBox="0 0 390 228" aria-hidden="true" focusable="false">
+              <!-- Les présentations : le flacon inconnu, en pointillés -->
+              <g id="flacon" fill="none" stroke="#B3A6B0" stroke-linecap="round" stroke-linejoin="round" opacity="0"></g>
+              <!-- Le tiroir vide : le fond du fichier et ses fiches -->
+              <g id="boiteFond" opacity="0"></g>
+              <g id="figSpace" transform="translate(127.8 62) scale(0.6)">
                 <g id="figMove">
-                  <!-- Piste « feuille qui salue » : derrière la queue -->
-                  <g id="feuille" opacity="0"></g>
                   <g id="figLive"></g>
+                  <!-- La fiche blanche qu'elle ramène au bout de sa queue -->
+                  <g id="fiche" opacity="0"></g>
                 </g>
               </g>
+              <!-- Le devant du fichier, devant la figue quand elle y plonge -->
+              <g id="boiteFace" opacity="0"></g>
+              <!-- Les fiches qui volent pendant qu'elle fouille -->
+              <g id="volees"></g>
             </svg>
           </div>
           <div class="copy">
-            <h1 id="title"></h1>
-            <p id="body"></p>
-            <p class="sub" id="sub"></p>
-            <span class="tag" id="tag"></span>
+            <h1>Nous ne connaissons pas ce produit</h1>
+            <p>Ce code-barres ne figure dans aucune de nos bases de données.</p>
+            <p class="code">Code lu : 0 000000 000000</p>
+            <span class="tag">Textes provisoires</span>
+            <p class="premier" id="premier">[Premier scan sans résultat : une phrase de plus, à écrire]</p>
           </div>
-          <button class="second" id="second" type="button">Recevoir un courriel</button>
-          <p class="note" id="note"></p>
+          <div class="contrib" id="contrib">
+            <p>C'est un cosmétique ? Aidez-nous à l'ajouter.</p>
+            <button type="button">Ajouter ce produit</button>
+          </div>
+          <p class="note">[Titre acté (D-113 B3), le reste provisoire. Ni feu vert ni alerte : la figue reste neutre (T-512). Mise en file sans promesse (dossier §5.7).]</p>
         </div>
         <div class="nav-wrap" id="navWrap"><nav aria-label="Navigation principale" style="margin: 0 16px 26px 16px; padding: 8px; border-radius: 30px; background: #FAF8F4; border: 1px solid #E7E1DA; box-shadow: 0 8px 24px rgba(50,28,49,0.10); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px">
-<a href="#" style="min-height: 56px; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #6E5A6B; font-size: 12px">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16M8 8.5v7M11 8.5v7M13.5 8.5v7M16 8.5v7"></path></svg>
+<a href="#" aria-current="true" style="min-height: 56px; border-radius: 22px; background: #4C2944; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #FFF7F0; font-size: 12px; font-weight: 700">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFF7F0" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16M8 8.5v7M11 8.5v7M13.5 8.5v7M16 8.5v7"></path></svg>
 <span>Scanner</span>
 </a>
 <a href="#" style="min-height: 56px; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #6E5A6B; font-size: 12px">
@@ -177,29 +193,17 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
-      <h2>Formulaire envoyé</h2>
-      <p class="lead">Cinq pistes à comparer pour le signalement et les photos ; pour le support, la figue s'incline simplement.</p>
-    </div>
-
-    <div class="group">
-      <span class="label" id="lblForm">Formulaire</span>
-      <div class="seg" role="group" aria-labelledby="lblForm" data-key="form">
-        <button type="button" data-val="signalement">Signalement</button>
-        <button type="button" data-val="photo">Contribution photo</button>
-        <button type="button" data-val="support">Support</button>
-      </div>
+      <h2>Produit inconnu</h2>
+      <p class="lead">Trois pistes à comparer. Figue neutre et sans cercle, comme sur la connexion : ni feu vert, ni alerte.</p>
     </div>
 
     <div class="group">
       <span class="label" id="lblPiste">Piste</span>
       <div class="seg" role="group" aria-labelledby="lblPiste" data-key="piste">
-        <button type="button" data-val="chapeau">Coup de chapeau</button>
-        <button type="button" data-val="tampon">Tampon</button>
-        <button type="button" data-val="tamponbis">Tampon bis</button>
-        <button type="button" data-val="feuille">Feuille qui salue</button>
-        <button type="button" data-val="photomaton">Photomaton</button>
+        <button type="button" data-val="presentations">Les présentations</button>
+        <button type="button" data-val="tiroir">Le tiroir vide</button>
+        <button type="button" data-val="epaules">Le haussement d'épaules</button>
       </div>
-      <p class="small" id="pisteNote">Photomaton : contribution photo seulement. Support : toujours sobre.</p>
     </div>
 
     <div class="group">
@@ -224,12 +228,19 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
     </div>
 
     <div class="group">
-      <span class="label" id="lblTexte">Texte</span>
-      <div class="seg" role="group" aria-labelledby="lblTexte" data-key="text">
-        <button type="button" data-val="sobre">Sans humour</button>
-        <button type="button" data-val="humour">Avec humour</button>
+      <span class="label" id="lblContrib">Invitation à ajouter le produit</span>
+      <div class="seg" role="group" aria-labelledby="lblContrib" data-key="contrib">
+        <button type="button" data-val="on">Affichée</button>
+        <button type="button" data-val="off">Absente</button>
       </div>
-      <p class="small" id="texteNote" hidden>Support : sans humour, quel que soit ce réglage (porteuse, 09/10).</p>
+    </div>
+
+    <div class="group">
+      <span class="label" id="lblPremier">Premier scan sans résultat</span>
+      <div class="seg" role="group" aria-labelledby="lblPremier" data-key="premier">
+        <button type="button" data-val="non">Non</button>
+        <button type="button" data-val="oui">Oui</button>
+      </div>
     </div>
 
     <div class="group">
@@ -254,7 +265,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
       <ol class="beats" id="beats"></ol>
     </div>
 
-    <p class="small">Figue aux couleurs de la marque, comme sur la mise à jour : ces écrans ne portent pas de verdict. Textes et barre d'onglets sans onglet actif repris du prototype (décision 76).</p>
+    <p class="small">Textes, bouton retour et barre d'onglets (Scanner actif) repris du prototype (décisions 59, 64, 66, 81). Le titre est acté : l'humour passe par le geste, pas par le texte.</p>
   </aside>
 </main>
 
@@ -298,8 +309,7 @@ function cubicBezier(p1x, p1y, p2x, p2y) {
 }
 const EASE_OUT = cubicBezier(0.23, 1, 0.32, 1);      // --ease-out
 const EASE_IN_OUT = cubicBezier(0.77, 0, 0.175, 1);  // --ease-in-out
-const EASE_IN_QUAD = cubicBezier(0.11, 0, 0.5, 0);   // la chute : elle accélère jusqu'au choc
-// Ressort amorti, rebond 0,3 (amortissement 0,7) : la queue qui revient en place.
+// Ressort amorti, rebond 0,3 (amortissement 0,7).
 function spring(sec, zeta = 0.7, w0 = 10) {
   if (sec <= 0) return 0;
   const wd = w0 * Math.sqrt(1 - zeta * zeta);
@@ -309,23 +319,26 @@ const clamp01 = v => (v < 0 ? 0 : v > 1 ? 1 : v);
 const prog = (t, start, dur) => clamp01((t - start) / dur);
 const mix = (a, b, k) => a + (b - a) * k;
 function smooth(e0, e1, v) { const x = clamp01((v - e0) / (e1 - e0)); return x * x * (3 - 2 * x); }
+const bump = (t, start, dur) => { const p = prog(t, start, dur); return p > 0 && p < 1 ? Math.sin(Math.PI * p) : 0; };
 
 /* ---------- La pose : une déformation douce appliquée à tout le dessin ---------- */
 const B = { x: 112, y: 250 };     // point d'appui, en bas
 const STEM = { x: 118, y: 56 };   // base de la queue
 const TIP = { x: 118, y: 3 };     // pointe de la queue
-const REST = { k: 1, tilt: 0, curl: 0, sx: 1, sy: 1, lean: 0 };
+const REST = { k: 1, tilt: 0, curl: 0, arm: 0, sh: 0, sx: 1, sy: 1, lean: 0 };
 let WX = 0, WY = 0;
-// k : la queue s'allonge (le chapeau se lève) · tilt : elle s'incline d'un bloc · curl : la pointe se courbe
+// k : la queue s'allonge · tilt : elle se penche, de plus en plus vers la pointe · curl : la pointe se courbe
+// arm : la queue pivote d'un bloc, droite comme un bras tendu · sh : les épaules montent (en unités du symbole)
 // sx, sy : étirement autour du point d'appui · lean : la figue s'incline, en radians
 function warp(x, y, P) {
+  if (P.sh) y -= P.sh * smooth(170, 90, y) * smooth(12, 70, Math.abs(x - B.x));
   if (y < STEM.y + 4) {
     const wx = 1 - smooth(14, 34, Math.abs(x - STEM.x));
     if (wx > 0) {
       const base = smooth(STEM.y + 4, STEM.y - 8, y) * wx;
       const yExt = y - (P.k - 1) * (STEM.y - y) * base;
       const h = clamp01((STEM.y - yExt) / ((STEM.y - TIP.y) * P.k));
-      const ang = (P.tilt * h + P.curl * Math.pow(h, 2.2)) * base;
+      const ang = (P.tilt * h + P.curl * Math.pow(h, 2.2) + P.arm) * base;
       const thin = 1 - 0.18 * (P.k - 1) * h * base;
       const dx = (x - STEM.x) * thin, dy = yExt - STEM.y, c = Math.cos(ang), s = Math.sin(ang);
       x = STEM.x + dx * c - dy * s;
@@ -337,7 +350,7 @@ function warp(x, y, P) {
   WX = B.x + ex * c - ey * s;
   WY = B.y + ex * s + ey * c;
 }
-const isRest = P => P.k === 1 && P.tilt === 0 && P.curl === 0 && P.sx === 1 && P.sy === 1 && P.lean === 0;
+const isRest = P => P.k === 1 && P.tilt === 0 && P.curl === 0 && P.arm === 0 && P.sh === 0 && P.sx === 1 && P.sy === 1 && P.lean === 0;
 function blendPose(A, Z, k) {
   const o = {};
   for (const key in REST) o[key] = mix(A[key], Z[key], k);
@@ -369,9 +382,9 @@ function poly(pts, P) {
   }
   return out.join('') + 'Z';
 }
-const COLORS = { chair: '#FFFFFF', peau: '#4C2944', nervure: '#9EBE59', graine: '#9F3542' };
-// La chair : l'enveloppe convexe du contour et de l'arc, sous la queue (en dessous de y = 62,
-// là où la pose ne fait qu'étirer et incliner : ses côtés restent droits).
+// Figue neutre : une seule couleur, la chair blanche pour que rien ne transparaisse à travers elle.
+const COLORS = { chair: '#FFFFFF', peau: '#C9BEC4', nervure: '#C9BEC4', graine: '#C9BEC4' };
+// La chair : l'enveloppe convexe du contour et de l'arc, sous la queue (en dessous de y = 62).
 function chair() {
   const pts = [];
   for (const d of [FIG.contour, FIG.arc]) {
@@ -407,474 +420,203 @@ function drawFig(P) {
     if (d !== L.last) { L.el.setAttribute('d', d); L.last = d; }
   }
 }
-
-/* ---------- Viseur et flash, pour la contribution photo ---------- */
-const viseur = ROOT.getElementById('viseur');
-const flash = ROOT.getElementById('flash');
-(() => {
-  // Quatre coins autour de la figue, comme ceux du scanner.
-  const x0 = 104, y0 = 44, x1 = 286, y1 = 238, l = 22, r = 10;
-  const corners = [
-    `M${x0} ${y0 + l}V${y0 + r}A${r} ${r} 0 0 1 ${x0 + r} ${y0}H${x0 + l}`,
-    `M${x1 - l} ${y0}H${x1 - r}A${r} ${r} 0 0 1 ${x1} ${y0 + r}V${y0 + l}`,
-    `M${x1} ${y1 - l}V${y1 - r}A${r} ${r} 0 0 1 ${x1 - r} ${y1}H${x1 - l}`,
-    `M${x0 + l} ${y1}H${x0 + r}A${r} ${r} 0 0 1 ${x0} ${y1 - r}V${y1 - l}`
-  ];
-  for (const d of corners) {
-    const p = document.createElementNS(NS, 'path');
-    p.setAttribute('d', d);
-    viseur.appendChild(p);
-  }
-  // Huit petits rayons autour du coin haut droit du viseur.
-  for (let i = 0; i < 8; i++) {
-    const a = (i / 8) * Math.PI * 2;
-    const ln = document.createElementNS(NS, 'line');
-    ln.dataset.a = a;
-    flash.appendChild(ln);
-  }
-})();
-const FLASH_C = { x: 300, y: 32 };   // juste au-delà du coin haut droit du viseur
-function drawFlash(q) {
-  if (q <= 0 || q >= 1) { flash.setAttribute('opacity', 0); return; }
-  const m = EASE_OUT(q);
-  for (const ln of flash.children) {
-    const a = +ln.dataset.a, r0 = 6 + 10 * m, r1 = r0 + 9 * (1 - m) + 3;
-    ln.setAttribute('x1', (FLASH_C.x + Math.cos(a) * r0).toFixed(1));
-    ln.setAttribute('y1', (FLASH_C.y + Math.sin(a) * r0).toFixed(1));
-    ln.setAttribute('x2', (FLASH_C.x + Math.cos(a) * r1).toFixed(1));
-    ln.setAttribute('y2', (FLASH_C.y + Math.sin(a) * r1).toFixed(1));
-  }
-  flash.setAttribute('opacity', (q < 0.15 ? q / 0.15 : (1 - q) / 0.85).toFixed(3));
-}
-
-/* ---------- Les autres pistes : la lettre, la feuille, la bande de photos ---------- */
+// Place la figue : décalage en pixels de l'illustration, et rotation (en degrés) autour du milieu de sa chair.
+const S = 0.6;  // échelle de la figue dans l'illustration (figSpace) ; sa place : le milieu, en bas, à (195, 212)
 const figMove = ROOT.getElementById('figMove');
-const lettre = ROOT.getElementById('lettre');
-const feuille = ROOT.getElementById('feuille');
-const bande = ROOT.getElementById('bande');
-const S = 0.66;  // échelle de la figue dans l'illustration (figSpace)
+function placeFig(dx, dy, deg) {
+  figMove.setAttribute('transform', `translate(${(dx / S).toFixed(2)} ${(dy / S).toFixed(2)})` + (deg ? ` rotate(${deg.toFixed(2)} 112 150)` : ''));
+}
 function svgEl(tag, attrs, parent) {
   const el = document.createElementNS(NS, tag);
   for (const k in attrs) el.setAttribute(k, attrs[k]);
   parent.appendChild(el);
   return el;
 }
-// Le symbole en petit, dans une pose : sa silhouette d'une seule couleur (timbre), ou entier aux couleurs de la marque (photos).
-function miniFig(parent, P, ink) {
-  for (const s of SOURCES) {
-    if (ink && s.role !== 'peau') continue;
-    svgEl('path', { d: isRest(P) ? s.d : poly(s.pts, P), fill: ink || COLORS[s.role] }, parent);
-  }
-}
+const TRAIT = '#B3A6B0';   // --trait-neutre
 
-// La lettre, vue de face : l'adresse, le timbre à l'effigie de la figue, et le cachet que la figue y imprime.
-// Coordonnées locales centrées sur la lettre ; LETTRE donne sa place au repos dans l'illustration.
-const LETTRE = { x: 240, y: 178, angle: -4, scale: 0.82 };
-const LP = (() => {
-  const fond = svgEl('rect', { x: -90, y: -58, width: 180, height: 116, rx: 6, fill: '#FFFFFF', stroke: '#4C2944', 'stroke-width': 2.2 }, lettre);
-  // Tampon bis : la lettre se plie en avion de papier. Son contour passe du rectangle à l'avion.
-  const pli = svgEl('path', { fill: '#FFFFFF', stroke: '#4C2944', 'stroke-width': 2.2, 'stroke-linejoin': 'round', opacity: 0 }, lettre);
-  const contenu = svgEl('g', {}, lettre);
-  svgEl('path', { d: 'M-62 14h70M-62 28h56M-62 42h40', fill: 'none', stroke: '#D6CEC6', 'stroke-width': 4, 'stroke-linecap': 'round' }, contenu);
-  // Le timbre : vert pistache, bord dentelé (pointillés blancs), la figue en silhouette blanche.
-  svgEl('rect', { x: 50, y: -48, width: 28, height: 34, fill: '#9EBE59' }, contenu);
-  svgEl('rect', { x: 50, y: -48, width: 28, height: 34, fill: 'none', stroke: '#FFFFFF', 'stroke-width': 3, 'stroke-dasharray': '2.4 2.4' }, contenu);
-  miniFig(svgEl('g', { transform: 'translate(64 -31) scale(0.085) translate(-106 -127)' }, contenu), REST, '#FFFFFF');
-  // Le cachet : cercle à l'encre un peu inégale, la date en deux traits, trois lignes d'oblitération sur le timbre.
-  const cachet = svgEl('g', { fill: 'none', stroke: '#4C2944', 'stroke-linecap': 'round', opacity: 0 }, contenu);
-  svgEl('circle', { cx: 44, cy: -22, r: 19, 'stroke-width': 2.2, 'stroke-dasharray': '30 2.5 22 2 40 3 20 2' }, cachet);
-  svgEl('circle', { cx: 44, cy: -22, r: 15, 'stroke-width': 1.1 }, cachet);
-  svgEl('path', { d: 'M36 -25h16M38 -19h12', 'stroke-width': 1.6 }, cachet);
-  for (const y of [-40, -33, -26]) svgEl('path', { d: `M58 ${y}q6.5 -4 13 0t13 0`, 'stroke-width': 1.8 }, cachet);
-  // L'avion fini : le dessous de l'aile, plus sombre, et le pli central.
-  const dessous = svgEl('path', { fill: '#E7E1DA', stroke: '#4C2944', 'stroke-width': 2.2, 'stroke-linejoin': 'round', opacity: 0 }, lettre);
-  const arete = svgEl('path', { fill: 'none', stroke: '#4C2944', 'stroke-width': 1.6, 'stroke-linecap': 'round', opacity: 0 }, lettre);
-  return { fond, pli, contenu, cachet, dessous, arete };
-})();
-// Les coins de la lettre, et ce qu'ils deviennent : queue haute, nez, queue basse, encoche.
-const ENVELOPPE = [[-90, -58], [90, -58], [90, 58], [-90, 58]];
-const AVION = [[-76, -44], [84, -6], [-40, 40], [-26, 4]];
-const pts = P => 'M' + P.map(q => q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join('L');
-// La lettre, déplacée de (dx, dy), tournée de deg en plus, à l'échelle sc ; q : l'encre du cachet, de 0 à 1 ;
-// f : le pliage en avion, de 0 (lettre) à 1 (avion).
-function drawLettre(o, dx, dy, deg, sc, q, f = 0) {
-  lettre.setAttribute('opacity', o.toFixed(3));
-  lettre.setAttribute('transform', `translate(${(LETTRE.x + dx).toFixed(2)} ${(LETTRE.y + dy).toFixed(2)}) rotate(${(LETTRE.angle + deg).toFixed(2)}) scale(${(LETTRE.scale * sc).toFixed(4)})`);
-  LP.cachet.setAttribute('opacity', (0.88 * q).toFixed(3));
-  if (f <= 0) {
-    LP.fond.setAttribute('opacity', 1);
-    LP.contenu.setAttribute('opacity', 1);
-    LP.contenu.removeAttribute('transform');
-    for (const el of [LP.pli, LP.dessous, LP.arete]) el.setAttribute('opacity', 0);
-    return;
-  }
-  const P = ENVELOPPE.map((c, i) => [mix(c[0], AVION[i][0], f), mix(c[1], AVION[i][1], f)]);
-  LP.fond.setAttribute('opacity', 0);
-  LP.pli.setAttribute('opacity', 1);
-  LP.pli.setAttribute('d', pts(P) + 'Z');
-  LP.contenu.setAttribute('opacity', (1 - smooth(0, 0.5, f)).toFixed(3));     // l'adresse et le timbre se replient dedans
-  LP.contenu.setAttribute('transform', `scale(${(1 - 0.5 * f).toFixed(4)})`);
-  const v = smooth(0.55, 1, f).toFixed(3);
-  LP.dessous.setAttribute('opacity', v);
-  LP.dessous.setAttribute('d', pts([P[1], P[2], P[3]]) + 'Z');
-  LP.arete.setAttribute('opacity', v);
-  LP.arete.setAttribute('d', pts([P[1], P[3]]));
-}
-// Où la figue atterrit : le milieu de sa chair sur le timbre (décalage depuis sa place, en pixels de l'illustration).
-const ATTERRISSAGE = (() => {
-  const a = LETTRE.angle * Math.PI / 180, lx = 56 * LETTRE.scale, ly = -28 * LETTRE.scale;   // entre le cachet et le timbre
-  const tx = LETTRE.x + lx * Math.cos(a) - ly * Math.sin(a), ty = LETTRE.y + lx * Math.sin(a) + ly * Math.cos(a);
-  return { x: tx - (121.1 + 112 * S), y: ty - (62 + 160 * S) };
-})();
-
-// La feuille de figuier : trois lobes, comme une main. Elle pousse sur la queue.
+/* ---------- Les présentations : le flacon inconnu ---------- */
+const flacon = ROOT.getElementById('flacon');
+const FLACON = { x: 250, y: 212, scale: 0.88 };
 (() => {
-  svgEl('path', { d: 'M-2 0H16', fill: 'none', stroke: '#9EBE59', 'stroke-width': 4, 'stroke-linecap': 'round' }, feuille);
-  svgEl('path', { d: 'M14 0C16 10 24 22 34 30C40 35 50 36 52 30C54 24 48 16 44 11C52 14 64 14 74 9C83 5 83 -5 74 -9C64 -14 52 -14 44 -11C48 -16 54 -24 52 -30C50 -36 40 -35 34 -30C24 -22 16 -10 14 0Z', fill: '#9EBE59' }, feuille);
-  svgEl('path', { d: 'M16 0H70M18 2Q30 14 44 28M18 -2Q30 -14 44 -28', fill: 'none', stroke: '#FFFFFF', 'stroke-width': 2, 'stroke-linecap': 'round', opacity: 0.85 }, feuille);
+  // Un flacon générique, posé sur le sol, en pointillés : un produit qu'on ne connaît pas.
+  svgEl('path', { d: 'M-28 -10V-74Q-28 -86 -16 -86H-10V-100H-14V-118H14V-100H10V-86H16Q28 -86 28 -74V-10Q28 0 18 0H-18Q-28 0 -28 -10Z', 'stroke-width': 3, 'stroke-dasharray': '7 6' }, flacon);
+  svgEl('rect', { x: -16, y: -62, width: 32, height: 26, rx: 3, 'stroke-width': 2.2, 'stroke-dasharray': '4 4' }, flacon);
 })();
-const FEUILLE_A = { x: 118, y: 26 };  // point d'attache sur la queue (coordonnées du symbole)
-function drawFeuille(P, s, deg) {  // s : taille de 0 à 1 · deg : angle de la feuille
-  warp(FEUILLE_A.x, FEUILLE_A.y, P);
-  feuille.setAttribute('opacity', s > 0 ? 1 : 0);
-  feuille.setAttribute('transform', `translate(${WX.toFixed(1)} ${WY.toFixed(1)}) rotate(${(deg + P.lean * 180 / Math.PI).toFixed(2)}) scale(${(1.1 * s).toFixed(4)})`);
+function drawFlacon(o, s) {
+  flacon.setAttribute('opacity', o.toFixed(3));
+  flacon.setAttribute('transform', `translate(${FLACON.x} ${FLACON.y}) scale(${(FLACON.scale * s).toFixed(4)})`);
 }
 
-// La bande du photomaton : trois photos, une par pose.
-const POSES = [
-  { k: 1.25, tilt: -0.45, curl: 0, sx: 1.03, sy: 0.97, lean: -0.1 },   // penchée, le bras levé
-  { k: 1.15, tilt: 0.3, curl: 0, sx: 1.07, sy: 0.93, lean: 0.08 },     // accroupie, penchée à droite
-  { k: 1.6, tilt: 0, curl: 0, sx: 0.95, sy: 1.08, lean: 0 }            // toute droite, fière
-];
-const BANDE = { x: 314, y: 52, angle: 5 };
+/* ---------- Le tiroir vide : le fichier, ses fiches ---------- */
+const boiteFond = ROOT.getElementById('boiteFond');
+const boiteFace = ROOT.getElementById('boiteFace');
+const volees = ROOT.getElementById('volees');
+const fiche = ROOT.getElementById('fiche');
+const BOITE = { x: 285, rim: 162, ground: 212 };
 (() => {
-  svgEl('rect', { x: 1.5, y: 2.5, width: 50, height: 166, rx: 3, fill: '#321C31', opacity: 0.08 }, bande);
-  svgEl('rect', { width: 50, height: 166, rx: 3, fill: '#FFFFFF', stroke: '#E7E1DA' }, bande);
-  POSES.forEach((P, i) => {
-    const y = 5 + 52 * i;
-    svgEl('rect', { x: 5, y, width: 40, height: 46, rx: 1.5, fill: '#E7E1DA' }, bande);
-    miniFig(svgEl('g', { transform: `translate(25 ${y + 43}) scale(0.14) translate(${-B.x} ${-B.y})` }, bande), P);
-  });
+  // Le fond du fichier, puis trois fiches à onglet qui dépassent du bord.
+  svgEl('rect', { x: 241, y: 150, width: 88, height: 62, rx: 3, fill: '#F3EFEA', stroke: TRAIT, 'stroke-width': 2.2 }, boiteFond);
+  for (const [y, tab] of [[146, 256], [152, 280], [158, 302]]) {
+    svgEl('path', { d: `M248 ${y + 30}V${y}H${tab}V${y - 7}H${tab + 16}V${y}H322V${y + 30}`, fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 1.6, 'stroke-linejoin': 'round' }, boiteFond);
+  }
+  // Le devant, avec son porte-étiquette (vide).
+  svgEl('rect', { x: 237, y: BOITE.rim, width: 96, height: BOITE.ground - BOITE.rim, rx: 4, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 2.4 }, boiteFace);
+  svgEl('rect', { x: 273, y: 178, width: 24, height: 12, rx: 2, fill: 'none', stroke: TRAIT, 'stroke-width': 1.6 }, boiteFace);
+  // Les fiches qui volent : blanches, rien dessus.
+  for (let i = 0; i < 3; i++) svgEl('rect', { x: -12, y: -15, width: 24, height: 30, rx: 2, fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 1.6, opacity: 0 }, volees);
+  // La fiche qu'elle ramène, à l'échelle du symbole : elle est plantée au bout de sa queue.
+  svgEl('rect', { x: -20, y: -56, width: 40, height: 50, rx: 3, fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 2.6 }, fiche);
 })();
-function drawBande(o, dy) {
-  bande.setAttribute('opacity', o.toFixed(3));
-  bande.setAttribute('transform', `translate(${BANDE.x} ${(BANDE.y + dy).toFixed(2)}) rotate(${BANDE.angle} 25 83)`);
+function drawBoite(o) {
+  boiteFond.setAttribute('opacity', o.toFixed(3));
+  boiteFace.setAttribute('opacity', o.toFixed(3));
+}
+// Une fiche lancée hors du fichier : u de 0 à 1, side vers la gauche (-1) ou la droite (1).
+function drawVolee(el, u, side, reach) {
+  if (u <= 0 || u >= 1) { el.setAttribute('opacity', 0); return; }
+  const x = BOITE.x + side * reach * u, y = BOITE.rim - 4 - 130 * u + 160 * u * u;
+  el.setAttribute('opacity', (1 - smooth(0.7, 1, u)).toFixed(3));
+  el.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${(side * 260 * u).toFixed(1)})`);
 }
 
 // Chaque image repart de zéro : chaque déroulé n'allume que ce dont il a besoin.
 function clearExtras() {
   figLive.setAttribute('opacity', 1);
   figMove.removeAttribute('transform');
-  viseur.setAttribute('opacity', 0);
-  drawFlash(0);
-  lettre.setAttribute('opacity', 0);
-  feuille.setAttribute('opacity', 0);
-  bande.setAttribute('opacity', 0);
+  flacon.setAttribute('opacity', 0);
+  drawBoite(0);
+  for (const el of volees.children) el.setAttribute('opacity', 0);
+  fiche.setAttribute('opacity', 0);
 }
 
 /* ---------- Textes ---------- */
-const TEXTS = {
-  signalement: {
-    sobre: { title: 'Signalement envoyé', body: 'Merci pour votre aide.', tag: 'Textes provisoires' },
-    humour: { title: 'Bien reçu, chapeau bas.', body: 'Merci pour votre aide.', tag: 'Titre : proposition · phrase : texte provisoire' },
-    note: '[Pas de réponse individuelle (décision 69). Aucun bouton vers le verdict ; la barre d’onglets, sans onglet actif (décision 76).]'
-  },
-  photo: {
-    sobre: { title: 'Photos envoyées', body: 'Merci pour votre aide.', sub: 'Si le produit est publié, vous le retrouverez en le scannant.', tag: 'Textes provisoires' },
-    humour: { title: 'Clic, c’est envoyé !', body: 'Merci pour votre aide.', sub: 'Si le produit est publié, vous le retrouverez en le scannant.', tag: 'Titre : proposition · phrases : textes provisoires' },
-    note: '[« Recevoir un courriel » ouvre l’écran du courriel (décision 103). « Si le produit est publié », jamais « quand » (T-81).]'
-  },
-  support: {
-    sobre: { title: 'Message envoyé', body: 'Ficolia vous répondra par courriel.', tag: 'Textes provisoires' },
-    note: '[Sobre, sans humour (porteuse, 09/10) : le message peut signaler un effet indésirable ou une détresse. Aucun délai de réponse promis (L-25).]'
-  }
-};
-// Avec humour, le titre suit le geste de la piste (propositions).
-const TITRES_HUMOUR = {
-  chapeau: { signalement: 'Bien reçu, chapeau bas.', photo: 'Clic, c’est envoyé !' },
-  tampon: { signalement: 'Bien reçu, c’est tamponné.', photo: 'Photos reçues, c’est tamponné.' },
-  tamponbis: { signalement: 'Bien reçu, c’est tamponné.', photo: 'Photos reçues, c’est tamponné.' },
-  feuille: { signalement: 'Bien reçu ! La figue vous salue.', photo: 'Photos reçues ! La figue vous salue.' },
-  photomaton: { photo: 'Clic, clic, clic, c’est envoyé !' }
-};
 const els = {
   screen: ROOT.getElementById('screen'),
-  title: ROOT.getElementById('title'),
-  body: ROOT.getElementById('body'),
-  sub: ROOT.getElementById('sub'),
-  tag: ROOT.getElementById('tag'),
-  second: ROOT.getElementById('second'),
-  note: ROOT.getElementById('note'),
-  texteNote: ROOT.getElementById('texteNote')
+  copy: [...ROOT.querySelectorAll('.copy > *')],
+  contrib: ROOT.getElementById('contrib'),
+  premier: ROOT.getElementById('premier')
 };
 for (const a of ROOT.querySelectorAll('.screen a')) a.addEventListener('click', e => e.preventDefault());
 function textIn(el, k, rm) {
   el.style.opacity = k.toFixed(3);
   el.style.transform = rm ? 'none' : 'translateY(' + ((1 - k) * 8).toFixed(2) + 'px)';
 }
-function textsAt(t, start, rm) {
-  textIn(els.title, EASE_OUT(prog(t, start, 250)), rm);
-  textIn(els.body, EASE_OUT(prog(t, start + 60, 250)), rm);
-  textIn(els.sub, EASE_OUT(prog(t, start + 60, 250)), rm);
-  textIn(els.tag, EASE_OUT(prog(t, start + 60, 250)), rm);
-  textIn(els.second, EASE_OUT(prog(t, start + 120, 250)), rm);
-}
-
-/* ---------- Le coup de chapeau ---------- */
-// t0 : début du geste. Prise d'élan, le chapeau se lève, la révérence, puis tout revient en place.
-function hatTip(t, t0) {
-  const a = EASE_IN_OUT(prog(t, t0, 200));          // prise d'élan : elle se tasse
-  const b = EASE_OUT(prog(t, t0 + 200, 300));       // le chapeau se lève
-  const c = EASE_IN_OUT(prog(t, t0 + 500, 400));    // la révérence
-  const r = spring((t - (t0 + 900)) / 1000);        // retour, avec un petit rebond
-  const pre = {
-    k: 1 + 0.5 * b,
-    tilt: -0.3 * b * (1 - c) + 0.45 * c,   // le chapeau bascule vers l'avant, d'un bloc
-    curl: 0.2 * c,
-    sx: 1 + 0.02 * a - 0.04 * b + 0.04 * c,
-    sy: 1 - 0.04 * a + 0.08 * b - 0.07 * c,
-    lean: 0.16 * c
-  };
-  return {
-    k: mix(pre.k, 1, r), tilt: mix(pre.tilt, 0, r), curl: mix(pre.curl, 0, r),
-    sx: mix(pre.sx, 1, r), sy: mix(pre.sy, 1, r), lean: mix(pre.lean, 0, r)
-  };
+function textsAt(t, rm) {
+  els.copy.forEach((el, i) => textIn(el, EASE_OUT(prog(t, Math.min(i, 2) * 60, 250)), rm));
+  textIn(els.contrib, EASE_OUT(prog(t, 160, 250)), rm);
 }
 
 /* ---------- Les déroulés ---------- */
-const TIMELINES = {
-  signalement: {
-    normal: {
-      duration: 1900,
-      beats: [
-        [0, 'Le titre s’affiche ; la figue est là.'],
-        [250, 'Elle prend son élan, puis lève sa queue comme un chapeau.'],
-        [750, 'Elle fait la révérence.'],
-        [1150, 'Elle remet son chapeau, avec un petit rebond.'],
-        [1900, 'Fin : l’image reste fixe.']
-      ],
-      render(t) {
-        textsAt(t, 0);
-        drawFig(hatTip(t, 250));
-      }
-    }
-  },
-  photo: {
-    normal: {
-      duration: 2700,
-      beats: [
-        [0, 'Le titre s’affiche ; un viseur cadre la figue.'],
-        [300, 'Elle prend la pose.'],
-        [700, 'Clic : un seul petit flash. Elle cligne, éblouie.'],
-        [950, 'Le viseur s’efface.'],
-        [1150, 'Elle tire son chapeau.'],
-        [2700, 'Fin : l’image reste fixe.']
-      ],
-      render(t) {
-        textsAt(t, 0);
-        const v = EASE_OUT(prog(t, 150, 300)), vOut = EASE_OUT(prog(t, 950, 250));
-        viseur.setAttribute('opacity', (v * (1 - vOut)).toFixed(3));
-        viseur.setAttribute('transform', 'translate(195 141) scale(' + (1.06 - 0.06 * v).toFixed(4) + ') translate(-195 -141)');
-        drawFlash(prog(t, 700, 380));
-        const pose = EASE_OUT(prog(t, 300, 300)) * (1 - EASE_OUT(prog(t, 1000, 250)));
-        const blink = prog(t, 700, 220);
-        const squint = blink > 0 && blink < 1 ? Math.sin(blink * Math.PI) : 0;
-        const P = hatTip(t, 1150);
-        P.sy *= 1 + 0.03 * pose - 0.1 * squint;
-        P.sx *= 1 - 0.015 * pose + 0.04 * squint;
-        drawFig(P);
-      }
-    }
-  },
-  support: {
-    normal: {
-      duration: 1500,
-      beats: [
-        [0, 'Le titre s’affiche ; la figue paraît doucement.'],
-        [450, 'Elle s’incline une fois, lentement.'],
-        [950, 'Elle se redresse.'],
-        [1500, 'Fin : l’image reste fixe.']
-      ],
-      render(t) {
-        textsAt(t, 0);
-        figLive.setAttribute('opacity', EASE_OUT(prog(t, 0, 400)).toFixed(3));
-        const down = EASE_IN_OUT(prog(t, 450, 500)), up = EASE_IN_OUT(prog(t, 950, 550));
-        const k = down * (1 - up);
-        drawFig({ k: 1, tilt: 0, curl: 0, sx: 1, sy: 1 - 0.015 * k, lean: 0.07 * k });
-      }
-    }
-  }
-};
-/* ---------- Les autres pistes ---------- */
-// Le tampon : elle fait un pas de côté, une lettre glisse à sa place ; elle vise le timbre, bondit,
-// retombe dessus comme un tampon, appuie, et revient à sa place. Ce geste est commun aux deux tampons.
-// lookAt : quand elle se tourne vers la lettre qui part. Rend l'intensité du choc, pour la lettre.
-const TI = 1150, TB = 1500;                                                    // le choc ; le départ
-function tamponFigue(t, lookAt) {
-  const TL = TB + 420;                                                         // l'atterrissage
-  const L = ATTERRISSAGE;
-  const step = prog(t, 200, 380), hop = Math.sin(Math.PI * step);              // le pas de côté
-  const aim = EASE_IN_OUT(prog(t, 700, 150)) * (1 - EASE_OUT(prog(t, 850, 150)));  // elle se tasse et vise
-  const up = EASE_OUT(prog(t, 850, 170)), down = EASE_IN_QUAD(prog(t, 1030, 120));
-  const go = EASE_IN_OUT(prog(t, 850, 300));
-  const back = prog(t, TB, 420), backE = EASE_OUT(back);                       // elle s'écarte vite : on voit le cachet
-  const air = t >= 850 && t < TI ? Math.sin(Math.PI * prog(t, 850, 300)) : 0, airBack = Math.sin(Math.PI * back);
-  const fall = t < TI ? prog(t, 1030, 120) : 0;                                // elle s'étire en tombant
-  const imp = t >= TI ? 1 - spring((t - TI) / 1000) : 0;                       // le choc du tampon
-  const imp2 = t >= TL ? 1 - spring((t - TL) / 1000) : 0;                      // l'atterrissage, à sa place
-  const press = EASE_OUT(prog(t, TI, 100)) * (1 - EASE_OUT(prog(t, TB - 30, 120)));
-  const rk = prog(t, 1230, 300);
-  const rock = rk > 0 && rk < 1 ? Math.sin(2 * Math.PI * rk) : 0;             // elle appuie d'un côté, puis de l'autre
-  const look = EASE_IN_OUT(prog(t, lookAt, 350)) * (1 - EASE_IN_OUT(prog(t, lookAt + 550, 450)));  // elle regarde la lettre partir
-  const x = t < TB ? mix(-95 * EASE_IN_OUT(step), L.x, go) : mix(L.x, 0, backE);
-  const y = t < 850 ? -24 * hop : t < TI ? mix(-75 * up, L.y, down) : mix(L.y, 0, backE) - 36 * airBack;
-  figMove.setAttribute('transform', `translate(${(x / S).toFixed(2)} ${(y / S).toFixed(2)})`);
-  drawFig({
-    k: 1 + 0.15 * look,
-    tilt: -0.15 * hop - 0.2 * air + 0.2 * airBack + 0.15 * imp + 0.25 * look,   // la queue traîne ; puis elle pointe la lettre
-    curl: 0,
-    sx: 1 + 0.05 * aim - 0.03 * (hop + air + airBack) + 0.1 * imp + 0.03 * press + 0.05 * imp2,
-    sy: 1 - 0.09 * aim + 0.04 * hop + 0.06 * air + 0.05 * airBack + 0.08 * fall - 0.16 * imp - 0.05 * press - 0.08 * imp2,
-    lean: -0.05 * hop + 0.06 * aim + 0.04 * air - 0.06 * airBack + 0.05 * rock + 0.07 * look
-  });
-  return imp;
-}
-const TAMPON_DEBUT = [
-  [0, 'Le titre s’affiche ; la figue est là.'],
-  [200, 'Elle fait un pas de côté ; une lettre glisse à sa place.'],
-  [700, 'Elle vise le timbre…'],
-  [850, '… bondit…'],
-  [1150, '… et retombe dessus comme un tampon : le cachet s’imprime.'],
-  [1230, 'Elle appuie bien, d’un côté puis de l’autre.'],
-  [1500, 'Elle revient d’un bond à sa place : le timbre est oblitéré.']
-];
-// Tampon : la lettre oblitérée s'envole en haut à droite, en voletant.
-const TAMPON = {
-  duration: 3300,
+// Les présentations : un flacon inconnu, en pointillés, à côté d'elle. Elle le regarde, lui tend
+// la main (sa queue)… il ne répond pas. Elle reprend sa pose, un peu gênée.
+const PRESENTATIONS = {
+  duration: 2600,
+  home: -44,
   beats: [
-    ...TAMPON_DEBUT,
-    [1780, 'La lettre s’envole.'],
-    [2250, 'Elle la regarde partir.'],
-    [3300, 'Fin : l’image reste fixe.']
+    [0, 'Le titre s’affiche ; un flacon en pointillés paraît à côté de la figue.'],
+    [350, 'Elle se penche pour le regarder.'],
+    [750, 'Elle lui tend la main, sa queue…'],
+    [1150, '… et la secoue, comme pour serrer la sienne.'],
+    [1520, 'Le flacon ne répond pas.'],
+    [1650, 'Elle reprend sa pose, un peu gênée.'],
+    [2600, 'Fin : l’image reste fixe, la figue et le flacon côte à côte.']
   ],
   render(t) {
-    textsAt(t, 0);
-    const imp = tamponFigue(t, 2250);
-    // La lettre : elle glisse depuis la droite, encaisse le choc, puis s'envole en haut à droite en voletant.
-    const slide = EASE_OUT(prog(t, 280, 480));
-    const u = prog(t, 1780, 650);
-    const dip = 3 * Math.sin(Math.PI * prog(t, 1690, 120));                    // un petit appel avant l'envol
-    drawLettre(
-      t < 280 ? 0 : 1 - smooth(0.85, 1, u),
-      300 * (1 - slide) + 240 * Math.pow(u, 2.2),
-      3 * imp + dip - 240 * Math.pow(u, 1.6),
-      10 * (1 - slide) + 22 * Math.pow(u, 1.5) + 7 * Math.sin(3 * Math.PI * u) * (1 - u),
-      1 - 0.4 * u,
-      t >= TI ? EASE_OUT(prog(t, TI, 120)) : 0
-    );
-  }
+    textsAt(t);
+    placeFig(this.home, 0, 0);
+    const app = EASE_OUT(prog(t, 0, 450));
+    drawFlacon(app, 0.96 + 0.04 * app);
+    const look = EASE_IN_OUT(prog(t, 350, 400));
+    const offer = EASE_OUT(prog(t, 750, 380));
+    const w = prog(t, 1150, 360);
+    const shake = w > 0 && w < 1 ? Math.sin(4 * Math.PI * w) * Math.sin(Math.PI * w) : 0;   // deux petites secousses
+    const back = EASE_IN_OUT(prog(t, 1650, 400));
+    const shy = bump(t, 1650, 600);                                            // la gêne : elle se tasse un peu
+    const out = { k: 1 + 0.35 * offer, tilt: 0.25 * look * (1 - offer), curl: 0, arm: 1.15 * offer + 0.14 * shake, sh: 0, sx: 1, sy: 1 + 0.02 * look, lean: 0.07 * look + 0.03 * offer };
+    const P = blendPose(out, REST, back);
+    P.sx += 0.025 * shy;
+    P.sy -= 0.04 * shy;
+    P.lean -= 0.035 * shy;
+    drawFig(P);
+  },
+  still() { placeFig(this.home, 0, 0); drawFlacon(1, 1); }
 };
-// Tampon bis : la lettre oblitérée se plie en avion de papier, qui s'envole en rétrécissant.
-const TAMPON_BIS = {
-  duration: 3500,
+// Le tiroir vide : elle plonge tête la première dans le fichier, fouille (des fiches blanches volent),
+// et ressort bredouille, une fiche vierge au bout de la queue, qu'elle laisse tomber.
+const VOLEES = [[1000, 1, 70], [1250, -1, 95], [1500, 1, 105]];
+const TIROIR = {
+  duration: 3000,
+  home: -55,
   beats: [
-    ...TAMPON_DEBUT,
-    [1780, 'La lettre se soulève et se plie en avion de papier…'],
-    [2230, '… qui s’envole en rétrécissant.'],
-    [2350, 'Elle le regarde partir.'],
-    [3500, 'Fin : l’image reste fixe.']
+    [0, 'Le titre s’affiche ; un fichier est posé à côté de la figue.'],
+    [300, 'Elle prend son élan…'],
+    [500, '… et plonge tête la première dans le fichier.'],
+    [950, 'Elle fouille : des fiches blanches volent.'],
+    [1700, 'Elle ressort d’un bond, une fiche au bout de sa queue.'],
+    [2150, 'Elle la regarde : elle est vierge.'],
+    [2450, 'Elle la laisse tomber.'],
+    [3000, 'Fin : l’image reste fixe, la figue et le fichier côte à côte.']
   ],
   render(t) {
-    textsAt(t, 0);
-    const imp = tamponFigue(t, 2350);
-    const slide = EASE_OUT(prog(t, 280, 480));
-    const dip = 3 * Math.sin(Math.PI * prog(t, 1690, 120));
-    const f = EASE_IN_OUT(prog(t, 1780, 450)), lift = EASE_OUT(prog(t, 1780, 450));   // elle se soulève en se pliant
-    const q = t >= TI ? EASE_OUT(prog(t, TI, 120)) : 0;
-    const u = prog(t, 2230, 800);
-    if (u <= 0) {
-      drawLettre(t < 280 ? 0 : 1, 300 * (1 - slide) + 60 * lift, 3 * imp + dip - 50 * lift, 10 * (1 - slide) + 10 * f, 1 - 0.3 * f, q, f);
-      return;
+    textsAt(t);
+    drawBoite(EASE_OUT(prog(t, 0, 300)));
+    const H = this.home;
+    const crouch = EASE_IN_OUT(prog(t, 300, 200)) * (1 - EASE_OUT(prog(t, 500, 120)));
+    const j = EASE_IN_OUT(prog(t, 500, 420)), jArc = bump(t, 500, 420);      // le plongeon
+    const o = EASE_IN_OUT(prog(t, 1700, 420)), oArc = bump(t, 1700, 420);    // la sortie
+    // Dans le fichier, tête en bas : le milieu de sa chair à (285, 118), la queue au fond.
+    let dx, dy, deg;
+    if (t < 1700) { dx = mix(H, 90, j); dy = mix(0, -34, j) - 75 * jArc; deg = 180 * j; }
+    else { dx = mix(90, H, o); dy = mix(-34, 0, o) - 70 * oArc; deg = 180 + 180 * o; }
+    const r = prog(t, 950, 750), dig = r > 0 && r < 1 ? Math.sin(Math.PI * r) : 0;   // elle fouille
+    deg += 7 * Math.sin(6 * Math.PI * r) * dig;
+    dy += 2.5 * Math.sin(12 * Math.PI * r) * dig;
+    placeFig(dx, dy, deg % 360);
+    const imp = t >= 920 && t < 1700 ? 1 - spring((t - 920) / 1000) : 0;     // elle s'enfonce
+    const imp2 = t >= 2120 ? 1 - spring((t - 2120) / 1000) : 0;              // elle retombe à sa place
+    const look = EASE_IN_OUT(prog(t, 2150, 300)) * (1 - EASE_IN_OUT(prog(t, 2500, 350)));
+    const P = {
+      k: 1, tilt: 0.4 * look, curl: 0, arm: 0, sh: 0,
+      sx: 1 + 0.05 * crouch + 0.06 * imp + 0.05 * imp2 - 0.03 * (jArc + oArc),
+      sy: 1 - 0.09 * crouch + 0.05 * (jArc + oArc) - 0.08 * imp2,
+      lean: 0.05 * crouch + 0.04 * look
+    };
+    drawFig(P);
+    VOLEES.forEach(([t0, side, reach], i) => drawVolee(volees.children[i], prog(t, t0, 700), side, reach));
+    // La fiche ramenée : au bout de la queue dès la sortie, puis elle tombe.
+    if (t >= 1700) {
+      const drop = prog(t, 2450, 450);
+      warp(TIP.x, TIP.y + 3, P);
+      fiche.setAttribute('opacity', (1 - smooth(0.5, 1, drop)).toFixed(3));
+      fiche.setAttribute('transform', `translate(${WX.toFixed(1)} ${(WY + 260 * drop * drop).toFixed(1)}) rotate(${(-8 + 10 * look + 50 * drop).toFixed(1)})`);
     }
-    // Le vol : lancé un peu vers le bas, puis il remonte vers le haut à droite et s'éloigne (il rétrécit).
-    const e = 1 - Math.pow(1 - u, 1.8);
-    const P0 = [60, -50], C = [100, -38], P2 = [152, -120];
-    const bx = mix(mix(P0[0], C[0], e), mix(C[0], P2[0], e), e), by = mix(mix(P0[1], C[1], e), mix(C[1], P2[1], e), e);
-    const cap = Math.atan2(mix(C[1] - P0[1], P2[1] - C[1], e), mix(C[0] - P0[0], P2[0] - C[0], e)) * 180 / Math.PI;
-    const angle = mix(LETTRE.angle + 10, cap, smooth(0, 0.25, u)) + 4 * Math.sin(2 * Math.PI * u) * (1 - u);
-    drawLettre(1 - smooth(0.8, 1, u), bx, by, angle - LETTRE.angle, 0.7 * (1 - 0.78 * e), q, 1);
-  }
+  },
+  still() { placeFig(this.home, 0, 0); drawBoite(1); }
 };
-// La feuille qui salue : une feuille pousse sur la queue et fait deux allers-retours.
-const FEUILLE = {
-  duration: 2000,
+// Le haussement d'épaules : elle penche la tête, intriguée, puis hausse les épaules.
+const EPAULES = {
+  duration: 1700,
+  home: 0,
   beats: [
     [0, 'Le titre s’affiche ; la figue est là.'],
-    [250, 'Une feuille de figuier pousse sur sa queue.'],
-    [700, 'Elle salue : deux allers-retours.'],
-    [1700, 'La feuille se pose ; elle reste.'],
-    [2000, 'Fin : l’image reste fixe.']
+    [250, 'Elle penche la tête, intriguée.'],
+    [650, 'Elle hausse les épaules : elles montent, sa tête rentre un peu.'],
+    [1150, 'Elle les laisse retomber.'],
+    [1700, 'Fin : l’image reste fixe.']
   ],
   render(t) {
-    textsAt(t, 0);
-    const s = t >= 250 ? spring((t - 250) / 1000, 0.55) : 0;                   // elle pousse, avec un petit rebond
-    const open = EASE_OUT(prog(t, 250, 450));
-    const w = prog(t, 700, 1000);
-    const wave = Math.sin(4 * Math.PI * w) * smooth(0, 0.12, w) * (1 - smooth(0.85, 1, w));
-    const bob = Math.sin(Math.PI * prog(t, 250, 400));                          // la figue se redresse un peu
-    const P = { k: 1, tilt: 0, curl: 0, sx: 1 - 0.015 * bob, sy: 1 + 0.03 * bob, lean: -0.025 * wave };
-    drawFig(P);
-    drawFeuille(P, s, -15 - 30 * open - 26 * wave);
-  }
+    textsAt(t);
+    const tiltIn = EASE_IN_OUT(prog(t, 250, 380)) * (1 - EASE_IN_OUT(prog(t, 650, 300)));
+    const sh = EASE_OUT(prog(t, 650, 260)) * (1 - spring((t - 1150) / 1000));
+    drawFig({ k: 1 + 0.05 * tiltIn - 0.2 * sh, tilt: -0.3 * tiltIn, curl: 0, arm: 0, sh: 22 * sh, sx: 1 + 0.02 * sh, sy: 1 + 0.02 * sh, lean: -0.07 * tiltIn });
+  },
+  still() {}
 };
-// Le photomaton (contribution photo seulement) : trois poses, trois clics, puis la bande de photos.
-// Les flashs sont espacés de 0,6 s : jamais plus de deux par seconde (WCAG 2.3.1).
-const FLASHS = [600, 1200, 1800];
-const PHOTOMATON = {
-  duration: 3000,
-  beats: [
-    [0, 'Le titre s’affiche ; un viseur cadre la figue.'],
-    [250, 'Première pose : penchée, le bras levé.'],
-    [600, 'Clic : un petit flash ; elle cligne.'],
-    [850, 'Deuxième pose : accroupie, penchée à droite. Clic.'],
-    [1450, 'Troisième pose, toute droite. Clic.'],
-    [2050, 'Elle se repose ; le viseur s’efface.'],
-    [2250, 'La bande des trois photos tombe à côté d’elle.'],
-    [3000, 'Fin : l’image reste fixe.']
-  ],
-  render(t) {
-    textsAt(t, 0);
-    const v = EASE_OUT(prog(t, 100, 300)), vOut = EASE_OUT(prog(t, 2050, 250));
-    viseur.setAttribute('opacity', (v * (1 - vOut)).toFixed(3));
-    viseur.setAttribute('transform', 'translate(195 141) scale(' + (1.06 - 0.06 * v).toFixed(4) + ') translate(-195 -141)');
-    let q = 0, squint = 0;
-    for (const tf of FLASHS) {
-      const f = prog(t, tf, 380), b = prog(t, tf, 220);
-      if (f > 0 && f < 1) q = f;
-      if (b > 0 && b < 1) squint = Math.sin(b * Math.PI);
-    }
-    drawFlash(q);
-    let P = blendPose(REST, POSES[0], EASE_OUT(prog(t, 250, 250)));
-    P = blendPose(P, POSES[1], EASE_OUT(prog(t, 850, 250)));
-    P = blendPose(P, POSES[2], EASE_OUT(prog(t, 1450, 250)));
-    P = blendPose(P, REST, spring((t - 2050) / 1000));
-    P.sy *= 1 - 0.08 * squint;
-    P.sx *= 1 + 0.03 * squint;
-    drawFig(P);
-    drawBande(EASE_OUT(prog(t, 2250, 200)), -18 * (1 - spring((t - 2250) / 1000)));
-  }
-};
-const PISTES = {
-  chapeau: { signalement: TIMELINES.signalement.normal, photo: TIMELINES.photo.normal },
-  tampon: { signalement: TAMPON, photo: TAMPON },
-  tamponbis: { signalement: TAMPON_BIS, photo: TAMPON_BIS },
-  feuille: { signalement: FEUILLE, photo: FEUILLE },
-  photomaton: { photo: PHOTOMATON }
-};
+const PISTES = { presentations: PRESENTATIONS, tiroir: TIROIR, epaules: EPAULES };
 
 // Mouvement réduit : rien ne bouge, l'image finale de la piste apparaît en fondu.
 function reduit(piste) {
-  const extra = { feuille: 'la feuille', photomaton: 'la bande de photos' }[piste];  // la lettre du tampon est déjà partie
+  const extra = { presentations: 'le flacon', tiroir: 'le fichier' }[piste];
   return {
     duration: 600,
     beats: [
@@ -882,36 +624,33 @@ function reduit(piste) {
       [600, 'Fin : l’image reste fixe.']
     ],
     render(t) {
-      textsAt(t, 0, true);
+      textsAt(t, true);
       const o = EASE_OUT(prog(t, 0, 300));
-      figLive.setAttribute('opacity', o.toFixed(3));
+      PISTES[piste].still();
       drawFig(REST);
-      if (piste === 'feuille') { drawFeuille(REST, 1, -45); feuille.setAttribute('opacity', o.toFixed(3)); }
-      if (piste === 'photomaton') drawBande(o, 0);
+      figLive.setAttribute('opacity', o.toFixed(3));
+      if (piste === 'presentations') flacon.setAttribute('opacity', o.toFixed(3));
+      if (piste === 'tiroir') drawBoite(o);
     }
   };
 }
-const REDUITS = Object.fromEntries(['chapeau', 'tampon', 'tamponbis', 'feuille', 'photomaton', 'support'].map(p => [p, reduit(p)]));
+const REDUITS = Object.fromEntries(Object.keys(PISTES).map(p => [p, reduit(p)]));
 
 /* ---------- État de la maquette ---------- */
 const params = new URLSearchParams(location.search);
-const FORMS = ['signalement', 'photo', 'support'];
 const state = {
-  form: FORMS.includes(params.get('formulaire')) ? params.get('formulaire') : 'signalement',
+  piste: Object.keys(PISTES).includes(params.get('piste')) ? params.get('piste') : 'presentations',
   speed: 1,
-  text: params.get('texte') === 'humour' ? 'humour' : 'sobre',
+  contrib: params.get('contribution') === 'off' ? 'off' : 'on',
+  premier: params.get('premier') === 'oui' ? 'oui' : 'non',
   motion: params.get('mouvement') === 'reduit' ? 'reduit' : params.get('mouvement') === 'normal' ? 'normal' : 'systeme',
   notes: params.get('notes') === 'off' ? 'off' : 'on',
-  piste: ['chapeau', 'tampon', 'tamponbis', 'feuille', 'photomaton'].includes(params.get('piste')) ? params.get('piste') : 'chapeau',
   t: 0,
   playing: true
 };
-if (state.piste === 'photomaton' && state.form !== 'photo') state.piste = 'chapeau';
 const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 const reduced = () => state.motion === 'reduit' || (state.motion === 'systeme' && mqReduce.matches);
-// La piste en vigueur : le support reste sobre ; le photomaton ne vaut que pour les photos.
-const piste = () => (state.form === 'support' ? 'support' : state.piste === 'photomaton' && state.form !== 'photo' ? 'chapeau' : state.piste);
-const timeline = () => (reduced() ? REDUITS[piste()] : piste() === 'support' ? TIMELINES.support.normal : PISTES[piste()][state.form]);
+const timeline = () => (reduced() ? REDUITS[state.piste] : PISTES[state.piste]);
 
 const scrub = ROOT.getElementById('scrub');
 const scrubOut = ROOT.getElementById('scrubOut');
@@ -920,21 +659,10 @@ const beatsEl = ROOT.getElementById('beats');
 const fmt = ms => (ms / 1000).toFixed(2).replace('.', ',') + ' s';
 
 function applyTexts() {
-  const T = TEXTS[state.form];
-  const v = T[state.text] || T.sobre;
-  els.title.textContent = (T[state.text] && TITRES_HUMOUR[piste()]?.[state.form]) || v.title;
-  els.body.textContent = v.body;
-  els.sub.textContent = v.sub || '';
-  els.sub.hidden = !v.sub;
-  els.tag.textContent = v.tag;
-  els.second.hidden = state.form !== 'photo';
-  els.note.textContent = T.note;
-  els.texteNote.hidden = state.form !== 'support';
-  for (const b of ROOT.querySelectorAll('.seg[data-key="text"] button')) b.disabled = state.form === 'support';
-  for (const b of ROOT.querySelectorAll('.seg[data-key="piste"] button')) b.disabled = state.form === 'support' || (b.dataset.val === 'photomaton' && state.form !== 'photo');
+  els.contrib.hidden = state.contrib === 'off';
+  els.premier.hidden = state.premier !== 'oui';
   els.screen.classList.toggle('hidden-notes', state.notes === 'off');
   els.screen.classList.toggle('rm', reduced());
-  figLive.setAttribute('opacity', 1);
 }
 function applyBeats() {
   beatsEl.innerHTML = '';
@@ -1006,8 +734,7 @@ for (const seg of ROOT.querySelectorAll('.seg')) {
     if (!b || b.disabled) return;
     const key = seg.dataset.key;
     state[key] = key === 'speed' ? +b.dataset.val : b.dataset.val;
-    if (key === 'form' && state.form !== 'photo' && state.piste === 'photomaton') state.piste = 'chapeau';
-    if (key === 'speed' || key === 'notes' || key === 'text') {
+    if (key === 'speed' || key === 'notes' || key === 'contrib' || key === 'premier') {
       applyTexts();
       syncControls();
       render();
