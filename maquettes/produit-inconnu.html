@@ -9,13 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
 /*
-  Ficolia — maquette animée de l'écran « produit inconnu », trois pistes à comparer.
+  Ficolia — maquette animée de l'écran « produit inconnu », quatre pistes à comparer.
   Écran d'échec : ni feu vert, ni alerte, et cela vaut pour l'humeur et la couleur de la figue
   (FICOLIA_DESIGN.md §4). La figue est neutre, sans cercle, comme sur la connexion insuffisante.
   Le titre est acté (D-113 B3) : l'humour passe par le geste, jamais par le texte.
   Les présentations : la figue tend la main à un flacon inconnu, en pointillés ; il ne répond pas.
   Le tiroir vide : elle plonge tête la première dans le fichier, et en ressort avec une fiche blanche.
   Le haussement d'épaules : elle penche la tête, puis hausse les épaules.
+  Les lunettes : elle chausse des lunettes pour lire le code, les essuie, les remet : rien.
   Tout est proposition (FICOLIA_DESIGN.md §3).
 */
 :root{
@@ -126,6 +127,8 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
             <svg viewBox="0 0 390 228" aria-hidden="true" focusable="false">
               <!-- Les présentations : le flacon inconnu, en pointillés -->
               <g id="flacon" fill="none" stroke="#B3A6B0" stroke-linecap="round" stroke-linejoin="round" opacity="0"></g>
+              <!-- Les lunettes : l'étiquette à code-barres qu'elle essaie de lire -->
+              <g id="etiquette" opacity="0"></g>
               <!-- Le tiroir vide : le fond du fichier et ses fiches -->
               <g id="boiteFond" opacity="0"></g>
               <g id="figSpace" transform="translate(127.8 62) scale(0.6)">
@@ -133,6 +136,8 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
                   <g id="figLive"></g>
                   <!-- La fiche blanche qu'elle ramène au bout de sa queue -->
                   <g id="fiche" opacity="0"></g>
+                  <!-- Ses lunettes rondes -->
+                  <g id="lunettes" opacity="0"></g>
                 </g>
               </g>
               <!-- Le devant du fichier, devant la figue quand elle y plonge -->
@@ -194,7 +199,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
       <h2>Produit inconnu</h2>
-      <p class="lead">Trois pistes à comparer. Figue neutre et sans cercle, comme sur la connexion : ni feu vert, ni alerte.</p>
+      <p class="lead">Quatre pistes à comparer. Figue neutre et sans cercle, comme sur la connexion : ni feu vert, ni alerte.</p>
     </div>
 
     <div class="group">
@@ -203,6 +208,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
         <button type="button" data-val="presentations">Les présentations</button>
         <button type="button" data-val="tiroir">Le tiroir vide</button>
         <button type="button" data-val="epaules">Le haussement d'épaules</button>
+        <button type="button" data-val="lunettes">Les lunettes</button>
       </div>
     </div>
 
@@ -479,6 +485,34 @@ function drawVolee(el, u, side, reach) {
   el.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${(side * 260 * u).toFixed(1)})`);
 }
 
+/* ---------- Les lunettes : l'étiquette à code-barres, les lunettes rondes ---------- */
+const etiquette = ROOT.getElementById('etiquette');
+const lunettes = ROOT.getElementById('lunettes');
+(() => {
+  // L'étiquette, posée à côté d'elle : des barres, et la ligne des chiffres.
+  svgEl('rect', { x: 220, y: 126, width: 66, height: 52, rx: 5, fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 2.2 }, etiquette);
+  let x = 230;
+  for (const w of [2, 1, 3, 1, 1, 2, 3, 1, 2, 1, 1, 3, 2, 1, 2, 1, 3, 1]) {
+    if (x + w > 277) break;
+    svgEl('rect', { x, y: 134, width: w, height: 28, fill: TRAIT }, etiquette);
+    x += w + 1.6;
+  }
+  svgEl('path', { d: 'M231 169h45', stroke: TRAIT, 'stroke-width': 2.4, 'stroke-dasharray': '3 2.5' }, etiquette);
+  // Les lunettes, à l'échelle du symbole, centrées sur le pont.
+  svgEl('circle', { cx: -24, cy: 0, r: 20, fill: '#FFFFFF', 'fill-opacity': 0.55, stroke: '#6E5A6B', 'stroke-width': 5 }, lunettes);
+  svgEl('circle', { cx: 24, cy: 0, r: 20, fill: '#FFFFFF', 'fill-opacity': 0.55, stroke: '#6E5A6B', 'stroke-width': 5 }, lunettes);
+  svgEl('path', { d: 'M-5 -3Q0 -9 5 -3M-44 -3L-53 -9M44 -3L53 -9', fill: 'none', stroke: '#6E5A6B', 'stroke-width': 5, 'stroke-linecap': 'round' }, lunettes);
+})();
+// Les lunettes, entre le bout de la queue (onFace = 0) et le visage (onFace = 1) ; deg : en plus de la pose.
+function drawLunettes(P, s, onFace, deg, drop) {
+  warp(112, 122, P);
+  const fx = WX, fy = WY;
+  warp(TIP.x, TIP.y + 4, P);
+  const tx = WX, ty = WY - 6;
+  lunettes.setAttribute('opacity', s > 0 ? 1 : 0);
+  lunettes.setAttribute('transform', `translate(${mix(tx, fx, onFace).toFixed(1)} ${(mix(ty, fy, onFace) + drop).toFixed(1)}) rotate(${(P.lean * 180 / Math.PI * onFace + deg).toFixed(2)}) scale(${s.toFixed(4)})`);
+}
+
 // Chaque image repart de zéro : chaque déroulé n'allume que ce dont il a besoin.
 function clearExtras() {
   figLive.setAttribute('opacity', 1);
@@ -487,6 +521,8 @@ function clearExtras() {
   drawBoite(0);
   for (const el of volees.children) el.setAttribute('opacity', 0);
   fiche.setAttribute('opacity', 0);
+  etiquette.setAttribute('opacity', 0);
+  lunettes.setAttribute('opacity', 0);
 }
 
 /* ---------- Textes ---------- */
@@ -612,11 +648,54 @@ const EPAULES = {
   },
   still() {}
 };
-const PISTES = { presentations: PRESENTATIONS, tiroir: TIROIR, epaules: EPAULES };
+// Les lunettes : une étiquette à code-barres à côté d'elle. Elle chausse des lunettes rondes, se penche
+// vers le code : rien. Elle les enlève, les essuie, les remet, se penche encore : toujours rien.
+const LUNETTES = {
+  duration: 3300,
+  home: -44,
+  beats: [
+    [0, 'Le titre s’affiche ; une étiquette à code-barres paraît à côté de la figue.'],
+    [300, 'Des lunettes rondes apparaissent au bout de sa queue.'],
+    [700, 'Elle les chausse.'],
+    [1050, 'Elle se penche vers le code… rien.'],
+    [1500, 'Elle les enlève et les essuie.'],
+    [2150, 'Elle les remet, se penche encore… toujours rien.'],
+    [2850, 'Elle se redresse ; ses lunettes ont un peu glissé.'],
+    [3300, 'Fin : l’image reste fixe.']
+  ],
+  render(t) {
+    textsAt(t);
+    placeFig(this.home, 0, 0);
+    etiquette.setAttribute('opacity', EASE_OUT(prog(t, 0, 400)).toFixed(3));
+    const pop = t >= 300 ? spring((t - 300) / 1000, 0.55) : 0;                // elles apparaissent, avec un petit rebond
+    const hold1 = EASE_IN_OUT(prog(t, 250, 300)) * (1 - EASE_IN_OUT(prog(t, 700, 300)));   // la queue les tient en l'air
+    const hold2 = EASE_IN_OUT(prog(t, 1500, 250)) * (1 - EASE_IN_OUT(prog(t, 2150, 280)));
+    const onFace = EASE_IN_OUT(prog(t, 700, 350)) * (1 - EASE_IN_OUT(prog(t, 1500, 250))) + EASE_IN_OUT(prog(t, 2150, 280));
+    const peer = EASE_IN_OUT(prog(t, 1050, 300)) * (1 - EASE_IN_OUT(prog(t, 1380, 250)))
+               + EASE_IN_OUT(prog(t, 2400, 300)) * (1 - EASE_IN_OUT(prog(t, 2800, 300)));   // elle se penche vers le code
+    const w = prog(t, 1700, 450);
+    const wipe = w > 0 && w < 1 ? Math.sin(6 * Math.PI * w) * Math.sin(Math.PI * w) : 0;   // elle les essuie
+    const slip = EASE_OUT(prog(t, 2850, 300));                                 // elles glissent un peu de travers
+    const sigh = bump(t, 2850, 500);
+    const P = {
+      k: 1 + 0.2 * (hold1 + hold2), tilt: 0, curl: 0, arm: 0.12 * wipe, sh: 0,
+      sx: 1 - 0.02 * peer + 0.02 * sigh, sy: 1 + 0.02 * peer - 0.04 * sigh,
+      lean: 0.11 * peer
+    };
+    drawFig(P);
+    drawLunettes(P, pop, onFace, 14 * wipe + 9 * slip, 5 * slip);
+  },
+  still() {
+    placeFig(this.home, 0, 0);
+    etiquette.setAttribute('opacity', 1);
+    drawLunettes(REST, 1, 1, 9, 5);
+  }
+};
+const PISTES = { presentations: PRESENTATIONS, tiroir: TIROIR, epaules: EPAULES, lunettes: LUNETTES };
 
 // Mouvement réduit : rien ne bouge, l'image finale de la piste apparaît en fondu.
 function reduit(piste) {
-  const extra = { presentations: 'le flacon', tiroir: 'le fichier' }[piste];
+  const extra = { presentations: 'le flacon', tiroir: 'le fichier', lunettes: 'ses lunettes, l’étiquette' }[piste];
   return {
     duration: 600,
     beats: [
@@ -631,6 +710,7 @@ function reduit(piste) {
       figLive.setAttribute('opacity', o.toFixed(3));
       if (piste === 'presentations') flacon.setAttribute('opacity', o.toFixed(3));
       if (piste === 'tiroir') drawBoite(o);
+      if (piste === 'lunettes') { etiquette.setAttribute('opacity', o.toFixed(3)); lunettes.setAttribute('opacity', o.toFixed(3)); }
     }
   };
 }
