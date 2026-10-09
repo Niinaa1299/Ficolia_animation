@@ -13,8 +13,9 @@
   Fil commun : la queue de la figue est son bras. Elle tire son chapeau pour remercier.
   Signalement : le coup de chapeau. Contribution photo : clic, puis le coup de chapeau.
   Support : sobre, sans humour (porteuse, 09/10) ; la figue s'incline une fois, lentement.
-  Trois autres pistes à comparer au coup de chapeau (porteuse, 09/10) : le tampon, la feuille
-  qui salue, le photomaton (contribution photo seulement). Le support reste sobre dans tous les cas.
+  Trois autres pistes à comparer au coup de chapeau (porteuse, 09/10) : le tampon (elle oblitère
+  le timbre d'une lettre, qui s'envole), la feuille qui salue, le photomaton (contribution photo
+  seulement). Le support reste sobre dans tous les cas.
   Tout est proposition (FICOLIA_DESIGN.md §3).
 */
 :root{
@@ -114,8 +115,8 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
               <g id="viseur" fill="none" stroke="#4C2944" stroke-width="2.4" stroke-linecap="round" opacity="0"></g>
               <!-- Les rayons du flash : un seul éclair, jamais répété (WCAG 2.3.1) -->
               <g id="flash" stroke="#4C2944" stroke-width="2.4" stroke-linecap="round" opacity="0"></g>
-              <!-- Piste « tampon » : le cachet que laisse la figue -->
-              <g id="cachet" fill="none" stroke="#4C2944" opacity="0"></g>
+              <!-- Piste « tampon » : la lettre, son timbre, le cachet que la figue y imprime -->
+              <g id="lettre" opacity="0"></g>
               <!-- Piste « photomaton » : la bande des trois photos -->
               <g id="bande" opacity="0"></g>
               <g id="figSpace" transform="translate(121.1 62) scale(0.66)">
@@ -444,9 +445,9 @@ function drawFlash(q) {
   flash.setAttribute('opacity', (q < 0.15 ? q / 0.15 : (1 - q) / 0.85).toFixed(3));
 }
 
-/* ---------- Les autres pistes : le cachet, la feuille, la bande de photos ---------- */
+/* ---------- Les autres pistes : la lettre, la feuille, la bande de photos ---------- */
 const figMove = ROOT.getElementById('figMove');
-const cachet = ROOT.getElementById('cachet');
+const lettre = ROOT.getElementById('lettre');
 const feuille = ROOT.getElementById('feuille');
 const bande = ROOT.getElementById('bande');
 const S = 0.66;  // échelle de la figue dans l'illustration (figSpace)
@@ -456,7 +457,7 @@ function svgEl(tag, attrs, parent) {
   parent.appendChild(el);
   return el;
 }
-// Le symbole en petit, dans une pose : sa silhouette d'une seule encre (cachet), ou entier aux couleurs de la marque (photos).
+// Le symbole en petit, dans une pose : sa silhouette d'une seule couleur (timbre), ou entier aux couleurs de la marque (photos).
 function miniFig(parent, P, ink) {
   for (const s of SOURCES) {
     if (ink && s.role !== 'peau') continue;
@@ -464,18 +465,36 @@ function miniFig(parent, P, ink) {
   }
 }
 
-// Le cachet : double cercle, la figue au centre, trois lignes d'oblitération. L'encre est un peu inégale.
-const CACHET = { x: 298, y: 192, r: 34, angle: -10 };
-(() => {
-  svgEl('circle', { r: CACHET.r, 'stroke-width': 2.6, 'stroke-dasharray': '58 3 40 2 66 4 31 2.5' }, cachet);
-  svgEl('circle', { r: CACHET.r - 6, 'stroke-width': 1.3 }, cachet);
-  miniFig(svgEl('g', { transform: 'scale(0.15) translate(-106 -127)', stroke: 'none' }, cachet), REST, '#4C2944');
-  for (const y of [-11, 0, 11]) svgEl('path', { d: `M${CACHET.r + 4} ${y}q6 -4.5 12 0t12 0t12 0`, 'stroke-width': 2, 'stroke-linecap': 'round' }, cachet);
+// La lettre, vue de face : l'adresse, le timbre à l'effigie de la figue, et le cachet que la figue y imprime.
+// Coordonnées locales centrées sur la lettre ; LETTRE donne sa place au repos dans l'illustration.
+const LETTRE = { x: 240, y: 178, angle: -4, scale: 0.82 };
+const lettreCachet = (() => {
+  svgEl('rect', { x: -90, y: -58, width: 180, height: 116, rx: 6, fill: '#FFFFFF', stroke: '#4C2944', 'stroke-width': 2.2 }, lettre);
+  svgEl('path', { d: 'M-62 14h70M-62 28h56M-62 42h40', fill: 'none', stroke: '#D6CEC6', 'stroke-width': 4, 'stroke-linecap': 'round' }, lettre);
+  // Le timbre : vert pistache, bord dentelé (pointillés blancs), la figue en silhouette blanche.
+  svgEl('rect', { x: 50, y: -48, width: 28, height: 34, fill: '#9EBE59' }, lettre);
+  svgEl('rect', { x: 50, y: -48, width: 28, height: 34, fill: 'none', stroke: '#FFFFFF', 'stroke-width': 3, 'stroke-dasharray': '2.4 2.4' }, lettre);
+  miniFig(svgEl('g', { transform: 'translate(64 -31) scale(0.085) translate(-106 -127)' }, lettre), REST, '#FFFFFF');
+  // Le cachet : cercle à l'encre un peu inégale, la date en deux traits, trois lignes d'oblitération sur le timbre.
+  const c = svgEl('g', { fill: 'none', stroke: '#4C2944', 'stroke-linecap': 'round', opacity: 0 }, lettre);
+  svgEl('circle', { cx: 44, cy: -22, r: 19, 'stroke-width': 2.2, 'stroke-dasharray': '30 2.5 22 2 40 3 20 2' }, c);
+  svgEl('circle', { cx: 44, cy: -22, r: 15, 'stroke-width': 1.1 }, c);
+  svgEl('path', { d: 'M36 -25h16M38 -19h12', 'stroke-width': 1.6 }, c);
+  for (const y of [-40, -33, -26]) svgEl('path', { d: `M58 ${y}q6.5 -4 13 0t13 0`, 'stroke-width': 1.8 }, c);
+  return c;
 })();
-function drawCachet(q) {  // q : de 0 à 1, l'encre se dépose
-  cachet.setAttribute('opacity', (0.85 * q).toFixed(3));
-  cachet.setAttribute('transform', `translate(${CACHET.x} ${CACHET.y}) rotate(${CACHET.angle}) scale(${(1 + 0.06 * (1 - q)).toFixed(4)})`);
+// La lettre, déplacée de (dx, dy), tournée de deg en plus, à l'échelle sc ; q : l'encre du cachet, de 0 à 1.
+function drawLettre(o, dx, dy, deg, sc, q) {
+  lettre.setAttribute('opacity', o.toFixed(3));
+  lettre.setAttribute('transform', `translate(${(LETTRE.x + dx).toFixed(2)} ${(LETTRE.y + dy).toFixed(2)}) rotate(${(LETTRE.angle + deg).toFixed(2)}) scale(${(LETTRE.scale * sc).toFixed(4)})`);
+  lettreCachet.setAttribute('opacity', (0.88 * q).toFixed(3));
 }
+// Où la figue atterrit : le milieu de sa chair sur le timbre (décalage depuis sa place, en pixels de l'illustration).
+const ATTERRISSAGE = (() => {
+  const a = LETTRE.angle * Math.PI / 180, lx = 56 * LETTRE.scale, ly = -28 * LETTRE.scale;   // entre le cachet et le timbre
+  const tx = LETTRE.x + lx * Math.cos(a) - ly * Math.sin(a), ty = LETTRE.y + lx * Math.sin(a) + ly * Math.cos(a);
+  return { x: tx - (121.1 + 112 * S), y: ty - (62 + 160 * S) };
+})();
 
 // La feuille de figuier : trois lobes, comme une main. Elle pousse sur la queue.
 (() => {
@@ -517,7 +536,7 @@ function clearExtras() {
   figMove.removeAttribute('transform');
   viseur.setAttribute('opacity', 0);
   drawFlash(0);
-  drawCachet(0);
+  lettre.setAttribute('opacity', 0);
   feuille.setAttribute('opacity', 0);
   bande.setAttribute('opacity', 0);
 }
@@ -655,43 +674,62 @@ const TIMELINES = {
   }
 };
 /* ---------- Les trois autres pistes ---------- */
-// Le tampon : elle saute à droite, retombe comme un tampon, appuie, et revient. Le cachet reste.
-const TAMPON_RETOUR = 24;  // elle revient un peu à gauche de sa place : le cachet a de l'air
+// Le tampon : elle fait un pas de côté, une lettre glisse à sa place ; elle vise le timbre, bondit,
+// retombe dessus comme un tampon, appuie, et revient à sa place. La lettre, oblitérée, s'envole.
 const TAMPON = {
-  duration: 2200,
+  duration: 3300,
   beats: [
     [0, 'Le titre s’affiche ; la figue est là.'],
-    [250, 'Elle prend son élan.'],
-    [450, 'Elle saute à droite…'],
-    [760, '… et retombe comme un tampon : le cachet s’imprime.'],
-    [850, 'Elle appuie bien, d’un côté puis de l’autre.'],
-    [1200, 'Elle revient d’un bond, un peu à gauche ; le cachet reste.'],
-    [2200, 'Fin : l’image reste fixe.']
+    [200, 'Elle fait un pas de côté ; une lettre glisse à sa place.'],
+    [700, 'Elle vise le timbre…'],
+    [850, '… bondit…'],
+    [1150, '… et retombe dessus comme un tampon : le cachet s’imprime.'],
+    [1230, 'Elle appuie bien, d’un côté puis de l’autre.'],
+    [1500, 'Elle revient d’un bond à sa place : le timbre est oblitéré.'],
+    [1780, 'La lettre s’envole.'],
+    [2250, 'Elle la regarde partir.'],
+    [3300, 'Fin : l’image reste fixe.']
   ],
   render(t) {
     textsAt(t, 0);
-    const a = EASE_IN_OUT(prog(t, 250, 200));                                  // elle se tasse
-    const up = EASE_OUT(prog(t, 450, 190)), down = EASE_IN_QUAD(prog(t, 640, 120));
-    const go = prog(t, 450, 310), back = prog(t, 1200, 350);
-    const airGo = t < 760 ? Math.sin(Math.PI * go) : 0, airBack = Math.sin(Math.PI * back);
-    const fall = t < 760 ? prog(t, 640, 120) : 0;                              // elle s'étire en tombant
-    const imp = t >= 760 ? 1 - spring((t - 760) / 1000) : 0;                   // le choc du tampon
-    const imp2 = t >= 1550 ? 1 - spring((t - 1550) / 1000) : 0;                // l'atterrissage, à sa place
-    const press = EASE_OUT(prog(t, 760, 100)) * (1 - EASE_OUT(prog(t, 1150, 120)));
-    const rk = prog(t, 850, 300);
+    const TI = 1150, TB = 1500, TL = TB + 420;                                 // le choc ; le départ ; l'atterrissage
+    const L = ATTERRISSAGE;
+    const step = prog(t, 200, 380), hop = Math.sin(Math.PI * step);            // le pas de côté
+    const aim = EASE_IN_OUT(prog(t, 700, 150)) * (1 - EASE_OUT(prog(t, 850, 150)));  // elle se tasse et vise
+    const up = EASE_OUT(prog(t, 850, 170)), down = EASE_IN_QUAD(prog(t, 1030, 120));
+    const go = EASE_IN_OUT(prog(t, 850, 300));
+    const back = prog(t, TB, 420), backE = EASE_OUT(back);                     // elle s'écarte vite : on voit le cachet
+    const air = t >= 850 && t < TI ? Math.sin(Math.PI * prog(t, 850, 300)) : 0, airBack = Math.sin(Math.PI * back);
+    const fall = t < TI ? prog(t, 1030, 120) : 0;                              // elle s'étire en tombant
+    const imp = t >= TI ? 1 - spring((t - TI) / 1000) : 0;                     // le choc du tampon
+    const imp2 = t >= TL ? 1 - spring((t - TL) / 1000) : 0;                    // l'atterrissage, à sa place
+    const press = EASE_OUT(prog(t, TI, 100)) * (1 - EASE_OUT(prog(t, TB - 30, 120)));
+    const rk = prog(t, 1230, 300);
     const rock = rk > 0 && rk < 1 ? Math.sin(2 * Math.PI * rk) : 0;           // elle appuie d'un côté, puis de l'autre
-    const x = 104 * EASE_IN_OUT(prog(t, 450, 280)) - (104 + TAMPON_RETOUR) * EASE_IN_OUT(back);
-    const y = t < 760 ? -46 * up * (1 - down) : -30 * 4 * back * (1 - back);
+    const look = EASE_IN_OUT(prog(t, 2250, 350)) * (1 - EASE_IN_OUT(prog(t, 2800, 450)));  // elle regarde la lettre partir
+    const x = t < TB ? mix(-95 * EASE_IN_OUT(step), L.x, go) : mix(L.x, 0, backE);
+    const y = t < 850 ? -24 * hop : t < TI ? mix(-75 * up, L.y, down) : mix(L.y, 0, backE) - 36 * airBack;
     figMove.setAttribute('transform', `translate(${(x / S).toFixed(2)} ${(y / S).toFixed(2)})`);
     drawFig({
-      k: 1,
-      tilt: -0.25 * airGo + 0.2 * airBack + 0.15 * imp,                       // la queue traîne, puis retombe
+      k: 1 + 0.15 * look,
+      tilt: -0.15 * hop - 0.2 * air + 0.2 * airBack + 0.15 * imp + 0.25 * look,  // la queue traîne ; puis elle pointe la lettre
       curl: 0,
-      sx: 1 + 0.05 * a * (1 - up) - 0.03 * (airGo + airBack) + 0.1 * imp + 0.03 * press + 0.05 * imp2,
-      sy: 1 - 0.09 * a * (1 - up) + 0.07 * airGo + 0.05 * airBack + 0.08 * fall - 0.16 * imp - 0.05 * press - 0.08 * imp2,
-      lean: 0.08 * airGo - 0.06 * airBack + 0.05 * rock
+      sx: 1 + 0.05 * aim - 0.03 * (hop + air + airBack) + 0.1 * imp + 0.03 * press + 0.05 * imp2,
+      sy: 1 - 0.09 * aim + 0.04 * hop + 0.06 * air + 0.05 * airBack + 0.08 * fall - 0.16 * imp - 0.05 * press - 0.08 * imp2,
+      lean: -0.05 * hop + 0.06 * aim + 0.04 * air - 0.06 * airBack + 0.05 * rock + 0.07 * look
     });
-    drawCachet(t >= 760 ? EASE_OUT(prog(t, 760, 120)) : 0);
+    // La lettre : elle glisse depuis la droite, encaisse le choc, puis s'envole en haut à droite en voletant.
+    const slide = EASE_OUT(prog(t, 280, 480));
+    const u = prog(t, 1780, 650);
+    const dip = 3 * Math.sin(Math.PI * prog(t, 1690, 120));                    // un petit appel avant l'envol
+    drawLettre(
+      t < 280 ? 0 : 1 - smooth(0.85, 1, u),
+      300 * (1 - slide) + 240 * Math.pow(u, 2.2),
+      3 * imp + dip - 240 * Math.pow(u, 1.6),
+      10 * (1 - slide) + 22 * Math.pow(u, 1.5) + 7 * Math.sin(3 * Math.PI * u) * (1 - u),
+      1 - 0.4 * u,
+      t >= TI ? EASE_OUT(prog(t, TI, 120)) : 0
+    );
   }
 };
 // La feuille qui salue : une feuille pousse sur la queue et fait deux allers-retours.
@@ -762,7 +800,7 @@ const PISTES = {
 
 // Mouvement réduit : rien ne bouge, l'image finale de la piste apparaît en fondu.
 function reduit(piste) {
-  const extra = { tampon: 'le cachet', feuille: 'la feuille', photomaton: 'la bande de photos' }[piste];
+  const extra = { feuille: 'la feuille', photomaton: 'la bande de photos' }[piste];  // la lettre du tampon est déjà partie
   return {
     duration: 600,
     beats: [
@@ -774,11 +812,6 @@ function reduit(piste) {
       const o = EASE_OUT(prog(t, 0, 300));
       figLive.setAttribute('opacity', o.toFixed(3));
       drawFig(REST);
-      if (piste === 'tampon') {
-        figMove.setAttribute('transform', `translate(${(-TAMPON_RETOUR / S).toFixed(2)} 0)`);
-        drawCachet(1);
-        cachet.setAttribute('opacity', (0.85 * o).toFixed(3));
-      }
       if (piste === 'feuille') { drawFeuille(REST, 1, -45); feuille.setAttribute('opacity', o.toFixed(3)); }
       if (piste === 'photomaton') drawBande(o, 0);
     }
