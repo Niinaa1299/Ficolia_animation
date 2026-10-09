@@ -13,6 +13,8 @@
   Fil commun : la queue de la figue est son bras. Elle tire son chapeau pour remercier.
   Signalement : le coup de chapeau. Contribution photo : clic, puis le coup de chapeau.
   Support : sobre, sans humour (porteuse, 09/10) ; la figue s'incline une fois, lentement.
+  Trois autres pistes à comparer au coup de chapeau (porteuse, 09/10) : le tampon, la feuille
+  qui salue, le photomaton (contribution photo seulement). Le support reste sobre dans tous les cas.
   Tout est proposition (FICOLIA_DESIGN.md §3).
 */
 :root{
@@ -112,8 +114,16 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
               <g id="viseur" fill="none" stroke="#4C2944" stroke-width="2.4" stroke-linecap="round" opacity="0"></g>
               <!-- Les rayons du flash : un seul éclair, jamais répété (WCAG 2.3.1) -->
               <g id="flash" stroke="#4C2944" stroke-width="2.4" stroke-linecap="round" opacity="0"></g>
+              <!-- Piste « tampon » : le cachet que laisse la figue -->
+              <g id="cachet" fill="none" stroke="#4C2944" opacity="0"></g>
+              <!-- Piste « photomaton » : la bande des trois photos -->
+              <g id="bande" opacity="0"></g>
               <g id="figSpace" transform="translate(121.1 62) scale(0.66)">
-                <g id="figLive"></g>
+                <g id="figMove">
+                  <!-- Piste « feuille qui salue » : derrière la queue -->
+                  <g id="feuille" opacity="0"></g>
+                  <g id="figLive"></g>
+                </g>
               </g>
             </svg>
           </div>
@@ -166,7 +176,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
       <h2>Formulaire envoyé</h2>
-      <p class="lead">La queue de la figue est son bras : elle tire son chapeau pour remercier. Pour le support, elle s'incline simplement.</p>
+      <p class="lead">Quatre pistes à comparer pour le signalement et les photos ; pour le support, la figue s'incline simplement.</p>
     </div>
 
     <div class="group">
@@ -176,6 +186,17 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
         <button type="button" data-val="photo">Contribution photo</button>
         <button type="button" data-val="support">Support</button>
       </div>
+    </div>
+
+    <div class="group">
+      <span class="label" id="lblPiste">Piste</span>
+      <div class="seg" role="group" aria-labelledby="lblPiste" data-key="piste">
+        <button type="button" data-val="chapeau">Coup de chapeau</button>
+        <button type="button" data-val="tampon">Tampon</button>
+        <button type="button" data-val="feuille">Feuille qui salue</button>
+        <button type="button" data-val="photomaton">Photomaton</button>
+      </div>
+      <p class="small" id="pisteNote">Photomaton : contribution photo seulement. Support : toujours sobre.</p>
     </div>
 
     <div class="group">
@@ -274,6 +295,7 @@ function cubicBezier(p1x, p1y, p2x, p2y) {
 }
 const EASE_OUT = cubicBezier(0.23, 1, 0.32, 1);      // --ease-out
 const EASE_IN_OUT = cubicBezier(0.77, 0, 0.175, 1);  // --ease-in-out
+const EASE_IN_QUAD = cubicBezier(0.11, 0, 0.5, 0);   // la chute : elle accélère jusqu'au choc
 // Ressort amorti, rebond 0,3 (amortissement 0,7) : la queue qui revient en place.
 function spring(sec, zeta = 0.7, w0 = 10) {
   if (sec <= 0) return 0;
@@ -313,6 +335,11 @@ function warp(x, y, P) {
   WY = B.y + ex * s + ey * c;
 }
 const isRest = P => P.k === 1 && P.tilt === 0 && P.curl === 0 && P.sx === 1 && P.sy === 1 && P.lean === 0;
+function blendPose(A, Z, k) {
+  const o = {};
+  for (const key in REST) o[key] = mix(A[key], Z[key], k);
+  return o;
+}
 
 /* ---------- Échantillonnage des tracés ---------- */
 const NS = 'http://www.w3.org/2000/svg';
@@ -339,13 +366,30 @@ function poly(pts, P) {
   }
   return out.join('') + 'Z';
 }
-const COLORS = { peau: '#4C2944', nervure: '#9EBE59', graine: '#9F3542' };
+const COLORS = { chair: '#FFFFFF', peau: '#4C2944', nervure: '#9EBE59', graine: '#9F3542' };
+// La chair : l'enveloppe convexe du contour et de l'arc, sous la queue (en dessous de y = 62,
+// là où la pose ne fait qu'étirer et incliner : ses côtés restent droits).
+function chair() {
+  const pts = [];
+  for (const d of [FIG.contour, FIG.arc]) {
+    const q = sample(d, 2);
+    for (let i = 0; i < q.length; i += 2) if (q[i + 1] >= 62) pts.push([q[i], q[i + 1]]);
+  }
+  pts.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cross = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const lo = [], hi = [];
+  for (const q of pts) { while (lo.length > 1 && cross(lo[lo.length - 2], lo[lo.length - 1], q) <= 0) lo.pop(); lo.push(q); }
+  for (const q of pts.slice().reverse()) { while (hi.length > 1 && cross(hi[hi.length - 2], hi[hi.length - 1], q) <= 0) hi.pop(); hi.push(q); }
+  const hull = lo.slice(0, -1).concat(hi.slice(0, -1));
+  return { d: 'M' + hull.map(q => q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join('L') + 'Z', role: 'chair', pts: Float32Array.from(hull.flat()) };
+}
 const SOURCES = [
   { d: FIG.contour, role: 'peau' },
   { d: FIG.arc, role: 'peau' },
   { d: FIG.veins, role: 'nervure' },
   ...FIG.seeds.map(d => ({ d, role: 'graine' }))
 ].map(s => Object.assign(s, { pts: sample(s.d, 0.8) }));
+SOURCES.unshift(chair());
 const figLive = ROOT.getElementById('figLive');
 const live = SOURCES.map(s => {
   const el = document.createElementNS(NS, 'path');
@@ -400,6 +444,84 @@ function drawFlash(q) {
   flash.setAttribute('opacity', (q < 0.15 ? q / 0.15 : (1 - q) / 0.85).toFixed(3));
 }
 
+/* ---------- Les autres pistes : le cachet, la feuille, la bande de photos ---------- */
+const figMove = ROOT.getElementById('figMove');
+const cachet = ROOT.getElementById('cachet');
+const feuille = ROOT.getElementById('feuille');
+const bande = ROOT.getElementById('bande');
+const S = 0.66;  // échelle de la figue dans l'illustration (figSpace)
+function svgEl(tag, attrs, parent) {
+  const el = document.createElementNS(NS, tag);
+  for (const k in attrs) el.setAttribute(k, attrs[k]);
+  parent.appendChild(el);
+  return el;
+}
+// Le symbole en petit, dans une pose : sa silhouette d'une seule encre (cachet), ou entier aux couleurs de la marque (photos).
+function miniFig(parent, P, ink) {
+  for (const s of SOURCES) {
+    if (ink && s.role !== 'peau') continue;
+    svgEl('path', { d: isRest(P) ? s.d : poly(s.pts, P), fill: ink || COLORS[s.role] }, parent);
+  }
+}
+
+// Le cachet : double cercle, la figue au centre, trois lignes d'oblitération. L'encre est un peu inégale.
+const CACHET = { x: 298, y: 192, r: 34, angle: -10 };
+(() => {
+  svgEl('circle', { r: CACHET.r, 'stroke-width': 2.6, 'stroke-dasharray': '58 3 40 2 66 4 31 2.5' }, cachet);
+  svgEl('circle', { r: CACHET.r - 6, 'stroke-width': 1.3 }, cachet);
+  miniFig(svgEl('g', { transform: 'scale(0.15) translate(-106 -127)', stroke: 'none' }, cachet), REST, '#4C2944');
+  for (const y of [-11, 0, 11]) svgEl('path', { d: `M${CACHET.r + 4} ${y}q6 -4.5 12 0t12 0t12 0`, 'stroke-width': 2, 'stroke-linecap': 'round' }, cachet);
+})();
+function drawCachet(q) {  // q : de 0 à 1, l'encre se dépose
+  cachet.setAttribute('opacity', (0.85 * q).toFixed(3));
+  cachet.setAttribute('transform', `translate(${CACHET.x} ${CACHET.y}) rotate(${CACHET.angle}) scale(${(1 + 0.06 * (1 - q)).toFixed(4)})`);
+}
+
+// La feuille de figuier : trois lobes, comme une main. Elle pousse sur la queue.
+(() => {
+  svgEl('path', { d: 'M-2 0H16', fill: 'none', stroke: '#9EBE59', 'stroke-width': 4, 'stroke-linecap': 'round' }, feuille);
+  svgEl('path', { d: 'M14 0C16 10 24 22 34 30C40 35 50 36 52 30C54 24 48 16 44 11C52 14 64 14 74 9C83 5 83 -5 74 -9C64 -14 52 -14 44 -11C48 -16 54 -24 52 -30C50 -36 40 -35 34 -30C24 -22 16 -10 14 0Z', fill: '#9EBE59' }, feuille);
+  svgEl('path', { d: 'M16 0H70M18 2Q30 14 44 28M18 -2Q30 -14 44 -28', fill: 'none', stroke: '#FFFFFF', 'stroke-width': 2, 'stroke-linecap': 'round', opacity: 0.85 }, feuille);
+})();
+const FEUILLE_A = { x: 118, y: 26 };  // point d'attache sur la queue (coordonnées du symbole)
+function drawFeuille(P, s, deg) {  // s : taille de 0 à 1 · deg : angle de la feuille
+  warp(FEUILLE_A.x, FEUILLE_A.y, P);
+  feuille.setAttribute('opacity', s > 0 ? 1 : 0);
+  feuille.setAttribute('transform', `translate(${WX.toFixed(1)} ${WY.toFixed(1)}) rotate(${(deg + P.lean * 180 / Math.PI).toFixed(2)}) scale(${(1.1 * s).toFixed(4)})`);
+}
+
+// La bande du photomaton : trois photos, une par pose.
+const POSES = [
+  { k: 1.25, tilt: -0.45, curl: 0, sx: 1.03, sy: 0.97, lean: -0.1 },   // penchée, le bras levé
+  { k: 1.15, tilt: 0.3, curl: 0, sx: 1.07, sy: 0.93, lean: 0.08 },     // accroupie, penchée à droite
+  { k: 1.6, tilt: 0, curl: 0, sx: 0.95, sy: 1.08, lean: 0 }            // toute droite, fière
+];
+const BANDE = { x: 314, y: 52, angle: 5 };
+(() => {
+  svgEl('rect', { x: 1.5, y: 2.5, width: 50, height: 166, rx: 3, fill: '#321C31', opacity: 0.08 }, bande);
+  svgEl('rect', { width: 50, height: 166, rx: 3, fill: '#FFFFFF', stroke: '#E7E1DA' }, bande);
+  POSES.forEach((P, i) => {
+    const y = 5 + 52 * i;
+    svgEl('rect', { x: 5, y, width: 40, height: 46, rx: 1.5, fill: '#E7E1DA' }, bande);
+    miniFig(svgEl('g', { transform: `translate(25 ${y + 43}) scale(0.14) translate(${-B.x} ${-B.y})` }, bande), P);
+  });
+})();
+function drawBande(o, dy) {
+  bande.setAttribute('opacity', o.toFixed(3));
+  bande.setAttribute('transform', `translate(${BANDE.x} ${(BANDE.y + dy).toFixed(2)}) rotate(${BANDE.angle} 25 83)`);
+}
+
+// Chaque image repart de zéro : chaque déroulé n'allume que ce dont il a besoin.
+function clearExtras() {
+  figLive.setAttribute('opacity', 1);
+  figMove.removeAttribute('transform');
+  viseur.setAttribute('opacity', 0);
+  drawFlash(0);
+  drawCachet(0);
+  feuille.setAttribute('opacity', 0);
+  bande.setAttribute('opacity', 0);
+}
+
 /* ---------- Textes ---------- */
 const TEXTS = {
   signalement: {
@@ -409,13 +531,20 @@ const TEXTS = {
   },
   photo: {
     sobre: { title: 'Photos envoyées', body: 'Merci pour votre aide.', sub: 'Si le produit est publié, vous le retrouverez en le scannant.', tag: 'Textes provisoires' },
-    humour: { title: 'Clic, c’est envoyé !', body: 'Merci pour votre aide.', sub: 'Si le produit est publié, vous le retrouverez en le scannant.', tag: 'Titre : proposition · phrases : textes provisoires' },
+    humour: { title: 'Clic, c’est envoyé !', body: 'Merci pour votre aide.', sub: 'Si le produit est publié, vous le retrouverez en le scannant.', tag: 'Titre : proposition · phrases : textes provisoires' },
     note: '[« Recevoir un courriel » ouvre l’écran du courriel (décision 103). « Si le produit est publié », jamais « quand » (T-81).]'
   },
   support: {
     sobre: { title: 'Message envoyé', body: 'Ficolia vous répondra par courriel.', tag: 'Textes provisoires' },
     note: '[Sobre, sans humour (porteuse, 09/10) : le message peut signaler un effet indésirable ou une détresse. Aucun délai de réponse promis (L-25).]'
   }
+};
+// Avec humour, le titre suit le geste de la piste (propositions).
+const TITRES_HUMOUR = {
+  chapeau: { signalement: 'Bien reçu, chapeau bas.', photo: 'Clic, c’est envoyé !' },
+  tampon: { signalement: 'Bien reçu, c’est tamponné.', photo: 'Photos reçues, c’est tamponné.' },
+  feuille: { signalement: 'Bien reçu ! La figue vous salue.', photo: 'Photos reçues ! La figue vous salue.' },
+  photomaton: { photo: 'Clic, clic, clic, c’est envoyé !' }
 };
 const els = {
   screen: ROOT.getElementById('screen'),
@@ -476,8 +605,6 @@ const TIMELINES = {
       render(t) {
         textsAt(t, 0);
         drawFig(hatTip(t, 250));
-        viseur.setAttribute('opacity', 0);
-        drawFlash(0);
       }
     }
   },
@@ -523,27 +650,141 @@ const TIMELINES = {
         const down = EASE_IN_OUT(prog(t, 450, 500)), up = EASE_IN_OUT(prog(t, 950, 550));
         const k = down * (1 - up);
         drawFig({ k: 1, tilt: 0, curl: 0, sx: 1, sy: 1 - 0.015 * k, lean: 0.07 * k });
-        viseur.setAttribute('opacity', 0);
-        drawFlash(0);
       }
     }
   }
 };
-// Mouvement réduit : rien ne bouge, la figue et les textes apparaissent en fondu.
-const REDUIT = {
-  duration: 600,
+/* ---------- Les trois autres pistes ---------- */
+// Le tampon : elle saute à droite, retombe comme un tampon, appuie, et revient. Le cachet reste.
+const TAMPON_RETOUR = 24;  // elle revient un peu à gauche de sa place : le cachet a de l'air
+const TAMPON = {
+  duration: 2200,
   beats: [
-    [0, 'La figue et les textes apparaissent en fondu, sans déplacement.'],
-    [600, 'Fin : l’image reste fixe.']
+    [0, 'Le titre s’affiche ; la figue est là.'],
+    [250, 'Elle prend son élan.'],
+    [450, 'Elle saute à droite…'],
+    [760, '… et retombe comme un tampon : le cachet s’imprime.'],
+    [850, 'Elle appuie bien, d’un côté puis de l’autre.'],
+    [1200, 'Elle revient d’un bond, un peu à gauche ; le cachet reste.'],
+    [2200, 'Fin : l’image reste fixe.']
   ],
   render(t) {
-    textsAt(t, 0, true);
-    figLive.setAttribute('opacity', EASE_OUT(prog(t, 0, 300)).toFixed(3));
-    drawFig(REST);
-    viseur.setAttribute('opacity', 0);
-    drawFlash(0);
+    textsAt(t, 0);
+    const a = EASE_IN_OUT(prog(t, 250, 200));                                  // elle se tasse
+    const up = EASE_OUT(prog(t, 450, 190)), down = EASE_IN_QUAD(prog(t, 640, 120));
+    const go = prog(t, 450, 310), back = prog(t, 1200, 350);
+    const airGo = t < 760 ? Math.sin(Math.PI * go) : 0, airBack = Math.sin(Math.PI * back);
+    const fall = t < 760 ? prog(t, 640, 120) : 0;                              // elle s'étire en tombant
+    const imp = t >= 760 ? 1 - spring((t - 760) / 1000) : 0;                   // le choc du tampon
+    const imp2 = t >= 1550 ? 1 - spring((t - 1550) / 1000) : 0;                // l'atterrissage, à sa place
+    const press = EASE_OUT(prog(t, 760, 100)) * (1 - EASE_OUT(prog(t, 1150, 120)));
+    const rk = prog(t, 850, 300);
+    const rock = rk > 0 && rk < 1 ? Math.sin(2 * Math.PI * rk) : 0;           // elle appuie d'un côté, puis de l'autre
+    const x = 104 * EASE_IN_OUT(prog(t, 450, 280)) - (104 + TAMPON_RETOUR) * EASE_IN_OUT(back);
+    const y = t < 760 ? -46 * up * (1 - down) : -30 * 4 * back * (1 - back);
+    figMove.setAttribute('transform', `translate(${(x / S).toFixed(2)} ${(y / S).toFixed(2)})`);
+    drawFig({
+      k: 1,
+      tilt: -0.25 * airGo + 0.2 * airBack + 0.15 * imp,                       // la queue traîne, puis retombe
+      curl: 0,
+      sx: 1 + 0.05 * a * (1 - up) - 0.03 * (airGo + airBack) + 0.1 * imp + 0.03 * press + 0.05 * imp2,
+      sy: 1 - 0.09 * a * (1 - up) + 0.07 * airGo + 0.05 * airBack + 0.08 * fall - 0.16 * imp - 0.05 * press - 0.08 * imp2,
+      lean: 0.08 * airGo - 0.06 * airBack + 0.05 * rock
+    });
+    drawCachet(t >= 760 ? EASE_OUT(prog(t, 760, 120)) : 0);
   }
 };
+// La feuille qui salue : une feuille pousse sur la queue et fait deux allers-retours.
+const FEUILLE = {
+  duration: 2000,
+  beats: [
+    [0, 'Le titre s’affiche ; la figue est là.'],
+    [250, 'Une feuille de figuier pousse sur sa queue.'],
+    [700, 'Elle salue : deux allers-retours.'],
+    [1700, 'La feuille se pose ; elle reste.'],
+    [2000, 'Fin : l’image reste fixe.']
+  ],
+  render(t) {
+    textsAt(t, 0);
+    const s = t >= 250 ? spring((t - 250) / 1000, 0.55) : 0;                   // elle pousse, avec un petit rebond
+    const open = EASE_OUT(prog(t, 250, 450));
+    const w = prog(t, 700, 1000);
+    const wave = Math.sin(4 * Math.PI * w) * smooth(0, 0.12, w) * (1 - smooth(0.85, 1, w));
+    const bob = Math.sin(Math.PI * prog(t, 250, 400));                          // la figue se redresse un peu
+    const P = { k: 1, tilt: 0, curl: 0, sx: 1 - 0.015 * bob, sy: 1 + 0.03 * bob, lean: -0.025 * wave };
+    drawFig(P);
+    drawFeuille(P, s, -15 - 30 * open - 26 * wave);
+  }
+};
+// Le photomaton (contribution photo seulement) : trois poses, trois clics, puis la bande de photos.
+// Les flashs sont espacés de 0,6 s : jamais plus de deux par seconde (WCAG 2.3.1).
+const FLASHS = [600, 1200, 1800];
+const PHOTOMATON = {
+  duration: 3000,
+  beats: [
+    [0, 'Le titre s’affiche ; un viseur cadre la figue.'],
+    [250, 'Première pose : penchée, le bras levé.'],
+    [600, 'Clic : un petit flash ; elle cligne.'],
+    [850, 'Deuxième pose : accroupie, penchée à droite. Clic.'],
+    [1450, 'Troisième pose, toute droite. Clic.'],
+    [2050, 'Elle se repose ; le viseur s’efface.'],
+    [2250, 'La bande des trois photos tombe à côté d’elle.'],
+    [3000, 'Fin : l’image reste fixe.']
+  ],
+  render(t) {
+    textsAt(t, 0);
+    const v = EASE_OUT(prog(t, 100, 300)), vOut = EASE_OUT(prog(t, 2050, 250));
+    viseur.setAttribute('opacity', (v * (1 - vOut)).toFixed(3));
+    viseur.setAttribute('transform', 'translate(195 141) scale(' + (1.06 - 0.06 * v).toFixed(4) + ') translate(-195 -141)');
+    let q = 0, squint = 0;
+    for (const tf of FLASHS) {
+      const f = prog(t, tf, 380), b = prog(t, tf, 220);
+      if (f > 0 && f < 1) q = f;
+      if (b > 0 && b < 1) squint = Math.sin(b * Math.PI);
+    }
+    drawFlash(q);
+    let P = blendPose(REST, POSES[0], EASE_OUT(prog(t, 250, 250)));
+    P = blendPose(P, POSES[1], EASE_OUT(prog(t, 850, 250)));
+    P = blendPose(P, POSES[2], EASE_OUT(prog(t, 1450, 250)));
+    P = blendPose(P, REST, spring((t - 2050) / 1000));
+    P.sy *= 1 - 0.08 * squint;
+    P.sx *= 1 + 0.03 * squint;
+    drawFig(P);
+    drawBande(EASE_OUT(prog(t, 2250, 200)), -18 * (1 - spring((t - 2250) / 1000)));
+  }
+};
+const PISTES = {
+  chapeau: { signalement: TIMELINES.signalement.normal, photo: TIMELINES.photo.normal },
+  tampon: { signalement: TAMPON, photo: TAMPON },
+  feuille: { signalement: FEUILLE, photo: FEUILLE },
+  photomaton: { photo: PHOTOMATON }
+};
+
+// Mouvement réduit : rien ne bouge, l'image finale de la piste apparaît en fondu.
+function reduit(piste) {
+  const extra = { tampon: 'le cachet', feuille: 'la feuille', photomaton: 'la bande de photos' }[piste];
+  return {
+    duration: 600,
+    beats: [
+      [0, extra ? `La figue, ${extra} et les textes apparaissent en fondu, sans déplacement.` : 'La figue et les textes apparaissent en fondu, sans déplacement.'],
+      [600, 'Fin : l’image reste fixe.']
+    ],
+    render(t) {
+      textsAt(t, 0, true);
+      const o = EASE_OUT(prog(t, 0, 300));
+      figLive.setAttribute('opacity', o.toFixed(3));
+      drawFig(REST);
+      if (piste === 'tampon') {
+        figMove.setAttribute('transform', `translate(${(-TAMPON_RETOUR / S).toFixed(2)} 0)`);
+        drawCachet(1);
+        cachet.setAttribute('opacity', (0.85 * o).toFixed(3));
+      }
+      if (piste === 'feuille') { drawFeuille(REST, 1, -45); feuille.setAttribute('opacity', o.toFixed(3)); }
+      if (piste === 'photomaton') drawBande(o, 0);
+    }
+  };
+}
+const REDUITS = Object.fromEntries(['chapeau', 'tampon', 'feuille', 'photomaton', 'support'].map(p => [p, reduit(p)]));
 
 /* ---------- État de la maquette ---------- */
 const params = new URLSearchParams(location.search);
@@ -554,12 +795,16 @@ const state = {
   text: params.get('texte') === 'humour' ? 'humour' : 'sobre',
   motion: params.get('mouvement') === 'reduit' ? 'reduit' : params.get('mouvement') === 'normal' ? 'normal' : 'systeme',
   notes: params.get('notes') === 'off' ? 'off' : 'on',
+  piste: ['chapeau', 'tampon', 'feuille', 'photomaton'].includes(params.get('piste')) ? params.get('piste') : 'chapeau',
   t: 0,
   playing: true
 };
+if (state.piste === 'photomaton' && state.form !== 'photo') state.piste = 'chapeau';
 const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 const reduced = () => state.motion === 'reduit' || (state.motion === 'systeme' && mqReduce.matches);
-const timeline = () => (reduced() ? REDUIT : TIMELINES[state.form].normal);
+// La piste en vigueur : le support reste sobre ; le photomaton ne vaut que pour les photos.
+const piste = () => (state.form === 'support' ? 'support' : state.piste === 'photomaton' && state.form !== 'photo' ? 'chapeau' : state.piste);
+const timeline = () => (reduced() ? REDUITS[piste()] : piste() === 'support' ? TIMELINES.support.normal : PISTES[piste()][state.form]);
 
 const scrub = ROOT.getElementById('scrub');
 const scrubOut = ROOT.getElementById('scrubOut');
@@ -570,7 +815,7 @@ const fmt = ms => (ms / 1000).toFixed(2).replace('.', ',') + ' s';
 function applyTexts() {
   const T = TEXTS[state.form];
   const v = T[state.text] || T.sobre;
-  els.title.textContent = v.title;
+  els.title.textContent = (T[state.text] && TITRES_HUMOUR[piste()]?.[state.form]) || v.title;
   els.body.textContent = v.body;
   els.sub.textContent = v.sub || '';
   els.sub.hidden = !v.sub;
@@ -579,6 +824,7 @@ function applyTexts() {
   els.note.textContent = T.note;
   els.texteNote.hidden = state.form !== 'support';
   for (const b of ROOT.querySelectorAll('.seg[data-key="text"] button')) b.disabled = state.form === 'support';
+  for (const b of ROOT.querySelectorAll('.seg[data-key="piste"] button')) b.disabled = state.form === 'support' || (b.dataset.val === 'photomaton' && state.form !== 'photo');
   els.screen.classList.toggle('hidden-notes', state.notes === 'off');
   els.screen.classList.toggle('rm', reduced());
   figLive.setAttribute('opacity', 1);
@@ -607,6 +853,7 @@ function syncControls() {
 function render() {
   const tl = timeline();
   const t = Math.min(state.t, tl.duration);
+  clearExtras();
   tl.render(t);
   scrub.value = Math.round(t);
   scrubOut.textContent = fmt(t);
@@ -652,6 +899,7 @@ for (const seg of ROOT.querySelectorAll('.seg')) {
     if (!b || b.disabled) return;
     const key = seg.dataset.key;
     state[key] = key === 'speed' ? +b.dataset.val : b.dataset.val;
+    if (key === 'form' && state.form !== 'photo' && state.piste === 'photomaton') state.piste = 'chapeau';
     if (key === 'speed' || key === 'notes' || key === 'text') {
       applyTexts();
       syncControls();
