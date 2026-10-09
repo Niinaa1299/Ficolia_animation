@@ -17,14 +17,14 @@ TITRE = "Ficolia · Récit de la figue"
 ECRANS = [
     ("Ouverture", "validee", "validée", None),
     ("Accueil, trois écrans", "a-venir", "à venir", None),
-    ("Formulaire envoyé", "a-venir", "à venir", None),
+    ("Formulaire envoyé", "maquette", "maquette", ("formulaire", "maquettes/formulaire-envoye.html")),
     ("Connexion insuffisante ou absente", "maquette", "maquette", ("connexion", "maquettes/connexion-insuffisante.html")),
     ("Mise à jour obligatoire", "maquette", "maquette", ("mise-a-jour", "maquettes/mise-a-jour-obligatoire.html")),
     ("Délai de connexion", "a-venir", "à venir", None),
     ("Produit inconnu", "a-venir", "à venir", None),
     ("Service indisponible", "a-venir", "à venir", None),
 ]
-DEFAUT = "connexion"  # l'écran affiché à l'ouverture : le dernier travaillé
+DEFAUT = "formulaire"  # l'écran affiché à l'ouverture : le dernier travaillé
 
 POLICE = "'Atkinson Hyperlegible Next','Atkinson Hyperlegible',system-ui,sans-serif"
 

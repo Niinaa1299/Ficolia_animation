@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ficolia · Formulaire envoyé</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+/*
+  Ficolia — maquette animée de l'écran « formulaire envoyé », en trois variantes.
+  Fil commun : la queue de la figue est son bras. Elle tire son chapeau pour remercier.
+  Signalement : le coup de chapeau. Contribution photo : clic, puis le coup de chapeau.
+  Support : sobre, sans humour (porteuse, 09/10) ; la figue s'incline une fois, lentement.
+  Tout est proposition (FICOLIA_DESIGN.md §3).
+*/
+:root{
+  /* Palette de marque, actée (D-115, T-548) */
+  --aubergine:#4C2944;
+  --pistache:#9EBE59;
+  --grenade:#9F3542;
+  --ivoire-rose:#FFF7F0;
+  --texte:#321C31;
+  /* Interface (séance 27-28/09) */
+  --fond:#FFFFFF;
+  --cadre:#FAF8F4;
+  --bordure:#E7E1DA;
+  --texte-2:#6E5A6B;
+  --decor:#D6CEC6;
+  /* Courbes, déjà employées par le prototype */
+  --ease-out:cubic-bezier(0.23,1,0.32,1);
+  --ease-in-out:cubic-bezier(0.77,0,0.175,1);
+  /* Page de présentation, autour de l'écran (l'écran du téléphone, lui, reste en thème clair : T-386) */
+  --page:#F3F0EB;
+  --page-texte:#321C31;
+  --page-texte-2:#5D4B5A;
+  --page-trait:#E2DCD4;
+  --surface:#FFFFFF;
+  --choix:#4C2944;
+  --choix-texte:#FFF7F0;
+  --ombre:rgba(50,28,49,.28);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--page:#1B1519;--page-texte:#F1E8EE;--page-texte-2:#BCA9B6;--page-trait:#3B3038;--surface:#261E24;--choix:#DCC6D6;--choix-texte:#2A1A27;--ombre:rgba(0,0,0,.6);color-scheme:dark}
+}
+:root[data-theme="dark"]{--page:#1B1519;--page-texte:#F1E8EE;--page-texte-2:#BCA9B6;--page-trait:#3B3038;--surface:#261E24;--choix:#DCC6D6;--choix-texte:#2A1A27;--ombre:rgba(0,0,0,.6);color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperlegible Next','Atkinson Hyperlegible',system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+
+/* ---------- Mise en page de la planche ---------- */
+.page{min-height:100vh;display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;gap:32px;padding-block:24px 40px;padding-inline:16px}
+.stage-wrap{flex:none;position:relative}
+.stage{position:absolute;left:0;top:0;width:390px;height:844px;transform-origin:0 0}
+
+/* ---------- L'écran du téléphone ---------- */
+.screen{position:relative;width:390px;height:844px;background:var(--fond);color:var(--texte);color-scheme:light;display:flex;flex-direction:column;overflow:hidden;border-radius:44px;box-shadow:0 0 0 1px rgba(50,28,49,.08),0 30px 60px -24px var(--ombre)}
+.screen a{color:inherit;text-decoration:none}
+.screen a,.screen button{touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 160ms var(--ease-out)}
+.screen a:active,.screen button:active{transform:scale(.97)}
+.screen a:focus-visible,.screen button:focus-visible{outline:2px solid var(--aubergine);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.screen a,.screen button{transition:none}.screen a:active,.screen button:active{transform:none}}
+.screen.rm a,.screen.rm button{transition:none}
+.screen.rm a:active,.screen.rm button:active{transform:none}
+.screen-main{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;padding-top:64px}
+.illu{flex:none;height:250px}
+.illu svg{display:block;width:390px;height:250px;overflow:visible}
+.copy{flex:none;padding:10px 24px 0;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.copy h1{margin:0;font-size:30px;font-weight:700;line-height:1.15;text-wrap:balance}
+.copy p{margin:0;font-size:17px;line-height:1.45;text-wrap:pretty}
+.copy .sub{font-size:15px;color:var(--texte-2)}
+.copy .tag{padding:3px 10px;border:1px dashed var(--texte-2);border-radius:999px;font-size:13px;line-height:1.3;color:var(--texte-2)}
+.second{flex:none;margin:22px 20px 0;min-height:56px;padding:0 20px;border:1px solid var(--texte-2);border-radius:999px;background:#FFFFFF;color:var(--texte);font:inherit;font-size:17px;font-weight:700;cursor:pointer}
+.note{margin:14px 24px 0;font-size:13px;line-height:1.4;color:var(--texte-2);text-align:center}
+.hidden-notes .note,.hidden-notes .tag{display:none}
+.nav-wrap{flex:none;padding-top:8px}
+
+/* ---------- Panneau de réglages ---------- */
+.panel{flex:0 1 360px;min-width:280px;max-width:420px;display:flex;flex-direction:column;gap:20px;padding-top:8px}
+.panel h2{margin:0;font-size:22px;line-height:1.2}
+.panel .lead{margin:6px 0 0;font-size:15px;line-height:1.45;color:var(--page-texte-2)}
+.group{display:flex;flex-direction:column;gap:8px}
+.group .label{font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--page-texte-2)}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button,.btn{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--page-trait);background:var(--surface);color:var(--page-texte);font:inherit;font-size:15px;cursor:pointer;touch-action:manipulation;transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease}
+.seg button[aria-pressed="true"]{background:var(--choix);border-color:var(--choix);color:var(--choix-texte)}
+.seg button:disabled{opacity:.45;cursor:not-allowed}
+.seg button:focus-visible,.btn:focus-visible,.scrub input:focus-visible{outline:2px solid var(--choix);outline-offset:2px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.btn.primary{background:var(--choix);border-color:var(--choix);color:var(--choix-texte);font-weight:700}
+.scrub{display:flex;align-items:center;gap:10px}
+.scrub input{flex:1;min-width:0;accent-color:var(--choix);min-height:32px}
+.scrub output{min-width:52px;text-align:right;font-variant-numeric:tabular-nums;font-size:14px;color:var(--page-texte-2)}
+.beats{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.4}
+.beats li{display:grid;grid-template-columns:52px 1fr;gap:8px;padding:6px 8px;border-radius:10px;transition:background-color 160ms ease}
+.beats li.now{background:var(--surface)}
+.beats time{font-variant-numeric:tabular-nums;color:var(--page-texte-2)}
+.small{margin:0;font-size:13px;line-height:1.45;color:var(--page-texte-2)}
+@media (max-width:760px){.page{gap:20px;padding-top:16px}.panel{flex-basis:100%;max-width:520px}}
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="stage-wrap" id="stageWrap">
+    <div class="stage" id="stage">
+      <div class="screen" id="screen">
+        <div class="screen-main">
+          <div class="illu">
+            <svg viewBox="0 0 390 250" aria-hidden="true" focusable="false">
+              <!-- Le viseur, pour la contribution photo -->
+              <g id="viseur" fill="none" stroke="#4C2944" stroke-width="2.4" stroke-linecap="round" opacity="0"></g>
+              <!-- Les rayons du flash : un seul éclair, jamais répété (WCAG 2.3.1) -->
+              <g id="flash" stroke="#4C2944" stroke-width="2.4" stroke-linecap="round" opacity="0"></g>
+              <g id="figSpace" transform="translate(121.1 62) scale(0.66)">
+                <g id="figLive"></g>
+              </g>
+            </svg>
+          </div>
+          <div class="copy">
+            <h1 id="title"></h1>
+            <p id="body"></p>
+            <p class="sub" id="sub"></p>
+            <span class="tag" id="tag"></span>
+          </div>
+          <button class="second" id="second" type="button">Recevoir un courriel</button>
+          <p class="note" id="note"></p>
+        </div>
+        <div class="nav-wrap" id="navWrap"><nav aria-label="Navigation principale" style="margin: 0 16px 26px 16px; padding: 8px; border-radius: 30px; background: #FAF8F4; border: 1px solid #E7E1DA; box-shadow: 0 8px 24px rgba(50,28,49,0.10); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px">
+<a href="#" style="min-height: 56px; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #6E5A6B; font-size: 12px">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16M8 8.5v7M11 8.5v7M13.5 8.5v7M16 8.5v7"></path></svg>
+<span>Scanner</span>
+</a>
+<a href="#" style="min-height: 56px; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #6E5A6B; font-size: 12px">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg>
+<span>Rechercher</span>
+</a>
+<a href="#" style="min-height: 56px; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #6E5A6B; font-size: 12px">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 12a8.2 8.2 0 1 0 2.4-5.8"></path><path d="M3.8 4.5V8h3.5"></path><path d="M12 7.5V12l3 2"></path></svg>
+<span>Historique</span>
+</a>
+<a href="#" style="min-height: 56px; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #6E5A6B; font-size: 12px">
+<svg width="20" height="24" viewBox="0 0 212 254" fill="none" aria-hidden="true">
+<path d="M111.285 0.0432112C115.534 -0.249507 122.134 0.907016 124.815 4.67677C127.174 7.99389 123.473 11.378 122.006 14.2308C120.858 16.478 119.99 18.8574 119.42 21.3161C117.903 27.8812 118.283 34.3195 120.121 40.7486C127.197 65.4592 151.515 78.2868 170.015 93.6335C197.757 116.647 217.963 149.626 209.321 186.869C203.902 209.704 189.567 229.419 169.515 241.614C151.975 252.621 130.757 256.147 110.599 251.403C95.0007 247.709 83.8365 241.6 70.9144 232.706C41.1505 212.22 22.2285 187.766 31.4074 149.826C34.4201 139.049 38.9979 132.048 45.1774 123.04C43.6304 127.202 41.6016 132.363 40.4057 136.605C37.4934 146.934 37.5269 159.587 40.1677 169.971C42.127 177.676 46.0147 185.3 50.3768 191.917C55.0172 198.956 60.4392 203.454 66.131 209.485C70.4538 214.067 74.3813 219.159 79.0993 223.405C82.2677 226.243 85.706 228.763 89.3657 230.931C104.963 240.174 123.569 242.909 141.166 238.548C168.009 231.636 190.125 203.985 193.695 176.785C197.198 150.095 181.874 123.1 162.909 105.41C151.36 94.6381 137.696 85.9346 127.276 73.9156C116.111 61.2581 108.242 45.6829 107.511 28.592C107.306 23.797 107.573 18.5658 106.973 13.836C105.956 5.82001 100.168 2.00884 111.285 0.0432112Z" fill="#6E5A6B"></path>
+<path d="M94.5608 37.9777L94.9561 38.6051C87.968 66.34 71.5019 82.1081 51.0493 100.707C33.6913 116.492 20.7468 137.563 18.175 161.219C16.6504 175.304 19.6859 189.506 26.8355 201.737C40.3739 224.463 65.5806 239.666 89.1458 250.28C90.4187 250.853 91.9104 251.633 93.1843 252.09C92.4114 252.535 92.4172 252.511 91.5688 252.717C81.6387 251.86 65.408 246.98 56.0022 243.143C34.519 234.442 13.2769 217.644 4.85606 195.449C-11.0198 153.373 14.3113 112.875 47.8156 88.6966C68.3691 73.8636 84.3587 61.9779 94.5608 37.9777Z" fill="#6E5A6B"></path>
+<path d="M112.284 134.705C112.44 130.899 112.829 125.753 111.138 122.35C109.37 118.789 107.211 116.891 106.427 112.616C105.56 107.895 108.689 104.608 108.702 100.041C108.714 95.6911 106.403 91.6371 105.806 87.487C105.718 86.8697 105.981 86.7655 106.31 86.4792C106.999 86.5881 107.293 86.8654 107.758 87.3935C111.921 92.1285 114.328 99.3933 113.268 105.63C112.78 108.502 110.831 111.919 111.663 114.928C113.213 120.531 117.67 124.878 117.493 131.205C117.244 138.013 113.63 144.094 113.378 150.966C113.247 154.513 113.726 159.794 118.49 159.681C127.421 159.217 125.052 153.413 124.917 147.357C124.697 137.428 137.178 132.64 138.43 122.432C138.768 119.672 139.642 110.294 141.001 108.834L141.466 108.856C144.591 113.361 142.582 124.274 140.365 128.988C138.433 134.397 128.111 143.789 130.4 150.081C134.725 161.971 142.202 145.123 143.484 142.661C144.934 144.166 145.894 145.185 147.796 146.185C146.69 147.987 145.234 150.496 144.007 152.159C158.925 150.018 165.335 141.24 181.302 145.962C173.232 150.023 167.517 147.534 159.781 152.938C162.163 157.393 164.984 159.184 169.741 160.722C171.287 161.222 173.058 161.337 174.398 162.105L174.452 162.474C168.529 168.206 156.552 160.327 150.565 158.547C142.491 156.147 131.243 158.181 125.044 164.069C117.932 170.831 122.917 178.521 126.011 185.601C127.199 188.32 127.359 193.677 130.276 195.444C137.545 199.847 137.878 205.305 142.335 211.398C143.925 213.572 148.271 215.755 150.518 217.498C137.196 219.182 137.074 212.413 131.258 203.549C130.279 202.057 126.563 200.329 124.903 198.693C124.568 198.069 124.277 197.579 123.881 196.99C122.372 192.516 123.296 188.596 121.166 184.794C120.866 184.258 119.753 183.843 119.06 183.879C110.738 184.519 112.483 195.564 111.647 201.538C111.138 205.174 108.573 214.698 103.419 214.711C102.949 214.712 102.19 214.081 102.023 213.597C101.131 211.009 103.384 208.69 104.457 206.548C108.173 198.412 104.898 192.239 108.942 183.65C89.9246 183.887 103.086 208.388 74.6405 204.25C84.2068 200.581 89.1612 197.076 93.3984 187.603C94.3117 185.562 95.1888 183.528 97.063 182.168C101.604 178.873 108.263 180.457 112.635 176.83C113.952 175.737 114.609 174.256 114.733 172.566C114.881 170.547 114.485 168.427 113.057 166.914C111.903 165.69 110.305 165.159 108.656 165.104C104.997 164.983 100.974 166.728 97.701 168.185C78.2594 176.842 87.7778 185.75 79.1338 193.729C75.8969 196.716 71.8005 196.32 67.746 196.196C78.8725 188.828 76.3634 186.752 80.1464 175.191C83.4848 164.989 93.8718 162.331 102.601 158.814C105.286 157.731 107.921 155.13 108.765 152.095C112.837 137.465 100.809 133.001 95.5957 121.557C92.6563 115.309 91.1778 108.465 90.9605 101.574C90.9223 100.353 90.5632 97.0011 91.7818 96.4173C93.4691 97.2742 96.2072 105.113 96.2964 106.867C96.9429 119.557 101.527 126.923 112.284 134.705Z" fill="#6E5A6B"></path>
+<path d="M121.868 96.2223C124.319 97.3687 132.033 106.471 133.734 109.131C137.414 114.882 137.789 121.1 131.297 124.963C128.912 125.872 126.058 125.93 123.75 124.796C119.1 122.513 117.562 116.845 117.383 112.072C117.169 106.354 119.482 101.246 121.868 96.2223Z" fill="#6E5A6B"></path>
+<path d="M76.9154 110.151C87.2089 110.629 86.4417 130.14 89.9793 136.644C92.745 141.729 97.1852 145.179 101.281 149.188C94.9269 147.148 91.3133 143.798 85.4297 141.155C82.4611 139.821 77.7909 140.637 74.3223 139.691C73.9478 139.574 73.5759 139.451 73.2056 139.32C67.2514 137.216 65.6353 130.888 65.9727 125.239C66.097 123.157 66.7876 121.52 68.8122 120.685C71.7213 121.026 70.8203 125.078 70.7661 127.137C70.5159 136.708 77.2941 136.934 84.4671 137.115C82.8207 130.278 82.417 123.194 79.6842 117.138C78.8475 115.284 77.1974 113.41 76.0643 111.661C76.0834 110.738 76.0728 111.037 76.9154 110.151Z" fill="#6E5A6B"></path>
+<path d="M143.484 142.661C147.027 135.969 151.827 129.039 159.386 126.707C164.469 125.139 170.7 125.628 172.154 131.712C169.519 144.014 154.227 137.573 147.97 145.956L147.796 146.185C145.894 145.185 144.934 144.166 143.484 142.661Z" fill="#6E5A6B"></path>
+<path d="M85.1391 158.81C85.214 158.853 85.3728 158.918 85.4148 159.007C85.3256 159.146 85.3558 159.111 85.1694 159.326C81.6127 163.391 78.2918 167.127 76.7762 172.482C75.5049 176.971 73.9318 183.117 68.7962 184.767C66.1873 185.605 64.2132 184.952 61.9038 183.727C52.6914 173.452 78.0793 162.24 85.1391 158.81Z" fill="#6E5A6B"></path>
+<path d="M134.072 176.517C134.167 176.556 134.261 176.595 134.356 176.633C140.598 181.457 157.974 198.619 153.526 206.906C152.378 207.821 151.14 208.404 149.655 207.896C139.545 204.442 138.955 192.168 136.948 183.409C136.432 181.156 135.114 178.536 134.072 176.517Z" fill="#6E5A6B"></path>
+<path d="M123.383 200.888C122.915 203.766 131.61 215.178 124.68 219.806C118.809 223.729 112.354 220.564 113.653 213.118C114.725 206.963 116.908 202.539 120.425 197.411C121.131 196.385 122.435 197.577 122.891 198.187C123.052 199.207 123.248 199.808 123.383 200.888Z" fill="#6E5A6B"></path>
+<path d="M133.886 165.477C139.23 165.29 143.399 168.478 149.01 169.49C155.361 170.634 161.381 169.065 167.246 170.949C171.077 172.252 173.229 175.634 175.031 179.005C175.949 180.721 178.313 182.849 177.523 184.894C176.881 185.592 176.355 185.617 175.429 185.854C171.5 183.727 171.03 179.668 168.002 176.647C164.582 173.234 158.803 175.377 154.144 175.317C149.056 175.439 144.428 173.039 139.915 170.964C137.987 170.078 132.181 168.926 132.158 166.555C132.893 165.681 132.693 165.945 133.886 165.477Z" fill="#6E5A6B"></path>
+<path d="M143.456 182.082C147.875 182.413 152.329 184.136 157.121 184.002C162.327 183.856 170.128 189.553 165.618 195.001C157.669 201.59 147.445 187.417 143.456 182.082Z" fill="#6E5A6B"></path>
+<path d="M55.8672 139.736C59.4595 147.415 65.8818 150.853 74.2315 150.851C82.2162 150.848 88.4711 146.458 95.9676 151.198C95.8241 151.466 95.7025 151.779 95.584 152.06C84.1759 152.602 73.7523 158.175 62.3161 151.138C58.5081 148.795 56.4123 145.82 55.3955 141.492C55.5533 140.811 55.6526 140.399 55.8672 139.736Z" fill="#6E5A6B"></path>
+<path d="M152.415 120.069C160.655 119.824 156.46 124.877 152.912 128.162C150.65 130.256 148.264 132.569 145.935 134.567C144.913 135.422 143.907 136.294 142.915 137.185C143.062 130.59 143.588 122.085 151.551 120.259L152.415 120.069Z" fill="#6E5A6B"></path>
+<path d="M67.61 159.969C71.8499 159.833 73.0638 160.447 76.6481 162.307C72.065 164.719 69.5942 165.815 65.0711 168.601C61.2142 170.804 59.7873 171.404 57.0466 167.949C58.6924 161.698 61.5325 160.644 67.61 159.969Z" fill="#6E5A6B"></path>
+</svg>
+<span>Menu</span>
+</a>
+</nav></div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="panel" aria-label="Réglages de la maquette">
+    <div>
+      <h2>Formulaire envoyé</h2>
+      <p class="lead">La queue de la figue est son bras : elle tire son chapeau pour remercier. Pour le support, elle s'incline simplement.</p>
+    </div>
+
+    <div class="group">
+      <span class="label" id="lblForm">Formulaire</span>
+      <div class="seg" role="group" aria-labelledby="lblForm" data-key="form">
+        <button type="button" data-val="signalement">Signalement</button>
+        <button type="button" data-val="photo">Contribution photo</button>
+        <button type="button" data-val="support">Support</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <span class="label" id="lblLecture">Lecture</span>
+      <div class="row">
+        <button type="button" class="btn primary" id="replay">Rejouer</button>
+        <button type="button" class="btn" id="playPause">Pause</button>
+      </div>
+      <div class="scrub">
+        <input type="range" id="scrub" min="0" max="2000" step="10" value="0" aria-labelledby="lblLecture" aria-describedby="scrubOut">
+        <output id="scrubOut">0,00 s</output>
+      </div>
+    </div>
+
+    <div class="group">
+      <span class="label" id="lblVitesse">Vitesse</span>
+      <div class="seg" role="group" aria-labelledby="lblVitesse" data-key="speed">
+        <button type="button" data-val="1">1×</button>
+        <button type="button" data-val="0.5">0,5×</button>
+        <button type="button" data-val="0.25">0,25×</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <span class="label" id="lblTexte">Texte</span>
+      <div class="seg" role="group" aria-labelledby="lblTexte" data-key="text">
+        <button type="button" data-val="sobre">Sans humour</button>
+        <button type="button" data-val="humour">Avec humour</button>
+      </div>
+      <p class="small" id="texteNote" hidden>Support : sans humour, quel que soit ce réglage (porteuse, 09/10).</p>
+    </div>
+
+    <div class="group">
+      <span class="label" id="lblMouvement">Mouvement</span>
+      <div class="seg" role="group" aria-labelledby="lblMouvement" data-key="motion">
+        <button type="button" data-val="systeme">Réglage du téléphone</button>
+        <button type="button" data-val="normal">Normal</button>
+        <button type="button" data-val="reduit">Réduit</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <span class="label" id="lblNotes">Notes du prototype</span>
+      <div class="seg" role="group" aria-labelledby="lblNotes" data-key="notes">
+        <button type="button" data-val="on">Affichées</button>
+        <button type="button" data-val="off">Masquées</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <span class="label">Déroulé</span>
+      <ol class="beats" id="beats"></ol>
+    </div>
+
+    <p class="small">Figue aux couleurs de la marque, comme sur la mise à jour : ces écrans ne portent pas de verdict. Textes et barre d'onglets sans onglet actif repris du prototype (décision 76).</p>
+  </aside>
+</main>
+
+<svg id="probe" width="0" height="0" style="position:absolute;left:-9999px" aria-hidden="true" focusable="false"></svg>
+
+<script>
+((ROOT) => {
+'use strict';
+
+/* ---------- Le dessin de la figue (coordonnées du symbole, 212 × 254) ---------- */
+const FIG = {"contour":"M111.285 0.0432112C115.534 -0.249508 122.134 0.907016 124.815 4.67677C127.174 7.99389 123.473 11.378 122.006 14.2308C120.858 16.478 119.99 18.8574 119.42 21.3161C117.903 27.8812 118.283 34.3195 120.121 40.7486C127.197 65.4592 151.515 78.2868 170.015 93.6335C197.757 116.647 217.963 149.626 209.321 186.869C203.902 209.704 189.567 229.419 169.515 241.614C151.975 252.621 130.757 256.147 110.599 251.403C95.0007 247.709 83.8365 241.6 70.9144 232.706C41.1505 212.22 22.2285 187.766 31.4074 149.826C34.4201 139.049 38.9979 132.048 45.1774 123.04C43.6304 127.202 41.6016 132.363 40.4057 136.605C37.4934 146.934 37.5269 159.587 40.1677 169.971C42.127 177.676 46.0147 185.3 50.3768 191.917C55.0172 198.956 60.4392 203.454 66.131 209.485C70.4538 214.067 74.3813 219.159 79.0993 223.405C82.2677 226.243 85.706 228.763 89.3657 230.931C104.963 240.174 123.569 242.909 141.166 238.548C168.009 231.636 190.125 203.985 193.695 176.785C197.198 150.095 181.874 123.1 162.909 105.41C151.36 94.6381 137.696 85.9346 127.276 73.9156C116.111 61.2581 108.242 45.6829 107.511 28.592C107.306 23.797 107.573 18.5658 106.973 13.836C105.956 5.82001 100.168 2.00884 111.285 0.0432112Z","arc":"M94.5608 37.9777L94.9561 38.6051C87.968 66.34 71.5019 82.1081 51.0493 100.707C33.6913 116.492 20.7468 137.563 18.175 161.219C16.6504 175.304 19.6859 189.506 26.8355 201.737C40.3739 224.463 65.5806 239.666 89.1458 250.28C90.4187 250.853 91.9104 251.633 93.1843 252.09C92.4114 252.535 92.4172 252.511 91.5688 252.717C81.6387 251.86 65.408 246.98 56.0022 243.143C34.519 234.442 13.2769 217.644 4.85606 195.449C-11.0198 153.373 14.3113 112.875 47.8156 88.6966C68.3691 73.8636 84.3587 61.9779 94.5608 37.9777Z","veins":"M112.284 134.705C112.44 130.899 112.829 125.753 111.138 122.35C109.37 118.789 107.211 116.891 106.427 112.616C105.56 107.895 108.689 104.608 108.702 100.041C108.714 95.6911 106.403 91.6371 105.806 87.487C105.718 86.8697 105.981 86.7655 106.31 86.4792C106.999 86.5881 107.293 86.8654 107.758 87.3935C111.921 92.1285 114.328 99.3933 113.268 105.63C112.78 108.502 110.831 111.919 111.663 114.928C113.213 120.531 117.67 124.878 117.493 131.205C117.244 138.013 113.63 144.094 113.378 150.966C113.247 154.513 113.726 159.794 118.49 159.681C127.421 159.217 125.052 153.413 124.917 147.357C124.697 137.428 137.178 132.64 138.43 122.432C138.768 119.672 139.642 110.294 141.001 108.834L141.466 108.856C144.591 113.361 142.582 124.274 140.365 128.988C138.433 134.397 128.111 143.789 130.4 150.081C134.725 161.971 142.202 145.123 143.484 142.661C144.934 144.166 145.894 145.185 147.796 146.185C146.69 147.987 145.234 150.496 144.007 152.159C158.925 150.018 165.335 141.24 181.302 145.962C173.232 150.023 167.517 147.534 159.781 152.938C162.163 157.393 164.984 159.184 169.741 160.722C171.287 161.222 173.058 161.337 174.398 162.105L174.452 162.474C168.529 168.206 156.552 160.327 150.565 158.547C142.491 156.147 131.243 158.181 125.044 164.069C117.932 170.831 122.917 178.521 126.011 185.601C127.199 188.32 127.359 193.677 130.276 195.444C137.545 199.847 137.878 205.305 142.335 211.398C143.925 213.572 148.271 215.755 150.518 217.498C137.196 219.182 137.074 212.413 131.258 203.549C130.279 202.057 126.563 200.329 124.903 198.693C124.568 198.069 124.277 197.579 123.881 196.99C122.372 192.516 123.296 188.596 121.166 184.794C120.866 184.258 119.753 183.843 119.06 183.879C110.738 184.519 112.483 195.564 111.647 201.538C111.138 205.174 108.573 214.698 103.419 214.711C102.949 214.712 102.19 214.081 102.023 213.597C101.131 211.009 103.384 208.69 104.457 206.548C108.173 198.412 104.898 192.239 108.942 183.65C89.9246 183.887 103.086 208.388 74.6405 204.25C84.2068 200.581 89.1612 197.076 93.3984 187.603C94.3117 185.562 95.1888 183.528 97.063 182.168C101.604 178.873 108.263 180.457 112.635 176.83C113.952 175.737 114.609 174.256 114.733 172.566C114.881 170.547 114.485 168.427 113.057 166.914C111.903 165.69 110.305 165.159 108.656 165.104C104.997 164.983 100.974 166.728 97.701 168.185C78.2594 176.842 87.7778 185.75 79.1338 193.729C75.8969 196.716 71.8005 196.32 67.746 196.196C78.8725 188.828 76.3634 186.752 80.1464 175.191C83.4848 164.989 93.8718 162.331 102.601 158.814C105.286 157.731 107.921 155.13 108.765 152.095C112.837 137.465 100.809 133.001 95.5957 121.557C92.6563 115.309 91.1778 108.465 90.9605 101.574C90.9223 100.353 90.5632 97.0011 91.7818 96.4173C93.4691 97.2742 96.2072 105.113 96.2964 106.867C96.9429 119.557 101.527 126.923 112.284 134.705Z","seeds":["M121.868 96.2223C124.319 97.3687 132.033 106.471 133.734 109.131C137.414 114.882 137.789 121.1 131.297 124.963C128.912 125.872 126.058 125.93 123.75 124.796C119.1 122.513 117.562 116.845 117.383 112.072C117.169 106.354 119.482 101.246 121.868 96.2223Z","M76.9154 110.151C87.2089 110.629 86.4417 130.14 89.9793 136.644C92.745 141.729 97.1852 145.179 101.281 149.188C94.9268 147.148 91.3133 143.798 85.4297 141.155C82.4611 139.821 77.7908 140.637 74.3223 139.691C73.9478 139.574 73.5759 139.451 73.2056 139.321C67.2514 137.216 65.6353 130.888 65.9727 125.239C66.097 123.157 66.7876 121.52 68.8122 120.685C71.7213 121.026 70.8203 125.078 70.7661 127.137C70.5159 136.708 77.2941 136.934 84.4671 137.115C82.8207 130.278 82.417 123.194 79.6842 117.138C78.8475 115.284 77.1974 113.41 76.0643 111.662C76.0834 110.738 76.0728 111.037 76.9154 110.151Z","M143.484 142.661C147.027 135.969 151.827 129.039 159.386 126.707C164.469 125.139 170.7 125.628 172.154 131.712C169.519 144.014 154.227 137.573 147.97 145.956L147.796 146.185C145.894 145.185 144.934 144.166 143.484 142.661Z","M85.1391 158.81C85.214 158.853 85.3728 158.918 85.4148 159.007C85.3256 159.146 85.3558 159.111 85.1694 159.326C81.6127 163.391 78.2918 167.127 76.7762 172.482C75.5049 176.971 73.9318 183.117 68.7962 184.767C66.1873 185.605 64.2132 184.952 61.9038 183.727C52.6914 173.452 78.0793 162.24 85.1391 158.81Z","M134.072 176.517C134.167 176.556 134.261 176.595 134.356 176.633C140.598 181.457 157.974 198.619 153.526 206.906C152.378 207.821 151.14 208.404 149.655 207.896C139.545 204.442 138.955 192.168 136.948 183.409C136.432 181.156 135.114 178.536 134.072 176.517Z","M123.383 200.888C122.915 203.766 131.61 215.178 124.68 219.806C118.809 223.729 112.354 220.564 113.653 213.118C114.725 206.963 116.908 202.539 120.425 197.411C121.131 196.385 122.435 197.577 122.891 198.187C123.052 199.207 123.248 199.808 123.383 200.888Z","M133.886 165.477C139.23 165.29 143.399 168.478 149.01 169.49C155.361 170.634 161.381 169.065 167.246 170.949C171.077 172.252 173.229 175.634 175.031 179.005C175.949 180.721 178.313 182.849 177.523 184.894C176.881 185.592 176.355 185.617 175.429 185.854C171.5 183.727 171.03 179.668 168.002 176.647C164.582 173.234 158.803 175.377 154.144 175.317C149.056 175.439 144.428 173.039 139.915 170.964C137.987 170.078 132.181 168.926 132.158 166.555C132.893 165.681 132.693 165.945 133.886 165.477Z","M143.456 182.082C147.875 182.413 152.329 184.136 157.121 184.002C162.327 183.856 170.128 189.553 165.618 195.001C157.669 201.59 147.445 187.417 143.456 182.082Z","M55.8672 139.736C59.4595 147.415 65.8818 150.853 74.2315 150.851C82.2162 150.848 88.4711 146.458 95.9676 151.198C95.8241 151.466 95.7025 151.779 95.584 152.06C84.1759 152.602 73.7523 158.175 62.3161 151.138C58.5081 148.795 56.4123 145.82 55.3955 141.492C55.5533 140.811 55.6526 140.399 55.8672 139.736Z","M152.415 120.069C160.655 119.824 156.46 124.877 152.912 128.162C150.65 130.256 148.264 132.569 145.935 134.567C144.913 135.422 143.907 136.294 142.915 137.185C143.062 130.59 143.588 122.085 151.551 120.259L152.415 120.069Z","M67.61 159.969C71.8499 159.833 73.0638 160.447 76.6481 162.307C72.065 164.719 69.5942 165.815 65.0711 168.601C61.2142 170.804 59.7873 171.404 57.0466 167.949C58.6924 161.698 61.5325 160.644 67.61 159.969Z"]};
+
+/* ---------- Courbes ---------- */
+function cubicBezier(p1x, p1y, p2x, p2y) {
+  const cx = 3 * p1x, bx = 3 * (p2x - p1x) - cx, ax = 1 - cx - bx;
+  const cy = 3 * p1y, by = 3 * (p2y - p1y) - cy, ay = 1 - cy - by;
+  const sx = t => ((ax * t + bx) * t + cx) * t;
+  const sy = t => ((ay * t + by) * t + cy) * t;
+  const dsx = t => (3 * ax * t + 2 * bx) * t + cx;
+  return x => {
+    if (x <= 0) return 0;
+    if (x >= 1) return 1;
+    let t = x;
+    for (let i = 0; i < 8; i++) {
+      const e = sx(t) - x;
+      if (Math.abs(e) < 1e-6) return sy(t);
+      const d = dsx(t);
+      if (Math.abs(d) < 1e-6) break;
+      t -= e / d;
+    }
+    let lo = 0, hi = 1;
+    t = x;
+    while (hi - lo > 1e-7) {
+      const v = sx(t);
+      if (Math.abs(v - x) < 1e-6) break;
+      if (x > v) lo = t; else hi = t;
+      t = (lo + hi) / 2;
+    }
+    return sy(t);
+  };
+}
+const EASE_OUT = cubicBezier(0.23, 1, 0.32, 1);      // --ease-out
+const EASE_IN_OUT = cubicBezier(0.77, 0, 0.175, 1);  // --ease-in-out
+// Ressort amorti, rebond 0,3 (amortissement 0,7) : la queue qui revient en place.
+function spring(sec, zeta = 0.7, w0 = 10) {
+  if (sec <= 0) return 0;
+  const wd = w0 * Math.sqrt(1 - zeta * zeta);
+  return 1 - Math.exp(-zeta * w0 * sec) * (Math.cos(wd * sec) + (zeta * w0 / wd) * Math.sin(wd * sec));
+}
+const clamp01 = v => (v < 0 ? 0 : v > 1 ? 1 : v);
+const prog = (t, start, dur) => clamp01((t - start) / dur);
+const mix = (a, b, k) => a + (b - a) * k;
+function smooth(e0, e1, v) { const x = clamp01((v - e0) / (e1 - e0)); return x * x * (3 - 2 * x); }
+
+/* ---------- La pose : une déformation douce appliquée à tout le dessin ---------- */
+const B = { x: 112, y: 250 };     // point d'appui, en bas
+const STEM = { x: 118, y: 56 };   // base de la queue
+const TIP = { x: 118, y: 3 };     // pointe de la queue
+const REST = { k: 1, tilt: 0, curl: 0, sx: 1, sy: 1, lean: 0 };
+let WX = 0, WY = 0;
+// k : la queue s'allonge (le chapeau se lève) · tilt : elle s'incline d'un bloc · curl : la pointe se courbe
+// sx, sy : étirement autour du point d'appui · lean : la figue s'incline, en radians
+function warp(x, y, P) {
+  if (y < STEM.y + 4) {
+    const wx = 1 - smooth(14, 34, Math.abs(x - STEM.x));
+    if (wx > 0) {
+      const base = smooth(STEM.y + 4, STEM.y - 8, y) * wx;
+      const yExt = y - (P.k - 1) * (STEM.y - y) * base;
+      const h = clamp01((STEM.y - yExt) / ((STEM.y - TIP.y) * P.k));
+      const ang = (P.tilt * h + P.curl * Math.pow(h, 2.2)) * base;
+      const thin = 1 - 0.18 * (P.k - 1) * h * base;
+      const dx = (x - STEM.x) * thin, dy = yExt - STEM.y, c = Math.cos(ang), s = Math.sin(ang);
+      x = STEM.x + dx * c - dy * s;
+      y = STEM.y + dx * s + dy * c;
+    }
+  }
+  const ex = (x - B.x) * P.sx, ey = (y - B.y) * P.sy;
+  const c = Math.cos(P.lean), s = Math.sin(P.lean);
+  WX = B.x + ex * c - ey * s;
+  WY = B.y + ex * s + ey * c;
+}
+const isRest = P => P.k === 1 && P.tilt === 0 && P.curl === 0 && P.sx === 1 && P.sy === 1 && P.lean === 0;
+
+/* ---------- Échantillonnage des tracés ---------- */
+const NS = 'http://www.w3.org/2000/svg';
+const probe = ROOT.getElementById('probe');
+function sample(d, step) {
+  const el = document.createElementNS(NS, 'path');
+  el.setAttribute('d', d);
+  probe.appendChild(el);
+  const L = el.getTotalLength();
+  const n = Math.max(16, Math.ceil(L / step));
+  const pts = new Float32Array(n * 2);
+  for (let i = 0; i < n; i++) {
+    const q = el.getPointAtLength((i * L) / n);
+    pts[2 * i] = q.x; pts[2 * i + 1] = q.y;
+  }
+  el.remove();
+  return pts;
+}
+function poly(pts, P) {
+  const out = new Array(pts.length / 2);
+  for (let i = 0, j = 0; i < pts.length; i += 2, j++) {
+    warp(pts[i], pts[i + 1], P);
+    out[j] = (j ? 'L' : 'M') + WX.toFixed(1) + ' ' + WY.toFixed(1);
+  }
+  return out.join('') + 'Z';
+}
+const COLORS = { peau: '#4C2944', nervure: '#9EBE59', graine: '#9F3542' };
+const SOURCES = [
+  { d: FIG.contour, role: 'peau' },
+  { d: FIG.arc, role: 'peau' },
+  { d: FIG.veins, role: 'nervure' },
+  ...FIG.seeds.map(d => ({ d, role: 'graine' }))
+].map(s => Object.assign(s, { pts: sample(s.d, 0.8) }));
+const figLive = ROOT.getElementById('figLive');
+const live = SOURCES.map(s => {
+  const el = document.createElementNS(NS, 'path');
+  el.setAttribute('fill', COLORS[s.role]);
+  figLive.appendChild(el);
+  return { el, s, last: '' };
+});
+function drawFig(P) {
+  const exact = isRest(P);
+  for (const L of live) {
+    const d = exact ? L.s.d : poly(L.s.pts, P);
+    if (d !== L.last) { L.el.setAttribute('d', d); L.last = d; }
+  }
+}
+
+/* ---------- Viseur et flash, pour la contribution photo ---------- */
+const viseur = ROOT.getElementById('viseur');
+const flash = ROOT.getElementById('flash');
+(() => {
+  // Quatre coins autour de la figue, comme ceux du scanner.
+  const x0 = 104, y0 = 44, x1 = 286, y1 = 238, l = 22, r = 10;
+  const corners = [
+    `M${x0} ${y0 + l}V${y0 + r}A${r} ${r} 0 0 1 ${x0 + r} ${y0}H${x0 + l}`,
+    `M${x1 - l} ${y0}H${x1 - r}A${r} ${r} 0 0 1 ${x1} ${y0 + r}V${y0 + l}`,
+    `M${x1} ${y1 - l}V${y1 - r}A${r} ${r} 0 0 1 ${x1 - r} ${y1}H${x1 - l}`,
+    `M${x0 + l} ${y1}H${x0 + r}A${r} ${r} 0 0 1 ${x0} ${y1 - r}V${y1 - l}`
+  ];
+  for (const d of corners) {
+    const p = document.createElementNS(NS, 'path');
+    p.setAttribute('d', d);
+    viseur.appendChild(p);
+  }
+  // Huit petits rayons autour du coin haut droit du viseur.
+  for (let i = 0; i < 8; i++) {
+    const a = (i / 8) * Math.PI * 2;
+    const ln = document.createElementNS(NS, 'line');
+    ln.dataset.a = a;
+    flash.appendChild(ln);
+  }
+})();
+const FLASH_C = { x: 300, y: 32 };   // juste au-delà du coin haut droit du viseur
+function drawFlash(q) {
+  if (q <= 0 || q >= 1) { flash.setAttribute('opacity', 0); return; }
+  const m = EASE_OUT(q);
+  for (const ln of flash.children) {
+    const a = +ln.dataset.a, r0 = 6 + 10 * m, r1 = r0 + 9 * (1 - m) + 3;
+    ln.setAttribute('x1', (FLASH_C.x + Math.cos(a) * r0).toFixed(1));
+    ln.setAttribute('y1', (FLASH_C.y + Math.sin(a) * r0).toFixed(1));
+    ln.setAttribute('x2', (FLASH_C.x + Math.cos(a) * r1).toFixed(1));
+    ln.setAttribute('y2', (FLASH_C.y + Math.sin(a) * r1).toFixed(1));
+  }
+  flash.setAttribute('opacity', (q < 0.15 ? q / 0.15 : (1 - q) / 0.85).toFixed(3));
+}
+
+/* ---------- Textes ---------- */
+const TEXTS = {
+  signalement: {
+    sobre: { title: 'Signalement envoyé', body: 'Merci pour votre aide.', tag: 'Textes provisoires' },
+    humour: { title: 'Bien reçu, chapeau bas.', body: 'Merci pour votre aide.', tag: 'Titre : proposition · phrase : texte provisoire' },
+    note: '[Pas de réponse individuelle (décision 69). Aucun bouton vers le verdict ; la barre d’onglets, sans onglet actif (décision 76).]'
+  },
+  photo: {
+    sobre: { title: 'Photos envoyées', body: 'Merci pour votre aide.', sub: 'Si le produit est publié, vous le retrouverez en le scannant.', tag: 'Textes provisoires' },
+    humour: { title: 'Clic, c’est envoyé !', body: 'Merci pour votre aide.', sub: 'Si le produit est publié, vous le retrouverez en le scannant.', tag: 'Titre : proposition · phrases : textes provisoires' },
+    note: '[« Recevoir un courriel » ouvre l’écran du courriel (décision 103). « Si le produit est publié », jamais « quand » (T-81).]'
+  },
+  support: {
+    sobre: { title: 'Message envoyé', body: 'Ficolia vous répondra par courriel.', tag: 'Textes provisoires' },
+    note: '[Sobre, sans humour (porteuse, 09/10) : le message peut signaler un effet indésirable ou une détresse. Aucun délai de réponse promis (L-25).]'
+  }
+};
+const els = {
+  screen: ROOT.getElementById('screen'),
+  title: ROOT.getElementById('title'),
+  body: ROOT.getElementById('body'),
+  sub: ROOT.getElementById('sub'),
+  tag: ROOT.getElementById('tag'),
+  second: ROOT.getElementById('second'),
+  note: ROOT.getElementById('note'),
+  texteNote: ROOT.getElementById('texteNote')
+};
+for (const a of ROOT.querySelectorAll('.screen a')) a.addEventListener('click', e => e.preventDefault());
+function textIn(el, k, rm) {
+  el.style.opacity = k.toFixed(3);
+  el.style.transform = rm ? 'none' : 'translateY(' + ((1 - k) * 8).toFixed(2) + 'px)';
+}
+function textsAt(t, start, rm) {
+  textIn(els.title, EASE_OUT(prog(t, start, 250)), rm);
+  textIn(els.body, EASE_OUT(prog(t, start + 60, 250)), rm);
+  textIn(els.sub, EASE_OUT(prog(t, start + 60, 250)), rm);
+  textIn(els.tag, EASE_OUT(prog(t, start + 60, 250)), rm);
+  textIn(els.second, EASE_OUT(prog(t, start + 120, 250)), rm);
+}
+
+/* ---------- Le coup de chapeau ---------- */
+// t0 : début du geste. Prise d'élan, le chapeau se lève, la révérence, puis tout revient en place.
+function hatTip(t, t0) {
+  const a = EASE_IN_OUT(prog(t, t0, 200));          // prise d'élan : elle se tasse
+  const b = EASE_OUT(prog(t, t0 + 200, 300));       // le chapeau se lève
+  const c = EASE_IN_OUT(prog(t, t0 + 500, 400));    // la révérence
+  const r = spring((t - (t0 + 900)) / 1000);        // retour, avec un petit rebond
+  const pre = {
+    k: 1 + 0.5 * b,
+    tilt: -0.3 * b * (1 - c) + 0.45 * c,   // le chapeau bascule vers l'avant, d'un bloc
+    curl: 0.2 * c,
+    sx: 1 + 0.02 * a - 0.04 * b + 0.04 * c,
+    sy: 1 - 0.04 * a + 0.08 * b - 0.07 * c,
+    lean: 0.16 * c
+  };
+  return {
+    k: mix(pre.k, 1, r), tilt: mix(pre.tilt, 0, r), curl: mix(pre.curl, 0, r),
+    sx: mix(pre.sx, 1, r), sy: mix(pre.sy, 1, r), lean: mix(pre.lean, 0, r)
+  };
+}
+
+/* ---------- Les déroulés ---------- */
+const TIMELINES = {
+  signalement: {
+    normal: {
+      duration: 1900,
+      beats: [
+        [0, 'Le titre s’affiche ; la figue est là.'],
+        [250, 'Elle prend son élan, puis lève sa queue comme un chapeau.'],
+        [750, 'Elle fait la révérence.'],
+        [1150, 'Elle remet son chapeau, avec un petit rebond.'],
+        [1900, 'Fin : l’image reste fixe.']
+      ],
+      render(t) {
+        textsAt(t, 0);
+        drawFig(hatTip(t, 250));
+        viseur.setAttribute('opacity', 0);
+        drawFlash(0);
+      }
+    }
+  },
+  photo: {
+    normal: {
+      duration: 2700,
+      beats: [
+        [0, 'Le titre s’affiche ; un viseur cadre la figue.'],
+        [300, 'Elle prend la pose.'],
+        [700, 'Clic : un seul petit flash. Elle cligne, éblouie.'],
+        [950, 'Le viseur s’efface.'],
+        [1150, 'Elle tire son chapeau.'],
+        [2700, 'Fin : l’image reste fixe.']
+      ],
+      render(t) {
+        textsAt(t, 0);
+        const v = EASE_OUT(prog(t, 150, 300)), vOut = EASE_OUT(prog(t, 950, 250));
+        viseur.setAttribute('opacity', (v * (1 - vOut)).toFixed(3));
+        viseur.setAttribute('transform', 'translate(195 141) scale(' + (1.06 - 0.06 * v).toFixed(4) + ') translate(-195 -141)');
+        drawFlash(prog(t, 700, 380));
+        const pose = EASE_OUT(prog(t, 300, 300)) * (1 - EASE_OUT(prog(t, 1000, 250)));
+        const blink = prog(t, 700, 220);
+        const squint = blink > 0 && blink < 1 ? Math.sin(blink * Math.PI) : 0;
+        const P = hatTip(t, 1150);
+        P.sy *= 1 + 0.03 * pose - 0.1 * squint;
+        P.sx *= 1 - 0.015 * pose + 0.04 * squint;
+        drawFig(P);
+      }
+    }
+  },
+  support: {
+    normal: {
+      duration: 1500,
+      beats: [
+        [0, 'Le titre s’affiche ; la figue paraît doucement.'],
+        [450, 'Elle s’incline une fois, lentement.'],
+        [950, 'Elle se redresse.'],
+        [1500, 'Fin : l’image reste fixe.']
+      ],
+      render(t) {
+        textsAt(t, 0);
+        figLive.setAttribute('opacity', EASE_OUT(prog(t, 0, 400)).toFixed(3));
+        const down = EASE_IN_OUT(prog(t, 450, 500)), up = EASE_IN_OUT(prog(t, 950, 550));
+        const k = down * (1 - up);
+        drawFig({ k: 1, tilt: 0, curl: 0, sx: 1, sy: 1 - 0.015 * k, lean: 0.07 * k });
+        viseur.setAttribute('opacity', 0);
+        drawFlash(0);
+      }
+    }
+  }
+};
+// Mouvement réduit : rien ne bouge, la figue et les textes apparaissent en fondu.
+const REDUIT = {
+  duration: 600,
+  beats: [
+    [0, 'La figue et les textes apparaissent en fondu, sans déplacement.'],
+    [600, 'Fin : l’image reste fixe.']
+  ],
+  render(t) {
+    textsAt(t, 0, true);
+    figLive.setAttribute('opacity', EASE_OUT(prog(t, 0, 300)).toFixed(3));
+    drawFig(REST);
+    viseur.setAttribute('opacity', 0);
+    drawFlash(0);
+  }
+};
+
+/* ---------- État de la maquette ---------- */
+const params = new URLSearchParams(location.search);
+const FORMS = ['signalement', 'photo', 'support'];
+const state = {
+  form: FORMS.includes(params.get('formulaire')) ? params.get('formulaire') : 'signalement',
+  speed: 1,
+  text: params.get('texte') === 'humour' ? 'humour' : 'sobre',
+  motion: params.get('mouvement') === 'reduit' ? 'reduit' : params.get('mouvement') === 'normal' ? 'normal' : 'systeme',
+  notes: params.get('notes') === 'off' ? 'off' : 'on',
+  t: 0,
+  playing: true
+};
+const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+const reduced = () => state.motion === 'reduit' || (state.motion === 'systeme' && mqReduce.matches);
+const timeline = () => (reduced() ? REDUIT : TIMELINES[state.form].normal);
+
+const scrub = ROOT.getElementById('scrub');
+const scrubOut = ROOT.getElementById('scrubOut');
+const playPause = ROOT.getElementById('playPause');
+const beatsEl = ROOT.getElementById('beats');
+const fmt = ms => (ms / 1000).toFixed(2).replace('.', ',') + ' s';
+
+function applyTexts() {
+  const T = TEXTS[state.form];
+  const v = T[state.text] || T.sobre;
+  els.title.textContent = v.title;
+  els.body.textContent = v.body;
+  els.sub.textContent = v.sub || '';
+  els.sub.hidden = !v.sub;
+  els.tag.textContent = v.tag;
+  els.second.hidden = state.form !== 'photo';
+  els.note.textContent = T.note;
+  els.texteNote.hidden = state.form !== 'support';
+  for (const b of ROOT.querySelectorAll('.seg[data-key="text"] button')) b.disabled = state.form === 'support';
+  els.screen.classList.toggle('hidden-notes', state.notes === 'off');
+  els.screen.classList.toggle('rm', reduced());
+  figLive.setAttribute('opacity', 1);
+}
+function applyBeats() {
+  beatsEl.innerHTML = '';
+  for (const [ms, label] of timeline().beats) {
+    const li = document.createElement('li');
+    li.dataset.ms = ms;
+    const tm = document.createElement('time');
+    tm.textContent = fmt(ms);
+    const sp = document.createElement('span');
+    sp.textContent = label;
+    li.append(tm, sp);
+    beatsEl.appendChild(li);
+  }
+}
+function syncControls() {
+  for (const seg of ROOT.querySelectorAll('.seg')) {
+    const key = seg.dataset.key;
+    for (const b of seg.querySelectorAll('button')) b.setAttribute('aria-pressed', String(b.dataset.val === String(state[key])));
+  }
+  scrub.max = timeline().duration;
+  playPause.textContent = state.playing ? 'Pause' : 'Lecture';
+}
+function render() {
+  const tl = timeline();
+  const t = Math.min(state.t, tl.duration);
+  tl.render(t);
+  scrub.value = Math.round(t);
+  scrubOut.textContent = fmt(t);
+  let current = null;
+  for (const li of beatsEl.children) if (+li.dataset.ms <= t) current = li;
+  for (const li of beatsEl.children) li.classList.toggle('now', li === current);
+}
+
+let last = 0, raf = 0;
+function frame(now) {
+  const dt = last ? now - last : 0;
+  last = now;
+  if (state.playing) {
+    state.t += dt * state.speed;
+    const d = timeline().duration;
+    if (state.t >= d) { state.t = d; state.playing = false; syncControls(); }
+  }
+  render();
+  raf = state.playing ? requestAnimationFrame(frame) : 0;
+}
+function play(fromStart) {
+  if (fromStart) state.t = 0;
+  state.playing = true;
+  syncControls();
+  last = 0;
+  if (!raf) raf = requestAnimationFrame(frame);
+}
+function pause() {
+  state.playing = false;
+  syncControls();
+}
+function resetAll() {
+  applyTexts();
+  applyBeats();
+  syncControls();
+  render();
+}
+
+/* ---------- Commandes ---------- */
+for (const seg of ROOT.querySelectorAll('.seg')) {
+  seg.addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (!b || b.disabled) return;
+    const key = seg.dataset.key;
+    state[key] = key === 'speed' ? +b.dataset.val : b.dataset.val;
+    if (key === 'speed' || key === 'notes' || key === 'text') {
+      applyTexts();
+      syncControls();
+      render();
+      return;
+    }
+    resetAll();
+    play(true);
+  });
+}
+ROOT.getElementById('replay').addEventListener('click', () => play(true));
+playPause.addEventListener('click', () => {
+  if (state.playing) pause();
+  else play(state.t >= timeline().duration);
+});
+scrub.addEventListener('input', () => {
+  pause();
+  state.t = +scrub.value;
+  render();
+});
+mqReduce.addEventListener('change', () => { if (state.motion === 'systeme') { resetAll(); play(true); } });
+
+/* ---------- Mise à l'échelle de la planche ---------- */
+const stageWrap = ROOT.getElementById('stageWrap');
+const stage = ROOT.getElementById('stage');
+function fit() {
+  const narrow = window.innerWidth < 760;
+  const byW = (window.innerWidth - 32) / 390;
+  const byH = (window.innerHeight - 48) / 844;
+  const s = Math.max(0.5, Math.min(1, narrow ? byW : Math.min(byW, byH)));
+  stage.style.transform = 'scale(' + s + ')';
+  stageWrap.style.width = 390 * s + 'px';
+  stageWrap.style.height = 844 * s + 'px';
+}
+window.addEventListener('resize', fit);
+fit();
+
+// Instant figé, pour les captures : ?t=1200 (en millisecondes).
+const fixed = params.get('t');
+resetAll();
+if (fixed !== null) { state.t = +fixed; pause(); render(); }
+else play(true);
+})(window.__ficoliaRacine || document); // ROOT : le document, ou la zone isolée qui accueille la maquette dans l'aperçu en ligne
+</script>
+</body>
+</html>
