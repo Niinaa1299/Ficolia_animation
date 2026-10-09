@@ -29,22 +29,31 @@
   /* Courbes, déjà employées par le prototype */
   --ease-out:cubic-bezier(0.23,1,0.32,1);
   --ease-in-out:cubic-bezier(0.77,0,0.175,1);
-  /* Page de présentation, autour de l'écran */
+  /* Page de présentation, autour de l'écran (l'écran du téléphone, lui, reste en thème clair : T-386) */
   --page:#F3F0EB;
   --page-texte:#321C31;
+  --page-texte-2:#5D4B5A;
   --page-trait:#E2DCD4;
+  --surface:#FFFFFF;
+  --choix:#4C2944;
+  --choix-texte:#FFF7F0;
+  --ombre:rgba(50,28,49,.28);
 }
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--page:#1B1519;--page-texte:#F1E8EE;--page-texte-2:#BCA9B6;--page-trait:#3B3038;--surface:#261E24;--choix:#DCC6D6;--choix-texte:#2A1A27;--ombre:rgba(0,0,0,.6);color-scheme:dark}
+}
+:root[data-theme="dark"]{--page:#1B1519;--page-texte:#F1E8EE;--page-texte-2:#BCA9B6;--page-trait:#3B3038;--surface:#261E24;--choix:#DCC6D6;--choix-texte:#2A1A27;--ombre:rgba(0,0,0,.6);color-scheme:dark}
 *{box-sizing:border-box}
 html,body{margin:0}
 body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperlegible Next','Atkinson Hyperlegible',system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
 
 /* ---------- Mise en page de la planche ---------- */
-.page{min-height:100vh;display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;gap:32px;padding:24px 16px 40px}
+.page{min-height:100vh;display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;gap:32px;padding-block:24px 40px;padding-inline:16px}
 .stage-wrap{flex:none;position:relative}
 .stage{position:absolute;left:0;top:0;width:390px;height:844px;transform-origin:0 0}
 
 /* ---------- L'écran du téléphone ---------- */
-.screen{position:relative;width:390px;height:844px;background:var(--fond);color:var(--texte);display:flex;flex-direction:column;overflow:hidden;border-radius:44px;box-shadow:0 0 0 1px rgba(50,28,49,.08),0 30px 60px -24px rgba(50,28,49,.28)}
+.screen{position:relative;width:390px;height:844px;background:var(--fond);color:var(--texte);color-scheme:light;display:flex;flex-direction:column;overflow:hidden;border-radius:44px;box-shadow:0 0 0 1px rgba(50,28,49,.08),0 30px 60px -24px var(--ombre)}
 .screen-main{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:center;padding-top:47px}
 .illu{flex:none;height:300px}
 .illu svg{display:block;width:390px;height:300px;overflow:visible}
@@ -72,23 +81,23 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 /* ---------- Panneau de réglages ---------- */
 .panel{flex:0 1 360px;min-width:280px;max-width:420px;display:flex;flex-direction:column;gap:20px;padding-top:8px}
 .panel h2{margin:0;font-size:22px;line-height:1.2}
-.panel .lead{margin:6px 0 0;font-size:15px;line-height:1.45;color:#5D4B5A}
+.panel .lead{margin:6px 0 0;font-size:15px;line-height:1.45;color:var(--page-texte-2)}
 .group{display:flex;flex-direction:column;gap:8px}
-.group .label{font-size:13px;font-weight:700;letter-spacing:.02em;color:#5D4B5A}
+.group .label{font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--page-texte-2)}
 .seg{display:flex;flex-wrap:wrap;gap:6px}
-.seg button,.btn{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--page-trait);background:#FFFFFF;color:var(--page-texte);font:inherit;font-size:15px;cursor:pointer;touch-action:manipulation;transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease}
-.seg button[aria-pressed="true"]{background:var(--aubergine);border-color:var(--aubergine);color:var(--ivoire-rose)}
-.seg button:focus-visible,.btn:focus-visible,.scrub input:focus-visible{outline:2px solid var(--aubergine);outline-offset:2px}
+.seg button,.btn{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--page-trait);background:var(--surface);color:var(--page-texte);font:inherit;font-size:15px;cursor:pointer;touch-action:manipulation;transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease}
+.seg button[aria-pressed="true"]{background:var(--choix);border-color:var(--choix);color:var(--choix-texte)}
+.seg button:focus-visible,.btn:focus-visible,.scrub input:focus-visible{outline:2px solid var(--choix);outline-offset:2px}
 .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.btn.primary{background:var(--aubergine);border-color:var(--aubergine);color:var(--ivoire-rose);font-weight:700}
+.btn.primary{background:var(--choix);border-color:var(--choix);color:var(--choix-texte);font-weight:700}
 .scrub{display:flex;align-items:center;gap:10px}
-.scrub input{flex:1;accent-color:var(--aubergine);min-height:32px}
-.scrub output{min-width:52px;text-align:right;font-variant-numeric:tabular-nums;font-size:14px;color:#5D4B5A}
+.scrub input{flex:1;min-width:0;accent-color:var(--choix);min-height:32px}
+.scrub output{min-width:52px;text-align:right;font-variant-numeric:tabular-nums;font-size:14px;color:var(--page-texte-2)}
 .beats{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.4}
 .beats li{display:grid;grid-template-columns:52px 1fr;gap:8px;padding:6px 8px;border-radius:10px;transition:background-color 160ms ease}
-.beats li.now{background:#FFFFFF}
-.beats time{font-variant-numeric:tabular-nums;color:#5D4B5A}
-.small{margin:0;font-size:13px;line-height:1.45;color:#5D4B5A}
+.beats li.now{background:var(--surface)}
+.beats time{font-variant-numeric:tabular-nums;color:var(--page-texte-2)}
+.small{margin:0;font-size:13px;line-height:1.45;color:var(--page-texte-2)}
 @media (max-width:760px){.page{gap:20px;padding-top:16px}.panel{flex-basis:100%;max-width:520px}}
 </style>
 </head>
