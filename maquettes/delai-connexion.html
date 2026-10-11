@@ -9,12 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
 /*
-  Ficolia — maquette animée de l'écran « délai de connexion » (« Recherche du produit… »), deux pistes.
+  Ficolia — maquette animée de l'écran « délai de connexion » (« Recherche du produit… »), trois pistes.
   Réseau faible : cet écran, puis le passage sans geste à « Connexion insuffisante » (décision 112).
   La figue est à la place et dans la pose où l'écran 2 la reprend : le passage ne saute pas.
   L'animation joue une fois, en moins de 5 secondes, puis l'image reste fixe (WCAG 2.2.2).
   L'escargot : il emporte le scan, lentement ; la figue le suit des yeux, tapote, l'encourage.
   Les cent pas : elle fait les cent pas, demi-tour, et revient attendre au milieu.
+  La pêche à la ligne : sa queue en guise de canne, elle pêche le réseau ; ça ne mord pas.
   En couleurs, ou grisée comme les autres écrans d'échec avant (réglage « Couleurs »).
   Tout est proposition (FICOLIA_DESIGN.md §3).
 */
@@ -67,8 +68,8 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
    grenade), jamais de couleur de verdict. « Grisé » rend la version d'avant, neutre, pour comparer. */
 .screen{--f-peau:#4C2944;--f-nervure:#9EBE59;--f-graine:#9F3542;--f-chair:#FFFFFF;--o-trait:#4C2944;--o-papier:#FFF7F0;--o-bois:#E8C08E;--o-bois-fond:#C9945E;--o-paille:#D4AF6A;--o-boite:#E9DCE6;--o-boite-fond:#D5BFD0;--o-feuille:#9EBE59;--o-feuille-nervure:#FFFFFF;--o-tige:#7E9C45;--o-store-a:#FFF7F0;--o-store-b:#9F3542;--o-tasse:#9F3542;--o-vapeur:#B9A9B5;--o-lunettes:#4C2944;--o-verre:#DDEBF3;--o-metal:#BDB6BC;--o-cochonnet:#9F3542;--o-sable:#E9D7B5;--o-gravier:#CDB48C;--o-ombre:#EADFD2;--o-onde:#8E6B88}
 .screen.gris{--f-peau:#C9BEC4;--f-nervure:#C9BEC4;--f-graine:#C9BEC4;--f-chair:#FFFFFF;--o-trait:#B3A6B0;--o-papier:#FFFFFF;--o-bois:#FAF8F4;--o-bois-fond:#F3EFEA;--o-paille:#B3A6B0;--o-boite:#FAF8F4;--o-boite-fond:#F3EFEA;--o-feuille:#FFFFFF;--o-feuille-nervure:#B3A6B0;--o-tige:#B3A6B0;--o-store-a:#FFFFFF;--o-store-b:#F3EFEA;--o-tasse:#FFFFFF;--o-vapeur:#B3A6B0;--o-lunettes:#6E5A6B;--o-verre:#FFFFFF;--o-metal:#FAF8F4;--o-cochonnet:#B3A6B0;--o-sable:#E7E1DA;--o-gravier:#D6CEC6;--o-ombre:#F3EFEA;--o-onde:#C9BEC4}
-.screen{--o-escargot:#E6CDAA;--o-coquille:#C98B5E;--o-trace:#E9DCE6}
-.screen.gris{--o-escargot:#FAF8F4;--o-coquille:#FFFFFF;--o-trace:#F3EFEA}
+.screen{--o-escargot:#E6CDAA;--o-coquille:#C98B5E;--o-trace:#E9DCE6;--o-eau:#D3E6EC;--o-eau-trait:#8DB4C0;--o-bouchon:#9F3542;--o-ligne:#6E5A6B}
+.screen.gris{--o-escargot:#FAF8F4;--o-coquille:#FFFFFF;--o-trace:#F3EFEA;--o-eau:#F3EFEA;--o-eau-trait:#B3A6B0;--o-bouchon:#FFFFFF;--o-ligne:#B3A6B0}
 .screen a{color:inherit;text-decoration:none}
 .screen a,.screen button{touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 160ms var(--ease-out)}
 .screen a:active,.screen button:active{transform:scale(.97)}
@@ -129,6 +130,8 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
             <svg viewBox="0 0 390 262" aria-hidden="true" focusable="false">
               <!-- L'escargot : la trace qu'il laisse derrière lui -->
               <path id="trace" fill="none" stroke="var(--o-trace)" stroke-width="3" stroke-linecap="round" opacity="0"></path>
+              <!-- La pêche à la ligne : le petit étang, et les ronds dans l'eau -->
+              <g id="etang" opacity="0"></g>
               <!-- La figue, à la place où l'écran 2 la reprend -->
               <g id="figSpace" transform="translate(125.6 78) scale(0.62)">
                 <g id="figMove">
@@ -137,6 +140,9 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
               </g>
               <!-- L'escargot, le scan sur sa coquille -->
               <g id="escargot" opacity="0"></g>
+              <!-- La ligne, du bout de sa queue au bouchon -->
+              <path id="ligne" fill="none" stroke="var(--o-ligne)" stroke-width="1.2" stroke-linecap="round" opacity="0"></path>
+              <g id="bouchon" opacity="0"></g>
             </svg>
           </div>
           <div class="copy">
@@ -187,7 +193,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
       <h2>Délai de connexion</h2>
-      <p class="lead">Deux pistes à comparer, en couleurs ou grisées (réglage « Couleurs »). La figue finit à la place et dans la pose où « Connexion insuffisante » la reprend.</p>
+      <p class="lead">Trois pistes à comparer, en couleurs ou grisées (réglage « Couleurs »). La figue finit à la place et dans la pose où « Connexion insuffisante » la reprend.</p>
     </div>
 
     <div class="group">
@@ -195,6 +201,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
       <div class="seg" role="group" aria-labelledby="lblPiste" data-key="piste">
         <button type="button" data-val="escargot">L'escargot</button>
         <button type="button" data-val="centpas">Les cent pas</button>
+        <button type="button" data-val="peche">La pêche à la ligne</button>
       </div>
     </div>
 
@@ -446,12 +453,35 @@ function drawEscargot(o, x, s, wig) {
   trace.setAttribute('d', `M${ESC.x0 - 22} ${ESC.y - 1}H${Math.max(ESC.x0 - 22, x - 22).toFixed(1)}`);
 }
 
+/* ---------- La pêche à la ligne : l'étang, la ligne, le bouchon ---------- */
+const etang = ROOT.getElementById('etang');
+const ligne = ROOT.getElementById('ligne');
+const bouchon = ROOT.getElementById('bouchon');
+const EAU = { x: 320, y: 222 };     // où flotte le bouchon
+const ronds = (() => {
+  svgEl('ellipse', { cx: 320, cy: 226, rx: 56, ry: 8, fill: 'var(--o-eau)' }, etang);
+  svgEl('path', { d: 'M282 223q4 -2 8 0M346 225q4 -2 8 0', fill: 'none', stroke: 'var(--o-eau-trait)', 'stroke-width': 1.4, 'stroke-linecap': 'round' }, etang);
+  // Le bouchon : moitié haute grenade, moitié basse blanche, une petite tige où s'attache la ligne.
+  svgEl('path', { d: 'M0 -9V-5', fill: 'none', stroke: TRAIT, 'stroke-width': 1.4, 'stroke-linecap': 'round' }, bouchon);
+  svgEl('path', { d: 'M-5 0A5 5 0 0 1 5 0Z', fill: 'var(--o-bouchon)', stroke: TRAIT, 'stroke-width': 1.4, 'stroke-linejoin': 'round' }, bouchon);
+  svgEl('path', { d: 'M-5 0A5 5 0 0 0 5 0Z', fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 1.4, 'stroke-linejoin': 'round' }, bouchon);
+  return [0, 1].map(() => svgEl('ellipse', { cx: EAU.x, cy: EAU.y + 2, rx: 4, ry: 1.5, fill: 'none', stroke: 'var(--o-eau-trait)', 'stroke-width': 1.2, opacity: 0 }, etang));
+})();
+// Un rond dans l'eau, de 0 à 1.
+function drawRond(el, u, size) {
+  if (u <= 0 || u >= 1) { el.setAttribute('opacity', 0); return; }
+  el.setAttribute('opacity', (0.9 * (1 - u)).toFixed(3));
+  el.setAttribute('rx', (4 + size * u).toFixed(1));
+  el.setAttribute('ry', (1.5 + size * 0.22 * u).toFixed(1));
+}
+
 // Chaque image repart de zéro : chaque déroulé n'allume que ce dont il a besoin.
 function clearExtras() {
   figLive.setAttribute('opacity', 1);
   figMove.removeAttribute('transform');
   escargot.setAttribute('opacity', 0);
   trace.setAttribute('opacity', 0);
+  for (const el of [etang, ligne, bouchon, ...ronds]) el.setAttribute('opacity', 0);
 }
 
 /* ---------- Textes ---------- */
@@ -552,21 +582,83 @@ const CENTPAS = {
   },
   still() { placeFig(0, 0, 0); drawFig(REST); }
 };
-const PISTES = { escargot: ESCARGOT, centpas: CENTPAS };
+// La pêche à la ligne : sa queue en guise de canne, elle lance ; le bouchon flotte, frémit… ça ne mord pas.
+// Elle remonte sa ligne, range sa canne et reprend sa pose : celle où l'écran 2 la reprend.
+const PECHE = {
+  duration: 4400,
+  beats: [
+    [0, 'Le titre s’affiche ; un petit étang paraît à côté de la figue.'],
+    [400, 'Elle arme sa queue, comme une canne à pêche…'],
+    [700, '… et lance : le bouchon tombe dans l’eau.'],
+    [1200, 'Elle attend ; le bouchon flotte.'],
+    [2000, 'Il frémit… elle se penche, pleine d’espoir.'],
+    [2450, 'Ça ne mord pas : petit soupir.'],
+    [2900, 'Elle remonte sa ligne et range sa canne.'],
+    [3800, 'Elle reprend sa pose, et attend.'],
+    [4400, 'Fin : l’image reste fixe, la figue à sa place de départ.']
+  ],
+  pose(t) {
+    const wind = EASE_IN_OUT(prog(t, 400, 300));                               // elle arme
+    const cast = EASE_OUT(prog(t, 700, 200));                                  // elle lance
+    const reel = EASE_IN_OUT(prog(t, 2900, 800));                              // elle range sa canne
+    const hope = EASE_IN_OUT(prog(t, 1950, 200)) * (1 - EASE_IN_OUT(prog(t, 2350, 300)));
+    const sigh = bump(t, 2450, 450), sigh2 = bump(t, 3800, 450);
+    const crouch = wind * (1 - cast);
+    return {
+      k: 1 + 0.6 * cast * (1 - reel), tilt: 0, curl: 0, arm: mix(-0.45 * wind, 1.1, cast) * (1 - reel), sh: 0,
+      sx: 1 + 0.03 * (sigh + sigh2 + crouch), sy: 1 - 0.05 * (sigh + sigh2 + crouch) + 0.02 * hope,
+      lean: 0.06 * hope
+    };
+  },
+  // Le bout de la queue, en pixels de l'illustration.
+  tip(P) { warp(TIP.x, TIP.y, P); return { x: 125.6 + WX * S, y: 78 + WY * S }; },
+  render(t) {
+    textsAt(t);
+    placeFig(0, 0, 0);
+    const P = this.pose(t);
+    drawFig(P);
+    etang.setAttribute('opacity', EASE_OUT(prog(t, 0, 400)).toFixed(3));
+    // Le bouchon : il pend au bout de la ligne, vole jusqu'à l'eau, flotte, puis remonte.
+    const q = this.tip(P), hang = { x: q.x + 7, y: q.y + 24 };
+    let b, sag = 4;
+    if (t < 850) b = hang;
+    else if (t < 1200) {
+      const r = this.tip(this.pose(850)), u = EASE_IN_OUT(prog(t, 850, 350));
+      b = { x: mix(r.x + 7, EAU.x, u), y: mix(r.y + 24, EAU.y, u) - 40 * Math.sin(Math.PI * u) };
+    } else if (t < 2900) {
+      const dip = 3 * bump(t, 2000, 120) + 3 * bump(t, 2180, 120);            // il frémit
+      b = { x: EAU.x, y: EAU.y + 1.2 * Math.sin(2 * Math.PI * (t - 1200) / 900) + dip };
+      sag = 22;
+    } else {
+      const u = EASE_IN_OUT(prog(t, 2900, 600));
+      b = { x: mix(EAU.x, hang.x, u), y: mix(EAU.y, hang.y, u) - 30 * Math.sin(Math.PI * u) };
+      sag = mix(22, 4, u);
+    }
+    const o = EASE_OUT(prog(t, 400, 200)) * (1 - EASE_IN_OUT(prog(t, 3400, 300)));
+    bouchon.setAttribute('opacity', o.toFixed(3));
+    bouchon.setAttribute('transform', `translate(${b.x.toFixed(1)} ${b.y.toFixed(1)})`);
+    ligne.setAttribute('opacity', (0.9 * o).toFixed(3));
+    ligne.setAttribute('d', `M${q.x.toFixed(1)} ${q.y.toFixed(1)}Q${((q.x + b.x) / 2).toFixed(1)} ${(Math.max(q.y, b.y - 9) + sag).toFixed(1)} ${b.x.toFixed(1)} ${(b.y - 9).toFixed(1)}`);
+    drawRond(ronds[0], prog(t, 1200, 600), 22);                                // le plouf
+    drawRond(ronds[1], prog(t, 2050, 450), 12);                                // le frémissement
+  },
+  still() { placeFig(0, 0, 0); drawFig(REST); etang.setAttribute('opacity', 1); }
+};
+const PISTES = { escargot: ESCARGOT, centpas: CENTPAS, peche: PECHE };
 
 // Mouvement réduit : rien ne bouge, l'image finale de la piste apparaît en fondu.
 function reduit(piste) {
   return {
     duration: 600,
     beats: [
-      [0, piste === 'escargot' ? 'La figue, l’escargot et les textes apparaissent en fondu, sans déplacement.' : 'La figue et les textes apparaissent en fondu, sans déplacement.'],
+      [0, { escargot: 'La figue, l’escargot et les textes', peche: 'La figue, l’étang et les textes' }[piste] ? `${{ escargot: 'La figue, l’escargot et les textes', peche: 'La figue, l’étang et les textes' }[piste]} apparaissent en fondu, sans déplacement.` : 'La figue et les textes apparaissent en fondu, sans déplacement.'],
       [600, 'Fin : l’image reste fixe.']
     ],
     render(t) {
       textsAt(t, true);
       PISTES[piste].still();
       const o = EASE_OUT(prog(t, 0, 300)).toFixed(3);
-      for (const el of [figLive, escargot, trace]) if (el.getAttribute('opacity') !== '0') el.setAttribute('opacity', o);
+      for (const el of [figLive, escargot, trace, etang]) if (el.getAttribute('opacity') !== '0') el.setAttribute('opacity', o);
     }
   };
 }
