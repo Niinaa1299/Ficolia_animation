@@ -63,6 +63,11 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 
 /* ---------- L'écran du téléphone ---------- */
 .screen{position:relative;width:390px;height:844px;background:var(--fond);color:var(--texte);color-scheme:light;display:flex;flex-direction:column;overflow:hidden;border-radius:44px;box-shadow:0 0 0 1px rgba(50,28,49,.08),0 30px 60px -24px var(--ombre)}
+/* ---------- Couleurs des animations (proposition, 11/10) ----------
+   En couleurs : la figue aux couleurs de la marque, des objets assortis (bois, paille, papier, feuille,
+   grenade), jamais de couleur de verdict. « Grisé » rend la version d'avant, neutre, pour comparer. */
+.screen{--f-peau:#4C2944;--f-nervure:#9EBE59;--f-graine:#9F3542;--f-chair:#FFFFFF;--o-trait:#4C2944;--o-papier:#FFF7F0;--o-bois:#E8C08E;--o-bois-fond:#C9945E;--o-paille:#D4AF6A;--o-boite:#E9DCE6;--o-boite-fond:#D5BFD0;--o-feuille:#9EBE59;--o-feuille-nervure:#FFFFFF;--o-tige:#7E9C45;--o-store-a:#FFF7F0;--o-store-b:#9F3542;--o-tasse:#9F3542;--o-vapeur:#B9A9B5;--o-lunettes:#4C2944;--o-verre:#DDEBF3;--o-metal:#BDB6BC;--o-cochonnet:#9F3542;--o-sable:#E9D7B5;--o-gravier:#CDB48C;--o-ombre:#EADFD2;--o-onde:#8E6B88}
+.screen.gris{--f-peau:#C9BEC4;--f-nervure:#C9BEC4;--f-graine:#C9BEC4;--f-chair:#FFFFFF;--o-trait:#B3A6B0;--o-papier:#FFFFFF;--o-bois:#FAF8F4;--o-bois-fond:#F3EFEA;--o-paille:#B3A6B0;--o-boite:#FAF8F4;--o-boite-fond:#F3EFEA;--o-feuille:#FFFFFF;--o-feuille-nervure:#B3A6B0;--o-tige:#B3A6B0;--o-store-a:#FFFFFF;--o-store-b:#F3EFEA;--o-tasse:#FFFFFF;--o-vapeur:#B3A6B0;--o-lunettes:#6E5A6B;--o-verre:#FFFFFF;--o-metal:#FAF8F4;--o-cochonnet:#B3A6B0;--o-sable:#E7E1DA;--o-gravier:#D6CEC6;--o-ombre:#F3EFEA;--o-onde:#C9BEC4}
 .screen a{color:inherit;text-decoration:none}
 .screen a,.screen button{touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 160ms var(--ease-out)}
 .screen a:active,.screen button:active{transform:scale(.97)}
@@ -164,7 +169,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
       <h2>Service indisponible</h2>
-      <p class="lead">Cinq pistes à comparer. Figue neutre, objets au trait neutre : ni feu vert, ni alerte, et rien qui promette un retour.</p>
+      <p class="lead">Cinq pistes à comparer, en couleurs ou grisées (réglage « Couleurs »). Ni feu vert, ni alerte, et rien qui promette un retour.</p>
     </div>
 
     <div class="group">
@@ -175,6 +180,14 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
         <button type="button" data-val="ombre">À l'ombre du figuier</button>
         <button type="button" data-val="store">Le store de l'étal</button>
         <button type="button" data-val="petanque">La partie de pétanque</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <span class="label" id="lblCouleurs">Couleurs</span>
+      <div class="seg" role="group" aria-labelledby="lblCouleurs" data-key="couleurs">
+        <button type="button" data-val="couleurs">En couleurs</button>
+        <button type="button" data-val="gris">Grisé (version d'avant)</button>
       </div>
     </div>
 
@@ -346,8 +359,8 @@ function poly(pts, P) {
   }
   return out.join('') + 'Z';
 }
-// Figue neutre : une seule couleur, la chair blanche pour que rien ne transparaisse à travers elle.
-const COLORS = { chair: '#FFFFFF', peau: '#C9BEC4', nervure: '#C9BEC4', graine: '#C9BEC4' };
+// Aux couleurs de la marque, ou neutre (« Grisé ») ; la chair blanche pour que rien ne transparaisse à travers elle.
+const COLORS = { chair: 'var(--f-chair)', peau: 'var(--f-peau)', nervure: 'var(--f-nervure)', graine: 'var(--f-graine)' };
 // La chair : l'enveloppe convexe du contour et de l'arc, sous la queue (en dessous de y = 62).
 function chair() {
   const pts = [];
@@ -396,18 +409,17 @@ function svgEl(tag, attrs, parent) {
   parent.appendChild(el);
   return el;
 }
-const TRAIT = '#B3A6B0';   // --trait-neutre
-const FOND = '#F3EFEA';    // le fond des objets, et l'ombre au sol
+const TRAIT = 'var(--o-trait)';
 
 /* ---------- La cagette retournée : son siège (la pause, la pause café) ---------- */
 const cagette = ROOT.getElementById('cagette');
 const SIEGE = { top: 162, ground: 214 };
 (() => {
   // Retournée : trois lattes jusqu'au sol entre deux montants ; son fond, par-dessus, sert d'assise.
-  svgEl('rect', { x: 150, y: 168, width: 90, height: 46, fill: '#F3EFEA', stroke: TRAIT, 'stroke-width': 1.6 }, cagette);
-  for (const y of [170, 185, 200]) svgEl('rect', { x: 151, y, width: 88, height: 12, rx: 1.5, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 2 }, cagette);
-  for (const x of [146, 236]) svgEl('rect', { x, y: 166, width: 8, height: 48, rx: 1.5, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 2 }, cagette);
-  svgEl('rect', { x: 142, y: 162, width: 106, height: 7, rx: 2, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 2 }, cagette);
+  svgEl('rect', { x: 150, y: 168, width: 90, height: 46, fill: 'var(--o-bois-fond)', stroke: TRAIT, 'stroke-width': 1.6 }, cagette);
+  for (const y of [170, 185, 200]) svgEl('rect', { x: 151, y, width: 88, height: 12, rx: 1.5, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 2 }, cagette);
+  for (const x of [146, 236]) svgEl('rect', { x, y: 166, width: 8, height: 48, rx: 1.5, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 2 }, cagette);
+  svgEl('rect', { x: 142, y: 162, width: 106, height: 7, rx: 2, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 2 }, cagette);
 })();
 
 /* ---------- La tasse fumante (la pause café), tenue par son anse au bout de la queue ---------- */
@@ -415,9 +427,9 @@ const tasse = ROOT.getElementById('tasse');
 const vapeurs = [];
 (() => {
   // À l'échelle du symbole ; l'origine est dans l'anse, la tasse est à sa gauche.
-  svgEl('path', { d: 'M-62 -22H-14L-18 10Q-19 16 -25 16H-51Q-57 16 -58 10Z', fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 4.5, 'stroke-linejoin': 'round' }, tasse);
+  svgEl('path', { d: 'M-62 -22H-14L-18 10Q-19 16 -25 16H-51Q-57 16 -58 10Z', fill: 'var(--o-tasse)', stroke: TRAIT, 'stroke-width': 4.5, 'stroke-linejoin': 'round' }, tasse);
   svgEl('path', { d: 'M-15 -14Q2 -14 1 -2Q0 8 -17 6', fill: 'none', stroke: TRAIT, 'stroke-width': 4.5, 'stroke-linecap': 'round' }, tasse);
-  for (const x of [-50, -38, -26]) vapeurs.push(svgEl('path', { d: `M${x} -30q-6 -8 0 -16t0 -16`, fill: 'none', stroke: TRAIT, 'stroke-width': 3.5, 'stroke-linecap': 'round', opacity: 0 }, tasse));
+  for (const x of [-50, -38, -26]) vapeurs.push(svgEl('path', { d: `M${x} -30q-6 -8 0 -16t0 -16`, fill: 'none', stroke: 'var(--o-vapeur)', 'stroke-width': 3.5, 'stroke-linecap': 'round', opacity: 0 }, tasse));
 })();
 // La vapeur : trois bouffées, puis plus rien (elle ne tourne pas en boucle).
 const BOUFFEES = [1250, 1850, 2450];
@@ -439,15 +451,15 @@ const eventail = ROOT.getElementById('eventail');
 const FEUILLE_D = 'M14 0C16 10 24 22 34 30C40 35 50 36 52 30C54 24 48 16 44 11C52 14 64 14 74 9C83 5 83 -5 74 -9C64 -14 52 -14 44 -11C48 -16 54 -24 52 -30C50 -36 40 -35 34 -30C24 -22 16 -10 14 0Z';
 const NERVURES_D = 'M16 0H70M18 2Q30 14 44 28M18 -2Q30 -14 44 -28';
 (() => {
-  svgEl('ellipse', { cx: 158, cy: 214, rx: 74, ry: 8, fill: FOND }, parasol);
-  svgEl('path', { d: 'M290 214C292 160 284 92 252 38', fill: 'none', stroke: TRAIT, 'stroke-width': 3, 'stroke-linecap': 'round' }, parasol);
+  svgEl('ellipse', { cx: 158, cy: 214, rx: 74, ry: 8, fill: 'var(--o-ombre)' }, parasol);
+  svgEl('path', { d: 'M290 214C292 160 284 92 252 38', fill: 'none', stroke: 'var(--o-tige)', 'stroke-width': 3, 'stroke-linecap': 'round' }, parasol);
   const g = svgEl('g', { transform: 'translate(252 38) rotate(168) scale(1.45)' }, parasol);
-  svgEl('path', { d: 'M0 0H16', fill: 'none', stroke: TRAIT, 'stroke-width': 2.2, 'stroke-linecap': 'round' }, g);
-  svgEl('path', { d: FEUILLE_D, fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 1.6, 'stroke-linejoin': 'round' }, g);
-  svgEl('path', { d: NERVURES_D, fill: 'none', stroke: TRAIT, 'stroke-width': 1.2, 'stroke-linecap': 'round' }, g);
+  svgEl('path', { d: 'M0 0H16', fill: 'none', stroke: 'var(--o-tige)', 'stroke-width': 2.2, 'stroke-linecap': 'round' }, g);
+  svgEl('path', { d: FEUILLE_D, fill: 'var(--o-feuille)', stroke: TRAIT, 'stroke-width': 1.6, 'stroke-linejoin': 'round' }, g);
+  svgEl('path', { d: NERVURES_D, fill: 'none', stroke: 'var(--o-feuille-nervure)', 'stroke-width': 1.2, 'stroke-linecap': 'round' }, g);
   // L'éventail : une petite feuille, à l'échelle du symbole, au bout de sa queue.
-  svgEl('path', { d: FEUILLE_D, fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 3.5, 'stroke-linejoin': 'round' }, eventail);
-  svgEl('path', { d: NERVURES_D, fill: 'none', stroke: TRAIT, 'stroke-width': 2.5, 'stroke-linecap': 'round' }, eventail);
+  svgEl('path', { d: FEUILLE_D, fill: 'var(--o-feuille)', stroke: TRAIT, 'stroke-width': 3.5, 'stroke-linejoin': 'round' }, eventail);
+  svgEl('path', { d: NERVURES_D, fill: 'none', stroke: 'var(--o-feuille-nervure)', 'stroke-width': 2.5, 'stroke-linecap': 'round' }, eventail);
 })();
 
 /* ---------- Le store de l'étal : les montants, la cagette, l'auvent rayé ---------- */
@@ -456,15 +468,15 @@ const store = ROOT.getElementById('store');
 const AUVENT = { x0: 90, x1: 300, top: 38, rest: 38, half: 132 };
 const bandes = [];
 (() => {
-  for (const x of [87, 297]) svgEl('rect', { x, y: 28, width: 6, height: 186, rx: 2, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 2 }, etal);
-  svgEl('rect', { x: 82, y: 22, width: 226, height: 8, rx: 2, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 2 }, etal);
+  for (const x of [87, 297]) svgEl('rect', { x, y: 28, width: 6, height: 186, rx: 2, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 2 }, etal);
+  svgEl('rect', { x: 82, y: 22, width: 226, height: 8, rx: 2, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 2 }, etal);
   // La cagette de l'étal, avec sa paille, au fond à droite.
-  svgEl('rect', { x: 232, y: 180, width: 58, height: 34, fill: FOND, stroke: TRAIT, 'stroke-width': 1.6 }, etal);
-  svgEl('path', { d: 'M237 181l-4 -10M243 181l3 -11M250 181l-2 -12M257 181l5 -10M264 181l-4 -11M271 181l3 -12M278 181l-3 -10M285 181l4 -10', fill: 'none', stroke: TRAIT, 'stroke-width': 1.6, 'stroke-linecap': 'round' }, etal);
-  for (const y of [183, 199]) svgEl('rect', { x: 230, y, width: 62, height: 11, rx: 1.5, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 1.8 }, etal);
+  svgEl('rect', { x: 232, y: 180, width: 58, height: 34, fill: 'var(--o-bois-fond)', stroke: TRAIT, 'stroke-width': 1.6 }, etal);
+  svgEl('path', { d: 'M237 181l-4 -10M243 181l3 -11M250 181l-2 -12M257 181l5 -10M264 181l-4 -11M271 181l3 -12M278 181l-3 -10M285 181l4 -10', fill: 'none', stroke: 'var(--o-paille)', 'stroke-width': 1.6, 'stroke-linecap': 'round' }, etal);
+  for (const y of [183, 199]) svgEl('rect', { x: 230, y, width: 62, height: 11, rx: 1.5, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 1.8 }, etal);
   // L'auvent : dix bandes, chacune finie par un feston ; le rouleau, par-dessus.
-  for (let i = 0; i < 10; i++) bandes.push(svgEl('path', { fill: i % 2 ? FOND : '#FFFFFF', stroke: TRAIT, 'stroke-width': 1.6, 'stroke-linejoin': 'round' }, store));
-  svgEl('rect', { x: 88, y: 30, width: 214, height: 10, rx: 5, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 2 }, store);
+  for (let i = 0; i < 10; i++) bandes.push(svgEl('path', { fill: i % 2 ? 'var(--o-store-b)' : 'var(--o-store-a)', stroke: TRAIT, 'stroke-width': 1.6, 'stroke-linejoin': 'round' }, store));
+  svgEl('rect', { x: 88, y: 30, width: 214, height: 10, rx: 5, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 2 }, store);
 })();
 // L'auvent descendu jusqu'à b ; son bord soulevé de lift autour de cx (là où la queue le pousse).
 function drawStore(b, lift, cx) {
@@ -485,10 +497,10 @@ const COCHONNET = { x: 322, y: 210 };
 const ARRET = { x: 304, y: 205 };   // où la boule s'arrête, tout près du cochonnet
 const R_BOULE = 9;
 const bouleRayures = (() => {
-  svgEl('path', { d: 'M34 214H364', fill: 'none', stroke: '#E7E1DA', 'stroke-width': 2, 'stroke-linecap': 'round' }, terrain);
-  for (const [x, y] of [[150, 218], [196, 217], [236, 219], [272, 217], [344, 218]]) svgEl('circle', { cx: x, cy: y, r: 1.2, fill: '#D6CEC6' }, terrain);
-  svgEl('circle', { cx: COCHONNET.x, cy: COCHONNET.y, r: 4, fill: TRAIT }, terrain);
-  svgEl('circle', { r: R_BOULE, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 2 }, boule);
+  svgEl('path', { d: 'M34 214H364', fill: 'none', stroke: 'var(--o-sable)', 'stroke-width': 2, 'stroke-linecap': 'round' }, terrain);
+  for (const [x, y] of [[150, 218], [196, 217], [236, 219], [272, 217], [344, 218]]) svgEl('circle', { cx: x, cy: y, r: 1.2, fill: 'var(--o-gravier)' }, terrain);
+  svgEl('circle', { cx: COCHONNET.x, cy: COCHONNET.y, r: 4, fill: 'var(--o-cochonnet)' }, terrain);
+  svgEl('circle', { r: R_BOULE, fill: 'var(--o-metal)', stroke: TRAIT, 'stroke-width': 2 }, boule);
   return svgEl('path', { d: 'M-8 -3Q0 2 8 -3M-8 3Q0 8 8 3', fill: 'none', stroke: TRAIT, 'stroke-width': 1.4, 'stroke-linecap': 'round' }, boule);
 })();
 function drawBoule(o, x, y, deg) {
@@ -771,6 +783,7 @@ const REDUITS = Object.fromEntries(Object.keys(PISTES).map(p => [p, reduit(p)]))
 const params = new URLSearchParams(location.search);
 const state = {
   piste: Object.keys(PISTES).includes(params.get('piste')) ? params.get('piste') : 'pause',
+  couleurs: params.get('couleurs') === 'gris' ? 'gris' : 'couleurs',
   speed: 1,
   cause: params.get('cause') === 'inconnue' ? 'inconnue' : 'maintenance',
   motion: params.get('mouvement') === 'reduit' ? 'reduit' : params.get('mouvement') === 'normal' ? 'normal' : 'systeme',
@@ -794,6 +807,7 @@ function applyTexts() {
   els.body.textContent = T.body;
   els.screen.classList.toggle('hidden-notes', state.notes === 'off');
   els.screen.classList.toggle('rm', reduced());
+  els.screen.classList.toggle('gris', state.couleurs === 'gris');
 }
 
 function applyBeats() {
@@ -866,7 +880,7 @@ for (const seg of ROOT.querySelectorAll('.seg')) {
     if (!b || b.disabled) return;
     const key = seg.dataset.key;
     state[key] = key === 'speed' ? +b.dataset.val : b.dataset.val;
-    if (key === 'speed' || key === 'notes' || key === 'cause') {
+    if (key === 'speed' || key === 'notes' || key === 'cause' || key === 'couleurs') {
       applyTexts();
       syncControls();
       render();

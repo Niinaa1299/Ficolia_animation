@@ -56,6 +56,11 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 
 /* ---------- L'écran du téléphone ---------- */
 .screen{position:relative;width:390px;height:844px;background:var(--fond);color:var(--texte);color-scheme:light;display:flex;flex-direction:column;overflow:hidden;border-radius:44px;box-shadow:0 0 0 1px rgba(50,28,49,.08),0 30px 60px -24px var(--ombre)}
+/* ---------- Couleurs des animations (proposition, 11/10) ----------
+   En couleurs : la figue aux couleurs de la marque, des objets assortis (bois, paille, papier, feuille,
+   grenade), jamais de couleur de verdict. « Grisé » rend la version d'avant, neutre, pour comparer. */
+.screen{--f-peau:#4C2944;--f-nervure:#9EBE59;--f-graine:#9F3542;--f-chair:#FFFFFF;--o-trait:#4C2944;--o-papier:#FFF7F0;--o-bois:#E8C08E;--o-bois-fond:#C9945E;--o-paille:#D4AF6A;--o-boite:#E9DCE6;--o-boite-fond:#D5BFD0;--o-feuille:#9EBE59;--o-feuille-nervure:#FFFFFF;--o-tige:#7E9C45;--o-store-a:#FFF7F0;--o-store-b:#9F3542;--o-tasse:#9F3542;--o-vapeur:#B9A9B5;--o-lunettes:#4C2944;--o-verre:#DDEBF3;--o-metal:#BDB6BC;--o-cochonnet:#9F3542;--o-sable:#E9D7B5;--o-gravier:#CDB48C;--o-ombre:#EADFD2;--o-onde:#8E6B88}
+.screen.gris{--f-peau:#C9BEC4;--f-nervure:#C9BEC4;--f-graine:#C9BEC4;--f-chair:#FFFFFF;--o-trait:#B3A6B0;--o-papier:#FFFFFF;--o-bois:#FAF8F4;--o-bois-fond:#F3EFEA;--o-paille:#B3A6B0;--o-boite:#FAF8F4;--o-boite-fond:#F3EFEA;--o-feuille:#FFFFFF;--o-feuille-nervure:#B3A6B0;--o-tige:#B3A6B0;--o-store-a:#FFFFFF;--o-store-b:#F3EFEA;--o-tasse:#FFFFFF;--o-vapeur:#B3A6B0;--o-lunettes:#6E5A6B;--o-verre:#FFFFFF;--o-metal:#FAF8F4;--o-cochonnet:#B3A6B0;--o-sable:#E7E1DA;--o-gravier:#D6CEC6;--o-ombre:#F3EFEA;--o-onde:#C9BEC4}
 .screen a{color:inherit;text-decoration:none}
 .screen a,.screen button{touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 160ms var(--ease-out)}
 .screen a:active,.screen button:active{transform:scale(.97)}
@@ -115,7 +120,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
               <g id="figSpace" transform="translate(125.6 78) scale(0.62)">
                 <g id="figLive" fill="var(--figue-neutre)"></g>
                 <g id="figAlt" fill="var(--figue-neutre)" opacity="0"></g>
-                <g id="waves" fill="none" stroke="var(--figue-neutre)" stroke-linecap="round"></g>
+                <g id="waves" fill="none" stroke="var(--o-onde)" stroke-linecap="round"></g>
               </g>
             </svg>
           </div>
@@ -205,6 +210,14 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
     </div>
 
     <div class="group">
+      <span class="label" id="lblCouleurs">Couleurs</span>
+      <div class="seg" role="group" aria-labelledby="lblCouleurs" data-key="couleurs">
+        <button type="button" data-val="couleurs">En couleurs</button>
+        <button type="button" data-val="gris">Grisé (version d'avant)</button>
+      </div>
+    </div>
+
+    <div class="group">
       <span class="label" id="lblLecture">Lecture</span>
       <div class="row">
         <button type="button" class="btn primary" id="replay">Rejouer</button>
@@ -255,7 +268,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
       <ol class="beats" id="beats"></ol>
     </div>
 
-    <p class="small">Figue, ondes, carte « Scan en attente » et barre d'onglets : repris du prototype (étape 3 et décision 81). La figue reste neutre, sans couleur de marque ni de verdict.</p>
+    <p class="small">Figue, ondes, carte « Scan en attente » et barre d'onglets : repris du prototype (étape 3 et décision 81). Réglage « Couleurs » : la figue aux couleurs de la marque, ou grisée comme avant ; jamais de couleur de verdict.</p>
   </aside>
 </main>
 
@@ -363,10 +376,13 @@ function poly(pts, P) {
   }
   return out.join('') + 'Z';
 }
-const SOURCES = [FIG.contour, FIG.arc, FIG.veins, ...FIG.seeds].map(d => ({ d, pts: sample(d, 0.8) }));
+// Chaque tracé a sa couleur : le contour et l'arc, les nervures, les graines (grisées : toutes neutres).
+const ROLES = ['var(--f-peau)', 'var(--f-peau)', 'var(--f-nervure)', ...FIG.seeds.map(() => 'var(--f-graine)')];
+const SOURCES = [FIG.contour, FIG.arc, FIG.veins, ...FIG.seeds].map((d, i) => ({ d, fill: ROLES[i], pts: sample(d, 0.8) }));
 function makeFig(group) {
   return SOURCES.map(s => {
     const el = document.createElementNS(NS, 'path');
+    el.setAttribute('fill', s.fill);
     group.appendChild(el);
     return { el, s, last: '' };
   });
@@ -516,6 +532,7 @@ const TIMELINES = {
 const params = new URLSearchParams(location.search);
 const state = {
   cause: params.get('cause') === 'aucune' ? 'aucune' : 'faible',
+  couleurs: params.get('couleurs') === 'gris' ? 'gris' : 'couleurs',
   speed: 1,
   text: params.get('texte') === 'humour' ? 'humour' : 'sobre',
   motion: params.get('mouvement') === 'reduit' ? 'reduit' : params.get('mouvement') === 'normal' ? 'normal' : 'systeme',
@@ -541,6 +558,7 @@ function applyTexts() {
   els.note.textContent = TEXTS.note;
   els.screen.classList.toggle('hidden-notes', state.notes === 'off');
   els.screen.classList.toggle('rm', reduced());
+  els.screen.classList.toggle('gris', state.couleurs === 'gris');
 }
 function applyBeats() {
   beatsEl.innerHTML = '';
@@ -611,7 +629,7 @@ for (const seg of ROOT.querySelectorAll('.seg')) {
     if (!b) return;
     const key = seg.dataset.key;
     state[key] = key === 'speed' ? +b.dataset.val : b.dataset.val;
-    if (key === 'speed' || key === 'notes' || key === 'text') {
+    if (key === 'speed' || key === 'notes' || key === 'text' || key === 'couleurs') {
       applyTexts();
       syncControls();
       render();

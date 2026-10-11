@@ -64,6 +64,11 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 
 /* ---------- L'écran du téléphone ---------- */
 .screen{position:relative;width:390px;height:844px;background:var(--fond);color:var(--texte);color-scheme:light;display:flex;flex-direction:column;overflow:hidden;border-radius:44px;box-shadow:0 0 0 1px rgba(50,28,49,.08),0 30px 60px -24px var(--ombre)}
+/* ---------- Couleurs des animations (proposition, 11/10) ----------
+   En couleurs : la figue aux couleurs de la marque, des objets assortis (bois, paille, papier, feuille,
+   grenade), jamais de couleur de verdict. « Grisé » rend la version d'avant, neutre, pour comparer. */
+.screen{--f-peau:#4C2944;--f-nervure:#9EBE59;--f-graine:#9F3542;--f-chair:#FFFFFF;--o-trait:#4C2944;--o-papier:#FFF7F0;--o-bois:#E8C08E;--o-bois-fond:#C9945E;--o-paille:#D4AF6A;--o-boite:#E9DCE6;--o-boite-fond:#D5BFD0;--o-feuille:#9EBE59;--o-feuille-nervure:#FFFFFF;--o-tige:#7E9C45;--o-store-a:#FFF7F0;--o-store-b:#9F3542;--o-tasse:#9F3542;--o-vapeur:#B9A9B5;--o-lunettes:#4C2944;--o-verre:#DDEBF3;--o-metal:#BDB6BC;--o-cochonnet:#9F3542;--o-sable:#E9D7B5;--o-gravier:#CDB48C;--o-ombre:#EADFD2;--o-onde:#8E6B88}
+.screen.gris{--f-peau:#C9BEC4;--f-nervure:#C9BEC4;--f-graine:#C9BEC4;--f-chair:#FFFFFF;--o-trait:#B3A6B0;--o-papier:#FFFFFF;--o-bois:#FAF8F4;--o-bois-fond:#F3EFEA;--o-paille:#B3A6B0;--o-boite:#FAF8F4;--o-boite-fond:#F3EFEA;--o-feuille:#FFFFFF;--o-feuille-nervure:#B3A6B0;--o-tige:#B3A6B0;--o-store-a:#FFFFFF;--o-store-b:#F3EFEA;--o-tasse:#FFFFFF;--o-vapeur:#B3A6B0;--o-lunettes:#6E5A6B;--o-verre:#FFFFFF;--o-metal:#FAF8F4;--o-cochonnet:#B3A6B0;--o-sable:#E7E1DA;--o-gravier:#D6CEC6;--o-ombre:#F3EFEA;--o-onde:#C9BEC4}
 .screen a{color:inherit;text-decoration:none}
 .screen a,.screen button{touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 160ms var(--ease-out)}
 .screen a:active,.screen button:active{transform:scale(.97)}
@@ -127,7 +132,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
           <div class="illu">
             <svg viewBox="0 0 390 228" aria-hidden="true" focusable="false">
               <!-- Les présentations : le flacon inconnu, en pointillés -->
-              <g id="flacon" fill="none" stroke="#B3A6B0" stroke-linecap="round" stroke-linejoin="round" opacity="0"></g>
+              <g id="flacon" fill="none" stroke="var(--o-trait)" stroke-linecap="round" stroke-linejoin="round" opacity="0"></g>
               <!-- Les lunettes : l'étiquette à code-barres qu'elle essaie de lire -->
               <g id="etiquette" opacity="0"></g>
               <!-- Le tiroir vide : le fond du fichier et ses fiches -->
@@ -166,7 +171,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
             <p>C'est un cosmétique ? Aidez-nous à l'ajouter.</p>
             <button type="button">Ajouter ce produit</button>
           </div>
-          <p class="note">[Titre acté (D-113 B3), le reste provisoire. Ni feu vert ni alerte : la figue reste neutre (T-512). Mise en file sans promesse (dossier §5.7).]</p>
+          <p class="note">[Titre acté (D-113 B3), le reste provisoire. Ni feu vert ni alerte (T-512) : aucune couleur de verdict. Mise en file sans promesse (dossier §5.7).]</p>
         </div>
         <div class="nav-wrap" id="navWrap"><nav aria-label="Navigation principale" style="margin: 0 16px 26px 16px; padding: 8px; border-radius: 30px; background: #FAF8F4; border: 1px solid #E7E1DA; box-shadow: 0 8px 24px rgba(50,28,49,0.10); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px">
 <a href="#" aria-current="true" style="min-height: 56px; border-radius: 22px; background: #4C2944; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #FFF7F0; font-size: 12px; font-weight: 700">
@@ -208,7 +213,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
       <h2>Produit inconnu</h2>
-      <p class="lead">Cinq pistes à comparer. Figue neutre et sans cercle, comme sur la connexion : ni feu vert, ni alerte.</p>
+      <p class="lead">Cinq pistes à comparer, en couleurs ou grisées (réglage « Couleurs »). Ni feu vert, ni alerte.</p>
     </div>
 
     <div class="group">
@@ -219,6 +224,14 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
         <button type="button" data-val="cagette">La cagette vide</button>
         <button type="button" data-val="epaules">Le haussement d'épaules</button>
         <button type="button" data-val="lunettes">Les lunettes</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <span class="label" id="lblCouleurs">Couleurs</span>
+      <div class="seg" role="group" aria-labelledby="lblCouleurs" data-key="couleurs">
+        <button type="button" data-val="couleurs">En couleurs</button>
+        <button type="button" data-val="gris">Grisé (version d'avant)</button>
       </div>
     </div>
 
@@ -398,8 +411,8 @@ function poly(pts, P) {
   }
   return out.join('') + 'Z';
 }
-// Figue neutre : une seule couleur, la chair blanche pour que rien ne transparaisse à travers elle.
-const COLORS = { chair: '#FFFFFF', peau: '#C9BEC4', nervure: '#C9BEC4', graine: '#C9BEC4' };
+// Aux couleurs de la marque, ou neutre (« Grisé ») ; la chair blanche pour que rien ne transparaisse à travers elle.
+const COLORS = { chair: 'var(--f-chair)', peau: 'var(--f-peau)', nervure: 'var(--f-nervure)', graine: 'var(--f-graine)' };
 // La chair : l'enveloppe convexe du contour et de l'arc, sous la queue (en dessous de y = 62).
 function chair() {
   const pts = [];
@@ -448,7 +461,7 @@ function svgEl(tag, attrs, parent) {
   parent.appendChild(el);
   return el;
 }
-const TRAIT = '#B3A6B0';   // --trait-neutre
+const TRAIT = 'var(--o-trait)';
 
 /* ---------- Les présentations : le flacon inconnu ---------- */
 const flacon = ROOT.getElementById('flacon');
@@ -471,17 +484,17 @@ const fiche = ROOT.getElementById('fiche');
 const BOITE = { x: 285, rim: 162, ground: 212 };
 (() => {
   // Le fond du fichier, puis trois fiches à onglet qui dépassent du bord.
-  svgEl('rect', { x: 241, y: 150, width: 88, height: 62, rx: 3, fill: '#F3EFEA', stroke: TRAIT, 'stroke-width': 2.2 }, boiteFond);
+  svgEl('rect', { x: 241, y: 150, width: 88, height: 62, rx: 3, fill: 'var(--o-boite-fond)', stroke: TRAIT, 'stroke-width': 2.2 }, boiteFond);
   for (const [y, tab] of [[146, 256], [152, 280], [158, 302]]) {
-    svgEl('path', { d: `M248 ${y + 30}V${y}H${tab}V${y - 7}H${tab + 16}V${y}H322V${y + 30}`, fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 1.6, 'stroke-linejoin': 'round' }, boiteFond);
+    svgEl('path', { d: `M248 ${y + 30}V${y}H${tab}V${y - 7}H${tab + 16}V${y}H322V${y + 30}`, fill: 'var(--o-papier)', stroke: TRAIT, 'stroke-width': 1.6, 'stroke-linejoin': 'round' }, boiteFond);
   }
   // Le devant, avec son porte-étiquette (vide).
-  svgEl('rect', { x: 237, y: BOITE.rim, width: 96, height: BOITE.ground - BOITE.rim, rx: 4, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 2.4 }, boiteFace);
+  svgEl('rect', { x: 237, y: BOITE.rim, width: 96, height: BOITE.ground - BOITE.rim, rx: 4, fill: 'var(--o-boite)', stroke: TRAIT, 'stroke-width': 2.4 }, boiteFace);
   svgEl('rect', { x: 273, y: 178, width: 24, height: 12, rx: 2, fill: 'none', stroke: TRAIT, 'stroke-width': 1.6 }, boiteFace);
   // Les fiches qui volent : blanches, rien dessus.
-  for (let i = 0; i < 3; i++) svgEl('rect', { x: -12, y: -15, width: 24, height: 30, rx: 2, fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 1.6, opacity: 0 }, volees);
+  for (let i = 0; i < 3; i++) svgEl('rect', { x: -12, y: -15, width: 24, height: 30, rx: 2, fill: 'var(--o-papier)', stroke: TRAIT, 'stroke-width': 1.6, opacity: 0 }, volees);
   // La fiche qu'elle ramène, à l'échelle du symbole : elle est plantée au bout de sa queue.
-  svgEl('rect', { x: -20, y: -56, width: 40, height: 50, rx: 3, fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 2.6 }, fiche);
+  svgEl('rect', { x: -20, y: -56, width: 40, height: 50, rx: 3, fill: 'var(--o-papier)', stroke: TRAIT, 'stroke-width': 2.6 }, fiche);
 })();
 // La cagette, au même endroit que le fichier : un fond, de la paille qui dépasse, trois lattes, deux montants.
 const cagetteFond = ROOT.getElementById('cagetteFond');
@@ -489,14 +502,14 @@ const cagetteFace = ROOT.getElementById('cagetteFace');
 const pailles = ROOT.getElementById('pailles');
 const brins = ROOT.getElementById('brins');
 (() => {
-  svgEl('rect', { x: 239, y: 160, width: 92, height: 52, fill: '#F3EFEA', stroke: TRAIT, 'stroke-width': 1.6 }, cagetteFond);
+  svgEl('rect', { x: 239, y: 160, width: 92, height: 52, fill: 'var(--o-bois-fond)', stroke: TRAIT, 'stroke-width': 1.6 }, cagetteFond);
   // La paille qui dépasse : des brins piqués dans tous les sens.
-  svgEl('path', { d: 'M245 163l-5 -12M251 163l4 -14M258 163l-2 -15M264 163l7 -12M271 163l-6 -13M277 163l3 -15M284 163l-4 -11M290 163l6 -14M297 163l-3 -12M303 163l5 -13M310 163l-6 -14M316 163l3 -12M322 163l5 -10', fill: 'none', stroke: TRAIT, 'stroke-width': 1.8, 'stroke-linecap': 'round' }, cagetteFond);
-  for (const y of [164, 181, 198]) svgEl('rect', { x: 237, y, width: 96, height: 12, rx: 1.5, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 2 }, cagetteFace);
-  for (const x of [232, 330]) svgEl('rect', { x, y: 156, width: 8, height: 56, rx: 1.5, fill: '#FAF8F4', stroke: TRAIT, 'stroke-width': 2 }, cagetteFace);
+  svgEl('path', { d: 'M245 163l-5 -12M251 163l4 -14M258 163l-2 -15M264 163l7 -12M271 163l-6 -13M277 163l3 -15M284 163l-4 -11M290 163l6 -14M297 163l-3 -12M303 163l5 -13M310 163l-6 -14M316 163l3 -12M322 163l5 -10', fill: 'none', stroke: 'var(--o-paille)', 'stroke-width': 1.8, 'stroke-linecap': 'round' }, cagetteFond);
+  for (const y of [164, 181, 198]) svgEl('rect', { x: 237, y, width: 96, height: 12, rx: 1.5, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 2 }, cagetteFace);
+  for (const x of [232, 330]) svgEl('rect', { x, y: 156, width: 8, height: 56, rx: 1.5, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 2 }, cagetteFace);
   // Les brins qui volent, et les deux brins restés accrochés au bout de sa queue (à l'échelle du symbole).
-  for (let i = 0; i < 6; i++) svgEl('path', { d: 'M-12 1Q0 -3 12 -1', fill: 'none', stroke: TRAIT, 'stroke-width': 2.4, 'stroke-linecap': 'round', opacity: 0 }, pailles);
-  svgEl('path', { d: 'M-30 -2Q-2 -14 26 -14M-22 12Q2 0 30 2', fill: 'none', stroke: TRAIT, 'stroke-width': 4, 'stroke-linecap': 'round' }, brins);
+  for (let i = 0; i < 6; i++) svgEl('path', { d: 'M-12 1Q0 -3 12 -1', fill: 'none', stroke: 'var(--o-paille)', 'stroke-width': 2.4, 'stroke-linecap': 'round', opacity: 0 }, pailles);
+  svgEl('path', { d: 'M-30 -2Q-2 -14 26 -14M-22 12Q2 0 30 2', fill: 'none', stroke: 'var(--o-paille)', 'stroke-width': 4, 'stroke-linecap': 'round' }, brins);
 })();
 function drawCagette(o) {
   cagetteFond.setAttribute('opacity', o.toFixed(3));
@@ -519,7 +532,7 @@ const etiquette = ROOT.getElementById('etiquette');
 const lunettes = ROOT.getElementById('lunettes');
 (() => {
   // L'étiquette, posée à côté d'elle : des barres, et la ligne des chiffres.
-  svgEl('rect', { x: 220, y: 126, width: 66, height: 52, rx: 5, fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 2.2 }, etiquette);
+  svgEl('rect', { x: 220, y: 126, width: 66, height: 52, rx: 5, fill: 'var(--o-papier)', stroke: TRAIT, 'stroke-width': 2.2 }, etiquette);
   let x = 230;
   for (const w of [2, 1, 3, 1, 1, 2, 3, 1, 2, 1, 1, 3, 2, 1, 2, 1, 3, 1]) {
     if (x + w > 277) break;
@@ -528,9 +541,9 @@ const lunettes = ROOT.getElementById('lunettes');
   }
   svgEl('path', { d: 'M231 169h45', stroke: TRAIT, 'stroke-width': 2.4, 'stroke-dasharray': '3 2.5' }, etiquette);
   // Les lunettes, à l'échelle du symbole, centrées sur le pont.
-  svgEl('circle', { cx: -24, cy: 0, r: 20, fill: '#FFFFFF', 'fill-opacity': 0.55, stroke: '#6E5A6B', 'stroke-width': 5 }, lunettes);
-  svgEl('circle', { cx: 24, cy: 0, r: 20, fill: '#FFFFFF', 'fill-opacity': 0.55, stroke: '#6E5A6B', 'stroke-width': 5 }, lunettes);
-  svgEl('path', { d: 'M-5 -3Q0 -9 5 -3M-44 -3L-53 -9M44 -3L53 -9', fill: 'none', stroke: '#6E5A6B', 'stroke-width': 5, 'stroke-linecap': 'round' }, lunettes);
+  svgEl('circle', { cx: -24, cy: 0, r: 20, fill: 'var(--o-verre)', 'fill-opacity': 0.55, stroke: 'var(--o-lunettes)', 'stroke-width': 5 }, lunettes);
+  svgEl('circle', { cx: 24, cy: 0, r: 20, fill: 'var(--o-verre)', 'fill-opacity': 0.55, stroke: 'var(--o-lunettes)', 'stroke-width': 5 }, lunettes);
+  svgEl('path', { d: 'M-5 -3Q0 -9 5 -3M-44 -3L-53 -9M44 -3L53 -9', fill: 'none', stroke: 'var(--o-lunettes)', 'stroke-width': 5, 'stroke-linecap': 'round' }, lunettes);
 })();
 // Les lunettes, entre le bout de la queue (onFace = 0) et le visage (onFace = 1) ; deg : en plus de la pose.
 function drawLunettes(P, s, onFace, deg, drop) {
@@ -790,6 +803,7 @@ const REDUITS = Object.fromEntries(Object.keys(PISTES).map(p => [p, reduit(p)]))
 const params = new URLSearchParams(location.search);
 const state = {
   piste: Object.keys(PISTES).includes(params.get('piste')) ? params.get('piste') : 'presentations',
+  couleurs: params.get('couleurs') === 'gris' ? 'gris' : 'couleurs',
   speed: 1,
   contrib: params.get('contribution') === 'off' ? 'off' : 'on',
   premier: params.get('premier') === 'oui' ? 'oui' : 'non',
@@ -813,6 +827,7 @@ function applyTexts() {
   els.premier.hidden = state.premier !== 'oui';
   els.screen.classList.toggle('hidden-notes', state.notes === 'off');
   els.screen.classList.toggle('rm', reduced());
+  els.screen.classList.toggle('gris', state.couleurs === 'gris');
 }
 function applyBeats() {
   beatsEl.innerHTML = '';
@@ -884,7 +899,7 @@ for (const seg of ROOT.querySelectorAll('.seg')) {
     if (!b || b.disabled) return;
     const key = seg.dataset.key;
     state[key] = key === 'speed' ? +b.dataset.val : b.dataset.val;
-    if (key === 'speed' || key === 'notes' || key === 'contrib' || key === 'premier') {
+    if (key === 'speed' || key === 'notes' || key === 'contrib' || key === 'premier' || key === 'couleurs') {
       applyTexts();
       syncControls();
       render();
