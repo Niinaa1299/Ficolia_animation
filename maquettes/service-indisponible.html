@@ -169,7 +169,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
       <h2>Service indisponible</h2>
-      <p class="lead">Cinq pistes à comparer, en couleurs ou grisées (réglage « Couleurs »). Ni feu vert, ni alerte, et rien qui promette un retour.</p>
+      <p class="lead">Cinq pistes à comparer, en couleurs ou grisées (réglage « Couleurs »). Ni feu vert, ni alerte, et rien qui promette un retour. Retenue (porteuse) : le store de l’étal, en couleurs.</p>
     </div>
 
     <div class="group">
@@ -782,7 +782,7 @@ const REDUITS = Object.fromEntries(Object.keys(PISTES).map(p => [p, reduit(p)]))
 /* ---------- État de la maquette ---------- */
 const params = new URLSearchParams(location.search);
 const state = {
-  piste: Object.keys(PISTES).includes(params.get('piste')) ? params.get('piste') : 'pause',
+  piste: Object.keys(PISTES).includes(params.get('piste')) ? params.get('piste') : 'store',   // la piste retenue (porteuse)
   couleurs: params.get('couleurs') === 'gris' ? 'gris' : 'couleurs',
   speed: 1,
   cause: params.get('cause') === 'inconnue' ? 'inconnue' : 'maintenance',

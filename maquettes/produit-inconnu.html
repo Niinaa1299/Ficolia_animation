@@ -67,8 +67,8 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 /* ---------- Couleurs des animations (proposition, 11/10) ----------
    En couleurs : la figue aux couleurs de la marque, des objets assortis (bois, paille, papier, feuille,
    grenade), jamais de couleur de verdict. « Grisé » rend la version d'avant, neutre, pour comparer. */
-.screen{--f-peau:#4C2944;--f-nervure:#9EBE59;--f-graine:#9F3542;--f-chair:#FFFFFF;--o-trait:#4C2944;--o-papier:#FFF7F0;--o-bois:#E8C08E;--o-bois-fond:#C9945E;--o-paille:#D4AF6A;--o-boite:#E9DCE6;--o-boite-fond:#D5BFD0;--o-feuille:#9EBE59;--o-feuille-nervure:#FFFFFF;--o-tige:#7E9C45;--o-store-a:#FFF7F0;--o-store-b:#9F3542;--o-tasse:#9F3542;--o-vapeur:#B9A9B5;--o-lunettes:#4C2944;--o-verre:#DDEBF3;--o-metal:#BDB6BC;--o-cochonnet:#9F3542;--o-sable:#E9D7B5;--o-gravier:#CDB48C;--o-ombre:#EADFD2;--o-onde:#8E6B88}
-.screen.gris{--f-peau:#C9BEC4;--f-nervure:#C9BEC4;--f-graine:#C9BEC4;--f-chair:#FFFFFF;--o-trait:#B3A6B0;--o-papier:#FFFFFF;--o-bois:#FAF8F4;--o-bois-fond:#F3EFEA;--o-paille:#B3A6B0;--o-boite:#FAF8F4;--o-boite-fond:#F3EFEA;--o-feuille:#FFFFFF;--o-feuille-nervure:#B3A6B0;--o-tige:#B3A6B0;--o-store-a:#FFFFFF;--o-store-b:#F3EFEA;--o-tasse:#FFFFFF;--o-vapeur:#B3A6B0;--o-lunettes:#6E5A6B;--o-verre:#FFFFFF;--o-metal:#FAF8F4;--o-cochonnet:#B3A6B0;--o-sable:#E7E1DA;--o-gravier:#D6CEC6;--o-ombre:#F3EFEA;--o-onde:#C9BEC4}
+.screen{--f-peau:#4C2944;--f-nervure:#9EBE59;--f-graine:#9F3542;--f-chair:#FFFFFF;--o-trait:#4C2944;--o-papier:#FFF7F0;--o-bois:#E8C08E;--o-bois-fond:#C9945E;--o-paille:#D4AF6A;--o-paille-fonce:#B88E45;--o-paille-lit:#E2C27E;--o-etiquette:#9F3542;--o-boite:#E9DCE6;--o-boite-fond:#D5BFD0;--o-feuille:#9EBE59;--o-feuille-nervure:#FFFFFF;--o-tige:#7E9C45;--o-store-a:#FFF7F0;--o-store-b:#9F3542;--o-tasse:#9F3542;--o-vapeur:#B9A9B5;--o-lunettes:#4C2944;--o-verre:#DDEBF3;--o-metal:#BDB6BC;--o-cochonnet:#9F3542;--o-sable:#E9D7B5;--o-gravier:#CDB48C;--o-ombre:#EADFD2;--o-onde:#8E6B88}
+.screen.gris{--f-peau:#C9BEC4;--f-nervure:#C9BEC4;--f-graine:#C9BEC4;--f-chair:#FFFFFF;--o-trait:#B3A6B0;--o-papier:#FFFFFF;--o-bois:#FAF8F4;--o-bois-fond:#F3EFEA;--o-paille:#B3A6B0;--o-paille-fonce:#C9BEC4;--o-paille-lit:#F3EFEA;--o-etiquette:#B3A6B0;--o-boite:#FAF8F4;--o-boite-fond:#F3EFEA;--o-feuille:#FFFFFF;--o-feuille-nervure:#B3A6B0;--o-tige:#B3A6B0;--o-store-a:#FFFFFF;--o-store-b:#F3EFEA;--o-tasse:#FFFFFF;--o-vapeur:#B3A6B0;--o-lunettes:#6E5A6B;--o-verre:#FFFFFF;--o-metal:#FAF8F4;--o-cochonnet:#B3A6B0;--o-sable:#E7E1DA;--o-gravier:#D6CEC6;--o-ombre:#F3EFEA;--o-onde:#C9BEC4}
 .screen a{color:inherit;text-decoration:none}
 .screen a,.screen button{touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 160ms var(--ease-out)}
 .screen a:active,.screen button:active{transform:scale(.97)}
@@ -213,7 +213,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
       <h2>Produit inconnu</h2>
-      <p class="lead">Cinq pistes à comparer, en couleurs ou grisées (réglage « Couleurs »). Ni feu vert, ni alerte.</p>
+      <p class="lead">Cinq pistes à comparer, en couleurs ou grisées (réglage « Couleurs »). Ni feu vert, ni alerte. Retenue (porteuse) : la cagette vide, en couleurs.</p>
     </div>
 
     <div class="group">
@@ -496,17 +496,35 @@ const BOITE = { x: 285, rim: 162, ground: 212 };
   // La fiche qu'elle ramène, à l'échelle du symbole : elle est plantée au bout de sa queue.
   svgEl('rect', { x: -20, y: -56, width: 40, height: 50, rx: 3, fill: 'var(--o-papier)', stroke: TRAIT, 'stroke-width': 2.6 }, fiche);
 })();
-// La cagette, au même endroit que le fichier : un fond, de la paille qui dépasse, trois lattes, deux montants.
+// La cagette, au même endroit que le fichier, vue un peu d'en haut. Derrière la figue : l'intérieur (le fond,
+// la latte du haut de la paroi arrière) et la paille. Devant : les deux montants d'angle, trois lattes fines,
+// espacées, avec leur fil du bois, leurs agrafes, et l'étiquette du producteur. Par les jours entre les lattes,
+// on aperçoit la figue quand elle fouille.
 const cagetteFond = ROOT.getElementById('cagetteFond');
 const cagetteFace = ROOT.getElementById('cagetteFace');
 const pailles = ROOT.getElementById('pailles');
 const brins = ROOT.getElementById('brins');
 (() => {
-  svgEl('rect', { x: 239, y: 160, width: 92, height: 52, fill: 'var(--o-bois-fond)', stroke: TRAIT, 'stroke-width': 1.6 }, cagetteFond);
-  // La paille qui dépasse : des brins piqués dans tous les sens.
-  svgEl('path', { d: 'M245 163l-5 -12M251 163l4 -14M258 163l-2 -15M264 163l7 -12M271 163l-6 -13M277 163l3 -15M284 163l-4 -11M290 163l6 -14M297 163l-3 -12M303 163l5 -13M310 163l-6 -14M316 163l3 -12M322 163l5 -10', fill: 'none', stroke: 'var(--o-paille)', 'stroke-width': 1.8, 'stroke-linecap': 'round' }, cagetteFond);
-  for (const y of [164, 181, 198]) svgEl('rect', { x: 237, y, width: 96, height: 12, rx: 1.5, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 2 }, cagetteFace);
-  for (const x of [232, 330]) svgEl('rect', { x, y: 156, width: 8, height: 56, rx: 1.5, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 2 }, cagetteFace);
+  svgEl('ellipse', { cx: 285, cy: 212, rx: 56, ry: 3.5, fill: 'var(--o-ombre)' }, cagetteFond);
+  svgEl('rect', { x: 241, y: 152, width: 88, height: 58, rx: 1.5, fill: 'var(--o-bois-fond)', stroke: TRAIT, 'stroke-width': 1.6 }, cagetteFond);
+  svgEl('rect', { x: 241, y: 152, width: 88, height: 8, rx: 1.5, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 1.6 }, cagetteFond);
+  // La paille : un lit qui dépasse du bord, et quelques brins piqués dans tous les sens.
+  svgEl('path', { d: 'M243 172C244 164 249 161 255 163C259 158 266 158 271 161C276 157 284 157 289 160C295 157 303 158 307 162C313 159 321 161 327 167V172Z', fill: 'var(--o-paille-lit)' }, cagetteFond);
+  svgEl('path', { d: 'M250 168l-5 -11M257 166l4 -12M272 164l-3 -10M284 164l6 -13M298 165l-2 -11M311 166l5 -10M266 166l10 -6M303 166l-10 -5M321 168l-4 -9', fill: 'none', stroke: 'var(--o-paille-fonce)', 'stroke-width': 1.4, 'stroke-linecap': 'round' }, cagetteFond);
+  svgEl('path', { d: 'M246 166l-3 -8M279 163l2 -12M316 166l3 -9', fill: 'none', stroke: 'var(--o-paille)', 'stroke-width': 1.6, 'stroke-linecap': 'round' }, cagetteFond);
+  // Les montants d'angle, un peu plus hauts que les lattes.
+  for (const x of [234, 327]) svgEl('rect', { x, y: 159, width: 9, height: 53, rx: 1.5, fill: 'var(--o-bois-fond)', stroke: TRAIT, 'stroke-width': 1.8 }, cagetteFace);
+  for (const y of [166, 183, 200]) {
+    svgEl('rect', { x: 231, y, width: 108, height: 11, rx: 1.5, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 1.8 }, cagetteFace);
+    // Le fil du bois, et une agrafe à chaque bout, sur les montants.
+    svgEl('path', { d: `M246 ${y + 4}q14 -1.4 28 0t28 0M262 ${y + 7.5}q10 1 20 0t20 0`, fill: 'none', stroke: 'var(--o-bois-fond)', 'stroke-width': 1, 'stroke-linecap': 'round' }, cagetteFace);
+    svgEl('path', { d: `M236.5 ${y + 3}v5M333.5 ${y + 3}v5`, stroke: TRAIT, 'stroke-width': 1.4, 'stroke-linecap': 'round' }, cagetteFace);
+  }
+  // L'étiquette du producteur : une petite figue, deux traits.
+  svgEl('rect', { x: 269, y: 181, width: 32, height: 15, rx: 2, fill: 'var(--o-papier)', stroke: TRAIT, 'stroke-width': 1.3 }, cagetteFace);
+  const marque = svgEl('g', { transform: 'translate(278 193.5) scale(0.042) translate(-112 -250)' }, cagetteFace);
+  for (const d of [SOURCES[0].d, FIG.contour, FIG.arc]) svgEl('path', { d, fill: 'var(--o-etiquette)' }, marque);
+  svgEl('path', { d: 'M285 186h11M285 190.5h8', stroke: 'var(--o-etiquette)', 'stroke-width': 1.4, 'stroke-linecap': 'round' }, cagetteFace);
   // Les brins qui volent, et les deux brins restés accrochés au bout de sa queue (à l'échelle du symbole).
   for (let i = 0; i < 6; i++) svgEl('path', { d: 'M-12 1Q0 -3 12 -1', fill: 'none', stroke: 'var(--o-paille)', 'stroke-width': 2.4, 'stroke-linecap': 'round', opacity: 0 }, pailles);
   svgEl('path', { d: 'M-30 -2Q-2 -14 26 -14M-22 12Q2 0 30 2', fill: 'none', stroke: 'var(--o-paille)', 'stroke-width': 4, 'stroke-linecap': 'round' }, brins);
@@ -802,7 +820,7 @@ const REDUITS = Object.fromEntries(Object.keys(PISTES).map(p => [p, reduit(p)]))
 /* ---------- État de la maquette ---------- */
 const params = new URLSearchParams(location.search);
 const state = {
-  piste: Object.keys(PISTES).includes(params.get('piste')) ? params.get('piste') : 'presentations',
+  piste: Object.keys(PISTES).includes(params.get('piste')) ? params.get('piste') : 'cagette',   // la piste retenue (porteuse)
   couleurs: params.get('couleurs') === 'gris' ? 'gris' : 'couleurs',
   speed: 1,
   contrib: params.get('contribution') === 'off' ? 'off' : 'on',

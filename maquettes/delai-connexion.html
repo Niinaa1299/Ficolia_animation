@@ -193,7 +193,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
       <h2>Délai de connexion</h2>
-      <p class="lead">Trois pistes à comparer, en couleurs ou grisées (réglage « Couleurs »). La figue finit à la place et dans la pose où « Connexion insuffisante » la reprend.</p>
+      <p class="lead">Trois pistes à comparer, en couleurs ou grisées (réglage « Couleurs »). La figue finit à la place et dans la pose où « Connexion insuffisante » la reprend. Retenue (porteuse) : les cent pas, en couleurs.</p>
     </div>
 
     <div class="group">
@@ -667,7 +667,7 @@ const REDUITS = Object.fromEntries(Object.keys(PISTES).map(p => [p, reduit(p)]))
 /* ---------- État de la maquette ---------- */
 const params = new URLSearchParams(location.search);
 const state = {
-  piste: Object.keys(PISTES).includes(params.get('piste')) ? params.get('piste') : 'escargot',
+  piste: Object.keys(PISTES).includes(params.get('piste')) ? params.get('piste') : 'centpas',   // la piste retenue (porteuse)
   couleurs: params.get('couleurs') === 'gris' ? 'gris' : 'couleurs',
   speed: 1,
   motion: params.get('mouvement') === 'reduit' ? 'reduit' : params.get('mouvement') === 'normal' ? 'normal' : 'systeme',

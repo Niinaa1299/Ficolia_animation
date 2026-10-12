@@ -17,14 +17,14 @@ TITRE = "Ficolia · Récit de la figue"
 ECRANS = [
     ("Ouverture", "validee", "validée", None),
     ("Accueil, trois écrans", "a-venir", "à venir", None),
-    ("Formulaire envoyé", "maquette", "maquette", ("formulaire", "maquettes/formulaire-envoye.html")),
-    ("Connexion insuffisante ou absente", "maquette", "maquette", ("connexion", "maquettes/connexion-insuffisante.html")),
-    ("Mise à jour obligatoire", "maquette", "maquette", ("mise-a-jour", "maquettes/mise-a-jour-obligatoire.html")),
-    ("Délai de connexion", "maquette", "maquette", ("delai", "maquettes/delai-connexion.html")),
-    ("Produit inconnu", "maquette", "maquette", ("inconnu", "maquettes/produit-inconnu.html")),
-    ("Service indisponible", "maquette", "maquette", ("service", "maquettes/service-indisponible.html")),
+    ("Formulaire envoyé", "validee", "validée · retouches", ("formulaire", "maquettes/formulaire-envoye.html")),
+    ("Connexion insuffisante ou absente", "validee", "validée", ("connexion", "maquettes/connexion-insuffisante.html")),
+    ("Mise à jour obligatoire", "validee", "validée", ("mise-a-jour", "maquettes/mise-a-jour-obligatoire.html")),
+    ("Délai de connexion", "validee", "validée", ("delai", "maquettes/delai-connexion.html")),
+    ("Produit inconnu", "validee", "validée", ("inconnu", "maquettes/produit-inconnu.html")),
+    ("Service indisponible", "validee", "validée", ("service", "maquettes/service-indisponible.html")),
 ]
-DEFAUT = "delai"  # l'écran affiché à l'ouverture : le dernier travaillé
+DEFAUT = "formulaire"  # l'écran affiché à l'ouverture : le dernier travaillé
 
 POLICE = "'Atkinson Hyperlegible Next','Atkinson Hyperlegible',system-ui,sans-serif"
 
