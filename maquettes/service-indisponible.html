@@ -465,7 +465,7 @@ const NERVURES_D = 'M16 0H70M18 2Q30 14 44 28M18 -2Q30 -14 44 -28';
 /* ---------- Le store de l'étal : les montants, la cagette, l'auvent rayé ---------- */
 const etal = ROOT.getElementById('etal');
 const store = ROOT.getElementById('store');
-const AUVENT = { x0: 90, x1: 300, top: 38, rest: 38, half: 132 };
+const AUVENT = { x0: 90, x1: 300, top: 38, rest: 38, half: 144 };   // à demi-baissé : il cache le haut de la figue (porteuse : un peu plus bas)
 const bandes = [];
 (() => {
   for (const x of [87, 297]) svgEl('rect', { x, y: 28, width: 6, height: 186, rx: 2, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 2 }, etal);
@@ -683,7 +683,7 @@ const STORE = {
     const w = prog(t, 1500, 600);
     const peek = w > 0 && w < 1 ? Math.sin(2 * Math.PI * w) : 0;             // à gauche, puis à droite
     drawFig({ k: 1 + 0.35 * Math.max(0, lift), tilt: 0, curl: 0, arm: 0, sh: 0, sx: 1, sy: 1 + 0.03 * Math.max(0, lift), lean: -0.09 * peek });
-    drawStore(mix(AUVENT.rest, AUVENT.half, down), 50 * lift, 195 + this.home);
+    drawStore(mix(AUVENT.rest, AUVENT.half, down), 62 * lift, 195 + this.home);   // soulevé, le bord remonte à la même hauteur
   },
   still() {
     placeFig(this.home, 0, 0);
