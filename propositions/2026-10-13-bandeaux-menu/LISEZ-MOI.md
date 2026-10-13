@@ -6,17 +6,19 @@ Suite des études des en-têtes et du Menu. Ouvrir `bandeaux-menu.html` dans un 
 
 Décliné sur Historique, Menu et Rechercher. Pour Rechercher, deux placements du champ : dans le bandeau (recommandé) ou sur la feuille blanche. Écart : l'aubergine est réservée aux éléments actifs.
 
-## Bandeau C en vert uni
+## Le fondu (C) en vert uni
 
-Trois verts, loin du vert-jaune des verdicts (`#CADCA4`) et de la pistache :
+Le fondu de l'étude des en-têtes (étiqueté B « Voile de lin » dans cette page-là), en une seule couleur, sans grain :
 
-- **V1 · Vert figuier** `#224F38`, titre blanc (recommandé parmi les verts).
-- **V2 · Émeraude** `#176D51`, titre blanc.
-- **V3 · Vert d'eau** `#C0E3D2`, titre aubergine. Vert clair : à écarter si Historique affiche un jour des verdicts.
+- **C1 · Vert d'eau** `#C0E3D2`, titre aubergine (recommandé).
+- **C2 · Vert figuier qui se dissout** `#224F38`, titre blanc : un bandeau sans bord.
+- **C3 · Lumière verte** : le vert d'eau en lumière ronde venue du coin haut droit.
+
+Le vert d'eau est un vert clair, comme celui du premier niveau de verdict : à revoir si Historique affiche un jour des verdicts.
 
 ## Mode sombre
 
-Proposition : le projet a acté « thème clair seulement » (`D-115` D1, `T-386`). Deux comportements du bandeau : il garde sa couleur (recommandé) ou il s'assombrit. En sombre, l'onglet actif devient une pastille claire.
+Proposition : le projet a acté « thème clair seulement » (`D-115` D1, `T-386`). Deux comportements : le bandeau ou le fondu garde sa couleur (recommandé) ou s'assombrit. En sombre, le vert d'eau passe à `#3FA683` à 42 % pour ne pas griser. En sombre, l'onglet actif devient une pastille claire.
 
 ## Légal du Menu
 
