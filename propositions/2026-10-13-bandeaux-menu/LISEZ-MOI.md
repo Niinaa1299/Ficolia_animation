@@ -2,6 +2,14 @@
 
 Suite des études des en-têtes et du Menu. Ouvrir `bandeaux-menu.html` dans un navigateur.
 
+## Retenu par la porteuse (13 octobre)
+
+- **En-tête : E**, le bandeau aubergine avec la feuille blanche, sur les écrans d'onglet.
+- **Rechercher : le champ dans le bandeau.**
+- **Légal du Menu : L1**, un groupe « Informations légales » au même rang que les autres entrées ; la version ferme la liste.
+
+Restent ouverts : le mode sombre, et l'inscription de l'aubergine en surface (écart à la règle « aubergine = élément actif »).
+
 ## Bandeau aubergine (E)
 
 Décliné sur Historique, Menu et Rechercher. Pour Rechercher, deux placements du champ : dans le bandeau (recommandé) ou sur la feuille blanche. Écart : l'aubergine est réservée aux éléments actifs.
