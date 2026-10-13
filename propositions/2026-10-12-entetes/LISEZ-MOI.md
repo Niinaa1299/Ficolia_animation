@@ -13,6 +13,14 @@ Version du 13 octobre : la ligne « 5 produits consultés… » est retirée, et
 - **E · Aubergine** : bandeau de marque et titre blanc. Écart : l'aubergine est réservée aux éléments actifs.
 - **F · Titre de marque** (recommandé en signature) : le grand titre en Antic Didone, police de marque autorisée pour les grands titres (`D-115`).
 
+Cinq idées de plus, ajoutées le 13 octobre :
+
+- **G · Monogramme** : le symbole en couleur, 30 pt, au-dessus du titre. Il apparaît deux fois sur l'écran Menu, dont l'onglet le montre déjà.
+- **H · Capsule** : le titre dans une capsule de verre en haut, qui répond à la barre d'onglets flottante. Sans grand titre.
+- **I · Ombre de figuier** (retenue parmi les nouvelles) : l'ombre de feuilles de figuier sur le voile de lin, de 5 à 7 %, qui s'efface avant la liste. On évoque l'arbre, pas le fruit ni l'emblème. À valider sur un vrai téléphone.
+- **J · Arche** : le titre dans une arche de lin. Elle prend 100 pt de plus que A, donc plutôt pour « Menu » ou « À propos ».
+- **K · Point final** (retenue parmi les nouvelles) : le titre finit sur la goutte de l'animation d'ouverture, dans la couleur du texte. Se pose sur B sans rien coûter.
+
 En défilement, le grand titre se replie en barre compacte translucide (blanc à 82 %, flou de 18 pt). Une ombre de 10 pt marque le bord, sans trait.
 
 ## À trancher
