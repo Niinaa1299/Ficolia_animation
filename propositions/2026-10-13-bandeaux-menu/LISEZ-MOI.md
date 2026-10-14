@@ -7,6 +7,9 @@ Suite des études des en-têtes et du Menu. Ouvrir `bandeaux-menu.html` dans un 
 - **En-tête : E**, le bandeau aubergine avec la feuille blanche, sur les écrans d'onglet.
 - **Rechercher : le champ dans le bandeau.**
 - **Légal du Menu : L1**, un groupe « Informations légales » au même rang que les autres entrées ; la version ferme la liste.
+- **Onglet actif (14 octobre) : la pastille aubergine reste**, sur tous les onglets ; avec le bandeau, le haut et le bas de l'écran se répondent.
+
+Ces choix sont reportés dans le prototype et notés sur le canevas comme décisions de séance 140 à 143, à inscrire au registre à l'étape 8.
 
 Restent ouverts : le mode sombre, et l'inscription de l'aubergine en surface (écart à la règle « aubergine = élément actif »).
 
