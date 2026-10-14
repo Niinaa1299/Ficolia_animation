@@ -18,7 +18,9 @@ Liste tenue à la demande de la porteuse le 14 octobre 2026 : « tous les points
     - confirmer l'absence du rappel général sur la page « Bonnes pratiques · allaitement » (règle 7, quatre endroits) ;
     - textes de la page, à rédiger par le toxicologue et la porteuse (`T-402`, `D-114` C1) ;
     - renvoi depuis un produit vers la section « crevasses » (`D-135`, `D-214`) : avec l'écran allaitement, après la clôture du module ;
-    - planches « Traçabilité » : y porter les décisions 153 à 155.
+    - planches « Traçabilité » : y porter les décisions 153 à 155 ;
+    - la porteuse a raccourci l'entrée du menu en « Bonnes pratiques » (14/10) : aligner le titre de la page (huit copies du gabarit des pages de texte) et la décision 155, si elle le confirme.
+12. **Étude aquarelle du bandeau des onglets** (version 289, page « Étape 5 », dernière rangée) : la porteuse choisit le dessin (symbole Ficolia, figues et feuilles, ou lavis seul). Si l'étude est retenue : la reporter sur les copies des trois gabarits (historique, recherche, menu), retirer les planches d'étude, et prévoir le lavis en image dans l'application.
 
 ## Contrôles automatiques de l'étape 8, faits le 14/10 (version 283)
 
