@@ -20,6 +20,11 @@ Liste tenue à la demande de la porteuse le 14 octobre 2026 : « tous les points
     - renvoi depuis un produit vers la section « crevasses » (`D-135`, `D-214`) : avec l'écran allaitement, après la clôture du module ;
     - planches « Traçabilité » : y porter les décisions 153 à 155 ;
     - la porteuse a raccourci l'entrée du menu en « Bonnes pratiques » (14/10) : aligner le titre de la page (huit copies du gabarit des pages de texte) et la décision 155, si elle le confirme.
+13. **Ligne allaitement, étude** (version 301, page « Ligne allaitement (étude) », d'après `D-214` et le bloc G du 15/10) :
+    - à juger par la porteuse : éléments dans le cadre ou sous le cadre ; une condition compte comme mention pour le renvoi « crevasses » (lecture de Claude) ; rendu du panneau « source » (G2.5) ;
+    - à rédiger : phrases de la ligne (`D-105`, G6), raison de l'évaluation incomplète de la zone de tétée (G5.1), conditions savon et parfum (formes à éprouver, `D-159`), emplacement du signal poitrine posé dans l'accueil 2/3 (G3.1), puis CGU et fiche méthode ;
+    - en attente : revue critique du bloc G, listes G1.1 et G1.5, lexique de l'attribut (G8), « Soin des mamelons » dans la question de catégorie (G8.1), juriste sur `T-117` (G2.6), sources ANAES 2002 et Cochrane 2014 à vérifier ;
+    - à la clôture du volet : remplacer les écrans d'attente du parcours principal (étapes 1, 2, 5 et 7 ; décision 13) par le gabarit d'étude ; ligne allaitement du flacon pur au rouge (`D-214` étape 3, `D-217`).
 12. **Étude aquarelle du bandeau des onglets** (version 289, page « Étape 5 », dernière rangée) : la porteuse choisit le dessin (symbole Ficolia, figues et feuilles, ou lavis seul). Si l'étude est retenue : la reporter sur les copies des trois gabarits (historique, recherche, menu), retirer les planches d'étude, et prévoir le lavis en image dans l'application.
 
 ## Contrôles automatiques de l'étape 8, faits le 14/10 (version 283)
