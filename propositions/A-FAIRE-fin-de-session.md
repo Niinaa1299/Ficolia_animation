@@ -21,7 +21,9 @@ Liste tenue à la demande de la porteuse le 14 octobre 2026 : « tous les points
     - planches « Traçabilité » : y porter les décisions 153 à 155 ;
     - la porteuse a raccourci l'entrée du menu en « Bonnes pratiques » (14/10) : aligner le titre de la page (huit copies du gabarit des pages de texte) et la décision 155, si elle le confirme.
 13. **Ligne allaitement, étude** (version 301, page « Ligne allaitement (étude) », d'après `D-214` et le bloc G du 15/10) :
-    - à juger par la porteuse : éléments dans le cadre ou sous le cadre ; une condition compte comme mention pour le renvoi « crevasses » (lecture de Claude) ; rendu du panneau « source » (G2.5) ;
+    - tranché le 16/10 : éléments sous le cadre du verdict (toutes les planches, sauf « éléments dans le cadre », gardée pour mémoire) ;
+    - à juger par la porteuse : une condition compte comme mention pour le renvoi « crevasses » (lecture de Claude) ; rendu du panneau « source » (G2.5) ; formes des mentions et conditions sous le cadre (encadré, icônes et texte, drapeau « À savoir ») et du renvoi « crevasses » (encadré, lien, ligne avec la composition), rangée 4 de la page, version 316 ;
+    - commentaires du 16/10 (version 316) : condition savon reformulée, jugée alarmiste ; voies du panneau d'un ingrédient renommées et expliquées (« Par le lait maternel », « Par la bouche, pendant la tétée ») ; note du plafond de deux réécrite. Textes provisoires, à valider, dont le toxicologue (`T-533` k et l). Proposé, non construit : une forme longue pour « Contact rapproché non évalué », sur le modèle de la ligne zone de tétée ;
     - à rédiger : phrases de la ligne (`D-105`, G6), raison de l'évaluation incomplète de la zone de tétée (G5.1), conditions savon et parfum (formes à éprouver, `D-159`), emplacement du signal poitrine posé dans l'accueil 2/3 (G3.1), puis CGU et fiche méthode ;
     - en attente : revue critique du bloc G, listes G1.1 et G1.5, lexique de l'attribut (G8), juriste sur `T-117` (G2.6), sources ANAES 2002 et Cochrane 2014 à vérifier ;
     - à la clôture du volet : remplacer les écrans d'attente du parcours principal (étapes 1, 2, 5 et 7 ; décision 13) par le gabarit d'étude ; ligne allaitement du flacon pur au rouge (`D-214` étape 3, `D-217`).
@@ -39,6 +41,7 @@ Liste tenue à la demande de la porteuse le 14 octobre 2026 : « tous les points
     - reste de la liste des écrans à modéliser : un produit déjà utilisé qui passe au niveau 3 ou 4 (juriste, question J64), les deux retours manquants (signalement sans changement de niveau, photos inutilisables sans e-mail), la ligne allaitement d'un flacon d'huile essentielle pure.
 14. **Annexe juriste** (16/10, `propositions/2026-10-16-dossier-juriste/Ficolia-ecrans-juriste.html`) : 38 écrans du prototype et 91 questions (J1 à J91), à joindre au dossier juriste v2-1 ; deux relectures faites le 16/10. À relire par la porteuse avant l'envoi, dont l'encadré « Ce qui conditionne la suite » et le paragraphe sur les maquettes de juillet ; à refaire si les écrans changent avant l'envoi (ligne allaitement surtout). Le prototype porte le rappel général dans le volet de première alerte et dans le panneau d'un ingrédient, contre `D-114` (C8) : la correction du 06/10 citée par la note de reprise lit mal C8 (question J3).
 12. **Étude aquarelle du bandeau des onglets** (version 289, page « Étape 5 », dernière rangée) : la porteuse choisit le dessin (symbole Ficolia, figues et feuilles, ou lavis seul). Si l'étude est retenue : la reporter sur les copies des trois gabarits (historique, recherche, menu), retirer les planches d'étude, et prévoir le lavis en image dans l'application.
+17. **Échelle du verdict, variante E : la jauge à aiguille** (16/10, versions 315 et 316, page « Étape 5 », planche « Échelle · variante E ») : demandée par la porteuse d'après une image, en grand et sans texte, en face du nom du produit. Quatre secteurs aux couleurs des niveaux, aiguille au milieu du secteur du niveau, 132 × 80 px ; le nom garde 100 px, pour tenir sur une ligne à 320 px de large. Réglage « secteurs non atteints » : en couleur ou atténués (`T-541`). À trancher avec A à D ; si elle est retenue, la reporter sur les écrans produit, verdict et ingrédients (une trentaine de planches), et observer au test si le compteur se lit comme une mesure du danger.
 
 ## Contrôles automatiques de l'étape 8, faits le 14/10 (version 283)
 
@@ -51,7 +54,8 @@ Liste tenue à la demande de la porteuse le 14 octobre 2026 : « tous les points
 
 - Supprimer à la main les planches marquées « À SUPPRIMER » (cinq).
 - Clore les fils réglés et résoudre les notes devenues sans objet (liste dans la conversation du 14/10).
-- Trancher l'échelle du verdict entre A, B, C et D.
+- Trancher l'échelle du verdict entre A, B, C, D et E (jauge à aiguille, 16/10).
+- Fils de la page « Ligne allaitement (étude) » du 16/10 (sept, non transmis à Claude) : réponses données dans la conversation ; à clore une fois les formes jugées. Restent aussi ouverts « fiches rangées par thème grossesse / allaitement » (menu, 14/10) et « trop IA » (huile essentielle pure, 14/10).
 - Envoyer la capture du mot « Ficolia » en 29LT Riwaya Informal.
 
 Claude ne peut ni répondre ni clore un fil de commentaires depuis la session Claude Code : le canevas appartient à un autre compte.
