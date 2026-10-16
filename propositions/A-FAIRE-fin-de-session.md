@@ -25,6 +25,7 @@ Liste tenue à la demande de la porteuse le 14 octobre 2026 : « tous les points
     - à rédiger : phrases de la ligne (`D-105`, G6), raison de l'évaluation incomplète de la zone de tétée (G5.1), conditions savon et parfum (formes à éprouver, `D-159`), emplacement du signal poitrine posé dans l'accueil 2/3 (G3.1), puis CGU et fiche méthode ;
     - en attente : revue critique du bloc G, listes G1.1 et G1.5, lexique de l'attribut (G8), « Soin des mamelons » dans la question de catégorie (G8.1), juriste sur `T-117` (G2.6), sources ANAES 2002 et Cochrane 2014 à vérifier ;
     - à la clôture du volet : remplacer les écrans d'attente du parcours principal (étapes 1, 2, 5 et 7 ; décision 13) par le gabarit d'étude ; ligne allaitement du flacon pur au rouge (`D-214` étape 3, `D-217`).
+14. **Annexe juriste** (16/10, `propositions/2026-10-16-dossier-juriste/Ficolia-ecrans-juriste.html`) : 35 écrans du prototype et 90 questions (J1 à J90), à joindre au dossier juriste v2-1. À relire par la porteuse avant l'envoi, dont l'encadré « Ce qui conditionne la suite » ; à refaire si les écrans changent avant l'envoi (ligne allaitement surtout).
 12. **Étude aquarelle du bandeau des onglets** (version 289, page « Étape 5 », dernière rangée) : la porteuse choisit le dessin (symbole Ficolia, figues et feuilles, ou lavis seul). Si l'étude est retenue : la reporter sur les copies des trois gabarits (historique, recherche, menu), retirer les planches d'étude, et prévoir le lavis en image dans l'application.
 
 ## Contrôles automatiques de l'étape 8, faits le 14/10 (version 283)
