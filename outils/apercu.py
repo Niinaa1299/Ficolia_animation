@@ -16,7 +16,7 @@ TITRE = "Ficolia · Récit de la figue"
 # Les écrans du périmètre, dans l'ordre du brief : (nom, état, libellé, (ancre, maquette) ou None).
 ECRANS = [
     ("Ouverture", "validee", "validée", None),
-    ("Accueil, trois écrans", "a-venir", "à venir", None),
+    ("Accueil, trois écrans", "maquette", "maquette", ("accueil", "maquettes/accueil.html")),
     ("Formulaire envoyé", "validee", "validée · retouches", ("formulaire", "maquettes/formulaire-envoye.html")),
     ("Connexion insuffisante ou absente", "validee", "validée", ("connexion", "maquettes/connexion-insuffisante.html")),
     ("Mise à jour obligatoire", "validee", "validée", ("mise-a-jour", "maquettes/mise-a-jour-obligatoire.html")),
@@ -24,7 +24,7 @@ ECRANS = [
     ("Produit inconnu", "validee", "validée", ("inconnu", "maquettes/produit-inconnu.html")),
     ("Service indisponible", "validee", "validée", ("service", "maquettes/service-indisponible.html")),
 ]
-DEFAUT = "formulaire"  # l'écran affiché à l'ouverture : le dernier travaillé
+DEFAUT = "accueil"  # l'écran affiché à l'ouverture : le dernier travaillé
 
 POLICE = "'Atkinson Hyperlegible Next','Atkinson Hyperlegible',system-ui,sans-serif"
 
@@ -98,7 +98,7 @@ def construire():
         f"<title>{TITRE}</title>",
         '<link rel="preconnect" href="https://fonts.googleapis.com">',
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-        '<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&amp;display=swap" rel="stylesheet">',
+        '<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&amp;family=Simonetta:ital@1&amp;display=swap" rel="stylesheet">',
         "<style>\n" + racine + maquettes[0][1]["sombre"] + "\n" + STYLE_PAGE + "</style>",
         entete(),
     ]
