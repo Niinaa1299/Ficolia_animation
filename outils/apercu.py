@@ -16,7 +16,7 @@ TITRE = "Ficolia · Récit de la figue"
 # Les écrans du périmètre, dans l'ordre du brief : (nom, état, libellé, (ancre, maquette) ou None).
 ECRANS = [
     ("Ouverture", "validee", "validée", None),
-    ("Accueil, trois écrans", "maquette", "maquette", ("accueil", "maquettes/accueil.html")),
+    ("Accueil, deux écrans", "maquette", "maquette", ("accueil", "maquettes/accueil.html")),
     ("Formulaire envoyé", "validee", "validée · retouches", ("formulaire", "maquettes/formulaire-envoye.html")),
     ("Connexion insuffisante ou absente", "validee", "validée", ("connexion", "maquettes/connexion-insuffisante.html")),
     ("Mise à jour obligatoire", "validee", "validée", ("mise-a-jour", "maquettes/mise-a-jour-obligatoire.html")),

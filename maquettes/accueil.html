@@ -9,14 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&amp;family=Simonetta:ital@1&amp;display=swap" rel="stylesheet">
 <style>
 /*
-  Ficolia — maquette animée des trois écrans d'accueil. Piste B, « L'étal ouvre » (porteuse, 17/10).
+  Ficolia — maquette animée de l'accueil. Piste B, « L'étal ouvre » (porteuse, 17/10).
+  Deux écrans (porteuse, 17/10) : la présentation de Ficolia, puis les conditions ; « Accepter » ouvre le scanner.
+  Pas de tuto ici : il viendra au bon moment, pendant la navigation. Notre cap : cap-onboarding.md.
   L'accueil prolonge l'ouverture : le logo de la dernière image remonte en haut de l'écran, et l'étal paraît
-  dessous, store baissé. Le store remonte : Ficolia ouvre boutique. Les trois écrans forment un seul panorama
-  qui glisse d'un écran à l'autre (plus de fondus) ; la figue longe son étal avec la vue.
-  1/3 : derrière son étal, sous deux ardoises « Grossesse » et « Allaitement », elle fait tourner un pot
-  pour en lire la composition. 2/3 : un pot venu d'ailleurs, un flacon « Nouvelle formule ». 3/3 : assise
-  sur sa cagette, lunettes sur le nez, elle lit les conditions sur un long ticket.
-  Deux jeux de textes à comparer : la structure de la porteuse (17/10) et celle du prototype (06/10).
+  dessous, store baissé. Le store remonte : Ficolia ouvre boutique ; sous deux ardoises « Grossesse » et
+  « Allaitement », la figue fait tourner un pot pour en lire la composition. Puis la vue glisse le long de l'étal
+  (plus de fondus) jusqu'à sa cagette, où, lunettes sur le nez, elle lit les conditions sur un long ticket,
+  sans regarder le bouton. Pour comparer : la version à trois écrans (17/10) et celle du prototype (06/10),
+  où l'étal du milieu montre un pot venu d'ailleurs et un flacon « Nouvelle formule ».
   Fond blanc (porteuse, 17/10 : pas d'ivoire rosé). Tout est proposition (FICOLIA_DESIGN.md §3).
 */
 :root{
@@ -178,8 +179,8 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
-      <h2>Accueil, trois écrans</h2>
-      <p class="lead">Piste B, « L'étal ouvre » (porteuse, 17/10) : un seul panorama qui glisse d'un écran à l'autre, la figue longe son étal. Les deux ardoises « Grossesse » et « Allaitement » au 1/3. Fond blanc. Les boutons de l'écran marchent : Continuer, Retour, Passer.</p>
+      <h2>Accueil, deux écrans</h2>
+      <p class="lead">Deux écrans (porteuse, 17/10) : la présentation de Ficolia, puis les conditions. Le tuto viendra au bon moment, pendant la navigation. Piste B, « L'étal ouvre » : un seul panorama qui glisse d'un écran à l'autre, la figue longe son étal. Fond blanc. Les boutons de l'écran marchent.</p>
     </div>
 
     <div class="group">
@@ -192,9 +193,10 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
     </div>
 
     <div class="group">
-      <span class="label" id="lblTextes">Textes</span>
-      <div class="seg" role="group" aria-labelledby="lblTextes" data-key="textes">
-        <button type="button" data-val="porteuse">Ta structure (17/10)</button>
+      <span class="label" id="lblStructure">Structure</span>
+      <div class="seg" role="group" aria-labelledby="lblStructure" data-key="structure">
+        <button type="button" data-val="deux">Deux écrans (retenu)</button>
+        <button type="button" data-val="trois">Trois écrans (17/10)</button>
         <button type="button" data-val="prototype">Prototype (06/10)</button>
       </div>
       <p class="small" id="textesNote"></p>
@@ -242,6 +244,8 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
       <span class="label">Déroulé</span>
       <ol class="beats" id="beats"></ol>
     </div>
+
+    <p class="small">Notre cap, à garder toujours à l'esprit (porteuse, 17/10) : ce qui fait un onboarding réussi, dans cap-onboarding.md.</p>
 
     <p class="small">Logo : le logotype manuscrit de l'ouverture, ramené aux couleurs de la marque (l'ouverture emploie des teintes voisines, écart à trancher). Ardoises en Simonetta, police de marque. Les mots dessinés (« Nouvelle formule ») et « Passer » sont des propositions. « Accepter » est acté ; « Continuer » et « Retour » sont provisoires.</p>
   </aside>
@@ -772,10 +776,16 @@ function clearExtras() {
 }
 
 /* ---------- Textes ---------- */
-// Deux jeux : la structure de la porteuse (17/10) et celle du prototype (06/10, repris mot pour mot).
+// Trois structures : deux écrans (retenu, 17/10), trois écrans (17/10), et celle du prototype (06/10, mot pour mot).
 const RAPPEL = 'Ce n’est pas un avis médical. Pour toute question de santé, adressez-vous à un professionnel de santé.';
 const TEXTES = {
-  porteuse: [
+  deux: [
+    { titre: 'Bienvenue sur Ficolia', p1: '[L’objectif de Ficolia, en une phrase : à écrire]', p2: RAPPEL, tag: 'Titre : proposition · objectif : à écrire · rappel : texte du prototype', suite: 'Continuer',
+      note: '[Logotype complet à l’accueil (28/09). Aucune demande d’autorisation (05/10). Le tuto viendra au bon moment, pendant la navigation (porteuse, 17/10).]' },
+    { titre: 'Conditions d’utilisation', p1: 'Pour utiliser Ficolia, il faut en accepter les conditions d’utilisation.', p2: '[Limites essentielles, en mots simples — en attente de la juriste]', liens: true, tag: 'Textes provisoires', suite: 'Accepter',
+      note: '[Les limites de Ficolia passent ici, dans les limites essentielles : écart à D-114 C7, qui leur donnait un écran. Aucune case précochée (T-557). « Accepter » ouvre le scanner.]' }
+  ],
+  trois: [
     { titre: 'Bienvenue sur Ficolia', p1: '[L’objectif de Ficolia, en une phrase : à écrire]', p2: RAPPEL, tag: 'Titre : proposition · objectif : à écrire · rappel : texte du prototype', suite: 'Continuer', passer: 2,
       note: '[Logotype complet à l’accueil (28/09). Aucune demande d’autorisation : la caméra est demandée au premier scan (05/10).]' },
     { titre: 'Conditions d’utilisation', p1: 'Pour utiliser Ficolia, il faut en accepter les conditions d’utilisation.', p2: '[Limites essentielles, en mots simples — en attente de la juriste]', liens: true, tag: 'Textes provisoires', suite: 'Accepter',
@@ -792,6 +802,9 @@ const TEXTES = {
       note: '[Aucune case précochée ; une nouvelle acceptation à chaque nouvelle version des conditions (T-557).]' }
   ]
 };
+// Les scènes du panorama que montre chaque écran : en deux écrans, la vue file de l'étal à la cagette.
+const STRUCTURES = { deux: [0, 2], trois: [0, 1, 2], prototype: [0, 1, 2] };
+const SCENES = () => STRUCTURES[state.structure];
 const els = {
   screen: ROOT.getElementById('screen'),
   copy: ROOT.getElementById('copy'),
@@ -811,12 +824,12 @@ const els = {
 };
 for (const a of ROOT.querySelectorAll('.screen a')) a.addEventListener('click', e => e.preventDefault());
 let affiche = '';
-// Met en place les textes de l'écran i (0, 1, 2).
+// Met en place les textes de l'écran i.
 function poserTextes(i) {
-  const cle = state.textes + i;
+  const cle = state.structure + i;
   if (cle === affiche) return;
   affiche = cle;
-  const T = TEXTES[state.textes][i];
+  const T = TEXTES[state.structure][i];
   els.titre.textContent = T.titre;
   els.titre.className = T.sr ? 'sr' : '';
   els.p1.textContent = T.p1 || '';
@@ -831,7 +844,7 @@ function poserTextes(i) {
   els.suite.textContent = T.suite;
   els.retour.hidden = i === 0;
   els.passer.hidden = !T.passer;
-  els.points.setAttribute('aria-label', `Écran ${i + 1} sur 3`);
+  els.points.setAttribute('aria-label', `Écran ${i + 1} sur ${SCENES().length}`);
 }
 function textIn(el, k, rm) {
   el.style.opacity = k.toFixed(3);
@@ -850,6 +863,7 @@ function textesA(t, de, vers, rm) {
   // Les points : celui de l'écran courant s'allonge.
   const g = de === null ? 1 : EASE_IN_OUT(prog(t, 100, 500));
   [...els.points.children].forEach((sp, j) => {
+    sp.style.display = j < SCENES().length ? 'block' : 'none';
     const on = j === vers ? g : j === de ? 1 - g : 0;
     sp.style.width = mix(8, 22, on).toFixed(2) + 'px';
     sp.style.background = on > 0.5 ? 'var(--aubergine)' : 'var(--bordure)';
@@ -861,13 +875,15 @@ function textesA(t, de, vers, rm) {
 const TIENT = { k: 1.3, tilt: 0, curl: 0, arm: 1.25, sh: 0, sx: 1, sy: 1, lean: 0.1 };
 const ROULE = { k: 1.1, tilt: 0, curl: 0, arm: 0.45, sh: 0, sx: 1, sy: 1, lean: 0 };
 // Les objets du monde, selon les écrans déjà vus : store ouvert, pot tourné, formule changée.
+// Une scène qu'aucun écran ne montre (l'étal du milieu, en deux écrans) garde ses objets tels quels.
 function mondeFini(jusqua) {
-  drawStore(STORES[0], jusqua >= 0 ? OUVERT : FERME);
+  const vu = s => s <= jusqua && SCENES().includes(s);
+  drawStore(STORES[0], vu(0) ? OUVERT : FERME);
   drawStore(STORES[1], OUVERT);
   drawArdoises(0);
-  tourner(potLu, jusqua >= 0 ? 1 : 0);
-  tourner(potVoyageur, jusqua >= 1 ? 1 : 0);
-  drawFormule(jusqua >= 1 ? 2 : 0);
+  tourner(potLu, vu(0) ? 1 : 0);
+  tourner(potVoyageur, vu(1) ? 1 : 0);
+  drawFormule(vu(1) ? 2 : 0);
 }
 // Sauter le long de l'étal, de (xa, ya) à (xb, yb), en n bonds ; rend la place et l'élan.
 function bonds(t, t0, dur, xa, ya, xb, yb, n) {
@@ -952,7 +968,7 @@ function scene3(t, d, depart, n, fini) {
 function poseFinale(i) {
   placeFig(PLACES[i].x, PLACES[i].y);
   if (i < 2) { drawFig(REST); return; }
-  const fini = state.textes === 'porteuse';
+  const fini = state.structure === 'trois';
   const P = fini ? ROULE : TIENT;
   drawFig(P);
   drawLunettes(P, 1, 1);
@@ -989,22 +1005,26 @@ const BEATS = {
     ...(fini ? [[d + 1700, 'Elle les lit…'], [d + 2150, '… les roule…'], [d + 2750, '… et hoche la tête : tout est en ordre.'], [d + 3150, 'Fin : l’image reste fixe.']]
              : [[d + 1700, 'Elle les lit, tranquillement, sans regarder le bouton.'], [d + 3000, 'Fin : l’image reste fixe.']])
   ],
-  retour: [
+  retour: d => [
     [0, 'Retour : la vue revient en arrière, la figue aussi.'],
-    [1000, 'Fin : l’image reste fixe.']
+    [d + 100, 'Fin : l’image reste fixe.']
   ],
   reduit: [
     [0, 'Fondu vers l’écran, sans aucun déplacement.'],
     [600, 'Fin : l’image reste fixe.']
   ]
 };
-// Le déroulé d'un écran : on arrive de l'écran de (null : de l'ouverture) à l'écran vers.
-function deroule(de, vers) {
+// Le déroulé d'un écran : on arrive de l'écran deE (null : de l'ouverture) à l'écran versE ;
+// de et vers sont les scènes du panorama qu'ils montrent.
+function deroule(deE, versE) {
+  const sc = SCENES();
+  const de = deE === null ? null : sc[deE], vers = sc[versE];
+  const ecrire = (t, rm) => textesA(t, deE, versE, rm);
   if (reduced()) {
     return {
       duration: 600, beats: BEATS.reduit,
       render(t) {
-        textesA(t, de, vers, true);
+        ecrire(t, true);
         drawLogo(1);
         const k = de === null ? EASE_OUT(prog(t, 0, 400)) : t < 220 ? 1 - prog(t, 0, 220) : EASE_OUT(prog(t, 220, 300));
         vue.setAttribute('opacity', k.toFixed(3));
@@ -1019,7 +1039,7 @@ function deroule(de, vers) {
     return {
       duration: 4000, beats: BEATS.ouverture,
       render(t) {
-        textesA(t, null, 0);
+        ecrire(t);
         drawLogo(EASE_IN_OUT(prog(t, 100, 800)));
         vue.setAttribute('opacity', EASE_OUT(prog(t, 350, 450)).toFixed(3));
         camera(0);
@@ -1029,14 +1049,15 @@ function deroule(de, vers) {
     };
   }
   if (de > vers) {   // retour en arrière : la vue revient, la figue aussi, puis tout reste en place
+    const d = 900 + 300 * (de - vers - 1);   // en deux écrans, la vue revient de deux largeurs : un peu plus long
     return {
-      duration: 1000, beats: BEATS.retour,
+      duration: d + 100, beats: BEATS.retour(d),
       render(t) {
-        textesA(t, de, vers);
+        ecrire(t);
         drawLogo(1);
-        camera(mix(VUES[de], VUES[vers], GLISSE(prog(t, 0, 900))));
+        camera(mix(VUES[de], VUES[vers], GLISSE(prog(t, 0, d))));
         mondeFini(de);
-        const b = bonds(t, 0, 900, PLACES[de].x, PLACES[de].y, PLACES[vers].x, PLACES[vers].y, 2 * (de - vers) + 1);
+        const b = bonds(t, 0, d, PLACES[de].x, PLACES[de].y, PLACES[vers].x, PLACES[vers].y, 2 * (de - vers) + 1);
         placeFig(b.x, b.y);
         drawFig({ ...REST, sx: 1 - 0.03 * b.air, sy: 1 + 0.06 * b.air });
       }
@@ -1044,12 +1065,12 @@ function deroule(de, vers) {
   }
   // En avant, d'un écran ou de deux (« Passer ») : la vue glisse, la figue la suit, puis la scène joue.
   const d = 900 + 300 * (vers - de - 1);
-  const fini = state.textes === 'porteuse';
+  const fini = state.structure === 'trois';
   return {
     duration: vers === 1 ? d + 3450 : d + (fini ? 3150 : 3000),
     beats: vers === 1 ? BEATS.vers2(d) : BEATS.vers3(d, fini),
     render(t) {
-      textesA(t, de, vers);
+      ecrire(t);
       drawLogo(1);
       camera(mix(VUES[de], VUES[vers], GLISSE(prog(t, 0, d))));
       mondeFini(vers - 1);
@@ -1065,17 +1086,20 @@ function deroule(de, vers) {
 
 /* ---------- État de la maquette ---------- */
 const params = new URLSearchParams(location.search);
+// ?structure=deux|trois|prototype ; l'ancien ?textes=porteuse|prototype reste compris.
+const structureDemandee = params.get('structure') || { porteuse: 'trois', prototype: 'prototype' }[params.get('textes')];
 const state = {
   ecran: ['1', '2', '3'].includes(params.get('ecran')) ? +params.get('ecran') - 1 : 0,
   de: null,
-  textes: params.get('textes') === 'prototype' ? 'prototype' : 'porteuse',
+  structure: ['deux', 'trois', 'prototype'].includes(structureDemandee) ? structureDemandee : 'deux',
   speed: 1,
   motion: params.get('mouvement') === 'reduit' ? 'reduit' : params.get('mouvement') === 'normal' ? 'normal' : 'systeme',
   notes: params.get('notes') === 'off' ? 'off' : 'on',
   t: 0,
   playing: true
 };
-// Arrivée : de l'ouverture pour le 1/3, de l'écran précédent sinon ; ?depuis=1 pour le saut « Passer » vers le 3/3.
+// Arrivée : de l'ouverture pour le premier écran, de l'écran précédent sinon ; ?depuis=1 pour le saut « Passer ».
+state.ecran = Math.min(state.ecran, STRUCTURES[state.structure].length - 1);
 const depuis = params.get('depuis');
 state.de = state.ecran === 0 ? null : ['1', '2', '3'].includes(depuis) ? +depuis - 1 : state.ecran - 1;
 const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -1092,9 +1116,13 @@ const fmt = ms => (ms / 1000).toFixed(2).replace('.', ',') + ' s';
 function applyTexts() {
   els.screen.classList.toggle('hidden-notes', state.notes === 'off');
   els.screen.classList.toggle('rm', reduced());
-  els.textesNote.textContent = state.textes === 'porteuse'
-    ? 'Bienvenue et objectif ; les conditions ; « tout est en ordre » et le tuto. Les scènes ne changent pas ; au 3/3, la figue roule son ticket et hoche la tête.'
-    : 'Ce que fait Ficolia ; ce qu’elle ne sait pas faire ; les conditions. Textes du prototype, repris mot pour mot. Au 3/3, la figue lit, sans regarder le bouton.';
+  els.textesNote.textContent = {
+    deux: 'La présentation de Ficolia, puis les conditions ; « Accepter » ouvre le scanner, et le tuto viendra au bon moment, pendant la navigation. Au 2/2, la vue file le long de l’étal jusqu’à la cagette : la figue y lit les conditions, sans regarder le bouton.',
+    trois: 'Bienvenue et objectif ; les conditions ; « tout est en ordre » et le tuto. Au 3/3, la figue roule son ticket et hoche la tête.',
+    prototype: 'Ce que fait Ficolia ; ce qu’elle ne sait pas faire ; les conditions. Textes du prototype, repris mot pour mot. Au 3/3, la figue lit, sans regarder le bouton.'
+  }[state.structure];
+  const n = SCENES().length;
+  ROOT.querySelectorAll('.seg[data-key="ecran"] button').forEach((b, j) => { b.hidden = j >= n; b.textContent = `${j + 1}/${n}`; });
   affiche = '';
 }
 function applyBeats() {
@@ -1189,15 +1217,18 @@ for (const seg of ROOT.querySelectorAll('.seg')) {
       render();
       return;
     }
-    if (key === 'textes' && state.ecran === 0) state.de = null;
+    if (key === 'structure') {   // une autre structure : on garde l'écran s'il existe, avec son arrivée habituelle
+      state.ecran = Math.min(state.ecran, SCENES().length - 1);
+      state.de = state.ecran === 0 ? null : state.ecran - 1;
+    }
     resetAll();
     play(true);
   });
 }
-els.suite.addEventListener('click', () => { if (state.ecran < 2) allerA(state.ecran + 1); });
+els.suite.addEventListener('click', () => { if (state.ecran < SCENES().length - 1) allerA(state.ecran + 1); });
 els.retour.addEventListener('click', () => { if (state.ecran > 0) allerA(state.ecran - 1); });
 els.passer.addEventListener('click', () => {
-  const cible = TEXTES[state.textes][state.ecran].passer;
+  const cible = TEXTES[state.structure][state.ecran].passer;
   if (cible) allerA(cible - 1);
 });
 ROOT.getElementById('replay').addEventListener('click', () => play(true));
