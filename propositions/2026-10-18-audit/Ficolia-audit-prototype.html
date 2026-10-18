@@ -1,0 +1,472 @@
+<title>Audit du prototype Ficolia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&family=Atkinson+Hyperlegible+Mono:wght@400;500&display=swap">
+<style>
+/* Mise en page : une colonne de lecture (68 caractères), les captures en planches plus larges, le plan d'action en rangées. */
+:root {
+  --bg: #FFFFFF;
+  --surface: #FAF8F4;
+  --line: #E7E1DA;
+  --ink: #321C31;
+  --ink-2: #6E5A6B;
+  --accent: #4C2944;
+  --accent-ink: #FFF7F0;
+  --info: #EAF1F8;
+  --info-ink: #1F4E79;
+  --shot-line: #D6CEC6;
+  --font-text: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Atkinson Hyperlegible Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17131A; --surface: #221C24; --line: #3A3140; --ink: #F3EDF2; --ink-2: #BBAAB8;
+    --accent: #D9B8D1; --accent-ink: #2A1828; --info: #1C2734; --info-ink: #A9C8E8; --shot-line: #3A3140;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17131A; --surface: #221C24; --line: #3A3140; --ink: #F3EDF2; --ink-2: #BBAAB8;
+  --accent: #D9B8D1; --accent-ink: #2A1828; --info: #1C2734; --info-ink: #A9C8E8; --shot-line: #3A3140;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-text); font-size: 17px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 32px 64px;
+  -webkit-text-size-adjust: 100%;
+}
+.page { max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px; }
+.read { max-width: 44rem; }
+h1, h2, h3, h4 { margin: 0; line-height: 1.2; text-wrap: balance; color: var(--ink); }
+h1 { font-size: clamp(2rem, 5vw, 2.9rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.5rem, 3.4vw, 1.95rem); }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.02rem; }
+p { margin: 0; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.mono { font-family: var(--font-mono); font-size: 0.86em; }
+.eyebrow { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); }
+header.top { display: flex; flex-direction: column; gap: 16px; }
+.lead { font-size: 1.2rem; color: var(--ink); max-width: 40rem; }
+.method { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; max-width: 44rem; }
+.method ul { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 6px; color: var(--ink-2); font-size: 0.96rem; }
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+nav.toc a { text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 0.95rem; color: var(--ink); background: var(--bg); }
+nav.toc a:hover { border-color: var(--accent); }
+section { display: flex; flex-direction: column; gap: 24px; scroll-margin-top: 16px; }
+.sec-head { display: flex; flex-direction: column; gap: 8px; }
+.sec-head p { color: var(--ink-2); max-width: 44rem; }
+.oneline { font-size: 1.28rem; line-height: 1.45; border-left: 4px solid var(--accent); padding: 4px 0 4px 18px; max-width: 44rem; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; }
+.box { border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0; background: var(--bg); }
+.box.fill { background: var(--surface); }
+.box h3 { font-size: 1.05rem; display: flex; align-items: center; gap: 10px; }
+ol.tight, ul.tight { margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 8px; }
+ol.tight li::marker { font-family: var(--font-mono); color: var(--ink-2); }
+.tag { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 999px; padding: 2px 9px; white-space: nowrap; }
+.tag.plus { background: var(--accent); color: var(--accent-ink); }
+.tag.minus { border: 1.5px solid var(--accent); color: var(--accent); }
+.tag.todo { border: 1.5px dashed var(--ink-2); color: var(--ink-2); }
+.hat { display: flex; flex-direction: column; gap: 28px; }
+.sub { display: flex; flex-direction: column; gap: 18px; }
+.points { display: flex; flex-direction: column; gap: 14px; }
+.point { display: grid; grid-template-columns: 104px 1fr; gap: 14px; align-items: start; }
+.point > .tag { justify-self: start; margin-top: 3px; }
+.point p { min-width: 0; }
+.point .where { display: block; margin-top: 4px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-2); }
+@media (max-width: 560px) { .point { grid-template-columns: 1fr; gap: 6px; } }
+figure { margin: 0; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+figure img { width: 100%; height: auto; display: block; border-radius: 22px; border: 1px solid var(--shot-line); background: #FFFFFF; }
+figcaption { font-size: 0.88rem; color: var(--ink-2); line-height: 1.4; }
+figcaption b { color: var(--ink); font-weight: 700; }
+.shots { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; align-items: start; }
+.shots.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 900px) { .shots { grid-template-columns: repeat(3, minmax(0, 1fr)); } .shots.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .shots, .shots.four { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; } }
+.note { background: var(--info); color: var(--info-ink); border-radius: 14px; padding: 14px 18px; font-size: 0.96rem; max-width: 44rem; }
+.persona { display: flex; flex-direction: column; gap: 18px; }
+.moment { border-top: 1px solid var(--line); padding-top: 18px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
+@media (max-width: 760px) { .moment { grid-template-columns: 1fr; } }
+.moment h3 { grid-column: 1 / -1; }
+.quotes { display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.quotes li { font-style: italic; padding-left: 14px; border-left: 2px solid var(--line); }
+.verdicts { display: flex; flex-direction: column; gap: 8px; font-size: 0.96rem; }
+.verdicts p b { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; margin-right: 6px; color: var(--ink-2); font-weight: 500; }
+.plan { display: flex; flex-direction: column; gap: 10px; }
+.plan-head, .row { display: grid; grid-template-columns: 56px minmax(0, 2.2fr) minmax(0, 1.2fr) minmax(0, 1.1fr) 92px; gap: 14px; align-items: start; }
+.plan-head { font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-2); padding: 0 16px; }
+.row { border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; background: var(--bg); }
+.row .meta { font-size: 0.9rem; color: var(--ink-2); }
+.prio { font-family: var(--font-mono); font-size: 0.78rem; border-radius: 8px; padding: 3px 0; text-align: center; width: 44px; display: inline-block; }
+.prio.p1 { background: var(--accent); color: var(--accent-ink); }
+.prio.p2 { border: 1.5px solid var(--accent); color: var(--accent); }
+.prio.p3 { border: 1.5px dashed var(--ink-2); color: var(--ink-2); }
+.lbl { display: none; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-2); margin-right: 6px; }
+@media (max-width: 760px) {
+  .plan-head { display: none; }
+  .row { grid-template-columns: 1fr; gap: 6px; }
+  .lbl { display: inline; }
+}
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button { font: inherit; font-size: 0.92rem; border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+footer { color: var(--ink-2); font-size: 0.9rem; border-top: 1px solid var(--line); padding-top: 18px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<div class="page">
+
+<header class="top">
+  <p class="eyebrow">Ficolia · prototype, version 342 · 18 octobre 2026</p>
+  <h1>Audit du prototype</h1>
+  <p class="lead">Revue critique de tout ce qui est construit sur le canevas, soit 193 planches réparties sur 12 pages. Le fond et la forme y sont passés sous trois regards : designer UI/UX, développeur d'applications mobiles, femme enceinte.</p>
+  <div class="method">
+    <h4>Comment cet audit a été fait</h4>
+    <ul>
+      <li>Toutes les planches de la version 342 ont été capturées une à une, avec la police réelle et les animations.</li>
+      <li>Les 70 notes du canevas (états, décisions de séance, points ouverts) ont été relues pour ne rien critiquer à contresens.</li>
+      <li>Vérifications en plus : volet de première alerte aux niveaux 3 et 4, texte agrandi à 130 % et 200 %.</li>
+      <li>Le regard « femme enceinte » est simulé par Claude. Il donne des hypothèses à vérifier avec de vraies utilisatrices, pas des résultats.</li>
+      <li>Les textes entre crochets (à rédiger) ne comptent pas comme des défauts, sauf quand leur absence change l'expérience.</li>
+    </ul>
+  </div>
+  <nav class="toc" aria-label="Sommaire">
+    <a href="#synthese">Synthèse</a>
+    <a href="#designer">Designer UI/UX</a>
+    <a href="#developpeur">Développeur mobile</a>
+    <a href="#enceinte">Femme enceinte</a>
+    <a href="#plan">Plan d'action</a>
+    <a href="#limites">Limites</a>
+  </nav>
+</header>
+
+<section id="synthese">
+  <div class="sec-head">
+    <p class="eyebrow">Synthèse</p>
+    <h2>Ce qu'il faut retenir</h2>
+  </div>
+  <p class="oneline">Un prototype rigoureux, honnête et cohérent, qui couvre presque tous les cas difficiles. Il lui manque encore l'essentiel pour l'utilisatrice : un verdict qui dit pourquoi et quoi faire, et les signes qui donnent confiance.</p>
+  <div class="cols">
+    <div class="box fill">
+      <h3><span class="tag plus">Forces</span></h3>
+      <ol class="tight">
+        <li>Un ton honnête tenu partout : rien n'est promis, rien n'est exagéré. Pas de « sûr », pas de « sans danger », et « ce n'est pas un avis médical » quand il le faut.</li>
+        <li>La vie privée dès la conception : pas de compte ni de profil, un historique qui reste sur le téléphone, un e-mail demandé seulement quand il sert, puis effacé.</li>
+        <li>Un système visuel solide : quatre couleurs de verdict réservées, à luminance décroissante, lisibles par les daltoniens ; une police choisie pour sa lisibilité ; des cibles de 44 px.</li>
+        <li>Les cas difficiles sont dessinés : hors ligne, produit inconnu, liste absente, caméra refusée, rappel de lot, mise à jour, réévaluation.</li>
+        <li>Une personnalité chaleureuse : la figue et l'étal du marché rendent les écrans d'échec presque tendres.</li>
+      </ol>
+    </div>
+    <div class="box">
+      <h3><span class="tag minus">Faiblesses</span></h3>
+      <ol class="tight">
+        <li>Le verdict ne dit ni pourquoi ni quoi faire. L'ingrédient en cause est caché dans la liste, et les niveaux 3 et 4 n'ont pas encore de texte.</li>
+        <li>La boucle principale coûte des gestes : à chaque scan, l'écran produit, puis « Grossesse ». Et l'historique ne montre aucun niveau.</li>
+        <li>La confiance n'est pas encore construite : « À propos » et « Méthode » sont vides, rien ne dit qui évalue ni sur quelles sources.</li>
+        <li>Le vocabulaire reste celui des spécialistes : « grossesse physiologique », « innocuité », « INCI », « données nuancées, sans position formelle ».</li>
+        <li>Le moment le plus sensible n'est pas dessiné : un produit déjà utilisé qui passe au niveau 3 ou 4.</li>
+      </ol>
+    </div>
+    <div class="box">
+      <h3><span class="tag todo">Avant les tests</span></h3>
+      <ol class="tight">
+        <li>Rendre le verdict utile : nommer ce qui détermine le niveau, et écrire avec la toxicologue les textes des niveaux 2 à 4.</li>
+        <li>Dessiner le moment « je l'ai déjà utilisé ».</li>
+        <li>Écrire une première version d'« À propos » et de « Méthode ».</li>
+        <li>Passer les mots clés en langage courant, puis les tester.</li>
+        <li>Supprimer les impasses (évaluation incomplète, produit non évalué).</li>
+        <li>Préparer une version de test sans étiquettes de prototype.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="designer" class="hat">
+  <div class="sec-head">
+    <p class="eyebrow">Casquette 1</p>
+    <h2>Designer UI/UX</h2>
+    <p>La forme, c'est ce qui se voit : couleurs, typographie, hiérarchie, composants. Le fond, c'est l'expérience : parcours, contenus, décisions.</p>
+  </div>
+
+  <div class="sub">
+    <h3>La forme</h3>
+    <div class="points">
+      <div class="point"><span class="tag plus">Force</span><p>Couleurs de verdict réservées et mesurées : noir sur les niveaux 1 à 3, blanc sur le niveau 4, contrastes de 6,5 à 14,3:1. L'ordre des quatre teintes est conservé dans les trois formes de daltonisme. Le bleu d'information (rappel de lot, verdict à actualiser, encadrés) ne se confond jamais avec un verdict.<span class="where">Page « Fondations » · étapes 3 à 5</span></p></div>
+      <div class="point"><span class="tag plus">Force</span><p>Atkinson Hyperlegible Next partout : un bon choix pour des yeux fatigués, une vue troublée ou des nausées.</p></div>
+      <div class="point"><span class="tag plus">Force</span><p>Des composants qui se répètent à l'identique : bouton rond de retour, rangées à chevron, cartes, barre d'onglets en pilule. On apprend l'application une fois.</p></div>
+      <div class="point"><span class="tag plus">Force</span><p>Les illustrations (cagette vide, store de l'étal, photomaton, figue qui lève le bras) donnent à la marque une voix propre, là où d'autres applications posent une icône d'erreur.<span class="where">Étapes 3, 4 et 5</span></p></div>
+      <div class="point"><span class="tag plus">Force</span><p>Le texte agrandi tient : à 200 %, le verdict reste lisible et la photo se réduit d'elle-même.</p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>La hiérarchie de l'écran de verdict : la carte produit et sa grande photo occupent le premier tiers. Le libellé, à 19 px, a la taille du titre « Grossesse ». La réponse attendue n'est pas l'élément le plus fort de l'écran, et sur un petit téléphone la phrase du verdict descend vers le bas.<span class="where">Tous les écrans de verdict</span></p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>L'échelle à côté du nom est minuscule et redit ce que le cadre dit déjà. Elle n'apparaît pas là où elle aurait quelque chose à apprendre (historique, écran produit). Le choix entre les variantes A et E est ouvert depuis le 13/10.<span class="where">Étape 5 · « Échelle du verdict »</span></p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>Accueil : le nom reste « Fic lia » pendant deux écrans, le temps que la figue se pose. Sur la capture prise à 2,6 s, la figue passe sur le texte de l'accueil 2/3 et en cache une partie.<span class="where">Étape 1 · accueil 1/3 et 2/3</span></p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>Écran produit : « Ce n'est pas ce produit » a la largeur et le contour d'une action principale. Il pèse autant que l'accès au verdict.<span class="where">Écrans produit, étapes 1, 2, 3, 5, 7</span></p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>Le store rayé de « Ficolia fait une pause » est rouge grenade. Sur un écran sans verdict, il peut se lire comme une alerte (déjà relevé le 13/10, à observer au test).</p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>Le petit rond du renvoi « Crevasses » n'a qu'une icône : un livre n'évoque pas les crevasses.<span class="where">Ligne allaitement · rangées 2 et 4</span></p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>Aucun thème sombre. Or on scanne souvent le soir, dans une salle de bain, à côté de quelqu'un qui dort.</p></div>
+      <div class="point"><span class="tag todo">À améliorer</span><p>Sur le verdict, remplacer la grande photo par la carte compacte de l'écran « Ingrédients » (vignette, nom, marque) : le produit reste identifié et le verdict remonte. Cela revient sur la décision du 06/10 « photo dans la carte produit » : à juger sur planche.</p></div>
+      <div class="point"><span class="tag todo">À améliorer</span><p>Donner au libellé du verdict une taille supérieure à celle du titre de l'écran, quitte à placer le « i » sous le libellé au niveau 1.</p></div>
+      <div class="point"><span class="tag todo">À améliorer</span><p>Trancher l'échelle avec l'épreuve des cinq secondes déjà prévue au test. Si elle reste, la montrer là où elle apporte quelque chose.</p></div>
+      <div class="point"><span class="tag todo">À améliorer</span><p>Ramener « Ce n'est pas ce produit » à un lien, ou à un bouton secondaire plus petit. Donner un libellé au petit rond (« Crevasses »), ou préférer la pastille parmi les mentions.</p></div>
+      <div class="point"><span class="tag todo">À améliorer</span><p>Préparer les jetons d'un thème sombre, couleurs de verdict comprises, mesurés comme ceux du thème clair.</p></div>
+    </div>
+    <div class="shots">
+      <figure><img src="img/verdict-n2.jpg" alt="Écran de verdict jaune, sous une grande carte produit" loading="lazy"><figcaption><b>Verdict.</b> La réponse arrive au milieu de l'écran ; le libellé a la taille du titre.</figcaption></figure>
+      <figure><img src="img/accueil-2.jpg" alt="Accueil 2 sur 3, la figue passe sur le texte" loading="lazy"><figcaption><b>Accueil 2/3.</b> Le nom troué, la figue sur le texte, et « grossesse physiologique ».</figcaption></figure>
+      <figure><img src="img/produit.jpg" alt="Écran produit avec les deux lignes et le bouton Ce n'est pas ce produit" loading="lazy"><figcaption><b>Écran produit.</b> « Ce n'est pas ce produit » pèse autant que l'accès au verdict.</figcaption></figure>
+      <figure><img src="img/pause.jpg" alt="Écran Ficolia fait une pause avec un store rayé rouge" loading="lazy"><figcaption><b>Pause.</b> Rayures grenade sur un écran sans verdict.</figcaption></figure>
+      <figure><img src="img/inconnu.jpg" alt="Écran produit inconnu illustré par une figue et une cagette vide" loading="lazy"><figcaption><b>Produit inconnu.</b> Un échec qui garde le sourire : la marque a une voix.</figcaption></figure>
+      <figure><img src="img/texte-200.jpg" alt="Verdict de niveau 1 en texte agrandi à 200 pour cent" loading="lazy"><figcaption><b>Texte à 200 %.</b> Le verdict tient, la photo s'efface.</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="sub">
+    <h3>Le fond</h3>
+    <div class="points">
+      <div class="point"><span class="tag plus">Force</span><p>Une boucle claire avec plusieurs portes : scanner, saisir le code-barres, chercher par nom, rouvrir depuis l'historique.</p></div>
+      <div class="point"><span class="tag plus">Force</span><p>Les écrans d'échec disent la vérité et proposent une suite quand elle existe : « Ajouter ce produit », « Photographier la liste », scan mis en attente.</p></div>
+      <div class="point"><span class="tag plus">Force</span><p>Signalement et contribution sont bien pensés : objets en langage courant, formulaires courts, photos guidées, attentes honnêtes (« pas de verdict tout de suite »), e-mail facultatif et effacé ensuite.<span class="where">Étape 4</span></p></div>
+      <div class="point"><span class="tag plus">Force</span><p>L'alerte de réévaluation ne bloque rien, et l'utilisatrice peut l'arrêter.<span class="where">Étape 5</span></p></div>
+      <div class="point"><span class="tag plus">Force</span><p>Le « i » explique un niveau sans quitter l'écran, et le lexique rassemble tous les mots de l'application.</p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>Le verdict ne nomme pas sa cause. L'ingrédient qui détermine le niveau porte une étiquette dans la liste : à la 6e ligne dans l'exemple, peut-être à la 25e dans une vraie liste de 35 ingrédients. Le lien « Voir ce qui détermine ce niveau » a été retiré le 06/10.</p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>Il manque le « et maintenant ? ». Au niveau 2, « données nuancées, sans position formelle » laisse la lectrice seule avec sa question : « je peux ou pas ? ». Aux niveaux 3 et 4, le texte propre au niveau reste à écrire.</p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>Chaque scan coûte un écran de plus : l'écran produit, puis « Grossesse ». Sans profil, et c'est un choix assumé, il faut choisir entre les deux lignes à chaque fois.</p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>L'historique ne montre aucun niveau (décision 106). Impossible de voir d'un coup d'œil quels produits de sa salle de bain sont à revoir. La raison est solide (deux verdicts, jamais la couleur seule), mais le coût pour l'utilisatrice est réel.</p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>« Ce produit a été réévalué » ne dit ni dans quel sens ni pourquoi (D-52). Une femme enceinte lira d'abord « c'est pire ».</p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>Des impasses. Dans « Évaluation incomplète · le type n'a pas été précisé », rien ne permet de préciser le type depuis l'écran. « Pas encore évalué » et « pas un cosmétique » s'arrêtent sur une phrase.<span class="where">Étape 3</span></p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>La ligne allaitement empile les notions : zone de tétée, inhalation, contact peau à peau, produit parfumé. Au-delà de deux mentions, la troisième part en tête de la liste des ingrédients. Une mère fatiguée risque de ne pas la voir, alors qu'elle concerne le peau à peau.<span class="where">Ligne allaitement · rangée 3</span></p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>Huile essentielle pure : « Composition incompatible » quand la concentration n'est pas déclarée met « on ne sait pas » et « c'est dangereux » sous le même rouge (décision 149, qualification attendue de la juriste).<span class="where">Étape 7</span></p></div>
+      <div class="point"><span class="tag minus">Faiblesse</span><p>L'accueil impose trois écrans de texte et une acceptation avant de montrer quoi que ce soit d'utile. Votre idée d'une prise en main au premier usage va dans le bon sens.</p></div>
+      <div class="point"><span class="tag todo">À améliorer</span><p>Sur le verdict, une ligne « Ce qui détermine ce niveau : [ingrédient] » qui ouvre son panneau. À défaut, rétablir le lien vers l'ingrédient.</p></div>
+      <div class="point"><span class="tag todo">À améliorer</span><p>Écrire les textes des niveaux 2 à 4 pour qu'ils répondent à trois questions : ce que le niveau veut dire, ce que je peux faire, à qui en parler. Avec la toxicologue et la juriste.</p></div>
+      <div class="point"><span class="tag todo">À améliorer</span><p>Tester une préférence facultative, gardée sur le téléphone : « enceinte », « j'allaite » ou « les deux ». Elle permettrait d'aller du scan au bon verdict et de montrer le niveau dans l'historique, en texte. Elle revient sur l'absence de profil : à peser avec la juriste. Si elle est refusée, montrer quand même dans l'historique le libellé des deux lignes, en texte court.</p></div>
+      <div class="point"><span class="tag todo">À améliorer</span><p>Réévaluation : dire au moins le sens du changement (« plus sévère », « moins sévère »). C'est contraire à D-52 : à trancher après un test.</p></div>
+      <div class="point"><span class="tag todo">À améliorer</span><p>Mettre « Préciser le type » directement dans le cadre « Évaluation incomplète ». Allaitement : ordonner les mentions par importance, et ne jamais renvoyer le contact peau à peau hors de l'écran.</p></div>
+      <div class="point"><span class="tag todo">À améliorer</span><p>Huile pure : un état à part, du type « non évaluable, par précaution », plutôt que le libellé du niveau 4. À décider avec la toxicologue et la juriste.</p></div>
+    </div>
+    <div class="shots">
+      <figure><img src="img/ingredients.jpg" alt="Liste des ingrédients, l'ingrédient déterminant en sixième ligne" loading="lazy"><figcaption><b>Ingrédients.</b> Ce qui détermine le niveau : 6e ligne sur 10.</figcaption></figure>
+      <figure><img src="img/incomplet-type.jpg" alt="Évaluation incomplète, type non précisé, sans bouton" loading="lazy"><figcaption><b>Évaluation incomplète.</b> Le type manque, mais rien ne permet de le préciser ici.</figcaption></figure>
+      <figure><img src="img/historique.jpg" alt="Historique : noms, marques, contenances, sans niveau" loading="lazy"><figcaption><b>Historique.</b> Aucun niveau : il faut tout rouvrir.</figcaption></figure>
+      <figure><img src="img/reevalue.jpg" alt="Verdict avec le bandeau Ce produit a été réévalué" loading="lazy"><figcaption><b>Réévalué.</b> Mais dans quel sens ?</figcaption></figure>
+      <figure><img src="img/spray.jpg" alt="Verdict allaitement du spray avec deux mentions" loading="lazy"><figcaption><b>Spray solaire.</b> Trois mentions, deux visibles ; le peau à peau part dans la liste.</figcaption></figure>
+      <figure><img src="img/huile.jpg" alt="Huile essentielle de lavande au niveau 4" loading="lazy"><figcaption><b>Huile pure.</b> « Incompatible » faute de concentration déclarée.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="developpeur" class="hat">
+  <div class="sec-head">
+    <p class="eyebrow">Casquette 2</p>
+    <h2>Développeur d'applications mobiles</h2>
+    <p>Ce que le prototype rend facile ou difficile à construire, à maintenir et à faire tourner sur de vrais téléphones.</p>
+  </div>
+  <div class="points">
+    <div class="point"><span class="tag plus">Force</span><p>Une architecture saine pour la vie privée et le hors-ligne : catalogue évalué sur le téléphone (D-91), historique local, comparaison des réévaluations sur l'appareil (T-452), aucune journalisation par personne (T-129).</p></div>
+    <div class="point"><span class="tag plus">Force</span><p>Les états du système sont ceux qu'un développeur rencontrera : réseau faible avec délai, scan mis en attente, verdict trop ancien « à actualiser », source externe muette, mise à jour obligatoire, autorisation de la caméra demandée, refusée, puis réglages.</p></div>
+    <div class="point"><span class="tag plus">Force</span><p>Les demandes d'autorisation suivent les règles d'Apple (pas d'écran avant la demande). Le cas du sélecteur de photos sans autorisation est identifié.</p></div>
+    <div class="point"><span class="tag plus">Force</span><p>Des contrôles automatiques existent déjà : mots interdits, contrastes, cibles de 44 px, toutes les combinaisons de réglages des écrans de verdict.</p></div>
+    <div class="point"><span class="tag plus">Force</span><p>Le statut de chaque texte (provisoire ou acté) est suivi écran par écran : c'est la base d'un fichier de chaînes propre.</p></div>
+    <div class="point"><span class="tag minus">Risque</span><p>Pas de source unique de vérité pour le développement : 193 planches, des gabarits copiés jusqu'à 19 fois, et une page « Fondations » en retard (libellé du verdict à 30 px au lieu de 19, cœur encore présenté alors qu'il est retiré).</p></div>
+    <div class="point"><span class="tag minus">Risque</span><p>La qualité des données. Tout repose sur la lecture des listes d'ingrédients venues de sources externes, avec leurs fautes, leurs traductions et leurs ingrédients inconnus. Sans mesure précoce (« dix salles de bains », T-515), « Évaluation incomplète » risque d'être l'écran le plus vu au lancement.</p></div>
+    <div class="point"><span class="tag minus">Risque</span><p>La recherche par nom ne marche pas hors ligne, alors que le catalogue est sur le téléphone (L-35, décision 113). À vérifier : si le catalogue contient les noms, une recherche locale est possible.</p></div>
+    <div class="point"><span class="tag minus">Risque</span><p>La mise à jour obligatoire bloque aussi l'historique (décision 161). Or l'historique est local et se lit sans serveur : le bloquer n'est utile que si son format change.</p></div>
+    <div class="point"><span class="tag minus">Risque</span><p>Envois manqués (signalement, photos, message) : il faut toucher « Réessayer », alors que les scans en attente repartent tout seuls.</p></div>
+    <div class="point"><span class="tag minus">Risque</span><p>Animations en vidéo, mp4 sur fond blanc avec un webm transparent en secours. Un webm transparent n'est pas lu nativement sur iOS, et une douzaine de fichiers de 0,3 à 1 Mo alourdissent l'application. Il n'y a pas encore d'image fixe choisie pour les téléphones qui réduisent les animations.</p></div>
+    <div class="point"><span class="tag minus">Risque</span><p>Taille du texte : la barre d'onglets reste à 12 px fixes, même à 200 %. Les écrans de recherche n'ont pas été prototypés en texte agrandi.</p></div>
+    <div class="point"><span class="tag minus">Risque</span><p>Android : la demande de caméra peut ne pas afficher son motif, et le retour système n'est pas représenté.</p></div>
+    <div class="point"><span class="tag todo">À améliorer</span><p>Avant le passage au développement, rassembler :</p><ul class="tight">
+      <li>une bibliothèque de composants, états compris ;</li>
+      <li>des jetons de design exportables (couleurs, typographie, espacements, rayons) ;</li>
+      <li>un fichier des textes avec leur statut ;</li>
+      <li>une carte des parcours.</li>
+    </ul><p>Archiver « Pistes de style » et « Direction consolidée ».</p></div>
+    <div class="point"><span class="tag todo">À améliorer</span><p>Mettre à jour « Fondations » (point 3 de la liste de fin de session). Mesurer tôt la couverture réelle : part des produits trouvés, part des listes lues en entier.</p></div>
+    <div class="point"><span class="tag todo">À améliorer</span><p>Une file d'envoi unique, rejouée au retour du réseau, pour tout ce qui part vers Ficolia.</p></div>
+    <div class="point"><span class="tag todo">À améliorer</span><p>Des animations vectorielles (Lottie ou équivalent) : plus légères, nettes à toutes les tailles, compatibles avec un thème sombre. Et une image fixe choisie pour chacune (séance déjà prévue).</p></div>
+    <div class="point"><span class="tag todo">À améliorer</span><p>Laisser l'historique lisible pendant une mise à jour obligatoire, avec un bandeau. Prévoir dès maintenant le thème sombre, le texte agrandi partout, l'ordre de lecture du verdict pour les lecteurs d'écran, et les règles des magasins d'applications pour les applications de santé.</p></div>
+  </div>
+</section>
+
+<section id="enceinte" class="hat">
+  <div class="sec-head">
+    <p class="eyebrow">Casquette 3</p>
+    <h2>Femme enceinte</h2>
+    <p>Regard simulé par Claude, à travers une utilisatrice imaginaire : Léa, 31 ans, enceinte de quatre mois de son premier enfant, fatiguée, la peau qui change, qui lit beaucoup en ligne. Ce ne sont pas des résultats de test : ce sont des hypothèses à vérifier avec de vraies utilisatrices.</p>
+  </div>
+  <div class="persona">
+    <div class="moment">
+      <h3>La première ouverture</h3>
+      <ul class="quotes">
+        <li>« L'accroche me parle : prendre soin de moi sans tout vérifier dix fois. »</li>
+        <li>« "Grossesse physiologique" ? Je ne connais pas ce mot. Ma sage-femme surveille ma tension : est-ce que ça me concerne ? »</li>
+        <li>« Trois écrans de texte avant de pouvoir scanner : j'ai envie de passer. »</li>
+      </ul>
+      <div class="verdicts">
+        <p><b>Ce qui marche</b>le ton calme, « ce n'est pas un avis médical », pas de compte à créer.</p>
+        <p><b>Ce qui manque</b>des mots simples, et savoir qui est derrière l'application.</p>
+      </div>
+    </div>
+    <div class="moment">
+      <h3>En magasin, un produit à la main</h3>
+      <ul class="quotes">
+        <li>« Le scanner est rapide, je coupe le son, la lampe aide sous les néons. »</li>
+        <li>« Après le scan, je dois encore toucher "Grossesse". Avec trois produits dans le panier, je le fais trois fois. »</li>
+        <li>« Jaune, "à signal modéré" : donc je l'achète ou pas ? »</li>
+        <li>« Je veux savoir ce qui pose problème : il faut ouvrir la liste et chercher l'étiquette. »</li>
+      </ul>
+      <div class="verdicts">
+        <p><b>Ce qui marche</b>de grandes cibles, une main suffit, la barre en bas de l'écran.</p>
+        <p><b>Ce qui manque</b>la cause et une piste (« que faire ? ») sur le même écran.</p>
+      </div>
+    </div>
+    <div class="moment">
+      <h3>Le verdict rouge d'un produit que j'utilise depuis des semaines</h3>
+      <ul class="quotes">
+        <li>« Rouge. Je l'utilise tous les jours depuis le début de ma grossesse. J'ai fait du mal à mon bébé ? »</li>
+        <li>« Le volet me dit d'en parler à un professionnel de santé. D'accord, mais ce soir, je fais quoi ? »</li>
+        <li>« "Ce produit a été réévalué" : en mieux ou en pire ? »</li>
+      </ul>
+      <div class="verdicts">
+        <p><b>Constat</b>c'est le moment le plus important de l'application, et il n'est pas encore dessiné (T-404, textes des niveaux 3 et 4).</p>
+        <p><b>Ce qu'il faudrait</b>un texte qui rassure sans minimiser, qui dit quoi faire maintenant et à qui en parler, écrit avec la toxicologue et relu par la juriste.</p>
+      </div>
+    </div>
+    <div class="moment">
+      <h3>À la maison, le soir</h3>
+      <ul class="quotes">
+        <li>« Je fais le tour de ma salle de bain. L'historique me donne la liste, mais pas ceux qui sont à revoir : je dois tous les rouvrir. »</li>
+        <li>« L'écran blanc m'éblouit dans le noir. »</li>
+        <li>« "Pas encore évalué" m'arrête net : il n'y a rien d'autre à faire ? »</li>
+        <li>« J'aimerais montrer ce verdict à ma sage-femme. »</li>
+      </ul>
+      <div class="verdicts">
+        <p><b>Ce qui marche</b>un historique qui se remplit tout seul, sans compte.</p>
+        <p><b>Ce qui manque</b>l'état de chaque produit d'un coup d'œil, un thème sombre, un moyen de partager.</p>
+      </div>
+    </div>
+    <div class="moment">
+      <h3>Une réaction à un produit</h3>
+      <ul class="quotes">
+        <li>« J'ai des plaques depuis ce lait. L'écran me remercie et m'envoie vers un portail du ministère. »</li>
+        <li>« Je voulais d'abord savoir si je dois appeler quelqu'un. »</li>
+      </ul>
+      <div class="verdicts">
+        <p><b>Ce qui marche</b>la compassion du texte, et la franchise : Ficolia ne reçoit pas ces déclarations.</p>
+        <p><b>Ce qu'il faudrait</b>orienter d'abord vers sa sage-femme, son médecin, ou les urgences si besoin, avant le portail de déclaration.</p>
+      </div>
+    </div>
+    <div class="moment">
+      <h3>Après la naissance, j'allaite</h3>
+      <ul class="quotes">
+        <li>« Une main pour le bébé, une pour le téléphone. »</li>
+        <li>« Zone de tétée, inhalation, contact peau à peau, produit parfumé : ça fait beaucoup de pastilles. »</li>
+        <li>« Le petit rond avec un livre : je ne sais pas ce qu'il ouvre. Si c'est pour les crevasses, oui, j'en ai besoin. »</li>
+      </ul>
+      <div class="verdicts">
+        <p><b>Ce qui marche</b>la fiche « Crevasses » à portée de doigt, au bon moment.</p>
+        <p><b>Ce qui manque</b>moins de notions à la fois, et un libellé sur le petit rond.</p>
+      </div>
+    </div>
+    <div class="moment">
+      <h3>La confiance</h3>
+      <ul class="quotes">
+        <li>« Qui a décidé que ce produit est "préoccupant" ? Une toxicologue ? Sur quelles études ? »</li>
+        <li>« Dans "À propos", il n'y a encore rien. Si l'application était financée par une marque, je voudrais le savoir. »</li>
+        <li>« Elle ne me fait pas peur et ne me vend rien : ça, c'est rassurant. »</li>
+      </ul>
+      <div class="verdicts">
+        <p><b>Ce qui me ferait revenir</b>un verdict clair, sa cause, et quoi faire.</p>
+        <p><b>Ce qui me ferait partir</b>avoir peur sans savoir quoi faire.</p>
+      </div>
+    </div>
+  </div>
+  <div class="shots four">
+    <figure><img src="img/volet-n4.jpg" alt="Volet de première alerte au niveau 4, texte du niveau à rédiger" loading="lazy"><figcaption><b>Volet, niveau 4.</b> Le texte propre au niveau reste à écrire.</figcaption></figure>
+    <figure><img src="img/reaction.jpg" alt="Écran Réaction à un produit avec le portail de signalement" loading="lazy"><figcaption><b>Réaction.</b> Le portail avant « consultez » ?</figcaption></figure>
+    <figure><img src="img/petit-rond.jpg" alt="Verdict allaitement avec un petit rond à icône de livre" loading="lazy"><figcaption><b>Petit rond.</b> Un livre, mais pour lire quoi ?</figcaption></figure>
+    <figure><img src="img/photos-envoyees.jpg" alt="Écran Photos envoyées illustré d'un photomaton" loading="lazy"><figcaption><b>Photos envoyées.</b> Remercier sans rien promettre : juste.</figcaption></figure>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="sec-head">
+    <p class="eyebrow">Plan d'action</p>
+    <h2>Par ordre de priorité</h2>
+    <p>P1 : avant les premiers tests utilisateurs. P2 : pendant les tests. P3 : avant le passage au développement. Certaines actions reviennent sur des décisions déjà prises ; elles sont signalées et restent à trancher par vous.</p>
+  </div>
+  <div class="filters" role="group" aria-label="Filtrer par priorité">
+    <button type="button" id="f-all" data-f="all" aria-pressed="true">Toutes</button>
+    <button type="button" id="f-p1" data-f="p1" aria-pressed="false">P1</button>
+    <button type="button" id="f-p2" data-f="p2" aria-pressed="false">P2</button>
+    <button type="button" id="f-p3" data-f="p3" aria-pressed="false">P3</button>
+  </div>
+  <div class="plan" id="plan-list">
+    <div class="plan-head" aria-hidden="true"><span>Prio.</span><span>Action</span><span>Où</span><span>Qui décide</span><span>Effort</span></div>
+
+    <div class="row" data-p="p1"><span><span class="prio p1">P1</span></span><span>Nommer sur le verdict ce qui détermine le niveau, avec un accès direct à l'ingrédient.</span><span class="meta"><span class="lbl">Où</span>Tous les verdicts</span><span class="meta"><span class="lbl">Qui</span>Porteuse</span><span class="meta"><span class="lbl">Effort</span>Moyen</span></div>
+    <div class="row" data-p="p1"><span><span class="prio p1">P1</span></span><span>Écrire les textes des niveaux 2 à 4 : ce que le niveau veut dire, ce que je peux faire, à qui en parler.</span><span class="meta"><span class="lbl">Où</span>Cadre du verdict, volet</span><span class="meta"><span class="lbl">Qui</span>Toxicologue, juriste</span><span class="meta"><span class="lbl">Effort</span>Rédaction</span></div>
+    <div class="row" data-p="p1"><span><span class="prio p1">P1</span></span><span>Dessiner le moment « je l'ai déjà utilisé » : premier verdict de niveau 3 ou 4, ou réévaluation d'un produit de l'historique (T-404).</span><span class="meta"><span class="lbl">Où</span>Verdict, volet, historique</span><span class="meta"><span class="lbl">Qui</span>Porteuse, toxicologue, juriste</span><span class="meta"><span class="lbl">Effort</span>Moyen</span></div>
+    <div class="row" data-p="p1"><span><span class="prio p1">P1</span></span><span>Écran « Réaction » : orienter vers un professionnel de santé, ou les urgences si besoin, avant le portail de déclaration.</span><span class="meta"><span class="lbl">Où</span>Étape 4</span><span class="meta"><span class="lbl">Qui</span>Porteuse, juriste</span><span class="meta"><span class="lbl">Effort</span>Faible</span></div>
+    <div class="row" data-p="p1"><span><span class="prio p1">P1</span></span><span>Première version d'« À propos » et de « Méthode » : qui évalue, indépendance, financement, sources, date. Trancher la réserve du dossier (§4.4).</span><span class="meta"><span class="lbl">Où</span>Étape 6</span><span class="meta"><span class="lbl">Qui</span>Porteuse, toxicologue</span><span class="meta"><span class="lbl">Effort</span>Rédaction</span></div>
+    <div class="row" data-p="p1"><span><span class="prio p1">P1</span></span><span>Passer en langage courant « grossesse physiologique », « innocuité », « INCI », « données nuancées, sans position formelle », « Signalé », puis tester.</span><span class="meta"><span class="lbl">Où</span>Accueil, verdict, volet, ingrédients</span><span class="meta"><span class="lbl">Qui</span>Porteuse</span><span class="meta"><span class="lbl">Effort</span>Faible</span></div>
+    <div class="row" data-p="p1"><span><span class="prio p1">P1</span></span><span>Supprimer les impasses : « Préciser le type » dans l'évaluation incomplète ; une suite sur « pas encore évalué ».</span><span class="meta"><span class="lbl">Où</span>Étape 3</span><span class="meta"><span class="lbl">Qui</span>Porteuse</span><span class="meta"><span class="lbl">Effort</span>Faible</span></div>
+    <div class="row" data-p="p1"><span><span class="prio p1">P1</span></span><span>Version de test sans étiquettes de prototype, avec un scénario et des produits réalistes.</span><span class="meta"><span class="lbl">Où</span>Tout le parcours</span><span class="meta"><span class="lbl">Qui</span>Claude</span><span class="meta"><span class="lbl">Effort</span>Moyen</span></div>
+
+    <div class="row" data-p="p2"><span><span class="prio p2">P2</span></span><span>Préférence facultative gardée sur le téléphone (enceinte, j'allaite, les deux) ; à défaut, libellés des deux lignes en texte dans l'historique. Revient sur la décision 106.</span><span class="meta"><span class="lbl">Où</span>Écran produit, historique</span><span class="meta"><span class="lbl">Qui</span>Porteuse, juriste</span><span class="meta"><span class="lbl">Effort</span>Moyen</span></div>
+    <div class="row" data-p="p2"><span><span class="prio p2">P2</span></span><span>Dire le sens d'une réévaluation (« plus sévère », « moins sévère »). Revient sur D-52.</span><span class="meta"><span class="lbl">Où</span>Étape 5</span><span class="meta"><span class="lbl">Qui</span>Porteuse</span><span class="meta"><span class="lbl">Effort</span>Faible</span></div>
+    <div class="row" data-p="p2"><span><span class="prio p2">P2</span></span><span>Hiérarchie du verdict : carte produit compacte, libellé plus grand que le titre de l'écran.</span><span class="meta"><span class="lbl">Où</span>Tous les verdicts</span><span class="meta"><span class="lbl">Qui</span>Porteuse</span><span class="meta"><span class="lbl">Effort</span>Moyen</span></div>
+    <div class="row" data-p="p2"><span><span class="prio p2">P2</span></span><span>Accueil : le nom entier dès le premier écran, une animation qui ne passe pas sur le texte, et la prise en main au premier usage plutôt qu'un tutoriel.</span><span class="meta"><span class="lbl">Où</span>Étape 1</span><span class="meta"><span class="lbl">Qui</span>Porteuse</span><span class="meta"><span class="lbl">Effort</span>Moyen</span></div>
+    <div class="row" data-p="p2"><span><span class="prio p2">P2</span></span><span>Allaitement : ordre des mentions, contact peau à peau toujours visible, libellé sur le petit rond.</span><span class="meta"><span class="lbl">Où</span>Ligne allaitement</span><span class="meta"><span class="lbl">Qui</span>Porteuse</span><span class="meta"><span class="lbl">Effort</span>Faible</span></div>
+    <div class="row" data-p="p2"><span><span class="prio p2">P2</span></span><span>Huile pure : un état « non évaluable, par précaution » plutôt que le libellé du niveau 4.</span><span class="meta"><span class="lbl">Où</span>Étape 7</span><span class="meta"><span class="lbl">Qui</span>Toxicologue, juriste</span><span class="meta"><span class="lbl">Effort</span>Faible</span></div>
+    <div class="row" data-p="p2"><span><span class="prio p2">P2</span></span><span>Trancher l'échelle par l'épreuve des cinq secondes ; « Ce n'est pas ce produit » en bouton secondaire.</span><span class="meta"><span class="lbl">Où</span>Étape 5, écrans produit</span><span class="meta"><span class="lbl">Qui</span>Porteuse</span><span class="meta"><span class="lbl">Effort</span>Test</span></div>
+
+    <div class="row" data-p="p3"><span><span class="prio p3">P3</span></span><span>Une source unique pour le développement : composants, jetons, textes et statuts, carte des parcours ; « Fondations » à jour ; pistes archivées.</span><span class="meta"><span class="lbl">Où</span>Canevas</span><span class="meta"><span class="lbl">Qui</span>Claude</span><span class="meta"><span class="lbl">Effort</span>Élevé</span></div>
+    <div class="row" data-p="p3"><span><span class="prio p3">P3</span></span><span>Thème sombre, couleurs de verdict comprises.</span><span class="meta"><span class="lbl">Où</span>Partout</span><span class="meta"><span class="lbl">Qui</span>Porteuse</span><span class="meta"><span class="lbl">Effort</span>Moyen</span></div>
+    <div class="row" data-p="p3"><span><span class="prio p3">P3</span></span><span>File d'envoi hors ligne commune (signalement, photos, message).</span><span class="meta"><span class="lbl">Où</span>Étapes 4 et 6</span><span class="meta"><span class="lbl">Qui</span>Développement</span><span class="meta"><span class="lbl">Effort</span>Moyen</span></div>
+    <div class="row" data-p="p3"><span><span class="prio p3">P3</span></span><span>Historique lisible pendant une mise à jour obligatoire. Revient sur la décision 161.</span><span class="meta"><span class="lbl">Où</span>Étape 3</span><span class="meta"><span class="lbl">Qui</span>Porteuse</span><span class="meta"><span class="lbl">Effort</span>Faible</span></div>
+    <div class="row" data-p="p3"><span><span class="prio p3">P3</span></span><span>Animations vectorielles et images fixes choisies.</span><span class="meta"><span class="lbl">Où</span>Étapes 1, 3, 4, 6</span><span class="meta"><span class="lbl">Qui</span>Porteuse</span><span class="meta"><span class="lbl">Effort</span>Moyen</span></div>
+    <div class="row" data-p="p3"><span><span class="prio p3">P3</span></span><span>Recherche locale dans le catalogue embarqué, si L-35 le permet.</span><span class="meta"><span class="lbl">Où</span>Étape 2</span><span class="meta"><span class="lbl">Qui</span>Développement</span><span class="meta"><span class="lbl">Effort</span>Moyen</span></div>
+    <div class="row" data-p="p3"><span><span class="prio p3">P3</span></span><span>Texte agrandi partout, barre d'onglets comprise ; Android (retour système, motif de la caméra) ; partage d'un verdict.</span><span class="meta"><span class="lbl">Où</span>Partout</span><span class="meta"><span class="lbl">Qui</span>Développement, porteuse</span><span class="meta"><span class="lbl">Effort</span>Moyen</span></div>
+  </div>
+</section>
+
+<section id="limites">
+  <div class="sec-head">
+    <p class="eyebrow">Limites</p>
+    <h2>Ce que cet audit ne dit pas</h2>
+  </div>
+  <ul class="tight read">
+    <li>Il ne remplace pas un test utilisateur : les réactions de Léa sont des hypothèses.</li>
+    <li>Le registre v6.5 n'a pas été relu pour l'occasion. Quand une recommandation va contre une décision inscrite (D-52, décisions 106, 149 et 161), elle le dit, et c'est à vous de trancher.</li>
+    <li>Les textes à rédiger n'ont pas été jugés comme des défauts.</li>
+    <li>Les questions juridiques (conditions d'utilisation, données de santé, qualification du verdict) relèvent de la juriste.</li>
+    <li>Rendu local fidèle (police réelle, animations en webm), mais chaque animation n'a été vue qu'à un instant, sur capture.</li>
+  </ul>
+  <p class="note read">Prochaine étape suggérée : choisir ensemble, parmi les P1, ce qui entre dans la prochaine séance, avant de répondre aux questions en attente.</p>
+</section>
+
+<footer>Audit rédigé par Claude le 18 octobre 2026, à partir de la version 342 du canevas « Ficolia — Prototype ».</footer>
+
+</div>
+
+<script>
+(function () {
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.filters button'));
+  var rows = Array.prototype.slice.call(document.querySelectorAll('#plan-list .row'));
+  function apply(f) {
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-f') === f)); });
+    rows.forEach(function (r) { r.hidden = !(f === 'all' || r.getAttribute('data-p') === f); });
+    try { localStorage.setItem('audit-ficolia-filtre', f); } catch (e) {}
+  }
+  buttons.forEach(function (b) { b.addEventListener('click', function () { apply(b.getAttribute('data-f')); }); });
+  var saved = 'all';
+  try { saved = localStorage.getItem('audit-ficolia-filtre') || 'all'; } catch (e) {}
+  apply(saved);
+})();
+</script>
