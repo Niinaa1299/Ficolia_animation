@@ -25,6 +25,7 @@ Décisions de la porteuse du 17/10, sauf mention contraire.
 - **Le rappel général reste sur l'accueil** (`D-114` C8) : au premier écran, sous l'objectif.
 - **Aucune demande d'autorisation sur l'accueil** : pas de notification (`T-224`) ; la caméra n'est demandée qu'au premier scan (`T-232`, décision du 05/10).
 - **L'acceptation** : lien vers les conditions d'utilisation, bouton « Accepter », aucune case précochée ; une nouvelle acceptation à chaque nouvelle version des conditions (`T-557`).
+- **L'animation d'ouverture ne joue qu'au premier lancement** (porteuse, 18/10).
 
 Ce que la maquette de l'accueil (`maquettes/accueil.html`) en applique déjà :
 - une idée par écran ;
@@ -53,8 +54,7 @@ Ce que la maquette de l'accueil (`maquettes/accueil.html`) en applique déjà :
 - **Les limites essentielles**, au second écran : en attente de la juriste.
 - **L'aide au bon moment** : son scénario est à proposer (premier scan, recherche par nom…). Ces écrans sont hors du récit de la figue (`FICOLIA_DESIGN.md` §2) : l'aide s'y passe de figue. L'écran produit reste dépouillé, et rien n'y appelle à l'action (`D-66`).
 - **Retrouver l'accueil** une fois passé, par exemple depuis « À propos ».
-- **Les ouvertures suivantes** : l'animation d'ouverture joue-t-elle à chaque fois (`design/etats.md` §1) ? Le lancement immédiat plaide pour le premier lancement seulement, avec une version courte ensuite. Proposition, à trancher.
-- **L'arbre et la figue**, idée de la porteuse du 17/10 : en attente de ses réponses. Proposition : au premier lancement seulement, passable d'un toucher, et fondue avec la révélation du logo en une seule animation d'environ 5 secondes.
+- **L'arbre et la figue**, idée de la porteuse du 17/10 : maquette du 18/10 (`maquettes/ouverture-arbre.html`), pour comparer sa place (après la révélation, ou fondue avec elle), ses quatre descentes et ses trois décors. Au sol, la figue s'ouvre calmement (porteuse, 18/10). À trancher : la place, la descente, le décor ; garder ou non le décor quand le nom paraît ; « Passer », proposé pour l'animation.
 
 ## 5. Sources
 
