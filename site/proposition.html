@@ -68,6 +68,8 @@ code{font-size:.9em;background:var(--neutre);padding:1px 5px;border-radius:4px}
 .sommaire li{counter-increment:s;display:flex;gap:10px;align-items:baseline}
 .sommaire li::before{content:counter(s);font-family:var(--f-titre);font-size:20px;color:var(--texte-2);min-width:1.2em}
 .sommaire a{display:inline-block;padding-block:6px}
+.sommaire li.hors{counter-increment:none}
+.sommaire li.hors::before{content:"·"}
 
 /* ---------- Parties ---------- */
 .partie{padding-block:56px 8px;display:flex;flex-direction:column;gap:26px}
@@ -248,7 +250,7 @@ code{font-size:.9em;background:var(--neutre);padding:1px 5px;border-radius:4px}
 <header class="tete enveloppe">
   <p class="surtitre">Ficolia · site vitrine · proposition du 18 octobre</p>
   <h1>Le site vitrine de Ficolia</h1>
-  <p class="chapo">Ce dossier suit ta méthode : ce que j'ai, ce qui manque, l'arborescence, la page section par section avec ses textes, la direction artistique et le scénario d'animation, puis la technique et ce qu'il reste à fournir. Rien n'est implémenté : j'attends ta validation.</p>
+  <p class="chapo">Ce dossier suit ta méthode : ce que j'ai, ce qui manque, l'arborescence, la page section par section avec ses textes, la direction artistique et le scénario d'animation, puis la technique et ce qu'il reste à fournir. Tes réponses du 18 octobre sont en tête ; la <a href="https://claude.ai/artifact/F6vTnY69zkAkHPoZUNt1Gv">maquette animée</a> les applique. Rien n'est implémenté : j'attends ta validation.</p>
   <ul class="legende" aria-label="Les statuts des textes">
     <li><span class="tag">Acté</span>acté au registre</li>
     <li><span class="tag t-existant">Existant</span>texte du prototype, provisoire, repris mot pour mot</li>
@@ -259,6 +261,7 @@ code{font-size:.9em;background:var(--neutre);padding:1px 5px;border-radius:4px}
 
 <nav class="sommaire enveloppe" aria-label="Sommaire">
   <ol>
+    <li class="hors"><a href="#reponses">Tes réponses du 18 octobre</a></li>
     <li><a href="#etat">Ce que j'ai, ce qui manque</a></li>
     <li><a href="#arborescence">Arborescence</a></li>
     <li><a href="#sections">La page d'accueil, section par section</a></li>
@@ -271,6 +274,24 @@ code{font-size:.9em;background:var(--neutre);padding:1px 5px;border-radius:4px}
   </ol>
 </nav>
 
+<!-- ============================================================ réponses -->
+<section class="partie enveloppe" id="reponses" aria-labelledby="t-reponses">
+  <header>
+    <h2 id="t-reponses">Tes réponses du 18 octobre</h2>
+    <p class="intro">La <a href="https://claude.ai/artifact/F6vTnY69zkAkHPoZUNt1Gv">maquette animée du site</a> les applique. Ses textes, avec leur statut (réglage « Montrer le statut des textes »), remplacent ceux du §3 là où ils diffèrent ; le reste du dossier vaut toujours.</p>
+  </header>
+  <ol class="questions">
+    <li><span><strong>L'application sera en ligne avec le site.</strong> Le bouton principal devient « Télécharger l'application » ; il mène aux badges officiels des deux stores, dont les liens restent à fournir.</span></li>
+    <li><span><strong>Les captures viennent du prototype.</strong> Neuf écrans photographiés dans le canevas, sans les étiquettes « Textes provisoires » ; pour le produit inconnu, l'écran de la maquette validée du récit, aux textes identiques, car l'illustration du canevas est une image importée que je n'ai pas pu afficher. Ton lien mène à une page que l'index publié du canevas ne contient pas ; j'ai pris les écrans les plus récents.</span></li>
+    <li><span><strong>Les niveaux viennent du prototype.</strong> « Composition sans signal identifié », « Composition à signal modéré », « Composition préoccupante », « Composition incompatible ». Les définitions sont celles du lexique du 17/10, écrites pour la grossesse et provisoires ; celles de l'allaitement sont à rédiger.</span></li>
+    <li><span><strong>La ligne allaitement aura ses niveaux au lancement.</strong> Le site montre les deux lignes avec un résultat. Dans le prototype, le parcours principal garde encore l'écran d'attente (décision 13) : il faudra le mettre à jour.</span></li>
+    <li><span><strong>L'accroche reste telle quelle pour l'instant.</strong> Les points de vigilance restent notés au §1.</span></li>
+    <li><span><strong>Les tons de l'application, et les couleurs de la figue.</strong> La peau aubergine enveloppe, la chair blanche se lit, les nervures pistache relient, les graines grenade marquent. L'ivoire rosé ne sert qu'au texte sur l'aubergine. Le vert profond provisoire n'est plus employé.</span></li>
+    <li><span><strong>L'histoire de la fondation, sans présentation personnelle.</strong> La section H la raconte, sans portrait ; son texte est à fournir.</span></li>
+    <li><span><strong>Un site en motion design, comme sur TikTok.</strong> Le défilement pilote les scènes, sans jamais être détourné : le §5 est réécrit. Côté technique, aucune bibliothèque : le moteur de la maquette, de quelques kilo-octets, passera tel quel dans le site, qui reste statique.</span></li>
+  </ol>
+</section>
+
 <!-- ============================================================ 1 -->
 <section class="partie enveloppe" id="etat" aria-labelledby="t-etat">
   <header>
@@ -278,12 +299,12 @@ code{font-size:.9em;background:var(--neutre);padding:1px 5px;border-radius:4px}
     <p class="intro">J'ai relu le brief, les règles de texte, les couleurs, le symbole, l'animation d'ouverture, notre cap, et les notes de décision du prototype, étapes 0 à 6. Le site s'appuie sur eux. Il me manque surtout des captures : l'archive ne contient pas de dossier <code>design/captures/</code>.</p>
   </header>
 
-  <h3>Quatre manques bloquants</h3>
+  <h3>Quatre manques bloquants, levés le 18 octobre</h3>
   <ol class="bloquants">
-    <li><strong>Les captures de l'application</strong><span>Sans elles, pas de démonstration fidèle (section D), ni d'aperçu à l'ouverture (B).</span></li>
-    <li><strong>Le statut de l'application</strong><span>Publiée, en préparation avec une liste d'attente, ou ni l'un ni l'autre : il décide du bouton principal (A, B, J).</span></li>
-    <li><strong>Les quatre niveaux</strong><span>Leurs titres et leurs définitions validés, et la palette définitive (F).</span></li>
-    <li><strong>La ligne allaitement au lancement</strong><span>Dans le prototype, elle affiche un écran d'attente, sans niveau ni couleur, jusqu'à la clôture du module (E).</span></li>
+    <li><strong>Les captures de l'application</strong><span>Levé : photographiées dans le prototype.</span></li>
+    <li><strong>Le statut de l'application</strong><span>Levé : elle sera en ligne avec le site. Restent les liens des stores.</span></li>
+    <li><strong>Les quatre niveaux</strong><span>Levé : titres et définitions du prototype. Les définitions de l'allaitement restent à rédiger.</span></li>
+    <li><strong>La ligne allaitement au lancement</strong><span>Levé : elle aura ses niveaux.</span></li>
   </ol>
 
   <h3>Le détail</h3>
@@ -312,12 +333,12 @@ code{font-size:.9em;background:var(--neutre);padding:1px 5px;border-radius:4px}
 
   <h3>Points de vigilance</h3>
   <ul class="vigilance">
-    <li><strong>L'accroche.</strong>« Continuer à prendre soin de soi, sans vérifier ses flacons dix fois. » C'est ton texte, et je le garde. Si les règles de l'application valent pour le site (T-546, à arbitrer), trois points sont à regarder : « prendre soin de soi » suppose que la lectrice est concernée (D-114 C1) ; « dix fois » évoque l'inquiétude, que T-533 (g) écarte des messages d'acquisition ; la phrase peut se lire comme la promesse de ne plus avoir à vérifier (T-533 e). Je propose de la faire relire par la juriste avec les autres textes publics.</li>
+    <li><strong>L'accroche.</strong>« Continuer à prendre soin de soi, sans vérifier ses flacons dix fois. » C'est ton texte, et je le garde. Si les règles de l'application valent pour le site (T-546, à arbitrer), trois points sont à regarder : « prendre soin de soi » suppose que la lectrice est concernée (D-114 C1) ; « dix fois » évoque l'inquiétude, que T-533 (g) écarte des messages d'acquisition ; la phrase peut se lire comme la promesse de ne plus avoir à vérifier (T-533 e). Je propose de la faire relire par la juriste avec les autres textes publics. Le 18/10 : gardée telle quelle pour l'instant.</li>
     <li><strong>L'idée centrale.</strong>« Sans effacer les envies et les habitudes de soin de la femme » appelle la même remarque sur la neutralité. Je l'ai fait passer dans la structure du site plutôt que dans une phrase.</li>
-    <li><strong>Le fond.</strong>Tu demandes un ivoire ou un beige très clair ; le 17/10, tu as écarté l'ivoire rosé comme fond de l'accueil. Je propose le blanc de l'application pour lire, et le beige très clair de ses cadres (#FAF8F4) pour les fiches.</li>
+    <li><strong>Le fond.</strong>Tranché le 18/10 : les tons de l'application et les couleurs de la figue. L'aubergine enveloppe ; le blanc et le beige très clair (#FAF8F4) se lisent ; l'ivoire rosé reste une couleur de texte sur l'aubergine.</li>
     <li><strong>Près des résultats.</strong>« Ni figue, ni logo, ni couleur de marque près d'un verdict » (D-115) est une règle de l'application. Je l'applique au site : les sections qui montrent des niveaux restent neutres.</li>
     <li><strong>L'historique et ses alertes.</strong>Le prototype les prévoit, mais T-533 (e) exclut toute promesse de surveillance. Je ne les mets pas en avant ; à toi de trancher.</li>
-    <li><strong>La fondatrice.</strong>L'« À propos » de l'application ne présente pas d'équipe (décision 124). Le site peut le faire si tu le souhaites.</li>
+    <li><strong>La fondatrice.</strong>Tranché le 18/10 : pas de présentation personnelle, mais l'histoire de la fondation. L'« À propos » de l'application ne présente pas d'équipe non plus (décision 124).</li>
     <li><strong>Le mot « INCI ».</strong>Le prototype l'emploie, à tester auprès des utilisatrices (décision 74). Le site dit « liste des ingrédients ».</li>
   </ul>
 </section>
@@ -348,7 +369,7 @@ code{font-size:.9em;background:var(--neutre);padding:1px 5px;border-radius:4px}
 <section class="partie enveloppe" id="sections" aria-labelledby="t-sections">
   <header>
     <h2 id="t-sections">3. La page d'accueil, section par section</h2>
-    <p class="intro">Le rythme alterne les fonds de lecture et deux bandes enveloppantes, placées là où aucun niveau n'apparaît. La figue paraît trois fois, jamais près d'un résultat.</p>
+    <p class="intro">Le rythme alterne les fonds de lecture et deux bandes enveloppantes, placées là où aucun niveau n'apparaît. La figue paraît trois fois, jamais près d'un résultat. Depuis le 18/10, la maquette animée montre cette page en mouvement : là où elle diffère de ce qui suit (l'ouverture en aubergine, le store retiré), c'est elle qui fait foi.</p>
   </header>
 
   <ol class="rythme" aria-label="Le rythme de la page">
@@ -699,7 +720,7 @@ code{font-size:.9em;background:var(--neutre);padding:1px 5px;border-radius:4px}
     <li><div class="pastille" style="background:#9EBE59"></div><b>Pistache</b><code>#9EBE59</code><span>Accents sur aubergine : 5,8:1. Jamais de texte sur blanc : 2,1:1.</span></li>
     <li><div class="pastille" style="background:#9F3542"></div><b>Grenade</b><code>#9F3542</code><span>Le store, les graines ; de petites touches.</span></li>
     <li><div class="pastille" style="background:#FFF7F0"></div><b>Ivoire rosé</b><code>#FFF7F0</code><span>Texte sur aubergine, jamais en fond.</span></li>
-    <li><div class="pastille" style="background:#4A6630"></div><b>Vert profond <span class="tag t-valider">Provisoire</span></b><code>#4A6630</code><span>Le feuillage du figuier, dans l'histoire. Hors palette : à valider.</span></li>
+    <li><div class="pastille" style="background:#4A6630"></div><b>Vert profond <span class="tag t-valider">Écarté</span></b><code>#4A6630</code><span>Proposé pour le feuillage du figuier, écarté le 18/10 : les feuilles sont en pistache.</span></li>
     <li><div class="verdicts" role="img" aria-label="Les quatre couleurs de verdict, de la palette retenue"><i style="background:#CADCA4"></i><i style="background:#E7B93F"></i><i style="background:#E27A46"></i><i style="background:#B8192C"></i></div><b>Couleurs de verdict</b><code>palette Retenue</code><span>Uniquement dans « Lire un résultat » et sur les captures. Palette définitive à confirmer.</span></li>
   </ul>
 
@@ -765,7 +786,7 @@ code{font-size:.9em;background:var(--neutre);padding:1px 5px;border-radius:4px}
 
   <div class="test">
     <h3>Le test de validation</h3>
-    <p>Si l'on remplace le logo et les couleurs, il reste : deux lignes, grossesse et allaitement, au cœur de la page ; un pot qui montre le dos de son étiquette ; une section entière pour les messages sans résultat ; des limites dites en clair ; un étal et ses deux ardoises ; une figue qui salue. Ce site ne peut être que celui de Ficolia.</p>
+    <p>Si l'on remplace le logo et les couleurs, il reste : une figue qu'on ouvre pour regarder dedans ; le geste du scan, écran par écran ; deux lignes, grossesse et allaitement, au cœur de la page ; une section entière pour les messages sans résultat ; une méthode écrite comme le dos d'une étiquette ; un figuier qui pousse. Ce site ne peut être que celui de Ficolia.</p>
   </div>
 </section>
 
@@ -773,31 +794,29 @@ code{font-size:.9em;background:var(--neutre);padding:1px 5px;border-radius:4px}
 <section class="partie enveloppe" id="mouvement" aria-labelledby="t-mvt">
   <header>
     <h2 id="t-mvt">5. Motion design</h2>
-    <p class="intro">Un seul principe : le mouvement montre un geste de l'application. Retourner un flacon, ouvrir une ligne, relier une légende à un écran.</p>
+    <p class="intro">Réécrit le 18/10 : un site en motion design, comme sur TikTok, où le défilement pilote les scènes. Le principe reste : le mouvement montre un geste de l'application, ou suit le fil de la figue. À voir dans la <a href="https://claude.ai/artifact/F6vTnY69zkAkHPoZUNt1Gv">maquette animée</a> ; son réglage « Animations » montre aussi la version sans mouvement.</p>
   </header>
   <ul class="regles">
-    <li>Le texte ne bouge jamais pendant la lecture : il est là dès l'affichage.</li>
-    <li>Chaque animation joue une fois, quand elle arrive à l'écran, puis s'arrête. Aucune boucle.</li>
-    <li>Ni défilement imposé, ni parallaxe, ni rebond, ni particule.</li>
-    <li>Rien ne bouge près d'un niveau.</li>
-    <li>Des courbes et des durées proposées, à valider : sortie douce pour ce qui arrive, entrée et sortie douces pour ce qui se déplace ; de 120 à 400 ms pour l'interface, de 600 à 1 200 ms pour une scène.</li>
-    <li>Avec « réduire les animations », tout est immobile et complet ; les états de survol et de focus restent.</li>
-    <li>Sur téléphone : ni téléphone qui reste en place, ni dérive de fond.</li>
+    <li>Le défilement pilote les scènes : il n'est jamais détourné ni ralenti, et l'on peut remonter à tout moment.</li>
+    <li>Le texte est là dès l'affichage ; aucune animation ne retient un bouton.</li>
+    <li>Aucune boucle : quand on ne fait plus défiler, plus rien ne bouge. Deux moments jouent seuls, une fois : la figue qui se dessine au chargement (2,3 s) et son salut final (1,1 s).</li>
+    <li>Ni rebond, ni particule, ni parallaxe décorative.</li>
+    <li>Près d'un niveau, seulement le geste de l'application : un écran qui en pousse un autre, des niveaux qui se posent. Ni figue, ni couleur de marque.</li>
+    <li>Avec « réduire les animations », ou sur un écran trop bas, la page devient fixe et complète : chaque étape a sa capture, les niveaux sont en liste.</li>
   </ul>
   <div class="defile">
     <table class="mouv">
-      <thead><tr><th scope="col">Où</th><th scope="col">Ce qui bouge</th><th scope="col">Durée</th><th scope="col">Pourquoi</th><th scope="col">Sans mouvement</th></tr></thead>
+      <thead><tr><th scope="col">Où</th><th scope="col">Ce qui bouge, au défilement</th><th scope="col">Pourquoi</th><th scope="col">Sans mouvement</th></tr></thead>
       <tbody>
-        <tr><th scope="row">Ouverture</th><td>Le logo et l'accroche en fondu ; le store remonte ; le pot tourne et montre sa composition</td><td class="d">300 ms · 400 ms · 1,2 s</td><td>Le geste de Ficolia : lire le dos</td><td>Store relevé, dos visible</td></tr>
-        <tr><th scope="row">Fonctionnement</th><td>L'écran du téléphone change avec l'étape lue</td><td class="d">240 ms</td><td>Relier le texte à l'écran</td><td>Changement sans fondu</td></tr>
-        <tr><th scope="row">Démonstration</th><td>Les filets de la notice se tracent</td><td class="d">400 ms</td><td>Relier la légende au détail</td><td>Filets tracés</td></tr>
-        <tr><th scope="row">Grossesse et allaitement</th><td>Les ardoises se posent</td><td class="d">600 ms</td><td>Le rappel de l'accueil</td><td>Immobiles</td></tr>
-        <tr><th scope="row">Résultats, méthode</th><td>Rien</td><td class="d">—</td><td>Rien ne bouge près d'un niveau</td><td>—</td></tr>
-        <tr><th scope="row">Histoire</th><td>Dérive lente du fond, si des aquarelles existent</td><td class="d">60 s</td><td>Une respiration, sur ordinateur</td><td>Fond immobile</td></tr>
-        <tr><th scope="row">Questions</th><td>La réponse s'ouvre</td><td class="d">160 ms</td><td>Suivre l'ouverture</td><td>Ouverture directe</td></tr>
-        <tr><th scope="row">Appel final</th><td>La figue salue</td><td class="d">600 ms</td><td>Le fil conducteur</td><td>Immobile</td></tr>
-        <tr><th scope="row">Boutons et liens</th><td>Fond plus foncé, soulignement plus épais ; à l'appui, 97 %</td><td class="d">120 à 160 ms</td><td>Répondre au geste</td><td>Couleurs seulement</td></tr>
-        <tr><th scope="row">Menu mobile</th><td>Il glisse depuis le haut</td><td class="d">220 ms</td><td>Montrer d'où il vient</td><td>Il s'affiche</td></tr>
+        <tr><th scope="row">Ouverture</th><td>Au chargement, la figue se dessine en ivoire ; le texte est déjà là. Au défilement, le texte s'efface, la figue monte et s'ouvre : chair blanche, nervures pistache, graines grenade. Puis la vue plonge dans sa chair, jusqu'au blanc.</td><td>Ouvrir la figue, c'est regarder dedans : ce que Ficolia fait d'une composition</td><td>La figue ouverte, fixe, à côté du texte</td></tr>
+        <tr><th scope="row">Du rayon à la composition</th><td>Le téléphone reste en place ; quatre traits, en haut, montrent l'avancée. Le code-barres entre dans le cadre de visée et il est lu ; les écrans se poussent comme dans l'application ; les deux lignes se dessinent ; la lecture descend la liste des ingrédients.</td><td>Montrer le vrai parcours, au rythme de la lecture</td><td>Quatre étapes, chacune avec sa capture</td></tr>
+        <tr><th scope="row">Deux lignes</th><td>« Grossesse » et « Allaitement » arrivent des deux côtés, comme « Fic » et « lia » dans la révélation, puis montent ; viennent le texte, puis les deux lignes d'un même produit.</td><td>Deux lignes, qui ne se déduisent pas l'une de l'autre</td><td>Les deux mots, le texte, les deux captures</td></tr>
+        <tr><th scope="row">Lire un résultat</th><td>Les quatre niveaux se posent l'un sur l'autre, du premier au quatrième.</td><td>L'échelle, dans l'ordre ; rien d'autre ne bouge</td><td>Les quatre niveaux en liste</td></tr>
+        <tr><th scope="row">Méthode</th><td>Le code-barres de l'étiquette est lu une fois.</td><td>Le dos de l'étiquette</td><td>Immobile</td></tr>
+        <tr><th scope="row">Histoire</th><td>Le figuier pousse : la branche se trace, les feuilles se déplient, une figue pend, sans mûrir.</td><td>Le fil de la figue</td><td>Le figuier entier</td></tr>
+        <tr><th scope="row">Questions</th><td>La réponse s'ouvre.</td><td>Suivre l'ouverture</td><td>Ouverture directe</td></tr>
+        <tr><th scope="row">Appel final</th><td>Deux lignes de mots défilent avec la lecture ; la figue ouverte salue une fois.</td><td>La fin du fil</td><td>Immobiles</td></tr>
+        <tr><th scope="row">Boutons, liens, menu</th><td>Fond plus foncé, soulignement plus épais, appui à 97 % ; le menu du téléphone descend.</td><td>Répondre au geste</td><td>Couleurs seulement</td></tr>
       </tbody>
     </table>
   </div>
@@ -855,12 +874,9 @@ code{font-size:.9em;background:var(--neutre);padding:1px 5px;border-radius:4px}
     <div>
       <h3>Toi</h3>
       <ul class="cases">
-        <li>Le statut de l'application à la mise en ligne ; les liens des stores si elle est publiée ; une liste d'attente, prévue ou non.</li>
-        <li>Les captures du prototype : scanner, écran produit, ligne grossesse, composition et panneau, attente allaitement, recherche, produit inconnu.</li>
-        <li>Les titres et les définitions validés des quatre niveaux, et la palette définitive.</li>
-        <li>L'état de la ligne allaitement au lancement.</li>
-        <li>L'accroche : la garder telle quelle, ou la retravailler.</li>
-        <li>L'histoire : l'origine, l'intention, la fondatrice.</li>
+        <li>Les liens des deux stores.</li>
+        <li>Les définitions des quatre niveaux pour la ligne allaitement, et la palette de verdict définitive.</li>
+        <li>L'histoire de la fondation, en quelques lignes, sans présentation personnelle.</li>
         <li>L'adresse de contact, les réseaux sociaux existants, le nom de domaine.</li>
         <li>Les matières aquarellées, si elles existent.</li>
       </ul>
@@ -888,7 +904,7 @@ code{font-size:.9em;background:var(--neutre);padding:1px 5px;border-radius:4px}
 <section class="partie enveloppe" id="tests" aria-labelledby="t-tests">
   <header>
     <h2 id="t-tests">8. Tests</h2>
-    <p class="intro">Rien n'est construit : les tests du site viendront après ta validation. Pour ce dossier, j'ai vérifié trois choses.</p>
+    <p class="intro">Le site n'est pas construit : ses tests viendront après ta validation. Pour ce dossier et la maquette, j'ai vérifié quatre choses.</p>
   </header>
   <div class="deux">
     <div>
@@ -897,6 +913,7 @@ code{font-size:.9em;background:var(--neutre);padding:1px 5px;border-radius:4px}
         <li>Contrastes calculés (WCAG 2.1) : texte profond 15,6:1 sur blanc et 14,7:1 sur beige ; texte secondaire 6,3:1 et 5,9:1 ; aubergine 12,3:1 sur blanc ; ivoire 11,6:1 sur aubergine ; pistache 5,8:1 sur aubergine ; grenade 6,9:1 sur blanc ; texte noir sur les niveaux 1 à 3 : 14,3, 11,4 et 7,1:1 ; blanc sur le niveau 4 : 6,5:1.</li>
         <li>Les textes proposés, relus contre la liste des mots et formules à ne pas écrire (textes.md §2) : aucun des 21 n'y figure, ni les quatre expressions que tu écartes (« zéro risque », « totalement sûr », « approuvé médicalement », « scientifiquement validé »), ni « application de santé » (T-533 h). « Vérifier », dans ton accroche, n'est pas « vérifié ».</li>
         <li>Chaque texte porte son statut : acté, existant, proposition, ou à fournir.</li>
+        <li>La maquette animée : rendue sans erreur ni débordement à 360 × 640, 390 × 844 et 1280 × 800, avec et sans animations ; menu au clavier, Échap compris ; tout son texte relu contre les mots à ne pas écrire.</li>
       </ul>
     </div>
     <div>
@@ -919,17 +936,15 @@ code{font-size:.9em;background:var(--neutre);padding:1px 5px;border-radius:4px}
 <section class="partie enveloppe" id="questions" aria-labelledby="t-q">
   <header>
     <h2 id="t-q">9. Mes questions</h2>
-    <p class="intro">Tes réponses débloquent l'implémentation.</p>
+    <p class="intro">Les huit premières ont leur réponse, en tête du dossier. Voici les suivantes.</p>
   </header>
   <ol class="questions">
-    <li>L'application sera-t-elle publiée quand le site sera en ligne ? Sinon, une liste d'attente est-elle prévue ?</li>
-    <li>Peux-tu me fournir les captures du prototype ?</li>
-    <li>As-tu les titres et les définitions validés des quatre niveaux ?</li>
-    <li>La ligne allaitement aura-t-elle ses niveaux au lancement ?</li>
-    <li>Gardes-tu l'accroche telle quelle, après les points de vigilance ?</li>
-    <li>Le blanc et le beige très clair te conviennent-ils, plutôt que l'ivoire rosé ?</li>
-    <li>Le site présente-t-il la fondatrice ?</li>
-    <li>Astro, ou des pages écrites à la main ?</li>
+    <li>La plongée dans la figue, à l'ouverture, te plaît-elle ? Les graines y passent en grand ; le brief note qu'une figue qui porte ses graines peut se lire comme une grossesse.</li>
+    <li>Le figuier de l'histoire, ses feuilles et sa figue, te conviennent-ils ?</li>
+    <li>Qui écrit les définitions des niveaux pour la ligne allaitement ?</li>
+    <li>Peux-tu m'envoyer quelques lignes sur l'histoire de la fondation ?</li>
+    <li>Peux-tu m'envoyer les liens des stores et le nom de domaine, quand tu les auras ?</li>
+    <li>On passe à l'implémentation sur la base de la maquette ?</li>
   </ol>
   <p class="pied">Les références entre parenthèses renvoient au registre (D-, T-, L-) et aux décisions numérotées du prototype. Elles servent à la traçabilité et ne paraîtront pas sur le site.</p>
 </section>
