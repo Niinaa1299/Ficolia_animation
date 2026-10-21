@@ -24,6 +24,8 @@
   Ses retours du 21/10 : le blanc est écarté (jouable par l'adresse, ?bas=blanc) ; vert pâle et vert profond restent tels quels ;
   deux versions bis portent ses corrections : une transition imbriquée entre la révélation et l'arbre (à n'importe quelle
   pause, tout paraît fluide), et la chair de la figue qui monte jusqu'à la queue au lieu de s'arrêter net.
+  Puis, le même jour : vert pâle bis est retenu ; la transition ne lui plaît pas encore : trois propositions, « smooth,
+  continu, fluide » (la brume, le soleil, un seul mouvement), à comparer avec celle du bis.
 */
 :root{
   /* Palette de marque, actée (D-115, T-548) */
@@ -185,25 +187,28 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
       <h2>L’ouverture : l’arbre et la figue</h2>
-      <p class="lead">Ton idée du 17/10 et tes choix du 20/10 : après la révélation, la vue descend du ciel jusqu’au figuier ; la figue saute de sa branche, se pose sur le pré et s’ouvre. Le paysage du Sud occupe tout l’écran ; le texte est posé sur l’herbe. Au premier lancement seulement (porteuse, 18/10).</p>
+      <p class="lead">Ton idée du 17/10 et tes choix du 20/10 : après la révélation, la vue descend du ciel jusqu’au figuier ; la figue saute de sa branche, se pose sur le pré et s’ouvre. Le paysage du Sud occupe tout l’écran ; le texte est posé sur l’herbe. Au premier lancement seulement (porteuse, 18/10). Le 21/10 : vert pâle bis est retenu ; reste à choisir la transition entre la révélation et l’arbre.</p>
     </div>
 
     <div class="group">
-      <span class="label" id="lblBas">Le bas de l’écran (21/10 : vert pâle ou vert profond ; bis, avec tes corrections)</span>
-      <div class="seg" role="group" aria-labelledby="lblBas" data-key="bas">
-        <button type="button" data-val="pale">Vert pâle</button>
-        <button type="button" data-val="profond">Vert profond</button>
-        <button type="button" data-val="pale-bis">Vert pâle bis</button>
-        <button type="button" data-val="profond-bis">Vert profond bis</button>
+      <span class="label" id="lblTransition">La transition, de la révélation à l’arbre (21/10 : trois propositions)</span>
+      <div class="seg" role="group" aria-labelledby="lblTransition" data-key="transition">
+        <button type="button" data-val="brume">La brume</button>
+        <button type="button" data-val="soleil">Le soleil</button>
+        <button type="button" data-val="mouvement">Un seul mouvement</button>
+        <button type="button" data-val="bis">Celle du bis</button>
       </div>
-      <p class="small">L’herbe se fond, jusqu’au bord de l’écran, vers cette couleur. Vert pâle garde le texte à l’encre ; vert profond le passe en ivoire, comme le bouton. Le blanc est écarté (21/10).</p>
-      <p class="small">Les versions bis portent tes deux corrections du 21/10. La transition est imbriquée : aucune étape n’attend la fin de la précédente. Pendant que la figue du logo respire encore, le blanc devient ciel depuis le haut ; le logo monte, l’accroche le suit et s’efface ; la vue, déjà en route, descend du ciel ; le bas de l’écran monte depuis le bord avec le texte et « Continuer ». Et la chair de la figue monte jusqu’à la queue, au lieu de s’arrêter net à sa hauteur. Le texte et « Continuer » arrivent dès 4,65 s ; l’animation qui les accompagne dure 4,9 s, sous les 5 s (WCAG 2.2.2).</p>
+      <p class="small">La brume, ma préférence : le paysage sort du blanc plan par plan, comme d’une brume du matin : le ciel et le soleil, les collines lointaines, les collines proches, puis l’arbre et la figue. Le soleil : le blanc de la révélation est la lumière du soleil ; il se retire dans le soleil, et le paysage paraît autour. Un seul mouvement : la vue descend du ciel d’un seul geste, plus lent que dans le bis ; le logo monte avec le ciel, le bas de l’écran avec le sol.</p>
+      <p class="small">Pour les trois : rien n’entre d’un coup ni ne glisse en sens contraire ; chaque geste suit une seule courbe, longue et douce. Le plan est plus large que dans le bis : tout le figuier, le feuillage sous le logo. La vue va trois à cinq fois moins vite ; elle suit la figue d’un peu plus loin pendant son saut, et se pose en 1 s au lieu de 0,65. Le feuillage ne repasse derrière le logo qu’un instant, quand la vue redescend vers le pré.</p>
+      <p class="small">Avec la brume et le soleil, le bas de l’écran prend la couleur du pré sur place, et le texte et « Continuer » paraissent sur place, à 5 s ; avec un seul mouvement, ils montent avec le sol, de 5,1 à 5,6 s. L’animation qui les accompagne dure ensuite 4,8 s au plus, sous les 5 s (WCAG 2.2.2).</p>
+      <p class="small">Le bas de l’écran : vert pâle bis (porteuse, 21/10), avec la chair de la figue jusqu’à la queue. Vert pâle, vert profond et vert profond bis restent jouables par l’adresse (?bas=pale, profond, profond-bis), pour mémoire.</p>
     </div>
 
     <div class="group">
       <span class="label" id="lblLecture">Lecture</span>
       <div class="row">
         <button type="button" class="btn primary" id="replay">Rejouer</button>
+        <button type="button" class="btn" id="revoir">Revoir la transition</button>
         <button type="button" class="btn" id="playPause">Pause</button>
       </div>
       <div class="scrub">
@@ -245,7 +250,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 
     <p class="small">Au premier lancement seulement (porteuse, 18/10). Aux lancements suivants, un écran de chargement plus court (porteuse, 21/10) : sa forme et sa durée restent à proposer.</p>
     <p class="small">La figue s’ouvre au sol, calmement, comme dans la révélation (porteuse, 18/10) : la chair blanche, les nervures depuis le centre, puis les graines, une à une. Sur l’arbre, elle reste entière et ne grossit pas.</p>
-    <p class="small">Le paysage occupe tout l’écran (porteuse, 20/10) : le ciel en haut, entier, derrière le logo ; l’herbe en bas, fondue jusqu’au bord de l’écran ; le titre, le texte et « Continuer » posés sur l’herbe. La scène dure moins de 5 s, puis l’image reste fixe ; « Continuer » est là une demi-seconde après la révélation.</p>
+    <p class="small">Le paysage occupe tout l’écran (porteuse, 20/10) : le ciel en haut, entier, derrière le logo ; l’herbe en bas, fondue jusqu’au bord de l’écran ; le titre, le texte et « Continuer » posés sur l’herbe. La scène dure moins de 5 s, puis l’image reste fixe ; « Continuer » est là dès la fin de la révélation, ou une demi-seconde après.</p>
     <p class="small">Ni « Passer » ni toucher pour passer (porteuse, 20/10 et 21/10) : l’accueil n’a que deux écrans, et ce jeu d’écrans ne se joue qu’une fois, au premier lancement ; ensuite, l’écran de chargement est plus court. Écart à tracer, limité au premier lancement : les 5 s de la révélation s’y regardent en entier, alors que notre cap veut un lancement immédiat (cap-onboarding.md §1).</p>
     <p class="small">L’arbre prend le 1/2 de l’accueil : l’étal et ses deux ardoises passeraient au 2/2, celui des conditions. Avec « réduire les animations » : des fondus enchaînés, sans aucun déplacement.</p>
     <p class="small">Couleurs : la palette de la marque. Le logo et la révélation y sont ramenés (l’ouverture validée emploie des teintes voisines, écart à trancher). Vert pâle : celui du pré (#EEF4E1). Vert profond : #4A6630, proposé ; aucun vert ne s’approche de celui du premier verdict. Aucune couleur de verdict.</p>
@@ -1089,17 +1094,43 @@ function apres() {
 // rejoint l'herbe ; la figue se balance avant que la vue ne s'arrête ; elle s'ouvre avant que la vue ne se pose.
 const COULE = cubicBezier(0.42, 0, 0.3, 1);      // la descente de la vue et la montée du logo, sur le même souffle
 const MONTE = cubicBezier(0.3, 0.1, 0.2, 1);     // le bas de l'écran
+// Les instants de la figue, à partir du début de sa descente : au repos, la vue se pose, elle s'ouvre, elle salue, fin.
+function tempsFigue(desc, pose = [250, 650]) {
+  const T = { desc };
+  T.repos = T.desc + FINS[state.descente];
+  T.pose0 = T.repos - pose[0]; T.pose1 = T.pose0 + pose[1];
+  T.ouvre = T.pose1 - 150;
+  T.salut = T.ouvre + 1000;
+  T.fin = T.salut + 500;
+  return T;
+}
+const BEATS_REVELATION = [[0, 'La révélation du logo, telle qu’elle est validée : une graine…'], [900, '… le contour de la figue…'], [1680, '… elle s’ouvre…'], [2400, '… et devient le « o ».'], [3500, 'L’accroche monte sous le logo.'], [4450, 'La figue respire une fois.']];
+// La figue, de sa branche jusqu'au salut, et la vue qui la suit puis se pose ; cam : la vue, avant qu'elle ne la suive ;
+// courbe et suite : la courbe de la vue quand elle se met à la suivre, puis quand elle se pose, et la durée de la première.
+function figueEtVue(t, S0, T, P, C, cam, courbe = EASE_IN_OUT, suite = 500) {
+  const u = t - S0, w = t - T.desc;
+  brise(u);
+  poserFigue(descente(state.descente, w, P, u), P);
+  secousseCagette(state.descente === 'd' ? choc(w, IMPACTS.d, 100, 220) : 0);
+  ouvrirFigue(t - T.ouvre);
+  const vive = t >= T.salut;
+  figueG.setAttribute('opacity', vive ? 0 : 1);
+  figLive.setAttribute('opacity', vive ? 1 : 0);
+  if (vive) {
+    const p = prog(t, T.salut, 500), wave = p > 0 && p < 1 ? Math.sin(4 * Math.PI * p) * Math.sin(Math.PI * p) : 0;
+    drawFig({ ...REST, arm: 0.35 * wave });
+  }
+  const lache = T.desc + LACHERS[state.descente] - 60;
+  if (t > lache) cam = mixCam(cam, C.suivi(suivie(state.descente, w, P, u)), courbe(prog(t, lache, suite)));
+  cam = mixCam(cam, C.fin, courbe(prog(t, T.pose0, T.pose1 - T.pose0)));
+  poserCamera(cam);
+}
 function apresBis() {
   const P = parametres();
   const C = cadrages(P);
   REF = C.ref;
   const S0 = 4250;   // la scène commence sous le blanc, pendant la fin de la révélation
-  const T = { voile: 4250, logo: 4550, socle: 4650, copie: 5050, desc: 5750 };
-  T.repos = T.desc + FINS[state.descente];
-  T.pose0 = T.repos - 250; T.pose1 = T.pose0 + 650;
-  T.ouvre = T.pose1 - 150;
-  T.salut = T.ouvre + 1000;
-  T.fin = T.salut + 500;
+  const T = Object.assign(tempsFigue(5750), { voile: 4250, logo: 4550, socle: 4650, copie: 5050 });
   // Le voile : blanc en bas, transparent en haut ; son bord, adouci sur H, descend du haut de l'écran jusque sous le bas.
   const H = 380;
   const gV = svgEl('linearGradient', { id: 'gVoile', x1: 0, y1: -H, x2: 0, y2: 0, gradientUnits: 'userSpaceOnUse' }, defs);
@@ -1107,7 +1138,7 @@ function apresBis() {
   svgEl('stop', { offset: 1, 'stop-color': '#FFFFFF', 'stop-opacity': 1 }, gV);
   voile.setAttribute('fill', 'url(#gVoile)');
   const gS = defs.querySelector('#gSocle');
-  const beats = [[0, 'La révélation du logo, telle qu’elle est validée : une graine…'], [900, '… le contour de la figue…'], [1680, '… elle s’ouvre…'], [2400, '… et devient le « o ».'], [3500, 'L’accroche monte sous le logo.'], [4450, 'La figue respire une fois.'],
+  const beats = [...BEATS_REVELATION,
     [T.voile, 'Déjà, le blanc devient ciel, depuis le haut ; la vue, sous le voile, commence à descendre.'],
     [T.logo, 'Pendant le souffle, le logo monte ; l’accroche le suit et s’efface.'],
     [T.socle, 'Le bas de l’écran monte depuis le bord, avec le texte et « Continuer ».'],
@@ -1142,26 +1173,97 @@ function apresBis() {
       copy.style.transform = 'none';
       copy.style.opacity = EASE_OUT(prog(t, T.copie, 450)).toFixed(3);
       actions.style.opacity = 1;
-      const u = t - S0;
-      brise(u);
-      const w = t - T.desc;
-      poserFigue(descente(state.descente, w, P, u), P);
-      secousseCagette(state.descente === 'd' ? choc(w, IMPACTS.d, 100, 220) : 0);
-      ouvrirFigue(t - T.ouvre);
-      const vive = t >= T.salut;
-      figueG.setAttribute('opacity', vive ? 0 : 1);
-      figLive.setAttribute('opacity', vive ? 1 : 0);
-      if (vive) {
-        const p = prog(t, T.salut, 500), wave = p > 0 && p < 1 ? Math.sin(4 * Math.PI * p) * Math.sin(Math.PI * p) : 0;
-        drawFig({ ...REST, arm: 0.35 * wave });
-      }
       // La vue : une seule descente, du ciel jusqu'à la figue pendue, qui ne s'arrête pas avant que la figue ne se balance.
-      let cam = mixCam(C.ciel, C.approche, COULE(prog(t, S0, 2050)));
-      const lache = T.desc + LACHERS[state.descente] - 60;
-      if (t > lache) cam = mixCam(cam, C.suivi(suivie(state.descente, w, P, u)), EASE_IN_OUT(prog(t, lache, 500)));
-      cam = mixCam(cam, C.fin, EASE_IN_OUT(prog(t, T.pose0, T.pose1 - T.pose0)));
-      poserCamera(cam);
+      figueEtVue(t, S0, T, P, C, mixCam(C.ciel, C.approche, COULE(prog(t, S0, 2050))));
       voile.setAttribute('opacity', 1);
+    }
+  };
+}
+// Vert pâle bis, trois propositions pour la transition (porteuse, 21/10 : « Quelque chose de smooth, continu fluide »).
+// Pour les trois : rien n'entre d'un coup ni ne glisse en sens contraire ; chaque geste suit une seule courbe, longue et
+// douce. La vue part de plus près que dans la transition du bis : le feuillage ne défile plus vite.
+//   soleil : le blanc de la révélation est la lumière du soleil ; il se retire dans le soleil, le paysage paraît autour.
+//   brume : le paysage sort du blanc plan par plan, comme d'une brume du matin : le ciel, les collines, puis l'arbre.
+//   mouvement : un seul mouvement de la vue, du ciel à la figue ; le logo monte avec le ciel, le bas de l'écran avec le sol.
+const DOUX = cubicBezier(0.37, 0, 0.63, 1);   // sinusoïdale : un départ et une arrivée sans à-coup
+const LONG = cubicBezier(0.45, 0, 0.3, 1);
+function apresFluide(type) {
+  const P = parametres();
+  const C = cadrages(P);
+  REF = C.ref;
+  const S0 = 4200;
+  // La vue se pose plus longuement que dans le bis (1 s au lieu de 0,65), sur la même courbe douce.
+  const T = tempsFigue({ soleil: 5750, brume: 5800, mouvement: 5950 }[type], [450, 1000]);
+  // Un plan plus large que dans le bis : tout le figuier, le feuillage sous le logo ; la figue à la même place sur l'écran.
+  const zA = 1.2, mh = milieuDe(P, pendue(P, 0));
+  const approche = { x: mh.x - 35 / zA, y: mh.y - 3 / zA, z: zA };
+  // Dans son saut, la vue la suit d'un peu plus loin, et plus bas sur l'écran : le feuillage ne passe plus derrière le logo.
+  const zS = 1.35;
+  const CF = { ...C, suivi: m => ({ x: m.x - 35 / zS, y: m.y + 22 / zS, z: zS }) };
+  // La vue part d'un peu plus haut ; avec le soleil et la brume, elle s'approche aussi, à peine.
+  const depart = type === 'mouvement' ? { ...approche, y: approche.y - 420 } : { ...approche, y: approche.y - 220, z: 1.08 };
+  const SOLEIL = { x: 302, y: VUE.h * 0.21 };   // le soleil du paysage du Sud, fixe sur l'écran
+  let gL = null;
+  if (type === 'soleil') {
+    // La lumière : blanche au cœur, adoucie sur sa seconde moitié.
+    gL = svgEl('radialGradient', { id: 'gSoleil', cx: SOLEIL.x, cy: SOLEIL.y, r: 1500, gradientUnits: 'userSpaceOnUse' }, defs);
+    for (const [o, a] of [[0, 1], [0.5, 1], [1, 0]]) svgEl('stop', { offset: o, 'stop-color': '#FFFFFF', 'stop-opacity': a }, gL);
+    voile.setAttribute('fill', 'url(#gSoleil)');
+  }
+  const gS = defs.querySelector('#gSocle');
+  const propres = {
+    soleil: [[4200, 'Pendant que la figue du logo respire encore, le bas de l’écran prend la couleur du pré ; la vue, sous le blanc, descend doucement.'],
+      [4500, 'Le blanc se retire dans le soleil, et le paysage paraît autour ; le logo monte, l’accroche le suit et s’efface.'],
+      [4900, 'Le texte et « Continuer » paraissent, sur place.']],
+    brume: [[4200, 'Pendant que la figue du logo respire encore, le bas de l’écran prend la couleur du pré ; le ciel paraît dans le blanc ; la vue descend doucement.'],
+      [4500, 'Les collines lointaines paraissent ; le logo monte, l’accroche le suit et s’efface.'],
+      [4700, 'Les collines proches…'],
+      [4900, '… puis l’arbre et la figue, comme une brume qui se lève ; le texte et « Continuer » paraissent, sur place.']],
+    mouvement: [[4300, 'Un seul mouvement, plus lent : la vue descend du ciel ; le logo monte avec le ciel, le bas de l’écran avec le sol ; le blanc se dissipe.'],
+      [5100, 'Le texte et « Continuer » montent avec le sol.']]
+  }[type];
+  const beats = [...BEATS_REVELATION, ...propres,
+    ...TEXTES_DESCENTE[state.descente].map(([ms, txt]) => [T.desc + ms, txt]),
+    [T.pose0, 'La vue se pose : le paysage sur tout l’écran, le texte sur l’herbe.'],
+    [T.ouvre, 'Elle s’ouvre, calmement, avant que la vue ne s’arrête.'],
+    [T.salut, 'Elle salue d’un mouvement de queue.'],
+    [T.fin, 'Fin : l’image reste fixe.']].sort((a, b) => a[0] - b[0]);
+  return {
+    duration: T.fin, beats,
+    render(t) {
+      // Un seul mouvement : la vue, le logo et le sol suivent la même courbe.
+      const p = LONG(prog(t, 4300, 2400));
+      const kLogo = type === 'mouvement' ? p : DOUX(prog(t, 4450, 1750));
+      drawLogo(kLogo);
+      etatLogo(revelation(Math.min(t, 5000)));
+      monte(l1, seg(t, 3500, 4050, 0, 1, RV.a), 7.94);
+      monte(l2, seg(t, 3800, 4350, 0, 1, RV.a), 7.94);
+      accroche.style.transform = `translateY(${(-0.5 * (LOGO_DEPART.y - LOGO_HAUT.y) * kLogo).toFixed(2)}px)`;
+      if (t < S0) { ecran({ scene: 0, accueil: false, accroche: 1, logo: true }); return; }
+      ecran({ scene: 1, accueil: true, accroche: 1 - smooth(0, 0.4, kLogo), logo: true });
+      if (type === 'soleil') {
+        gL.setAttribute('r', (1500 * Math.pow(50 / 1500, DOUX(prog(t, S0, 2000)))).toFixed(1));
+        voile.setAttribute('opacity', (1 - prog(t, 6000, 300)).toFixed(3));
+      } else if (type === 'brume') {
+        voile.setAttribute('opacity', 0);
+        [[ciel, 4200], [loin, 4450], [milieu, 4700], [monde, 4900]].forEach(([g, a]) => g.setAttribute('opacity', DOUX(prog(t, a, 950)).toFixed(3)));
+      } else {
+        voile.setAttribute('opacity', (1 - smooth(0.04, 0.5, p)).toFixed(3));
+      }
+      // Le bas de l'écran : il prend la couleur du pré, sur place ; ou, en un seul mouvement, il monte avec le sol.
+      SOCLE_DY = type === 'mouvement' ? 420 * (1 - p) * (1 - p) : 0;
+      socleG.setAttribute('transform', `translate(0 ${SOCLE_DY.toFixed(2)})`);
+      socleG.setAttribute('opacity', type === 'mouvement' ? 1 : DOUX(prog(t, S0, 700)).toFixed(3));
+      gS.setAttribute('y2', (SOL_ECRAN + 62 - 26 * (1 - EASE_IN_OUT(prog(t, T.pose0, T.pose1 - T.pose0)))).toFixed(1));
+      accueil.style.transform = `translateY(${SOCLE_DY.toFixed(2)}px)`;
+      if (type === 'mouvement') {
+        monte(copy, smooth(0.3, 0.6, p), 0);
+        actions.style.opacity = 1;
+      } else {
+        monte(copy, DOUX(prog(t, 4900, 550)), 8);
+        actions.style.opacity = DOUX(prog(t, 4950, 500)).toFixed(3);
+      }
+      figueEtVue(t, S0, T, P, CF, mixCam(depart, approche, type === 'mouvement' ? p : DOUX(prog(t, S0, 2100))), DOUX, 700);
     }
   };
 }
@@ -1215,7 +1317,8 @@ const state = {
   place: choix('place', ['b', 'c'], 'b'),                   // choix du 20/10 : après la révélation
   descente: choix('descente', ['a', 'b', 'c', 'd'], 'a'),   // elle saute
   decor: choix('decor', ['a', 'b', 'c'], 'a'),               // paysage du Sud
-  bas: choix('bas', ['pale', 'profond', 'pale-bis', 'profond-bis', 'blanc'], 'pale-bis'),   // le bas de l'écran (21/10 : le blanc est écarté)
+  bas: choix('bas', ['pale', 'profond', 'pale-bis', 'profond-bis', 'blanc'], 'pale-bis'),   // le bas de l'écran (21/10 : vert pâle bis)
+  transition: choix('transition', ['brume', 'soleil', 'mouvement', 'bis'], 'brume'),      // versions bis : trois propositions (21/10)
   speed: 1,
   motion: params.get('mouvement') === 'reduit' ? 'reduit' : params.get('mouvement') === 'normal' ? 'normal' : 'systeme',
   notes: params.get('notes') === 'off' ? 'off' : 'on',
@@ -1237,6 +1340,7 @@ function deroule() {
   const bis = versionBis();
   SOCLE_DY = 0;
   socleG.removeAttribute('transform');
+  for (const g of [ciel, loin, milieu, monde, socleG]) g.removeAttribute('opacity');
   for (const el of [accueil, accroche, actions]) el.style.transform = '';
   voile.setAttribute('fill', '#FFFFFF');
   scene.insertBefore(voile, bis && !rm ? socleG : null);   // bis : le bas de l'écran monte par-dessus le blanc
@@ -1245,7 +1349,9 @@ function deroule() {
   construireMonde();
   construireFigue(state.place === 'c' ? 'o' : 'symbole');
   if (state.place === 'c') return rm ? fondueReduite() : fondue();
-  return rm ? apresReduite() : bis ? apresBis() : apres();
+  if (rm) return apresReduite();
+  if (!bis) return apres();
+  return state.transition === 'bis' ? apresBis() : apresFluide(state.transition);
 }
 
 const scrub = ROOT.getElementById('scrub');
@@ -1329,10 +1435,15 @@ for (const seg of ROOT.querySelectorAll('.seg')) {
     // Le bas de l'écran : on change la couleur sans reprendre la lecture.
     if (key === 'bas') { resetAll(); return; }
     resetAll();
+    // Une autre transition : on la voit tout de suite, depuis la fin de la révélation.
+    if (key === 'transition') { revoir(); return; }
     play(true);
   });
 }
+const DEPUIS = 3800;
+function revoir() { state.t = DEPUIS; play(false); }
 ROOT.getElementById('replay').addEventListener('click', () => play(true));
+ROOT.getElementById('revoir').addEventListener('click', revoir);
 playPause.addEventListener('click', () => {
   if (state.playing) pause();
   else play(state.t >= timeline().duration);
