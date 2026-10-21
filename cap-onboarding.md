@@ -54,7 +54,7 @@ Ce que la maquette de l'accueil (`maquettes/accueil.html`) en applique déjà :
 - **Les limites essentielles**, au second écran : en attente de la juriste.
 - **L'aide au bon moment** : son scénario est à proposer (premier scan, recherche par nom…). Ces écrans sont hors du récit de la figue (`FICOLIA_DESIGN.md` §2) : l'aide s'y passe de figue. L'écran produit reste dépouillé, et rien n'y appelle à l'action (`D-66`).
 - **Retrouver l'accueil** une fois passé, par exemple depuis « À propos ».
-- **L'arbre et la figue**, idée de la porteuse du 17/10 : maquette du 18/10 (`maquettes/ouverture-arbre.html`), pour comparer sa place (après la révélation, ou fondue avec elle), ses quatre descentes et ses trois décors. Au sol, la figue s'ouvre calmement (porteuse, 18/10). À trancher : la place, la descente, le décor ; garder ou non le décor quand le nom paraît ; « Passer », proposé pour l'animation.
+- **L'arbre et la figue**, idée de la porteuse du 17/10 (`maquettes/ouverture-arbre.html`). Tranché le 20/10 : après la révélation ; elle saute ; un paysage du Sud, qui occupe tout l'écran (le ciel entier en haut, derrière le logo ; l'herbe fondue jusqu'en bas ; le texte et « Continuer » posés dessus) ; la vue descend du ciel jusqu'au figuier ; pas de « Passer », l'accueil n'ayant que deux écrans. Au sol, la figue s'ouvre calmement (porteuse, 18/10). À trancher : la couleur du bas de l'écran (vert pâle, vert profond ou blanc). Écart à tracer : sans « Passer », les 5 s de la révélation se regardent en entier au premier lancement (§1, « Le lancement doit être immédiat »).
 
 ## 5. Sources
 

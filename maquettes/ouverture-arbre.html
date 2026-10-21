@@ -17,6 +17,10 @@
   b : la révélation actuelle, telle quelle, puis l'arbre dans le bandeau du 1/2 de l'accueil.
   c : une seule animation, fondue avec la révélation ; « Bienvenue sur Ficolia » paraît ensuite sous le logo.
   Couleurs : la palette de la marque ; aucune couleur de verdict. Tout est proposition (FICOLIA_DESIGN.md §3).
+  Ses choix du 20/10 : la place b, la descente a (elle saute), le décor a (paysage du Sud). Le paysage occupe tout l'écran :
+  le ciel en haut, derrière le logo ; l'herbe en bas, fondue jusqu'au bord de l'écran, le texte posé dessus ; trois couleurs
+  de bas à comparer. La vue descend du ciel jusqu'au figuier. Ni « Passer » ni toucher pour passer. Les autres variantes
+  restent jouables par l'adresse (?place=, ?descente=, ?decor=), pour mémoire.
 */
 :root{
   /* Palette de marque, actée (D-115, T-548) */
@@ -73,13 +77,9 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 .accroche{position:absolute;left:0;top:377.7px;width:390px;display:flex;flex-direction:column;align-items:center;z-index:3;pointer-events:none}
 .accroche p{margin:0;font-family:'Nunito',ui-rounded,system-ui,sans-serif;font-weight:500;font-size:18.8px;line-height:1.4;letter-spacing:.01em;color:var(--texte)}
 .bienvenue{position:absolute;left:24px;right:24px;top:370px;margin:0;text-align:center;font-size:26px;font-weight:700;line-height:1.2;color:var(--texte);z-index:3;pointer-events:none}
-.toucher{position:absolute;inset:0;z-index:4;border:0;background:none;padding:0;cursor:pointer}
-.toucher:active{transform:none!important}
-.passer{position:absolute;right:12px;top:64px;z-index:5;min-height:44px;padding:0 14px;border:0;border-radius:999px;background:rgba(255,255,255,.8);color:var(--aubergine);font:inherit;font-size:16px;font-weight:700;cursor:pointer}
-/* L'accueil, 1/2, pour la place b : le logo en haut, le bandeau, les textes. */
+/* L'accueil, 1/2, pour la place b : le paysage sur tout l'écran ; en haut le logo dans le ciel, en bas les textes posés sur l'herbe. */
 .accueil{position:absolute;inset:0;display:flex;flex-direction:column;z-index:2}
-.accueil .top{flex:none;height:120px}
-.accueil .illu{flex:none;height:236px}
+.accueil .haut{flex:none;height:476px}
 .corps{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;padding-bottom:8px}
 .corps::-webkit-scrollbar{display:none}
 .copy{flex:none;padding:12px 24px 0;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
@@ -94,6 +94,15 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 .actions .plein{min-height:56px;border:0;border-radius:999px;background:var(--aubergine);color:var(--ivoire-rose);font:inherit;font-size:17px;font-weight:700;cursor:pointer}
 .note{margin:10px 24px 0;font-size:13px;line-height:1.4;color:var(--texte-2);text-align:center}
 .hidden-notes .note,.hidden-notes .tag{display:none}
+/* Le bas de l'écran, trois versions (20/10) : vert pâle et blanc gardent l'encre ; vert profond passe le texte en ivoire. */
+.screen[data-bas="pale"] .points span:not(.on){background:rgba(76,41,68,.22)}
+.screen[data-bas="profond"] .accueil{color:var(--ivoire-rose)}
+.screen[data-bas="profond"] .copy p.rappel{color:#E9DCE5}
+.screen[data-bas="profond"] .copy .tag{border-color:#E9DCE5;color:#E9DCE5}
+.screen[data-bas="profond"] .points span{background:rgba(255,247,240,.35)}
+.screen[data-bas="profond"] .points span.on{background:var(--ivoire-rose)}
+.screen[data-bas="profond"] .actions .plein{background:var(--ivoire-rose);color:var(--aubergine)}
+.screen[data-bas="profond"] button:focus-visible{outline-color:var(--ivoire-rose)}
 
 /* ---------- Panneau de réglages ---------- */
 .panel{flex:0 1 380px;min-width:280px;max-width:440px;display:flex;flex-direction:column;gap:20px;padding-top:8px}
@@ -132,6 +141,8 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
             <g id="milieu"></g>
             <g id="monde">
               <g id="sol"></g>
+              <!-- L'herbe se fond vers la couleur du bas : fixé à l'écran, sous l'arbre et la figue -->
+              <g id="fondu"></g>
               <g id="arbre"></g>
               <g id="cagetteFond"></g>
               <!-- La figue, entière puis ouverte ; puis, à la place b, la même, qui salue -->
@@ -140,12 +151,13 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
               <g id="devant"></g>
             </g>
           </g>
+          <!-- Le socle : la couleur du bas, pleine sous les textes, par-dessus tout le décor -->
+          <g id="socle"></g>
           <!-- Un voile blanc : l'entrée, et l'effacement du décor -->
           <rect id="voile" x="-20" y="-20" width="430" height="884" fill="#FFFFFF" opacity="0"></rect>
         </svg>
         <div class="accueil" id="accueil" hidden>
-          <div class="top"></div>
-          <div class="illu"></div>
+          <div class="haut"></div>
           <div class="corps">
             <div class="copy" id="copy">
               <h1>Bienvenue sur Ficolia</h1>
@@ -153,7 +165,6 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
               <p class="rappel">Ce n’est pas un avis médical. Pour toute question de santé, adressez-vous à un professionnel de santé.</p>
               <span class="tag">Titre : proposition · objectif : à écrire · rappel : texte du prototype</span>
             </div>
-            <p class="note" id="noteAccueil">[À la place b, l’arbre prend le bandeau du 1/2 : l’étal et ses deux ardoises passeraient au 2/2. Aucune ardoise près de la figue qui descend.]</p>
           </div>
           <div class="actions" id="actions">
             <div class="points" role="img" aria-label="Écran 1 sur 2"><span class="on"></span><span></span></div>
@@ -163,8 +174,6 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
         <svg class="logo" id="logoSvg" viewBox="0 0 390 844" role="img" aria-label="Ficolia"><g id="logo"></g></svg>
         <div class="accroche" id="accroche"><p id="l1">Vos cosmétiques,</p><p id="l2">en toute sérénité.</p></div>
         <p class="bienvenue" id="bienvenue">Bienvenue sur Ficolia</p>
-        <button type="button" class="toucher" id="toucher" tabindex="-1" aria-hidden="true"></button>
-        <button type="button" class="passer" id="passer">Passer</button>
       </div>
     </div>
   </div>
@@ -172,36 +181,17 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
       <h2>L’ouverture : l’arbre et la figue</h2>
-      <p class="lead">Ton idée du 17/10 : un figuier ; la vue s’en approche ; une figue en descend ; la vue la suit jusqu’au sol et s’approche d’elle ; Ficolia paraît, la figue à la place du « o ». Au premier lancement seulement (porteuse, 18/10). À comparer : sa place, sa descente, son décor.</p>
+      <p class="lead">Ton idée du 17/10 et tes choix du 20/10 : après la révélation, la vue descend du ciel jusqu’au figuier ; la figue saute de sa branche, se pose sur le pré et s’ouvre. Le paysage du Sud occupe tout l’écran ; le texte est posé sur l’herbe. Au premier lancement seulement (porteuse, 18/10).</p>
     </div>
 
     <div class="group">
-      <span class="label" id="lblPlace">Sa place (question 9)</span>
-      <div class="seg" role="group" aria-labelledby="lblPlace" data-key="place">
-        <button type="button" data-val="b">b · Après la révélation</button>
-        <button type="button" data-val="c">c · Fondue avec elle</button>
+      <span class="label" id="lblBas">Le bas de l’écran (20/10 : les trois, à comparer)</span>
+      <div class="seg" role="group" aria-labelledby="lblBas" data-key="bas">
+        <button type="button" data-val="pale">Vert pâle</button>
+        <button type="button" data-val="profond">Vert profond</button>
+        <button type="button" data-val="blanc">Blanc</button>
       </div>
-      <p class="small" id="placeNote"></p>
-    </div>
-
-    <div class="group">
-      <span class="label" id="lblDescente">Sa descente (question 11)</span>
-      <div class="seg" role="group" aria-labelledby="lblDescente" data-key="descente">
-        <button type="button" data-val="a">a · Elle saute</button>
-        <button type="button" data-val="b">b · Comme une feuille</button>
-        <button type="button" data-val="c">c · Elle tombe</button>
-        <button type="button" data-val="d">d · Dans une cagette</button>
-      </div>
-      <p class="small" id="descenteNote"></p>
-    </div>
-
-    <div class="group">
-      <span class="label" id="lblDecor">Son décor (question 12)</span>
-      <div class="seg" role="group" aria-labelledby="lblDecor" data-key="decor">
-        <button type="button" data-val="a">a · Paysage du Sud</button>
-        <button type="button" data-val="b">b · Le figuier seul</button>
-        <button type="button" data-val="c">c · Une branche</button>
-      </div>
+      <p class="small">L’herbe se fond, jusqu’au bord de l’écran, vers cette couleur. Vert pâle et blanc gardent le texte à l’encre ; vert profond le passe en ivoire, comme le bouton.</p>
     </div>
 
     <div class="group">
@@ -249,9 +239,10 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 
     <p class="small">Au premier lancement seulement (porteuse, 18/10). Aux ouvertures suivantes : l’écran de lancement fixe du téléphone, puis directement l’application.</p>
     <p class="small">La figue s’ouvre au sol, calmement, comme dans la révélation (porteuse, 18/10) : la chair blanche, les nervures depuis le centre, puis les graines, une à une. Sur l’arbre, elle reste entière et ne grossit pas.</p>
-    <p class="small">Quand le nom paraît, le décor s’efface : l’accueil suit sur fond blanc. Le garder, le nom posé sur l’herbe, reste possible.</p>
-    <p class="small">Propositions : « Passer », en haut à droite, et un toucher n’importe où sur l’écran, pour passer l’animation ; « Bienvenue sur Ficolia » sous le logo, à la place c. Avec « réduire les animations » : des fondus enchaînés, sans aucun déplacement.</p>
-    <p class="small">Couleurs : la palette de la marque. Le logo et la révélation y sont ramenés (l’ouverture validée emploie des teintes voisines, écart à trancher). Aucune couleur de verdict.</p>
+    <p class="small">Le paysage occupe tout l’écran (porteuse, 20/10) : le ciel en haut, entier, derrière le logo ; l’herbe en bas, fondue jusqu’au bord de l’écran ; le titre, le texte et « Continuer » posés sur l’herbe. La scène dure moins de 5 s, puis l’image reste fixe ; « Continuer » est là une demi-seconde après la révélation.</p>
+    <p class="small">Ni « Passer » ni toucher pour passer (porteuse, 20/10) : l’accueil n’a que deux écrans. Écart à tracer : au premier lancement, les 5 s de la révélation se regardent donc en entier, alors que notre cap veut un lancement immédiat (cap-onboarding.md §1).</p>
+    <p class="small">L’arbre prend le 1/2 de l’accueil : l’étal et ses deux ardoises passeraient au 2/2, celui des conditions. Avec « réduire les animations » : des fondus enchaînés, sans aucun déplacement.</p>
+    <p class="small">Couleurs : la palette de la marque. Le logo et la révélation y sont ramenés (l’ouverture validée emploie des teintes voisines, écart à trancher). Vert pâle : celui du pré (#EEF4E1). Vert profond : #4A6630, proposé ; aucun vert ne s’approche de celui du premier verdict. Aucune couleur de verdict.</p>
   </aside>
 </main>
 
@@ -425,6 +416,8 @@ const arbreG = ROOT.getElementById('arbre');
 const cagetteFond = ROOT.getElementById('cagetteFond');
 const figueG = ROOT.getElementById('figue');
 const devant = ROOT.getElementById('devant');
+const fonduG = ROOT.getElementById('fondu');
+const socleG = ROOT.getElementById('socle');
 const voile = ROOT.getElementById('voile');
 const VUE = { w: 390, h: 844 };
 let REF = { x: 195, y: 422 };   // le centre du plan large : le lointain s'y réfère
@@ -441,6 +434,8 @@ function poserCamera(c) {
     const z = Math.pow(c.z, L.f), x = mix(REF.x, c.x, L.f), y = mix(REF.y, c.y, L.f);
     L.el.setAttribute('transform', `translate(${VUE.w / 2} ${VUE.h / 2}) scale(${z.toFixed(4)}) translate(${(-x).toFixed(2)} ${(-y).toFixed(2)})`);
   }
+  // Le fondu de l'herbe suit l'écran, pas le monde : la transformation inverse de celle du monde.
+  fonduG.setAttribute('transform', `translate(${c.x.toFixed(2)} ${c.y.toFixed(2)}) scale(${(1 / c.z).toFixed(5)}) translate(${-VUE.w / 2} ${-VUE.h / 2})`);
 }
 const mixCam = (a, b, k) => ({ x: mix(a.x, b.x, k), y: mix(a.y, b.y, k), z: a.z * Math.pow(b.z / a.z, k) });
 
@@ -623,12 +618,29 @@ function secousseCagette(j) {
   CAGETTE.face.setAttribute('transform', tr);
 }
 
+// Le bas de l'écran, à la place b : l'herbe se fond vers sa couleur (sous l'arbre et la figue), puis le socle la rend
+// pleine sous les textes (par-dessus tout le décor). Les deux sont fixés à l'écran.
+const BAS = { pale: '#EEF4E1', profond: '#4A6630', blanc: '#FFFFFF' };
+const SOL_ECRAN = 455;   // à la fin, la ligne du pré où la figue se pose, sur l'écran
+function construireSocle() {
+  const c = BAS[state.bas];
+  const grad = (id, y1, y2) => {
+    const g = svgEl('linearGradient', { id, x1: 0, y1, x2: 0, y2, gradientUnits: 'userSpaceOnUse' }, defs);
+    svgEl('stop', { offset: 0, 'stop-color': c, 'stop-opacity': 0 }, g);
+    svgEl('stop', { offset: 1, 'stop-color': c, 'stop-opacity': 1 }, g);
+    return `url(#${id})`;
+  };
+  svgEl('rect', { x: -20, y: SOL_ECRAN - 12, width: 430, height: 844 - SOL_ECRAN + 52, fill: grad('gFondu', SOL_ECRAN - 12, SOL_ECRAN + 56) }, fonduG);
+  svgEl('rect', { x: -20, y: SOL_ECRAN + 14, width: 430, height: 844 - SOL_ECRAN + 10, fill: grad('gSocle', SOL_ECRAN + 14, SOL_ECRAN + 62) }, socleG);
+}
+
 function construireMonde() {
-  for (const g of [defs, ciel, loin, milieu, solG, arbreG, cagetteFond, devant]) g.textContent = '';
+  for (const g of [defs, ciel, loin, milieu, solG, fonduG, arbreG, cagetteFond, devant, socleG]) g.textContent = '';
   FEUILLES = [];
   CAGETTE = null;
   const dec = DECORS[state.decor];
   dec.construire();
+  if (state.place === 'b') construireSocle();
   const P = parametres();
   if (state.descente === 'd') construireCagette(P.xL, dec.G, P.k);
   // Deux touffes devant la figue, pour la profondeur.
@@ -879,10 +891,7 @@ const l1 = ROOT.getElementById('l1'), l2 = ROOT.getElementById('l2');
 const bienvenue = ROOT.getElementById('bienvenue');
 const accueil = ROOT.getElementById('accueil');
 const copy = ROOT.getElementById('copy');
-const noteAccueil = ROOT.getElementById('noteAccueil');
 const actions = ROOT.getElementById('actions');
-const passerBtn = ROOT.getElementById('passer');
-const toucher = ROOT.getElementById('toucher');
 const monte = (el, k, d, rm) => { el.style.opacity = k.toFixed(3); el.style.transform = rm ? 'none' : `translateY(${((1 - k) * d).toFixed(2)}px)`; };
 
 /* ---------- Les déroulés ---------- */
@@ -891,16 +900,6 @@ const TEXTES_DESCENTE = {
   b: [[0, 'Sa queue se détache.'], [240, 'Elle descend en se balançant, comme une feuille…'], [1840, '… et se pose, sans choc.']],
   c: [[0, 'Sa queue se détache.'], [180, 'Elle tombe…'], [720, '… touche le sol, rebondit un peu, et s’arrête.']],
   d: [[0, 'Sa queue se détache.'], [180, 'Elle tombe…'], [760, '… dans une cagette, qui l’accueille en douceur.']]
-};
-const NOTES_PLACE = {
-  b: 'La révélation validée (5 s), telle quelle ; puis l’accueil : le logo monte, et l’arbre joue dans le bandeau du 1/2, au-dessus des textes, en moins de 5 s. L’étal et ses deux ardoises passeraient au 2/2.',
-  c: 'Une seule animation : l’arbre, la descente ; au sol, la figue s’ouvre comme dans la révélation, puis devient le « o ». « Bienvenue sur Ficolia » paraît sous le logo (proposition). L’accueil suit, avec l’étal.'
-};
-const NOTES_DESCENTE = {
-  a: 'Elle se balance, se lâche et retombe sur ses pieds, contente : c’est un choix, pas une chute.',
-  b: 'Sa queue se détache ; elle descend en se balançant, comme une feuille, et se pose sans choc.',
-  c: 'Elle tombe vraiment, avec un petit rebond. Point de vigilance : de ces quatre descentes, c’est celle qui ressemble le plus à une chute, donc à une perte (FICOLIA_DESIGN.md §4).',
-  d: 'Elle tombe dans une cagette, celle du marché : la cagette l’accueille, il n’y a pas de choc au sol.'
 };
 const minuscule = s => s.charAt(0).toLowerCase() + s.slice(1);
 
@@ -958,7 +957,6 @@ function fondue() {
         t < T.souffle + 270 ? seg(t, T.souffle, T.souffle + 270, 1, 1.02, RV.b) : seg(t, T.souffle + 270, T.souffle + 550, 1.02, 1, RV.b),
         seg(t, T.logo + 550, T.logo + 1050, 0, 1, RV.a)));
       monte(bienvenue, seg(t, T.bienvenue, T.bienvenue + 550, 0, 1, RV.a), 8);
-      passerBtn.style.opacity = (EASE_OUT(prog(t, 600, 300)) * (1 - prog(t, T.logo, 300))).toFixed(3);
     }
   };
 }
@@ -986,40 +984,48 @@ function fondueReduite() {
       etatLogo(logoDessine(1, 1, 1));
       logoSvg.style.opacity = prog(t, 2800, 400).toFixed(3);
       monte(bienvenue, prog(t, 3100, 400), 0, true);
-      passerBtn.style.opacity = (prog(t, 0, 300) * (1 - prog(t, 2800, 300))).toFixed(3);
     }
   };
 }
-// b : la révélation, telle quelle ; puis l'accueil, et l'arbre dans son bandeau.
-function apres() {
-  const dec = DECORS[state.decor];
-  const P = parametres();
-  const A0 = 5000, B0 = A0 + 300;   // le début de l'accueil, puis celui du bandeau
-  const T = { approche0: 0, approche1: 600, desc: 600 };
-  T.repos = T.desc + FINS[state.descente];
-  T.gros0 = T.repos - 200; T.gros1 = T.gros0 + 600;
-  T.ouvre = T.gros1 - 150;
-  T.salut = T.ouvre + 1150;
-  T.fin = T.salut + 550;
+// Les plans de la vue, à la place b, sur tout l'écran : le ciel au-dessus du feuillage ; la figue pendue ; la figue suivie
+// dans son saut ; à la fin, la figue posée sur le pré, à droite, le pré sur la ligne SOL_ECRAN. Le repère du lointain est
+// choisi pour qu'à la fin les collines paraissent vers le tiers de l'écran, sous le logo.
+function cadrages(P) {
   const mh = milieuDe(P, pendue(P, 0));
-  const b = dec.bande;
-  const large = { x: mh.x + b.large.dx * P.k, y: mh.y + b.large.dy * P.k, z: b.large.z };
-  const approche = { x: mh.x, y: mh.y, z: b.zApproche };
-  // Le bandeau est bas : on y ancre le lointain plus bas, pour que l'horizon y paraisse derrière l'arbre.
-  REF = { x: large.x, y: large.y + 160 };
-  // À la fin, la figue de l'accueil, debout, à la taille qu'elle a sur l'étal (120 px).
-  const zFin = 120 / ((P.D.B.y - P.D.T.y) * P.s);
-  const fin = { x: P.xL + P.CB.x, y: P.sol - (214 - 118) / zFin, z: zFin };
-  const beats = [[0, 'La révélation du logo, telle qu’elle est validée : une graine…'], [900, '… le contour de la figue…'], [1680, '… elle s’ouvre…'], [2400, '… et devient le « o ».'], [3500, 'L’accroche monte sous le logo.'], [4450, 'La figue respire une fois.'],
-    [A0, 'L’accueil, 1/2 : le logo monte ; dans le bandeau, ' + minuscule(dec.nom)],
-    [B0 + T.approche0, 'La vue s’approche d’une figue, entière, qui pend à sa branche.'],
-    ...TEXTES_DESCENTE[state.descente].map(([ms, txt]) => [B0 + T.desc + ms, txt]),
-    [B0 + T.gros0, 'La vue descend jusqu’à elle.'],
-    [B0 + T.ouvre, 'Elle s’ouvre, calmement.'],
-    [B0 + T.salut, 'Elle salue d’un mouvement de queue.'],
-    [B0 + T.fin, 'Fin : l’image reste fixe.']];
+  // Pendue, la figue est assez bas sur l'écran pour que le feuillage reste sous le logo, dans le ciel.
+  const zA = 1.5, zS = 1.65, zF = 1.9;
+  const fin = { x: P.xL - 90 / zF, y: P.sol - (SOL_ECRAN - 422) / zF, z: zF };
   return {
-    duration: B0 + T.fin, fin: A0, beats,
+    ciel: { x: mh.x - 20, y: mh.y - 600, z: 1.5 },
+    approche: { x: mh.x - 35 / zA, y: mh.y - 3 / zA, z: zA },
+    suivi: m => ({ x: m.x - 35 / zS, y: m.y + 104 / zS, z: zS }),
+    fin,
+    ref: { x: fin.x, y: (590 + 122 / Math.pow(zF, 0.22) - 0.22 * fin.y) / 0.78 }
+  };
+}
+// b : la révélation, telle quelle ; puis l'accueil 1/2, le paysage sur tout l'écran. Le blanc devient ciel autour du logo ;
+// la vue descend du ciel jusqu'à la figue pendue, la suit dans son saut, puis se pose sur le pré. Moins de 5 s.
+function apres() {
+  const P = parametres();
+  const C = cadrages(P);
+  REF = C.ref;
+  const A0 = 5000;   // la fin de la révélation : l'accueil commence
+  const T = { ciel0: 120, ciel1: 1300, desc: 950 };
+  T.repos = T.desc + FINS[state.descente];
+  T.pose0 = T.repos - 250; T.pose1 = T.pose0 + 650;
+  T.ouvre = T.pose1 - 150;
+  T.salut = T.ouvre + 1000;
+  T.fin = T.salut + 500;
+  const beats = [[0, 'La révélation du logo, telle qu’elle est validée : une graine…'], [900, '… le contour de la figue…'], [1680, '… elle s’ouvre…'], [2400, '… et devient le « o ».'], [3500, 'L’accroche monte sous le logo.'], [4450, 'La figue respire une fois.'],
+    [A0, 'L’accueil, 1/2 : le logo monte ; le blanc devient ciel autour de lui.'],
+    [A0 + T.ciel0, 'La vue descend du ciel jusqu’au figuier, vers une figue entière, qui pend à sa branche.'],
+    ...TEXTES_DESCENTE[state.descente].map(([ms, txt]) => [A0 + T.desc + ms, txt]),
+    [A0 + T.pose0, 'La vue se pose : le paysage sur tout l’écran, le texte sur l’herbe.'],
+    [A0 + T.ouvre, 'Elle s’ouvre, calmement.'],
+    [A0 + T.salut, 'Elle salue d’un mouvement de queue.'],
+    [A0 + T.fin, 'Fin : l’image reste fixe.']];
+  return {
+    duration: A0 + T.fin, beats,
     render(t) {
       if (t < A0) {
         ecran({ scene: 0, accueil: false, accroche: 1, logo: true });
@@ -1027,54 +1033,47 @@ function apres() {
         etatLogo(revelation(t));
         monte(l1, seg(t, 3500, 4050, 0, 1, RV.a), 7.94);
         monte(l2, seg(t, 3800, 4350, 0, 1, RV.a), 7.94);
-        passerBtn.style.opacity = EASE_OUT(prog(t, 600, 300)).toFixed(3);
         return;
       }
-      const u = t - A0, v = t - B0;
-      ecran({ scene: EASE_OUT(prog(u, 250, 400)), accueil: true, accroche: 1 - EASE_OUT(prog(u, 0, 250)), logo: true });
+      const u = t - A0;
+      ecran({ scene: 1, accueil: true, accroche: 1 - EASE_OUT(prog(u, 0, 250)), logo: true });
       drawLogo(EASE_IN_OUT(prog(u, 100, 800)));
       etatLogo(logoDessine(1, 1, 1));
       monte(l1, 1, 0); monte(l2, 1, 0);
       monte(copy, EASE_OUT(prog(u, 450, 280)), 8);
-      monte(noteAccueil, EASE_OUT(prog(u, 450, 280)), 8);
       actions.style.opacity = EASE_OUT(prog(u, 500, 280)).toFixed(3);
-      passerBtn.style.opacity = 0;
-      brise(t);
-      const w = v - T.desc;
-      poserFigue(descente(state.descente, w, P, v), P);
+      brise(u);
+      const w = u - T.desc;
+      poserFigue(descente(state.descente, w, P, u), P);
       secousseCagette(state.descente === 'd' ? choc(w, IMPACTS.d, 100, 220) : 0);
-      ouvrirFigue(v - T.ouvre);
+      ouvrirFigue(u - T.ouvre);
       // Une fois ouverte, c'est la figue de l'accueil : elle salue d'un mouvement de queue.
-      const vive = v >= T.salut;
+      const vive = u >= T.salut;
       figueG.setAttribute('opacity', vive ? 0 : 1);
       figLive.setAttribute('opacity', vive ? 1 : 0);
       if (vive) {
-        const p = prog(v, T.salut, 500), wave = p > 0 && p < 1 ? Math.sin(4 * Math.PI * p) * Math.sin(Math.PI * p) : 0;
+        const p = prog(u, T.salut, 500), wave = p > 0 && p < 1 ? Math.sin(4 * Math.PI * p) * Math.sin(Math.PI * p) : 0;
         drawFig({ ...REST, arm: 0.35 * wave });
       }
-      let cam = mixCam(large, approche, EASE_IN_OUT(prog(v, T.approche0, T.approche1 - T.approche0)));
+      let cam = mixCam(C.ciel, C.approche, EASE_IN_OUT(prog(u, T.ciel0, T.ciel1 - T.ciel0)));
       const lache = T.desc + LACHERS[state.descente] - 60;
-      if (v > lache) {
-        const m = suivie(state.descente, w, P, v);
-        cam = mixCam(cam, { x: m.x, y: m.y + 20 / b.zSuivi, z: b.zSuivi }, EASE_IN_OUT(prog(v, lache, 500)));
-      }
-      cam = mixCam(cam, fin, EASE_IN_OUT(prog(v, T.gros0, T.gros1 - T.gros0)));
+      if (u > lache) cam = mixCam(cam, C.suivi(suivie(state.descente, w, P, u)), EASE_IN_OUT(prog(u, lache, 500)));
+      cam = mixCam(cam, C.fin, EASE_IN_OUT(prog(u, T.pose0, T.pose1 - T.pose0)));
       poserCamera(cam);
-      voile.setAttribute('opacity', 0);
+      voile.setAttribute('opacity', (1 - EASE_OUT(prog(u, 60, 640))).toFixed(3));
     }
   };
 }
-// b, mouvement réduit : le logo en fondu ; puis l'accueil en fondu, la figue déjà ouverte au pied de l'arbre.
+// b, mouvement réduit : le logo en fondu ; puis l'accueil en fondu, le paysage sur tout l'écran, la figue déjà ouverte sur le pré.
 function apresReduite() {
   const dec = DECORS[state.decor];
   const P = parametres();
-  const zFin = 120 / ((P.D.B.y - P.D.T.y) * P.s);
-  const fin = { x: P.xL + P.CB.x, y: P.sol - (214 - 118) / zFin, z: zFin };
-  const mh = milieuDe(P, pendue(P, 0));
-  REF = { x: mh.x + dec.bande.large.dx * P.k, y: mh.y + dec.bande.large.dy * P.k + 160 };
+  const C = cadrages(P);
+  const fin = C.fin;
+  REF = C.ref;
   return {
-    duration: 2100, fin: 1500,
-    beats: [[0, 'Fondu : le logo et l’accroche, image finale de la révélation.'], [1500, 'Fondu vers l’accueil : ' + minuscule(dec.nom).slice(0, -1) + ', la figue ouverte au pied.'], [2100, 'Fin : l’image reste fixe.']],
+    duration: 2100,
+    beats: [[0, 'Fondu : le logo et l’accroche, image finale de la révélation.'], [1500, 'Fondu vers l’accueil : ' + minuscule(dec.nom).slice(0, -1) + ', sur tout l’écran ; la figue ouverte sur le pré.'], [2100, 'Fin : l’image reste fixe.']],
     render(t) {
       const avant = t < 1800;
       const k = avant ? 1 - prog(t, 1500, 300) : prog(t, 1800, 300);
@@ -1084,7 +1083,6 @@ function apresReduite() {
       logoSvg.style.opacity = (avant ? Math.min(prog(t, 0, 600), k) : k).toFixed(3);
       monte(l1, 1, 0, true); monte(l2, 1, 0, true);
       monte(copy, avant ? 0 : k, 0, true);
-      monte(noteAccueil, avant ? 0 : k, 0, true);
       actions.style.opacity = (avant ? 0 : k).toFixed(3);
       poserFigue({ bx: P.xL, by: P.sol, r: 0, sx: 1, sy: 1 }, P);
       secousseCagette(0);
@@ -1094,7 +1092,6 @@ function apresReduite() {
       drawFig(REST);
       poserCamera(fin);
       voile.setAttribute('opacity', 0);
-      passerBtn.style.opacity = (avant ? prog(t, 0, 300) * (1 - prog(t, 1500, 300)) : 0).toFixed(3);
     }
   };
 }
@@ -1113,9 +1110,10 @@ const screenEl = ROOT.getElementById('screen');
 const params = new URLSearchParams(location.search);
 const choix = (k, vals, def) => (vals.includes(params.get(k)) ? params.get(k) : def);
 const state = {
-  place: choix('place', ['b', 'c'], 'c'),
-  descente: choix('descente', ['a', 'b', 'c', 'd'], 'a'),
-  decor: choix('decor', ['a', 'b', 'c'], 'a'),
+  place: choix('place', ['b', 'c'], 'b'),                   // choix du 20/10 : après la révélation
+  descente: choix('descente', ['a', 'b', 'c', 'd'], 'a'),   // elle saute
+  decor: choix('decor', ['a', 'b', 'c'], 'a'),               // paysage du Sud
+  bas: choix('bas', ['pale', 'profond', 'blanc'], 'pale'),   // le bas de l'écran, trois versions à comparer
   speed: 1,
   motion: params.get('mouvement') === 'reduit' ? 'reduit' : params.get('mouvement') === 'normal' ? 'normal' : 'systeme',
   notes: params.get('notes') === 'off' ? 'off' : 'on',
@@ -1130,7 +1128,8 @@ function deroule() {
   const rm = reduced();
   screenEl.classList.toggle('rm', rm);
   screenEl.classList.toggle('hidden-notes', state.notes === 'off');
-  modeScene(state.place === 'b');
+  screenEl.dataset.bas = state.place === 'b' ? state.bas : '';
+  modeScene(false);
   REF = { x: 195, y: 422 };
   construireMonde();
   construireFigue(state.place === 'c' ? 'o' : 'symbole');
@@ -1144,10 +1143,6 @@ const playPause = ROOT.getElementById('playPause');
 const beatsEl = ROOT.getElementById('beats');
 const fmt = ms => (ms / 1000).toFixed(2).replace('.', ',') + ' s';
 
-function applyNotes() {
-  ROOT.getElementById('placeNote').textContent = NOTES_PLACE[state.place];
-  ROOT.getElementById('descenteNote').textContent = NOTES_DESCENTE[state.descente];
-}
 function applyBeats() {
   beatsEl.innerHTML = '';
   for (const [ms, label] of timeline().beats) {
@@ -1174,10 +1169,6 @@ function render() {
   const tl = timeline();
   const t = Math.min(state.t, tl.duration);
   tl.render(t);
-  // Pendant l'ouverture seulement : « Passer », et le toucher sur l'écran.
-  const ouvert = t < tl.fin;
-  toucher.hidden = !ouvert;
-  passerBtn.hidden = !ouvert;
   scrub.value = Math.round(t);
   scrubOut.textContent = fmt(t);
   let current = null;
@@ -1210,18 +1201,9 @@ function pause() {
 }
 function resetAll() {
   TL = deroule();
-  applyNotes();
   applyBeats();
   syncControls();
   render();
-}
-// Passer l'animation : on va à sa dernière image (à la place b : au début de l'accueil).
-function passer() {
-  const tl = timeline();
-  if (state.t >= tl.fin) return;
-  state.t = tl.fin;
-  if (state.t >= tl.duration) { pause(); render(); }
-  else play(false);
 }
 
 /* ---------- Commandes ---------- */
@@ -1233,12 +1215,12 @@ for (const seg of ROOT.querySelectorAll('.seg')) {
     state[key] = key === 'speed' ? +b.dataset.val : b.dataset.val;
     if (key === 'speed') { syncControls(); return; }
     if (key === 'notes') { screenEl.classList.toggle('hidden-notes', state.notes === 'off'); syncControls(); return; }
+    // Le bas de l'écran : on change la couleur sans reprendre la lecture.
+    if (key === 'bas') { resetAll(); return; }
     resetAll();
     play(true);
   });
 }
-passerBtn.addEventListener('click', passer);
-toucher.addEventListener('click', passer);
 ROOT.getElementById('replay').addEventListener('click', () => play(true));
 playPause.addEventListener('click', () => {
   if (state.playing) pause();
