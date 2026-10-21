@@ -21,6 +21,9 @@
   le ciel en haut, derrière le logo ; l'herbe en bas, fondue jusqu'au bord de l'écran, le texte posé dessus ; trois couleurs
   de bas à comparer. La vue descend du ciel jusqu'au figuier. Ni « Passer » ni toucher pour passer. Les autres variantes
   restent jouables par l'adresse (?place=, ?descente=, ?decor=), pour mémoire.
+  Ses retours du 21/10 : le blanc est écarté (jouable par l'adresse, ?bas=blanc) ; vert pâle et vert profond restent tels quels ;
+  deux versions bis portent ses corrections : une transition imbriquée entre la révélation et l'arbre (à n'importe quelle
+  pause, tout paraît fluide), et la chair de la figue qui monte jusqu'à la queue au lieu de s'arrêter net.
 */
 :root{
   /* Palette de marque, actée (D-115, T-548) */
@@ -94,7 +97,8 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 .actions .plein{min-height:56px;border:0;border-radius:999px;background:var(--aubergine);color:var(--ivoire-rose);font:inherit;font-size:17px;font-weight:700;cursor:pointer}
 .note{margin:10px 24px 0;font-size:13px;line-height:1.4;color:var(--texte-2);text-align:center}
 .hidden-notes .note,.hidden-notes .tag{display:none}
-/* Le bas de l'écran, trois versions (20/10) : vert pâle et blanc gardent l'encre ; vert profond passe le texte en ivoire. */
+/* Le bas de l'écran (20/10, puis 21/10) : vert pâle et blanc gardent l'encre ; vert profond passe le texte en ivoire.
+   Les versions bis reprennent la même couleur : data-bas n'en porte que le nom. */
 .screen[data-bas="pale"] .points span:not(.on){background:rgba(76,41,68,.22)}
 .screen[data-bas="profond"] .accueil{color:var(--ivoire-rose)}
 .screen[data-bas="profond"] .copy p.rappel{color:#E9DCE5}
@@ -185,13 +189,15 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
     </div>
 
     <div class="group">
-      <span class="label" id="lblBas">Le bas de l’écran (20/10 : les trois, à comparer)</span>
+      <span class="label" id="lblBas">Le bas de l’écran (21/10 : vert pâle ou vert profond ; bis, avec tes corrections)</span>
       <div class="seg" role="group" aria-labelledby="lblBas" data-key="bas">
         <button type="button" data-val="pale">Vert pâle</button>
         <button type="button" data-val="profond">Vert profond</button>
-        <button type="button" data-val="blanc">Blanc</button>
+        <button type="button" data-val="pale-bis">Vert pâle bis</button>
+        <button type="button" data-val="profond-bis">Vert profond bis</button>
       </div>
-      <p class="small">L’herbe se fond, jusqu’au bord de l’écran, vers cette couleur. Vert pâle et blanc gardent le texte à l’encre ; vert profond le passe en ivoire, comme le bouton.</p>
+      <p class="small">L’herbe se fond, jusqu’au bord de l’écran, vers cette couleur. Vert pâle garde le texte à l’encre ; vert profond le passe en ivoire, comme le bouton. Le blanc est écarté (21/10).</p>
+      <p class="small">Les versions bis portent tes deux corrections du 21/10. La transition est imbriquée : aucune étape n’attend la fin de la précédente. Pendant que la figue du logo respire encore, le blanc devient ciel depuis le haut ; le logo monte, l’accroche le suit et s’efface ; la vue, déjà en route, descend du ciel ; le bas de l’écran monte depuis le bord avec le texte et « Continuer ». Et la chair de la figue monte jusqu’à la queue, au lieu de s’arrêter net à sa hauteur. Le texte et « Continuer » arrivent dès 4,65 s ; l’animation qui les accompagne dure 4,9 s, sous les 5 s (WCAG 2.2.2).</p>
     </div>
 
     <div class="group">
@@ -237,10 +243,10 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
       <ol class="beats" id="beats"></ol>
     </div>
 
-    <p class="small">Au premier lancement seulement (porteuse, 18/10). Aux ouvertures suivantes : l’écran de lancement fixe du téléphone, puis directement l’application.</p>
+    <p class="small">Au premier lancement seulement (porteuse, 18/10). Aux lancements suivants, un écran de chargement plus court (porteuse, 21/10) : sa forme et sa durée restent à proposer.</p>
     <p class="small">La figue s’ouvre au sol, calmement, comme dans la révélation (porteuse, 18/10) : la chair blanche, les nervures depuis le centre, puis les graines, une à une. Sur l’arbre, elle reste entière et ne grossit pas.</p>
     <p class="small">Le paysage occupe tout l’écran (porteuse, 20/10) : le ciel en haut, entier, derrière le logo ; l’herbe en bas, fondue jusqu’au bord de l’écran ; le titre, le texte et « Continuer » posés sur l’herbe. La scène dure moins de 5 s, puis l’image reste fixe ; « Continuer » est là une demi-seconde après la révélation.</p>
-    <p class="small">Ni « Passer » ni toucher pour passer (porteuse, 20/10) : l’accueil n’a que deux écrans. Écart à tracer : au premier lancement, les 5 s de la révélation se regardent donc en entier, alors que notre cap veut un lancement immédiat (cap-onboarding.md §1).</p>
+    <p class="small">Ni « Passer » ni toucher pour passer (porteuse, 20/10 et 21/10) : l’accueil n’a que deux écrans, et ce jeu d’écrans ne se joue qu’une fois, au premier lancement ; ensuite, l’écran de chargement est plus court. Écart à tracer, limité au premier lancement : les 5 s de la révélation s’y regardent en entier, alors que notre cap veut un lancement immédiat (cap-onboarding.md §1).</p>
     <p class="small">L’arbre prend le 1/2 de l’accueil : l’étal et ses deux ardoises passeraient au 2/2, celui des conditions. Avec « réduire les animations » : des fondus enchaînés, sans aucun déplacement.</p>
     <p class="small">Couleurs : la palette de la marque. Le logo et la révélation y sont ramenés (l’ouverture validée emploie des teintes voisines, écart à trancher). Vert pâle : celui du pré (#EEF4E1). Vert profond : #4A6630, proposé ; aucun vert ne s’approche de celui du premier verdict. Aucune couleur de verdict.</p>
   </aside>
@@ -375,6 +381,13 @@ function chair() {
   const hull = lo.slice(0, -1).concat(hi.slice(0, -1));
   return { d: 'M' + hull.map(q => q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join('L') + 'Z', role: 'chair', pts: Float32Array.from(hull.flat()) };
 }
+// La chair des versions bis (porteuse, 21/10 : le blanc s'arrêtait trop nettement au niveau de la queue) : toute la
+// silhouette, jusque dans le col. À droite, le bord extérieur du contour ; à gauche, celui de l'arc ; en haut, de la pointe
+// de l'arc jusqu'à la queue, qui la recouvre.
+function chairBis() {
+  const d = 'M94.5608 37.9777C97.6 30.8 104.2 29.8 107.5 28L120.121 40.7486C127.197 65.4592 151.515 78.2868 170.015 93.6335C197.757 116.647 217.963 149.626 209.321 186.869C203.902 209.704 189.567 229.419 169.515 241.614C151.975 252.621 130.757 256.147 110.599 251.403L91.5688 252.717C81.6387 251.86 65.408 246.98 56.0022 243.143C34.519 234.442 13.2769 217.644 4.85606 195.449C-11.0198 153.373 14.3113 112.875 47.8156 88.6966C68.3691 73.8636 84.3587 61.9779 94.5608 37.9777Z';
+  return { d, role: 'chair', pts: sample(d, 0.8) };
+}
 const SOURCES = [
   { d: FIG.contour, role: 'peau' },
   { d: FIG.arc, role: 'peau' },
@@ -382,6 +395,7 @@ const SOURCES = [
   ...FIG.seeds.map(d => ({ d, role: 'graine' }))
 ].map(s => Object.assign(s, { pts: sample(s.d, 0.8) }));
 SOURCES.unshift(chair());
+const CHAIRS = { net: SOURCES[0], bis: chairBis() };
 const figLive = ROOT.getElementById('figLive');
 const live = SOURCES.map(s => {
   const el = document.createElementNS(NS, 'path');
@@ -422,6 +436,7 @@ const voile = ROOT.getElementById('voile');
 const VUE = { w: 390, h: 844 };
 let REF = { x: 195, y: 422 };   // le centre du plan large : le lointain s'y réfère
 const COUCHES = [{ el: loin, f: 0.22 }, { el: milieu, f: 0.55 }, { el: monde, f: 1 }];
+let SOCLE_DY = 0;   // versions bis : le bas de l'écran monte depuis le bord ; le fondu de l'herbe monte avec lui
 function modeScene(bande) {
   VUE.h = bande ? 236 : 844;
   scene.classList.toggle('bande', bande);
@@ -435,7 +450,7 @@ function poserCamera(c) {
     L.el.setAttribute('transform', `translate(${VUE.w / 2} ${VUE.h / 2}) scale(${z.toFixed(4)}) translate(${(-x).toFixed(2)} ${(-y).toFixed(2)})`);
   }
   // Le fondu de l'herbe suit l'écran, pas le monde : la transformation inverse de celle du monde.
-  fonduG.setAttribute('transform', `translate(${c.x.toFixed(2)} ${c.y.toFixed(2)}) scale(${(1 / c.z).toFixed(5)}) translate(${-VUE.w / 2} ${-VUE.h / 2})`);
+  fonduG.setAttribute('transform', `translate(${c.x.toFixed(2)} ${c.y.toFixed(2)}) scale(${(1 / c.z).toFixed(5)}) translate(${-VUE.w / 2} ${+(SOCLE_DY - VUE.h / 2).toFixed(2)})`);
 }
 const mixCam = (a, b, k) => ({ x: mix(a.x, b.x, k), y: mix(a.y, b.y, k), z: a.z * Math.pow(b.z / a.z, k) });
 
@@ -622,8 +637,11 @@ function secousseCagette(j) {
 // pleine sous les textes (par-dessus tout le décor). Les deux sont fixés à l'écran.
 const BAS = { pale: '#EEF4E1', profond: '#4A6630', blanc: '#FFFFFF' };
 const SOL_ECRAN = 455;   // à la fin, la ligne du pré où la figue se pose, sur l'écran
+// « pale-bis » : la couleur de « pale », avec les corrections du 21/10.
+const couleurBas = () => state.bas.replace('-bis', '');
+const versionBis = () => state.place === 'b' && state.bas.endsWith('-bis');
 function construireSocle() {
-  const c = BAS[state.bas];
+  const c = BAS[couleurBas()];
   const grad = (id, y1, y2) => {
     const g = svgEl('linearGradient', { id, x1: 0, y1, x2: 0, y2, gradientUnits: 'userSpaceOnUse' }, defs);
     svgEl('stop', { offset: 0, 'stop-color': c, 'stop-opacity': 0 }, g);
@@ -1064,6 +1082,89 @@ function apres() {
     }
   };
 }
+// b, versions bis (porteuse, 21/10 : « quand on met pause à n'importe quel moment, tout paraît fluide, imbriqué ») :
+// aucune étape n'attend la fin de la précédente, et tout s'écoule dans le même sens. Pendant que la figue du logo respire
+// encore, le blanc devient ciel depuis le haut, comme un voile qui descend ; le logo monte, l'accroche le suit et s'efface ;
+// la vue, déjà en route, descend du ciel ; le bas de l'écran monte depuis le bord, portant le texte et « Continuer », et
+// rejoint l'herbe ; la figue se balance avant que la vue ne s'arrête ; elle s'ouvre avant que la vue ne se pose.
+const COULE = cubicBezier(0.42, 0, 0.3, 1);      // la descente de la vue et la montée du logo, sur le même souffle
+const MONTE = cubicBezier(0.3, 0.1, 0.2, 1);     // le bas de l'écran
+function apresBis() {
+  const P = parametres();
+  const C = cadrages(P);
+  REF = C.ref;
+  const S0 = 4250;   // la scène commence sous le blanc, pendant la fin de la révélation
+  const T = { voile: 4250, logo: 4550, socle: 4650, copie: 5050, desc: 5750 };
+  T.repos = T.desc + FINS[state.descente];
+  T.pose0 = T.repos - 250; T.pose1 = T.pose0 + 650;
+  T.ouvre = T.pose1 - 150;
+  T.salut = T.ouvre + 1000;
+  T.fin = T.salut + 500;
+  // Le voile : blanc en bas, transparent en haut ; son bord, adouci sur H, descend du haut de l'écran jusque sous le bas.
+  const H = 380;
+  const gV = svgEl('linearGradient', { id: 'gVoile', x1: 0, y1: -H, x2: 0, y2: 0, gradientUnits: 'userSpaceOnUse' }, defs);
+  svgEl('stop', { offset: 0, 'stop-color': '#FFFFFF', 'stop-opacity': 0 }, gV);
+  svgEl('stop', { offset: 1, 'stop-color': '#FFFFFF', 'stop-opacity': 1 }, gV);
+  voile.setAttribute('fill', 'url(#gVoile)');
+  const gS = defs.querySelector('#gSocle');
+  const beats = [[0, 'La révélation du logo, telle qu’elle est validée : une graine…'], [900, '… le contour de la figue…'], [1680, '… elle s’ouvre…'], [2400, '… et devient le « o ».'], [3500, 'L’accroche monte sous le logo.'], [4450, 'La figue respire une fois.'],
+    [T.voile, 'Déjà, le blanc devient ciel, depuis le haut ; la vue, sous le voile, commence à descendre.'],
+    [T.logo, 'Pendant le souffle, le logo monte ; l’accroche le suit et s’efface.'],
+    [T.socle, 'Le bas de l’écran monte depuis le bord, avec le texte et « Continuer ».'],
+    ...TEXTES_DESCENTE[state.descente].map(([ms, txt]) => [T.desc + ms, txt]),
+    [T.pose0, 'La vue se pose : le paysage sur tout l’écran, le texte sur l’herbe.'],
+    [T.ouvre, 'Elle s’ouvre, calmement, avant que la vue ne s’arrête.'],
+    [T.salut, 'Elle salue d’un mouvement de queue.'],
+    [T.fin, 'Fin : l’image reste fixe.']].sort((a, b) => a[0] - b[0]);
+  return {
+    duration: T.fin, beats,
+    render(t) {
+      const kLogo = COULE(prog(t, T.logo, 1100));
+      drawLogo(kLogo);
+      etatLogo(revelation(Math.min(t, 5000)));
+      monte(l1, seg(t, 3500, 4050, 0, 1, RV.a), 7.94);
+      monte(l2, seg(t, 3800, 4350, 0, 1, RV.a), 7.94);
+      // L'accroche suit le logo, à mi-vitesse, et s'efface avant qu'il n'arrive.
+      const kA = smooth(0, 0.42, kLogo);
+      accroche.style.transform = `translateY(${(-0.5 * (LOGO_DEPART.y - LOGO_HAUT.y) * kLogo).toFixed(2)}px)`;
+      if (t < S0) { ecran({ scene: 0, accueil: false, accroche: 1, logo: true }); return; }
+      ecran({ scene: 1, accueil: true, accroche: 1 - kA, logo: true });
+      const e = (VUE.h + H) * COULE(prog(t, T.voile, 1500));
+      gV.setAttribute('y1', (e - H).toFixed(1));
+      gV.setAttribute('y2', e.toFixed(1));
+      // Le bas de l'écran, le fondu de l'herbe et tout l'accueil montent ensemble depuis le bord.
+      SOCLE_DY = 420 * (1 - MONTE(prog(t, T.socle, 1000)));
+      socleG.setAttribute('transform', `translate(0 ${SOCLE_DY.toFixed(2)})`);
+      // Pendant la descente, le feuillage passe derrière le titre : le haut du socle est plus net, le titre reste lisible ;
+      // il retrouve son fondu quand la vue se pose.
+      gS.setAttribute('y2', (SOL_ECRAN + 62 - 26 * (1 - EASE_IN_OUT(prog(t, T.pose0, T.pose1 - T.pose0)))).toFixed(1));
+      accueil.style.transform = `translateY(${SOCLE_DY.toFixed(2)}px)`;
+      copy.style.transform = 'none';
+      copy.style.opacity = EASE_OUT(prog(t, T.copie, 450)).toFixed(3);
+      actions.style.opacity = 1;
+      const u = t - S0;
+      brise(u);
+      const w = t - T.desc;
+      poserFigue(descente(state.descente, w, P, u), P);
+      secousseCagette(state.descente === 'd' ? choc(w, IMPACTS.d, 100, 220) : 0);
+      ouvrirFigue(t - T.ouvre);
+      const vive = t >= T.salut;
+      figueG.setAttribute('opacity', vive ? 0 : 1);
+      figLive.setAttribute('opacity', vive ? 1 : 0);
+      if (vive) {
+        const p = prog(t, T.salut, 500), wave = p > 0 && p < 1 ? Math.sin(4 * Math.PI * p) * Math.sin(Math.PI * p) : 0;
+        drawFig({ ...REST, arm: 0.35 * wave });
+      }
+      // La vue : une seule descente, du ciel jusqu'à la figue pendue, qui ne s'arrête pas avant que la figue ne se balance.
+      let cam = mixCam(C.ciel, C.approche, COULE(prog(t, S0, 2050)));
+      const lache = T.desc + LACHERS[state.descente] - 60;
+      if (t > lache) cam = mixCam(cam, C.suivi(suivie(state.descente, w, P, u)), EASE_IN_OUT(prog(t, lache, 500)));
+      cam = mixCam(cam, C.fin, EASE_IN_OUT(prog(t, T.pose0, T.pose1 - T.pose0)));
+      poserCamera(cam);
+      voile.setAttribute('opacity', 1);
+    }
+  };
+}
 // b, mouvement réduit : le logo en fondu ; puis l'accueil en fondu, le paysage sur tout l'écran, la figue déjà ouverte sur le pré.
 function apresReduite() {
   const dec = DECORS[state.decor];
@@ -1077,7 +1178,8 @@ function apresReduite() {
     render(t) {
       const avant = t < 1800;
       const k = avant ? 1 - prog(t, 1500, 300) : prog(t, 1800, 300);
-      ecran({ scene: avant ? 0 : k, accueil: !avant, accroche: avant ? Math.min(k, prog(t, 0, 600)) : 0, logo: true });
+      // Versions bis : le paysage paraît déjà pendant que le logo s'efface ; aucun passage par le blanc.
+      ecran({ scene: versionBis() ? prog(t, 1500, 600) : avant ? 0 : k, accueil: !avant, accroche: avant ? Math.min(k, prog(t, 0, 600)) : 0, logo: true });
       drawLogo(avant ? 0 : 1);
       etatLogo(logoDessine(1, 1, 1));
       logoSvg.style.opacity = (avant ? Math.min(prog(t, 0, 600), k) : k).toFixed(3);
@@ -1113,7 +1215,7 @@ const state = {
   place: choix('place', ['b', 'c'], 'b'),                   // choix du 20/10 : après la révélation
   descente: choix('descente', ['a', 'b', 'c', 'd'], 'a'),   // elle saute
   decor: choix('decor', ['a', 'b', 'c'], 'a'),               // paysage du Sud
-  bas: choix('bas', ['pale', 'profond', 'blanc'], 'pale'),   // le bas de l'écran, trois versions à comparer
+  bas: choix('bas', ['pale', 'profond', 'pale-bis', 'profond-bis', 'blanc'], 'pale-bis'),   // le bas de l'écran (21/10 : le blanc est écarté)
   speed: 1,
   motion: params.get('mouvement') === 'reduit' ? 'reduit' : params.get('mouvement') === 'normal' ? 'normal' : 'systeme',
   notes: params.get('notes') === 'off' ? 'off' : 'on',
@@ -1128,13 +1230,22 @@ function deroule() {
   const rm = reduced();
   screenEl.classList.toggle('rm', rm);
   screenEl.classList.toggle('hidden-notes', state.notes === 'off');
-  screenEl.dataset.bas = state.place === 'b' ? state.bas : '';
+  screenEl.dataset.bas = state.place === 'b' ? couleurBas() : '';
   modeScene(false);
   REF = { x: 195, y: 422 };
+  // Ce que les versions bis déplacent ou changent, remis en place pour les autres.
+  const bis = versionBis();
+  SOCLE_DY = 0;
+  socleG.removeAttribute('transform');
+  for (const el of [accueil, accroche, actions]) el.style.transform = '';
+  voile.setAttribute('fill', '#FFFFFF');
+  scene.insertBefore(voile, bis && !rm ? socleG : null);   // bis : le bas de l'écran monte par-dessus le blanc
+  live[0].s = SOURCES[0] = CHAIRS[bis ? 'bis' : 'net'];
+  live[0].last = '';
   construireMonde();
   construireFigue(state.place === 'c' ? 'o' : 'symbole');
   if (state.place === 'c') return rm ? fondueReduite() : fondue();
-  return rm ? apresReduite() : apres();
+  return rm ? apresReduite() : bis ? apresBis() : apres();
 }
 
 const scrub = ROOT.getElementById('scrub');

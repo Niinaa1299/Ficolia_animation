@@ -25,7 +25,7 @@ Décisions de la porteuse du 17/10, sauf mention contraire.
 - **Le rappel général reste sur l'accueil** (`D-114` C8) : au premier écran, sous l'objectif.
 - **Aucune demande d'autorisation sur l'accueil** : pas de notification (`T-224`) ; la caméra n'est demandée qu'au premier scan (`T-232`, décision du 05/10).
 - **L'acceptation** : lien vers les conditions d'utilisation, bouton « Accepter », aucune case précochée ; une nouvelle acceptation à chaque nouvelle version des conditions (`T-557`).
-- **L'animation d'ouverture ne joue qu'au premier lancement** (porteuse, 18/10).
+- **L'animation d'ouverture ne joue qu'au premier lancement** (porteuse, 18/10). Aux lancements suivants, un écran de chargement plus court (porteuse, 21/10) : sa forme et sa durée restent à proposer.
 
 Ce que la maquette de l'accueil (`maquettes/accueil.html`) en applique déjà :
 - une idée par écran ;
@@ -54,7 +54,7 @@ Ce que la maquette de l'accueil (`maquettes/accueil.html`) en applique déjà :
 - **Les limites essentielles**, au second écran : en attente de la juriste.
 - **L'aide au bon moment** : son scénario est à proposer (premier scan, recherche par nom…). Ces écrans sont hors du récit de la figue (`FICOLIA_DESIGN.md` §2) : l'aide s'y passe de figue. L'écran produit reste dépouillé, et rien n'y appelle à l'action (`D-66`).
 - **Retrouver l'accueil** une fois passé, par exemple depuis « À propos ».
-- **L'arbre et la figue**, idée de la porteuse du 17/10 (`maquettes/ouverture-arbre.html`). Tranché le 20/10 : après la révélation ; elle saute ; un paysage du Sud, qui occupe tout l'écran (le ciel entier en haut, derrière le logo ; l'herbe fondue jusqu'en bas ; le texte et « Continuer » posés dessus) ; la vue descend du ciel jusqu'au figuier ; pas de « Passer », l'accueil n'ayant que deux écrans. Au sol, la figue s'ouvre calmement (porteuse, 18/10). À trancher : la couleur du bas de l'écran (vert pâle, vert profond ou blanc). Écart à tracer : sans « Passer », les 5 s de la révélation se regardent en entier au premier lancement (§1, « Le lancement doit être immédiat »).
+- **L'arbre et la figue**, idée de la porteuse du 17/10 (`maquettes/ouverture-arbre.html`). Tranché le 20/10 : après la révélation ; elle saute ; un paysage du Sud, qui occupe tout l'écran (le ciel entier en haut, derrière le logo ; l'herbe fondue jusqu'en bas ; le texte et « Continuer » posés dessus) ; la vue descend du ciel jusqu'au figuier ; pas de « Passer », l'accueil n'ayant que deux écrans et ce jeu d'écrans ne se jouant qu'une fois, au premier lancement (porteuse, 20 et 21/10). Au sol, la figue s'ouvre calmement (porteuse, 18/10). Le 21/10 : le blanc est écarté pour le bas de l'écran ; deux versions bis ajoutent une transition imbriquée entre la révélation et l'arbre, et une chair qui monte jusqu'à la queue. À trancher : vert pâle ou vert profond, et les versions bis. Écart à tracer, limité au premier lancement : sans « Passer », les 5 s de la révélation s'y regardent en entier (§1, « Le lancement doit être immédiat »).
 
 ## 5. Sources
 
