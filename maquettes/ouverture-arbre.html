@@ -177,7 +177,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
             <button type="button" class="plein" id="continuer">Continuer</button>
           </div>
         </div>
-        <svg class="logo" id="logoSvg" viewBox="0 0 390 844" role="img" aria-label="Ficolia"><g id="logo"></g></svg>
+        <svg class="logo" id="logoSvg" viewBox="0 0 390 844" role="img" aria-label="Ficolia"><g id="logo"></g><g id="heros" opacity="0"></g></svg>
         <div class="accroche" id="accroche"><p id="l1">Vos cosmétiques,</p><p id="l2">en toute sérénité.</p></div>
         <p class="bienvenue" id="bienvenue">Bienvenue sur Ficolia</p>
       </div>
@@ -191,14 +191,18 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
     </div>
 
     <div class="group">
-      <span class="label" id="lblTransition">La transition, de la révélation à l’arbre (21/10 : trois propositions)</span>
+      <span class="label" id="lblTransition">La transition, de la révélation à l’arbre (21/10 : la figue du « o » en personnage principal, puis les trois propositions d’avant)</span>
       <div class="seg" role="group" aria-labelledby="lblTransition" data-key="transition">
+        <button type="button" data-val="recul">Gros plan, puis recul</button>
+        <button type="button" data-val="saut">Elle saute du logo</button>
         <button type="button" data-val="brume">La brume</button>
         <button type="button" data-val="soleil">Le soleil</button>
         <button type="button" data-val="mouvement">Un seul mouvement</button>
         <button type="button" data-val="bis">Celle du bis</button>
       </div>
-      <p class="small">La brume, ma préférence : le paysage sort du blanc plan par plan, comme d’une brume du matin : le ciel et le soleil, les collines lointaines, les collines proches, puis l’arbre et la figue. Le soleil : le blanc de la révélation est la lumière du soleil ; il se retire dans le soleil, et le paysage paraît autour. Un seul mouvement : la vue descend du ciel d’un seul geste, plus lent que dans le bis ; le logo monte avec le ciel, le bas de l’écran avec le sol.</p>
+      <p class="small">La figue du « o » est le personnage principal (porteuse, 21/10). Gros plan, puis recul : pendant son souffle, la vue s’approche d’elle ; en grandissant, elle se referme ; la vue recule : elle pend à son figuier, et regarde à gauche, à droite, l’air de dire « tiens, me voilà dans un arbre ». Elle saute du logo : elle se referme, se penche au bord du mot, regarde en bas, hésite, se lance ; la vue la suit dans sa chute, et elle se rattrape à une branche par la queue, de justesse. Puis, dans les deux, la suite choisie le 20/10 : elle se balance, saute, se pose sur le pré, s’ouvre et salue.</p>
+      <p class="small">Pendant son absence, « Fic » et « lia » s’effacent, et le logo revient complet en haut (porteuse, 21/10) : le nom ne s’affiche jamais incomplet. Elle garde le dessin du « o » jusqu’au milieu de son saut de la branche ; là, fermée et en plein vol, elle laisse la place à la figue du symbole. Sa chute est un saut choisi : elle hésite, se lance, se rattrape (vigilance du brief §4).</p>
+      <p class="small">Les trois propositions d’avant. La brume : le paysage sort du blanc plan par plan, comme d’une brume du matin : le ciel et le soleil, les collines lointaines, les collines proches, puis l’arbre et la figue. Le soleil : le blanc de la révélation est la lumière du soleil ; il se retire dans le soleil, et le paysage paraît autour. Un seul mouvement : la vue descend du ciel d’un seul geste, plus lent que dans le bis ; le logo monte avec le ciel, le bas de l’écran avec le sol.</p>
       <p class="small">Pour les trois : rien n’entre d’un coup ni ne glisse en sens contraire ; chaque geste suit une seule courbe, longue et douce. Le plan est plus large que dans le bis : tout le figuier, le feuillage sous le logo. La vue va trois à cinq fois moins vite ; elle suit la figue d’un peu plus loin pendant son saut, et se pose en 1 s au lieu de 0,65. Le feuillage ne repasse derrière le logo qu’un instant, quand la vue redescend vers le pré.</p>
       <p class="small">Avec la brume et le soleil, le bas de l’écran prend la couleur du pré sur place, et le texte et « Continuer » paraissent sur place, à 5 s ; avec un seul mouvement, ils montent avec le sol, de 5,1 à 5,6 s. L’animation qui les accompagne dure ensuite 4,8 s au plus, sous les 5 s (WCAG 2.2.2).</p>
       <p class="small">Le bas de l’écran : vert pâle bis (porteuse, 21/10), avec la chair de la figue jusqu’à la queue. Vert pâle, vert profond et vert profond bis restent jouables par l’adresse (?bas=pale, profond, profond-bis), pour mémoire.</p>
@@ -678,41 +682,44 @@ const DESSINS = {
 };
 const centreDe = el => { const b = el.getBBox(); return { x: b.x + b.width / 2, y: b.y + b.height / 2 }; };
 let FIGUE = null;
-function construireFigue(type) {
-  figueG.textContent = '';
-  const cp = (nom, ds) => { const c = svgEl('clipPath', { id: 'c' + type + nom }, figueG); for (const d of ds) svgEl('path', { d }, c); return `url(#c${type}${nom})`; };
+function construireFigue(type) { FIGUE = dessinerFigue(type, figueG, type); }
+// Une figue dessinée dans G : le « o » du logo ou le symbole ; id distingue ses découpes.
+function dessinerFigue(type, G, id) {
+  G.textContent = '';
+  const cp = (nom, ds) => { const c = svgEl('clipPath', { id: 'c' + id + nom }, G); for (const d of ds) svgEl('path', { d }, c); return `url(#c${id}${nom})`; };
   if (type === 'o') {
-    const gF = svgEl('g', { 'clip-path': cp('F', LOGO.chair) }, figueG);
+    const gF = svgEl('g', { 'clip-path': cp('F', LOGO.chair) }, G);
     svgEl('rect', { x: 240, y: 60, width: 150, height: 150, fill: 'var(--f-peau)' }, gF);
     const reflet = svgEl('g', {}, gF);
     svgEl('ellipse', { cx: 294, cy: 132, rx: 22, ry: 42, fill: 'var(--o-reflet)', transform: 'rotate(20 294 132)' }, reflet);
     svgEl('ellipse', { cx: 286, cy: 112, rx: 5, ry: 11, fill: '#FFFFFF', opacity: 0.32, transform: 'rotate(20 286 112)' }, reflet);
     const chairEl = svgEl('g', {}, gF);
     for (const d of LOGO.chair) svgEl('path', { d, fill: 'var(--f-chair)' }, chairEl);
-    const gV = svgEl('g', { 'clip-path': cp('V', LOGO.nervures) }, figueG);
+    const gV = svgEl('g', { 'clip-path': cp('V', LOGO.nervures) }, G);
     const moyeu = svgEl('circle', { cx: LOGO.moyeu[0], cy: LOGO.moyeu[1], r: LOGO.moyeu[2], fill: 'var(--f-nervure)' }, gV);
     const traits = REV.gV.map(d => svgEl('path', { d, fill: 'none', stroke: 'var(--f-nervure)', 'stroke-width': 6.1, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-dasharray': '50.7 160' }, gV));
-    const graines = LOGO.graines.map(d => svgEl('path', { d, fill: 'var(--f-graine)', 'fill-rule': 'evenodd' }, figueG));
-    for (const d of [...LOGO.contourA, ...LOGO.contourB]) svgEl('path', { d, fill: 'var(--f-peau)', 'fill-rule': 'evenodd' }, figueG);
-    FIGUE = { type, reflet, chair: chairEl, cc: { x: 319.5, y: 145 }, moyeu, traits, graines, centres: graines.map(centreDe) };
+    const graines = LOGO.graines.map(d => svgEl('path', { d, fill: 'var(--f-graine)', 'fill-rule': 'evenodd' }, G));
+    for (const d of [...LOGO.contourA, ...LOGO.contourB]) svgEl('path', { d, fill: 'var(--f-peau)', 'fill-rule': 'evenodd' }, G);
+    return { type, reflet, chair: chairEl, cc: { x: 319.5, y: 145 }, moyeu, traits, graines, centres: graines.map(centreDe) };
   } else {
     // Le symbole, dans l'ordre de la figue de l'accueil : la chair, le contour et l'arc, les nervures, les graines.
-    const gF = svgEl('g', { 'clip-path': cp('F', [SOURCES[0].d]) }, figueG);
+    const gF = svgEl('g', { 'clip-path': cp('F', [SOURCES[0].d]) }, G);
     svgEl('rect', { x: 0, y: 40, width: 215, height: 220, fill: 'var(--f-peau)' }, gF);
     const reflet = svgEl('g', {}, gF);
     svgEl('ellipse', { cx: 84, cy: 128, rx: 30, ry: 62, fill: 'var(--o-reflet)', transform: 'rotate(18 84 128)' }, reflet);
     svgEl('ellipse', { cx: 72, cy: 100, rx: 7, ry: 16, fill: '#FFFFFF', opacity: 0.32, transform: 'rotate(18 72 100)' }, reflet);
     const chairEl = svgEl('path', { d: SOURCES[0].d, fill: 'var(--f-chair)' }, gF);
-    svgEl('path', { d: FIG.contour, fill: 'var(--f-peau)' }, figueG);
-    svgEl('path', { d: FIG.arc, fill: 'var(--f-peau)' }, figueG);
-    const nervures = svgEl('path', { d: FIG.veins, fill: 'var(--f-nervure)' }, figueG);
-    const graines = FIG.seeds.map(d => svgEl('path', { d, fill: 'var(--f-graine)' }, figueG));
-    FIGUE = { type, reflet, chair: chairEl, cc: { x: 112, y: 150 }, nervures, hub: { x: 112.3, y: 134.7 }, graines, centres: graines.map(centreDe) };
+    svgEl('path', { d: FIG.contour, fill: 'var(--f-peau)' }, G);
+    svgEl('path', { d: FIG.arc, fill: 'var(--f-peau)' }, G);
+    const nervures = svgEl('path', { d: FIG.veins, fill: 'var(--f-nervure)' }, G);
+    const graines = FIG.seeds.map(d => svgEl('path', { d, fill: 'var(--f-graine)' }, G));
+    return { type, reflet, chair: chairEl, cc: { x: 112, y: 150 }, nervures, hub: { x: 112.3, y: 134.7 }, graines, centres: graines.map(centreDe) };
   }
 }
 // Elle s'ouvre, calmement, comme dans la révélation (un peu plus lentement) : u, en ms depuis le début.
-function ouvrirFigue(u) {
-  const F = FIGUE;
+// Elle se referme en remontant le temps : u qui décroît.
+const OUVERTE = 1152;   // la dernière graine est là
+function ouvrirFigue(u, F = FIGUE) {
   // La chair, de la forme même de la figue, grandit depuis le milieu : la figue s'ouvre.
   F.chair.setAttribute('transform', autour(seg(u, 0, 684, 0.001, 1, RV.a), F.cc.x, F.cc.y));
   F.reflet.setAttribute('opacity', (1 - seg(u, 0, 300, 0, 1)).toFixed(3));
@@ -849,7 +856,7 @@ const LG = (() => {
   const cA = svgEl('g', { 'clip-path': cp('lCA', LOGO.contourA) }, g);
   const cB = svgEl('g', { 'clip-path': cp('lCB', LOGO.contourB) }, g);
   const gA = trait(cA, REV.gA, 12.4, 179.2), gM = trait(cB, REV.gM, 11.9, 275.1), gS = trait(cB, REV.gS, 11.9, 28.7);
-  return { fic, lia, move, breath, chair: chairEl, moyeu, traits, graines, centres: graines.map(centreDe), dot, dotC, tip, gA, gM, gS };
+  return { fic, lia, ancre, move, breath, chair: chairEl, moyeu, traits, graines, centres: graines.map(centreDe), dot, dotC, tip, gA, gM, gS };
 })();
 const LOGO_C = { x: 303.75, y: 118.4 };               // le milieu du logotype, dans ses coordonnées
 const LOGO_DEPART = { x: 195, y: 296.1, k: 0.5056 };  // sa place sur la dernière image de l'ouverture (1080 × 1920 ramené à 390 de large)
@@ -1095,12 +1102,12 @@ function apres() {
 const COULE = cubicBezier(0.42, 0, 0.3, 1);      // la descente de la vue et la montée du logo, sur le même souffle
 const MONTE = cubicBezier(0.3, 0.1, 0.2, 1);     // le bas de l'écran
 // Les instants de la figue, à partir du début de sa descente : au repos, la vue se pose, elle s'ouvre, elle salue, fin.
-function tempsFigue(desc, pose = [250, 650]) {
+function tempsFigue(desc, pose = [250, 650], salut = 1000) {
   const T = { desc };
   T.repos = T.desc + FINS[state.descente];
   T.pose0 = T.repos - pose[0]; T.pose1 = T.pose0 + pose[1];
   T.ouvre = T.pose1 - 150;
-  T.salut = T.ouvre + 1000;
+  T.salut = T.ouvre + salut;
   T.fin = T.salut + 500;
   return T;
 }
@@ -1124,6 +1131,7 @@ function figueEtVue(t, S0, T, P, C, cam, courbe = EASE_IN_OUT, suite = 500) {
   if (t > lache) cam = mixCam(cam, C.suivi(suivie(state.descente, w, P, u)), courbe(prog(t, lache, suite)));
   cam = mixCam(cam, C.fin, courbe(prog(t, T.pose0, T.pose1 - T.pose0)));
   poserCamera(cam);
+  return cam;
 }
 function apresBis() {
   const P = parametres();
@@ -1267,6 +1275,177 @@ function apresFluide(type) {
     }
   };
 }
+// Vert pâle bis : la figue du « o » en personnage principal (porteuse, 21/10 : « c'est elle le perso principal »).
+//   recul : pendant son souffle, la vue s'approche d'elle ; en grandissant, elle se referme ; la vue recule : elle pend à
+//           son figuier ; elle regarde à gauche, à droite ; puis la suite choisie le 20/10.
+//   saut : elle se referme, se penche au bord du mot, regarde en bas, hésite, se lance ; la vue la suit dans sa chute ; elle
+//          se rattrape à une branche par la queue ; puis la suite choisie le 20/10.
+// Pendant son absence, « Fic » et « lia » s'effacent ; le logo revient complet en haut (porteuse, 21/10, réponse a).
+// Elle reste le dessin du « o » jusqu'au milieu de son saut de la branche ; là, fermée et en plein vol, elle laisse la place
+// à la figue du symbole, qui se pose, s'ouvre et salue.
+const herosG = ROOT.getElementById('heros');
+let HEROS = null;
+const O = DESSINS.o;
+const versEcran = (x, y, cam) => ({ x: VUE.w / 2 + (x - cam.x) * cam.z, y: VUE.h / 2 + (y - cam.y) * cam.z });
+// h : son bas sur l'écran (bx, by), sa rotation r autour de ce bas, son échelle s, son écrasement sx, sy.
+function poserHeros(h) {
+  herosG.setAttribute('transform', `translate(${h.bx.toFixed(2)} ${h.by.toFixed(2)}) rotate(${h.r.toFixed(2)}) scale(${(h.s * h.sx).toFixed(4)} ${(h.s * h.sy).toFixed(4)}) translate(${-O.B.x} ${-O.B.y})`);
+}
+// Droite, son milieu en (cx, cy) sur l'écran, à l'échelle S.
+const herosDroit = (cx, cy, S) => ({ bx: cx + (O.B.x - O.C.x) * S, by: cy + (O.B.y - O.C.y) * S, r: 0, s: S, sx: 1, sy: 1 });
+// Dans le monde : sa pose f, avec le dessin du « o » (Po), vue par la caméra cam.
+const herosMonde = (f, Po, cam) => { const b = versEcran(f.bx, f.by, cam); return { bx: b.x, by: b.y, r: f.r, s: Po.s * cam.z, sx: f.sx, sy: f.sy }; };
+// Le milieu du « o » sur la dernière image de la révélation, et son échelle.
+const O_LOGO = { x: LOGO_DEPART.x + (O.C.x - LOGO_C.x) * LOGO_DEPART.k, y: LOGO_DEPART.y + (O.C.y - LOGO_C.y) * LOGO_DEPART.k, k: LOGO_DEPART.k };
+// Le logo, vu de plus près : grossi Z fois autour du « o », le « o » amené en (cx, cy).
+function drawLogoZoom(Z, cx, cy) {
+  logoG.setAttribute('transform', `translate(${cx.toFixed(2)} ${cy.toFixed(2)}) scale(${Z.toFixed(4)}) translate(${(-O_LOGO.x).toFixed(3)} ${(-O_LOGO.y).toFixed(3)}) translate(${LOGO_DEPART.x} ${LOGO_DEPART.y}) scale(${LOGO_DEPART.k}) translate(${-LOGO_C.x} ${-LOGO_C.y})`);
+}
+const PRES = { x: 195, y: 320, S: 1.28 };   // recul : le gros plan, son milieu et son échelle sur l'écran
+function apresFigueO(type) {
+  const P = parametres();
+  const C = cadrages(P);
+  REF = C.ref;
+  const dec = DECORS[state.decor];
+  // La même figue, dessinée en « o » : ses mesures dans le monde.
+  const Po = { ...P, D: O, s: dec.so, H: { x: (O.B.x - O.T.x) * dec.so, y: (O.B.y - O.T.y) * dec.so }, CB: { x: (O.C.x - O.B.x) * dec.so, y: (O.C.y - O.B.y) * dec.so } };
+  HEROS = dessinerFigue('o', herosG, 'ho');
+  const recul = type === 'recul';
+  const S0 = 4440;   // elle prend le relais du « o » du logo, juste avant son souffle : les deux sont identiques
+  const T = tempsFigue(recul ? 6350 : 6300, [450, 900], 800);
+  T.sortie = recul ? 4600 : 5450;    // « Fic » et « lia » s'effacent
+  T.retour = recul ? 6450 : 6500;    // le logo revient, complet, en haut, une fois la vue posée sur le figuier
+  T.monde = recul ? 5450 : 6300;     // le monde la reçoit : la vue recule ; ou elle se rattrape à la branche
+  const B0 = T.monde - 2600;         // la brise, réglée pour qu'elle pende droite à cet instant
+  // Les plans de la vue : plus larges que dans le bis, comme pour les trois propositions.
+  const zA = 1.2, zS = 1.35, mh = milieuDe(P, pendue(P, 0));
+  const approche = { x: mh.x - 35 / zA, y: mh.y - 3 / zA, z: zA };
+  const CF = { ...C, suivi: m => ({ x: m.x - 35 / zS, y: m.y + 22 / zS, z: zS }) };
+  // recul : le gros plan, dans le monde : elle, pendue droite, au milieu et à l'échelle du gros plan sur l'écran.
+  const zP = PRES.S / Po.s, mo = milieuDe(Po, pendue(Po, 0));
+  const pres = { x: mo.x - (PRES.x - VUE.w / 2) / zP, y: mo.y - (PRES.y - VUE.h / 2) / zP, z: zP };
+  // saut : la vue part d'au-dessus du figuier et arrive quand elle se rattrape ; sa chute, sur l'écran, du logo à la branche.
+  const depart = { ...approche, y: approche.y - 350 };
+  const b0 = herosDroit(O_LOGO.x, O_LOGO.y, O_LOGO.k), b1 = herosMonde(pendue(Po, 0), Po, approche);
+  const haut = 45, dY = b1.by - b0.by, hH = 2 * haut + 2 * Math.sqrt(haut * haut + haut * dY);   // la hauteur de son élan
+  const gS = defs.querySelector('#gSocle');
+  const propres = recul ? [
+    [4550, 'Pendant son souffle, la vue s’approche d’elle ; « Fic » et « lia » s’effacent sur les côtés ; l’accroche s’en va vers le bas.'],
+    [4900, 'En grandissant, elle se referme : la chair, les nervures et les graines se replient.'],
+    [5150, 'Le texte et « Continuer » paraissent, sur place.'],
+    [T.monde, 'La vue recule : le blanc devient ciel, une branche et des feuilles paraissent autour d’elle ; elle pend à son figuier.'],
+    [5850, 'Elle regarde à gauche, à droite, l’air de dire : tiens, me voilà dans un arbre.'],
+    [T.retour, 'Le logo revient, complet, en haut.']
+  ] : [
+    [4700, 'Après son souffle, elle se referme.'],
+    [5000, 'Elle se penche au bord du mot, regarde en bas, hésite…'],
+    [5150, 'Le texte et « Continuer » paraissent, sur place.'],
+    [5400, '… et se lance ; « Fic » et « lia » s’effacent.'],
+    [5520, 'La vue la suit dans sa chute : le blanc devient ciel, le figuier monte à sa rencontre.'],
+    [T.monde, 'Elle se rattrape à une branche par la queue, de justesse.'],
+    [T.retour, 'Le logo revient, complet, en haut.']
+  ];
+  const beats = [...BEATS_REVELATION, ...propres,
+    ...TEXTES_DESCENTE[state.descente].map(([ms, txt]) => [T.desc + ms, txt]),
+    [T.pose0, 'La vue se pose : le paysage sur tout l’écran, le texte sur l’herbe.'],
+    [T.ouvre, 'Elle s’ouvre, calmement, avant que la vue ne s’arrête.'],
+    [T.salut, 'Elle salue d’un mouvement de queue.'],
+    [T.fin, 'Fin : l’image reste fixe.']].sort((a, b) => a[0] - b[0]);
+  return {
+    duration: T.fin, beats,
+    render(t) {
+      monte(l1, seg(t, 3500, 4050, 0, 1, RV.a), 7.94);
+      monte(l2, seg(t, 3800, 4350, 0, 1, RV.a), 7.94);
+      if (t < S0) {
+        ecran({ scene: 0, accueil: false, accroche: 1, logo: true });
+        drawLogo(0);
+        etatLogo(revelation(t));
+        LG.ancre.removeAttribute('opacity');
+        logoG.removeAttribute('opacity');
+        herosG.setAttribute('opacity', 0);
+        return;
+      }
+      // Le logo : sans son « o », que la figue a remplacé ; « Fic » et « lia » s'effacent ; puis il revient, complet, en haut.
+      const eZ = recul ? DOUX(prog(t, 4550, 900)) : 0, Z = Math.pow(PRES.S / O_LOGO.k, eZ);
+      const ox = mix(O_LOGO.x, PRES.x, eZ), oy = mix(O_LOGO.y, PRES.y, eZ);
+      if (t < T.retour) {
+        const e = revelation(Math.min(t, 5000));
+        e.nom = Math.min(e.nom, 1 - DOUX(prog(t, T.sortie, 450)));
+        etatLogo(e);
+        if (recul) drawLogoZoom(Z, ox, oy); else drawLogo(0);
+        LG.ancre.setAttribute('opacity', 0);
+        logoG.removeAttribute('opacity');
+      } else {
+        drawLogo(1);
+        etatLogo(logoDessine(1, 1, 1));
+        LG.ancre.removeAttribute('opacity');
+        logoG.setAttribute('opacity', DOUX(prog(t, T.retour, 600)).toFixed(3));
+      }
+      const kA = DOUX(prog(t, recul ? 4600 : 5450, recul ? 450 : 350));
+      accroche.style.transform = recul ? `translateY(${(40 * eZ).toFixed(2)}px)` : '';
+      ecran({ scene: 1, accueil: true, accroche: 1 - kA, logo: true });
+      // Le paysage : recul, le blanc se dissipe pendant que la vue recule ; saut, il sort du blanc plan par plan.
+      if (recul) voile.setAttribute('opacity', (1 - DOUX(prog(t, T.monde, 800))).toFixed(3));
+      else {
+        voile.setAttribute('opacity', 0);
+        [[ciel, 5250], [loin, 5400], [milieu, 5500], [monde, 5600]].forEach(([g, a]) => g.setAttribute('opacity', DOUX(prog(t, a, 700)).toFixed(3)));
+      }
+      // Le bas de l'écran prend la couleur du pré, sur place ; le texte et « Continuer » paraissent, sur place.
+      SOCLE_DY = 0;
+      socleG.setAttribute('transform', 'translate(0 0)');
+      socleG.setAttribute('opacity', DOUX(prog(t, 4600, 700)).toFixed(3));
+      gS.setAttribute('y2', (SOL_ECRAN + 62 - 26 * (1 - EASE_IN_OUT(prog(t, T.pose0, T.pose1 - T.pose0)))).toFixed(1));
+      accueil.style.transform = 'translateY(0px)';
+      monte(copy, DOUX(prog(t, 5150, 500)), 8);
+      actions.style.opacity = DOUX(prog(t, 5200, 450)).toFixed(3);
+      // La vue, et la figue du symbole, cachée jusqu'au milieu du saut de la branche.
+      const vue0 = recul ? mixCam(pres, approche, DOUX(prog(t, T.monde, 1000))) : mixCam(depart, approche, DOUX(prog(t, 5450, 850)));
+      const cam = figueEtVue(t, B0, T, P, CF, vue0, DOUX, 700);
+      const w = t - T.desc, uB = t - B0, kS = prog(w, 1000, 100);
+      if (t < T.salut) figueG.setAttribute('opacity', kS.toFixed(3));
+      herosG.setAttribute('opacity', (1 - kS).toFixed(3));
+      // Elle se referme.
+      ouvrirFigue(OUVERTE * (1 - DOUX(recul ? prog(t, 4900, 550) : prog(t, 4700, 500))), HEROS);
+      let h, rx = 0, ry = 0;
+      if (t < T.monde) {
+        const souffle = revelation(Math.min(t, 5000)).souffle;
+        if (recul) h = herosDroit(ox, oy, O_LOGO.k * Z * souffle);
+        else if (t < 5520) {
+          // Au bord du mot : elle se penche, regarde en bas, se redresse, se penche encore ; puis elle prend son élan.
+          const pen = t < 5180 ? seg(t, 5000, 5180, 0, 11, DOUX) : t < 5290 ? seg(t, 5180, 5290, 11, -3, DOUX) : t < 5390 ? seg(t, 5290, 5390, -3, 7, DOUX) : seg(t, 5390, 5470, 7, 0, DOUX);
+          const elan = smooth(5400, 5510, t);
+          h = { ...herosDroit(O_LOGO.x, O_LOGO.y, O_LOGO.k * souffle), r: pen, sx: 1 + 0.1 * elan, sy: 1 - 0.16 * elan };
+          rx = 10 * clamp01(pen / 11); ry = 14 * clamp01(pen / 11);
+        } else {
+          // Sa chute : un élan vers le haut, puis elle tombe vers la branche, que la vue amène sous elle.
+          const p = prog(t, 5520, T.monde - 5520), s = Math.sin(Math.PI * p), detente = 1 - smooth(0, 0.1, p);
+          h = { bx: mix(b0.bx, b1.bx, 1 - Math.pow(1 - p, 1.4)), by: b0.by - hH * p + (dY + hH) * p * p, r: 9 * s,
+            s: mix(b0.s, b1.s, p), sx: 1 - 0.07 * s + 0.1 * detente, sy: 1 + 0.12 * s - 0.16 * detente };
+        }
+      } else {
+        // Dans le monde : pendue à sa branche, puis la suite choisie le 20/10.
+        let f;
+        if (w < LACHERS[state.descente]) {
+          f = descente(state.descente, w, Po, uB);
+          const d = t - T.monde;
+          // recul : elle regarde à gauche, à droite ; saut : elle se rattrape, lancée, et se balance.
+          const regard = recul ? Math.sin(2 * Math.PI * prog(t, 5850, 600)) : 0;
+          const prise = recul ? 0 : -16 * Math.exp(-d / 260) * Math.sin(2 * Math.PI * d / 640);
+          f = pendue(Po, f.r + 3 * regard + prise);
+          rx = -16 * regard;
+        } else {
+          // En plein saut, elle suit la trajectoire de la figue du symbole, qui va prendre sa place.
+          const fs = descente(state.descente, w, P, uB), fo = descente(state.descente, w, Po, uB);
+          const ms = milieuDe(P, fs), mO = milieuDe(Po, fo), k = smooth(LACHERS[state.descente], LACHERS[state.descente] + 140, w);
+          f = { ...depuisMilieu(Po, mix(mO.x, ms.x, k), mix(mO.y, ms.y, k), fs.r), sx: fs.sx, sy: fs.sy };
+        }
+        h = herosMonde(f, Po, cam);
+      }
+      poserHeros(h);
+      HEROS.reflet.setAttribute('transform', `translate(${rx.toFixed(2)} ${ry.toFixed(2)})`);
+    }
+  };
+}
 // b, mouvement réduit : le logo en fondu ; puis l'accueil en fondu, le paysage sur tout l'écran, la figue déjà ouverte sur le pré.
 function apresReduite() {
   const dec = DECORS[state.decor];
@@ -1318,7 +1497,7 @@ const state = {
   descente: choix('descente', ['a', 'b', 'c', 'd'], 'a'),   // elle saute
   decor: choix('decor', ['a', 'b', 'c'], 'a'),               // paysage du Sud
   bas: choix('bas', ['pale', 'profond', 'pale-bis', 'profond-bis', 'blanc'], 'pale-bis'),   // le bas de l'écran (21/10 : vert pâle bis)
-  transition: choix('transition', ['brume', 'soleil', 'mouvement', 'bis'], 'brume'),      // versions bis : trois propositions (21/10)
+  transition: choix('transition', ['recul', 'saut', 'brume', 'soleil', 'mouvement', 'bis'], 'recul'),   // versions bis (21/10)
   speed: 1,
   motion: params.get('mouvement') === 'reduit' ? 'reduit' : params.get('mouvement') === 'normal' ? 'normal' : 'systeme',
   notes: params.get('notes') === 'off' ? 'off' : 'on',
@@ -1342,6 +1521,11 @@ function deroule() {
   socleG.removeAttribute('transform');
   for (const g of [ciel, loin, milieu, monde, socleG]) g.removeAttribute('opacity');
   for (const el of [accueil, accroche, actions]) el.style.transform = '';
+  LG.ancre.removeAttribute('opacity');
+  logoG.removeAttribute('opacity');
+  herosG.textContent = '';
+  herosG.setAttribute('opacity', 0);
+  HEROS = null;
   voile.setAttribute('fill', '#FFFFFF');
   scene.insertBefore(voile, bis && !rm ? socleG : null);   // bis : le bas de l'écran monte par-dessus le blanc
   live[0].s = SOURCES[0] = CHAIRS[bis ? 'bis' : 'net'];
@@ -1351,6 +1535,7 @@ function deroule() {
   if (state.place === 'c') return rm ? fondueReduite() : fondue();
   if (rm) return apresReduite();
   if (!bis) return apres();
+  if (state.transition === 'recul' || state.transition === 'saut') return apresFigueO(state.transition);
   return state.transition === 'bis' ? apresBis() : apresFluide(state.transition);
 }
 
