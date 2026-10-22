@@ -5,3 +5,7 @@ Ce dossier sert à concevoir l'animation d'ouverture, les écrans d'accueil et l
 @FICOLIA_DESIGN.md
 
 @cap-onboarding.md
+
+Pour reprendre le travail (où est chaque artéfact, ce qui est décidé, ce qui attend la porteuse), la note de passation du 22/10 est importée ci-dessous. Les sources des artéfacts et leur mode d'emploi sont dans `outils/sources/LISEZ-MOI.md`.
+
+@PASSATION.md

@@ -1,6 +1,6 @@
 # Passation : reprendre le travail dans un autre compte
 
-Note du 22/10/2026, écrite par la session qui s'arrête pour celle qui reprend. Lis d'abord `CLAUDE.md` (il importe le brief et le cap), puis ce fichier, puis `outils/sources/LISEZ-MOI.md` pour assembler, publier et vérifier. Le brief (`FICOLIA_DESIGN.md`) et le cap (`cap-onboarding.md`) ne se modifient pas sans l'accord de la porteuse du projet. Elle écrit en français et se tutoie : réponds-lui de même.
+Note du 22/10/2026, écrite par la session qui s'arrête pour celle qui reprend. `CLAUDE.md` importe le brief, le cap et cette note : tu les as déjà sous les yeux. Lis ensuite `outils/sources/LISEZ-MOI.md` pour assembler, publier et vérifier. Le brief (`FICOLIA_DESIGN.md`) et le cap (`cap-onboarding.md`) ne se modifient pas sans l'accord de la porteuse du projet. Elle écrit en français et se tutoie : réponds-lui de même.
 
 Tout le travail est sur la branche `claude/compassionate-shannon-qu70ot`. Rien n'est sur `main`, et aucune PR n'est ouverte : la porteuse n'en a pas demandé.
 
