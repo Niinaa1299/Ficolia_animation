@@ -201,11 +201,20 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
         <button type="button" data-val="bis">Celle du bis</button>
       </div>
       <p class="small">La figue du « o » est le personnage principal (porteuse, 21/10). Gros plan, puis recul : pendant son souffle, la vue s’approche d’elle ; en grandissant, elle se referme ; la vue recule : elle pend à son figuier, et regarde à gauche, à droite, l’air de dire « tiens, me voilà dans un arbre ». Elle saute du logo : elle se referme, se penche au bord du mot, regarde en bas, hésite, se lance ; la vue la suit dans sa chute, et elle se rattrape à une branche par la queue, de justesse. Puis, dans les deux, la suite choisie le 20/10 : elle se balance, saute, se pose sur le pré, s’ouvre et salue.</p>
-      <p class="small">Pendant son absence, « Fic » et « lia » s’effacent, et le logo revient complet en haut (porteuse, 21/10) : le nom ne s’affiche jamais incomplet. Elle garde le dessin du « o » jusqu’au milieu de son saut de la branche ; là, fermée et en plein vol, elle laisse la place à la figue du symbole. Sa chute est un saut choisi : elle hésite, se lance, se rattrape (vigilance du brief §4).</p>
+      <p class="small">Pendant son absence, « Fic » et « lia » s’effacent, et le nom revient complet en haut (porteuse, 21/10), en toutes lettres (22/10) : le nom ne s’affiche jamais incomplet. Elle garde le dessin du « o » jusqu’au milieu de son saut de la branche ; là, fermée et en plein vol, elle laisse la place à la figue du symbole. Sa chute est un saut choisi : elle hésite, se lance, se rattrape (vigilance du brief §4).</p>
       <p class="small">Les trois propositions d’avant. La brume : le paysage sort du blanc plan par plan, comme d’une brume du matin : le ciel et le soleil, les collines lointaines, les collines proches, puis l’arbre et la figue. Le soleil : le blanc de la révélation est la lumière du soleil ; il se retire dans le soleil, et le paysage paraît autour. Un seul mouvement : la vue descend du ciel d’un seul geste, plus lent que dans le bis ; le logo monte avec le ciel, le bas de l’écran avec le sol.</p>
       <p class="small">Pour les trois : rien n’entre d’un coup ni ne glisse en sens contraire ; chaque geste suit une seule courbe, longue et douce. Le plan est plus large que dans le bis : tout le figuier, le feuillage sous le logo. La vue va trois à cinq fois moins vite ; elle suit la figue d’un peu plus loin pendant son saut, et se pose en 1 s au lieu de 0,65. Le feuillage ne repasse derrière le logo qu’un instant, quand la vue redescend vers le pré.</p>
       <p class="small">Avec la brume et le soleil, le bas de l’écran prend la couleur du pré sur place, et le texte et « Continuer » paraissent sur place, à 5 s ; avec un seul mouvement, ils montent avec le sol, de 5,1 à 5,6 s. L’animation qui les accompagne dure ensuite 4,8 s au plus, sous les 5 s (WCAG 2.2.2).</p>
       <p class="small">Le bas de l’écran : vert pâle bis (porteuse, 21/10), avec la chair de la figue jusqu’à la queue. Vert pâle, vert profond et vert profond bis restent jouables par l’adresse (?bas=pale, profond, profond-bis), pour mémoire.</p>
+    </div>
+
+    <div class="group">
+      <span class="label" id="lblNom">Le nom, en haut du paysage (22/10 : « Ficolia », en toutes lettres)</span>
+      <div class="seg" role="group" aria-labelledby="lblNom" data-key="nom">
+        <button type="button" data-val="lettres">En toutes lettres</button>
+        <button type="button" data-val="figue">Avec la figue, pour mémoire</button>
+      </div>
+      <p class="small">Sur l’écran du paysage, « Ficolia » s’écrit en toutes lettres, sans la figue à la place du « o » (porteuse, 22/10). Le « o » est tiré de ton image du mot complet ; « Fic » et « lia » restent les tracés du logo, et « lia » se rapproche du « o ». Gros plan, puis recul, et elle saute du logo : le nom revient en haut, en toutes lettres. La brume, le soleil, un seul mouvement et le bis : pendant la montée du logo, de 5 à 5,6 s, la figue du « o » laisse la place à la lettre (proposition). Versions bis seulement : vert pâle et vert profond restent tels qu’au 20/10.</p>
     </div>
 
     <div class="group">
@@ -835,9 +844,17 @@ function suivie(type, u, P, t) {
 const logoSvg = ROOT.getElementById('logoSvg');
 const logoG = ROOT.getElementById('logo');
 const ENCRE = '#4C2944', VERT = '#9EBE59';
+// « Ficolia » en toutes lettres (porteuse, 22/10) : le « o » est vectorisé depuis son image du mot complet, recalé sur les
+// tracés de « Fic » et « lia » (échelle 0,755 unité par pixel, écart moyen 0,3 unité). Dans le mot complet, « lia » se
+// rapproche du « o » de 34,70 ; le milieu du mot passe de 303,75 à 286,40. Source : outils/sources/nom/.
+const LETTRE_O = 'M278.4 194.6C275.8 194.4 273.2 193.5 269.2 191.6C266.1 190.1 265.0 189.3 262.6 186.8C259.7 183.6 257.4 179.5 256.4 175.4C256.3 175.0 256.0 174.1 255.8 173.5C254.8 169.9 254.5 166.3 254.5 158.6C254.5 151.4 255.0 146.2 255.9 142.1C256.1 141.4 256.2 140.6 256.2 140.3C256.2 140.0 256.4 139.3 256.5 138.8C256.7 138.3 257.0 137.4 257.1 136.8C257.6 134.8 258.1 133.0 258.3 132.8C258.4 132.7 258.7 131.8 259.0 130.9C259.7 128.4 261.8 124.0 264.4 119.1C266.9 114.3 272.5 107.4 276.2 104.5C277.0 103.9 278.0 103.1 278.3 102.8C278.7 102.4 279.2 102.0 279.5 101.8C279.9 101.7 280.4 101.4 280.7 101.2C281.0 101.0 281.5 100.7 281.8 100.5C282.2 100.4 282.5 100.2 282.5 100.1C282.6 100.0 283.6 99.4 284.8 98.8C285.9 98.2 287.1 97.6 287.5 97.4C288.2 97.0 292.9 95.4 294.0 95.2C294.4 95.2 295.3 95.0 295.9 94.8C297.8 94.4 303.3 94.1 306.4 94.4C309.4 94.6 310.8 95.0 314.4 96.3C317.8 97.6 319.9 99.1 322.9 102.2C324.2 103.5 324.8 104.3 326.3 106.6C327.6 108.7 327.5 108.5 328.3 110.3C329.2 112.2 330.2 115.2 330.2 115.7C330.2 115.9 330.4 116.6 330.6 117.2C331.2 119.4 331.7 122.6 332.1 126.9C332.6 132.7 332.6 133.5 331.9 141.4C331.8 142.7 331.6 144.0 331.5 144.4C331.4 144.7 331.2 146.0 331.1 147.1C330.9 148.2 330.7 149.3 330.6 149.4C330.5 149.6 330.3 150.4 330.2 151.1C330.1 151.8 329.9 152.9 329.7 153.4C329.6 154.0 329.4 154.6 329.4 154.9C329.4 155.1 329.3 155.5 329.2 155.7C329.0 156.0 328.9 156.5 328.8 156.9C328.6 157.8 327.7 160.5 327.0 162.1C326.7 162.9 326.3 163.8 326.2 164.0C326.0 164.9 322.8 170.9 321.9 172.3C321.6 172.8 321.2 173.6 320.9 174.0C319.5 176.6 313.5 183.3 310.2 186.0C307.9 187.8 304.0 190.2 303.3 190.3C303.2 190.3 302.5 190.6 301.7 191.0C300.9 191.4 300.0 191.8 299.7 191.8C299.4 191.9 298.8 192.1 298.4 192.3C298.0 192.5 297.6 192.7 297.4 192.7C297.3 192.7 296.8 192.9 296.4 193.1C296.0 193.3 295.1 193.5 294.4 193.7C293.7 193.8 292.4 194.0 291.6 194.2C290.4 194.5 289.2 194.6 285.1 194.7C282.3 194.7 279.3 194.7 278.4 194.6ZM295.3 184.8C296.6 184.4 298.0 183.9 299.0 183.4C300.7 182.5 303.6 180.4 304.4 179.5C306.3 177.3 308.4 174.4 309.6 172.2C310.4 170.6 311.9 166.4 312.6 163.4C312.8 162.5 313.0 161.7 313.9 157.0C314.1 156.2 314.3 154.2 314.5 152.6C314.6 151.0 314.8 149.5 314.8 149.2C315.1 147.8 315.3 139.5 315.1 136.1C314.9 131.2 314.4 126.4 314.0 124.2C313.8 123.3 313.6 122.3 313.6 122.1C313.6 121.8 313.4 121.1 313.2 120.4C313.0 119.7 312.8 118.9 312.7 118.4C312.1 116.2 310.0 111.9 308.6 110.1C305.5 106.4 302.1 104.6 297.2 104.0C294.6 103.7 290.6 104.3 288.3 105.2C283.7 107.0 280.5 109.9 278.0 114.4C276.8 116.6 276.4 117.4 276.1 118.0C276.0 118.3 275.6 119.3 275.3 120.0C274.9 120.8 274.6 121.9 274.4 122.5C274.3 123.1 274.1 123.9 273.9 124.3C273.7 124.7 273.6 125.3 273.6 125.6C273.6 125.9 273.5 126.6 273.3 127.1C273.2 127.6 272.9 128.9 272.8 129.8C272.7 130.8 272.5 131.8 272.4 132.1C272.3 132.4 272.2 133.8 272.1 135.2C272.0 136.7 271.8 138.5 271.7 139.3C271.4 141.3 271.2 155.3 271.5 158.2C271.6 159.5 271.8 161.8 271.9 163.3C272.2 167.3 273.2 172.4 274.2 174.8C275.2 177.2 276.5 179.2 278.2 180.9C279.6 182.3 280.2 182.7 281.7 183.5C285.9 185.6 290.5 186.0 295.3 184.8Z';
+const LIA_LETTRES = -34.7;
+// Du milieu de la figue (319,5) au milieu du « o » (293,48) ; la figue, large de 152, se resserre vers la largeur du « o » (78).
+const O_VERS = { dx: -26.02, k: 0.55 };
 const LG = (() => {
   const nom = d => { const g = svgEl('g', {}, logoG); svgEl('path', { d, fill: ENCRE, 'fill-rule': 'evenodd' }, g); return g; };
   const fic = nom(LOGO.fic), lia = nom(LOGO.lia);
+  const o = svgEl('path', { d: LETTRE_O, fill: ENCRE, 'fill-rule': 'evenodd', opacity: 0 }, logoG);
   const ancre = svgEl('g', { transform: 'translate(319.5 145)' }, logoG);
   const move = svgEl('g', {}, ancre), breath = svgEl('g', {}, move);
   const g = svgEl('g', { transform: 'translate(-319.5 -145)' }, breath);
@@ -856,14 +873,16 @@ const LG = (() => {
   const cA = svgEl('g', { 'clip-path': cp('lCA', LOGO.contourA) }, g);
   const cB = svgEl('g', { 'clip-path': cp('lCB', LOGO.contourB) }, g);
   const gA = trait(cA, REV.gA, 12.4, 179.2), gM = trait(cB, REV.gM, 11.9, 275.1), gS = trait(cB, REV.gS, 11.9, 28.7);
-  return { fic, lia, ancre, move, breath, chair: chairEl, moyeu, traits, graines, centres: graines.map(centreDe), dot, dotC, tip, gA, gM, gS };
+  return { fic, lia, o, ancre, move, breath, chair: chairEl, moyeu, traits, graines, centres: graines.map(centreDe), dot, dotC, tip, gA, gM, gS };
 })();
 const LOGO_C = { x: 303.75, y: 118.4 };               // le milieu du logotype, dans ses coordonnées
+const LOGO_C_LETTRES = 286.4;                        // le milieu du mot en toutes lettres, en x ; la ligne des lettres ne bouge pas
 const LOGO_DEPART = { x: 195, y: 296.1, k: 0.5056 };  // sa place sur la dernière image de l'ouverture (1080 × 1920 ramené à 390 de large)
 const LOGO_HAUT = { x: 195, y: 86, k: 0.296 };        // en haut de l'écran, à l'accueil
-function drawLogo(k) {
+// L : de 0, le logo avec la figue, à 1, le nom en toutes lettres, centré à son tour.
+function drawLogo(k, L = 0) {
   const x = mix(LOGO_DEPART.x, LOGO_HAUT.x, k), y = mix(LOGO_DEPART.y, LOGO_HAUT.y, k), s = mix(LOGO_DEPART.k, LOGO_HAUT.k, k);
-  logoG.setAttribute('transform', `translate(${x.toFixed(2)} ${y.toFixed(2)}) scale(${s.toFixed(4)}) translate(${-LOGO_C.x} ${-LOGO_C.y})`);
+  logoG.setAttribute('transform', `translate(${x.toFixed(2)} ${y.toFixed(2)}) scale(${s.toFixed(4)}) translate(${-mix(LOGO_C.x, LOGO_C_LETTRES, L)} ${-LOGO_C.y})`);
 }
 // L'état du logo : la goutte, le contour, la chair, les nervures, les graines, la place de la figue, le nom.
 function etatLogo(e) {
@@ -889,7 +908,15 @@ function etatLogo(e) {
   LG.fic.setAttribute('opacity', e.nom.toFixed(3));
   LG.fic.setAttribute('transform', `translate(${(-20 * (1 - e.nom)).toFixed(2)} 0)`);
   LG.lia.setAttribute('opacity', e.nom.toFixed(3));
-  LG.lia.setAttribute('transform', `translate(${(20 * (1 - e.nom)).toFixed(2)} 0)`);
+  // En toutes lettres (e.lettres, de 0 à 1) : la figue du « o » laisse la place à la lettre, et « lia » se rapproche.
+  const L = e.lettres || 0;
+  LG.lia.setAttribute('transform', `translate(${(20 * (1 - e.nom) + LIA_LETTRES * L).toFixed(2)} 0)`);
+  LG.o.setAttribute('opacity', (L * e.nom).toFixed(3));
+  if (L > 0) {
+    // La figue se resserre vers la place du « o » en s'effaçant : elle s'y condense, au lieu de se superposer à la lettre.
+    LG.breath.setAttribute('opacity', (1 - L).toFixed(3));
+    LG.breath.setAttribute('transform', `translate(${(O_VERS.dx * L).toFixed(2)} 0) scale(${(e.souffle * mix(1, O_VERS.k, L)).toFixed(4)})`);
+  } else LG.breath.removeAttribute('opacity');
 }
 // La révélation, image par image (cycle de 8 s ; l'animation, de 0 à 5 s).
 function revelation(t) {
@@ -1154,13 +1181,13 @@ function apresBis() {
     [T.pose0, 'La vue se pose : le paysage sur tout l’écran, le texte sur l’herbe.'],
     [T.ouvre, 'Elle s’ouvre, calmement, avant que la vue ne s’arrête.'],
     [T.salut, 'Elle salue d’un mouvement de queue.'],
-    [T.fin, 'Fin : l’image reste fixe.']].sort((a, b) => a[0] - b[0]);
+    [T.fin, 'Fin : l’image reste fixe.'], ...(lettresEnHaut() ? [BEAT_LETTRES] : [])].sort((a, b) => a[0] - b[0]);
   return {
     duration: T.fin, beats,
     render(t) {
-      const kLogo = COULE(prog(t, T.logo, 1100));
-      drawLogo(kLogo);
-      etatLogo(revelation(Math.min(t, 5000)));
+      const kLogo = COULE(prog(t, T.logo, 1100)), L = passageLettres(t);
+      drawLogo(kLogo, L);
+      etatLogo({ ...revelation(Math.min(t, 5000)), lettres: L });
       monte(l1, seg(t, 3500, 4050, 0, 1, RV.a), 7.94);
       monte(l2, seg(t, 3800, 4350, 0, 1, RV.a), 7.94);
       // L'accroche suit le logo, à mi-vitesse, et s'efface avant qu'il n'arrive.
@@ -1195,6 +1222,12 @@ function apresBis() {
 //   mouvement : un seul mouvement de la vue, du ciel à la figue ; le logo monte avec le ciel, le bas de l'écran avec le sol.
 const DOUX = cubicBezier(0.37, 0, 0.63, 1);   // sinusoïdale : un départ et une arrivée sans à-coup
 const LONG = cubicBezier(0.45, 0, 0.3, 1);
+// Le nom en haut du paysage, en toutes lettres (porteuse, 22/10) ; versions bis seulement, « Avec la figue » pour mémoire.
+const lettresEnHaut = () => state.nom === 'lettres' && versionBis();
+// Quand le logo monte avec sa figue (bis, brume, soleil, un seul mouvement) : après son souffle, de 5 à 5,6 s, elle laisse
+// la place à la lettre (proposition).
+const passageLettres = t => (lettresEnHaut() ? DOUX(prog(t, 5000, 600)) : 0);
+const BEAT_LETTRES = [5000, 'La figue du logo laisse la place à la lettre « o » ; « lia » se rapproche : « Ficolia », en toutes lettres.'];
 function apresFluide(type) {
   const P = parametres();
   const C = cadrages(P);
@@ -1235,15 +1268,15 @@ function apresFluide(type) {
     [T.pose0, 'La vue se pose : le paysage sur tout l’écran, le texte sur l’herbe.'],
     [T.ouvre, 'Elle s’ouvre, calmement, avant que la vue ne s’arrête.'],
     [T.salut, 'Elle salue d’un mouvement de queue.'],
-    [T.fin, 'Fin : l’image reste fixe.']].sort((a, b) => a[0] - b[0]);
+    [T.fin, 'Fin : l’image reste fixe.'], ...(lettresEnHaut() ? [BEAT_LETTRES] : [])].sort((a, b) => a[0] - b[0]);
   return {
     duration: T.fin, beats,
     render(t) {
       // Un seul mouvement : la vue, le logo et le sol suivent la même courbe.
       const p = LONG(prog(t, 4300, 2400));
-      const kLogo = type === 'mouvement' ? p : DOUX(prog(t, 4450, 1750));
-      drawLogo(kLogo);
-      etatLogo(revelation(Math.min(t, 5000)));
+      const kLogo = type === 'mouvement' ? p : DOUX(prog(t, 4450, 1750)), L = passageLettres(t);
+      drawLogo(kLogo, L);
+      etatLogo({ ...revelation(Math.min(t, 5000)), lettres: L });
       monte(l1, seg(t, 3500, 4050, 0, 1, RV.a), 7.94);
       monte(l2, seg(t, 3800, 4350, 0, 1, RV.a), 7.94);
       accroche.style.transform = `translateY(${(-0.5 * (LOGO_DEPART.y - LOGO_HAUT.y) * kLogo).toFixed(2)}px)`;
@@ -1329,13 +1362,16 @@ function apresFigueO(type) {
   const b0 = herosDroit(O_LOGO.x, O_LOGO.y, O_LOGO.k), b1 = herosMonde(pendue(Po, 0), Po, approche);
   const haut = 45, dY = b1.by - b0.by, hH = 2 * haut + 2 * Math.sqrt(haut * haut + haut * dY);   // la hauteur de son élan
   const gS = defs.querySelector('#gSocle');
+  // Le nom revient en haut : en toutes lettres (porteuse, 22/10), ou, pour mémoire, avec la figue à la place du « o ».
+  const L = lettresEnHaut() ? 1 : 0;
+  const RETOUR = L ? 'Le nom revient en haut, en toutes lettres : « Ficolia ».' : 'Le logo revient, complet, en haut.';
   const propres = recul ? [
     [4550, 'Pendant son souffle, la vue s’approche d’elle ; « Fic » et « lia » s’effacent sur les côtés ; l’accroche s’en va vers le bas.'],
     [4900, 'En grandissant, elle se referme : la chair, les nervures et les graines se replient.'],
     [5150, 'Le texte et « Continuer » paraissent, sur place.'],
     [T.monde, 'La vue recule : le blanc devient ciel, une branche et des feuilles paraissent autour d’elle ; elle pend à son figuier.'],
     [5850, 'Elle regarde à gauche, à droite, l’air de dire : tiens, me voilà dans un arbre.'],
-    [T.retour, 'Le logo revient, complet, en haut.']
+    [T.retour, RETOUR]
   ] : [
     [4700, 'Après son souffle, elle se referme.'],
     [5000, 'Elle se penche au bord du mot, regarde en bas, hésite…'],
@@ -1343,7 +1379,7 @@ function apresFigueO(type) {
     [5400, '… et se lance ; « Fic » et « lia » s’effacent.'],
     [5520, 'La vue la suit dans sa chute : le blanc devient ciel, le figuier monte à sa rencontre.'],
     [T.monde, 'Elle se rattrape à une branche par la queue, de justesse.'],
-    [T.retour, 'Le logo revient, complet, en haut.']
+    [T.retour, RETOUR]
   ];
   const beats = [...BEATS_REVELATION, ...propres,
     ...TEXTES_DESCENTE[state.descente].map(([ms, txt]) => [T.desc + ms, txt]),
@@ -1376,8 +1412,8 @@ function apresFigueO(type) {
         LG.ancre.setAttribute('opacity', 0);
         logoG.removeAttribute('opacity');
       } else {
-        drawLogo(1);
-        etatLogo(logoDessine(1, 1, 1));
+        drawLogo(1, L);
+        etatLogo({ ...logoDessine(1, 1, 1), lettres: L });
         LG.ancre.removeAttribute('opacity');
         logoG.setAttribute('opacity', DOUX(prog(t, T.retour, 600)).toFixed(3));
       }
@@ -1453,16 +1489,18 @@ function apresReduite() {
   const C = cadrages(P);
   const fin = C.fin;
   REF = C.ref;
+  // Versions bis : sur le paysage, le nom en toutes lettres (porteuse, 22/10).
+  const L = lettresEnHaut() ? 1 : 0;
   return {
     duration: 2100,
-    beats: [[0, 'Fondu : le logo et l’accroche, image finale de la révélation.'], [1500, 'Fondu vers l’accueil : ' + minuscule(dec.nom).slice(0, -1) + ', sur tout l’écran ; la figue ouverte sur le pré.'], [2100, 'Fin : l’image reste fixe.']],
+    beats: [[0, 'Fondu : le logo et l’accroche, image finale de la révélation.'], [1500, 'Fondu vers l’accueil : ' + minuscule(dec.nom).slice(0, -1) + ', sur tout l’écran ; la figue ouverte sur le pré' + (L ? ' ; en haut, « Ficolia » en toutes lettres.' : '.')], [2100, 'Fin : l’image reste fixe.']],
     render(t) {
       const avant = t < 1800;
       const k = avant ? 1 - prog(t, 1500, 300) : prog(t, 1800, 300);
       // Versions bis : le paysage paraît déjà pendant que le logo s'efface ; aucun passage par le blanc.
       ecran({ scene: versionBis() ? prog(t, 1500, 600) : avant ? 0 : k, accueil: !avant, accroche: avant ? Math.min(k, prog(t, 0, 600)) : 0, logo: true });
-      drawLogo(avant ? 0 : 1);
-      etatLogo(logoDessine(1, 1, 1));
+      drawLogo(avant ? 0 : 1, avant ? 0 : L);
+      etatLogo({ ...logoDessine(1, 1, 1), lettres: avant ? 0 : L });
       logoSvg.style.opacity = (avant ? Math.min(prog(t, 0, 600), k) : k).toFixed(3);
       monte(l1, 1, 0, true); monte(l2, 1, 0, true);
       monte(copy, avant ? 0 : k, 0, true);
@@ -1498,6 +1536,7 @@ const state = {
   decor: choix('decor', ['a', 'b', 'c'], 'a'),               // paysage du Sud
   bas: choix('bas', ['pale', 'profond', 'pale-bis', 'profond-bis', 'blanc'], 'pale-bis'),   // le bas de l'écran (21/10 : vert pâle bis)
   transition: choix('transition', ['recul', 'saut', 'brume', 'soleil', 'mouvement', 'bis'], 'recul'),   // versions bis (21/10)
+  nom: choix('nom', ['lettres', 'figue'], 'lettres'),       // le nom en haut du paysage (22/10 : en toutes lettres)
   speed: 1,
   motion: params.get('mouvement') === 'reduit' ? 'reduit' : params.get('mouvement') === 'normal' ? 'normal' : 'systeme',
   notes: params.get('notes') === 'off' ? 'off' : 'on',
@@ -1620,8 +1659,8 @@ for (const seg of ROOT.querySelectorAll('.seg')) {
     // Le bas de l'écran : on change la couleur sans reprendre la lecture.
     if (key === 'bas') { resetAll(); return; }
     resetAll();
-    // Une autre transition : on la voit tout de suite, depuis la fin de la révélation.
-    if (key === 'transition') { revoir(); return; }
+    // Une autre transition, ou l'autre façon d'écrire le nom : on la voit tout de suite, depuis la fin de la révélation.
+    if (key === 'transition' || key === 'nom') { revoir(); return; }
     play(true);
   });
 }

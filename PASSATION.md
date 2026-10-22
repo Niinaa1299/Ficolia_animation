@@ -4,6 +4,8 @@ Note du 22/10/2026, écrite par la session qui s'arrête pour celle qui reprend.
 
 Tout le travail est sur la branche `claude/compassionate-shannon-qu70ot`. Rien n'est sur `main`, et aucune PR n'est ouverte : la porteuse n'en a pas demandé.
 
+Mise à jour du 22/10 par la session qui reprend : une PR est en fait ouverte depuis le 08/10 (`Niinaa1299/Ficolia_animation#1`, de `compassionate-shannon` vers `main`, sa description ne parle que de la mise à jour obligatoire). Le récit de la figue continue sur `claude/happy-mccarthy-5akhfh`, partie de `e30b47b` ; le prototype se poursuit dans une autre discussion. `main` porte le registre du projet v6.7 (22/10). Le dépôt est public.
+
 ## 1. Où en est le récit de la figue
 
 Les statuts sont ceux de l'aperçu (`outils/apercu.py`).
@@ -36,6 +38,7 @@ Les adresses sont privées, celles du compte d'origine. Dans un autre compte, le
 - 21/10 : ce jeu d'écrans ne se joue qu'une fois, au premier lancement ; ensuite, l'écran de chargement est plus court. Le blanc est écarté pour le bas de l'écran ; **vert pâle bis est retenu** (vert pâle, vert profond et vert profond bis restent jouables, pour mémoire).
 - 21/10 : la transition entre « Ficolia, vos cosmétiques, en toute sérénité » et l'arbre ne lui plaît pas. Elle veut « smooth, continu, fluide ». Par « imbriqué », elle entend qu'à n'importe quelle pause tout paraît fluide : aucune étape n'attend la fin de la précédente.
 - 21/10 : la figue du « o » doit en être le personnage principal. Elle a demandé deux idées, « gros plan, puis recul » et « elle saute du logo », et choisi pour le « o » la réponse a : « Fic » et « lia » s'effacent pendant son absence, et le logo revient complet en haut.
+- 22/10 (session qui reprend, autre compte) : sur l'écran du paysage, « Ficolia » s'écrit **en toutes lettres**, sans la figue à la place du « o », dans la même écriture que « Fic » et « lia ». Elle a fourni l'image du mot complet ; le « o » en est vectorisé, recalé sur les tracés du logo (`outils/sources/nom/`). Appliqué aux versions bis (réglage `nom`, « Avec la figue » gardé pour mémoire) ; vert pâle et vert profond restent tels qu'au 20/10. Pas encore tracé dans `cap-onboarding.md` §4 : à lui demander.
 
 **En attente d'elle**
 1. **Le choix de la transition**, parmi les deux idées de la figue du « o » (codées le 21/10, commit 18769b6, pas encore vues par elle), les trois propositions d'avant (la brume, le soleil, un seul mouvement) et celle du bis. Elle pourra demander des ajustements : vitesse de la chute, durée de l'hésitation, regard.
@@ -43,7 +46,8 @@ Les adresses sont privées, celles du compte d'origine. Dans un autre compte, le
 3. **Le feuillage qui repasse un instant derrière le logo** quand la vue redescend vers le pré, dans toutes les versions bis : le laisser, ou cadrer plus bas. Question posée, sans réponse.
 4. **L'écran de chargement court** des lancements suivants : à proposer (forme et durée ; le cap §1 rappelle qu'Android conseille une seconde au plus).
 5. **La chair de la figue qui monte jusqu'à la queue** n'existe que dans les versions bis. À étendre aux autres écrans qui montrent la figue ouverte, si elle l'approuve.
-6. **Deux écarts à tracer au registre** : sans « Passer », les 5 s de la révélation se regardent en entier au premier lancement (cap §1, « Le lancement doit être immédiat ») ; et la maquette ramène la révélation à la palette de marque, alors que l'ouverture validée emploie des teintes voisines (brief §5), ce qu'elle doit trancher.
+6. **Trois écarts à tracer au registre** : sans « Passer », les 5 s de la révélation se regardent en entier au premier lancement (cap §1, « Le lancement doit être immédiat ») ; la maquette ramène la révélation à la palette de marque, alors que l'ouverture validée emploie des teintes voisines (brief §5), ce qu'elle doit trancher ; et, depuis le 22/10, le nom en toutes lettres à l'accueil est une nouvelle variante du logo, alors que la séance du 28/09 prévoit le « logotype complet à l'accueil » et que le choix de la variante reste ouvert (`T-558`, brief §5).
+7. **Le passage de la figue à la lettre** (22/10, proposition) : dans la brume, le soleil, un seul mouvement et le bis, le logo monte avec sa figue ; de 5 à 5,6 s, elle laisse la place à la lettre « o » et « lia » se rapproche. À lui faire valider.
 
 ## 4. Les autres points ouverts du cap (§4)
 

@@ -13,6 +13,7 @@ Les fichiers assemblés ne sont pas faits pour être retouchés à la main : le 
 | `arbre/assembler.py` | Injecte `donnees.json` dans le gabarit. |
 | `site/gabarit-proposition.html` + `site/assembler.py` | Le dossier du site vitrine. |
 | `site/maquette/gabarit.html` + `site/maquette/assembler.py` | La maquette animée du site vitrine. |
+| `nom/ficolia-porteuse.png` + `nom/tracer.py` | Le nom en toutes lettres (porteuse, 22/10) : son image du mot complet, et le script qui en vectorise le « o » dans le repère du logo et mesure le rapprochement de « lia ». Le résultat est recopié à la main dans `arbre/gabarit.html` (`LETTRE_O`, `LIA_LETTRES`, `LOGO_C_LETTRES`). Le script demande `pillow`, `numpy` et `potracer` (`pip install potracer==0.0.4`, de préférence dans un environnement à part). |
 
 ## Assembler
 
@@ -54,6 +55,7 @@ La maquette de l'ouverture se règle par l'adresse, ce qui permet aussi de figer
 | --- | --- | --- |
 | `bas` | `pale`, `profond`, `pale-bis`, `profond-bis`, `blanc` | `pale-bis` |
 | `transition` (versions bis seulement) | `recul`, `saut`, `brume`, `soleil`, `mouvement`, `bis` | `recul` |
+| `nom` (versions bis seulement) | `lettres` : « Ficolia » en toutes lettres en haut du paysage (22/10) ; `figue` : le logo avec la figue à la place du « o », pour mémoire | `lettres` |
 | `mouvement` | `normal`, `reduit` | le réglage du téléphone |
 | `notes` | `off` masque les notes du prototype | affichées |
 | `t` | un instant figé, en millisecondes | lecture |
