@@ -1,0 +1,993 @@
+<title>Site animé Ficolia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Atkinson+Hyperlegible+Next:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* La figue ouverte : la peau aubergine enveloppe, la chair blanche se lit, les nervures pistache relient, les graines grenade marquent.
+   Un seul thème, clair, comme l'application (D-115 D1). Mobile d'abord ; le défilement pilote les scènes, sans jamais être détourné. */
+:root{
+  color-scheme:light;
+  --peau:#4C2944;
+  --peau-nuit:#321C31;
+  --chair:#FFFFFF;
+  --chair-2:#FAF8F4;
+  --ivoire:#FFF7F0;
+  --ivoire-2:#E9DCE5;
+  --nervure:#9EBE59;
+  --graine:#9F3542;
+  --trait:#E7E1DA;
+  --texte:#321C31;
+  --texte-2:#6E5A6B;
+  --n1:#CADCA4;
+  --n2:#E7B93F;
+  --n3:#E27A46;
+  --n4:#B8192C;
+  --f-titre:'Antic Didone',Didot,'Bodoni 72','Bodoni MT',Georgia,serif;
+  --f-texte:'Atkinson Hyperlegible Next','Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --sortie:cubic-bezier(.22,1,.36,1);
+}
+html{background:var(--peau)}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+body{margin:0;background:var(--chair);color:var(--texte);font-family:var(--f-texte);font-size:17px;line-height:1.55;-webkit-text-size-adjust:100%;overflow-x:clip}
+img,svg{display:block}
+img{max-width:100%;height:auto}
+a{color:inherit}
+p{margin:0}
+h1,h2{font-family:var(--f-titre);font-weight:400;letter-spacing:.004em;text-wrap:balance;margin:0}
+h3{margin:0;font-size:20px;line-height:1.3;text-wrap:balance}
+ul,ol,dl{margin:0;padding:0;list-style:none}
+figure{margin:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.dans{width:100%;max-width:1240px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:760px){.dans{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+.surtitre{font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.vide{background:rgba(110,90,107,.12);border-radius:4px;padding:0 .3em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.sur-peau .vide{background:rgba(255,247,240,.14)}
+:focus-visible{outline:2px solid var(--peau);outline-offset:3px;border-radius:4px}
+.sur-peau :focus-visible{outline-color:var(--nervure)}
+.evitement{position:absolute;left:12px;top:-80px;z-index:70;background:var(--ivoire);color:var(--peau);padding:12px 18px;border-radius:999px;font-weight:700;text-decoration:none}
+.evitement:focus{top:calc(12px + env(safe-area-inset-top,0px))}
+
+/* ---------- Boutons et liens ---------- */
+.bouton{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:999px;font:700 16px/1.2 var(--f-texte);text-decoration:none;border:0;cursor:pointer;transition:background-color 160ms ease,transform 160ms var(--sortie)}
+.bouton:active{transform:scale(.97)}
+.bouton-ivoire{background:var(--ivoire);color:var(--peau)}
+.bouton-contour{min-height:44px;padding:0 18px;font-size:15px;border:1px solid rgba(255,247,240,.7);color:var(--ivoire)}
+@media (hover:hover){.bouton-ivoire:hover{background:#FFFFFF}.bouton-contour:hover{background:rgba(255,247,240,.1)}}
+.lien-fleche{display:inline-flex;align-items:center;gap:10px;min-height:48px;font-weight:700;text-underline-offset:5px;text-decoration-thickness:1px;transition:text-decoration-thickness 160ms ease}
+.lien-fleche:hover{text-decoration-thickness:2px}
+.lien-fleche svg{width:18px;height:18px;transition:transform 200ms var(--sortie)}
+.lien-fleche:hover svg{transform:translateX(3px)}
+
+/* ---------- 1. Ouverture ---------- */
+.ouverture{background:var(--peau);color:var(--ivoire)}
+.ouv-stage{position:relative;display:flex;flex-direction:column;overflow:hidden;padding-bottom:32px}
+.mouvement .ouv-scene{height:240vh;height:240svh}
+.mouvement .ouv-stage{position:sticky;top:0;height:100vh;height:100svh;padding-bottom:0}
+.ouv-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:none;z-index:1}
+.mouvement .ouv-svg{display:block}
+.entete{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px 6px;min-height:72px}
+.entete-logo{display:inline-flex;align-items:center;min-height:44px}
+.entete-logo svg{height:30px;width:auto}
+.menu-bouton{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,247,240,.55);background:transparent;color:var(--ivoire);font:700 15px var(--f-texte);cursor:pointer}
+.menu{display:none}
+.menu.ouvert{display:flex;position:fixed;inset:0;z-index:40;background:var(--peau);flex-direction:column;justify-content:center;align-items:flex-start;gap:28px;padding:calc(88px + env(safe-area-inset-top,0px)) max(24px,env(safe-area-inset-right,0px)) calc(40px + env(safe-area-inset-bottom,0px)) max(24px,env(safe-area-inset-left,0px))}
+.mouvement .menu.ouvert{animation:descend 240ms var(--sortie)}
+@keyframes descend{from{opacity:0;transform:translateY(-14px)}}
+.menu ul{display:flex;flex-direction:column;gap:2px}
+.menu ul a{font-family:var(--f-titre);font-size:42px;line-height:1.2;text-decoration:none;display:inline-block;padding-block:6px}
+.menu-fermer{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px))}
+.ouv-corps{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;gap:20px;min-height:0}
+.ouv-texte{display:flex;flex-direction:column;align-items:flex-start;gap:16px;max-width:640px;padding-top:6px}
+.ouv-texte h1{font-size:clamp(38px,10vw,84px);line-height:1.04}
+.ouv-chapo{font-size:18px;line-height:1.5;color:var(--ivoire-2);max-width:32em}
+.ouv-actions{display:flex;flex-wrap:wrap;align-items:center;gap:4px 22px;margin-top:4px}
+.ouv-mini{font-size:14px;color:var(--ivoire-2)}
+.ouv-figue{flex:1;min-height:200px;display:flex;align-items:center;justify-content:center}
+.ouv-figue-fixe{height:clamp(220px,62vw,360px);width:auto;aspect-ratio:127/152.4}
+.mouvement .ouv-figue{padding-bottom:64px}
+.mouvement .ouv-figue-fixe{height:100%;max-height:440px;visibility:hidden}
+.ouv-indice{position:absolute;z-index:2;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:none;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--ivoire-2)}
+.mouvement .ouv-indice{display:flex}
+.ouv-indice i{width:2px;height:30px;border-radius:2px;background:var(--nervure);transform-origin:top;animation:veine 1.2s var(--sortie) 1.6s both}
+@keyframes veine{from{transform:scaleY(0)}}
+.ouv-blanc{position:absolute;inset:0;z-index:4;background:var(--chair);opacity:0;pointer-events:none;display:none}
+.mouvement .ouv-blanc{display:block}
+@media (max-height:720px) and (max-width:959px){
+  .ouv-texte{gap:12px}
+  .ouv-texte h1{font-size:clamp(32px,8.6vw,56px)}
+  .ouv-chapo{font-size:16px}
+  .mouvement .ouv-figue{padding-bottom:52px}
+}
+@media (min-width:760px){.entete-logo svg{height:36px}.ouv-indice{left:max(40px,env(safe-area-inset-left,0px))}}
+@media (min-width:960px){
+  .menu-bouton,.menu-fermer{display:none}
+  .menu{display:flex;align-items:center;gap:30px}
+  .menu ul{flex-direction:row;gap:26px}
+  .menu ul a{font:700 15px/1.2 var(--f-texte);padding-block:14px}
+  .ouv-corps{flex-direction:row;align-items:center;gap:40px}
+  .ouv-texte{flex:0 1 620px;padding-top:0}
+  .ouv-figue{align-self:stretch;padding-block:24px}
+  .mouvement .ouv-figue{padding-bottom:48px}
+  .ouv-figue-fixe{height:clamp(300px,36vw,460px)}
+  .ouv-stage{padding-bottom:64px}
+}
+
+/* ---------- En-têtes de section ---------- */
+.tete-section{display:flex;flex-direction:column;gap:14px;max-width:780px}
+.tete-section h2{font-size:clamp(36px,8.4vw,68px);line-height:1.04}
+.tete-section .intro{font-size:18px;color:var(--texte-2);max-width:34em}
+
+/* ---------- 2. Du rayon à la composition ---------- */
+.geste{background:var(--chair);padding-block:88px 80px}
+.geste .surtitre{color:var(--graine)}
+.geste-scene{margin-top:44px}
+.mouvement .geste-scene{height:420vh;height:420svh;margin-top:8px}
+.mouvement .geste-stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center}
+.geste-grille{display:block}
+.mouvement .geste-grille{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;height:100%;padding-block:12px}
+.tel{position:relative;padding:7px;border-radius:13% / 6%;background:var(--peau-nuit);width:max-content;max-width:100%}
+.tel-ecran{position:relative;aspect-ratio:390/844;border-radius:11.5% / 5.3%;overflow:hidden;background:#FFFFFF;isolation:isolate}
+.tel-ecran img{display:block;width:100%;height:100%;object-fit:cover}
+.tel-anime{display:none}
+.mouvement .tel-anime{display:block;flex:none}
+.mouvement .tel-anime .tel-ecran{height:min(56vh,620px);height:min(56svh,620px)}
+.tel-anime .ecran{position:absolute;inset:0;will-change:transform}
+.tel-anime .ecran svg{position:absolute;inset:0;width:100%;height:100%}
+.segments{display:none}
+.mouvement .segments{display:flex;gap:6px;width:100%;margin-bottom:16px}
+.segments i{flex:1;height:3px;border-radius:3px;background:var(--trait);overflow:hidden}
+.segments b{display:block;height:100%;background:var(--peau);transform-origin:left;transform:scaleX(0)}
+.geste-droite{width:100%;max-width:560px}
+.etapes{display:grid;gap:56px}
+.etape{display:grid;gap:20px;align-items:center}
+.etape-tel .tel-ecran{width:min(72vw,280px)}
+.etape h3{display:flex;align-items:center;gap:12px;font-family:var(--f-titre);font-weight:400;font-size:clamp(25px,6.4vw,34px);line-height:1.12}
+.etape .num{flex:none;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--peau);color:var(--ivoire);font:700 15px/1 var(--f-texte)}
+.etape p{margin-top:10px;color:var(--texte-2);max-width:32em}
+.mouvement .etapes{position:relative;display:block;min-height:10.5em}
+.mouvement .etape{position:absolute;inset:0 0 auto 0;display:block}
+.mouvement .etape-tel{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.aparte{margin-top:56px}
+.aparte p{display:flex;gap:14px;align-items:flex-start;max-width:40em;font-size:16px;color:var(--texte-2)}
+.aparte svg{flex:none;width:26px;height:26px;margin-top:-1px}
+@media (min-width:760px){.etape{grid-template-columns:auto 1fr;gap:40px}}
+@media (min-width:960px){
+  .etape h3{font-size:clamp(30px,3.2vw,44px)}
+  .etape p{font-size:19px}
+  .mouvement .geste-grille{flex-direction:row;gap:72px}
+  .mouvement .tel-anime .tel-ecran{height:min(80vh,720px);height:min(80svh,720px)}
+  .mouvement .etapes{min-height:12em}
+}
+
+/* ---------- 3. Grossesse, allaitement : deux lignes ---------- */
+.lignes{background:var(--chair-2)}
+.lignes-stage{position:relative;overflow:hidden;padding-block:88px 80px}
+.mouvement .lignes-scene{height:300vh;height:300svh}
+.mouvement .lignes-stage{position:sticky;top:0;height:100vh;height:100svh;padding-block:0}
+.lignes .dans{position:relative;height:100%}
+.mots{display:flex;flex-direction:column}
+.mouvement .mots{padding-top:max(8vh,56px);padding-top:max(8svh,56px);transform-origin:0 0}
+.mot{display:flex;align-items:baseline;justify-content:space-between;gap:16px;font-family:var(--f-titre);font-size:clamp(54px,14.4vw,184px);line-height:1.02;padding-block:4px 10px;border-bottom:1px solid var(--trait);white-space:nowrap}
+.mot i{font-style:normal;font:400 .4em/1 var(--f-texte);color:var(--texte-2)}
+.lignes-corps{display:grid;gap:44px;margin-top:40px}
+.mouvement .lignes-corps{position:absolute;left:0;right:0;margin-top:0;padding-left:inherit;padding-right:inherit;grid-template-columns:minmax(0,1fr)}
+.mouvement .lignes-texte,.mouvement .lignes-tels{grid-area:1 / 1}
+.lignes-texte{display:flex;flex-direction:column;gap:14px;max-width:34em;font-size:18px}
+.lignes-texte p + p{color:var(--texte-2)}
+.lignes-tels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start;max-width:620px}
+.lignes-tels figure{display:flex;flex-direction:column;gap:10px;min-width:0}
+.lignes-tels figcaption{font-weight:700;font-size:15px}
+.lignes-tels .tel{width:100%}
+.lignes-tels .tel-ecran{width:100%}
+.mention{grid-column:1 / -1;font-size:14px;color:var(--texte-2)}
+.mouvement .lignes-tels .tel-ecran{width:auto;height:min(39vh,560px);height:min(39svh,560px)}
+.mouvement .lignes-tels .tel{width:max-content}
+@media (min-width:960px){
+  .lignes-corps{grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:64px}
+  .mouvement .lignes-corps{grid-template-columns:minmax(0,1fr) auto}
+  .mouvement .lignes-tels{grid-area:1 / 2}
+  .mouvement .lignes-tels .tel-ecran{height:min(50vh,560px);height:min(50svh,560px)}
+}
+
+/* ---------- 4. Lire un résultat ---------- */
+.niveaux{background:var(--chair);padding-block:96px 0}
+.niveaux .surtitre{color:var(--texte-2)}
+.niveaux-scene{margin-top:40px}
+.mouvement .niveaux-scene{height:320vh;height:320svh;margin-top:0}
+.mouvement .niveaux-stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center}
+.pile{display:flex;flex-direction:column;gap:14px;width:100%;max-width:620px}
+.mouvement .pile{position:relative;display:block;margin-inline:auto}
+.mouvement .niveau{position:absolute;left:0;right:0;top:0;will-change:transform}
+.niveau{display:flex;flex-direction:column;gap:10px;padding:20px 22px 24px;border-radius:26px;border:1px solid rgba(50,28,49,.14);color:#000000}
+.niveau[data-n="1"]{background:var(--n1)}
+.niveau[data-n="2"]{background:var(--n2)}
+.niveau[data-n="3"]{background:var(--n3)}
+.niveau[data-n="4"]{background:var(--n4);color:#FFFFFF}
+.niveau-rang{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.echelle{display:flex;align-items:flex-end;gap:3px}
+.echelle i{display:block;width:10px;border-radius:3px;border:1.5px solid currentColor}
+.echelle i:nth-child(1){height:9px}
+.echelle i:nth-child(2){height:12px}
+.echelle i:nth-child(3){height:15px}
+.echelle i:nth-child(4){height:18px}
+.echelle i.ici{background:currentColor}
+.niveau-libelle{font-size:clamp(22px,5.8vw,28px);font-weight:700;line-height:1.2}
+.niveau-def{font-size:17px;line-height:1.5}
+.niveaux-note{margin-top:22px;font-size:14px;color:var(--texte-2);max-width:42em}
+.mouvement .niveaux-note{margin-top:0}
+.sans-resultat{padding-block:72px 104px}
+.sans-resultat h3{font-family:var(--f-titre);font-weight:400;font-size:clamp(30px,6.6vw,48px);line-height:1.08}
+.sans-liste{display:grid;gap:12px;margin-top:24px;max-width:780px}
+.sans-liste li{display:flex;flex-direction:column;gap:4px;padding:16px 18px;border-radius:20px;border:1px solid var(--trait);background:var(--chair-2)}
+.sans-liste b{font-size:18px}
+.sans-liste span{color:var(--texte-2)}
+.sans-fin{margin-top:22px;font-size:18px;max-width:34em}
+
+/* ---------- 5. Méthode, sources et limites ---------- */
+.methode{background:var(--chair-2);padding-block:96px}
+.methode .surtitre{color:var(--graine)}
+.etiquette{margin-top:36px;max-width:900px;padding:22px 20px 24px;border-radius:18px;border:1px solid var(--trait);background:#FFFFFF}
+.etiquette-titre{padding-bottom:12px;border-bottom:2px solid var(--texte);font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.etiquette dl > div{display:grid;gap:4px 28px;padding-block:15px;border-bottom:1px solid var(--trait)}
+.etiquette dt{padding-top:2px;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--texte-2)}
+.etiquette dd{margin:0}
+.etiquette-pied{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:16px}
+.code{width:150px;height:38px}
+@media (min-width:760px){.etiquette{padding:28px 32px 30px}.etiquette dl > div{grid-template-columns:230px 1fr}}
+
+/* ---------- 6. L'histoire de Ficolia ---------- */
+.histoire{background:var(--peau);color:var(--ivoire);padding-block:0 104px;overflow:hidden}
+.branche{width:100%;height:clamp(230px,40vw,470px)}
+.histoire .surtitre{color:var(--nervure)}
+.histoire .intro{color:var(--ivoire-2)}
+.chapitres{display:grid;gap:28px;margin-top:40px}
+.chapitre h3{font-family:var(--f-titre);font-weight:400;font-size:28px;line-height:1.15}
+.chapitre p{margin-top:8px;color:var(--ivoire-2)}
+@media (min-width:960px){.chapitres{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}}
+
+/* ---------- 7. Questions fréquentes ---------- */
+.questions{background:var(--chair);padding-block:96px}
+.questions .surtitre{color:var(--graine)}
+.faq{margin-top:32px;max-width:880px;border-top:1px solid var(--trait)}
+.faq li{border-bottom:1px solid var(--trait)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:18px;min-height:64px;padding-block:14px;list-style:none;cursor:pointer;font-weight:700;font-size:18px;line-height:1.35}
+.faq summary::-webkit-details-marker{display:none}
+.plus{position:relative;flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--trait);transition:transform 240ms var(--sortie),background-color 160ms ease}
+.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;border-radius:2px;background:var(--texte)}
+.plus::after{transform:rotate(90deg)}
+.faq details[open] .plus{transform:rotate(45deg);background:var(--peau);border-color:var(--peau)}
+.faq details[open] .plus::before,.faq details[open] .plus::after{background:var(--ivoire)}
+.faq .rep{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-bottom:22px;max-width:40em;color:var(--texte-2)}
+.mouvement .faq details[open] .rep{animation:deplie 280ms var(--sortie)}
+@keyframes deplie{from{opacity:0;transform:translateY(-6px)}}
+.a-completer{font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:999px;border:1px dashed var(--texte-2)}
+.ajoutee{margin-left:10px;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--texte-2);white-space:nowrap}
+
+/* ---------- 8. Appel final ---------- */
+.appel{background:var(--peau);color:var(--ivoire);padding-block:72px 104px;overflow:hidden}
+.defile{display:flex;flex-direction:column;margin-bottom:52px}
+.defile-ligne{display:flex;white-space:nowrap;font-family:var(--f-titre);font-size:clamp(60px,15vw,176px);line-height:1.02;will-change:transform}
+.defile-ligne span{padding-right:.32em}
+.defile-ligne.l2{color:transparent;-webkit-text-stroke:1.2px var(--nervure)}
+.appel-grille{display:grid;gap:40px;align-items:center}
+.appel h2{font-size:clamp(38px,8.6vw,76px);line-height:1.04}
+.appel-texte > p{margin-top:16px;font-size:18px;color:var(--ivoire-2)}
+.badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.badge-place{display:flex;flex-direction:column;justify-content:center;min-width:180px;min-height:58px;padding:8px 18px;border-radius:12px;border:1.5px dashed rgba(255,247,240,.65);font-size:15px;font-weight:700;line-height:1.25}
+.badge-place small{font-size:13px;font-weight:400;color:var(--ivoire-2)}
+.appel-figue{width:min(58vw,300px);height:auto;aspect-ratio:127/152.4;margin-inline:auto;transform-origin:50% 96%}
+.mouvement .appel-figue.salue{animation:salue 1100ms var(--sortie) both}
+@keyframes salue{0%{transform:rotate(0)}28%{transform:rotate(-7deg)}60%{transform:rotate(4deg)}100%{transform:rotate(0)}}
+@media (min-width:960px){.appel-grille{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr)}}
+
+/* ---------- Pied de page ---------- */
+.pied{background:var(--peau-nuit);color:var(--ivoire);padding-block:56px calc(64px + env(safe-area-inset-bottom,0px))}
+.pied-logo{display:inline-flex}
+.pied-logo svg{height:34px;width:auto}
+.pied-rappel{margin-top:18px;max-width:36em;color:var(--ivoire-2)}
+.pied-liens{display:flex;flex-wrap:wrap;gap:0 22px;margin-top:24px}
+.pied-liens a{display:inline-flex;align-items:center;min-height:44px;text-underline-offset:4px}
+.pied-mention{margin-top:20px;font-size:14px;color:var(--ivoire-2)}
+
+/* ---------- La maquette : ses réglages ---------- */
+.outils{position:fixed;z-index:60;right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-size:14px;line-height:1.4}
+.outils-bouton{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--trait);background:#FFFFFF;color:var(--texte);font:700 14px var(--f-texte);cursor:pointer}
+.outils-panneau{width:min(330px,calc(100vw - 24px));display:flex;flex-direction:column;gap:12px;padding:16px;border-radius:18px;border:1px solid var(--trait);background:#FFFFFF;color:var(--texte)}
+.outils-panneau fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.outils-panneau legend{font-weight:700;margin-bottom:4px;padding:0}
+.outils-panneau label{display:flex;align-items:center;gap:10px;min-height:36px;cursor:pointer}
+.outils-panneau input{width:18px;height:18px;accent-color:var(--peau);margin:0}
+.outils-note{font-size:13px;color:var(--texte-2)}
+.outils-note a{color:var(--peau)}
+
+/* ---------- Statuts des textes (réglage de la maquette) ---------- */
+.statuts [data-st]::after{content:attr(data-st);display:inline-block;margin-left:8px;padding:3px 7px;border-radius:999px;border:1px solid currentColor;font:700 10.5px/1.2 var(--f-texte);letter-spacing:.06em;text-transform:uppercase;vertical-align:.25em;white-space:nowrap;opacity:.85}
+
+@media (prefers-reduced-motion:reduce){.bouton,.lien-fleche,.lien-fleche svg,.plus{transition:none}}
+</style>
+
+<span id="haut"></span>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">/*@SYMBOLES@*/</svg>
+
+<main id="contenu" lang="fr">
+
+<!-- 1. Ouverture : la figue se dessine, puis s'ouvre, et la vue plonge dans sa chair -->
+<section class="ouverture sur-peau" aria-labelledby="titre">
+  <div class="ouv-scene">
+    <div class="ouv-stage">
+      <svg class="ouv-svg" aria-hidden="true" focusable="false"></svg>
+      <header class="entete dans">
+        <a class="entete-logo" href="#haut" aria-label="Ficolia, haut de la page"><svg viewBox="0 0 578.3 165.7" aria-hidden="true" focusable="false"><use href="#logo-ivoire" width="578.3" height="165.7"/></svg></a>
+        <nav aria-label="Sections du site">
+          <button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+          <div class="menu" id="menu">
+            <button class="menu-bouton menu-fermer" type="button">Fermer</button>
+            <ul>
+              <li><a href="#fonctionnement">Fonctionnement</a></li>
+              <li><a href="#resultats">Résultats</a></li>
+              <li><a href="#methode">Méthode</a></li>
+              <li><a href="#questions">Questions</a></li>
+            </ul>
+            <a class="bouton bouton-contour" href="#telecharger" data-st="Proposition">Télécharger</a>
+          </div>
+        </nav>
+      </header>
+      <div class="ouv-corps dans">
+        <div class="ouv-texte">
+          <h1 id="titre" data-st="Ton accroche">Continuer à prendre soin de soi, sans vérifier ses flacons dix fois.</h1>
+          <p class="ouv-chapo" data-st="Existant">Ficolia informe sur la composition d'un produit cosmétique pendant la grossesse et l'allaitement.</p>
+          <div class="ouv-actions">
+            <a class="bouton bouton-ivoire" href="#telecharger" data-st="Proposition">Télécharger l'application</a>
+            <a class="lien-fleche" href="#fonctionnement" data-st="Proposition">Voir le fonctionnement<svg viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M3 9h11M10 4.5 14.5 9 10 13.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <p class="ouv-mini" data-st="Proposition">Gratuite, sans compte, sans question sur vous.</p>
+        </div>
+        <div class="ouv-figue">
+          <svg class="ouv-figue-fixe" viewBox="0 0 127 152.4" aria-hidden="true" focusable="false"><use href="#figue-ouverte" width="127" height="152.4"/></svg>
+        </div>
+      </div>
+      <p class="ouv-indice" aria-hidden="true"><i></i>Faites défiler</p>
+      <div class="ouv-blanc" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Du rayon à la composition : le geste, écran par écran -->
+<section class="geste" id="fonctionnement" aria-labelledby="t-geste">
+  <div class="dans">
+    <div class="tete-section">
+      <p class="surtitre">Comment ça marche</p>
+      <h2 id="t-geste" data-st="Proposition">Du rayon à la composition</h2>
+      <p class="intro" data-st="Proposition">Ficolia s'utilise surtout en magasin, le produit en main. Scannez le code-barres d'un produit, ou cherchez-le par son nom : Ficolia affiche ses deux lignes, grossesse et allaitement, et la liste de ses ingrédients.</p>
+    </div>
+  </div>
+  <div class="geste-scene">
+    <div class="geste-stage">
+      <div class="dans geste-grille">
+        <div class="tel tel-anime" aria-hidden="true">
+          <div class="tel-ecran">
+            <div class="ecran">
+              <img src="captures/scanner.webp" alt="" width="780" height="1688">
+              <svg viewBox="0 0 390 844">
+                <defs><clipPath id="visee"><rect x="74" y="291" width="242" height="150" rx="10"/></clipPath></defs>
+                <g clip-path="url(#visee)"><g class="cal-code" transform="translate(0 170)">
+                  <rect x="122" y="336" width="146" height="60" rx="6" fill="#FFFFFF"/>
+                  <path d="M134 344v44M139 344v44M146 344v44M152 344v44M157 344v44M165 344v44M171 344v44M178 344v44M183 344v44M191 344v44M198 344v44M204 344v44M210 344v44M217 344v44M223 344v44M230 344v44M236 344v44M243 344v44M249 344v44M256 344v44" stroke="#1E1A1E" stroke-width="2.2"/>
+                  <path d="M136 344v44M161 344v44M187 344v44M213 344v44M240 344v44" stroke="#1E1A1E" stroke-width="4"/>
+                </g></g>
+                <g class="cal-coins" opacity="0" fill="none" stroke="#9EBE59" stroke-width="3.6" stroke-linecap="round">
+                  <path d="M71 318v-19a12 12 0 0 1 12-12h20"/><path d="M287 287h20a12 12 0 0 1 12 12v19"/>
+                  <path d="M71 414v19a12 12 0 0 0 12 12h20"/><path d="M319 414v19a12 12 0 0 1-12 12h-20"/>
+                </g>
+              </svg>
+            </div>
+            <div class="ecran">
+              <img src="captures/produit.webp" alt="" width="780" height="1688" loading="lazy">
+              <svg viewBox="0 0 390 844"><rect class="cal-lignes" x="17" y="508" width="356" height="128" rx="17" fill="none" stroke="#4C2944" stroke-width="3" pathLength="100" stroke-dasharray="100 100" stroke-dashoffset="100"/></svg>
+            </div>
+            <div class="ecran">
+              <img src="captures/composition.webp" alt="" width="780" height="1688" loading="lazy">
+              <svg viewBox="0 0 390 844"><rect class="cal-rangee" x="22" y="260" width="346" height="60" rx="12" fill="rgba(76,41,68,.07)" stroke="#4C2944" stroke-width="2.5" opacity="0"/></svg>
+            </div>
+            <div class="ecran">
+              <img src="captures/produit-inconnu.webp" alt="" width="780" height="1688" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="geste-droite">
+          <div class="segments" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+          <ol class="etapes">
+            <li class="etape">
+              <figure class="etape-tel"><div class="tel"><div class="tel-ecran"><img src="captures/scanner.webp" alt="Capture de l'application : le scanner, son cadre de visée, « Visez le code-barres » et le bouton « Saisir le code-barres »." width="780" height="1688" loading="lazy"></div></div></figure>
+              <div><h3><span class="num">1</span><span data-st="Proposition">Scanner le code-barres</span></h3>
+              <p data-st="Proposition">L'appareil photo du téléphone lit le code-barres. S'il est abîmé, vous pouvez le saisir à la main, ou chercher le produit par son nom ou sa marque.</p></div>
+            </li>
+            <li class="etape">
+              <figure class="etape-tel"><div class="tel"><div class="tel-ecran"><img src="captures/produit.webp" alt="Capture de l'application : l'écran du produit, « Lait corps nourrissant », avec ses deux lignes, Grossesse et Allaitement." width="780" height="1688" loading="lazy"></div></div></figure>
+              <div><h3><span class="num">2</span><span data-st="Proposition">Lire les deux lignes</span></h3>
+              <p data-st="Proposition">L'écran du produit affiche deux lignes, grossesse et allaitement. Chacune s'ouvre séparément.</p></div>
+            </li>
+            <li class="etape">
+              <figure class="etape-tel"><div class="tel"><div class="tel-ecran"><img src="captures/composition.webp" alt="Capture de l'application : la liste des ingrédients du produit, dans l'ordre de l'emballage, chacun avec sa fonction." width="780" height="1688" loading="lazy"></div></div></figure>
+              <div><h3><span class="num">3</span><span data-st="Proposition">Ouvrir la composition</span></h3>
+              <p data-st="Proposition">Les ingrédients suivent l'ordre de l'emballage. Chacun a son panneau, avec la source de son évaluation et sa date.</p></div>
+            </li>
+            <li class="etape">
+              <figure class="etape-tel"><div class="tel"><div class="tel-ecran"><img src="captures/produit-inconnu.webp" alt="Capture de l'application : « Nous ne connaissons pas ce produit », avec la figue et la cagette vide, et le bouton « Ajouter ce produit »." width="780" height="1688" loading="lazy"></div></div></figure>
+              <div><h3><span class="num">4</span><span data-st="Proposition">Savoir quand l'information manque</span></h3>
+              <p data-st="Proposition">Si Ficolia ne connaît pas le produit, ou s'il lui manque une information, elle le dit, sans afficher de résultat à la place.</p></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dans aparte">
+    <p data-st="Proposition"><svg viewBox="0 0 26 26" aria-hidden="true" focusable="false"><path d="M4 20.5h3M10 20.5h3M16 20.5h3" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round"/><path d="M5.5 16.5v-3M11.5 16.5v-7M17.5 16.5V5.5" stroke="#9EBE59" stroke-width="3" stroke-linecap="round"/></svg>En rayon, le réseau faiblit souvent : les résultats déjà consultés restent lisibles sans connexion.</p>
+  </div>
+</section>
+
+<!-- 3. Grossesse, allaitement : deux lignes -->
+<section class="lignes" aria-labelledby="t-lignes">
+  <h2 id="t-lignes" class="sr">Grossesse et allaitement : deux lignes</h2>
+  <div class="lignes-scene">
+    <div class="lignes-stage">
+      <div class="dans">
+        <div class="mots" aria-hidden="true">
+          <span class="mot mot-g">Grossesse<i>›</i></span>
+          <span class="mot mot-a">Allaitement<i>›</i></span>
+        </div>
+        <div class="lignes-corps">
+          <div class="lignes-texte">
+            <p data-st="Proposition">Un même produit peut recevoir un résultat pour la grossesse et un autre pour l'allaitement. Les deux lignes ne se déduisent pas l'une de l'autre : chacune se lit pour elle-même.</p>
+            <p data-st="Proposition">Ficolia ne pose aucune question sur la personne qui consulte : elle affiche toujours les deux lignes.</p>
+          </div>
+          <div class="lignes-tels">
+            <figure><figcaption>Ligne grossesse</figcaption><div class="tel"><div class="tel-ecran"><img src="captures/verdict-grossesse-1.webp" alt="Capture de l'application : la ligne grossesse du produit d'exemple, au niveau « Composition sans signal identifié »." width="780" height="1688" loading="lazy"></div></div></figure>
+            <figure><figcaption>Ligne allaitement</figcaption><div class="tel"><div class="tel-ecran"><img src="captures/verdict-allaitement-2.webp" alt="Capture de l'application : la ligne allaitement du même produit, au niveau « Composition à signal modéré », avec les mentions « Zone de tétée non évaluée » et « Produit parfumé »." width="780" height="1688" loading="lazy"></div></div></figure>
+            <p class="mention" data-st="Proposition">Exemple illustratif : produit et résultats fictifs. La phrase de la ligne allaitement reste à rédiger.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Lire un résultat : les quatre niveaux, puis l'absence de résultat -->
+<section class="niveaux" id="resultats" aria-labelledby="t-niveaux">
+  <div class="dans">
+    <div class="tete-section">
+      <p class="surtitre">Les niveaux</p>
+      <h2 id="t-niveaux" data-st="Proposition">Lire un résultat</h2>
+      <p class="intro" data-st="Proposition">Quand Ficolia a évalué un produit, chaque ligne affiche l'un des quatre niveaux. Son nom est écrit en toutes lettres, et une couleur l'accompagne. Un résultat porte sur un produit précis, consulté pour la grossesse ou pour l'allaitement.</p>
+      <p class="intro" data-st="Existant">Le niveau porte sur la composition, dans ce type de produit.</p>
+    </div>
+  </div>
+  <div class="niveaux-scene">
+    <div class="niveaux-stage">
+      <div class="dans">
+        <ol class="pile">
+          <li class="niveau" data-n="1"><p class="niveau-rang"><span data-st="Proposition">Niveau 1 sur 4</span><span class="echelle" aria-hidden="true"><i class="ici"></i><i></i><i></i><i></i></span></p><p class="niveau-libelle" data-st="Existant">Composition sans signal identifié</p><p class="niveau-def" data-st="Existant">Aucun ingrédient évalué n'appelle d'attention particulière durant la grossesse, dans ce type de produit. Une absence de signal n'est pas une preuve d'innocuité.</p></li>
+          <li class="niveau" data-n="2"><p class="niveau-rang"><span>Niveau 2 sur 4</span><span class="echelle" aria-hidden="true"><i></i><i class="ici"></i><i></i><i></i></span></p><p class="niveau-libelle" data-st="Existant">Composition à signal modéré</p><p class="niveau-def" data-st="Existant">Au moins un ingrédient évalué fait l'objet de données nuancées, sans position formelle pour la grossesse.</p></li>
+          <li class="niveau" data-n="3"><p class="niveau-rang"><span>Niveau 3 sur 4</span><span class="echelle" aria-hidden="true"><i></i><i></i><i class="ici"></i><i></i></span></p><p class="niveau-libelle" data-st="Existant">Composition préoccupante</p><p class="niveau-def" data-st="Existant">Au moins un ingrédient évalué présente, dans ce type de produit, un signal sérieux pour la grossesse.</p></li>
+          <li class="niveau" data-n="4"><p class="niveau-rang"><span>Niveau 4 sur 4</span><span class="echelle" aria-hidden="true"><i></i><i></i><i></i><i class="ici"></i></span></p><p class="niveau-libelle" data-st="Existant">Composition incompatible</p><p class="niveau-def" data-st="Existant">Au moins un ingrédient évalué présente, dans ce type de produit, un signal majeur pour la grossesse.</p></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="dans">
+    <p class="niveaux-note" data-st="Proposition">Les définitions sont celles de la ligne grossesse, dans le lexique de l'application. Celles de la ligne allaitement sont à rédiger.</p>
+  </div>
+  <div class="dans sans-resultat">
+    <h3 data-st="Proposition">Quand il n'y a pas de résultat</h3>
+    <ul class="sans-liste">
+      <li><b data-st="Acté">Nous ne connaissons pas ce produit</b><span data-st="Existant">Ce code-barres ne figure dans aucune de nos bases de données.</span></li>
+      <li><b data-st="Existant">Pas encore évalué</b><span data-st="Existant">Ficolia n'a pas encore évalué ce produit.</span></li>
+      <li><b data-st="Existant">Évaluation incomplète</b><span data-st="Existant">Un ingrédient n'a pas été reconnu, ou le type du produit n'a pas été précisé : sans cela, Ficolia ne peut pas donner de verdict.</span></li>
+      <li><b data-st="Existant">Type à préciser</b><span data-st="Existant">Le type de ce produit n'a pas été précisé. Sans lui, Ficolia ne peut pas donner de verdict.</span></li>
+      <li><b data-st="Existant">Ficolia n'évalue pas ce type de produit.</b><span data-st="Proposition">Par exemple un médicament, ou un produit qui n'est pas un cosmétique.</span></li>
+    </ul>
+    <p class="sans-fin" data-st="Proposition">Ces messages n'ont ni niveau ni couleur : une information manquante n'est pas un résultat.</p>
+  </div>
+</section>
+
+<!-- 5. Méthode, sources et limites : le dos de l'étiquette -->
+<section class="methode" id="methode" aria-labelledby="t-methode">
+  <div class="dans">
+    <div class="tete-section">
+      <p class="surtitre">Méthode, sources et limites</p>
+      <h2 id="t-methode" data-st="Proposition">Ce que Ficolia lit, et jusqu'où</h2>
+    </div>
+    <div class="etiquette">
+      <p class="etiquette-titre">Méthode, sources et limites</p>
+      <dl>
+        <div><dt>Ce qui est analysé</dt><dd data-st="Proposition">La composition d'un produit cosmétique : la liste de ses ingrédients, dans l'ordre de l'emballage.</dd></div>
+        <div><dt>Les sources</dt><dd><span data-st="Proposition">Dans l'application, chaque ingrédient indique la source de son évaluation : sa nature, sa référence et sa date.</span> <span class="vide">[Liste des sources documentaires, à fournir]</span> <span data-st="Proposition">Citer une source ne signifie pas qu'elle a validé Ficolia ou ses résultats.</span></dd></div>
+        <div><dt>Le type de produit</dt><dd data-st="Existant">Le niveau tient compte du type de produit : un même ingrédient n'expose pas de la même façon dans un produit rincé et dans un produit laissé sur la peau.</dd></div>
+        <div><dt>L'information manquante</dt><dd data-st="Proposition">Elle est dite telle quelle, sans niveau ni couleur.</dd></div>
+        <div><dt>Les limites</dt><dd data-st="Existant">Les verdicts sont établis pour une grossesse physiologique. Ficolia ne couvre pas les produits vendus hors de France. Une formule peut changer sans que le code-barres change : les données datent de leur source.</dd></div>
+        <div><dt>L'établissement des niveaux</dt><dd><span class="vide">[À écrire quand la formulation sera arrêtée]</span></dd></div>
+        <div><dt>Une erreur</dt><dd data-st="Proposition">Dans l'application, « Signaler une erreur » sur l'écran d'une ligne, ou « Ce n'est pas ce produit » en bas de l'écran du produit. Une réaction à un produit, elle, se déclare au ministère de la Santé, sur un portail ouvert à tous : Ficolia ne peut pas recevoir ces déclarations elle-même.</dd></div>
+        <div><dt>Rappel</dt><dd data-st="Existant">Ce n'est pas un avis médical. Pour toute question de santé, adressez-vous à un professionnel de santé.</dd></div>
+      </dl>
+      <div class="etiquette-pied">
+        <a class="lien-fleche" href="#methode" data-st="Proposition">Méthode et sources, en détail<svg viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M3 9h11M10 4.5 14.5 9 10 13.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <svg class="code" viewBox="0 0 150 38" aria-hidden="true" focusable="false">
+          <path d="M4 3v32M8 3v32M14 3v32M17 3v32M23 3v32M29 3v32M32 3v32M38 3v32M43 3v32M47 3v32M53 3v32M58 3v32M62 3v32M68 3v32M74 3v32M77 3v32M83 3v32M88 3v32M92 3v32M98 3v32M104 3v32M107 3v32M113 3v32M118 3v32M122 3v32M128 3v32M134 3v32M137 3v32M143 3v32M146 3v32" stroke="#321C31" stroke-width="1.6"/>
+          <path d="M6 3v32M26 3v32M50 3v32M71 3v32M95 3v32M116 3v32M140 3v32" stroke="#321C31" stroke-width="3"/>
+          <rect class="balayage" x="0" y="0" width="2.5" height="38" rx="1" fill="#9EBE59" opacity="0"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. L'histoire de Ficolia : le figuier pousse au fil de la lecture -->
+<section class="histoire sur-peau" id="histoire" aria-labelledby="t-histoire">
+  <svg class="branche" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"></svg>
+  <div class="dans">
+    <div class="tete-section">
+      <p class="surtitre">L'histoire de Ficolia</p>
+      <h2 id="t-histoire"><span class="vide">[Titre à fournir]</span></h2>
+      <p class="intro"><span class="vide">[L'histoire de la fondation, en quelques lignes. Rien n'est inventé : ni parcours, ni qualification, ni comité, ni partenariat.]</span></p>
+    </div>
+    <div class="chapitres">
+      <div class="chapitre"><h3><span class="vide">[Le point de départ]</span></h3><p><span class="vide">[D'où vient l'idée de Ficolia, à fournir]</span></p></div>
+      <div class="chapitre"><h3><span class="vide">[L'intention]</span></h3><p><span class="vide">[Ce que Ficolia veut apporter, à fournir]</span></p></div>
+      <div class="chapitre"><h3><span class="vide">[Le choix de la figue]</span></h3><p><span class="vide">[Pourquoi une figue, à fournir]</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Questions fréquentes -->
+<section class="questions" id="questions" aria-labelledby="t-questions">
+  <div class="dans">
+    <div class="tete-section">
+      <p class="surtitre">Questions fréquentes</p>
+      <h2 id="t-questions" data-st="Proposition">Vos questions</h2>
+    </div>
+    <ul class="faq">
+      <li><details><summary>À qui s'adresse Ficolia ?<span class="plus" aria-hidden="true"></span></summary><div class="rep"><p data-st="Proposition">Aux femmes enceintes ou qui allaitent, et à leurs proches. Plus largement, à toute personne qui s'informe sur la composition d'un cosmétique, pour la grossesse ou pour l'allaitement.</p></div></details></li>
+      <li><details><summary>Comment fonctionne l'analyse ?<span class="plus" aria-hidden="true"></span></summary><div class="rep"><span class="a-completer">Réponse à compléter</span><p>La façon de décrire l'établissement des niveaux n'est pas encore arrêtée. Le parcours est décrit plus haut, dans « Du rayon à la composition ».</p></div></details></li>
+      <li><details><summary>Pourquoi les informations peuvent-elles différer entre grossesse et allaitement ?<span class="plus" aria-hidden="true"></span></summary><div class="rep"><span class="a-completer">Réponse à compléter en partie</span><p data-st="Proposition">Chaque produit a deux lignes, chacune avec son propre résultat.</p></div></details></li>
+      <li><details><summary>Que signifie une information manquante ?<span class="plus" aria-hidden="true"></span></summary><div class="rep"><p data-st="Proposition">Que Ficolia ne peut pas évaluer le produit en l'état : un ingrédient non reconnu, une liste incomplète, un type de produit non précisé, ou un produit qu'elle ne connaît pas. L'application le dit en clair, sans niveau ni couleur. Ce n'est pas un résultat.</p></div></details></li>
+      <li><details><summary>Que faire si un produit n'est pas reconnu ?<span class="plus" aria-hidden="true"></span></summary><div class="rep"><p data-st="Proposition">L'application affiche « Nous ne connaissons pas ce produit ». S'il s'agit d'un cosmétique, « Ajouter ce produit » vous propose de photographier sa face avant et sa liste d'ingrédients. Si vous laissez votre adresse e-mail, Ficolia vous préviendra si ce produit est publié.</p></div></details></li>
+      <li><details><summary>Comment signaler une erreur ?<span class="plus" aria-hidden="true"></span></summary><div class="rep"><p data-st="Proposition">Dans l'application : « Signaler une erreur » sur l'écran d'une ligne, ou « Ce n'est pas ce produit » en bas de l'écran du produit. Le signalement ne demande pas d'adresse et ne reçoit pas de réponse.</p></div></details></li>
+      <li><details><summary>L'application remplace-t-elle un avis professionnel ?<span class="plus" aria-hidden="true"></span></summary><div class="rep"><p data-st="Proposition">Non. Ficolia informe sur la composition des produits ; elle ne prescrit pas. Ce n'est pas un avis médical. Pour toute question de santé, adressez-vous à un professionnel de santé.</p></div></details></li>
+      <li><details><summary>Faut-il créer un compte ?<span class="plus" aria-hidden="true"></span></summary><div class="rep"><p data-st="Proposition">Non. Ficolia ne demande ni compte, ni profil, ni information sur la personne.</p></div></details></li>
+      <li><details><summary>L'application est-elle gratuite ?<span class="plus" aria-hidden="true"></span></summary><div class="rep"><p data-st="Proposition">Oui.</p></div></details></li>
+      <li><details><summary>Comment les données personnelles sont-elles utilisées ?<span class="plus" aria-hidden="true"></span></summary><div class="rep"><span class="a-completer">Réponse à compléter</span><p>Confirmé : ni compte, ni profil. Le reste relève de la politique de confidentialité, que la juriste doit écrire.</p></div></details></li>
+      <li><details><summary><span>Ficolia fonctionne-t-elle sans connexion ?<span class="ajoutee">Ajoutée</span></span><span class="plus" aria-hidden="true"></span></summary><div class="rep"><p data-st="Proposition">En partie. Les résultats déjà consultés et ceux du catalogue intégré à l'application restent lisibles sans connexion. La recherche par nom, elle, en demande une.</p></div></details></li>
+      <li><details><summary><span>Quels produits Ficolia évalue-t-elle ?<span class="ajoutee">Ajoutée</span></span><span class="plus" aria-hidden="true"></span></summary><div class="rep"><p data-st="Proposition">Des produits cosmétiques vendus en France. Les médicaments, et plus largement les produits qui ne sont pas des cosmétiques, ne sont pas évalués.</p></div></details></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 8. Appel final : la figue, ouverte, salue -->
+<section class="appel sur-peau" id="telecharger" aria-labelledby="t-appel">
+  <div class="defile" aria-hidden="true">
+    <div class="defile-ligne l1"><span>Grossesse · Allaitement · Composition ·</span><span>Grossesse · Allaitement · Composition ·</span><span>Grossesse · Allaitement · Composition ·</span></div>
+    <div class="defile-ligne l2"><span>Deux lignes · Un produit ·</span><span>Deux lignes · Un produit ·</span><span>Deux lignes · Un produit ·</span><span>Deux lignes · Un produit ·</span></div>
+  </div>
+  <div class="dans appel-grille">
+    <div class="appel-texte">
+      <h2 id="t-appel" data-st="Proposition">Un produit, deux lignes, sa composition.</h2>
+      <p data-st="Proposition">Ficolia est gratuite et ne demande pas de compte.</p>
+      <div class="badges">
+        <p class="badge-place">Badge officiel App Store<small>lien à fournir</small></p>
+        <p class="badge-place">Badge officiel Google Play<small>lien à fournir</small></p>
+      </div>
+    </div>
+    <svg class="appel-figue" viewBox="0 0 127 152.4" aria-hidden="true" focusable="false"><use href="#figue-ouverte" width="127" height="152.4"/></svg>
+  </div>
+</section>
+
+</main>
+
+<footer class="pied sur-peau">
+  <div class="dans">
+    <a class="pied-logo" href="#haut" aria-label="Ficolia, haut de la page"><svg viewBox="0 0 578.3 165.7" aria-hidden="true" focusable="false"><use href="#logo-ivoire" width="578.3" height="165.7"/></svg></a>
+    <p class="pied-rappel" data-st="Existant">Ce n'est pas un avis médical. Pour toute question de santé, adressez-vous à un professionnel de santé.</p>
+    <nav aria-label="Informations">
+      <ul class="pied-liens">
+        <li><a href="#methode">Méthode et sources</a></li>
+        <li><a href="#haut">Mentions légales</a></li>
+        <li><a href="#haut">Politique de confidentialité</a></li>
+        <li><a href="#haut">Conditions d'utilisation</a></li>
+        <li><a href="#haut">Contact <span class="vide">[adresse à fournir]</span></a></li>
+      </ul>
+    </nav>
+    <p class="pied-mention" data-st="Proposition">© Ficolia</p>
+  </div>
+</footer>
+
+<div class="outils">
+  <div class="outils-panneau" id="outils-panneau" hidden>
+    <fieldset>
+      <legend>Animations</legend>
+      <label><input type="radio" name="mouvement" id="mv-systeme" value="systeme">Selon le réglage du téléphone</label>
+      <label><input type="radio" name="mouvement" id="mv-reduit" value="reduit">Réduites : la version sans mouvement</label>
+      <label><input type="radio" name="mouvement" id="mv-complet" value="complet">Complètes</label>
+    </fieldset>
+    <label><input type="checkbox" id="opt-statuts">Montrer le statut des textes</label>
+    <p class="outils-note">Maquette du 18 octobre, à valider. Les textes, leurs statuts et ce qui manque : <a href="https://claude.ai/artifact/SiQZA1oUejLmDmzuBnRPFq" target="_blank" rel="noopener">le dossier du site</a>.</p>
+  </div>
+  <button class="outils-bouton" type="button" aria-expanded="false" aria-controls="outils-panneau">Maquette</button>
+</div>
+
+<script>
+(() => {
+const LOGO = /*@LOGO@*/;
+const REV = /*@REV@*/;
+const GRAINES = /*@GRAINES@*/;   // le centre de chaque graine, pour les faire paraître sur place
+const html = document.documentElement;
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const NS = 'http://www.w3.org/2000/svg';
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const seg = (p, a, b) => clamp((p - a) / (b - a));
+const mix = (a, b, t) => a + (b - a) * t;
+const sortie = t => 1 - Math.pow(1 - t, 3);
+const doux = t => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+const autour = (s, x, y) => `translate(${x} ${y}) scale(${s.toFixed(4)}) translate(${-x} ${-y})`;
+const svgEl = (tag, attrs, parent) => {
+  const n = document.createElementNS(NS, tag);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(n);
+  return n;
+};
+const hauteur = () => window.innerHeight;
+
+/* ---------- Le mode : en mouvement, ou fixe (réduire les animations, écran trop bas) ---------- */
+const mqReduit = window.matchMedia('(prefers-reduced-motion: reduce)');
+let choix = 'systeme';
+try { choix = localStorage.getItem('ficolia-site-mouvement') || 'systeme'; } catch (e) { /* stockage indisponible */ }
+const enMouvement = () => (choix === 'complet' || (choix === 'systeme' && !mqReduit.matches)) && hauteur() >= 520;
+
+/* ---------- Les scènes : chacune reçoit sa progression (0 → 1) et la dessine ---------- */
+const SCENES = [];
+const scene = (el, rendre, epinglee) => SCENES.push({ el, rendre, epinglee, p: NaN });
+function progres(s) {
+  const r = s.el.getBoundingClientRect();
+  if (s.epinglee) {
+    const course = s.el.offsetHeight - hauteur();
+    return course > 0 ? clamp(-r.top / course) : 0;
+  }
+  return clamp((hauteur() - r.top) / (hauteur() + r.height));
+}
+let demande = false, forcer = true;
+function planifier(f) {
+  if (f) forcer = true;
+  if (!demande) { demande = true; requestAnimationFrame(cadre); }
+}
+function cadre() {
+  demande = false;
+  const m = html.classList.contains('mouvement');
+  for (const s of SCENES) {
+    const p = m ? progres(s) : 1;
+    if (forcer || Math.abs(p - s.p) > 1e-4) { s.p = p; s.rendre(p, m); }
+  }
+  forcer = false;
+}
+const remettre = els => { for (const e of els) { e.style.transform = ''; e.style.opacity = ''; e.style.visibility = ''; } };
+
+/* ---------- 1. L'ouverture ---------- */
+const ouvScene = $('.ouv-scene'), ouvStage = $('.ouv-stage'), ouvSvg = $('.ouv-svg');
+const ouvPlace = $('.ouv-figue-fixe'), ouvTexte = $('.ouv-texte'), ouvEntete = $('.entete');
+const ouvIndice = $('.ouv-indice'), ouvBlanc = $('.ouv-blanc');
+const FIG = { x: 312.5, y: 125, w: 127, h: 152.4 };   // la figue entière, dans les coordonnées du logo
+const CIBLE = { x: 318, y: 152 };                       // le point de la chair où plonge la vue
+const F = (() => {
+  const defs = svgEl('defs', {}, ouvSvg);
+  const g = svgEl('g', {}, ouvSvg);
+  const cp = (id, ds) => { const c = svgEl('clipPath', { id }, defs); for (const d of ds) svgEl('path', { d }, c); return `url(#${id})`; };
+  const chair = svgEl('circle', { cx: 319.5, cy: 145, r: 76.1, fill: '#FFFFFF', transform: autour(0, 319.5, 145) }, svgEl('g', { 'clip-path': cp('o-chair', LOGO.chair) }, g));
+  const gV = svgEl('g', { 'clip-path': cp('o-nerv', LOGO.nervures) }, g);
+  const jeu = c => {
+    const j = svgEl('g', {}, gV);
+    return {
+      g: j,
+      traits: REV.gV.map(d => svgEl('path', { d, fill: 'none', stroke: c, 'stroke-width': 6.1, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-dasharray': '50.7 160', 'stroke-dashoffset': 50.7 }, j)),
+      moyeu: svgEl('circle', { cx: LOGO.moyeu[0], cy: LOGO.moyeu[1], r: LOGO.moyeu[2], fill: c }, j),
+    };
+  };
+  const nIvoire = jeu('#FFF7F0'), nVert = jeu('#9EBE59');
+  const graines = c => { const j = svgEl('g', {}, g); return { g: j, liste: LOGO.graines.map(d => svgEl('path', { d, fill: c, 'fill-rule': 'evenodd', opacity: 0 }, j)) }; };
+  const gIvoire = graines('#FFF7F0'), gRouge = graines('#9F3542');
+  const goutte = svgEl('g', { transform: 'translate(319.5 146.8)' }, g);
+  const point = svgEl('g', {}, goutte);
+  svgEl('circle', { cx: 0, cy: 0, r: 3.6, fill: '#FFF7F0' }, point);
+  const pointe = svgEl('path', { d: REV.tip, fill: '#FFF7F0' }, point);
+  const trait = (clip, d, w, L) => svgEl('path', { d, fill: 'none', stroke: '#FFF7F0', 'stroke-width': w, 'stroke-linejoin': 'round', pathLength: L, 'stroke-dasharray': `${L} ${L * 3.3}`, 'stroke-dashoffset': L }, clip);
+  const cA = svgEl('g', { 'clip-path': cp('o-cA', LOGO.contourA) }, g);
+  const cB = svgEl('g', { 'clip-path': cp('o-cB', LOGO.contourB) }, g);
+  const contour = [[trait(cB, REV.gM, 11.9, 275.1), 275.1, .12, .46], [trait(cA, REV.gA, 12.4, 179.2), 179.2, .18, .48], [trait(cB, REV.gS, 11.9, 28.7), 28.7, .4, .5]];
+  return { g, chair, nIvoire, nVert, gIvoire, gRouge, goutte, point, pointe, contour };
+})();
+// La révélation, au chargement : la goutte, le contour, les nervures et les graines, en ivoire. Le texte est déjà là.
+let rev = 0, revDepart = null;
+function revelation(t) {
+  if (revDepart === null) revDepart = t;
+  rev = html.classList.contains('mouvement') ? clamp((t - revDepart) / 2300) : 1;
+  rendreOuv(ouvP, html.classList.contains('mouvement'));
+  if (rev < 1) requestAnimationFrame(revelation);
+}
+// o : l'ouverture (la chair blanche et les couleurs) ; fin : les nervures et les graines s'effacent dans le blanc
+function dessinerFigue(o, fin) {
+  const g1 = sortie(seg(rev, 0, .14)), g2 = sortie(seg(rev, .1, .26)), gf = seg(rev, .4, .54);
+  F.point.setAttribute('transform', `scale(${g1.toFixed(3)})`);
+  F.pointe.setAttribute('transform', `translate(0 -1.75) scale(1 ${g2.toFixed(3)}) translate(0 1.75)`);
+  F.goutte.setAttribute('opacity', (1 - gf).toFixed(3));
+  for (const [p, L, a, b] of F.contour) p.setAttribute('stroke-dashoffset', (L * (1 - sortie(seg(rev, a, b)))).toFixed(2));
+  const nv = sortie(seg(rev, .48, .76)), mo = sortie(seg(rev, .46, .6));
+  for (const n of [F.nIvoire, F.nVert]) {
+    for (const t of n.traits) t.setAttribute('stroke-dashoffset', (50.7 * (1 - nv)).toFixed(2));
+    n.moyeu.setAttribute('transform', autour(mo, LOGO.moyeu[0], LOGO.moyeu[1]));
+  }
+  GRAINES.forEach(([x, y], i) => {
+    const k = sortie(seg(rev, .58 + i * .034, .7 + i * .034));
+    for (const s of [F.gIvoire, F.gRouge]) {
+      s.liste[i].setAttribute('opacity', k.toFixed(3));
+      s.liste[i].setAttribute('transform', autour(.45 + .55 * k, x, y));
+    }
+  });
+  F.chair.setAttribute('transform', autour(sortie(o), 319.5, 145));
+  const c = seg(o, .2, .8), reste = 1 - fin;
+  F.nVert.g.setAttribute('opacity', (c * reste).toFixed(3));
+  F.gRouge.g.setAttribute('opacity', (c * reste).toFixed(3));
+  F.nIvoire.g.setAttribute('opacity', (1 - c).toFixed(3));
+  F.gIvoire.g.setAttribute('opacity', (1 - c).toFixed(3));
+}
+let REPOS = null, ouvP = 0;
+function mesurerOuv() {
+  const W = ouvStage.clientWidth, H = ouvStage.clientHeight;
+  ouvSvg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const a = ouvStage.getBoundingClientRect(), b = ouvPlace.getBoundingClientRect();
+  REPOS = { x: b.left - a.left + b.width / 2, y: b.top - a.top + b.height / 2, s: Math.min(b.width / FIG.w, b.height / FIG.h), W, H };
+}
+function rendreOuv(p, m) {
+  ouvP = p;
+  if (!m) { remettre([ouvTexte, ouvEntete, ouvIndice]); return; }
+  if (!REPOS) mesurerOuv();
+  const t = seg(p, .02, .2);
+  ouvTexte.style.opacity = (1 - t).toFixed(3);
+  ouvTexte.style.transform = `translateY(${(-48 * sortie(t)).toFixed(1)}px)`;
+  ouvTexte.style.visibility = t > .98 ? 'hidden' : '';
+  const e = seg(p, .01, .12);
+  ouvEntete.style.opacity = (1 - e).toFixed(3);
+  ouvEntete.style.visibility = e > .98 ? 'hidden' : '';
+  ouvIndice.style.opacity = (1 - seg(p, 0, .05)).toFixed(3);
+  // La plongée : la figue monte au centre, grandit, et la vue entre dans sa chair.
+  const { W, H } = REPOS;
+  const k = doux(seg(p, .06, .94)), c = doux(seg(p, .06, .5));
+  const fin = 1.18 * Math.hypot(W, H) / 2 / 46;
+  const s = REPOS.s * Math.pow(fin / REPOS.s, k);
+  const x = mix(REPOS.x, W / 2, c), y = mix(REPOS.y, H / 2, c);
+  const fx = mix(FIG.x, CIBLE.x, k), fy = mix(FIG.y, CIBLE.y, k);
+  F.g.setAttribute('transform', `translate(${x.toFixed(2)} ${y.toFixed(2)}) scale(${s.toFixed(4)}) translate(${(-fx).toFixed(3)} ${(-fy).toFixed(3)})`);
+  dessinerFigue(seg(p, .16, .5), seg(p, .8, .95));
+  ouvBlanc.style.opacity = seg(p, .9, .985).toFixed(3);
+}
+scene(ouvScene, rendreOuv, true);
+
+/* ---------- 2. Du rayon à la composition ---------- */
+const gesteScene = $('.geste-scene');
+const ecrans = $$('.tel-anime .ecran');
+const etapes = $$('.etape');
+const segments = $$('.segments b');
+const calCode = $('.cal-code'), calCoins = $('.cal-coins'), calLignes = $('.cal-lignes'), calRangee = $('.cal-rangee');
+const RANGEES = [[257, 324], [324, 431], [431, 518], [518, 637], [637, 724]];   // les ingrédients, dans la capture
+function rendreGeste(p, m) {
+  if (!m) { remettre([...ecrans, ...etapes]); return; }
+  const u = p * 4;
+  ecrans.forEach((ecran, i) => {
+    const entre = i === 0 ? 1 : doux(seg(u, i - .16, i + .04));
+    const part = i === ecrans.length - 1 ? 0 : doux(seg(u, i + .84, i + 1.04));
+    ecran.style.transform = `translateX(${((1 - entre) * 100 - part * 28).toFixed(2)}%)`;
+    ecran.style.opacity = (1 - .35 * part).toFixed(3);
+    ecran.style.visibility = entre <= 0 ? 'hidden' : '';
+  });
+  // Étape 1 : le code-barres entre dans le cadre de visée, puis il est lu.
+  calCode.setAttribute('transform', `translate(0 ${((1 - sortie(seg(u, .08, .5))) * 170).toFixed(1)})`);
+  calCoins.setAttribute('opacity', (seg(u, .54, .62) * (1 - .3 * seg(u, .7, .84))).toFixed(3));
+  // Étape 2 : les deux lignes se dessinent.
+  calLignes.setAttribute('stroke-dashoffset', (100 * (1 - sortie(seg(u, 1.25, 1.62)))).toFixed(2));
+  // Étape 3 : la lecture descend la liste, dans l'ordre de l'emballage.
+  const q = seg(u, 2.2, 2.9) * (RANGEES.length - 1), i0 = Math.min(Math.floor(q), RANGEES.length - 2), f = doux(q - i0);
+  const [a0, a1] = RANGEES[i0], [b0, b1] = RANGEES[i0 + 1];
+  const y = mix(a0, b0, f), h = mix(a1 - a0, b1 - b0, f);
+  calRangee.setAttribute('y', (y + 3).toFixed(1));
+  calRangee.setAttribute('height', (h - 6).toFixed(1));
+  calRangee.setAttribute('opacity', seg(u, 2.1, 2.2).toFixed(3));
+  etapes.forEach((e, i) => {
+    const arrive = i === 0 ? 1 : seg(u, i - .02, i + .1);
+    const part = i === etapes.length - 1 ? 0 : seg(u, i + .9, i + 1.02);
+    const v = arrive * (1 - part);
+    e.style.opacity = v.toFixed(3);
+    e.style.transform = `translateY(${((1 - arrive) * 14 - part * 14).toFixed(1)}px)`;
+    e.style.visibility = v < .02 ? 'hidden' : '';
+  });
+  segments.forEach((b, i) => { b.style.transform = `scaleX(${clamp(u - i).toFixed(3)})`; });
+}
+scene(gesteScene, rendreGeste, true);
+
+/* ---------- 3. Deux lignes : les mots arrivent des deux côtés, comme « Fic » et « lia » ---------- */
+const lignesScene = $('.lignes-scene'), mots = $('.mots'), motG = $('.mot-g'), motA = $('.mot-a');
+const lignesCorps = $('.lignes-corps'), lignesTexte = $('.lignes-texte'), lignesTels = $('.lignes-tels');
+let MOTS = null;
+function mesurerLignes() { MOTS = { haut: mots.offsetTop, h: mots.offsetHeight, H: $('.lignes-stage').clientHeight }; }
+function rendreLignes(p, m) {
+  if (!m) { remettre([mots, motG, motA, lignesTexte, lignesTels]); lignesCorps.style.top = ''; return; }
+  if (!MOTS) mesurerLignes();
+  const large = window.innerWidth >= 960;
+  const e = doux(seg(p, 0, .32));
+  motG.style.transform = `translateX(${(-(1 - e) * 62).toFixed(2)}vw)`;
+  motA.style.transform = `translateX(${((1 - e) * 62).toFixed(2)}vw)`;
+  // Les mots partent du milieu de l'écran, puis montent et rapetissent pour laisser la place au texte.
+  const rs = doux(seg(p, .36, .5));
+  const sc = mix(1, large ? .46 : .6, rs);
+  const dy = (1 - rs) * Math.max(0, (MOTS.H - MOTS.h) / 2 - MOTS.haut);
+  mots.style.transform = `translateY(${dy.toFixed(1)}px) scale(${sc.toFixed(4)})`;
+  lignesCorps.style.top = `${(MOTS.haut + dy + MOTS.h * sc + 28).toFixed(1)}px`;
+  const tIn = seg(p, .42, .54), tOut = large ? 0 : seg(p, .64, .72);
+  lignesTexte.style.opacity = (tIn * (1 - tOut)).toFixed(3);
+  lignesTexte.style.transform = `translateY(${((1 - tIn) * 18 - tOut * 18).toFixed(1)}px)`;
+  lignesTexte.style.visibility = tIn * (1 - tOut) < .02 ? 'hidden' : '';
+  const tt = sortie(seg(p, large ? .56 : .7, large ? .8 : .9));
+  lignesTels.style.opacity = tt.toFixed(3);
+  lignesTels.style.transform = `translateY(${((1 - tt) * 70).toFixed(1)}px)`;
+  lignesTels.style.visibility = tt < .02 ? 'hidden' : '';
+}
+scene(lignesScene, rendreLignes, true);
+
+/* ---------- 4. Les niveaux : ils se posent l'un sur l'autre, du premier au quatrième ---------- */
+const niveauxScene = $('.niveaux-scene'), pile = $('.pile'), cartes = $$('.niveau');
+let PAS = 84;
+function mesurerNiveaux() {
+  const lib = cartes[0].querySelector('.niveau-libelle');
+  PAS = Math.round(lib.offsetTop + lib.offsetHeight + 14);
+  pile.style.height = `${Math.max(...cartes.map((c, i) => i * PAS + c.offsetHeight))}px`;
+}
+function rendreNiveaux(p, m) {
+  if (!m) { remettre(cartes); pile.style.height = ''; return; }
+  cartes.forEach((c, i) => {
+    let y = i * PAS;
+    if (i > 0) { const a = .04 + (i - 1) * .27; y += (1 - sortie(seg(p, a, a + .22))) * hauteur(); }
+    c.style.transform = `translateY(${y.toFixed(1)}px)`;
+  });
+}
+scene(niveauxScene, rendreNiveaux, true);
+
+/* ---------- 5. La méthode : le code-barres de l'étiquette est lu une fois ---------- */
+const balayage = $('.balayage');
+scene($('.etiquette'), (p, m) => {
+  const t = m ? seg(p, .3, .5) : 0;
+  balayage.setAttribute('x', (t * 147.5).toFixed(1));
+  balayage.setAttribute('opacity', (m ? seg(p, .28, .31) * (1 - seg(p, .5, .54)) : 0).toFixed(3));
+}, false);
+
+/* ---------- 6. L'histoire : le figuier pousse ---------- */
+const branche = $('.branche');
+const B = (() => {
+  const tige = svgEl('path', { d: 'M-30 318C170 300 330 172 560 168S930 262 1230 196', fill: 'none', stroke: '#FFF7F0', 'stroke-opacity': .5, 'stroke-width': 4, 'stroke-linecap': 'round', pathLength: 1, 'stroke-dasharray': '1 1', 'stroke-dashoffset': 1 }, branche);
+  const L = tige.getTotalLength();
+  const au = f => { const a = tige.getPointAtLength(f * L), b = tige.getPointAtLength(Math.min(L, f * L + 2)); return { x: a.x, y: a.y, angle: Math.atan2(b.y - a.y, b.x - a.x) }; };
+  // Une feuille de figuier : cinq lobes larges, sinus profonds, base en cœur. Repère : le pétiole en (0, 0), la feuille vers le haut.
+  const lisse = p => {
+    const n = p.length; let d = `M${p[0][0].toFixed(1)} ${p[0][1].toFixed(1)}`;
+    for (let i = 0; i < n; i++) {
+      const p0 = p[(i - 1 + n) % n], p1 = p[i], p2 = p[(i + 1) % n], p3 = p[(i + 2) % n];
+      d += `C${(p1[0] + (p2[0] - p0[0]) / 6).toFixed(1)} ${(p1[1] + (p2[1] - p0[1]) / 6).toFixed(1)} ${(p2[0] - (p3[0] - p1[0]) / 6).toFixed(1)} ${(p2[1] - (p3[1] - p1[1]) / 6).toFixed(1)} ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`;
+    }
+    return d + 'Z';
+  };
+  const rayon = (a, t) => {
+    const l = Math.abs(Math.cos(a * 2.5));
+    const lobes = (.3 + .7 * Math.pow(l, .55)) * (1 + .08 * Math.pow(l, 8));
+    const coeur = 1 - .62 * Math.exp(-Math.pow((Math.abs(a) - Math.PI) / .32, 2));
+    return t * lobes * coeur * (.8 + .2 * Math.cos(a));
+  };
+  const feuille = (t, parent) => {
+    const pts = [];
+    for (let k = 0; k < 96; k++) { const a = -Math.PI + (k / 96) * 2 * Math.PI, r = rayon(a, t); pts.push([Math.sin(a) * r, -t * .62 - Math.cos(a) * r]); }
+    svgEl('path', { d: lisse(pts), fill: 'rgba(158,190,89,.16)', stroke: '#9EBE59', 'stroke-width': 1.6, 'stroke-linejoin': 'round' }, parent);
+    const base = -t * .62 + rayon(Math.PI, t);
+    let nervures = `M0 0V${base.toFixed(1)}`;
+    for (const a of [0, .4 * Math.PI, -.4 * Math.PI, .8 * Math.PI, -.8 * Math.PI]) {
+      const r = rayon(a, t) * .82;
+      nervures += `M0 ${base.toFixed(1)}L${(Math.sin(a) * r).toFixed(1)} ${(-t * .62 - Math.cos(a) * r).toFixed(1)}`;
+    }
+    svgEl('path', { d: nervures, fill: 'none', stroke: '#9EBE59', 'stroke-width': 1.2, 'stroke-linecap': 'round', opacity: .8 }, parent);
+  };
+  const FEUILLES = [[.09, -1, 64], [.2, 1, 78], [.33, -1, 88], [.47, 1, 72], [.74, -1, 92], [.88, 1, 74]];
+  const feuilles = FEUILLES.map(([f, cote, t]) => {
+    const { x, y, angle } = au(f);
+    const dir = angle + cote * (Math.PI / 2 - .5);
+    const g = svgEl('g', {}, branche);
+    feuille(t, g);
+    return { f, g, x, y, rot: (dir * 180 / Math.PI) + 90 };
+  });
+  const pf = au(.6);
+  const fruit = svgEl('g', {}, branche);
+  svgEl('path', { d: `M${pf.x.toFixed(1)} ${pf.y.toFixed(1)}q2 10 -1 18`, fill: 'none', stroke: '#FFF7F0', 'stroke-opacity': .55, 'stroke-width': 3, 'stroke-linecap': 'round' }, fruit);
+  svgEl('use', { href: '#figue-pleine', x: (pf.x - 56).toFixed(1), y: (pf.y + 12).toFixed(1), width: 108, height: 129.6 }, fruit);
+  return { tige, feuilles, fruit };
+})();
+function rendreHistoire(p, m) {
+  const t = m ? seg(p, .06, .5) : 1;
+  B.tige.setAttribute('stroke-dashoffset', (1 - doux(t)).toFixed(4));
+  for (const f of B.feuilles) {
+    const k = sortie(seg(t, f.f - .04, f.f + .14));
+    f.g.setAttribute('transform', `translate(${f.x.toFixed(1)} ${f.y.toFixed(1)}) rotate(${f.rot.toFixed(1)}) scale(${k.toFixed(3)})`);
+  }
+  const k = sortie(seg(t, .6, .82));
+  B.fruit.setAttribute('opacity', k.toFixed(3));
+  B.fruit.setAttribute('transform', `translate(0 ${(-10 * (1 - k)).toFixed(1)})`);
+}
+scene($('.histoire'), rendreHistoire, false);
+
+/* ---------- 8. L'appel final : les mots défilent avec la lecture ; la figue salue, une fois ---------- */
+const l1 = $('.defile-ligne.l1'), l2 = $('.defile-ligne.l2'), figueAppel = $('.appel-figue');
+let salue = false;
+scene($('.appel'), (p, m) => {
+  if (!m) { remettre([l1, l2]); return; }
+  l1.style.transform = `translateX(${(-p * 30).toFixed(2)}%)`;
+  l2.style.transform = `translateX(${(-30 + p * 30).toFixed(2)}%)`;
+  if (!salue && p > .42) { salue = true; figueAppel.classList.add('salue'); }
+}, false);
+
+/* ---------- Le menu, sur téléphone ---------- */
+const menuBouton = $('.menu-bouton'), menu = $('#menu'), menuFermer = $('.menu-fermer');
+function menuOuvert(o, rendreFocus) {
+  menu.classList.toggle('ouvert', o);
+  menuBouton.setAttribute('aria-expanded', String(o));
+  document.body.style.overflow = o ? 'hidden' : '';
+  if (o) menu.querySelector('ul a').focus();
+  else if (rendreFocus) menuBouton.focus();
+}
+menuBouton.addEventListener('click', () => menuOuvert(true));
+menuFermer.addEventListener('click', () => menuOuvert(false, true));
+menu.addEventListener('click', e => { if (e.target.closest('a') && menu.classList.contains('ouvert')) menuOuvert(false, false); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('ouvert')) menuOuvert(false, true); });
+
+/* ---------- Les réglages de la maquette ---------- */
+const outilsBouton = $('.outils-bouton'), outilsPanneau = $('#outils-panneau');
+outilsBouton.addEventListener('click', () => {
+  const o = outilsPanneau.hidden;
+  outilsPanneau.hidden = !o;
+  outilsBouton.setAttribute('aria-expanded', String(o));
+});
+for (const r of $$('input[name="mouvement"]')) {
+  r.checked = r.value === choix;
+  r.addEventListener('change', () => {
+    choix = r.value;
+    try { localStorage.setItem('ficolia-site-mouvement', choix); } catch (e) { /* stockage indisponible */ }
+    appliquerMode();
+  });
+}
+$('#opt-statuts').addEventListener('change', e => html.classList.toggle('statuts', e.target.checked));
+
+/* ---------- Mise en route ---------- */
+function mesurer() {
+  if (!html.classList.contains('mouvement')) return;
+  mesurerOuv(); mesurerLignes(); mesurerNiveaux();
+}
+function appliquerMode() {
+  const m = enMouvement();
+  html.classList.toggle('mouvement', m);
+  html.classList.toggle('fixe', !m);
+  if (m) mesurer();
+  planifier(true);
+}
+window.addEventListener('scroll', () => planifier(false), { passive: true });
+window.addEventListener('resize', () => appliquerMode());
+mqReduit.addEventListener('change', appliquerMode);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { mesurer(); planifier(true); });
+appliquerMode();
+requestAnimationFrame(revelation);
+})();
+</script>

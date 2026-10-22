@@ -1,0 +1,79 @@
+# Sources des maquettes assemblées et des artéfacts
+
+Ces dossiers contiennent ce qui fabrique `maquettes/ouverture-arbre.html`, `site/proposition.html` et `site/maquette.html`. Relancés depuis le dépôt, les trois assembleurs redonnent ces trois fichiers à l'octet près (vérifié le 22/10).
+
+Les fichiers assemblés ne sont pas faits pour être retouchés à la main : le prochain assemblage les écraserait. On modifie le gabarit, puis on assemble.
+
+## Ce qu'il y a
+
+| Fichier | Rôle |
+| --- | --- |
+| `donnees.json` | Les tracés : la figue du symbole (`FIG`), le logotype manuscrit (`LOGO`) et les traits de la révélation (`REV`). Partagé par les trois gabarits. |
+| `arbre/gabarit.html` | Le gabarit de l'ouverture « l'arbre et la figue » (page, panneau de réglages, moteur d'animation). Les marques `/*@FIG@*/`, `/*@LOGO@*/`, `/*@REV@*/` reçoivent les tracés. |
+| `arbre/assembler.py` | Injecte `donnees.json` dans le gabarit. |
+| `site/gabarit-proposition.html` + `site/assembler.py` | Le dossier du site vitrine. |
+| `site/maquette/gabarit.html` + `site/maquette/assembler.py` | La maquette animée du site vitrine. |
+
+## Assembler
+
+Depuis la racine du dépôt. Les deux assembleurs du site relisent aussi les textes contre les mots interdits (`design/textes.md` §2) : ils ont besoin de `textes.md` et de `figue-symbole.svg`, qui sont dans le zip du brief. On les extrait dans un dossier vide, ici `ENTREES`.
+
+```
+mkdir ENTREES
+unzip -j Ficolia_contexte_Claude_Code_09_10_2026.zip \
+  'ficolia-claude-code/design/textes.md' 'ficolia-claude-code/design/assets/figue-symbole.svg' -d ENTREES
+
+# L'ouverture : la maquette
+python3 -I outils/sources/arbre/assembler.py outils/sources/arbre/gabarit.html \
+  outils/sources/donnees.json maquettes/ouverture-arbre.html
+
+# Le dossier du site : le fragment à publier, puis le document complet (site/proposition.html)
+python3 -I outils/sources/site/assembler.py outils/sources/site/gabarit-proposition.html \
+  outils/sources/donnees.json ENTREES/figue-symbole.svg ENTREES/textes.md \
+  proposition-fragment.html site/proposition.html
+
+# La maquette animée du site : le fragment à publier, puis le document complet (site/maquette.html)
+python3 -I outils/sources/site/maquette/assembler.py outils/sources/site/maquette/gabarit.html \
+  outils/sources/donnees.json ENTREES/textes.md maquette-fragment.html site/maquette.html
+
+# L'aperçu « Récit de la figue » : tous les écrans dans une page (voir outils/apercu.py)
+python3 -I outils/apercu.py apercu.html
+```
+
+## Publier
+
+- Pour un artéfact, on publie le **fragment** (`proposition-fragment.html`, `maquette-fragment.html`, `apercu.html`) : l'outil Artifact l'enveloppe lui-même. Les fichiers « document » sont faits pour s'ouvrir tels quels dans un navigateur.
+- La maquette du site charge ses images en `captures/<nom>.webp` : à la publication, on les joint avec `files`, par exemple `{"captures/scanner.webp": "site/captures/scanner.webp"}`, une entrée par image.
+- Publié depuis un autre compte, un artéfact reçoit une nouvelle adresse.
+
+## L'ouverture, par l'adresse
+
+La maquette de l'ouverture se règle par l'adresse, ce qui permet aussi de figer un instant pour une capture :
+
+| Réglage | Valeurs | Par défaut |
+| --- | --- | --- |
+| `bas` | `pale`, `profond`, `pale-bis`, `profond-bis`, `blanc` | `pale-bis` |
+| `transition` (versions bis seulement) | `recul`, `saut`, `brume`, `soleil`, `mouvement`, `bis` | `recul` |
+| `mouvement` | `normal`, `reduit` | le réglage du téléphone |
+| `notes` | `off` masque les notes du prototype | affichées |
+| `t` | un instant figé, en millisecondes | lecture |
+| `place`, `descente`, `decor` | choix du 18/10, gardés pour mémoire | `b`, `a`, `a` |
+
+Les versions `pale` et `profond` (sans bis) restent identiques à leur état du 20/10.
+
+## Vérifier : `outils/verification/`
+
+Des scripts Playwright (Chromium) qui servent à regarder le résultat. Ils cherchent Playwright dans `/opt/node22/lib/node_modules/playwright` : remplacer ce chemin par celui de l'installation.
+
+| Script | Ce qu'il fait |
+| --- | --- |
+| `frames.mjs <maquette> <dossier> <requête>…` | Une image de l'écran par requête, par exemple `"t=5200&notes=off&transition=recul"`. |
+| `figzoom.mjs <maquette> <image.png> <requête>…` | La figue en gros plan, pour chaque requête. |
+| `vitesse.mjs <maquette> <transition>…` | La vitesse de la vue image par image : pics et à-coups, pour juger de la fluidité. |
+| `vitesse-detail.mjs <maquette> <transition> <de> <à>` | Le détail image par image autour d'un instant. |
+| `arrivee.mjs <maquette> <transition>…` | Quand le texte et « Continuer » arrivent, et ce que dure l'animation avec eux (moins de 5 s : WCAG 2.2.2). |
+| `hub-arbre3.mjs <aperçu> <préfixe>` | L'ouverture dans l'aperçu : passage d'une transition à l'autre, fin, erreurs. |
+| `site-maquette.mjs`, `site-dossier.mjs` | Parcours de la maquette et du dossier du site : erreurs, débordements, images. |
+| `proto-captures.mjs` | Photographie les écrans du prototype (canevas de conception) pour les captures du site. |
+
+Les autres scripts sont des outils des étapes précédentes (`hub-*.mjs` par écran, `video.mjs`, `trace.mjs`, `zoom.mjs`, `geo_*`…), gardés pour mémoire. Certains visent des écrans ou des réglages qui ont changé : `hub-arbre.mjs` cherche par exemple le bouton « Passer », supprimé de l'ouverture le 20/10.
