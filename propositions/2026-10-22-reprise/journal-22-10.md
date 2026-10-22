@@ -47,8 +47,33 @@ Demande : « 4. Oui » (aligner l'étude sur le registre, étiquette « Contact 
 - « Fils à clore » : trois clos (§5).
 - Point 10 et fils ouverts : liste à jour dans `fils-ouverts.md`, attribution corrigée.
 
-## 7. En attente de la porteuse
+## 7. Réponses de la porteuse (22/10, au soir) et décisions numérotées
 
-- Savon : `D-262` ou décision 168 (§3, point 3).
-- `D-273` contre `cap-onboarding.md` §2.
-- Plan d'action de l'audit du 18/10 et questions du §4.1 de la note : présentés le 22/10.
+Numérotées à la suite de la note du 21/10 (163 à 181).
+
+- **182** — L'étude allaitement suit les textes du registre du 20/10, étiquette « Contact rapproché » comprise (§4).
+- **183** — Savon : la décision 168 est maintenue (porteuse : « decision 168 ») ; `D-262` est à réviser dans la discussion de méthodologie, où se tient le registre (et avec lui `D-265`, `D-266`, `T-605`) ; la fiche « Toilette des seins » reste, à écrire.
+- **184** — Question du type : piste (a), un type suggéré à confirmer, la liste en secours (porteuse : « oui »). Sans réponse, rien n'est supposé (« autre » par défaut, `T-442`) ; écart de forme à `T-442` à inscrire ; règle à écrire : jamais un type suggéré moins exposant que ce qu'indique le nom (`D-49`).
+- **185** — Accueil en deux écrans pour le prototype (porteuse : « 2 écrans ») ; elle enverra les écrans animés une fois finis. `D-273` reste en attente de sa décision.
+- **186** — Prise en main guidée : trois conseils, construits (décision 181 ; porteuse : « oui ok »).
+
+Sans décision : échelle du verdict (« rien n'est acté encore ») ; produits reconnus de la recherche (« repose moi la question plus tard ») ; écran de pause (« laisse comme ca pour l'instant ») ; image fixe pour « réduire les animations » (traitée dans la discussion des animations) ; fiches grossesse (« en brainstorming coté chat ») ; rappel général sur les fiches (avis de Claude demandé, donné le 22/10). Plan de l'audit : le choix des actions P1 (A1 à A8) n'a pas encore reçu de réponse.
+
+## 8. Publications du 22/10, au soir
+
+- **Version 347** — page « Ligne allaitement (étude) », rangée du bas : les trois formes du renvoi « Crevasses » côte à côte, mêmes réglages (petit rond, petit rond sur la photo, pastille parmi les mentions), et le panneau commun ouvert ; copies de `EA-Verdict-Baume-RenvoiLien`, seul le réglage par défaut change (porteuse : « modélise les 3 à comparer »). Les planches du 17/10 restent.
+- **Version 348** — page « Étape 3 », rangée du bas : question du type, piste (a), après un scan et après une recherche (`E3-QuestionSuggeree`, `E3-QuestionSuggeree-Recherche`), dérivées de `E3-Question` ; « Oui, c'est un lait corps » mène à l'écran produit (type « Lait corps »), « Non, choisir le type » à la liste. Paragraphe daté ajouté à la note « Question du type (option b) » (décision 184). Pas encore reliées au scanner, à la recherche ni à l'historique.
+- **Version 349** — page « Étape 1 », rangée du bas : trois conseils (`E1-Aide-Scan`, `E1-Aide-Info`, `E1-Aide-Historique`), dérivés du scanner et du verdict de l'étape 1, et une note ; « Revoir les conseils » ajouté au menu (`E6-Menu`, après « À propos »). Bulle neutre, ancrée au-dessus de sa cible ; jamais avec le volet de première alerte ; « Compris » la ferme. Textes provisoires.
+- Contrôles, pour chacune : fichiers de base et index relus en ligne juste avant ; script qui ne remplace un texte que s'il apparaît une fois ; logique exécutée sur les réglages et les états ; rendu local avec la police réelle. Limites : bulles placées pour la taille de texte standard ; la bulle du « i » couvre, le temps du conseil, le bas de la carte produit.
+
+## 9. Rappel programmé
+
+Le 23/10 à 9 h (heure de Paris), dans cette session : l'additif au dossier juriste (`T-610`) n'est pas parti ; l'annexe juriste du prototype suit avec lui (porteuse, 22/10) ; elle est en retard sur les textes allaitement (§4) et sur la phrase grossesse du niveau 2 (`D-104`, provisoire).
+
+## 10. En attente de la porteuse
+
+- `D-273` contre `cap-onboarding.md` §2 ; plus pressant maintenant que l'accueil a deux écrans (décision 185).
+- Actions P1 de l'audit à retenir (A1 à A8).
+- Pastille « Inhalation par le nourrisson non évaluée » sur deux lignes : la garder ainsi ?
+- Rappel général sur les fiches « Bonnes pratiques » : suite à l'avis de Claude.
+- Plus tard : produits reconnus de la recherche ; échelle du verdict.
