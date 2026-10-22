@@ -1,0 +1,83 @@
+# Passation : reprendre le travail dans un autre compte
+
+Note du 22/10/2026, écrite par la session qui s'arrête pour celle qui reprend. `CLAUDE.md` importe le brief, le cap et cette note : tu les as déjà sous les yeux. Lis ensuite `outils/sources/LISEZ-MOI.md` pour assembler, publier et vérifier. Le brief (`FICOLIA_DESIGN.md`) et le cap (`cap-onboarding.md`) ne se modifient pas sans l'accord de la porteuse du projet. Elle écrit en français et se tutoie : réponds-lui de même.
+
+Tout le travail est sur la branche `claude/compassionate-shannon-qu70ot`. Rien n'est sur `main`, et aucune PR n'est ouverte : la porteuse n'en a pas demandé.
+
+## 1. Où en est le récit de la figue
+
+Les statuts sont ceux de l'aperçu (`outils/apercu.py`).
+
+| Écran | Statut | Fichier |
+| --- | --- | --- |
+| Ouverture, la révélation du logo | validée | `design/reference/revelation-logo.dc.html`, dans le zip du brief |
+| Ouverture : l'arbre et la figue | maquette, en cours | `maquettes/ouverture-arbre.html` |
+| Accueil, deux écrans | maquette | `maquettes/accueil.html` |
+| Formulaire envoyé | validée, retouches : le tampon bis pour le signalement, le photomaton bis pour les photos, la figue s'incline pour le support | `maquettes/formulaire-envoye.html` |
+| Connexion insuffisante ou absente, mise à jour obligatoire, délai de connexion, produit inconnu, service indisponible | validées | `maquettes/*.html` |
+
+Les six états ont été exportés en vidéo : `exports/animations/` (voir son `LISEZMOI.md` et `outils/exporter-animations.mjs`). L'ouverture n'y est pas.
+
+## 2. Les trois artéfacts
+
+Les adresses sont privées, celles du compte d'origine. Dans un autre compte, les artéfacts se republient depuis les sources et reçoivent de nouvelles adresses.
+
+| Artéfact | Adresse d'origine | Source dans le dépôt |
+| --- | --- | --- |
+| Récit de la figue : l'aperçu de tous les écrans (v23) | https://claude.ai/artifact/PRP2wzjUmB1Yv4X7wRT8hW | `maquettes/*.html`, assemblées par `outils/apercu.py` |
+| Site vitrine : le dossier (v2) | https://claude.ai/artifact/SiQZA1oUejLmDmzuBnRPFq | `outils/sources/site/gabarit-proposition.html`, résultat dans `site/proposition.html` |
+| Site vitrine : la maquette animée | https://claude.ai/artifact/F6vTnY69zkAkHPoZUNt1Gv | `outils/sources/site/maquette/gabarit.html`, résultat dans `site/maquette.html`, images dans `site/captures/` |
+
+## 3. L'ouverture « l'arbre et la figue »
+
+**Décidé par la porteuse** (tracé dans `cap-onboarding.md` §4)
+- 18/10 : elle ne joue qu'au premier lancement ; la figue s'ouvre calmement.
+- 20/10 : après la révélation ; la figue saute de sa branche ; un paysage du Sud sur tout l'écran (le ciel entier en haut, derrière le logo ; l'herbe fondue jusqu'au bas de l'écran ; le texte et « Continuer » posés dessus) ; la vue descend du ciel jusqu'au figuier ; pas de « Passer », l'accueil n'ayant que deux écrans.
+- 21/10 : ce jeu d'écrans ne se joue qu'une fois, au premier lancement ; ensuite, l'écran de chargement est plus court. Le blanc est écarté pour le bas de l'écran ; **vert pâle bis est retenu** (vert pâle, vert profond et vert profond bis restent jouables, pour mémoire).
+- 21/10 : la transition entre « Ficolia, vos cosmétiques, en toute sérénité » et l'arbre ne lui plaît pas. Elle veut « smooth, continu, fluide ». Par « imbriqué », elle entend qu'à n'importe quelle pause tout paraît fluide : aucune étape n'attend la fin de la précédente.
+- 21/10 : la figue du « o » doit en être le personnage principal. Elle a demandé deux idées, « gros plan, puis recul » et « elle saute du logo », et choisi pour le « o » la réponse a : « Fic » et « lia » s'effacent pendant son absence, et le logo revient complet en haut.
+
+**En attente d'elle**
+1. **Le choix de la transition**, parmi les deux idées de la figue du « o » (codées le 21/10, commit 18769b6, pas encore vues par elle), les trois propositions d'avant (la brume, le soleil, un seul mouvement) et celle du bis. Elle pourra demander des ajustements : vitesse de la chute, durée de l'hésitation, regard.
+2. **L'étal et ses deux ardoises** : l'arbre prend le 1/2 de l'accueil ; l'étal passerait au 2/2, celui des conditions, ou serait retiré. Question posée, sans réponse.
+3. **Le feuillage qui repasse un instant derrière le logo** quand la vue redescend vers le pré, dans toutes les versions bis : le laisser, ou cadrer plus bas. Question posée, sans réponse.
+4. **L'écran de chargement court** des lancements suivants : à proposer (forme et durée ; le cap §1 rappelle qu'Android conseille une seconde au plus).
+5. **La chair de la figue qui monte jusqu'à la queue** n'existe que dans les versions bis. À étendre aux autres écrans qui montrent la figue ouverte, si elle l'approuve.
+6. **Deux écarts à tracer au registre** : sans « Passer », les 5 s de la révélation se regardent en entier au premier lancement (cap §1, « Le lancement doit être immédiat ») ; et la maquette ramène la révélation à la palette de marque, alors que l'ouverture validée emploie des teintes voisines (brief §5), ce qu'elle doit trancher.
+
+## 4. Les autres points ouverts du cap (§4)
+
+- L'objectif de Ficolia en une phrase, au premier écran : à écrire.
+- Les limites essentielles, au second écran : en attente de la juriste.
+- L'aide au bon moment : le scénario est à proposer, sans figue (hors du récit, brief §2).
+- Retrouver l'accueil une fois passé, par exemple depuis « À propos ».
+
+## 5. Le site vitrine
+
+Le dossier et la maquette animée sont faits, rien n'est construit. Les réponses de la porteuse du 18/10 sont en tête du dossier (« Tes réponses du 18 octobre ») : l'application sera en ligne avec le site ; le bouton principal est « Télécharger l'application » ; les captures et les quatre niveaux viennent du prototype ; la ligne allaitement aura ses niveaux ; l'accroche reste provisoire ; les tons sont ceux de l'application et les couleurs de la figue ; l'histoire de la fondation sans présentation personnelle ; un site en motion design, « comme sur TikTok ».
+
+**En attente d'elle** (dossier §7 et questions posées après la maquette)
+1. La plongée dans la figue : lui plaît-elle ? Vigilance : les graines peuvent se lire comme une grossesse (brief §4).
+2. Le figuier de la section « Histoire » (il pousse, une figue y pend sans mûrir) : à valider.
+3. Qui écrit les définitions des niveaux pour la ligne allaitement.
+4. Le texte de l'histoire de la fondation.
+5. Les liens des deux stores, l'adresse de contact, les réseaux sociaux, le nom de domaine, l'hébergeur.
+6. Le feu vert pour construire le site (le dossier recommande un site statique, Astro, ou des pages écrites à la main).
+
+À la juriste : les mentions légales, la politique de confidentialité, les textes publics, la place du rappel général sur le site.
+
+## 6. Comment elle travaille
+
+- **Méthode du brief §3** : le scénario d'abord, en deux ou trois pistes avec leur pointe d'humour ; puis des maquettes animées ; le code Flutter seulement après validation. Tout texte nouveau est marqué « Proposition ». Jamais d'écart silencieux à une règle du §4 : nomme la règle.
+- **Ses consignes, telles qu'elle les a écrites**
+  - « conserve tout le travail qu'on a fait jusque là. n'écrase rien. » On ajoute les variantes à côté, comme boutons du panneau (d'où les versions « bis »), sans remplacer les précédentes. Garde « Revoir la transition ».
+  - « NE SUPPRIME PAS l'actuel tampon. » C'est la piste du tampon, dans `maquettes/formulaire-envoye.html`.
+  - « ne te restreint pas en terme de couleurs : il faut que ca soit joli et homogène et attrayant. » Les quatre couleurs de verdict restent réservées aux verdicts (brief §4).
+- **Quand elle demande des idées**, décris-les en conversation avant de les coder ; elle choisit ensuite.
+- **À chaque modification** : assembler, regarder des images à plusieurs instants, tester le mouvement réduit et la console, comparer avec l'état précédent (les anciennes versions doivent rester identiques à l'image près), reconstruire l'aperçu, committer, pousser sur la branche.
+- **Accessibilité** : le texte et « Continuer » ne sont jamais bloqués par l'animation ; l'animation qui les accompagne reste sous 5 s (`outils/verification/arrivee.mjs`) ; avec « réduire les animations », des fondus sans déplacement.
+- **Vigilance** (brief §4) : une figue qui mûrit, s'arrondit ou porte ses graines peut se lire comme une grossesse. La chute de la figue doit se lire comme un saut choisi, jamais comme un accident.
+
+## 7. Ce qui ne passe pas avec les fichiers
+
+Les adresses des artéfacts, leur historique de versions et leurs commentaires ; la conversation elle-même, dont seules les décisions sont reprises ici et dans `cap-onboarding.md` ; les planches de captures temporaires du site, qu'on refait avec `outils/verification/`.
