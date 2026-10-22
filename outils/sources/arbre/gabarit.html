@@ -6,7 +6,7 @@
 <title>Ficolia · L'arbre et la figue</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&amp;family=Nunito:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&amp;family=Nunito:wght@500&amp;family=Simonetta:ital@1&amp;display=swap" rel="stylesheet">
 <style>
 /*
   Ficolia — maquette animée de l'ouverture : « l'arbre et la figue », idée de la porteuse (17/10).
@@ -69,6 +69,8 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 .screen{position:relative;width:390px;height:844px;background:var(--fond);color:var(--texte);color-scheme:light;overflow:hidden;border-radius:44px;box-shadow:0 0 0 1px rgba(50,28,49,.08),0 30px 60px -24px var(--ombre)}
 /* Le monde de l'ouverture : la palette de marque, de l'écorce, des feuilles, du bois ; aucune couleur de verdict. */
 .screen{--f-peau:#4C2944;--f-nervure:#9EBE59;--f-graine:#9F3542;--f-chair:#FFFFFF;--o-trait:#4C2944;--o-reflet:#7B4F71;--o-ecorce:#BCA99B;--o-ecorce-ligne:#A28E81;--o-feuille-a:#86A846;--o-feuille-b:#9EBE59;--o-feuille-c:#B7D27F;--o-feuille-fond:#6F9140;--o-herbe:#8FB04E;--o-sol:#E7E1DA;--o-pre:#EEF4E1;--o-bois:#E8C08E;--o-bois-fond:#C9945E;--o-paille:#D4AF6A;--o-loin-feuille:#EEF3E5}
+/* L'accueil 2/2, piste B : l'étal et ses objets, aux couleurs de la maquette du 17/10 ; aucune couleur de verdict. */
+.screen{--o-papier:#FFF7F0;--o-bois-clair:#F1D7B0;--o-lilas:#E9DCE6;--o-lilas-fonce:#D5BFD0;--o-pistache-clair:#DCE9C4;--o-grenade-clair:#F2D9D5;--o-ardoise:#3B2F3A;--o-craie:#FFF7F0;--o-store-a:#FFF7F0;--o-store-b:#9F3542;--o-lunettes:#4C2944;--o-verre:#DDEBF3;--o-texte-ticket:#B9A9B5}
 .screen [hidden]{display:none!important}
 .screen button{touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 160ms var(--ease-out)}
 .screen button:active{transform:scale(.97)}
@@ -99,6 +101,14 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
 .actions .plein{min-height:56px;border:0;border-radius:999px;background:var(--aubergine);color:var(--ivoire-rose);font:inherit;font-size:17px;font-weight:700;cursor:pointer}
 .note{margin:10px 24px 0;font-size:13px;line-height:1.4;color:var(--texte-2);text-align:center}
 .hidden-notes .note,.hidden-notes .tag{display:none}
+/* L'accueil 2/2 : le bas de l'écran monte de 80 (le texte des conditions est plus long) ; les liens, la version, « Retour ». */
+.accueil2 .haut{height:396px}
+.copy h1:focus{outline:none}
+.copy .liens{display:flex;flex-direction:column;align-items:center}
+.copy .liens a{min-height:44px;display:inline-flex;align-items:center;font-size:16px;font-weight:700;color:var(--aubergine);text-decoration:underline;text-underline-offset:3px}
+.copy .liens a:focus-visible{outline:2px solid var(--aubergine);outline-offset:3px}
+.copy .version{font-size:13px;line-height:1.3;color:var(--texte-2)}
+.accueil .retour{position:absolute;left:20px;top:64px;width:44px;height:44px;border-radius:999px;border:1px solid var(--bordure);background:var(--cadre);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
 /* Le bas de l'écran (20/10, puis 21/10) : vert pâle et blanc gardent l'encre ; vert profond passe le texte en ivoire.
    Les versions bis reprennent la même couleur : data-bas n'en porte que le nom. */
 .screen[data-bas="pale"] .points span:not(.on){background:rgba(76,41,68,.22)}
@@ -151,10 +161,17 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
               <g id="fondu"></g>
               <g id="arbre"></g>
               <g id="cagetteFond"></g>
+              <!-- L'accueil 2/2, piste B : l'étal au bout du pré, derrière la figue (montants, fanions, ardoises) -->
+              <g id="etalFond"></g>
               <!-- La figue, entière puis ouverte ; puis, à la place b, la même, qui salue -->
               <g id="figue"></g>
               <g id="figLive"></g>
+              <!-- L'accueil 2/2, piste A : ses lunettes, dans le repère de la figue -->
+              <g id="figExtras"></g>
               <g id="devant"></g>
+              <!-- L'accueil 2/2 : devant la figue, le comptoir de l'étal et ses pots (B), le rouleau des conditions (A) -->
+              <g id="etalDevant"></g>
+              <g id="rouleauG"></g>
             </g>
           </g>
           <!-- Le socle : la couleur du bas, pleine sous les textes, par-dessus tout le décor -->
@@ -177,6 +194,31 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
             <button type="button" class="plein" id="continuer">Continuer</button>
           </div>
         </div>
+        <!-- L'accueil 2/2 : les conditions, dans la suite du paysage (porteuse, 22/10) ; textes repris mot pour mot de la maquette du 17/10 -->
+        <div class="accueil accueil2" id="accueil2" hidden>
+          <div class="haut"></div>
+          <div class="corps">
+            <div class="copy" id="copy2">
+              <h1 id="titre2" tabindex="-1">Conditions d’utilisation</h1>
+              <p>Pour utiliser Ficolia, il faut en accepter les conditions d’utilisation.</p>
+              <p>[Limites essentielles, en mots simples — en attente de la juriste]</p>
+              <div class="liens">
+                <a href="#">Lire les conditions d'utilisation</a>
+                <a href="#">Politique de confidentialité</a>
+              </div>
+              <p class="version">Conditions d'utilisation — version du [date]</p>
+              <span class="tag">Textes provisoires</span>
+            </div>
+            <p class="note">[Les limites de Ficolia passent ici, dans les limites essentielles : écart à D-114 C7, qui leur donnait un écran. Aucune case précochée (T-557). « Accepter » ouvre le scanner.]</p>
+          </div>
+          <div class="actions" id="actions2">
+            <div class="points" role="img" aria-label="Écran 2 sur 2"><span></span><span class="on"></span></div>
+            <button type="button" class="plein" id="accepter">Accepter</button>
+          </div>
+          <button type="button" class="retour" id="retour" aria-label="Retour">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+          </button>
+        </div>
         <svg class="logo" id="logoSvg" viewBox="0 0 390 844" role="img" aria-label="Ficolia"><g id="logo"></g><g id="heros" opacity="0"></g></svg>
         <div class="accroche" id="accroche"><p id="l1">Vos cosmétiques,</p><p id="l2">en toute sérénité.</p></div>
         <p class="bienvenue" id="bienvenue">Bienvenue sur Ficolia</p>
@@ -187,7 +229,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
   <aside class="panel" aria-label="Réglages de la maquette">
     <div>
       <h2>L’ouverture : l’arbre et la figue</h2>
-      <p class="lead">Ton idée du 17/10 et tes choix du 20/10 : après la révélation, la vue descend du ciel jusqu’au figuier ; la figue saute de sa branche, se pose sur le pré et s’ouvre. Le paysage du Sud occupe tout l’écran ; le texte est posé sur l’herbe. Au premier lancement seulement (porteuse, 18/10). Le 21/10 : vert pâle bis est retenu ; reste à choisir la transition entre la révélation et l’arbre.</p>
+      <p class="lead">Ton idée du 17/10 et tes choix du 20/10 : après la révélation, la vue descend du ciel jusqu’au figuier ; la figue saute de sa branche, se pose sur le pré et s’ouvre. Le paysage du Sud occupe tout l’écran ; le texte est posé sur l’herbe. Au premier lancement seulement (porteuse, 18/10). Le 21/10 : vert pâle bis est retenu. Le 22/10 : tu choisis « gros plan, puis recul » ; « Continuer » mène à l’accueil 2/2, les conditions, en deux pistes à comparer.</p>
     </div>
 
     <div class="group">
@@ -217,6 +259,19 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
         <button type="button" data-val="figue">Avec la figue, pour mémoire</button>
       </div>
       <p class="small">Sur l’écran du paysage, « Ficolia » s’écrit en toutes lettres, sans la figue à la place du « o » (porteuse, 22/10). Le « o » est tiré de ton image du mot complet ; « Fic » et « lia » restent les tracés du logo, et « lia » se rapproche du « o ». Gros plan, puis recul, et elle saute du logo : le nom revient en haut, en toutes lettres. La brume, le soleil, un seul mouvement et le bis : pendant la montée du logo, de 5 à 5,6 s, la figue du « o » laisse la place à la lettre (proposition). Versions bis seulement : vert pâle et vert profond restent tels qu’au 20/10.</p>
+    </div>
+
+    <div class="group" id="groupeDeux">
+      <span class="label" id="lblDeux">L’accueil 2/2, les conditions (22/10 : pistes A et B, à comparer)</span>
+      <div class="seg" role="group" aria-labelledby="lblDeux" data-key="ecran">
+        <button type="button" data-val="1">Écran 1/2</button>
+        <button type="button" data-val="2">Écran 2/2</button>
+      </div>
+      <div class="seg" role="group" aria-label="Piste du 2/2" data-key="piste2">
+        <button type="button" data-val="a">A · La lecture sous le figuier</button>
+        <button type="button" data-val="b">B · L’étal au bord du pré</button>
+      </div>
+      <p class="small">« Continuer » mène au 2/2, dans la suite du paysage : le texte du 1/2 s’efface, la vue glisse le long du pré, la figue y va en sautillant, puis le texte des conditions et « Accepter ». Pas de logo en haut (porteuse, 22/10). A : au pied du figuier, elle chausse ses lunettes et déroule les conditions ; le rouleau, bien plus long que prévu, dévale le pré ; elle lit, imperturbable. B : à l’étal, au bout du pré, elle fait tourner un pot pour en lire la composition ; un flacon « Nouvelle formule » arrive : elle relit tout depuis le début. Elle ne regarde jamais « Accepter » : rien ne pousse à accepter. « Retour » revient au 1/2.</p>
     </div>
 
     <div class="group">
@@ -668,17 +723,21 @@ function construireSocle() {
     svgEl('stop', { offset: 1, 'stop-color': c, 'stop-opacity': 1 }, g);
     return `url(#${id})`;
   };
-  svgEl('rect', { x: -20, y: SOL_ECRAN - 12, width: 430, height: 844 - SOL_ECRAN + 52, fill: grad('gFondu', SOL_ECRAN - 12, SOL_ECRAN + 56) }, fonduG);
-  svgEl('rect', { x: -20, y: SOL_ECRAN + 14, width: 430, height: 844 - SOL_ECRAN + 10, fill: grad('gSocle', SOL_ECRAN + 14, SOL_ECRAN + 62) }, socleG);
+  // Plus hauts de DY2 vers le bas : au 2/2, ils montent de DY2 sans découvrir le pré en bas de l'écran.
+  svgEl('rect', { x: -20, y: SOL_ECRAN - 12, width: 430, height: 844 - SOL_ECRAN + 52 + DY2, fill: grad('gFondu', SOL_ECRAN - 12, SOL_ECRAN + 56) }, fonduG);
+  svgEl('rect', { x: -20, y: SOL_ECRAN + 14, width: 430, height: 844 - SOL_ECRAN + 10 + DY2, fill: grad('gSocle', SOL_ECRAN + 14, SOL_ECRAN + 62) }, socleG);
 }
 
 function construireMonde() {
-  for (const g of [defs, ciel, loin, milieu, solG, fonduG, arbreG, cagetteFond, devant, socleG]) g.textContent = '';
+  for (const g of [defs, ciel, loin, milieu, solG, fonduG, arbreG, cagetteFond, devant, socleG, etalFond, etalDevant, figExtras, rouleauG]) g.textContent = '';
   FEUILLES = [];
   CAGETTE = null;
+  DEUX = null;
   const dec = DECORS[state.decor];
   dec.construire();
   if (state.place === 'b') construireSocle();
+  // Ton choix (recul2) : l'accueil 2/2 et ses deux pistes, hors du champ pendant le 1/2.
+  if (deuxDispo()) DEUX = construireDeux(dec.G);
   const P = parametres();
   if (state.descente === 'd') construireCagette(P.xL, dec.G, P.k);
   // Deux touffes devant la figue, pour la profondeur.
@@ -1533,6 +1592,370 @@ function apresReduite() {
     }
   };
 }
+/* ---------- L'accueil 2/2 : les conditions, dans la suite du paysage (porteuse, 22/10 : pistes A et B) ---------- */
+// Après « Continuer », dans l'ordre : le texte du 1/2 s'efface ; la vue glisse le long du pré, et le bas de l'écran monte de
+// 80 avec le sol (le texte des conditions est plus long) ; la figue y va en sautillant ; puis le texte des conditions et
+// « Accepter ». Pas de logo en haut. Elle ne regarde jamais « Accepter » : rien ne pousse à accepter (CNIL).
+//   A : au pied du figuier, elle s'assoit, chausse ses lunettes et déroule les conditions ; le rouleau, bien plus long que
+//       prévu, dévale le pré ; elle lit, imperturbable.
+//   B : à l'étal de la maquette du 17/10, au bout du pré, elle fait tourner un pot pour en lire la composition ; un flacon
+//       « Nouvelle formule » arrive, sa composition change : elle relit tout depuis le début.
+const etalFond = ROOT.getElementById('etalFond'), etalDevant = ROOT.getElementById('etalDevant');
+const figExtras = ROOT.getElementById('figExtras'), rouleauG = ROOT.getElementById('rouleauG');
+const accueil2 = ROOT.getElementById('accueil2'), copy2 = ROOT.getElementById('copy2'), actions2 = ROOT.getElementById('actions2');
+const titre2 = ROOT.getElementById('titre2'), retourBtn = ROOT.getElementById('retour');
+let DEUX = null;
+const deuxDispo = () => versionBis() && state.transition === 'recul2';
+const DY2 = 80;          // le bas de l'écran monte de 80 au 2/2 ; le sol avec lui
+const XA = 205;          // A : sa place, au pied du figuier, à droite du tronc
+// B : l'étal du 17/10 dans ses propres mesures (sol 228, plateau 172), ramené à l'échelle de la figue : elle y était à 0,5,
+// elle est ici à 0,173. Son milieu en x = 560, au bout du pré ; la figue s'y tient en (195, 200), comme le 17/10.
+const ETAL = { x: 560, k: 0.346, sol: 228, plateau: 172 };
+const GLISSE = cubicBezier(0.45, 0, 0.25, 1);
+// Un geste aller-retour : monte en a ms à partir de t0, tient, redescend en b ms à partir de t1.
+const tenir = (t, t0, a, t1, b) => EASE_IN_OUT(prog(t, t0, a)) * (1 - EASE_IN_OUT(prog(t, t1, b)));
+// Ressort amorti.
+function spring(sec, zeta = 0.7, w0 = 10) {
+  if (sec <= 0) return 0;
+  const wd = w0 * Math.sqrt(1 - zeta * zeta);
+  return 1 - Math.exp(-zeta * w0 * sec) * (Math.cos(wd * sec) + (zeta * w0 / wd) * Math.sin(wd * sec));
+}
+const TIENT = { k: 1.3, tilt: 0, curl: 0, arm: 1.25, sh: 0, sx: 1, sy: 1, lean: 0.1 };   // la queue tient le rouleau
+const melange = (a, b, k) => { const o = {}; for (const key in REST) o[key] = mix(a[key], b[key], k); return o; };
+// Un point du symbole, déformé par la pose, dans le monde : la figue posée en f (comme poserFigue).
+function versMondeF(px, py, pose, f, P) {
+  warp(px, py, pose);
+  const lx = (WX - P.D.B.x) * P.s * f.sx, ly = (WY - P.D.B.y) * P.s * f.sy, c = Math.cos(rad(f.r)), s = Math.sin(rad(f.r));
+  return [f.bx + lx * c - ly * s, f.by + lx * s + ly * c];
+}
+// Des bonds, de xa à xb, en n sauts de hauteur h ; rend la place et l'élan.
+function sauts(t, t0, dur, xa, xb, n, h) {
+  const p = prog(t, t0, dur), e = GLISSE(p);
+  const step = p * n, i = Math.min(n - 1, Math.floor(step)), fr = p >= 1 ? 1 : step - i;
+  const air = p > 0 && p < 1 ? Math.sin(Math.PI * fr) : 0;
+  return { x: mix(xa, xb, e), dy: -h * air, air };
+}
+
+// L'étal (B), repris de la maquette du 17/10 : derrière la figue, les montants, les fanions, les ardoises ; devant elle, le
+// comptoir, ses pots et le store ouvert.
+function caisse(parent, x, w) {
+  const y = ETAL.plateau - 24;
+  svgEl('rect', { x: x - w / 2, y, width: w, height: 24, fill: 'var(--o-bois-fond)', stroke: TRAIT, 'stroke-width': 1.5 }, parent);
+  for (const yy of [y + 3, y + 13]) svgEl('rect', { x: x - w / 2 + 1, y: yy, width: w - 2, height: 7, rx: 1.2, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 1.3 }, parent);
+  return y;
+}
+function potE(parent, x, base, corps, couvercle, w = 26, h = 18) {
+  svgEl('rect', { x: x - w / 2, y: base - h, width: w, height: h, rx: 4, fill: corps, stroke: TRAIT, 'stroke-width': 1.5 }, parent);
+  svgEl('rect', { x: x - w / 2 + 4, y: base - h + 5, width: w - 8, height: h - 10, rx: 1.5, fill: 'var(--o-papier)', stroke: TRAIT, 'stroke-width': 0.9 }, parent);
+  svgEl('rect', { x: x - w / 2 - 1.5, y: base - h - 7, width: w + 3, height: 8, rx: 2.5, fill: couvercle, stroke: TRAIT, 'stroke-width': 1.5 }, parent);
+}
+function tubeE(parent, x, base, corps, bouchon) {
+  svgEl('rect', { x: x - 6, y: base - 8, width: 12, height: 8, rx: 2, fill: bouchon, stroke: TRAIT, 'stroke-width': 1.5 }, parent);
+  svgEl('path', { d: `M${x - 7} ${base - 8}L${x - 10} ${base - 40}H${x + 10}L${x + 7} ${base - 8}Z`, fill: corps, stroke: TRAIT, 'stroke-width': 1.5, 'stroke-linejoin': 'round' }, parent);
+  svgEl('path', { d: `M${x - 9} ${base - 37}H${x + 9}M${x - 4} ${base - 26}H${x + 4}M${x - 3} ${base - 21}H${x + 3}`, stroke: TRAIT, 'stroke-width': 1, 'stroke-linecap': 'round' }, parent);
+}
+function flaconE(parent, x, base, corps, pompe, h = 34) {
+  svgEl('rect', { x: x - 11, y: base - h, width: 22, height: h, rx: 5, fill: corps, stroke: TRAIT, 'stroke-width': 1.5 }, parent);
+  svgEl('rect', { x: x - 7, y: base - h + 9, width: 14, height: h - 18, rx: 1.5, fill: 'var(--o-papier)', stroke: TRAIT, 'stroke-width': 0.9 }, parent);
+  svgEl('rect', { x: x - 4, y: base - h - 5, width: 8, height: 5, fill: pompe, stroke: TRAIT, 'stroke-width': 1.3 }, parent);
+  svgEl('path', { d: `M${x} ${base - h - 5}V${base - h - 12}H${x + 10}`, fill: 'none', stroke: TRAIT, 'stroke-width': 2.2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, parent);
+}
+function gouttesE(parent, x, base, corps) {
+  svgEl('rect', { x: x - 8, y: base - 20, width: 16, height: 20, rx: 4, fill: corps, stroke: TRAIT, 'stroke-width': 1.5 }, parent);
+  svgEl('rect', { x: x - 5, y: base - 25, width: 10, height: 6, rx: 1.5, fill: 'var(--o-trait)' }, parent);
+  svgEl('rect', { x: x - 4, y: base - 35, width: 8, height: 11, rx: 4, fill: 'var(--o-lilas-fonce)', stroke: TRAIT, 'stroke-width': 1.3 }, parent);
+}
+// Un pot qu'on fait tourner : son étiquette défile dans la forme du pot, de face, puis de dos.
+let nClipE = 0;
+function potTournant(parent, x, base, w, h, corps, couvercle, panneaux) {
+  const id = 'potE' + (++nClipE);
+  const clip = svgEl('clipPath', { id }, defs);
+  svgEl('rect', { x: x - w / 2, y: base - h, width: w, height: h, rx: 5 }, clip);
+  svgEl('rect', { x: x - w / 2, y: base - h, width: w, height: h, rx: 5, fill: corps }, parent);
+  const defile = svgEl('g', {}, svgEl('g', { 'clip-path': `url(#${id})` }, parent));
+  panneaux.forEach((dessin, i) => dessin(svgEl('g', { transform: `translate(${x - w / 2 + i * w} ${base - h})` }, defile), w, h));
+  svgEl('rect', { x: x - w / 2 + 3, y: base - h + 3, width: 3, height: h - 6, rx: 1.5, fill: '#FFFFFF', opacity: 0.55 }, parent);
+  svgEl('rect', { x: x - w / 2, y: base - h, width: w, height: h, rx: 5, fill: 'none', stroke: TRAIT, 'stroke-width': 1.6 }, parent);
+  svgEl('rect', { x: x - w / 2 - 2, y: base - h - 8, width: w + 4, height: 9, rx: 3, fill: couvercle, stroke: TRAIT, 'stroke-width': 1.6 }, parent);
+  return { defile, w };
+}
+// u = 0 : de face ; u = 1 : le panneau suivant (le pot a fait un demi-tour).
+function tourner(p, u) { p.defile.setAttribute('transform', `translate(${(-u * p.w).toFixed(2)} 0)`); }
+const faceMarque = (g, w, h) => {      // de face : une feuille, deux lignes
+  svgEl('rect', { x: 4, y: 5, width: w - 8, height: h - 10, rx: 2, fill: 'var(--o-papier)', stroke: TRAIT, 'stroke-width': 0.9 }, g);
+  svgEl('circle', { cx: w / 2, cy: h / 2 - 3, r: 3.6, fill: 'var(--f-nervure)', stroke: TRAIT, 'stroke-width': 0.8 }, g);
+  svgEl('path', { d: `M9 ${h / 2 + 4}H${w - 9}M12 ${h / 2 + 7.5}H${w - 12}`, stroke: TRAIT, 'stroke-width': 1, 'stroke-linecap': 'round' }, g);
+};
+const dosListe = (g, w, h) => {        // de dos : la composition, une liste serrée
+  svgEl('rect', { x: 4, y: 4, width: w - 8, height: h - 8, rx: 2, fill: 'var(--o-papier)', stroke: TRAIT, 'stroke-width': 0.9 }, g);
+  let d = '';
+  [0.8, 0.62, 0.74, 0.5, 0.7, 0.58, 0.66].forEach((l, i) => { const y = 8 + i * 2.6; if (y < h - 6) d += `M7 ${y.toFixed(1)}H${(7 + (w - 14) * l).toFixed(1)}`; });
+  svgEl('path', { d, stroke: 'var(--texte-2)', 'stroke-width': 1, 'stroke-linecap': 'round' }, g);
+};
+// Le flacon « Nouvelle formule » : sa composition change de place, le code-barres ne change pas.
+function flaconNouvelle(parent, x, base) {
+  const w = 28, h = 40;
+  const g = svgEl('g', { opacity: 0 }, parent);
+  svgEl('rect', { x: x - w / 2, y: base - h, width: w, height: h, rx: 6, fill: 'var(--o-pistache-clair)', stroke: TRAIT, 'stroke-width': 1.6 }, g);
+  svgEl('rect', { x: x - 5, y: base - h - 6, width: 10, height: 6, fill: 'var(--o-trait)' }, g);
+  svgEl('path', { d: `M${x} ${base - h - 6}V${base - h - 13}H${x + 12}`, fill: 'none', stroke: TRAIT, 'stroke-width': 2.4, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
+  svgEl('rect', { x: x - w / 2 + 4, y: base - h + 9, width: w - 8, height: h - 13, rx: 2, fill: 'var(--o-papier)', stroke: TRAIT, 'stroke-width': 0.9 }, g);
+  const lignes = [0, 1, 2, 3, 4].map(i => svgEl('rect', { x: x - w / 2 + 7, y: base - h + 13 + i * 3.4, height: 1.4, rx: 0.7, fill: 'var(--texte-2)' }, g));
+  let bx = x - w / 2 + 7;
+  for (const bw of [1.2, 0.6, 1, 0.6, 1.4, 0.6, 0.8, 0.6, 1.2, 0.6, 1, 0.6, 1.2]) { svgEl('rect', { x: bx, y: base - 10, width: bw, height: 6, fill: TRAIT }, g); bx += bw + 0.55; }
+  const e = svgEl('g', { transform: `translate(${x + 13} ${base - h + 6}) rotate(-14)` }, g);
+  let star = '';
+  for (let i = 0; i < 24; i++) { const r = i % 2 ? 11.5 : 14.5, a = (i / 24) * Math.PI * 2; star += (i ? 'L' : 'M') + (r * Math.cos(a)).toFixed(2) + ' ' + (r * Math.sin(a)).toFixed(2); }
+  svgEl('path', { d: star + 'Z', fill: 'var(--o-store-b)', stroke: TRAIT, 'stroke-width': 1.1, 'stroke-linejoin': 'round' }, e);
+  for (const [mot, y] of [['Nouvelle', -1.2], ['formule', 5.6]]) {
+    const tx = svgEl('text', { x: 0, y, 'text-anchor': 'middle', fill: '#FFFFFF', 'font-family': "'Atkinson Hyperlegible Next', system-ui, sans-serif", 'font-weight': 700, 'font-size': 5.4 }, e);
+    tx.textContent = mot;
+  }
+  return { g, lignes, w };
+}
+const FORMULES = [[0.86, 0.6, 0.74, 0.5, 0.68], [0.54, 0.82, 0.62, 0.78, 0.44]];
+function drawFormule(N, u) { N.lignes.forEach((el, j) => el.setAttribute('width', ((N.w - 14) * mix(FORMULES[0][j], FORMULES[1][j], u)).toFixed(2))); }
+function faireStore(parent, x0, x1, n) {
+  const bandes = [];
+  for (let i = 0; i < n; i++) bandes.push(svgEl('path', { fill: i % 2 ? 'var(--o-store-b)' : 'var(--o-store-a)', stroke: TRAIT, 'stroke-width': 1.5, 'stroke-linejoin': 'round' }, parent));
+  svgEl('rect', { x: x0 - 2, y: 31, width: x1 - x0 + 4, height: 10, rx: 5, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 1.8 }, parent);
+  return { x0, x1, bandes };
+}
+function drawStore(st, b) {   // descendu jusqu'à b, chaque bande finie par un feston
+  const w = (st.x1 - st.x0) / st.bandes.length, top = 36, feston = Math.min(7, Math.max(0, b - top));
+  st.bandes.forEach((el, i) => {
+    const x0 = st.x0 + i * w, x1 = x0 + w, xm = (x0 + x1) / 2;
+    el.setAttribute('d', `M${x0.toFixed(1)} ${top}V${b.toFixed(1)}Q${xm.toFixed(1)} ${(b + 2 * feston).toFixed(1)} ${x1.toFixed(1)} ${b.toFixed(1)}V${top}Z`);
+  });
+}
+function construireEtal(G) {
+  const tr = `translate(${ETAL.x} ${G}) scale(${ETAL.k}) translate(-195 ${-ETAL.sol})`;
+  const fond = svgEl('g', { transform: tr }, etalFond), face = svgEl('g', { transform: tr }, etalDevant);
+  const SOL = ETAL.sol, PL = ETAL.plateau, x0 = 26, x1 = 364;
+  for (const x of [x0 + 4, x1 - 10]) {
+    svgEl('rect', { x, y: 6, width: 6, height: SOL - 6, rx: 2, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 1.8 }, fond);
+    svgEl('circle', { cx: x + 3, cy: 6, r: 3.6, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 1.6 }, fond);
+  }
+  const COUL = ['var(--f-nervure)', 'var(--o-store-b)', 'var(--o-papier)', 'var(--o-lilas-fonce)'];
+  const a = x0 + 7, b = x1 - 7, n = 11;
+  svgEl('path', { d: `M${a} 8Q${(a + b) / 2} 22 ${b} 8`, fill: 'none', stroke: TRAIT, 'stroke-width': 1.2 }, fond);
+  for (let i = 1; i < n; i++) {
+    const u = i / n, x = (1 - u) * (1 - u) * a + 2 * u * (1 - u) * (a + b) / 2 + u * u * b, y = (1 - u) * (1 - u) * 8 + 2 * u * (1 - u) * 22 + u * u * 8;
+    svgEl('path', { d: `M${(x - 6).toFixed(1)} ${y.toFixed(1)}L${(x + 6).toFixed(1)} ${y.toFixed(1)}L${x.toFixed(1)} ${(y + 11).toFixed(1)}Z`, fill: COUL[i % 4], stroke: TRAIT, 'stroke-width': 1.1, 'stroke-linejoin': 'round' }, fond);
+  }
+  svgEl('rect', { x: x0, y: 24, width: x1 - x0, height: 8, rx: 2, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 1.8 }, fond);
+  // Les deux ardoises, accrochées sous l'auvent.
+  for (const ar of [{ x: 84, mot: 'Grossesse' }, { x: 306, mot: 'Allaitement' }]) {
+    svgEl('path', { d: `M${ar.x} 40L${ar.x - 30} 76M${ar.x} 40L${ar.x + 30} 76`, stroke: TRAIT, 'stroke-width': 1.1, fill: 'none' }, fond);
+    svgEl('circle', { cx: ar.x, cy: 40, r: 2, fill: TRAIT }, fond);
+    svgEl('rect', { x: ar.x - 44, y: 75, width: 88, height: 40, rx: 4, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 1.8 }, fond);
+    svgEl('rect', { x: ar.x - 39.5, y: 79.5, width: 79, height: 31, rx: 2, fill: 'var(--o-ardoise)' }, fond);
+    const txt = svgEl('text', { x: ar.x, y: 100.5, 'text-anchor': 'middle', fill: 'var(--o-craie)', 'font-family': "'Simonetta', Georgia, serif", 'font-style': 'italic', 'font-size': 16, 'letter-spacing': 0.2 }, fond);
+    txt.textContent = ar.mot;
+    svgEl('path', { d: `M${ar.x - 24} 105.5q12 2 24 0t24 0`, stroke: 'var(--o-craie)', 'stroke-width': 1, fill: 'none', opacity: 0.55, 'stroke-linecap': 'round' }, fond);
+  }
+  // Le comptoir, devant la figue.
+  svgEl('rect', { x: x0 + 2, y: PL + 6, width: x1 - x0 - 4, height: SOL - PL - 6, fill: 'var(--o-bois-clair)', stroke: TRAIT, 'stroke-width': 1.8 }, face);
+  let d = '';
+  for (let x = x0 + 30; x < x1 - 10; x += 30) d += `M${x} ${PL + 9}V${SOL - 3}`;
+  svgEl('path', { d, stroke: 'var(--o-bois)', 'stroke-width': 1.4 }, face);
+  svgEl('rect', { x: x0 - 4, y: PL, width: x1 - x0 + 8, height: 8, rx: 2, fill: 'var(--o-bois)', stroke: TRAIT, 'stroke-width': 1.8 }, face);
+  // Les pots de l'écran 1/3 du 17/10 ; à la place du compte-gouttes et du petit pot de droite, le flacon « Nouvelle formule ».
+  flaconE(face, 56, PL, 'var(--o-lilas)', 'var(--o-trait)', 36);
+  tubeE(face, 84, PL, 'var(--o-pistache-clair)', 'var(--f-nervure)');
+  potE(face, 114, PL, 'var(--o-grenade-clair)', 'var(--o-store-b)', 24, 16);
+  gouttesE(face, 140, PL, 'var(--o-bois-clair)');
+  flaconE(face, 342, PL, 'var(--o-pistache-clair)', 'var(--o-store-b)', 30);
+  const potLu = potTournant(face, 244, caisse(face, 244, 40), 32, 26, 'var(--o-lilas)', 'var(--o-store-b)', [faceMarque, dosListe]);
+  const nouvelle = flaconNouvelle(face, 300, PL);   // posé sur le comptoir : sous l'ardoise « Allaitement », sans la toucher
+  drawStore(faireStore(face, x0 + 10, x1 - 10, 12), 66);
+  return { potLu, nouvelle };
+}
+// Les lunettes (A), dans le repère de la figue ; entre le bout de la queue (onFace = 0) et le visage (onFace = 1).
+function construireLunettes() {
+  const g = svgEl('g', { opacity: 0 }, figExtras);
+  for (const cx of [-24, 24]) svgEl('circle', { cx, cy: 0, r: 20, fill: 'var(--o-verre)', 'fill-opacity': 0.55, stroke: 'var(--o-lunettes)', 'stroke-width': 5 }, g);
+  svgEl('path', { d: 'M-5 -3Q0 -9 5 -3M-44 -3L-53 -9M44 -3L53 -9', fill: 'none', stroke: 'var(--o-lunettes)', 'stroke-width': 5, 'stroke-linecap': 'round' }, g);
+  return g;
+}
+function drawLunettes(L, P, s, onFace) {
+  warp(112, 122, P);
+  const fx = WX, fy = WY;
+  warp(TIP.x, TIP.y + 4, P);
+  const tx = WX, ty = WY - 6;
+  L.setAttribute('opacity', s > 0 ? 1 : 0);
+  L.setAttribute('transform', `translate(${mix(tx, fx, onFace).toFixed(1)} ${mix(ty, fy, onFace).toFixed(1)}) rotate(${(P.lean * 180 / Math.PI * onFace).toFixed(2)}) scale(${s.toFixed(4)})`);
+}
+// Le rouleau des conditions (A), dans le monde : il pend du bout de la queue jusqu'à l'herbe, puis roule dans le pré ; la
+// bande déroulée reste derrière lui.
+const BANDE = 5.2, RAYON = 3;
+function construireRouleau() {
+  const g = svgEl('g', { opacity: 0 }, rouleauG);
+  const sol = svgEl('rect', { height: 1.6, fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 0.45 }, g);
+  const lignesSol = svgEl('path', { fill: 'none', stroke: 'var(--o-texte-ticket)', 'stroke-width': 0.5, 'stroke-linecap': 'round' }, g);
+  const pend = svgEl('rect', { width: BANDE, fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 0.45 }, g);
+  const lignesPend = svgEl('path', { fill: 'none', stroke: 'var(--o-texte-ticket)', 'stroke-width': 0.42, 'stroke-linecap': 'round' }, g);
+  const roll = svgEl('g', {}, g);
+  svgEl('circle', { cx: 0, cy: 0, r: RAYON, fill: '#FFFFFF', stroke: TRAIT, 'stroke-width': 0.5 }, roll);
+  svgEl('path', { d: 'M1.7 0a1.7 1.7 0 1 1 -1.7 -1.7M0.8 0a0.8 0.8 0 1 1 -0.8 -0.8', fill: 'none', stroke: TRAIT, 'stroke-width': 0.35, 'stroke-linecap': 'round' }, roll);
+  return { g, sol, lignesSol, pend, lignesPend, roll };
+}
+// o : visible ou non ; tip : le bout de la queue ; hang : ce qui pend ; D : ce qui est déroulé dans l'herbe ; G : le sol.
+function drawRouleau(R, o, tip, hang, D, G) {
+  R.g.setAttribute('opacity', o);
+  const [x, y] = tip, h = Math.max(0, hang);
+  R.pend.setAttribute('x', (x - BANDE / 2).toFixed(2));
+  R.pend.setAttribute('y', y.toFixed(2));
+  R.pend.setAttribute('height', h.toFixed(2));
+  let d = '';
+  for (let j = 0, yy = y + 1.3; yy < y + h - 0.6; j++, yy += 1.3) d += `M${(x - BANDE / 2 + 1).toFixed(2)} ${yy.toFixed(2)}h${[2.3, 3.2, 1.6, 2.9, 2.6, 1.3, 3.2, 1.9][j % 8]}`;
+  R.lignesPend.setAttribute('d', d);
+  R.sol.setAttribute('x', x.toFixed(2));
+  R.sol.setAttribute('y', (G - 1.6).toFixed(2));
+  R.sol.setAttribute('width', Math.max(0, D).toFixed(2));
+  let ds = '';
+  for (let xx = x + 1.2; xx < x + D - 1.6; xx += 3.4) ds += `M${xx.toFixed(2)} ${(G - 0.8).toFixed(2)}h1.8`;
+  R.lignesSol.setAttribute('d', ds);
+  // Le rouleau : au bout de ce qui pend, puis dans l'herbe, qu'il descend en tournant.
+  const rx = x + D, ry = D > 0 ? G - RAYON : Math.min(y + h, G - RAYON);
+  R.roll.setAttribute('transform', `translate(${rx.toFixed(2)} ${ry.toFixed(2)}) rotate(${(D / RAYON * 180 / Math.PI).toFixed(1)})`);
+}
+function construireDeux(G) {
+  return { ...construireEtal(G), lunettes: construireLunettes(), rouleau: construireRouleau() };
+}
+
+function ecranDeux(piste) {
+  const P = parametres();
+  const C = cadrages(P);
+  REF = C.ref;
+  const A = piste === 'a', G = P.sol, z = C.fin.z;
+  const gS = defs.querySelector('#gSocle');
+  accueil2.hidden = false;
+  // La vue : de la dernière image du 1/2 jusqu'au figuier (A) ou à l'étal (B), le sol 80 plus haut sur l'écran.
+  const cam0 = C.fin, cam1 = { x: A ? 225 : ETAL.x, y: G - (SOL_ECRAN - DY2 - 422) / z, z };
+  const T = A ? { sortie: 300, vue0: 150, vue1: 1450, copie: 1500, fin: 4400 } : { sortie: 300, vue0: 150, vue1: 1750, copie: 1800, fin: 5000 };
+  // Les feuilles reprennent la brise où le 1/2 l'a laissée (recul2 : la brise part de T.monde − 2600 = 2850).
+  const brise0 = tempsFigue(6350, [450, 900], 800).fin - 2850;
+  const yE = G - (ETAL.sol - 200) * ETAL.k;   // B : la figue derrière l'étal, à sa place du 17/10
+  const beats = A ? [
+    [0, 'Le texte du 1/2 s’efface.'],
+    [150, 'La vue glisse vers le figuier ; le bas de l’écran monte avec le sol.'],
+    [250, 'La figue y va en trois bonds…'],
+    [1250, '… et s’assoit à son pied.'],
+    [1400, 'Des lunettes paraissent au bout de sa queue ; elle les chausse.'],
+    [1500, 'Le texte des conditions et « Accepter » paraissent.'],
+    [2000, 'Elle déroule les conditions…'],
+    [2600, '… le rouleau, bien plus long que prévu, dévale le pré et sort de l’écran.'],
+    [3050, 'Elle lit, imperturbable, sans regarder le bouton.'],
+    [T.fin, 'Fin : l’image reste fixe.']
+  ] : [
+    [0, 'Le texte du 1/2 s’efface.'],
+    [150, 'La vue glisse le long du pré jusqu’à l’étal ; le bas de l’écran monte avec le sol.'],
+    [250, 'La figue y va en sautillant…'],
+    [1500, '… et saute derrière son étal.'],
+    [1800, 'Le texte des conditions et « Accepter » paraissent.'],
+    [1950, 'Elle fait tourner un pot pour en lire la composition.'],
+    [3000, 'Un flacon « Nouvelle formule » arrive sur l’étal ; sa composition change.'],
+    [3300, 'Sa queue se courbe en point d’interrogation…'],
+    [3950, '… et elle relit tout depuis le début.'],
+    [T.fin, 'Fin : l’image reste fixe.']
+  ];
+  return {
+    duration: T.fin, beats,
+    render(t) {
+      ecran({ scene: 1, accueil: t < T.sortie, accroche: 0, logo: false });
+      logoSvg.setAttribute('aria-hidden', 'true');
+      herosG.setAttribute('opacity', 0);
+      voile.setAttribute('opacity', 0);
+      // Le texte du 1/2 s'efface, sur place.
+      const k1 = (1 - DOUX(prog(t, 0, T.sortie))).toFixed(3);
+      copy.style.opacity = k1; copy.style.transform = 'none'; actions.style.opacity = k1;
+      accueil.style.transform = 'translateY(0px)';
+      // La vue glisse ; le bas de l'écran monte avec le sol, sur la même courbe.
+      const kV = DOUX(prog(t, T.vue0, T.vue1 - T.vue0));
+      SOCLE_DY = -DY2 * kV;
+      socleG.setAttribute('transform', `translate(0 ${SOCLE_DY.toFixed(2)})`);
+      socleG.setAttribute('opacity', 1);
+      gS.setAttribute('y2', (SOL_ECRAN + 62).toFixed(1));
+      poserCamera(mixCam(cam0, cam1, kV));
+      brise(brise0 + t);
+      // Puis le texte des conditions, et « Accepter ».
+      monte(copy2, DOUX(prog(t, T.copie, 500)), 8);
+      actions2.style.opacity = retourBtn.style.opacity = DOUX(prog(t, T.copie + 50, 450)).toFixed(3);
+      figueG.setAttribute('opacity', 0);
+      figLive.setAttribute('opacity', 1);
+      if (A) {
+        // Trois bonds jusqu'au pied du figuier ; elle s'y pose et s'assoit.
+        const s = sauts(t, 250, 1000, P.xL, XA, 3, 8);
+        const posee = t >= 1250 ? 1 - spring((t - 1250) / 1000, 0.5, 12) : 0;
+        const assise = EASE_OUT(prog(t, 1250, 300));
+        const pop = spring((t - 1400) / 1000, 0.55);                  // les lunettes paraissent au bout de la queue…
+        const onFace = EASE_IN_OUT(prog(t, 1700, 380));                // … et elle les chausse
+        const leve = EASE_IN_OUT(prog(t, 1950, 450));                  // la queue se lève : elle tient le rouleau
+        const pend = EASE_OUT(prog(t, 2150, 450));                     // il se déroule jusqu'à l'herbe…
+        const D = 260 * Math.pow(prog(t, 2600, 1500), 1.6);            // … puis dévale le pré, de plus en plus vite
+        const lecture = prog(t, 2600, 1800), lit = lecture > 0 ? Math.sin(3 * Math.PI * lecture) * (1 - 0.5 * lecture) : 0;
+        const hoche = bump(t, 3050, 240) + bump(t, 3350, 240) + bump(t, 3950, 240);
+        const pose = melange(REST, TIENT, leve);
+        pose.sx = mix(1, 1.04, assise) + 0.08 * posee - 0.03 * s.air;
+        pose.sy = mix(1, 0.94, assise) - 0.1 * posee + 0.06 * s.air - 0.02 * hoche;
+        pose.lean += 0.03 * lit - 0.04 * hoche;
+        const f = { bx: s.x, by: G + s.dy, r: 0, sx: 1, sy: 1 };
+        poserFigue(f, P);
+        drawFig(pose);
+        figExtras.setAttribute('transform', figLive.getAttribute('transform'));
+        drawLunettes(DEUX.lunettes, pose, pop, onFace);
+        const tip = versMondeF(TIP.x, TIP.y + 2, pose, f, P);
+        drawRouleau(DEUX.rouleau, t >= 2000 ? 1 : 0, tip, (G - 0.5 - tip[1]) * pend, D, G);
+        DEUX.nouvelle.g.setAttribute('opacity', 0);
+        tourner(DEUX.potLu, 0);
+      } else {
+        // Elle longe le pré en quatre bonds, puis saute derrière son étal.
+        let x, y, air;
+        if (t < 1500) { const s = sauts(t, 250, 1250, P.xL, ETAL.x - 55, 4, 8); x = s.x; y = G + s.dy; air = s.air; }
+        else { const p = prog(t, 1500, 300); x = mix(ETAL.x - 55, ETAL.x, EASE_IN_OUT(p)); y = mix(G, yE, p) - 14 * Math.sin(Math.PI * p); air = p < 1 ? Math.sin(Math.PI * p) : 0; }
+        const posee = t >= 1800 ? 1 - spring((t - 1800) / 1000, 0.5, 12) : 0;
+        const tend = tenir(t, 1950, 350, 2900, 380) + tenir(t, 3950, 300, 4800, 350);   // la queue vers le pot, deux fois
+        const lit = tenir(t, 2600, 300, 3000, 300) + tenir(t, 4500, 300, 4950, 300);   // elle se penche pour lire
+        const hoche = bump(t, 2750, 220) + bump(t, 2950, 220) + bump(t, 4650, 220);
+        const arrive = t >= 3000 ? spring((t - 3000) / 1000, 0.5, 12) : 0;             // le flacon se pose sur l'étal
+        const question = tenir(t, 3300, 350, 3900, 400);                               // sa queue : un point d'interrogation
+        const tour = EASE_IN_OUT(prog(t, 2200, 600)) * (1 - EASE_IN_OUT(prog(t, 4000, 300))) + EASE_IN_OUT(prog(t, 4350, 500));
+        poserFigue({ bx: x, by: y, r: 0, sx: 1, sy: 1 }, P);
+        drawFig({
+          k: 1 + 0.42 * tend + 0.2 * question, tilt: 0.35 * question, curl: 1.35 * question, arm: 1.66 * tend - 0.25 * question, sh: 0,
+          sx: 1 - 0.03 * air + 0.08 * posee, sy: 1 + 0.06 * air - 0.1 * posee - 0.02 * hoche,
+          lean: 0.05 * tend + 0.07 * lit + 0.02 * hoche + 0.04 * question
+        });
+        figExtras.setAttribute('transform', figLive.getAttribute('transform'));
+        DEUX.lunettes.setAttribute('opacity', 0);
+        DEUX.rouleau.g.setAttribute('opacity', 0);
+        tourner(DEUX.potLu, tour);
+        DEUX.nouvelle.g.setAttribute('opacity', clamp01((t - 3000) / 80).toFixed(3));
+        DEUX.nouvelle.g.setAttribute('transform', `translate(0 ${(-18 * (1 - arrive)).toFixed(2)})`);
+        drawFormule(DEUX.nouvelle, EASE_IN_OUT(prog(t, 3350, 450)));
+      }
+    }
+  };
+}
+// Le 2/2, mouvement réduit : des fondus enchaînés, sans aucun déplacement ; l'image finale de chaque piste.
+function ecranDeuxReduit(piste) {
+  const anime = ecranDeux(piste);
+  return {
+    duration: 1200,
+    beats: [[0, 'Fondu : le texte du 1/2 s’efface.'], [300, 'Fondu vers le 2/2 : ' + (piste === 'a' ? 'au pied du figuier, la figue lit les conditions.' : 'à l’étal, la figue lit la composition d’un pot.')], [900, 'Le texte des conditions et « Accepter », en fondu.'], [1200, 'Fin : l’image reste fixe.']],
+    render(t) {
+      anime.render(t < 600 ? 0 : anime.duration);
+      scene.style.opacity = (t < 600 ? 1 - prog(t, 300, 300) : prog(t, 600, 300)).toFixed(3);
+      const k1 = (1 - prog(t, 0, 300)).toFixed(3);
+      accueil.hidden = t >= 300;
+      copy.style.opacity = k1; actions.style.opacity = k1;
+      copy2.style.opacity = prog(t, 900, 300).toFixed(3); copy2.style.transform = 'none';
+      actions2.style.opacity = retourBtn.style.opacity = prog(t, 900, 300).toFixed(3);
+    }
+  };
+}
+
 // Ce qui est visible sur l'écran : la scène, l'accueil, l'accroche, le logo.
 function ecran(e) {
   scene.style.opacity = e.scene.toFixed(3);
@@ -1554,6 +1977,8 @@ const state = {
   bas: choix('bas', ['pale', 'profond', 'pale-bis', 'profond-bis', 'blanc'], 'pale-bis'),   // le bas de l'écran (21/10 : vert pâle bis)
   transition: choix('transition', ['recul2', 'recul', 'saut', 'brume', 'soleil', 'mouvement', 'bis'], 'recul2'),   // versions bis (21/10) ; ton choix (22/10)
   nom: choix('nom', ['lettres', 'figue'], 'lettres'),       // le nom en haut du paysage (22/10 : en toutes lettres)
+  ecran: choix('ecran', ['1', '2'], '1'),                   // l'accueil 1/2, ou le 2/2 des conditions (22/10, ton choix seulement)
+  piste2: choix('piste2', ['a', 'b'], 'a'),                 // le 2/2 : A, la lecture sous le figuier ; B, l'étal au bord du pré
   speed: 1,
   motion: params.get('mouvement') === 'reduit' ? 'reduit' : params.get('mouvement') === 'normal' ? 'normal' : 'systeme',
   notes: params.get('notes') === 'off' ? 'off' : 'on',
@@ -1580,6 +2005,10 @@ function deroule() {
   LG.ancre.removeAttribute('opacity');
   logoG.removeAttribute('opacity');
   logoSvg.removeAttribute('aria-hidden');
+  // L'accueil 2/2 : caché, et remis à zéro, en dehors de son déroulé.
+  accueil2.hidden = true;
+  for (const el of [copy2, actions2, retourBtn]) { el.style.opacity = ''; el.style.transform = ''; }
+  figExtras.removeAttribute('transform');
   herosG.textContent = '';
   herosG.setAttribute('opacity', 0);
   HEROS = null;
@@ -1589,6 +2018,7 @@ function deroule() {
   live[0].last = '';
   construireMonde();
   construireFigue(state.place === 'c' ? 'o' : 'symbole');
+  if (state.ecran === '2' && deuxDispo()) return rm ? ecranDeuxReduit(state.piste2) : ecranDeux(state.piste2);
   if (state.place === 'c') return rm ? fondueReduite() : fondue();
   if (rm) return apresReduite();
   if (!bis) return apres();
@@ -1616,6 +2046,7 @@ function applyBeats() {
   }
 }
 const groupeNom = ROOT.getElementById('groupeNom');
+const groupeDeux = ROOT.getElementById('groupeDeux');
 function syncControls() {
   for (const seg of ROOT.querySelectorAll('.seg')) {
     const key = seg.dataset.key;
@@ -1624,6 +2055,8 @@ function syncControls() {
   }
   // Avec ton choix (recul2), le nom ne revient pas en haut : le réglage du nom n'a plus d'objet.
   groupeNom.style.display = state.transition === 'recul2' ? 'none' : '';
+  // L'accueil 2/2 n'existe que pour ton choix.
+  groupeDeux.style.display = deuxDispo() ? '' : 'none';
   scrub.max = timeline().duration;
   playPause.textContent = state.playing ? 'Pause' : 'Lecture';
 }
@@ -1679,6 +2112,8 @@ for (const seg of ROOT.querySelectorAll('.seg')) {
     if (key === 'notes') { screenEl.classList.toggle('hidden-notes', state.notes === 'off'); syncControls(); return; }
     // Le bas de l'écran : on change la couleur sans reprendre la lecture.
     if (key === 'bas') { resetAll(); return; }
+    // Une autre transition : on revient au 1/2.
+    if (key === 'transition') state.ecran = '1';
     resetAll();
     // Une autre transition, ou l'autre façon d'écrire le nom : on la voit tout de suite, depuis la fin de la révélation.
     if (key === 'transition' || key === 'nom') { revoir(); return; }
@@ -1686,7 +2121,23 @@ for (const seg of ROOT.querySelectorAll('.seg')) {
   });
 }
 const DEPUIS = 3800;
-function revoir() { state.t = DEPUIS; play(false); }
+function revoir() { state.t = state.ecran === '2' && deuxDispo() ? 0 : DEPUIS; play(false); }
+// « Continuer » : avec ton choix, le 2/2 ; « Retour » : la dernière image du 1/2. « Accepter » ouvrirait le scanner.
+ROOT.getElementById('continuer').addEventListener('click', () => {
+  if (!deuxDispo()) return;
+  state.ecran = '2';
+  resetAll();
+  play(true);
+  titre2.focus({ preventScroll: true });
+});
+ROOT.getElementById('retour').addEventListener('click', () => {
+  state.ecran = '1';
+  resetAll();
+  state.t = timeline().duration;
+  pause();
+  render();
+  ROOT.getElementById('continuer').focus({ preventScroll: true });
+});
 ROOT.getElementById('replay').addEventListener('click', () => play(true));
 ROOT.getElementById('revoir').addEventListener('click', revoir);
 playPause.addEventListener('click', () => {

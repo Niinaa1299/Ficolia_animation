@@ -56,6 +56,8 @@ La maquette de l'ouverture se règle par l'adresse, ce qui permet aussi de figer
 | `bas` | `pale`, `profond`, `pale-bis`, `profond-bis`, `blanc` | `pale-bis` |
 | `transition` (versions bis seulement) | `recul2` (son choix du 22/10 : gros plan, puis recul, tout se dévoile dans l'ordre, sans nom en haut), `recul`, `saut`, `brume`, `soleil`, `mouvement`, `bis` | `recul2` |
 | `nom` (versions bis seulement, sauf `recul2`, qui n'a plus de nom en haut) | `lettres` : « Ficolia » en toutes lettres en haut du paysage (22/10) ; `figue` : le logo avec la figue à la place du « o », pour mémoire | `lettres` |
+| `ecran` (avec `recul2` seulement) | `1` : l'accueil 1/2 ; `2` : l'accueil 2/2, les conditions (22/10), où mène aussi « Continuer » | `1` |
+| `piste2` | le 2/2 : `a`, la lecture sous le figuier ; `b`, l'étal au bord du pré | `a` |
 | `mouvement` | `normal`, `reduit` | le réglage du téléphone |
 | `notes` | `off` masque les notes du prototype | affichées |
 | `t` | un instant figé, en millisecondes | lecture |
