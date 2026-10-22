@@ -193,6 +193,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
     <div class="group">
       <span class="label" id="lblTransition">La transition, de la révélation à l’arbre (21/10 : la figue du « o » en personnage principal, puis les trois propositions d’avant)</span>
       <div class="seg" role="group" aria-labelledby="lblTransition" data-key="transition">
+        <button type="button" data-val="recul2">Ton choix : gros plan, puis recul (22/10)</button>
         <button type="button" data-val="recul">Gros plan, puis recul</button>
         <button type="button" data-val="saut">Elle saute du logo</button>
         <button type="button" data-val="brume">La brume</button>
@@ -200,6 +201,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
         <button type="button" data-val="mouvement">Un seul mouvement</button>
         <button type="button" data-val="bis">Celle du bis</button>
       </div>
+      <p class="small">Ton choix (22/10) : gros plan, puis recul, et tout se dévoile dans l’ordre. Pendant que la vue recule, le paysage sort du blanc et la figue pend à son figuier ; puis le bas de l’écran prend la couleur du pré ; puis le texte et « Continuer » paraissent, sur l’herbe. Le nom ne revient pas en haut : « Bienvenue sur Ficolia » le porte (porteuse, 22/10). La version du 21/10 reste jouable, pour mémoire.</p>
       <p class="small">La figue du « o » est le personnage principal (porteuse, 21/10). Gros plan, puis recul : pendant son souffle, la vue s’approche d’elle ; en grandissant, elle se referme ; la vue recule : elle pend à son figuier, et regarde à gauche, à droite, l’air de dire « tiens, me voilà dans un arbre ». Elle saute du logo : elle se referme, se penche au bord du mot, regarde en bas, hésite, se lance ; la vue la suit dans sa chute, et elle se rattrape à une branche par la queue, de justesse. Puis, dans les deux, la suite choisie le 20/10 : elle se balance, saute, se pose sur le pré, s’ouvre et salue.</p>
       <p class="small">Pendant son absence, « Fic » et « lia » s’effacent, et le nom revient complet en haut (porteuse, 21/10), en toutes lettres (22/10) : le nom ne s’affiche jamais incomplet. Elle garde le dessin du « o » jusqu’au milieu de son saut de la branche ; là, fermée et en plein vol, elle laisse la place à la figue du symbole. Sa chute est un saut choisi : elle hésite, se lance, se rattrape (vigilance du brief §4).</p>
       <p class="small">Les trois propositions d’avant. La brume : le paysage sort du blanc plan par plan, comme d’une brume du matin : le ciel et le soleil, les collines lointaines, les collines proches, puis l’arbre et la figue. Le soleil : le blanc de la révélation est la lumière du soleil ; il se retire dans le soleil, et le paysage paraît autour. Un seul mouvement : la vue descend du ciel d’un seul geste, plus lent que dans le bis ; le logo monte avec le ciel, le bas de l’écran avec le sol.</p>
@@ -208,7 +210,7 @@ body{background:var(--page);color:var(--page-texte);font-family:'Atkinson Hyperl
       <p class="small">Le bas de l’écran : vert pâle bis (porteuse, 21/10), avec la chair de la figue jusqu’à la queue. Vert pâle, vert profond et vert profond bis restent jouables par l’adresse (?bas=pale, profond, profond-bis), pour mémoire.</p>
     </div>
 
-    <div class="group">
+    <div class="group" id="groupeNom">
       <span class="label" id="lblNom">Le nom, en haut du paysage (22/10 : « Ficolia », en toutes lettres)</span>
       <div class="seg" role="group" aria-labelledby="lblNom" data-key="nom">
         <button type="button" data-val="lettres">En toutes lettres</button>
@@ -1343,13 +1345,19 @@ function apresFigueO(type) {
   // La même figue, dessinée en « o » : ses mesures dans le monde.
   const Po = { ...P, D: O, s: dec.so, H: { x: (O.B.x - O.T.x) * dec.so, y: (O.B.y - O.T.y) * dec.so }, CB: { x: (O.C.x - O.B.x) * dec.so, y: (O.C.y - O.B.y) * dec.so } };
   HEROS = dessinerFigue('o', herosG, 'ho');
-  const recul = type === 'recul';
+  // recul2, ton choix (porteuse, 22/10) : le recul, où tout se dévoile dans l'ordre. Le paysage sort du blanc pendant que la
+  // vue recule ; puis le bas de l'écran prend la couleur du pré ; puis le texte et « Continuer ». Le nom ne revient pas en
+  // haut : « Bienvenue sur Ficolia » le porte.
+  const ordre = type === 'recul2';
+  const recul = type === 'recul' || ordre;
   const S0 = 4440;   // elle prend le relais du « o » du logo, juste avant son souffle : les deux sont identiques
   const T = tempsFigue(recul ? 6350 : 6300, [450, 900], 800);
   T.sortie = recul ? 4600 : 5450;    // « Fic » et « lia » s'effacent
   T.retour = recul ? 6450 : 6500;    // le logo revient, complet, en haut, une fois la vue posée sur le figuier
   T.monde = recul ? 5450 : 6300;     // le monde la reçoit : la vue recule ; ou elle se rattrape à la branche
   const B0 = T.monde - 2600;         // la brise, réglée pour qu'elle pende droite à cet instant
+  // recul2 : le bas de l'écran, puis le texte et « Continuer », une fois le paysage à demi sorti du blanc.
+  const ORDRE = { socle: T.monde + 300, copie: T.monde + 600, actions: T.monde + 650 };
   // Les plans de la vue : plus larges que dans le bis, comme pour les trois propositions.
   const zA = 1.2, zS = 1.35, mh = milieuDe(P, pendue(P, 0));
   const approche = { x: mh.x - 35 / zA, y: mh.y - 3 / zA, z: zA };
@@ -1368,10 +1376,12 @@ function apresFigueO(type) {
   const propres = recul ? [
     [4550, 'Pendant son souffle, la vue s’approche d’elle ; « Fic » et « lia » s’effacent sur les côtés ; l’accroche s’en va vers le bas.'],
     [4900, 'En grandissant, elle se referme : la chair, les nervures et les graines se replient.'],
-    [5150, 'Le texte et « Continuer » paraissent, sur place.'],
+    ...(ordre ? [] : [[5150, 'Le texte et « Continuer » paraissent, sur place.']]),
     [T.monde, 'La vue recule : le blanc devient ciel, une branche et des feuilles paraissent autour d’elle ; elle pend à son figuier.'],
+    ...(ordre ? [[ORDRE.socle, 'Puis le bas de l’écran prend la couleur du pré, dans la suite du paysage.'],
+      [ORDRE.copie, 'Puis le texte et « Continuer » paraissent, sur l’herbe. Le nom ne revient pas en haut.']] : []),
     [5850, 'Elle regarde à gauche, à droite, l’air de dire : tiens, me voilà dans un arbre.'],
-    [T.retour, RETOUR]
+    ...(ordre ? [] : [[T.retour, RETOUR]])
   ] : [
     [4700, 'Après son souffle, elle se referme.'],
     [5000, 'Elle se penche au bord du mot, regarde en bas, hésite…'],
@@ -1399,12 +1409,17 @@ function apresFigueO(type) {
         LG.ancre.removeAttribute('opacity');
         logoG.removeAttribute('opacity');
         herosG.setAttribute('opacity', 0);
+        if (ordre) logoSvg.removeAttribute('aria-hidden');
         return;
       }
       // Le logo : sans son « o », que la figue a remplacé ; « Fic » et « lia » s'effacent ; puis il revient, complet, en haut.
+      // recul2 : il ne revient pas ; une fois le nom effacé, l'image ne porte plus que la figue, décorative.
       const eZ = recul ? DOUX(prog(t, 4550, 900)) : 0, Z = Math.pow(PRES.S / O_LOGO.k, eZ);
       const ox = mix(O_LOGO.x, PRES.x, eZ), oy = mix(O_LOGO.y, PRES.y, eZ);
-      if (t < T.retour) {
+      if (ordre) {
+        if (t >= T.sortie + 450) logoSvg.setAttribute('aria-hidden', 'true'); else logoSvg.removeAttribute('aria-hidden');
+      }
+      if (t < T.retour || ordre) {
         const e = revelation(Math.min(t, 5000));
         e.nom = Math.min(e.nom, 1 - DOUX(prog(t, T.sortie, 450)));
         etatLogo(e);
@@ -1427,13 +1442,14 @@ function apresFigueO(type) {
         [[ciel, 5250], [loin, 5400], [milieu, 5500], [monde, 5600]].forEach(([g, a]) => g.setAttribute('opacity', DOUX(prog(t, a, 700)).toFixed(3)));
       }
       // Le bas de l'écran prend la couleur du pré, sur place ; le texte et « Continuer » paraissent, sur place.
+      // recul2 : dans cet ordre, après le paysage.
       SOCLE_DY = 0;
       socleG.setAttribute('transform', 'translate(0 0)');
-      socleG.setAttribute('opacity', DOUX(prog(t, 4600, 700)).toFixed(3));
+      socleG.setAttribute('opacity', DOUX(ordre ? prog(t, ORDRE.socle, 600) : prog(t, 4600, 700)).toFixed(3));
       gS.setAttribute('y2', (SOL_ECRAN + 62 - 26 * (1 - EASE_IN_OUT(prog(t, T.pose0, T.pose1 - T.pose0)))).toFixed(1));
       accueil.style.transform = 'translateY(0px)';
-      monte(copy, DOUX(prog(t, 5150, 500)), 8);
-      actions.style.opacity = DOUX(prog(t, 5200, 450)).toFixed(3);
+      monte(copy, DOUX(prog(t, ordre ? ORDRE.copie : 5150, 500)), 8);
+      actions.style.opacity = DOUX(prog(t, ordre ? ORDRE.actions : 5200, 450)).toFixed(3);
       // La vue, et la figue du symbole, cachée jusqu'au milieu du saut de la branche.
       const vue0 = recul ? mixCam(pres, approche, DOUX(prog(t, T.monde, 1000))) : mixCam(depart, approche, DOUX(prog(t, 5450, 850)));
       const cam = figueEtVue(t, B0, T, P, CF, vue0, DOUX, 700);
@@ -1489,11 +1505,12 @@ function apresReduite() {
   const C = cadrages(P);
   const fin = C.fin;
   REF = C.ref;
-  // Versions bis : sur le paysage, le nom en toutes lettres (porteuse, 22/10).
+  // Versions bis : sur le paysage, le nom en toutes lettres (porteuse, 22/10) ; ou, avec ton choix (recul2), plus de nom en haut.
   const L = lettresEnHaut() ? 1 : 0;
+  const sansNom = versionBis() && state.transition === 'recul2';
   return {
     duration: 2100,
-    beats: [[0, 'Fondu : le logo et l’accroche, image finale de la révélation.'], [1500, 'Fondu vers l’accueil : ' + minuscule(dec.nom).slice(0, -1) + ', sur tout l’écran ; la figue ouverte sur le pré' + (L ? ' ; en haut, « Ficolia » en toutes lettres.' : '.')], [2100, 'Fin : l’image reste fixe.']],
+    beats: [[0, 'Fondu : le logo et l’accroche, image finale de la révélation.'], [1500, 'Fondu vers l’accueil : ' + minuscule(dec.nom).slice(0, -1) + ', sur tout l’écran ; la figue ouverte sur le pré' + (sansNom ? ' ; plus de nom en haut.' : L ? ' ; en haut, « Ficolia » en toutes lettres.' : '.')], [2100, 'Fin : l’image reste fixe.']],
     render(t) {
       const avant = t < 1800;
       const k = avant ? 1 - prog(t, 1500, 300) : prog(t, 1800, 300);
@@ -1501,7 +1518,7 @@ function apresReduite() {
       ecran({ scene: versionBis() ? prog(t, 1500, 600) : avant ? 0 : k, accueil: !avant, accroche: avant ? Math.min(k, prog(t, 0, 600)) : 0, logo: true });
       drawLogo(avant ? 0 : 1, avant ? 0 : L);
       etatLogo({ ...logoDessine(1, 1, 1), lettres: avant ? 0 : L });
-      logoSvg.style.opacity = (avant ? Math.min(prog(t, 0, 600), k) : k).toFixed(3);
+      logoSvg.style.opacity = (avant ? Math.min(prog(t, 0, 600), k) : sansNom ? 0 : k).toFixed(3);
       monte(l1, 1, 0, true); monte(l2, 1, 0, true);
       monte(copy, avant ? 0 : k, 0, true);
       actions.style.opacity = (avant ? 0 : k).toFixed(3);
@@ -1535,7 +1552,7 @@ const state = {
   descente: choix('descente', ['a', 'b', 'c', 'd'], 'a'),   // elle saute
   decor: choix('decor', ['a', 'b', 'c'], 'a'),               // paysage du Sud
   bas: choix('bas', ['pale', 'profond', 'pale-bis', 'profond-bis', 'blanc'], 'pale-bis'),   // le bas de l'écran (21/10 : vert pâle bis)
-  transition: choix('transition', ['recul', 'saut', 'brume', 'soleil', 'mouvement', 'bis'], 'recul'),   // versions bis (21/10)
+  transition: choix('transition', ['recul2', 'recul', 'saut', 'brume', 'soleil', 'mouvement', 'bis'], 'recul2'),   // versions bis (21/10) ; ton choix (22/10)
   nom: choix('nom', ['lettres', 'figue'], 'lettres'),       // le nom en haut du paysage (22/10 : en toutes lettres)
   speed: 1,
   motion: params.get('mouvement') === 'reduit' ? 'reduit' : params.get('mouvement') === 'normal' ? 'normal' : 'systeme',
@@ -1562,6 +1579,7 @@ function deroule() {
   for (const el of [accueil, accroche, actions]) el.style.transform = '';
   LG.ancre.removeAttribute('opacity');
   logoG.removeAttribute('opacity');
+  logoSvg.removeAttribute('aria-hidden');
   herosG.textContent = '';
   herosG.setAttribute('opacity', 0);
   HEROS = null;
@@ -1574,7 +1592,7 @@ function deroule() {
   if (state.place === 'c') return rm ? fondueReduite() : fondue();
   if (rm) return apresReduite();
   if (!bis) return apres();
-  if (state.transition === 'recul' || state.transition === 'saut') return apresFigueO(state.transition);
+  if (['recul2', 'recul', 'saut'].includes(state.transition)) return apresFigueO(state.transition);
   return state.transition === 'bis' ? apresBis() : apresFluide(state.transition);
 }
 
@@ -1597,12 +1615,15 @@ function applyBeats() {
     beatsEl.appendChild(li);
   }
 }
+const groupeNom = ROOT.getElementById('groupeNom');
 function syncControls() {
   for (const seg of ROOT.querySelectorAll('.seg')) {
     const key = seg.dataset.key;
     const val = String(state[key]);
     for (const b of seg.querySelectorAll('button')) b.setAttribute('aria-pressed', String(b.dataset.val === val));
   }
+  // Avec ton choix (recul2), le nom ne revient pas en haut : le réglage du nom n'a plus d'objet.
+  groupeNom.style.display = state.transition === 'recul2' ? 'none' : '';
   scrub.max = timeline().duration;
   playPause.textContent = state.playing ? 'Pause' : 'Lecture';
 }
