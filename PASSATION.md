@@ -26,7 +26,7 @@ Les adresses sont privées, celles du compte d'origine. Dans un autre compte, le
 
 | Artéfact | Adresse d'origine | Source dans le dépôt |
 | --- | --- | --- |
-| Récit de la figue : l'aperçu de tous les écrans (v23) | https://claude.ai/artifact/PRP2wzjUmB1Yv4X7wRT8hW | `maquettes/*.html`, assemblées par `outils/apercu.py` |
+| Récit de la figue : l'aperçu de tous les écrans (v23 ; v24 le 22/10, publiée à la même adresse depuis l'autre compte, qui a le droit de modifier) | https://claude.ai/artifact/PRP2wzjUmB1Yv4X7wRT8hW | `maquettes/*.html`, assemblées par `outils/apercu.py` |
 | Site vitrine : le dossier (v2) | https://claude.ai/artifact/SiQZA1oUejLmDmzuBnRPFq | `outils/sources/site/gabarit-proposition.html`, résultat dans `site/proposition.html` |
 | Site vitrine : la maquette animée | https://claude.ai/artifact/F6vTnY69zkAkHPoZUNt1Gv | `outils/sources/site/maquette/gabarit.html`, résultat dans `site/maquette.html`, images dans `site/captures/` |
 

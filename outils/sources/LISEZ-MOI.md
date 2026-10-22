@@ -45,7 +45,7 @@ python3 -I outils/apercu.py apercu.html
 
 - Pour un artéfact, on publie le **fragment** (`proposition-fragment.html`, `maquette-fragment.html`, `apercu.html`) : l'outil Artifact l'enveloppe lui-même. Les fichiers « document » sont faits pour s'ouvrir tels quels dans un navigateur.
 - La maquette du site charge ses images en `captures/<nom>.webp` : à la publication, on les joint avec `files`, par exemple `{"captures/scanner.webp": "site/captures/scanner.webp"}`, une entrée par image.
-- Publié depuis un autre compte, un artéfact reçoit une nouvelle adresse.
+- Publié depuis un autre compte, un artéfact reçoit une nouvelle adresse, sauf si ce compte a reçu le droit de le modifier (partage en écriture) : il se met alors à jour à son adresse d'origine. C'est le cas du récit de la figue depuis le 22/10 (version 24).
 
 ## L'ouverture, par l'adresse
 
