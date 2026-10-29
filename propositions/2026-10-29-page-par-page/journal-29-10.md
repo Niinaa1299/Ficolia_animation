@@ -407,3 +407,23 @@ Maquettes « à plat » sur les mêmes trois fonds, sur les Idées 4 et 5 :
 - la barre d'onglets est en blanc et garde son ombre d'origine, commune à tous les écrans.
 
 Rien n'est publié.
+
+**Porteuse** : « on laisse comme, j'attends l'avis d'un user extérieur pour m'aider à trancher. on passe aux commentaires suivants. » L'écran des ingrédients reste en l'état sur le canevas, en attendant cet avis.
+
+## 17. Étape 2 — fils et propositions (rien de publié)
+
+Trois fils comptés le 29/10 au matin :
+- **`fc0ff294`** (14/10, personne extérieure) : « à faire les 4 écrans de verdict ». Il est résolu ; les planches `E2-Verdict-N1` à `N4` existent.
+- **`92b44169`** (porteuse, 10/10, `E2-Verdict`) : « rapport de taille + l'info doit passer par le potentiomètre ». Le potentiomètre est l'échelle. Proposition : le traiter à l'étape 5, avec l'échelle et ses cinq variantes, comme convenu. Question : le « rapport de taille » vaut-il encore pour l'écran actuel, et entre quels éléments ?
+- **`5dcd1cd0`** (porteuse, 23/10, `E2-Recherche-Aucun`), retour de la personne extérieure : « boutons redondants à supprimer + ajouter la proposition à la contribution + image sympa de la figue qui a pas trouvé le produit ». Il revient sur les décisions 32 et 147 (14/10 : les deux boutons restent).
+
+Maquettes locales envoyées pour `5dcd1cd0` :
+- **A** : la figue et la cagette vide (dernière image de l'animation « Produit inconnu », déjà validée), la phrase « Scannez le code-barres du produit : s'il nous est inconnu, vous pourrez nous aider à l'ajouter. » et un seul bouton « Scanner le code-barres ». Le scanner propose lui-même la saisie du code.
+- **B** : la même chose sans bouton, avec un renvoi à l'onglet « Scanner ».
+
+Limites :
+- La phrase ne vaut que si l'option de contribution est retenue (`D-113` B2, `T-519`).
+- La cagette dit « produit inconnu », alors qu'une recherche peut échouer pour une autre raison (orthographe). Un état propre à la recherche relève de la discussion des animations.
+- Dans la variante A, le bouton arrive près de la barre d'onglets.
+
+Aucun de ces fils n'est envoyé à Claude : la porteuse les clôt elle-même sur le canevas.
