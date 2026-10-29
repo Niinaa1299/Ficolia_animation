@@ -364,3 +364,27 @@ Commentaire de la porteuse (fil `778d3ee5`, sur `E1-Ouverture-Arbre`) : « trans
 **Limites et point à trancher** :
 - « Continuer » paraît à 11 s au lieu de 8 s, et l'ouverture dure 13 s. L'écart au cap §1 (lancement immédiat) s'allonge ; il ne concerne que le premier lancement. La tenue de 2 s est au réglage.
 - Le canevas lui-même et le mp4 n'ont pas été vus.
+
+## 16. Écran des ingrédients : cinq idées sans mouvement, en maquettes locales (rien de publié)
+
+Demande de la porteuse : « Montre moi à quoi ca pourrait ressembler avant de toucher au canevas : modélise chaque idée 1à 5 ».
+
+**Constaté sur le canevas** (changements faits depuis la page, par la porteuse) :
+- `E1-Ingredients-Idee3` retirée (version 1793310999-e547) ;
+- `E1-Ingredients-Idee4-Plus` et `E1-Ingredients-Idee5-Plus` retirées (version 1793311433-bf32) ;
+- note `aideE1` déplacée.
+
+Restent les idées 1, 2, 4 et 5.
+
+**Maquettes** (`scripts/maquettes_idees.js` du dossier de travail) : les planches en ligne `E1-Ingredients-Idee4` et `E1-Ingredients-Idee5`, retouchées à l'affichage dans le navigateur de test. Chaque idée est appliquée seule ; douze captures et deux planches de comparaison ont été envoyées à la porteuse.
+1. **Titres de partie marqués** : 20 points, gras, à l'encre. Sur l'idée 5, qui n'en a pas, ajout de « Tous les ingrédients », comme dans l'idée 4.
+2. **Verdict en tête** : sous la carte du produit, « Composition à signal modéré » sur la couleur du niveau (contraste 8,48:1).
+3. **Carte du produit** : bandeau neutre pleine largeur, photo à 96, nom à 22, « 250 ml » insécable.
+4. **Profondeur** : fond gris chaud `#F4F1EC` ; carte du produit et listes en cartes blanches, avec une ombre douce. Le gris reste à 5,58:1 sur ce fond.
+5. **Police de marque** : « Ingrédients » en Antic Didone à 31 points.
+
+**Limites** :
+- Ce sont des retouches d'affichage, pas encore des réglages des planches.
+- Le niveau 2 seul est montré.
+- Une seule police de marque est essayée (D-115 en cite quatre).
+- Le titre ajouté sur l'idée 5 est un texte nouveau.
