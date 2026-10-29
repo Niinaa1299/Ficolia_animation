@@ -13,7 +13,7 @@ for (const ty of types) {
     const scr = document.getElementById('screen').getBoundingClientRect();
     const acc = document.getElementById('accueil'), btn = document.getElementById('continuer'), copy = document.getElementById('copy'), actions = document.getElementById('actions');
     let texte = null, bouton = null, boutonVisible = null;
-    for (let t = 4000; t <= 7000; t += 10) {
+    for (let t = 4000; t <= +scrub.max; t += 10) {   // jusqu'à la fin : avec recul3 (29/10), le texte arrive vers 8 s
       scrub.value = t; scrub.dispatchEvent(new Event('input'));
       if (acc.hidden) continue;
       const b = btn.getBoundingClientRect(), o = +getComputedStyle(copy).opacity, oa = +getComputedStyle(actions).opacity;
@@ -23,6 +23,7 @@ for (const ty of types) {
     }
     return { texte, boutonVisible, bouton, fin: +scrub.max };
   });
-  console.log(ty.padEnd(10), JSON.stringify(r), 'animation avec le texte :', ((r.fin - Math.min(r.texte, r.boutonVisible)) / 1000).toFixed(2), 's');
+  const debut = Math.min(...[r.texte, r.boutonVisible].filter(v => v !== null));
+  console.log(ty.padEnd(10), JSON.stringify(r), 'animation avec le texte :', Number.isFinite(debut) ? ((r.fin - debut) / 1000).toFixed(2) + ' s' : 'texte jamais affiché');
 }
 await browser.close();

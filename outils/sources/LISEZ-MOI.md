@@ -54,10 +54,10 @@ La maquette de l'ouverture se règle par l'adresse, ce qui permet aussi de figer
 | Réglage | Valeurs | Par défaut |
 | --- | --- | --- |
 | `bas` | `pale`, `profond`, `pale-bis`, `profond-bis`, `blanc` | `pale-bis` |
-| `transition` (versions bis seulement) | `recul2` (son choix du 22/10 : gros plan, puis recul, tout se dévoile dans l'ordre, sans nom en haut), `recul`, `saut`, `brume`, `soleil`, `mouvement`, `bis` | `recul2` |
-| `nom` (versions bis seulement, sauf `recul2`, qui n'a plus de nom en haut) | `lettres` : « Ficolia » en toutes lettres en haut du paysage (22/10) ; `figue` : le logo avec la figue à la place du « o », pour mémoire | `lettres` |
-| `ecran` (avec `recul2` seulement) | `1` : l'accueil 1/2 ; `2` : l'accueil 2/2, les conditions (22/10), où mène aussi « Continuer » | `1` |
-| `piste2` | le 2/2 : `a`, la lecture sous le figuier ; `b`, l'étal au bord du pré | `a` |
+| `transition` (versions bis seulement) | `recul3` (son choix, retouché le 29/10 : le vert pâle du bas accroché au pré, il ne paraît qu'avec lui ; le texte et « Continuer » une fois la figue posée), `recul2` (son choix du 22/10 : gros plan, puis recul, tout se dévoile dans l'ordre, sans nom en haut), `recul`, `saut`, `brume`, `soleil`, `mouvement`, `bis` | `recul3` |
+| `nom` (versions bis seulement, sauf `recul3` et `recul2`, qui n'ont plus de nom en haut) | `lettres` : « Ficolia » en toutes lettres en haut du paysage (22/10) ; `figue` : le logo avec la figue à la place du « o », pour mémoire | `lettres` |
+| `ecran` (avec `recul3` ou `recul2` seulement) | `1` : l'accueil 1/2 ; `2` : l'accueil 2/2, les conditions (22/10), où mène aussi « Continuer » | `1` |
+| `piste2` | le 2/2 : `a`, la lecture sous le figuier (son choix, 29/10) ; `b`, l'étal au bord du pré, pour mémoire | `a` |
 | `mouvement` | `normal`, `reduit` | le réglage du téléphone |
 | `notes` | `off` masque les notes du prototype | affichées |
 | `t` | un instant figé, en millisecondes | lecture |
@@ -76,6 +76,7 @@ Des scripts Playwright (Chromium) qui servent à regarder le résultat. Ils cher
 | `vitesse.mjs <maquette> <transition>…` | La vitesse de la vue image par image : pics et à-coups, pour juger de la fluidité. |
 | `vitesse-detail.mjs <maquette> <transition> <de> <à>` | Le détail image par image autour d'un instant. |
 | `arrivee.mjs <maquette> <transition>…` | Quand le texte et « Continuer » arrivent, et ce que dure l'animation avec eux (moins de 5 s : WCAG 2.2.2). |
+| `bas-ecran.mjs <maquette> "<réglages>" [de] [à] [pas]` | Le bas de l'écran instant par instant : la ligne du pré, le haut du vert pâle et du fondu de l'herbe, la part de l'écran qu'ils couvrent, le texte. Signale tout bord visible du vert pâle. |
 | `hub-arbre3.mjs <aperçu> <préfixe>` | L'ouverture dans l'aperçu : passage d'une transition à l'autre, fin, erreurs. |
 | `site-maquette.mjs`, `site-dossier.mjs` | Parcours de la maquette et du dossier du site : erreurs, débordements, images. |
 | `proto-captures.mjs` | Photographie les écrans du prototype (canevas de conception) pour les captures du site. |
