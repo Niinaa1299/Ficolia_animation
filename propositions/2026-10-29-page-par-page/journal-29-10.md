@@ -335,3 +335,32 @@ Après publication, les 7 fichiers en ligne sont identiques aux fichiers envoyé
 - le choix de la phrase de l'échelle ;
 - le choix des idées « sans mouvement » pour l'écran des ingrédients (proposées en session le 29/10 au soir) ;
 - le nom et la source de la police du logo (la porteuse cherche).
+
+## 15. Tenue du slogan dans l'ouverture — version 377 (1793311190-ebf8)
+
+Commentaire de la porteuse (fil `778d3ee5`, sur `E1-Ouverture-Arbre`) : « transition trop rapide entre l'écran de début, puis le premier écran d'onboarding. on n'a même pas le temps de lire le slogan ».
+
+**Mesure** :
+- Dans le minutage de l'export, le slogan n'était entier qu'à 4,35 s et partait à 4,55 s : 0,27 s mesurées en lecture réelle.
+- La vidéo est immobile de 3,45 à 4,44 s : le logo est entier (différences image par image, à 20 images par seconde).
+
+**Correction** (`scripts/ouverture_accueil.py`, quatre planches) :
+- La planche arrête la vidéo à 4,36 s, slogan entier, puis la relance. L'image ne bougeant pas à cet instant, l'arrêt ne se voit pas.
+- Nouveau réglage « Tenue du slogan » : 3 s (par défaut, proposition), 2 s, 4 s ou « Aucune, comme l'export ».
+- En mouvement réduit et dans la version sans vidéo, le logo et le slogan restent aussi la durée de la tenue en plus.
+- La vidéo n'est pas modifiée. Pour l'export lui-même, il faut passer par la discussion des animations.
+
+**Note** `ouvertureE1` : un paragraphe sur la tenue ; l'écart au cap §1 est mis à jour (« Continuer » à 11 s, dont 3 s de tenue).
+
+**Publication** : la première tentative a été refusée, car l'index avait changé sur la page entre-temps. La porteuse avait retiré la planche `E1-Ingredients-Idee3`. J'ai relu l'index, réappliqué la seule modification de la note et gardé ce retrait. Après publication, les 5 fichiers en ligne sont identiques aux fichiers envoyés. Réponse dans le fil, laissé ouvert.
+
+**Vérifié en local** (webm dans Chromium ; `scripts/tester_tenue.js`) :
+- avec la tenue : arrêt à 4,363 s, pause de 2,98 s, slogan entier 3,3 s, « Continuer » entier à 11,3 s, fin à 13,3 s, rejeu à 19,3 s ;
+- sans tenue (copie de test) : slogan entier 0,27 s, « Continuer » à 8,1 s ;
+- mouvement réduit : logo et slogan de 0,6 à 4,5 s, puis le 1/2, et rejeu à 10,9 s (vu par un relevé direct : la détection automatique du banc d'essai a manqué ce rejeu) ;
+- sans vidéo : slogan entier 3,9 s ;
+- aucune erreur.
+
+**Limites et point à trancher** :
+- « Continuer » paraît à 11 s au lieu de 8 s, et l'ouverture dure 13 s. L'écart au cap §1 (lancement immédiat) s'allonge ; il ne concerne que le premier lancement. La tenue de 2 s est au réglage.
+- Le canevas lui-même et le mp4 n'ont pas été vus.
