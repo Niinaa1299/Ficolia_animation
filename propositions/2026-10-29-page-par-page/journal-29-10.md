@@ -108,8 +108,54 @@ Ces fils ne sont pas envoyés à Claude : seule la porteuse peut les clore.
 - **Après son choix d'idée** : `aac69166`, `cafe755b` et `3e02b95b`.
 - **Reporté à l'étape 5** : `d9867524` (échelle).
 
-## 7. En attente pour l'étape 1
+## 7. En attente pour l'étape 1 (état avant la suite du §8)
 
 - Le choix d'une idée de liste ; une combinaison est possible.
 - Le texte du conseil « Menu », celui du conseil « Historique » et celui du conseil de l'échelle.
 - Toujours en attente : l'accueil en deux écrans (écrans animés de la porteuse, décision 185), `D-273`, et les actions P1 de l'audit (A1, A2, A6).
+
+## 8. Suite du 29/10 : textes retenus, idée 5 — version 366 (1793271792-c5bb)
+
+**Textes retenus par la porteuse** (décision 187, provisoires). Ils sont désormais les textes par défaut des planches ; les autres restent dans les réglages, pour trace.
+
+| Conseil | Texte |
+|---|---|
+| Onglet « Rechercher » | « Pas de code-barres ? Cherchez le produit par son nom ou sa marque. » |
+| Premier verdict | « Touchez « i » pour comprendre ce niveau. » |
+| Onglet « Historique » | « Retrouvez ici les produits que vous avez consultés. » |
+| Onglet « Menu » | « Bonnes pratiques, méthode et réglages : tout est ici. » |
+
+La porteuse a écrit « premier verdict sur le « i » ». La bulle pointe toujours vers l'échelle ; le réglage « La bulle pointe vers » la met sur le « i ». Question posée à la porteuse.
+
+**Liste des ingrédients** : la porteuse demande « "contient du parfum" du c avec la liste du a » et « d tout seul ».
+- `E1-Ingredients-Idee5` (nouvelle) : la liste de l'idée 1, avec le repère du parfum de l'idée 3 (une icône et le texte, sans fond ni contour). Elle est placée à droite de l'idée 4, laissée telle quelle, pour comparer les deux.
+- Vérifiée en rendu local : niveaux 1 et 2, ligne allaitement, panneau du parfum, ingrédient déterminant.
+- Les idées 1 à 4, régénérées pour contrôle, sont identiques à celles publiées.
+
+**Index** : une planche ajoutée ; quatre notes mises à jour (titre de la rangée, explication des idées, prise en main, décisions de l'étape 1). Rien ne se chevauche.
+
+Avant de publier, j'ai relu la version en ligne : elle était inchangée depuis la version 365. Après publication, les six fichiers en ligne sont identiques aux fichiers envoyés.
+
+## 9. Ouverture et accueil en deux écrans : proposition en attente
+
+La porteuse a demandé une proposition, avant toute publication, pour remplacer les planches d'ouverture et d'accueil en trois écrans.
+
+Source : les exports de la discussion des animations, lus en lecture seule.
+- Branche `claude/happy-mccarthy-5akhfh`, commit `91cbe7f`, dossier `exports/ouverture/`.
+- Deux vidéos et trois images sans texte, plus `ouverture.html`, où tous les textes sont du HTML posé par-dessus.
+
+Proposition faite le 29/10, en attente de ses réponses :
+- déposer les 7 fichiers dans la réserve du canevas ;
+- créer 4 planches sur un seul code : l'enchaînement, le mouvement réduit, le 1/2 fixe et le 2/2 fixe ;
+- réorienter vers le nouveau 2/2 le « Retour » des 8 pages légales, quand leur réglage « origine » vaut « Accueil » ;
+- garder les 8 anciennes planches dans une rangée « trace » ;
+- noter les écarts au registre.
+
+Questions posées à la porteuse :
+1. Le placement.
+2. Le logo : la vidéo porte le logo manuscrit, alors que `T-558` est ouvert.
+3. `D-273` et `D-114` C7 : la liste des limites dans l'emplacement du 2/2.
+4. La phrase d'objectif.
+5. Les liens « Retour ».
+
+Rien n'est construit ni publié.
