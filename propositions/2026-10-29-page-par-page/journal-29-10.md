@@ -548,3 +548,27 @@ Commentaire de la porteuse (fil `c6f9b939`, sur `E3-Verdict-ActualiserHorsLigne`
 **Correction** : la phrase n'a plus ni coupure équilibrée ni largeur fixe, et occupe toute la largeur, sur trois lignes. La même ligne est corrigée sur les six écrans d'état, en partant des versions en ligne (dont la retouche de la porteuse). Après publication, les 6 fichiers en ligne sont identiques. Réponse dans le fil, laissé ouvert.
 
 **Porteuse** : « go étape 4. ok pour la remarque inci ».
+
+## 22. Étape 4 — bon produit obligatoire, figue sur « C'est noté » — version 402 (1793317833-0950)
+
+Réponses de la porteuse : « 1. nom + marque 2. 1 ».
+
+**Décision 198** (fil `f91c4de6`) : sur le signalement « Ce n'est pas le bon produit », le nom et la marque du bon produit sont obligatoires, les photos restent facultatives.
+- « Envoyer » est grisé (opacité 0,45, `aria-disabled`, comme « Valider » de l'ingrédient absent) tant que le nom ou la marque est vide.
+- Une phrase d'aide est ajoutée : « Le nom et la marque sont demandés ; les photos sont facultatives. »
+- Les 19 planches de signalement sont modifiées (même code).
+- La porteuse avait déjà retiré « (facultatif) » du titre sur `E4-Signalement-Produit` : sa version a servi de base.
+
+**Décision 199** (fil `e2c9511b`) : « C'est noté » (e-mail enregistré) reçoit l'animation « La figue s'incline », reprise du message envoyé au support (`E6-Ecrire-Envoye`), avec la même taille (390 × 181) et la même marge (120 px). Les 13 planches du parcours de photo sont modifiées (même code) ; chaque vidéo garde la classe de sa planche, qui la fait jouer.
+
+**Vérifié en local** :
+- « Envoyer » grisé avec les champs vides, avec le nom seul, puis avec un nom fait d'espaces ; actif avec le nom et la marque ;
+- les autres types de signalement sont inchangés ;
+- la figue joue sur « C'est noté » ; le photomaton reste sur « Photos envoyées » ;
+- aucune erreur.
+
+Après publication, les 33 fichiers en ligne sont identiques aux fichiers envoyés.
+
+**Limites** :
+- Qui ne peut pas lire le nom ou la marque ne peut plus signaler cette erreur.
+- La même figue sert à deux confirmations (support et e-mail).
