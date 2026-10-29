@@ -284,3 +284,54 @@ Après publication, les 9 fichiers en ligne sont identiques aux fichiers envoyé
 - Le canevas lui-même n'a pas été vu : sa tenue des vidéos a été reproduite d'après son code du 29/10, qui peut changer.
 - En lecture seule, la vidéo joue d'elle-même au chargement : si la planche est hors de vue à ce moment, on peut encore manquer l'ouverture. En mode édition, le bouton de lecture du canevas ou un changement du réglage « Écran de départ » la rejoue ; en lecture seule, je n'ai pas vérifié que ce bouton est présent.
 - Le mp4 n'a toujours pas été lu (iPhone, Android, Safari).
+
+## 14. Ouverture rejouée par la planche ; phrase de l'échelle — version 373 (1793309160-c565)
+
+Commentaires de la porteuse, 29/10 au soir :
+1. Fil `b29469a3`, sur `E1-Ouverture-Arbre` : « non toujours le même problème ».
+2. Fil `8192aeeb`, sur la bulle de `E1-Aide-Echelle` : « non pas clair, est ce que + on monte mieux c'est ou l'inverse. dans tou sles cas l'image qui modélise les niveaux n'est pas encore arrêtée, donc phrase provisoire ».
+
+**Avant de publier** : la version en ligne était la 372 (1793308298-f23d), enregistrée depuis la page. Les six planches et l'index modifiés ici y étaient identiques à ceux de la 370. Le code du canevas avait changé, mais pas sa gestion des vidéos.
+
+**Cause, qui corrige le §13** :
+- Le canevas ne tient au début que les vidéos en lecture automatique, et seulement quand une option de son côté est active (lu dans son code : la retenue dépend d'une fonction que le serveur active ou non). Je ne peux pas savoir si elle l'est chez la porteuse.
+- Sans cette option, la vidéo jouait une fois au chargement, comme avant la 370.
+- Avec elle, le bouton de lecture du canevas n'apparaît pas au survol pour une vidéo en lecture automatique, contrairement à ce que j'avais écrit dans le fil.
+- Le §13 disait que les six animations des états suivent cette règle : je ne l'avais pas vérifié.
+- Un défaut de plus : une lecture refusée par le navigateur laissait l'écran figé sur le logo, car les textes attendaient la vidéo.
+
+**Correction** (`scripts/ouverture_accueil.py` du dossier de travail, quatre planches) :
+- Plus de lecture automatique : la planche lance la vidéo elle-même.
+- Elle rejoue l'ouverture 6 s après la fin, jusqu'à « Continuer » ou « Retour ». Nouveau réglage « Lecture » : « En boucle sur le canevas, jusqu'à « Continuer » » (par défaut) ou « Une seule fois, comme dans l'application ».
+- Si la vidéo ne se lit pas (lecture refusée, toutes les sources en erreur, ou pas partie après 8 s), l'enchaînement passe sans vidéo, avec la mention « Vidéo non lue ici : version sans vidéo ». La vidéo est rechargée et réessayée au tour suivant.
+- La planche en mouvement réduit se rejoue aussi (2,1 s, puis 6 s sur le 1/2).
+
+**Phrase de l'échelle** (`E1-Aide-Echelle`, `E1-Aide-Info`) : trois propositions qui disent le sens, la première par défaut.
+1. « Ce repère situe le produit sur quatre niveaux, du moins au plus préoccupant. »
+2. « Ce repère situe le produit sur quatre niveaux, de « sans signal identifié » à « incompatible ». »
+3. « Plus le niveau est élevé, plus la composition est préoccupante. »
+
+Les deux anciennes phrases restent au réglage, en fin de liste. Le réglage et la note sont marqués provisoires : l'image des niveaux sera arrêtée à l'étape 5. Les trois phrases tiennent dans la bulle, en trois lignes au plus, et ne parlent pas de l'image.
+
+**Notes** : `aideE1` (phrase provisoire) et `ouvertureE1` (comportement sur le canevas, vérifications).
+
+**Vérifié en local** (webm dans Chromium ; `scripts/tester_boucle.js`) :
+- rejeu 6,05 s après la fin ; la retenue du canevas, simulée, ne tient plus aucune vidéo ;
+- « Continuer » arrête la boucle ; « Une seule fois » ne rejoue pas ;
+- vidéo introuvable : version sans vidéo en 33 ms, puis vidéo retrouvée au tour suivant ;
+- vidéo qui ne répond pas : passage sans vidéo à 8 s ;
+- mouvement réduit rejoué ; planches fixes inchangées ;
+- aucune erreur, hors les 404 provoquées par le test.
+
+Après publication, les 7 fichiers en ligne sont identiques aux fichiers envoyés. Réponses données dans les deux fils, laissés ouverts.
+
+**Limites** :
+- Le canevas lui-même n'a toujours pas été vu. La boucle ne dépend plus de lui, mais son rendu (cadre, zoom, planches hors de vue) reste non vérifié.
+- Un tour dure environ 16 s : on peut arriver au milieu de l'ouverture.
+- Le mp4 n'a toujours pas été lu (Safari, iPhone, Android).
+- La boucle n'existe que pour le canevas ; dans l'application, l'ouverture joue une fois.
+
+**En attente** :
+- le choix de la phrase de l'échelle ;
+- le choix des idées « sans mouvement » pour l'écran des ingrédients (proposées en session le 29/10 au soir) ;
+- le nom et la source de la police du logo (la porteuse cherche).
