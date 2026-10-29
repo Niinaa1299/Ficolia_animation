@@ -458,3 +458,34 @@ Après publication, les 5 fichiers en ligne sont identiques aux fichiers envoyé
 **Limite** : quand la contribution est coupée, rien ne mène plus au code-barres depuis cet écran, en dehors de l'onglet « Scanner ».
 
 **Chantier ouvert par la porteuse** : des images fixes tirées des animations. Elles ne seront pas la dernière image de chaque animation, puisqu'une image fixe doit porter seule le message. Ce chantier relève de la discussion des animations.
+
+**Constaté ensuite** (version 1793313510-c6a2) : la porteuse a retouché `E2-Recherche-Aucun` sur le canevas.
+- Le message est centré et le bloc a une hauteur fixe de 101 px.
+- La phrase de contribution est sortie du bloc soumis au réglage `showContrib` : sur cette planche, elle s'affiche même réglage coupé.
+- Les trois autres planches de recherche gardent la disposition de la 388.
+
+Rien n'a été modifié depuis : la question lui est posée.
+
+## 19. Étape 3 — fils et constat sur les liens (rien de publié)
+
+Fils ouverts, aucun n'est envoyé à Claude :
+- **`974b79e7`** (23/10, `E3-Verdict-Actualiser`) : « pertinence du bouton actualiser ? message pas clair "après une actualisation" ».
+- **`76b5a0c6`** (23/10, `E3-Verdict-ActualiserHorsLigne`) : « cf. autre écran à actualiser, message pasclalir ».
+- **`0d38b1c8`** (`E3-Verdict-Incomplet`, sur « Ingrédients et rôle de chacun ») : « à quoi mène ce bouton ? » (23/10), puis, le 29/10 à 22 h 06 : « Tous les écrans ne sont pas bien reliés entre eux, manque de logique ».
+
+**Fondement de l'écran « à actualiser »** : `T-511`. Au-delà du seuil long (`T-242`, non fixé), et après un échec de synchronisation, le verdict gardé sur le téléphone ne s'affiche plus : l'écran dit « verdict à actualiser », jamais « risque ». Décisions 58 (07/10 : l'appui sur « Actualiser » affiche le verdict, à la demande de la porteuse) et 160.
+
+**Relevé des liens** (les 212 planches relues le 29/10 au soir) :
+- Les écrans incomplet, à actualiser (deux), et rappel de lot ne reçoivent aucun lien : aucun parcours n'y mène.
+- « Type non précisé » est relié aux trois écrans produit « type ».
+- Les cinq écrans de verdict de l'Étape 3 ont les mêmes sorties : « Retour au produit » vers `E1-Produit`, « Ingrédients et rôle de chacun » vers `E1-Ingredients`, la méthode et le signalement.
+- `E1-Produit` et `E1-Ingredients` montrent le produit normal, au niveau 2, avec ses ingrédients « qui déterminent ce niveau ». C'est incohérent pour l'évaluation incomplète, le type non précisé et le verdict à actualiser ; c'est juste pour le rappel de lot.
+
+**Propositions faites à la porteuse** (en attente) :
+- Bouton « Actualiser » :
+  1. le retirer, la mise à jour étant automatique (recommandé) ;
+  2. ou garder « Réessayer », seulement après un échec avec connexion.
+  Dans les deux cas, cela revient sur la décision 58.
+- Deux formulations du titre et de la phrase.
+- Entrées dans le simulateur de scan, et écrans de destination propres à chaque état, comme à l'étape 2 (décision 39). Un libellé nouveau, « Non reconnu », est à valider.
+- Vérification des liens à chaque page de la revue.
