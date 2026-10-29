@@ -247,3 +247,40 @@ Ces leviers restent dans les règles : `D-115` (D2) et `D-112` (A1). Sur les ban
 Les idées 1 à 5 sont inchangées. Après publication, les 5 fichiers en ligne sont identiques aux fichiers envoyés.
 
 **Logo** : la note « Ouverture et accueil en deux écrans » précise que le tracé vient d'une police. Sa licence décide s'il peut servir de logo ; le nom et la source de la police sont à retrouver.
+
+## 13. Ouverture invisible sur le canevas ; bande écartée — version 370 (1793275258-44c7)
+
+Retours de la porteuse :
+1. Commentaire sur `E1-Ouverture-Arbre` (fil `b29469a3`) : « il y a un problème, on ne voit plus l'ouverture initiale ».
+2. Sur la bande de la couleur du niveau : « non je n'aime pas. d'autres idées pour dynamiser l'écran ? »
+3. Sur « Ce repère situe le produit sur quatre niveaux. » : « oui j'aime bien ».
+
+**Cause de l'ouverture invisible** :
+- la planche lançait elle-même sa vidéo, une seule fois, au chargement : quand on arrivait sur la planche, l'ouverture était finie et l'écran restait sur le 1/2 ;
+- le canevas, en mode édition, tient en pause au début les vidéos marquées lecture automatique (lu dans son code le 29/10) ; c'est la règle que suivent déjà les six animations des états.
+
+**Correction** :
+- La vidéo de `E1-Ouverture-Arbre` est marquée lecture automatique, avec le logo en image d'attente. En mode édition, le canevas la tient au début et montre le logo ; son bouton de lecture, ou le mode Play, la lance.
+- Les textes suivent l'horloge de la vidéo même en pause : ils attendent quand elle attend et repartent du début quand on la relance. Ce code est commun aux quatre planches.
+- Le réglage « mouvement » passe par défaut à « Normal » sur `E1-Ouverture-Arbre`, `E1-Accueil-Bienvenue` et `E1-Accueil-Conditions`, au lieu de « Selon le téléphone », pour ne pas dépendre du réglage de l'appareil qui regarde le canevas. « Selon le téléphone » reste au réglage : c'est le comportement visé dans l'application. `E1-Ouverture-Arbre-Reduit` reste en « Réduit ».
+
+**Liste des ingrédients** : sur `E1-Ingredients-Idee4-Plus` et `E1-Ingredients-Idee5-Plus`, « Pastille seule » devient le réglage par défaut. La bande reste au réglage, notée « écartée par la porteuse, 29/10 ».
+
+**Prise en main** : sur `E1-Aide-Info` et `E1-Aide-Echelle`, le réglage du texte de l'échelle est noté « retenu par la porteuse le 29/10 » ; le texte affiché ne change pas.
+
+**Notes** : `aideE1` (texte retenu), `ideesE1` (bande écartée) et `ouvertureE1` (comportement sur le canevas). L'ordre et les pages de l'index sont inchangés.
+
+**Vérifié en local** (webm dans Chromium), en reproduisant la tenue du canevas dans son ordre, chargement puis pause :
+- avant lecture, le logo seul, textes cachés ;
+- après lecture, à 4,2 s, le logo et l'accroche ;
+- pause au milieu : les textes attendent ;
+- à la fin, le 1/2 ;
+- relecture : les textes repartent du début ;
+- « Continuer », puis « Retour ».
+
+Après publication, les 9 fichiers en ligne sont identiques aux fichiers envoyés. Réponse donnée dans le fil `b29469a3`, laissé ouvert.
+
+**Limites** :
+- Le canevas lui-même n'a pas été vu : sa tenue des vidéos a été reproduite d'après son code du 29/10, qui peut changer.
+- En lecture seule, la vidéo joue d'elle-même au chargement : si la planche est hors de vue à ce moment, on peut encore manquer l'ouverture. En mode édition, le bouton de lecture du canevas ou un changement du réglage « Écran de départ » la rejoue ; en lecture seule, je n'ai pas vérifié que ce bouton est présent.
+- Le mp4 n'a toujours pas été lu (iPhone, Android, Safari).
