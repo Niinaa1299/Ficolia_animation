@@ -397,3 +397,13 @@ Maquettes des idées 2 et 4 combinées, sur les Idées 4 et 5, avec trois fonds 
 3. presque blanc `#FAFAFA`.
 
 Dans les trois, la barre d'onglets passe en blanc, comme les cartes : son crème `#FAF8F4` jurait sur un fond froid. Le texte gris garde 5,6 à 6,0:1 sur ces fonds. Avec le presque blanc, les cartes ne se distinguent du fond que de 1,04:1 et tiennent surtout par l'ombre. Rien n'est publié sur le canevas.
+
+**Suite** : « version sans ombre et sans carte (à part pour l'encadré du produit et du verdict). montre moi ce que ca donne sur les 3 teintes ».
+
+Maquettes « à plat » sur les mêmes trois fonds, sur les Idées 4 et 5 :
+- aucune ombre ajoutée ;
+- les listes reposent directement sur le fond, avec leurs filets d'origine `#E7E1DA` ;
+- seul l'encadré du produit, avec le bandeau du verdict, reste une carte blanche, avec sa bordure d'origine ;
+- la barre d'onglets est en blanc et garde son ombre d'origine, commune à tous les écrans.
+
+Rien n'est publié.
