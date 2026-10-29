@@ -65,6 +65,17 @@ La maquette de l'ouverture se règle par l'adresse, ce qui permet aussi de figer
 
 Les versions `pale` et `profond` (sans bis) restent identiques à leur état du 20/10.
 
+## Exporter pour le prototype : `exports/`
+
+Les animations validées sortent en vidéos et en images, sans aucun texte : les textes restent du HTML, dans les écrans du prototype. L'index de tout ce qui est exporté est dans `exports/LISEZMOI.md`.
+
+| Script | Ce qu'il exporte |
+| --- | --- |
+| `outils/exporter-animations.mjs` | Les six états (12/10), seule l'illustration, dans `exports/animations/`. |
+| `outils/exporter-ouverture.mjs` | L'ouverture et l'accueil (29/10), en plein écran, dans `exports/ouverture/`. La page de référence `ouverture.html`, écrite à la main, n'est pas touchée : elle pose les textes par-dessus, et ses instants sont ceux de la maquette. |
+
+Les deux demandent Playwright (`NODE_PATH=<dossier de Playwright>`) et ffmpeg ; voir le `LISEZMOI.md` de chaque dossier.
+
 ## Vérifier : `outils/verification/`
 
 Des scripts Playwright (Chromium) qui servent à regarder le résultat. Ils cherchent Playwright dans `/opt/node22/lib/node_modules/playwright` : remplacer ce chemin par celui de l'installation.
@@ -78,6 +89,8 @@ Des scripts Playwright (Chromium) qui servent à regarder le résultat. Ils cher
 | `arrivee.mjs <maquette> <transition>…` | Quand le texte et « Continuer » arrivent, et ce que dure l'animation avec eux (moins de 5 s : WCAG 2.2.2). |
 | `bas-ecran.mjs <maquette> "<réglages>" [de] [à] [pas]` | Le bas de l'écran instant par instant : la ligne du pré, le haut du vert pâle et du fondu de l'herbe, la part de l'écran qu'ils couvrent, le texte. Signale tout bord visible du vert pâle. |
 | `hub-arbre3.mjs <aperçu> <préfixe>` | L'ouverture dans l'aperçu : passage d'une transition à l'autre, fin, erreurs. |
+| `export-textes.mjs <maquette> <page exportée>` | Les textes de `exports/ouverture/ouverture.html` contre ceux de la maquette, à 27 instants : opacité et place. |
+| `export-lecture.mjs <page exportée>` | La page exportée en vraie lecture : les textes suivent la vidéo ; « Continuer », « Retour », focus ; mouvement réduit. |
 | `site-maquette.mjs`, `site-dossier.mjs` | Parcours de la maquette et du dossier du site : erreurs, débordements, images. |
 | `proto-captures.mjs` | Photographie les écrans du prototype (canevas de conception) pour les captures du site. |
 

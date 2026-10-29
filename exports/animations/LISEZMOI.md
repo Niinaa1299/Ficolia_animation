@@ -2,6 +2,8 @@
 
 Exportées par `outils/exporter-animations.mjs` depuis les maquettes (`maquettes/`), en couleurs, sauf la connexion, en couleurs et en gris.
 
+Vérifié le 29/10 : les maquettes n'ont pas changé depuis cet export, et la dernière image de chaque animation, refaite depuis elles, est identique au pixel près. L'ouverture et l'accueil sont dans `../ouverture/` ; l'index de toutes les animations validées, dans `../LISEZMOI.md`.
+
 Pour chaque animation, trois fichiers :
 
 - `….mp4` : la vidéo sur fond blanc, à regarder ou à partager. Elle se lit partout.

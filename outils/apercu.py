@@ -16,8 +16,9 @@ TITRE = "Ficolia · Récit de la figue"
 # Les écrans du périmètre, dans l'ordre du brief : (nom, état, libellé, (ancre, maquette) ou None).
 ECRANS = [
     ("Ouverture", "validee", "validée", None),
-    ("Ouverture : l'arbre et la figue", "maquette", "maquette", ("arbre", "maquettes/ouverture-arbre.html")),
-    ("Accueil, deux écrans", "maquette", "maquette", ("accueil", "maquettes/accueil.html")),
+    # 29/10 : l'arbre et la figue (recul3) et l'accueil en deux écrans (le 2/2 en piste A) sont validés, dans la même maquette.
+    ("Ouverture et accueil : l'arbre et la figue", "validee", "validés · exportés", ("arbre", "maquettes/ouverture-arbre.html")),
+    ("Accueil : l'étal (17/10)", "maquette", "pour mémoire", ("accueil", "maquettes/accueil.html")),
     ("Formulaire envoyé", "validee", "validée · retouches", ("formulaire", "maquettes/formulaire-envoye.html")),
     ("Connexion insuffisante ou absente", "validee", "validée", ("connexion", "maquettes/connexion-insuffisante.html")),
     ("Mise à jour obligatoire", "validee", "validée", ("mise-a-jour", "maquettes/mise-a-jour-obligatoire.html")),
