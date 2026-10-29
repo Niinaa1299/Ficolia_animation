@@ -220,3 +220,30 @@ Après publication, les 13 fichiers en ligne sont identiques aux fichiers envoy�
 - la réserve sur l'accroche (`T-533`) ;
 - `D-114` C7 et `D-273` (décision 192) ;
 - le logo manuscrit dans la vidéo alors que `T-558` est ouvert : l'origine du tracé et les droits sont inconnus des documents du projet ; `D-115` cite une police de marque « non identifiée ».
+
+## 12. Bulle de l'échelle ; passe « moins fade » — version 369 (1793274661-bd73)
+
+Réponses de la porteuse :
+1. « vers le i, ajouter une bulle pour l'échelle ».
+2. Voir la passe « moins fade » avant de choisir entre les idées 4 et 5.
+3. Le logo vient d'une police.
+4. La phrase d'objectif convient pour l'instant.
+
+**Prise en main** (décision 193, qui révise 187) :
+- `E1-Aide-Info` pointe désormais vers le « i » au premier verdict.
+- `E1-Aide-Echelle` est nouvelle : au deuxième verdict, une bulle sur l'échelle, avec « Ce repère situe le produit sur quatre niveaux. » (proposition ; un autre texte est au réglage).
+- La rangée suit l'ordre des moments : Rechercher, « i », échelle, Historique, Menu.
+
+**Liste des ingrédients** : deux planches nouvelles, `E1-Ingredients-Idee4-Plus` et `E1-Ingredients-Idee5-Plus`, avec quatre leviers, chacun à un réglage pour comparer :
+- la carte du produit agrandie ;
+- la ligne lue en étiquette ;
+- une bande de la couleur du niveau, en teinte claire, sur l'ingrédient qui détermine le niveau ;
+- le nom courant sous le nom (fermé par défaut).
+
+Ces leviers restent dans les règles : `D-115` (D2) et `D-112` (A1). Sur les bandes :
+- le texte à l'encre a un contraste de 8,2:1 à 13,7:1 ;
+- le nom courant passe à l'encre, car le gris n'y garde pas 4,5:1.
+
+Les idées 1 à 5 sont inchangées. Après publication, les 5 fichiers en ligne sont identiques aux fichiers envoyés.
+
+**Logo** : la note « Ouverture et accueil en deux écrans » précise que le tracé vient d'une police. Sa licence décide s'il peut servir de logo ; le nom et la source de la police sont à retrouver.
