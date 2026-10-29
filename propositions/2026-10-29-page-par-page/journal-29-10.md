@@ -388,3 +388,12 @@ Restent les idées 1, 2, 4 et 5.
 - Le niveau 2 seul est montré.
 - Une seule police de marque est essayée (D-115 en cite quatre).
 - Le titre ajouté sur l'idée 5 est un texte nouveau.
+
+**Suite** : la porteuse demande de « combine[r] pour chacun les configurations 2 et 4 mais change[r] de couleur de fond, une couleur très subtile. je trouve que le rendu fait trop IA avec cette couleur ».
+
+Maquettes des idées 2 et 4 combinées, sur les Idées 4 et 5, avec trois fonds neutres à la place du gris chaud `#F4F1EC` :
+1. gris neutre `#F5F5F5` ;
+2. gris des listes groupées d'iOS `#F2F2F7` ;
+3. presque blanc `#FAFAFA`.
+
+Dans les trois, la barre d'onglets passe en blanc, comme les cartes : son crème `#FAF8F4` jurait sur un fond froid. Le texte gris garde 5,6 à 6,0:1 sur ces fonds. Avec le presque blanc, les cartes ne se distinguent du fond que de 1,04:1 et tiennent surtout par l'ombre. Rien n'est publié sur le canevas.
