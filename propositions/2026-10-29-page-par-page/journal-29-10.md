@@ -535,3 +535,16 @@ Après publication, les 24 fichiers en ligne sont identiques aux fichiers envoy�
 - Un seul écran produit par état : « Retour » ne sait pas d'où l'on vient.
 - « Type non pris en charge » n'a pas de chemin propre : il ne s'obtient que par réglage.
 - Textes provisoires : le titre, les phrases des listes, « Non reconnu » et les trois textes de panneau.
+
+## 21. Phrase « Pas de connexion » alignée — version 399 (1793316466-e125)
+
+Commentaire de la porteuse (fil `c6f9b939`, sur `E3-Verdict-ActualiserHorsLigne`) : « à bien aligner ». Elle avait elle-même posé une largeur fixe de 341 px sur la phrase.
+
+**Mesures** :
+- la place disponible dans l'encadré est de 334 px ;
+- avec la coupure « équilibrée », les lignes s'arrêtaient vers 264 px, d'où le décalage avec le paragraphe ;
+- avec la largeur de 341 px, le texte débordait de quelques pixels sur la marge de droite.
+
+**Correction** : la phrase n'a plus ni coupure équilibrée ni largeur fixe, et occupe toute la largeur, sur trois lignes. La même ligne est corrigée sur les six écrans d'état, en partant des versions en ligne (dont la retouche de la porteuse). Après publication, les 6 fichiers en ligne sont identiques. Réponse dans le fil, laissé ouvert.
+
+**Porteuse** : « go étape 4. ok pour la remarque inci ».
