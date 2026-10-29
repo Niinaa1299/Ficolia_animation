@@ -159,3 +159,64 @@ Questions posées à la porteuse :
 5. Les liens « Retour ».
 
 Rien n'est construit ni publié.
+
+## 10. Repère du parfum : trois rendus — version 367 (1793272124-e02f)
+
+La porteuse demande : « mettre "contient du parfum" d'une autre couleur ? car je trouve l'interface fade ». L'idée 5 reçoit donc un réglage « Repère du parfum », avec trois rendus :
+- l'encre, comme l'idée 3, par défaut ;
+- une pastille foncée à l'encre `#321C31`, qui n'est pas une couleur de marque ;
+- une couleur d'information nouvelle, le bleu ardoise (`#2F4A62` sur `#E9EFF4`), hors marque et hors verdict.
+
+Ces rendus respectent deux contraintes :
+- `D-115` (D2) exclut les couleurs de marque sur la liste des ingrédients ;
+- le contraste du texte va de 8,0:1 à 15,6:1.
+
+Les idées 1 à 4 sont inchangées. Le fichier en ligne est identique au fichier envoyé.
+
+## 11. Ouverture et accueil en deux écrans — version 368 (1793273163-aece)
+
+Réponses de la porteuse aux cinq questions :
+1. Placement A.
+2. Question sur les droits du logo manuscrit.
+3. Au 2/2, seulement la grossesse physiologique ; le reste ailleurs, pour ne pas encombrer l'écran.
+4. « Décider d'une phrase avec une bonne syntaxe ».
+5. D'accord pour les liens « Retour ».
+
+**Construit et publié** :
+- **Réserve** : les 7 fichiers de l'export (branche `claude/happy-mccarthy-5akhfh`, commit `91cbe7f`).
+- **Quatre planches sur un seul code** (`scripts/ouverture_accueil.py` du dossier de travail), reprises de `ouverture.html` avec les mêmes instants et les mêmes courbes :
+  - `E1-Ouverture-Arbre` (l'enchaînement) ;
+  - `E1-Ouverture-Arbre-Reduit` ;
+  - `E1-Accueil-Bienvenue` (1/2, image fixe) ;
+  - `E1-Accueil-Conditions` (2/2, image fixe).
+- **Textes** : ceux de l'export, avec deux changements.
+  - L'objectif devient « Ficolia informe sur la composition des cosmétiques au regard de la grossesse et de l'allaitement. » (proposition).
+  - Au 2/2, une seule limite : « Les verdicts sont établis pour une grossesse physiologique. »
+- **Liens « Retour »** : celui des 8 pages légales (réglage « origine : Accueil ») mène désormais à `E1-Accueil-Conditions` au lieu de `E1-Accueil-3`. Un seul lien change par planche.
+- **Index** :
+  - les 4 planches en tête de la page Étape 1 ;
+  - les 8 anciennes planches descendues dans une rangée « trace », avec le préfixe « Remplacé le 29/10 », sans changement de contenu ;
+  - les titres de rangée revus ;
+  - une note nouvelle, « Ouverture et accueil en deux écrans » ;
+  - des lignes ajoutées aux notes « Étape 1 — état » et « Décisions de séance » (191, 192).
+
+**Vérifié en local** (webm dans Chromium, runtime du canevas au 29/10) :
+- sur l'horloge de la vidéo, l'accroche paraît à 3 506 ms (3 500 attendus) et « Continuer » à 8 006 ms (8 000 attendus) ;
+- les textes attendent le démarrage de la vidéo ;
+- les positions des textes sont identiques à celles de la page de référence aux instants figés ;
+- « Continuer », « Retour » (focus rendu à « Continuer »), le focus sur le titre des conditions, « Accepter » vers le scanner et les liens légaux fonctionnent ;
+- le mouvement réduit enchaîne logo et accroche, puis le 1/2 en fondu, sans vidéo ;
+- les planches fixes s'affichent, sans aucune erreur.
+
+Après publication, les 13 fichiers en ligne sont identiques aux fichiers envoyés.
+
+**Limites** :
+- Le mp4 n'a pas été lu : il reste à le voir sur iPhone, sur Android et dans Safari.
+- Les instants figés de la première vidéo sortent blancs en navigateur sans écran, sur la planche comme sur la référence (limite connue de l'export).
+- Le texte agrandi n'a pas été essayé sur le canevas.
+
+**Écarts à tracer au registre** :
+- « Continuer » à 8 s et la révélation sans « Passer » (cap §1) ;
+- la réserve sur l'accroche (`T-533`) ;
+- `D-114` C7 et `D-273` (décision 192) ;
+- le logo manuscrit dans la vidéo alors que `T-558` est ouvert : l'origine du tracé et les droits sont inconnus des documents du projet ; `D-115` cite une police de marque « non identifiée ».
