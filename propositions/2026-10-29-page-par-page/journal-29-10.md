@@ -427,3 +427,34 @@ Limites :
 - Dans la variante A, le bouton arrive près de la barre d'onglets.
 
 Aucun de ces fils n'est envoyé à Claude : la porteuse les clôt elle-même sur le canevas.
+
+## 18. Étape 2 — aucun résultat sans boutons — version 388 (1793313381-4256)
+
+Réponses de la porteuse :
+1. « non l'image n'est pas parlante. c'est le travail de trouver des images fixes issues des animations, elles ne se ressembleront pas car par l'animation on peut faire passer un message plus facilement qu'une image fixe. chantier à ouvrir. Pour l'instant, enlève les boutons et garde les phrases qu'on pourra ajuster plus tard. »
+2. « ok, oui toujours » : le fil `92b44169` passe à l'étape 5, et le « rapport de taille » vaut toujours.
+
+**Décision 194** (« Aucun résultat ») :
+- Les deux boutons sont retirés, sur les quatre planches de recherche, qui partagent le même code ; l'état « aucun résultat » peut s'afficher sur chacune.
+- Le message reste ; la phrase « Scannez le code-barres du produit avec l'onglet « Scanner » : s'il nous est inconnu, vous pourrez nous aider à l'ajouter. » est ajoutée, avec « Texte provisoire ».
+- La phrase dépend d'un nouveau réglage, « Invitation à photographier la liste (option) », activé par défaut, comme sur l'écran du produit inconnu (`D-113` B2).
+- Cette décision revient sur les décisions 32 et 147.
+- Pas d'image.
+
+**Notes** :
+- `decisionsE2` : décision 194 et renvoi du fil `92b44169` ;
+- `etatE2` : la phrase remplace « Scanner le code-barres » dans la liste des textes posés par Claude ;
+- `echelleE5` : le fil `92b44169`, à traiter avec les variantes d'échelle.
+
+**Vérifié en local** :
+- sur la planche « aucun résultat », plus de boutons, et la phrase s'affiche ;
+- réglage de contribution coupé : le message reste seul ;
+- planche « champ vide » avec la saisie « xyzw » : même état ;
+- les écrans « résultats » et « sans connexion » sont inchangés ;
+- aucune erreur.
+
+Après publication, les 5 fichiers en ligne sont identiques aux fichiers envoyés.
+
+**Limite** : quand la contribution est coupée, rien ne mène plus au code-barres depuis cet écran, en dehors de l'onglet « Scanner ».
+
+**Chantier ouvert par la porteuse** : des images fixes tirées des animations. Elles ne seront pas la dernière image de chaque animation, puisqu'une image fixe doit porter seule le message. Ce chantier relève de la discussion des animations.
