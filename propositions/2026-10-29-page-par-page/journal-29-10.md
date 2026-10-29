@@ -489,3 +489,49 @@ Fils ouverts, aucun n'est envoyé à Claude :
 - Deux formulations du titre et de la phrase.
 - Entrées dans le simulateur de scan, et écrans de destination propres à chaque état, comme à l'étape 2 (décision 39). Un libellé nouveau, « Non reconnu », est à valider.
 - Vérification des liens à chaque page de la revue.
+
+## 20. Étape 3 — états du verdict reliés — version 395 (1793314812-e6c3)
+
+Réponses de la porteuse :
+1. « bouton actualiser : enlève le » ;
+2. « message : A. mais par contre ce n'est pas une question de mise à jour de l'application. le titre porte à confusion. d'ailleurs j'ai vu sur inci beauty, il demandait (pas obligatoire) de reprendre en photo la liste d'un produit quadn il était jugé trop ancien (sur quels critères je ne sais pas). » ;
+3. « ok » ;
+4. « ok, mais pas maintenant, à la fin de notre revue globale du prototype » ;
+5. « non ».
+
+**Correction d'une affirmation** : j'avais écrit que « Retour » ramenait à un écran produit montrant un verdict de niveau 2. L'écran produit ne montre aucun verdict ; c'est sa ligne « Grossesse » qui mène au verdict normal.
+
+**Décisions 195 à 197** (note `decisionsE3c`) :
+- 195 : bouton retiré ; titre « Verdict non affiché pour l'instant » (proposition) ; phrase A ; revient sur 58.
+- 196 : états reliés ; libellé « Non reconnu ».
+- 197 : vérification globale des liens en fin de revue.
+
+L'idée vue sur INCI Beauty est notée pour le registre. C'est un sujet distinct de « verdict à actualiser » (la composition d'un produit, non les données gardées sur le téléphone), voisin de `T-63` et `T-519`.
+
+**Construit** (`scripts/etats_verdict_29.py`) :
+- **Les six écrans d'état du verdict** (même code) :
+  - plus de bouton « Actualiser » ; un lien de prototype, « [Prototype : les données sont mises à jour] », montre le verdict une fois à jour ;
+  - le titre change ; la phrase sans connexion devient « Pas de connexion : les données seront mises à jour dès que la connexion reviendra. » ;
+  - « Retour » et « Ingrédients » dépendent de l'état (blocs conditionnels).
+- **Quatre écrans produit** : incomplet, à actualiser, à actualiser sans connexion, rappel de lot. Ce sont des copies d'`E1-Produit` dont « Grossesse » mène au verdict de l'état.
+- **Trois listes** : incomplet, type non précisé, à actualiser. Elles reçoivent un réglage « État de l'évaluation » :
+  - échelle éteinte, aucun « Détermine ce niveau » ;
+  - pour l'incomplet, « Non reconnu » et son panneau ;
+  - sinon, une phrase en tête et des panneaux sans état.
+- **Dix scanners** (même code) : quatre résultats simulés de plus.
+- **Index** : sept planches dans une rangée nouvelle (y = 7928), un titre, la note `etatsE3` et les décisions.
+
+**Vérifié en local** :
+- 19 parcours, chacun avec le bon lien : les quatre scans simulés, les quatre écrans produit, les sept cas de verdict (dont « type non pris en charge »), et le retour aux liens normaux une fois les données à jour ;
+- les trois listes : échelle éteinte et « Niveau non établi », étiquettes, phrase, panneaux ;
+- aucune erreur.
+
+Trois contrôles de mon test ont d'abord échoué parce qu'ils visaient mal ; ils ont été refaits avec les bons sélecteurs.
+
+Après publication, les 24 fichiers en ligne sont identiques aux fichiers envoyés.
+
+**Limites** :
+- Les listes gardent l'ancienne présentation, comme le parcours principal ; elles suivront le choix de liste.
+- Un seul écran produit par état : « Retour » ne sait pas d'où l'on vient.
+- « Type non pris en charge » n'a pas de chemin propre : il ne s'obtient que par réglage.
+- Textes provisoires : le titre, les phrases des listes, « Non reconnu » et les trois textes de panneau.
