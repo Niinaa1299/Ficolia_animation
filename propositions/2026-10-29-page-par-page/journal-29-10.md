@@ -572,3 +572,26 @@ Après publication, les 33 fichiers en ligne sont identiques aux fichiers envoy�
 **Limites** :
 - Qui ne peut pas lire le nom ou la marque ne peut plus signaler cette erreur.
 - La même figue sert à deux confirmations (support et e-mail).
+
+## 23. Étape 5 — fils et propositions (30/10, rien de publié)
+
+Porteuse : « go » (étape 5). Base : version 1793317833-0950 ; les 36 planches de la page, l'index et les quatre autres copies de la recherche ont été relus en ligne.
+
+**Erreur constatée, de mon fait** : la décision 194 (§18) n'a été appliquée qu'à quatre des cinq copies du gabarit de recherche. La cinquième, `E2-Produit` (état de départ « Écran produit »), garde les deux boutons dans son état « Aucun résultat », sans la phrase de contribution ni le réglage. À corriger à la prochaine publication, par la même modification que les quatre autres.
+
+**Fils** :
+1. **`907c529c`** (porteuse, 24/10, `E5-Verdict-Reevalue`, non envoyé à Claude) : « encadré bleu trop gros. Durée d'affichage de l'encadré bleu ? disparaît après la première vue, ou plus longtemps ? c'est son meilleur emplacement ici ? ».
+   - Mesure : l'encadré fait 80 px de haut avec la pastille « Texte provisoire » et repousse le verdict.
+   - Maquettes locales : 1, l'étiquette « Réévalué » à côté du titre « Grossesse », comme à côté de la ligne sur l'écran produit (proposition) ; 2, l'encadré sur une ligne ; 3, l'étiquette dans la carte du produit.
+   - Durée proposée : la marque paraît à la première ouverture du verdict après le changement, et disparaît à la suivante. Le repère de l'écran produit reste jusqu'à l'ouverture de ce verdict ; l'étiquette de l'historique suit la décision 109.
+   - Limites : 1 et 3 reviennent sur `D-282` du registre (« bandeau ») ; une fois la marque disparue, rien ne dit plus que le verdict a changé (`D-52` : ni date ni ancien niveau).
+   - Portée : `E5-Verdict-Reevalue`, `E5-Allaitement-Reevalue` et les cinq écrans d'état de l'étape 3, qui partagent le code.
+2. **`a02c42dd`** (porteuse, 24/10, `E5-Recherche-HorsLigne`, non envoyé) : « résultat est dispo où ? dans l'historique ? à préciser dans le message où le trouver ». Phrase proposée : « En attendant, vous pouvez scanner : si le produit ne s'affiche pas, votre scan est gardé. Le résultat s'affichera dans l'historique au retour de la connexion. » Elle reprend la phrase de l'écran « Scan en attente ». Cinq planches de recherche.
+3. **`9bc05b25`** (envoyé à Claude) et **`92b44169`** (non envoyé) : l'échelle. Image comparative locale : l'échelle actuelle et les variantes A à E, aux quatre niveaux. Proposition : retenir D (décision 144) et la reporter sur la soixantaine de planches qui portent les paliers, en gardant les variantes pour l'épreuve des cinq secondes ; ou attendre, la porteuse ayant dit le 29/10 que l'image des niveaux n'est pas arrêtée. Limite de D : un curseur ressemble à une commande qu'on fait glisser.
+4. **`c467689f`** (envoyé à Claude) : réglé par le bandeau aubergine (décision 140). Proposition : y répondre et le clore.
+5. **`f37ac1d2`** (non envoyé) : réglé le 14/10, pas de flèche de retour sur un écran d'onglet (note `decisionsE5b`). La porteuse peut le clore.
+6. **`3355a2cf`** (envoyé à Claude) : réglé (décisions 120 et 134 ; 14/10), sauf une question d'une personne extérieure (17/10) : où sont les réglages, et y a-t-elle accès. Je ne sais pas ce qu'un accès « commentaire » permet sur le canevas. Proposition : la porteuse répond, ou Claude répond sans rien affirmer sur l'accès, puis clôt.
+
+**Hors fils** : quatre choix de construction attendent l'accord de la porteuse depuis le 08/10 (note `etatE5`) : lignes « Scan en attente » et « Produit inconnu » avec le code lu ; lignes étiquetées en tête de liste ; pas de bandeau quand la caméra est refusée ; « Ficolia fait une pause. » quand le service tombe pendant une recherche.
+
+**Limites** : maquettes et images rendues en local, avec la police réelle ; le canevas lui-même n'est pas vu.
