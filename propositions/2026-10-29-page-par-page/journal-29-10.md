@@ -595,3 +595,38 @@ Porteuse : « go » (étape 5). Base : version 1793317833-0950 ; les 36 planches
 **Hors fils** : quatre choix de construction attendent l'accord de la porteuse depuis le 08/10 (note `etatE5`) : lignes « Scan en attente » et « Produit inconnu » avec le code lu ; lignes étiquetées en tête de liste ; pas de bandeau quand la caméra est refusée ; « Ficolia fait une pause. » quand le service tombe pendant une recherche.
 
 **Limites** : maquettes et images rendues en local, avec la police réelle ; le canevas lui-même n'est pas vu.
+
+## 24. Étape 5 — encadré sur une ligne, scan gardé — version 403 (1793319762-4db4)
+
+Réponses de la porteuse : « 1. option 2 ; 2. ok ; 3. on attend, si tu as d'autres idées de pictogrammes, images pour visualiser les verdicts je suis preneuse ; 4. c'est bon ; 5. je me demande aussi quand tu parles de réglages, c'est où ? ; 6. ok ».
+
+**Décisions** (nouvelle note `decisionsE5c`, la note `decisionsE5b` étant près de sa limite) :
+- **200** : l'encadré « Ce produit a été réévalué. » passe sur une ligne, à la même place (icône de 20 px, texte de 15 px, nouvelle taille `fs.note` qui suit le réglage de taille du texte). Il reste conforme à `D-282`. Sept planches : les six écrans d'état du verdict (même code) et l'attente allaitement réévaluée. La durée (première ouverture seulement) est notée comme proposition de Claude, à confirmer.
+- **201** : « En attendant, vous pouvez scanner : si le produit ne s'affiche pas, votre scan est gardé. Le résultat s'affichera dans l'historique au retour de la connexion. » Cinq copies de la recherche.
+- **202** : les quatre choix de construction du 08/10 sont confirmés ; la note `etatE5` le dit.
+- Échelle : la porteuse attend (notes `echelleE5` et `decisionsE5c`).
+- Correction : la décision 194 est appliquée à `E2-Produit` (§23), avec un complément dans `decisionsE2`.
+
+**Vérifié en local** (19 états, avant et après) :
+- les états non touchés sont identiques au pixel près : écrans d'état de l'étape 3 dans leur état par défaut, rappel de lot, recherches, écran produit ;
+- l'encadré tient sur une ligne avec la pastille « Texte provisoire » sur le verdict ; il passe sur deux lignes en très grand texte, sans débordement ;
+- sur l'attente allaitement, plus étroite, la pastille du prototype passe à la ligne ; sans elle, l'encadré tient sur une ligne ;
+- `E2-Produit`, état « Aucun résultat » : plus de boutons, la phrase de contribution, masquée quand le réglage est coupé ;
+- la phrase « sans connexion » est la nouvelle ;
+- aucune erreur.
+
+Après publication, les 13 fichiers en ligne sont identiques aux fichiers envoyés.
+
+**Fils** : `c467689f` a reçu une réponse et il est clos. `f37ac1d2`, `907c529c` et `a02c42dd` ne sont pas envoyés à Claude : la porteuse les clôt. `9bc05b25` et `92b44169` restent ouverts (échelle en attente).
+
+**Où sont les réglages** : sur le canevas, ce sont les « Tweaks » de chaque planche. D'après le code de l'interface du canevas (copie du 29/10) :
+- un petit bouton dans l'en-tête de chaque planche qui en a ouvre ses réglages (« Show this artboard's tweaks ») ;
+- l'onglet « Tweaks » du panneau latéral les montre aussi ;
+- le bouton est désactivé pour qui n'a pas le droit de modifier le canevas, avec la mention « View only — you can inspect this design but not change it ». La personne extérieure qui a un accès en commentaire ne peut donc pas, a priori, les changer : elle voit chaque planche dans son état par défaut.
+Limite : c'est une lecture du code, pas un essai ; l'interface peut avoir changé depuis, et ses libellés être traduits.
+
+**Esquisses d'échelle** (locales, rien de publié), aux quatre niveaux, dans la carte du produit :
+- F, étiquette énergie : quatre barres-flèches de plus en plus longues vers le bas, repère noir sur le niveau ;
+- H, arc à quatre secteurs, sans aiguille ;
+- K, curseur à quatre crans avec ses bornes écrites, « aucun signal » et « incompatible » ;
+- T, ondes : un point seul au niveau 1, une onde de plus par niveau ; seul le niveau atteint est dessiné.
