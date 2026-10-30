@@ -649,3 +649,24 @@ Porteuse : « go etape 6 ». Base : version 1793320048-9465 (le canevas a chang�
 **Hors fils** : la formule de la toxicologue (`T-320`) en tête de la méthode, à trancher depuis le 09/10 (le dossier §4.4 ne veut rien d'écrit sur la manière dont les verdicts sont établis) ; les choix de construction du 09/10 (note `etatE6`) ; « Une erreur sur un produit se signale depuis sa fiche. » prête désormais à confusion avec les fiches « Bonnes pratiques » : proposition, « depuis l'écran du produit ».
 
 Maquettes locales : le menu dans le nouvel ordre, avec et sans fusion ; les réglages avec la caméra.
+
+## 26. Étape 6 — rappel sur chaque fiche, méthode sans formule — version 406 (1793322955-e5fd)
+
+Réponses de la porteuse : « 4. oui rappel sur chaque fiche. 5. non aucune formule affichée : on explique la méthode de manière superficielle sans rentrer dans les détails comme le font les concurrents. 6. "depuis la fiche de verdict" ». Sans réponse : les points 1 à 3 (ordre du menu, fusion, réglages), la clôture des fils `ae10f83b` et `250e78da`, et les autres choix de construction du point 6.
+
+**Décisions** (note `decisionsE6b`) :
+- **203** : chaque fiche « Bonnes pratiques » porte le rappel général, là où son texte en a besoin. C'est un cinquième endroit pour `D-114` (C8), que permet `O-27`, à inscrire ; cela revient sur la construction de la décision 155. Il est posé sur la fiche « Crevasses », la seule construite, entre ses deux sections, avec la pastille « Rappel général : sa place suivra le texte de la fiche ».
+- **204** : aucune formule sur la méthode. La formule de la toxicologue (`T-320`) et sa pastille sont remplacées par « [Présentation générale de la méthode, sans entrer dans le détail — à rédiger] ». L'ancien emplacement « [Fiche méthode — texte à rédiger] », devenu redondant, est retiré. Sept copies du gabarit des pages de texte sont modifiées ; la planche « À SUPPRIMER » n'est pas touchée. La traçabilité (`E0-Trace-2`, ligne `T-320`) dit maintenant « Non affichée ».
+- **205** : « Une erreur sur un produit se signale depuis la fiche de verdict. » Quatre planches « Nous écrire ».
+- Notes `etatE6` et `bpE6` mises à jour.
+
+**Vérifié en local** (13 planches, avant et après) :
+- méthode : la formule est remplacée ; fiche « Crevasses » : le rappel est en place ;
+- « Nous écrire » : la nouvelle phrase ;
+- les autres pages du gabarit (À propos, conditions d'utilisation, confidentialité, mentions légales) sont identiques au pixel près ;
+- sur « Message envoyé », seule l'image de l'animation diffère, selon l'instant de la capture ; la phrase changée n'y est pas visible ;
+- aucune erreur.
+
+Après publication, les 14 fichiers en ligne sont identiques aux fichiers envoyés.
+
+**Limite** : « Ce n'est pas un avis médical. » partait avec la formule ; la méthode garde le rappel général, et « À propos » garde la phrase.
