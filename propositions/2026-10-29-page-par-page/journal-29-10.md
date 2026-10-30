@@ -756,3 +756,23 @@ Réponses de la porteuse : « 1. b 2. oui exactement 3. ok 4. ok ».
 2. Tous les éléments s'affichent sur l'écran du verdict, aucun en tête de la liste. Cela revient sur `D-265` : à inscrire.
 3. Un jeu de textes en mots simples : « mamelon et aréole » plutôt que « zone de tétée », « bébé » plutôt que « nourrisson », « ce verdict ne vaut pas… » plutôt que « ne tient pas compte ». Un titre au-dessus des pastilles, « Ce que couvre ce verdict ». Ce sont des textes du registre (validés le 20/10) : ils restent provisoires (`T-604`).
 4. Maquettes de disposition, pour l'écran et le panneau « source », à faire après le choix des textes.
+
+## 31. Ligne allaitement — dispositions sans pastilles (maquettes locales, rien de publié)
+
+Réponses de la porteuse :
+1. « ok » : le renvoi en petit rond sur la photo, avec un conseil à la première utilisation.
+2. « ok tout sur l'écran de verdict. mais je ne suis pas fan des mentions sous formes de pastilles. d'autres idées de disposition (autre que celles déjà écartées), je trouve qu'avec les pastilles l'écran n'est pas beau, homogène, n'est pas bien proportionné ni joli. »
+3. « "contact peau à peau" c'est-à-dire contact rapproché ou vraiment du peau à peau ? // "pas évalué si le bébé respire le produit" : non pas clair // oui ok pour le titre ».
+
+**Contact** : `D-259` couvre M3, le produit resté sur la peau de la mère qui passe sur celle du bébé (« buste, ventre en peau à peau, visage »). C'est donc plus large que le peau à peau au sens strict. Proposition : « Contact avec la peau du bébé non évalué » ; explication : « Ce verdict ne tient pas compte du produit qui peut passer sur la peau du bébé quand il est porté contre la peau traitée. »
+
+**Inhalation** : « Vapeurs et odeurs non évaluées pour le bébé » ; explication : « Ce verdict ne tient pas compte de ce que le bébé peut respirer du produit. » Le mot « odeurs » peut faire écho à « Produit parfumé », dont le mécanisme est autre (le nouveau-né s'oriente à l'odeur).
+
+**Formes déjà écartées**, relues dans la copie du 29/10 : encadrés (16/10), éléments dans le cadre (16/10), formes A et C (17/10). La porteuse a retiré leurs planches du canevas. La forme B (pastilles) déplaît : largeurs inégales, alignement flottant sous le cadre.
+
+**Trois dispositions maquettées**, sur le spray (trois mentions, sans plafond) et le lait corps (deux mentions), sous le titre « Ce que couvre ce verdict » ; écran entier déroulé :
+1. **Liste** : une carte de la largeur du verdict, une ligne par mention, explication toujours visible, « Sources » en pied. C'est la plus claire, mais la plus longue : sur le spray, environ 400 px à faire défiler.
+2. **Tuiles** : des tuiles égales, avec un mot-sujet et son état (« Mamelon et aréole · non évalué ») ; l'explication et la source s'ouvrent au toucher. C'est la plus homogène et la plus compacte. Limites : la tuile porte une forme courte, alors que `D-256` veut un seul texte par élément, ce qui est à inscrire ; avec quatre mentions, il faut une grille de deux sur deux.
+3. **Phrase** : une seule phrase réunit les mentions, puis un lien « Détails et sources ». C'est la plus sobre, mais elle s'écarte le plus de `D-256` et s'accorde mal avec une condition comme le parfum.
+
+**Proposition** : les tuiles. L'application de 1, 2, 3 et de la disposition retenue se fera en une seule publication sur le gabarit des verdicts de l'étude. La note `pointsEA` sera corrigée en même temps (huile essentielle pure, décision 210).
