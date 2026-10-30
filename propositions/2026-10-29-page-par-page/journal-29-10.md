@@ -812,3 +812,58 @@ Porteuse : « par rapport aux design des écrans : choix idée 5-3 // icône : a
 1. l'arc partout, en une publication vérifiée ;
 2. la ligne allaitement (tuiles), après les réponses du §32 ;
 3. l'écran des ingrédients, après confirmation de « 5-3 ».
+
+## 34. Échelle du verdict : l'arc sans aiguille — version 417 (1793392951-83e7)
+
+**Réponses de la porteuse** depuis le §33 :
+- « go » pour l'arc ;
+- « oui » pour l'idée 5 à plat, sur fond `#FAFAFA` ;
+- sur l'inhalation : « non, on revient sur "Inhalation du produit par le bébé non évalué" ». Cela remplace « Respiration du bébé » du §32 ; l'accord à retenir est « non évaluée ».
+
+**Décision 213** (note `decisionsE5c`) : l'arc remplace les paliers sur les 49 écrans vivants qui les portaient.
+- **Où** : 31 verdicts (étapes 1, 2, 3 et 5, prise en main, étude allaitement) et 18 listes d'ingrédients.
+- **Le dessin** :
+  - quatre secteurs, du niveau 1 à gauche au niveau 4 à droite ;
+  - le secteur du niveau est plein, plus épais (rayons de 24 à 48 au lieu de 28 à 42) et cerné d'encre ; les autres restent pâles.
+- **Inchangés** : les couleurs, le contour et l'étiquette « Niveau n sur 4 ».
+- **Index** : la note `echelleE5` est complétée ; la rangée des variantes est retitrée « tranché le 30/10 ».
+
+**Taille : 76 × 40 px, et non 96 × 58 comme annoncé au §33.** C'est la plus grande taille qui ne déplace rien à l'écran. Les mesures :
+- **Premier essai à 84 × 44, abandonné** :
+  - la rangée du nom grandissait de 3 px sur les verdicts ;
+  - « Lait corps nourrissant » passait sur deux lignes en texte grand (130 %) ;
+  - le nom passait aussi sur deux lignes dans les listes, et tout l'écran descendait de 8 px.
+- **Ce qui borne la largeur** : dans le verdict, la colonne du nom fait 240 px et le nom en texte grand en occupe 226. Il reste 14 px, donc la boîte de l'échelle ne peut pas dépasser 64 + 12 = 76 px.
+- **Ce qui borne la hauteur** : le bloc nom et marque, d'environ 41 px.
+
+**Laissé hors de ce passage, inchangé** (d'où 49 planches au lieu des 65 environ annoncées) :
+- les variantes A à E de l'Étape 5, gardées comme trace ;
+- les comparaisons du « i » (`E5-Info-*`) ;
+- la direction consolidée (`D-*`) ;
+- l'étude hors plancher (`E7-Verdict`) ;
+- `E0-Fondations` et `E0-Polices`, tracés à part : à reprendre.
+
+**Vérifié en local, sur 119 rendus** (les 49 planches ; les niveaux 1 à 4 du verdict et de la liste de l'étape 1 ; le texte à 130 et 200 % sur les 31 verdicts) :
+- avant et après sont identiques sur quatre points : les lignes du nom, la position et la hauteur de sa rangée, l'étiquette, le nombre de secteurs mis en avant ;
+- aucune erreur ;
+- les trois listes « Ingrédients — allaitement » n'affichent pas d'échelle, avant comme après ;
+- les états « évaluation incomplète » et « à actualiser » n'ont aucun secteur mis en avant, comme avant ;
+- la bulle de la prise en main vise toujours l'arc.
+
+**Publication** :
+- la version en ligne (1793390493-659f, enregistrée depuis la page) était identique, octet par octet, à la base de travail ;
+- publiée en version 417 : 49 planches et l'index ;
+- les 50 fichiers relus en ligne sont identiques à l'envoi.
+
+**Fils** :
+- `9bc05b25` : réponse donnée, clôture proposée.
+- `92b44169` (« rapport de taille + l'info doit passer par le potentiomètre ») : non envoyé à Claude, à clore par la porteuse.
+
+**Limites** :
+- La lisibilité d'un coup d'œil reste à éprouver au test.
+- Pour un arc plus grand, il faut accepter le retour à la ligne du nom, ou déplacer l'arc. C'est à trancher si 76 px reste trop petit, notamment au regard du « rapport de taille » du fil `92b44169`.
+- Dans 22 planches, des commentaires du code parlent encore de « palier allumé ». Cela n'a aucun effet à l'écran.
+
+**Suite** :
+1. La ligne allaitement : tuiles, titre neutre, syntaxe « sujet · état », inhalation selon la réponse ci-dessus.
+2. L'écran des ingrédients : l'idée 5 à plat.
