@@ -630,3 +630,22 @@ Limite : c'est une lecture du code, pas un essai ; l'interface peut avoir chang�
 - H, arc à quatre secteurs, sans aiguille ;
 - K, curseur à quatre crans avec ses bornes écrites, « aucun signal » et « incompatible » ;
 - T, ondes : un point seul au niveau 1, une onde de plus par niveau ; seul le niveau atteint est dessiné.
+
+Sans réponse de la porteuse avant le passage à l'étape 6 : la durée de l'encadré (200) reste « à confirmer » ; aucune réponse n'est postée à la personne extérieure (fil `3355a2cf`).
+
+## 25. Étape 6 — fils et propositions (30/10, rien de publié)
+
+Porteuse : « go etape 6 ». Base : version 1793320048-9465 (le canevas a changé après la 403 : à relire avant toute publication). Les 16 planches de la page, les réglages (page Étape 5) et les notes `etatE6`, `decisionsE6`, `decisionsE6b` et `bpE6` ont été relus.
+
+**Neuf fils** :
+1. **Réglés, à clore par la porteuse** (non envoyés à Claude) : `1dc5cb3f` (« e-mail ? », décision 146) ; `7b704608` (« à voir », phrase sur les données techniques, décision 145) ; `12a42db1` (« MOCHE », liste de la décision 142) ; `cf2836a2` (personne extérieure, fiches par thème, construites le 17/10).
+2. **Réglés, envoyés à Claude** : `ae10f83b` (phrase gardée, décision 145) et `250e78da` (« rien d'autre en réglage ? », répondu le 08/10, complété par le fil `3a7972a8`). Proposition : y répondre et les clore.
+3. **`66027de6`** : ordre du menu demandé : Réglages, Bonnes pratiques, Méthode, À propos, Nous écrire, puis la prise en main ; question : fusionner « À propos » et « Méthode ». Avis : fusionner, en une entrée « À propos et méthode ». `D-114` (C8) les compte déjà comme un seul endroit du rappel général, les deux pages sont courtes et répondent au même besoin, et le menu actuel déborde de l'écran. Écart au dossier (§3.2, deux entrées) à inscrire ; le lien « Méthode » du volet de première alerte mène à la partie méthode ; la date de version (C9) ne vaut que pour elle.
+4. **`2e82278f`** : « Revoir les conseils » devient « Revoir la prise en main » (proposition), ou « Revoir le tuto de prise en main », comme écrit par la porteuse.
+5. **`3a7972a8`** : réglages. Proposition : un seul interrupteur, dont le texte couvre aussi les produits maintenant évalués (`D-114` C1 : un seul geste arrête tout) ; une section « Caméra » qui dit l'état de l'autorisation et ouvre les réglages du téléphone, seul endroit où elle se change. Pas de notification du téléphone (`T-224`, décision 135).
+
+**Rappel général sur les fiches** (avis du 22/10, non tranché) : un rappel sur chaque fiche, là où le texte en a besoin, puisque le renvoi mène droit à une fiche ; texte avec la toxicologue ; cinquième endroit pour `D-114` (C8), que `O-27` permet (« orientation permise dans […] les fiches par sujet »).
+
+**Hors fils** : la formule de la toxicologue (`T-320`) en tête de la méthode, à trancher depuis le 09/10 (le dossier §4.4 ne veut rien d'écrit sur la manière dont les verdicts sont établis) ; les choix de construction du 09/10 (note `etatE6`) ; « Une erreur sur un produit se signale depuis sa fiche. » prête désormais à confusion avec les fiches « Bonnes pratiques » : proposition, « depuis l'écran du produit ».
+
+Maquettes locales : le menu dans le nouvel ordre, avec et sans fusion ; les réglages avec la caméra.
