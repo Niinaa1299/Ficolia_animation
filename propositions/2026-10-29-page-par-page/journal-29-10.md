@@ -670,3 +670,41 @@ Réponses de la porteuse : « 4. oui rappel sur chaque fiche. 5. non aucune form
 Après publication, les 14 fichiers en ligne sont identiques aux fichiers envoyés.
 
 **Limite** : « Ce n'est pas un avis médical. » partait avec la formule ; la méthode garde le rappel général, et « À propos » garde la phrase.
+
+## 27. Étape 6 — menu, « À propos et méthode », réglages — version 407 (1793323393-5c96)
+
+Porteuse : « ok, go etape 7 ». Je l'ai lu comme un accord sur les points restés ouverts : ordre du menu, fusion, réglages, clôture de deux fils, choix de construction. Cette lecture lui est signalée, pour qu'elle puisse la corriger.
+
+**Décisions** (nouvelle note `decisionsE6c`) :
+- **206** : menu dans l'ordre Réglages, Bonnes pratiques, À propos et méthode, Nous écrire, Revoir la prise en main.
+- **207** : « À propos » et « Méthode » forment une seule page. Elle s'ouvre sur le contenu d'« À propos », puis présente la méthode, l'engagement sur les données et la version. La planche « À propos » est marquée « À SUPPRIMER » dans l'index. C'est un écart au dossier (§3.2), à inscrire.
+- **208** : l'interrupteur des alertes couvre aussi les produits maintenant évalués ; une section « Caméra » affiche l'état de l'autorisation et ouvre les réglages du téléphone. Un réglage de prototype permet de montrer l'accès autorisé ou refusé.
+- **209** : les choix de construction du 09/10 sont confirmés.
+
+**Planches** : le menu, les sept copies du gabarit des pages de texte et les quatre réglages.
+
+**Vérifié en local** : menu, page fusionnée, réglages dans leurs quatre états et caméra refusée. Les pages légales sont identiques au pixel près. Après publication, les 13 fichiers en ligne sont identiques aux fichiers envoyés.
+
+**Fils** : `ae10f83b` et `250e78da` ont reçu une réponse et sont clos. À clore par la porteuse : `1dc5cb3f`, `7b704608`, `12a42db1`, `cf2836a2`, `66027de6`, `2e82278f`, `3a7972a8`.
+
+## 28. Étape 7 — l'aromathérapie sort du plancher : proposition (rien de publié)
+
+Porteuse, pendant la publication de la 407 : « étape 7 : changement MVP => exclusion analyse de l'aromathérapie (en tout cas pas au plancher). Donc juste un écran produit pas analysé par ficolia car hors catalogue de périmètre, un truc dans le genre. »
+
+**Ce que cela change** :
+- Le parcours de l'étape 7 suit les décisions 148 à 151 : écran produit, verdict de niveau 4 par précaution, attente allaitement, liste. Il n'a plus d'objet au plancher.
+- **Entrées du registre à revoir**, dans la discussion de méthodologie où il est tenu : `D-57` (module HE au plancher), `D-113` (B6), `D-114` (C11), `D-217`, `T-431`, `T-453`, `T-416` et `L-87`.
+- Les trois fils de la page (`545f3a4b`, `4bc8f280`, `813e8c65`, du 14/10) deviennent sans objet ; ils ne sont pas envoyés à Claude.
+
+**Maquettes locales** : l'écran produit de l'huile perd ses lignes « Grossesse » et « Allaitement ». Un cadre neutre, celui des écrans sans verdict, les remplace (`D-113` B3 : ni feu vert, ni alerte). Trois formulations :
+1. « Ficolia n'évalue pas les huiles essentielles pures. » (proposition) ;
+2. « Ficolia n'évalue pas ce type de produit. » (la phrase de « pas un cosmétique ») ;
+3. « Les huiles essentielles pures sont hors du champ de Ficolia. »
+
+Aucune ne dit « pas encore », ce qui serait une promesse. Aucune n'oriente vers un professionnel, interdit sur l'écran produit (`D-114` C8).
+
+**Questions posées** :
+- la formulation ;
+- le périmètre : seuls les flacons d'huile essentielle pure sortent-ils, les cosmétiques qui en contiennent restant évalués (dossier §5.10) ?
+- le sort des quatre planches actuelles : les garder comme étude « hors plancher » ou les supprimer ;
+- une entrée dans le scanner vers ce nouvel écran.
