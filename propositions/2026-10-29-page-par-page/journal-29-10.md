@@ -708,3 +708,51 @@ Aucune ne dit « pas encore », ce qui serait une promesse. Aucune n'oriente ver
 - le périmètre : seuls les flacons d'huile essentielle pure sortent-ils, les cosmétiques qui en contiennent restant évalués (dossier §5.10) ?
 - le sort des quatre planches actuelles : les garder comme étude « hors plancher » ou les supprimer ;
 - une entrée dans le scanner vers ce nouvel écran.
+
+## 29. Étape 7 — huile essentielle pure non évaluée — version 409 (1793324099-5624)
+
+Réponses de la porteuse : « 1. b 2. oui exactement 3. ok 4. ok ».
+
+**Décisions** (note `decisionsE7`) :
+- **210** : l'aromathérapie sort de l'analyse au plancher. La mesure ne touche que les flacons d'huile essentielle pure ; un cosmétique qui en contient reste évalué. Les entrées du registre concernées sont listées au §28.
+- **211** : nouvelle planche `E7-NonEvalue`, « Ficolia n'évalue pas ce type de produit. », sans pastille de statut, comme l'état « pas un cosmétique ». Les dix scanners proposent le résultat simulé « Huile essentielle pure ».
+- **212** : les quatre planches de l'étude restent, sous le titre « Hors plancher (30/10) ». Les fils `545f3a4b`, `4bc8f280` et `813e8c65` sont à clore par la porteuse.
+
+**Vérifié en local** :
+- les dix scanners par défaut sont identiques au pixel près ;
+- avec le résultat « huile », la zone mène à `E7-NonEvalue` ; avec « rappel de lot », elle mène toujours à `E3-Produit-Rappel` ;
+- la planche nouvelle n'a ni ligne Grossesse ni ligne Allaitement ;
+- aucune erreur.
+
+**Publication** : la version précédente (a59b) avait été enregistrée depuis la page (la porteuse avait retiré `EA-Verdict-Renvoi-Pastille`). C'est cette version qui avait été relue avant la modification : rien n'est perdu. Après publication, les 12 fichiers en ligne sont identiques aux fichiers envoyés.
+
+**Reste** : la note `pointsEA` (page allaitement) dit encore « Huile essentielle pure, ligne allaitement : rouge » ; elle sera corrigée avec la ligne allaitement.
+
+## 30. Ligne allaitement — fils et propositions (rien de publié)
+
+**Question de la porteuse** : « que comprends-tu par 'traiter les écarts entre savon et contact' ? ». La formule n'apparaît dans aucun écrit de Claude : journal, notes du canevas, messages de la séance. Deux écarts entre le prototype et le registre s'en approchent :
+- **savon** : `D-262` garde la condition savon sur le verdict (vert et jaune), et `D-265`, `D-266` la comptent parmi les éléments ; le prototype l'a retirée (décision 168, maintenue le 22/10 par la décision 183), son texte allant vers une fiche « Toilette des seins ».
+- **contact** : `D-265` envoie l'élément qui dépasse le plafond de deux en tête de la liste des ingrédients ; c'est le cas de « Contact rapproché non évalué » sur le spray. La porteuse demande le contraire le 24/10 (fil `c7594b94` : « tout empiler sur la fiche produit »).
+
+**25 fils, tous ouverts, aucun envoyé à Claude** (lus un par un le 30/10) :
+- **14 fils de la personne extérieure (16 et 17/10)**, traités les 16, 17 et 22/10 ou remplacés depuis :
+  - `ff513b2d` et `99f5af0c` : éléments sous le cadre, puis forme B ;
+  - `5cbef4c1`, `721b74ed` et `9625cd47` : d'autres formes que l'encadré, puis le petit rond ;
+  - `14e0c1b5` : renvoi en lien, remplacé ;
+  - `e746aa0b` et `0cb89ab3` : condition savon retirée ;
+  - `719187ca` et `33090e9c` : voies du panneau, avec le texte de la porteuse ;
+  - `cd376781` et `5661f737` : « Inhalation » et « Contact rapproché » ;
+  - `685ddffe` et `000d5f22` : textes alignés le 22/10. Les deux rejoignent la réécriture demandée le 24/10.
+
+  Proposition : la porteuse les clôt.
+- **11 fils de la porteuse (24/10)**, en attente :
+  - textes peu clairs pour un regard extérieur : `bb1960ba`, `a242cb88`, `37665dac`, `f835b1bb`, `0bf17029` (quelle phrase ?) ; le but du bloc des mentions : `5bb8d678` ;
+  - disposition de l'écran et du panneau « source » : `a32325a3`, `b89f1c0b` ;
+  - mention en tête de liste : `c7594b94` ;
+  - renvoi « Crevasses » : `cf0a77fc` (petit rond sur la photo, choisi, avec un conseil à la première utilisation) ; `86d0102a` (« non » ; sa planche a été retirée par la porteuse).
+
+**Propositions** :
+1. Le renvoi en petit rond sur la photo devient la forme par défaut. Un conseil s'affiche à la première utilisation : « Touchez ce rond pour lire la fiche « Crevasses ». »
+2. Tous les éléments s'affichent sur l'écran du verdict, aucun en tête de la liste. Cela revient sur `D-265` : à inscrire.
+3. Un jeu de textes en mots simples : « mamelon et aréole » plutôt que « zone de tétée », « bébé » plutôt que « nourrisson », « ce verdict ne vaut pas… » plutôt que « ne tient pas compte ». Un titre au-dessus des pastilles, « Ce que couvre ce verdict ». Ce sont des textes du registre (validés le 20/10) : ils restent provisoires (`T-604`).
+4. Maquettes de disposition, pour l'écran et le panneau « source », à faire après le choix des textes.
