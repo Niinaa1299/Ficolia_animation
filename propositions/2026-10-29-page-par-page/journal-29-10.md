@@ -795,3 +795,20 @@ Porteuse : « tuiles ok, mais avec le titre "ce que couvre le verdict" => "mamel
 **Point ouvert** : avec une seule mention (soin des mamelons), la case unique occupe toute la largeur. Proposition : des cases de taille fixe, trois par rangée au plus, la même taille sur tous les écrans.
 
 **Limites** : la forme courte des cases et le libellé du volet s'écartent de `D-256` (un seul texte par élément), écart à inscrire. Ces textes restent provisoires (`T-604`).
+
+## 33. Choix de la porteuse : écran des ingrédients et échelle (30/10, rien de publié)
+
+Porteuse : « par rapport aux design des écrans : choix idée 5-3 // icône : arc sans aiguille ».
+
+**Écran des ingrédients**, « idée 5-3 » : lu comme la planche de comparaison « à plat » du 29/10 (§16).
+- Ligne « Idée 5 », troisième version à plat : fond presque blanc `#FAFAFA`, verdict rappelé en tête, sans ombre ni carte (sauf l'encadré du produit et du verdict), barre d'onglets blanche (capture `Idee5-p3`).
+- Autre lecture possible : si la colonne « Actuel » compte comme la première, la troisième colonne est le gris iOS `#F2F2F7`. Confirmation demandée.
+
+**Échelle du verdict** : l'arc sans aiguille (esquisse H du 30/10) remplace les paliers. C'est le choix qui manquait aux fils `9bc05b25` et `92b44169`.
+- Base technique : la variante E (jauge, taille moyenne de 96 × 58 px), sans aiguille ; le secteur du niveau est plein, plus épais et cerné d'encre (`T-220` : la taille et la place portent le niveau, pas la couleur seule).
+- Planches touchées : environ 65 (verdicts, cartes de produit, listes, prise en main, études, fondations).
+
+**Ordre de travail proposé** :
+1. l'arc partout, en une publication vérifiée ;
+2. la ligne allaitement (tuiles), après les réponses du §32 ;
+3. l'écran des ingrédients, après confirmation de « 5-3 ».
