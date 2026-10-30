@@ -867,3 +867,62 @@ Porteuse : « par rapport aux design des écrans : choix idée 5-3 // icône : a
 **Suite** :
 1. La ligne allaitement : tuiles, titre neutre, syntaxe « sujet · état », inhalation selon la réponse ci-dessus.
 2. L'écran des ingrédients : l'idée 5 à plat.
+
+**Fil clos** : `9bc05b25`, avec l'accord de la porteuse (« ok »).
+
+## 35. Ligne allaitement : les cases — version 420 (1793398495-9fc2)
+
+Porteuse : « go la suite ».
+
+**Décisions** (nouvelle note `decisionsEA`, page « Ligne allaitement ») :
+- **214 — Forme.**
+  - Sous le cadre du verdict, des cases égales, sous le titre neutre « À savoir sur ce verdict ».
+  - Chaque case porte un pictogramme, un sujet et son état. Toucher une case ouvre le volet de l'ancienne forme B : étiquette, explication, source.
+  - Tout s'affiche sur l'écran du verdict : plus de plafond de deux, plus rien en tête de la liste des ingrédients.
+  - La taille des cases reste à trancher, avec le réglage « Cases ». Par défaut, des cases de taille fixe : trois par rangée en texte standard, deux en texte grand, une en très grand. L'autre option, « Largeur partagée », répartit la rangée entre les cases présentes.
+- **215 — Textes en mots simples** (provisoires, `T-604`) :
+  - « Mamelon et aréole · non évalués » : « Ce verdict ne vaut pas si le produit est appliqué sur le mamelon ou l'aréole. » ;
+  - « Tétée · évaluée » : « Ce verdict tient compte du produit présent au moment de la tétée. » ;
+  - « Tétée · évaluation incomplète » : « Au moins un ingrédient n'a pas pu être évalué pour la tétée. » ;
+  - « Inhalation du produit par le bébé · non évaluée » : « Ce verdict ne tient pas compte de l'inhalation du produit par le bébé. » ;
+  - « Contact avec la peau du bébé · non évalué » : « Ce verdict ne tient pas compte du produit qui peut passer sur la peau du bébé quand il est porté contre la peau traitée. » ;
+  - « Parfum · produit parfumé » : inchangé.
+- **216 — Renvoi « Crevasses ».**
+  - Le petit rond sur la photo devient la forme par défaut.
+  - À la première utilisation, une bulle dit : « Touchez ce rond pour lire la fiche « Crevasses ». » Elle se ferme sur « Compris » ou au toucher du rond. Le réglage « Conseil » l'allume sur le jaune du soin des mamelons.
+  - L'ancienne pastille devient une case parmi les autres.
+
+**Accords grammaticaux** : « Mamelon et aréole » prend « non évalués » au pluriel, et « Inhalation » prend « non évaluée » au féminin.
+
+**Planches modifiées** :
+- 9 verdicts vivants : lait corps (jaune, orange) ; soin des mamelons (vert, jaune, jaune par le lait, incomplet) ; spray ; gel douche ; panneau « source ».
+- 4 listes vivantes : plus rien en tête de liste. Seul le spray change à l'écran.
+
+**Planches non modifiées, retitrées « Trace »** : la forme B (lait corps), le panneau du renvoi (17/10), le petit rond sur la photo (17/10), la mention en tête de liste, et les trois formes du renvoi (22/10). Elles gardent les textes du 22/10. Le spray de la forme A était déjà marqué « À SUPPRIMER » par la porteuse : il reste tel quel.
+
+**Index** :
+- titres des rangées 3 à 6 ;
+- `etatEA` et `formesEA` complétées ;
+- `pointsEA` : la ligne sur l'huile essentielle pure renvoie à la décision 210 (hors plancher) au lieu de « rouge ».
+
+**Vérifié en local**, avant et après, sur 53 captures :
+- les 9 verdicts et la liste du spray ;
+- les volets ouverts (inhalation, contact, parfum avec sa source) ;
+- le conseil, puis son état après « Compris » ;
+- le texte à 130 % (deux colonnes) et à 200 % (une colonne) ;
+- les réglages « Largeur partagée », « Case parmi les mentions » (qui ouvre le panneau) et « Dans le cadre du verdict ».
+
+Aucune erreur JavaScript. Deux retouches après le premier rendu : la bulle passe à 260 px (« Texte provisoire » allait à la ligne), et l'état se pose en bas de chaque case pour tomber à la même hauteur.
+
+**Publication** : la version en ligne (1793396759-1475) était identique à la base. Publiée en 420 : 13 planches et l'index. Les 14 fichiers relus sont identiques à l'envoi.
+
+**Écarts au registre, à inscrire (étape 8)** :
+- `D-165`, `D-265` et G1.7 : plafond de deux, surplus en tête de liste ;
+- `D-256` : un seul texte par élément, alors que la case porte une forme courte ;
+- libellés de `D-259` et `D-260` (« nourrisson », « contact rapproché ») ;
+- la formule « cette évaluation ».
+
+**Limites** :
+- Une case seule n'occupe qu'un tiers de la rangée en taille fixe (soin des mamelons, lait corps orange). C'est l'objet du réglage « Cases », à trancher.
+- La bulle du conseil couvre le nom du produit tant qu'elle est ouverte, comme les bulles de la prise en main.
+- Les textes restent provisoires (`T-604`), et l'explication de l'inhalation n'a pas été montrée à la porteuse avant publication.
