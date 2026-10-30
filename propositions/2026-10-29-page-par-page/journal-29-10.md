@@ -776,3 +776,22 @@ Réponses de la porteuse :
 3. **Phrase** : une seule phrase réunit les mentions, puis un lien « Détails et sources ». C'est la plus sobre, mais elle s'écarte le plus de `D-256` et s'accorde mal avec une condition comme le parfum.
 
 **Proposition** : les tuiles. L'application de 1, 2, 3 et de la disposition retenue se fera en une seule publication sur le gabarit des verdicts de l'étude. La note `pointsEA` sera corrigée en même temps (huile essentielle pure, décision 210).
+
+## 32. Tuiles retenues ; titre et syntaxe revus (maquettes locales, rien de publié)
+
+Porteuse : « tuiles ok, mais avec le titre "ce que couvre le verdict" => "mamelon et aréole non évalué" contradictoire. 1. ok 2. inhalation pas satisfaite, peut être changer carrément la syntaxe ? »
+
+**Propositions maquettées** (spray, lait corps, soin des mamelons ; écran entier) :
+- **Titre neutre** : « À savoir sur ce verdict », qui convient aux mentions « non évalué » comme à « Tétée · évaluée » et au parfum. Autre possibilité : « Précisions sur ce verdict ».
+- **Une seule syntaxe pour toutes les cases**, un sujet puis son état :
+  - « Mamelon et aréole · non évalué » ;
+  - « Tétée · évaluée » (ou « évaluation incomplète ») ;
+  - « Peau du bébé · contact non évalué » ;
+  - « Respiration du bébé · non évaluée » ;
+  - « Parfum · produit parfumé ».
+- **Inhalation**, volet : « Respiration du bébé : non évaluée. Ce verdict ne tient pas compte de ce que le bébé peut respirer du produit, quand il est vaporisé ou quand il s'évapore de la peau. » La phrase reprend les deux déclencheurs de `D-260` (émission, terpènes).
+- **Contact**, volet (accepté) : « Ce verdict ne tient pas compte du produit qui peut passer sur la peau du bébé quand il est porté contre la peau traitée. »
+
+**Point ouvert** : avec une seule mention (soin des mamelons), la case unique occupe toute la largeur. Proposition : des cases de taille fixe, trois par rangée au plus, la même taille sur tous les écrans.
+
+**Limites** : la forme courte des cases et le libellé du volet s'écartent de `D-256` (un seul texte par élément), écart à inscrire. Ces textes restent provisoires (`T-604`).
