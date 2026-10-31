@@ -18,6 +18,14 @@
    "name": "Étape 2"
   },
   {
+   "id": "etape-3a",
+   "name": "Étape 3 (1) — type et états du verdict"
+  },
+  {
+   "id": "etape-5",
+   "name": "Étape 5"
+  },
+  {
    "id": "etape-6",
    "name": "Étape 6"
   },
@@ -622,6 +630,390 @@
    "h": 844,
    "title": "Trace (22/10) · Soin des mamelons · jaune · renvoi : le panneau, le même pour les trois formes (22/10)",
    "page": "ligne-allaitement"
+  },
+  "E5-Historique.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Historique · liste",
+   "page": "etape-5"
+  },
+  "E5-Historique-Vide.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Historique · vide",
+   "page": "etape-5"
+  },
+  "E5-Historique-Attente.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Historique · scan en attente et produit inconnu",
+   "page": "etape-5"
+  },
+  "E5-Produit.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Écran produit · depuis l'historique",
+   "page": "etape-5"
+  },
+  "E5-Verdict.dc.html": {
+   "x": 1880,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Verdict grossesse · depuis l'historique",
+   "page": "etape-5"
+  },
+  "E5-Ingredients.dc.html": {
+   "x": 2350,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Ingrédients et panneau · depuis l'historique",
+   "page": "etape-5"
+  },
+  "E5-Allaitement.dc.html": {
+   "x": 2820,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Allaitement · écran d'attente · depuis l'historique",
+   "page": "etape-5"
+  },
+  "E5-Ingredients-Allaitement.dc.html": {
+   "x": 3290,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Ingrédients · ligne allaitement · depuis l'historique",
+   "page": "etape-5"
+  },
+  "E5-Scan-Alerte.dc.html": {
+   "x": 0,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Alerte · à l'ouverture, un produit réévalué",
+   "page": "etape-5"
+  },
+  "E5-Scan-Repere.dc.html": {
+   "x": 470,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Alerte · bandeau fermé, le repère reste sur l'onglet",
+   "page": "etape-5"
+  },
+  "E5-Historique-Reevalue.dc.html": {
+   "x": 940,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Alerte · dans l'historique, un produit réévalué",
+   "page": "etape-5"
+  },
+  "E5-Produit-Reevalue.dc.html": {
+   "x": 1410,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Alerte · sur l'écran produit, repère « Réévalué » à côté de la ligne qui a changé",
+   "page": "etape-5"
+  },
+  "E5-Allaitement-Reevalue.dc.html": {
+   "x": 1880,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Alerte · sur la ligne allaitement (écran d'attente), produit réévalué",
+   "page": "etape-5"
+  },
+  "E5-Verdict-Reevalue.dc.html": {
+   "x": 2350,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Alerte · sur le verdict grossesse, quand la ligne grossesse a changé (réglage)",
+   "page": "etape-5"
+  },
+  "E5-Scan-Alertes.dc.html": {
+   "x": 2820,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Alerte · à l'ouverture, plusieurs verdicts mis à jour",
+   "page": "etape-5"
+  },
+  "E5-Historique-Reevalues.dc.html": {
+   "x": 3290,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Alerte · dans l'historique, plusieurs produits réévalués",
+   "page": "etape-5"
+  },
+  "E5-Scan-Evalue.dc.html": {
+   "x": 0,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Alerte · à l'ouverture, un produit maintenant évalué",
+   "page": "etape-5"
+  },
+  "E5-Historique-Evalue.dc.html": {
+   "x": 470,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Alerte · dans l'historique, un produit maintenant évalué",
+   "page": "etape-5"
+  },
+  "E5-Reglages.dc.html": {
+   "x": 940,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Réglages · alertes actives",
+   "page": "etape-5"
+  },
+  "E5-Reglages-Arret.dc.html": {
+   "x": 1410,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Réglages · alertes arrêtées",
+   "page": "etape-5"
+  },
+  "E5-Reglages-Confirmer.dc.html": {
+   "x": 1880,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Réglages · effacer l'historique, confirmation",
+   "page": "etape-5"
+  },
+  "E5-Reglages-Efface.dc.html": {
+   "x": 2350,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Réglages · historique effacé",
+   "page": "etape-5"
+  },
+  "E5-Scan-AlertesArretees.dc.html": {
+   "x": 2820,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Alertes arrêtées · à l'ouverture, ni bandeau ni repère",
+   "page": "etape-5"
+  },
+  "E5-Echelle-Cercles.dc.html": {
+   "x": 3290,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Échelle · variante A, cercles à côté du nom",
+   "page": "etape-5"
+  },
+  "E5-Echelle-Barre.dc.html": {
+   "x": 0,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Échelle · variante B, segments à côté du nom",
+   "page": "etape-5"
+  },
+  "E5-Echelle-Paliers.dc.html": {
+   "x": 470,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Échelle · variante C, paliers agrandis à côté du nom",
+   "page": "etape-5"
+  },
+  "E5-Echelle-Curseur.dc.html": {
+   "x": 940,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Échelle · variante D, curseur à quatre crans à côté du nom",
+   "page": "etape-5"
+  },
+  "E5-Echelle-Jauge.dc.html": {
+   "x": 1410,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Échelle · variante E, jauge à aiguille à côté du nom",
+   "page": "etape-5"
+  },
+  "E5-Info-Bas-N1.dc.html": {
+   "x": 1880,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "« i » · A, dans le cadre en bas à droite · niveau 1",
+   "page": "etape-5"
+  },
+  "E5-Info-Bas-N4.dc.html": {
+   "x": 2350,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "« i » · A, dans le cadre en bas à droite · niveau 4, « i » blanc",
+   "page": "etape-5"
+  },
+  "E5-Info-Libelle-N1.dc.html": {
+   "x": 2820,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "« i » · B (retenue), à côté du libellé · niveau 1 : libellé à 19 px, sur une ligne",
+   "page": "etape-5"
+  },
+  "E5-Info-Entete-N3.dc.html": {
+   "x": 3290,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "« i » · C, hors du cadre en haut à droite · niveau 3",
+   "page": "etape-5"
+  },
+  "E5-Info-Volet-N1.dc.html": {
+   "x": 0,
+   "y": 3856,
+   "w": 390,
+   "h": 844,
+   "title": "« i » · volet rouvert au niveau 1 : la limite",
+   "page": "etape-5"
+  },
+  "E3-Question-Recherche.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Question du type · après une recherche (option b)",
+   "page": "etape-3a"
+  },
+  "E3-Produit-TypeAPreciser.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Écran produit · type à préciser (pas sous la main)",
+   "page": "etape-3a"
+  },
+  "E5-Historique-TypeAPreciser.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Historique · un produit dont le type est à préciser",
+   "page": "etape-3a"
+  },
+  "E3-Produit-Type.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Écran produit · type indiqué par l'utilisatrice",
+   "page": "etape-3a"
+  },
+  "E3-Produit-TypeAutre.dc.html": {
+   "x": 1880,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Écran produit · type « Autre »",
+   "page": "etape-3a"
+  },
+  "E3-Verdict-TypeNonPrecise.dc.html": {
+   "x": 2350,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Évaluation incomplète · type de produit non précisé",
+   "page": "etape-3a"
+  },
+  "E3-QuestionSuggeree.dc.html": {
+   "x": 2820,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Question du type · type suggéré, après un scan (piste a, 22/10)",
+   "page": "etape-3a"
+  },
+  "E3-QuestionSuggeree-Recherche.dc.html": {
+   "x": 3290,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Question du type · type suggéré, après une recherche (piste a, 22/10)",
+   "page": "etape-3a"
+  },
+  "E3-Produit-Incomplet.dc.html": {
+   "x": 0,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Écran produit · évaluation incomplète (29/10)",
+   "page": "etape-3a"
+  },
+  "E3-Ingredients-Incomplet.dc.html": {
+   "x": 470,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Ingrédients · évaluation incomplète, ingrédient non reconnu (29/10)",
+   "page": "etape-3a"
+  },
+  "E3-Produit-Actualiser.dc.html": {
+   "x": 940,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Écran produit · verdict non affiché (29/10)",
+   "page": "etape-3a"
+  },
+  "E3-Produit-ActualiserHorsLigne.dc.html": {
+   "x": 1410,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Écran produit · verdict non affiché, sans connexion (29/10)",
+   "page": "etape-3a"
+  },
+  "E3-Ingredients-Actualiser.dc.html": {
+   "x": 1880,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Ingrédients · verdict non affiché (29/10)",
+   "page": "etape-3a"
+  },
+  "E3-Produit-Rappel.dc.html": {
+   "x": 2350,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Écran produit · rappel de lot (29/10)",
+   "page": "etape-3a"
+  },
+  "E3-Ingredients-TypeNonPrecise.dc.html": {
+   "x": 2820,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Ingrédients · type de produit non précisé (29/10)",
+   "page": "etape-3a"
   }
  },
  "order": [
@@ -698,7 +1090,55 @@
   "EA-Ingredients-Spray-Mention.dc.html",
   "EA-Verdict-Renvoi-Rond.dc.html",
   "EA-Verdict-Renvoi-Photo.dc.html",
-  "EA-Verdict-Renvoi-Panneau.dc.html"
+  "EA-Verdict-Renvoi-Panneau.dc.html",
+  "E5-Historique.dc.html",
+  "E5-Historique-Vide.dc.html",
+  "E5-Historique-Attente.dc.html",
+  "E5-Produit.dc.html",
+  "E5-Verdict.dc.html",
+  "E5-Ingredients.dc.html",
+  "E5-Allaitement.dc.html",
+  "E5-Ingredients-Allaitement.dc.html",
+  "E5-Scan-Alerte.dc.html",
+  "E5-Scan-Repere.dc.html",
+  "E5-Historique-Reevalue.dc.html",
+  "E5-Produit-Reevalue.dc.html",
+  "E5-Allaitement-Reevalue.dc.html",
+  "E5-Verdict-Reevalue.dc.html",
+  "E5-Scan-Alertes.dc.html",
+  "E5-Historique-Reevalues.dc.html",
+  "E5-Scan-Evalue.dc.html",
+  "E5-Historique-Evalue.dc.html",
+  "E5-Reglages.dc.html",
+  "E5-Reglages-Arret.dc.html",
+  "E5-Reglages-Confirmer.dc.html",
+  "E5-Reglages-Efface.dc.html",
+  "E5-Scan-AlertesArretees.dc.html",
+  "E5-Echelle-Cercles.dc.html",
+  "E5-Echelle-Barre.dc.html",
+  "E5-Echelle-Paliers.dc.html",
+  "E5-Echelle-Curseur.dc.html",
+  "E5-Echelle-Jauge.dc.html",
+  "E5-Info-Bas-N1.dc.html",
+  "E5-Info-Bas-N4.dc.html",
+  "E5-Info-Libelle-N1.dc.html",
+  "E5-Info-Entete-N3.dc.html",
+  "E5-Info-Volet-N1.dc.html",
+  "E3-Question-Recherche.dc.html",
+  "E3-Produit-TypeAPreciser.dc.html",
+  "E5-Historique-TypeAPreciser.dc.html",
+  "E3-Produit-Type.dc.html",
+  "E3-Produit-TypeAutre.dc.html",
+  "E3-Verdict-TypeNonPrecise.dc.html",
+  "E3-QuestionSuggeree.dc.html",
+  "E3-QuestionSuggeree-Recherche.dc.html",
+  "E3-Produit-Incomplet.dc.html",
+  "E3-Ingredients-Incomplet.dc.html",
+  "E3-Produit-Actualiser.dc.html",
+  "E3-Produit-ActualiserHorsLigne.dc.html",
+  "E3-Ingredients-Actualiser.dc.html",
+  "E3-Produit-Rappel.dc.html",
+  "E3-Ingredients-TypeNonPrecise.dc.html"
  ],
  "notes": {},
  "designSystems": []
