@@ -2,125 +2,626 @@
  "v": 3,
  "createdOnFiles": {
   "v": 1,
-  "at": "2026-10-31T20:44:53Z"
+  "at": "2026-10-31T23:19:30Z"
  },
  "title": "Ficolia — Prototype",
  "launch": {
   "view": "canvas"
  },
- "pages": [],
+ "pages": [
+  {
+   "id": "etape-1",
+   "name": "Étape 1 — sans animation"
+  },
+  {
+   "id": "etape-2",
+   "name": "Étape 2"
+  },
+  {
+   "id": "etape-6",
+   "name": "Étape 6"
+  },
+  {
+   "id": "etape-7",
+   "name": "Étape 7"
+  },
+  {
+   "id": "ligne-allaitement",
+   "name": "Ligne allaitement"
+  }
+ ],
  "boards": {
   "E1-Scan.dc.html": {
    "x": 0,
    "y": 0,
    "w": 390,
    "h": 844,
-   "title": "Scanner"
+   "title": "Scanner",
+   "page": "etape-1"
   },
   "E1-Code.dc.html": {
    "x": 470,
    "y": 0,
    "w": 390,
    "h": 844,
-   "title": "Saisir le code"
+   "title": "Saisir le code",
+   "page": "etape-1"
   },
   "E1-Produit.dc.html": {
    "x": 940,
    "y": 0,
    "w": 390,
    "h": 844,
-   "title": "Écran produit"
+   "title": "Écran produit",
+   "page": "etape-1"
   },
   "E1-Verdict.dc.html": {
    "x": 1410,
    "y": 0,
    "w": 390,
    "h": 844,
-   "title": "Verdict grossesse"
+   "title": "Verdict grossesse",
+   "page": "etape-1"
   },
   "E1-Ingredients.dc.html": {
    "x": 1880,
    "y": 0,
    "w": 390,
    "h": 844,
-   "title": "Ingrédients et panneau"
+   "title": "Ingrédients et panneau",
+   "page": "etape-1"
   },
   "E1-Allaitement.dc.html": {
    "x": 2350,
    "y": 0,
    "w": 390,
    "h": 844,
-   "title": "Allaitement · écran d'attente"
+   "title": "Allaitement · écran d'attente",
+   "page": "etape-1"
   },
   "E1-Ingredients-Allaitement.dc.html": {
    "x": 2820,
    "y": 0,
    "w": 390,
    "h": 844,
-   "title": "Ingrédients · ligne allaitement"
+   "title": "Ingrédients · ligne allaitement",
+   "page": "etape-1"
   },
   "E1-Aide-Scan.dc.html": {
    "x": 3290,
    "y": 0,
    "w": 390,
    "h": 844,
-   "title": "Prise en main · premier lancement : chercher par nom (22/10, revu le 29/10)"
+   "title": "Prise en main · premier lancement : chercher par nom (22/10, revu le 29/10)",
+   "page": "etape-1"
   },
   "E1-Aide-Info.dc.html": {
    "x": 0,
    "y": 964,
    "w": 390,
    "h": 844,
-   "title": "Prise en main · premier verdict : le « i » (22/10, revu le 29/10)"
+   "title": "Prise en main · premier verdict : le « i » (22/10, revu le 29/10)",
+   "page": "etape-1"
   },
   "E1-Aide-Echelle.dc.html": {
    "x": 470,
    "y": 964,
    "w": 390,
    "h": 844,
-   "title": "Prise en main · deuxième verdict : l'échelle (29/10)"
+   "title": "Prise en main · deuxième verdict : l'échelle (29/10)",
+   "page": "etape-1"
   },
   "E1-Aide-Historique.dc.html": {
    "x": 940,
    "y": 964,
    "w": 390,
    "h": 844,
-   "title": "Prise en main · premier retour : l'historique (22/10)"
+   "title": "Prise en main · premier retour : l'historique (22/10)",
+   "page": "etape-1"
   },
   "E1-Aide-Menu.dc.html": {
    "x": 1410,
    "y": 964,
    "w": 390,
    "h": 844,
-   "title": "Prise en main · deuxième retour : le menu (29/10)"
+   "title": "Prise en main · deuxième retour : le menu (29/10)",
+   "page": "etape-1"
   },
   "E1-Ingredients-Idee1.dc.html": {
    "x": 1880,
    "y": 964,
    "w": 390,
    "h": 844,
-   "title": "Ingrédients · idée 1 : liste simple, parfum en étiquette (29/10)"
+   "title": "Ingrédients · idée 1 : liste simple, parfum en étiquette (29/10)",
+   "page": "etape-1"
   },
   "E1-Ingredients-Idee2.dc.html": {
    "x": 2350,
    "y": 964,
    "w": 390,
    "h": 844,
-   "title": "Ingrédients · idée 2 : parfum dans la carte du produit (29/10)"
+   "title": "Ingrédients · idée 2 : parfum dans la carte du produit (29/10)",
+   "page": "etape-1"
   },
   "E1-Ingredients-Idee4.dc.html": {
    "x": 2820,
    "y": 964,
    "w": 390,
    "h": 844,
-   "title": "Ingrédients · idée 4 : ce qui détermine le niveau, puis la liste (29/10)"
+   "title": "Ingrédients · idée 4 : ce qui détermine le niveau, puis la liste (29/10)",
+   "page": "etape-1"
   },
   "E1-Ingredients-Idee5.dc.html": {
    "x": 3290,
    "y": 964,
    "w": 390,
    "h": 844,
-   "title": "Ingrédients · idée 5 : liste de l'idée 1, parfum de l'idée 3 (29/10)"
+   "title": "Ingrédients · idée 5 : liste de l'idée 1, parfum de l'idée 3 (29/10)",
+   "page": "etape-1"
+  },
+  "E2-Recherche.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Rechercher · champ vide",
+   "page": "etape-2"
+  },
+  "E2-Recherche-Resultats.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Rechercher · résultats",
+   "page": "etape-2"
+  },
+  "E2-Recherche-Aucun.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Rechercher · aucun résultat",
+   "page": "etape-2"
+  },
+  "E2-Produit.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Écran produit · après une recherche",
+   "page": "etape-2"
+  },
+  "E2-Verdict.dc.html": {
+   "x": 1880,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Verdict grossesse · après une recherche",
+   "page": "etape-2"
+  },
+  "E2-Ingredients.dc.html": {
+   "x": 2350,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Ingrédients et panneau · après une recherche",
+   "page": "etape-2"
+  },
+  "E2-Allaitement.dc.html": {
+   "x": 2820,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Allaitement · écran d'attente · après une recherche",
+   "page": "etape-2"
+  },
+  "E2-Ingredients-Allaitement.dc.html": {
+   "x": 3290,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Ingrédients · ligne allaitement · après une recherche",
+   "page": "etape-2"
+  },
+  "E2-Verdict-N1.dc.html": {
+   "x": 0,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Verdict grossesse · niveau 1, vert",
+   "page": "etape-2"
+  },
+  "E2-Verdict-N2.dc.html": {
+   "x": 470,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Verdict grossesse · niveau 2, jaune",
+   "page": "etape-2"
+  },
+  "E2-Verdict-N3.dc.html": {
+   "x": 940,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Verdict grossesse · niveau 3, orange",
+   "page": "etape-2"
+  },
+  "E2-Verdict-N4.dc.html": {
+   "x": 1410,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Verdict grossesse · niveau 4, rouge",
+   "page": "etape-2"
+  },
+  "E6-Menu.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Menu · onglet actif : pastille aubergine, figue ivoire",
+   "page": "etape-6"
+  },
+  "E6-BonnesPratiques-Themes.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Bonnes pratiques · fiches rangées par thème (17/10)",
+   "page": "etape-6"
+  },
+  "E6-Fiche-Crevasses.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Fiche « Crevasses » · allaitement (17/10)",
+   "page": "etape-6"
+  },
+  "E6-Methode-Lexique.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Méthode › lexique, les mots de l'application (17/10)",
+   "page": "etape-6"
+  },
+  "E6-APropos.dc.html": {
+   "x": 1880,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "À SUPPRIMER · À propos, fusionnée avec la méthode (30/10)",
+   "page": "etape-6"
+  },
+  "E6-Methode.dc.html": {
+   "x": 2350,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "À propos et méthode (pages fusionnées le 30/10)",
+   "page": "etape-6"
+  },
+  "E6-BonnesPratiques.dc.html": {
+   "x": 2820,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "À SUPPRIMER · Bonnes pratiques · allaitement, remplacée par les fiches par thème (17/10)",
+   "page": "etape-6"
+  },
+  "E6-CGU.dc.html": {
+   "x": 3290,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Conditions d'utilisation",
+   "page": "etape-6"
+  },
+  "E6-Confidentialite.dc.html": {
+   "x": 0,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Politique de confidentialité",
+   "page": "etape-6"
+  },
+  "E6-MentionsLegales.dc.html": {
+   "x": 470,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Mentions légales",
+   "page": "etape-6"
+  },
+  "E6-Ecrire.dc.html": {
+   "x": 940,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Nous écrire · formulaire",
+   "page": "etape-6"
+  },
+  "E6-Ecrire-Envoye.dc.html": {
+   "x": 1410,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Nous écrire · message envoyé",
+   "page": "etape-6"
+  },
+  "E6-Ecrire-Echec.dc.html": {
+   "x": 1880,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Nous écrire · envoi impossible",
+   "page": "etape-6"
+  },
+  "E6-Ecrire-Limite.dc.html": {
+   "x": 2350,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Nous écrire · message proche de la limite",
+   "page": "etape-6"
+  },
+  "E6-CGU-Accueil.dc.html": {
+   "x": 2820,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Conditions d'utilisation · depuis l'accueil",
+   "page": "etape-6"
+  },
+  "E6-Confidentialite-Accueil.dc.html": {
+   "x": 3290,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Politique de confidentialité · depuis l'accueil",
+   "page": "etape-6"
+  },
+  "E7-Produit.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Hors plancher (30/10) · Huile essentielle pure · écran produit",
+   "page": "etape-7"
+  },
+  "E7-Verdict.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Hors plancher (30/10) · Huile essentielle pure · verdict grossesse (niveau 4, par précaution)",
+   "page": "etape-7"
+  },
+  "E7-Allaitement.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Hors plancher (30/10) · Huile essentielle pure · allaitement, écran d'attente",
+   "page": "etape-7"
+  },
+  "E7-Fiche.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Hors plancher (30/10) · Huile essentielle pure · liste d'ingrédients (17/10)",
+   "page": "etape-7"
+  },
+  "E7-NonEvalue.dc.html": {
+   "x": 1880,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Huile essentielle pure · non évaluée, au plancher (30/10)",
+   "page": "etape-7"
+  },
+  "EA-Produit-Lait.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Lait corps · écran produit (la ligne Allaitement mène à l'étude)",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Lait-Sous.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Lait corps · jaune · cases sous le cadre (30/10)",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Lait-Orange.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Lait corps · orange · forme courte, sans condition",
+   "page": "ligne-allaitement"
+  },
+  "EA-Ingredients-Lait.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Lait corps · ingrédients, ligne allaitement",
+   "page": "ligne-allaitement"
+  },
+  "EA-Produit-Baume.dc.html": {
+   "x": 1880,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Soin des mamelons · écran produit",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Baume-Vert.dc.html": {
+   "x": 2350,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Soin des mamelons · vert · zone de tétée évaluée, sans renvoi",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Baume-Jaune.dc.html": {
+   "x": 2820,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Soin des mamelons · jaune · renvoi « Crevasses » en petit rond sur la photo, avec son conseil (30/10)",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Baume-ZoneIncomplete.dc.html": {
+   "x": 3290,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Soin des mamelons · jaune par le lait · zone de tétée incomplète",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Baume-Incomplet.dc.html": {
+   "x": 0,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Soin des mamelons · évaluation incomplète seule",
+   "page": "ligne-allaitement"
+  },
+  "EA-Ingredients-Baume.dc.html": {
+   "x": 470,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Soin des mamelons · ingrédients, panneau : un texte par voie",
+   "page": "ligne-allaitement"
+  },
+  "EA-Produit-Spray.dc.html": {
+   "x": 940,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Spray solaire corps · écran produit",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Spray.dc.html": {
+   "x": 1410,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Spray solaire corps · jaune · trois cases, tout sur le verdict (30/10)",
+   "page": "ligne-allaitement"
+  },
+  "EA-Ingredients-Spray.dc.html": {
+   "x": 1880,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Spray solaire corps · ingrédients, plus rien en tête de liste (30/10)",
+   "page": "ligne-allaitement"
+  },
+  "EA-Produit-Gel.dc.html": {
+   "x": 2350,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Gel douche · écran produit",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Gel.dc.html": {
+   "x": 2820,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Gel douche · vert · sans mention : la condition savon part vers une fiche (17/10)",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Gel-Source.dc.html": {
+   "x": 3290,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Lait corps · panneau « source » ouvert (produit parfumé)",
+   "page": "ligne-allaitement"
+  },
+  "EA-Ingredients-Gel.dc.html": {
+   "x": 0,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Gel douche · ingrédients, ligne allaitement",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Lait-Drapeau.dc.html": {
+   "x": 470,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Trace (17/10) · Lait corps · jaune · forme B, pastilles à ouvrir (retenue le 17/10)",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Spray-Icones.dc.html": {
+   "x": 940,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "À SUPPRIMER · forme A écartée le 17/10 (spray)",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Gel-Icones.dc.html": {
+   "x": 1410,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Trace (17/10) · Soin des mamelons · jaune · renvoi : le panneau ouvert (17/10)",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Baume-RenvoiLien.dc.html": {
+   "x": 1880,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Trace (17/10) · Soin des mamelons · jaune · renvoi : petit rond sur la photo (autre idée, 17/10)",
+   "page": "ligne-allaitement"
+  },
+  "EA-Ingredients-Spray-Mention.dc.html": {
+   "x": 2350,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Trace (17/10) · Spray solaire corps · ingrédients, la mention « contact rapproché » ouverte sur son explication (17/10)",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Renvoi-Rond.dc.html": {
+   "x": 2820,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Trace (22/10) · Soin des mamelons · jaune · renvoi : petit rond en bas à droite (à comparer, 22/10)",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Renvoi-Photo.dc.html": {
+   "x": 3290,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Trace (22/10) · Soin des mamelons · jaune · renvoi : petit rond sur la photo (à comparer, 22/10) — retenu le 30/10",
+   "page": "ligne-allaitement"
+  },
+  "EA-Verdict-Renvoi-Panneau.dc.html": {
+   "x": 0,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Trace (22/10) · Soin des mamelons · jaune · renvoi : le panneau, le même pour les trois formes (22/10)",
+   "page": "ligne-allaitement"
   }
  },
  "order": [
@@ -139,7 +640,65 @@
   "E1-Ingredients-Idee1.dc.html",
   "E1-Ingredients-Idee2.dc.html",
   "E1-Ingredients-Idee4.dc.html",
-  "E1-Ingredients-Idee5.dc.html"
+  "E1-Ingredients-Idee5.dc.html",
+  "E2-Recherche.dc.html",
+  "E2-Recherche-Resultats.dc.html",
+  "E2-Recherche-Aucun.dc.html",
+  "E2-Produit.dc.html",
+  "E2-Verdict.dc.html",
+  "E2-Ingredients.dc.html",
+  "E2-Allaitement.dc.html",
+  "E2-Ingredients-Allaitement.dc.html",
+  "E2-Verdict-N1.dc.html",
+  "E2-Verdict-N2.dc.html",
+  "E2-Verdict-N3.dc.html",
+  "E2-Verdict-N4.dc.html",
+  "E6-Menu.dc.html",
+  "E6-BonnesPratiques-Themes.dc.html",
+  "E6-Fiche-Crevasses.dc.html",
+  "E6-Methode-Lexique.dc.html",
+  "E6-APropos.dc.html",
+  "E6-Methode.dc.html",
+  "E6-BonnesPratiques.dc.html",
+  "E6-CGU.dc.html",
+  "E6-Confidentialite.dc.html",
+  "E6-MentionsLegales.dc.html",
+  "E6-Ecrire.dc.html",
+  "E6-Ecrire-Envoye.dc.html",
+  "E6-Ecrire-Echec.dc.html",
+  "E6-Ecrire-Limite.dc.html",
+  "E6-CGU-Accueil.dc.html",
+  "E6-Confidentialite-Accueil.dc.html",
+  "E7-Produit.dc.html",
+  "E7-Verdict.dc.html",
+  "E7-Allaitement.dc.html",
+  "E7-Fiche.dc.html",
+  "E7-NonEvalue.dc.html",
+  "EA-Produit-Lait.dc.html",
+  "EA-Verdict-Lait-Sous.dc.html",
+  "EA-Verdict-Lait-Orange.dc.html",
+  "EA-Ingredients-Lait.dc.html",
+  "EA-Produit-Baume.dc.html",
+  "EA-Verdict-Baume-Vert.dc.html",
+  "EA-Verdict-Baume-Jaune.dc.html",
+  "EA-Verdict-Baume-ZoneIncomplete.dc.html",
+  "EA-Verdict-Baume-Incomplet.dc.html",
+  "EA-Ingredients-Baume.dc.html",
+  "EA-Produit-Spray.dc.html",
+  "EA-Verdict-Spray.dc.html",
+  "EA-Ingredients-Spray.dc.html",
+  "EA-Produit-Gel.dc.html",
+  "EA-Verdict-Gel.dc.html",
+  "EA-Verdict-Gel-Source.dc.html",
+  "EA-Ingredients-Gel.dc.html",
+  "EA-Verdict-Lait-Drapeau.dc.html",
+  "EA-Verdict-Spray-Icones.dc.html",
+  "EA-Verdict-Gel-Icones.dc.html",
+  "EA-Verdict-Baume-RenvoiLien.dc.html",
+  "EA-Ingredients-Spray-Mention.dc.html",
+  "EA-Verdict-Renvoi-Rond.dc.html",
+  "EA-Verdict-Renvoi-Photo.dc.html",
+  "EA-Verdict-Renvoi-Panneau.dc.html"
  ],
  "notes": {},
  "designSystems": []

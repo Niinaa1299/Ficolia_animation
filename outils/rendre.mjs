@@ -32,10 +32,16 @@ fs.mkdirSync(sortie, { recursive: true });
 
 // Un petit serveur local : le moteur relit sa propre page par fetch(), ce que file:// interdit.
 const pages = new Map();
+let dossierSources = null;
 const serveur = http.createServer((req, res) => {
   const nom = decodeURIComponent(req.url.slice(1));
   if (pages.has(nom)) { res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' }); return res.end(pages.get(nom)); }
   if (MOTEUR.includes(nom)) { res.writeHead(200, { 'Content-Type': 'text/javascript' }); return res.end(fs.readFileSync(path.join(runtime, nom))); }
+  // les ressources des planches (project/assets/…), à côté des sources
+  if (nom.startsWith('assets/') && !nom.includes('..') && dossierSources) {
+    const f = path.join(dossierSources, nom);
+    if (fs.existsSync(f)) { res.writeHead(200); return res.end(fs.readFileSync(f)); }
+  }
   res.writeHead(404); res.end();
 });
 await new Promise(r => serveur.listen(0, '127.0.0.1', r));
@@ -50,6 +56,7 @@ for (const src of sources) {
   if (!html.includes('<script src="./support.js"></script>')) { console.log(`${path.basename(src)} : pas de ligne support.js, ignoré`); continue; }
   html = html.replace('<script src="./support.js"></script>', inject);
   const nom = path.basename(src);
+  dossierSources = path.dirname(path.resolve(src));
   pages.set(nom, html);
   const page = await browser.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 2 });
   const errs = [];

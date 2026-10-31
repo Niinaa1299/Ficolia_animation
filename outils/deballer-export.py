@@ -29,13 +29,17 @@ Limites connues :
   - Le <link> Google Fonts est reconstitué à partir des @font-face trouvés (familles, graisses, styles) :
     c'est la forme attendue par le canevas (cf. design/reference/revelation-logo.dc.html du zip du brief),
     mais l'ordre des paramètres et display=swap sont une hypothèse.
-  - Les images téléversées (/_blob/…) ne seraient pas dans l'export ; le rapport les signalerait.
+  - Les ressources téléversées (images, vidéos) sont emballées dans l'export : elles sont extraites sous
+    project/assets/, nommées par empreinte, et les planches les référencent en chemin relatif. Les
+    identifiants /_blob/ d'origine ne sont pas dans l'export.
   - Aucune comparaison avec le canevas n'est possible : le serveur refuse d'en servir les fichiers.
 """
-import argparse, base64, datetime, gzip, html, json, os, re, unicodedata
+import argparse, base64, datetime, gzip, hashlib, html, json, os, re, unicodedata
 from collections import OrderedDict
 
 MARQUE_RUNTIME = "// GENERATED from dc-runtime"
+EXTENSIONS = {"image/png": "png", "image/jpeg": "jpg", "image/gif": "gif", "image/webp": "webp", "image/svg+xml": "svg",
+              "video/mp4": "mp4", "video/webm": "webm", "audio/mpeg": "mp3", "application/json": "json", "text/css": "css"}
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -89,13 +93,15 @@ def lien_google_fonts(style_css):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("export")
-    ap.add_argument("--page", default=None, help="nom court de la page exportée (pour le rapport)")
+    ap.add_argument("--page", default=None, help="identifiant court de la page du canevas (ex. etape-2) ; sert au rapport et à canvas.json")
+    ap.add_argument("--titre", default=None, help="nom de la page dans le canevas (par défaut : l'identifiant)")
     ap.add_argument("--dest", default=os.path.join(RACINE, "prototype", "sources"))
     a = ap.parse_args()
     dest = os.path.abspath(a.dest)
     noms_path = os.path.join(dest, "noms.json")
     noms = {k: v for k, v in json.load(open(noms_path, encoding="utf-8")).items() if not k.startswith("_")} if os.path.exists(noms_path) else {}
-    page_id = a.page or slug(os.path.splitext(os.path.basename(a.export))[0])
+    page_id = re.sub(r"[^A-Za-z0-9_-]", "-", a.page or slug(os.path.splitext(os.path.basename(a.export))[0]))[:40]
+    page_nom = a.titre or page_id
 
     src = open(a.export, encoding="utf-8").read()
     manifest = json.loads(bloc("manifest", src))
@@ -112,8 +118,8 @@ def main():
     rapport = [f"# Rapport de déballage — {page_id}", "",
                f"Export : `{os.path.basename(a.export)}` · déballé le {datetime.date.today().isoformat()} · canevas « {titre_canevas} »", "",
                f"Planches dans l'export : {len(ordre)} (manifeste : {len(manifest)} entrées).", "",
-               "| # | Titre dans l'export | Fichier produit | Nom | Taille | support.js | x-dc | dc-script | $preview | trous | liens | images téléversées | identifiants restants |",
-               "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+               "| # | Titre dans l'export | Fichier produit | Nom | Taille | support.js | x-dc | dc-script | $preview | trous | liens | ressources extraites | /_blob/ restants | identifiants restants |",
+               "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     boards, order, ecarts, runtime_ok, fam_txt = OrderedDict(), [], [], False, "—"
     x = y = 0
     for i, u in enumerate(ordre, 1):
@@ -138,7 +144,28 @@ def main():
         else:
             ecarts.append(f"{titre} : moteur dc-runtime absent du paquet")
 
-        # 2. les polices, rendues au <link> Google Fonts
+        # 2. les ressources téléversées (images, vidéos…), emballées dans l'export : extraites une fois
+        #    (nommées par empreinte) sous project/assets/, et référencées en chemin relatif, forme que le
+        #    canevas accepte pour un fichier nommé sous project/.
+        nb_ressources = 0
+        for k, v in man2.items():
+            mime = v["mime"]
+            if "javascript" in mime or mime.startswith("font/") or k not in source:
+                continue
+            data = decode(v)
+            ext = EXTENSIONS.get(mime)
+            if not ext:
+                ecarts.append(f"{titre} : ressource de type {mime} non reconnue, identifiant laissé tel quel")
+                continue
+            nom_res = hashlib.sha256(data).hexdigest()[:12] + "." + ext
+            chemin = os.path.join(dest, "project", "assets", nom_res)
+            if not os.path.exists(chemin):
+                os.makedirs(os.path.dirname(chemin), exist_ok=True)
+                open(chemin, "wb").write(data)
+            source = source.replace(k, "assets/" + nom_res)
+            nb_ressources += 1
+
+        # 3. les polices, rendues au <link> Google Fonts
         m = re.search(r"(<helmet>\s*<style>)(.*?)(</style>)", source, re.S)
         if m and "@font-face" in m.group(2):
             link, fams = lien_google_fonts(m.group(2))
@@ -175,23 +202,34 @@ def main():
             ecarts.append(f"{titre} : identifiants d'export restants : {uuids}")
         rapport.append(f"| {i} | {titre} | `{fichier}` | {'table' if titre in noms else 'construit'} | {len(source.encode())} o | "
                        f"{'oui' if './support.js' in source else 'NON'} | {'oui' if '<x-dc>' in source else 'NON'} | {'oui' if 'data-dc-script' in source else 'NON'} | "
-                       f"{w}×{h} | {trous} | {len(liens)} | {blobs} | {len(uuids)} |")
+                       f"{w}×{h} | {trous} | {len(liens)} | {nb_ressources} | {blobs} | {len(uuids)} |")
 
-        boards[fichier] = {"x": x, "y": y, "w": w, "h": h, "title": titre}
+        boards[fichier] = {"x": x, "y": y, "w": w, "h": h, "title": titre, "page": page_id}
         order.append(fichier)
         x += w + 80
         if i % 8 == 0:
             x, y = 0, y + h + 120
 
-    index = {"v": 3, "createdOnFiles": {"v": 1, "at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")},
-             "title": titre_canevas, "launch": {"view": "canvas"}, "pages": [], "boards": boards, "order": order, "notes": {}, "designSystems": []}
-    with open(os.path.join(dest, "project", "canvas.json"), "w", encoding="utf-8") as f:
+    # L'index accumule les pages : une page du canevas par export. Rejouer un export remplace sa page.
+    index_path = os.path.join(dest, "project", "canvas.json")
+    if os.path.exists(index_path):
+        index = json.load(open(index_path, encoding="utf-8"))
+    else:
+        index = {"v": 3, "createdOnFiles": {"v": 1, "at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")},
+                 "title": titre_canevas, "launch": {"view": "canvas"}, "pages": [], "boards": {}, "order": [], "notes": {}, "designSystems": []}
+    index["boards"] = {k: v for k, v in index.get("boards", {}).items() if v.get("page") != page_id}
+    index["order"] = [k for k in index.get("order", []) if k in index["boards"]]
+    index["boards"].update(boards)
+    index["order"] += order
+    pages = [p for p in index.get("pages", []) if p.get("id") != page_id] + [{"id": page_id, "name": page_nom}]
+    index["pages"] = sorted(pages, key=lambda p: p["id"])
+    with open(index_path, "w", encoding="utf-8") as f:
         json.dump(index, f, ensure_ascii=False, indent=1)
 
     rapport += ["", f"Polices reconstituées en `<link>` Google Fonts : {fam_txt}.", "",
                 "## Écarts et points à vérifier", ""] + ([f"- {e}" for e in ecarts] or ["- Aucun écart relevé."]) + ["",
                 "## Limites", "",
-                "- Les positions, pages et notes du canevas d'origine ne sont pas dans l'export : `canvas.json` dispose les planches en rangées de 8, dans l'ordre de l'export.",
+                f"- Les positions, pages et notes du canevas d'origine ne sont pas dans l'export : `canvas.json` dispose les planches en rangées de 8, dans l'ordre de l'export, sur une page « {page_nom} » (`{page_id}`).",
                 "- Les noms de fichiers viennent de `noms.json` (déduits, à confirmer sur le canevas).",
                 "- Le `<link>` Google Fonts est reconstitué (familles et graisses lues dans les `@font-face`) ; l'original n'est pas dans l'export.",
                 "- Aucune comparaison octet par octet avec le canevas n'est possible : le serveur refuse d'en servir les fichiers."]
