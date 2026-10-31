@@ -1000,3 +1000,14 @@ Porteuse : « OUI », en réponse à : « « Clore le volet », c'est décider q
   - la revue du bloc G ;
   - les points `O-52` à `O-57`.
 - Au registre, à inscrire à l'étape 8 : la révision de la décision 13, et le statut « module non clos » (annexe A.8).
+
+## 39. Fil `6c55f949` : bouton trop collé à la ligne Allaitement (31/10, rien de publié)
+
+Porteuse : « Vérifie que le bouton n'est pas trop collé à la ligne allaitement sur tous les écrans » (bouton « Ce n'est pas ce produit », écran produit).
+- Réponse donnée dans le fil : le point est gardé pour la prochaine publication, faute d'accès au canevas.
+- Méthode :
+  1. relever tous les écrans produit qui portent la ligne et le bouton ;
+  2. mesurer l'écart en texte standard, à 130 % et à 200 % ;
+  3. poser le même écart partout, aligné sur l'espacement entre les blocs ;
+  4. montrer l'avant et l'après avant de publier.
+- Le fil reste ouvert, à clore par la porteuse.
