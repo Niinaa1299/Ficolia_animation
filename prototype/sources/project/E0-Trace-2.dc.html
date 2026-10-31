@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<title>Traçabilité 2 — Structure et mots</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Atkinson Hyperlegible",system-ui,sans-serif;background:#FFFFFF;color:#321C31}
+a{color:#4C2944}a:hover{color:#321C31}
+</style>
+</helmet>
+<div style="width: 100%; max-width: 1600px; margin: 0 auto; box-sizing: border-box; padding: 56px; background: #FFFFFF; color: #321C31; display: flex; flex-direction: column; gap: 44px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6E5A6B">Traçabilité · étape 0 · 2 sur 8</span>
+<h1 style="margin: 0; font-size: 34px; font-weight: 700; line-height: 1.15">Structure et mots</h1>
+<p style="margin: 0; font-size: 16px; line-height: 1.45; color: #6E5A6B; max-width: 1180px">L'architecture d'écran, la navigation et les règles qui s'appliquent à tous les textes.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 14px"><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px solid #321C31">Provisoire</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px dashed #6E5A6B">Ouvert</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #EFE6EE; color: #4C2944; border: 1.5px solid #CDB7CA">Séance · à inscrire</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #ECEAE6; color: #321C31; border: 1.5px solid #D6CEC6">Module allaitement</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #4C2944; border: 3px double #4C2944">Conflit</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #F3F1EE; color: #6E5A6B; border: 1.5px solid #E7E1DA">Hors lancement</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px dotted #321C31; font-style: italic">Interprétation</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #F3F1EE; color: #321C31; border: 1.5px solid #B9AFA6">Limite</span></span></div>
+<section style="display: flex; flex-direction: column">
+<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700">Architecture et navigation <span style="font-size: 15px; font-weight: 400; color: #6E5A6B">· 14</span></h2>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 0 0 8px 0; border-bottom: 1.5px solid #321C31"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Élément</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Référence</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Ce qui est dit</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Statut</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Dans le prototype</span></div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Écran produit</span>
+<span style="font-size: 14px; color: #4C2944">T-365 · dossier §3.1</span>
+<span>Photo du produit en grand, identité, deux lignes : grossesse, allaitement. Rien d'autre.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Photo non décorative</span>
+<span style="font-size: 14px; color: #4C2944">dossier §3.1 · L-8</span>
+<span>Seule barrière contre un mauvais appariement silencieux.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Deux lignes inséparables</span>
+<span style="font-size: 14px; color: #4C2944">D-112 (A9) · T-260 · L-36</span>
+<span>Même poids, grossesse d'abord, intitulé net sur chacune ; des intitulés, pas de pastilles ; aucun verdict avant le tap.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Identité du produit</span>
+<span style="font-size: 14px; color: #4C2944">T-214 · T-213</span>
+<span>Nom complet, marque, contenance, toujours ; photo souhaitable, identité textuelle obligatoire ; l'identité reste affichée avec le verdict.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit, pages Étape 1 et Étape 2 · variantes sans photo, liste de résultats comprise</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Un écran de verdict par ligne, au tap</span>
+<span style="font-size: 14px; color: #4C2944">T-365 · dossier §3.1</span>
+<span>Cadre coloré, libellé, phrase, échelle, accès à la liste des ingrédients.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Grossesse construit, page Étape 1 · allaitement : écran d'attente sans niveau ni couleur, jusqu'à la clôture du module (05/10)</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Retour</span>
+<span style="font-size: 14px; color: #4C2944">dossier §3.1</span>
+<span>Vers l'écran produit, jamais vers le scan, pour consulter les deux lignes l'une après l'autre.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Confirmer ou choisir</span>
+<span style="font-size: 14px; color: #4C2944">T-200</span>
+<span>Deux écrans distincts : confirmer le produit après un scan, le choisir après une recherche.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit, page Étape 2 · la liste de résultats est l'écran où l'on choisit, puis vient l'écran produit (06/10)</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Menu et liens en contexte</span>
+<span style="font-size: 14px; color: #4C2944">D-115 (D3) · T-537</span>
+<span>Pas d'onglet de contenu. Un menu : « À propos », fiche méthode, CGU, confidentialité, mentions légales, réglages ; des liens en contexte (panneau vers la source, volet de première alerte vers la fiche méthode).</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Menu à construire (étape 6)</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Répartition scan / historique / menu</span>
+<span style="font-size: 14px; color: #4C2944">dossier §3.2 et §6 · décision du 05/10</span>
+<span>Scanner, Rechercher, Historique et une quatrième entrée qui ouvre le menu, intitulée « Menu » (05/10) : « À propos » ressemblait à un onglet de contenu, que D-115 (D3) écarte.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #EFE6EE; color: #4C2944; border: 1.5px solid #CDB7CA">Séance · à inscrire</span></span>
+<span>Construit sur le scanner, page Étape 1 · menu à l'étape 6</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Scan en série</span>
+<span style="font-size: 14px; color: #4C2944">D-4 · CHEMIN-6</span>
+<span>Un détail de navigation ; pas de panier comparatif.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit, page Étape 1 · retour au scanner depuis l'écran produit</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Gratuité</span>
+<span style="font-size: 14px; color: #4C2944">D-19 · D-45</span>
+<span>Le verdict n'est jamais payant, et rien de ce qui le maintient vrai n'est derrière un péage.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Aucun écran payant</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Technique, pour la faisabilité</span>
+<span style="font-size: 14px; color: #4C2944">D-78 · D-90 · D-97 · D-74</span>
+<span>Application Flutter ; verdict calculé et versionné sur le serveur, jamais sur le téléphone ; base ouverte interrogée depuis le serveur, jamais depuis le téléphone.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Hors écran</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Assemblage des pistes</span>
+<span style="font-size: 14px; color: #4C2944">Séance 27-28/09</span>
+<span>Barre d'onglets de la piste B ; viseur à aide au centrage de la piste A ; écran produit : image et détails de B, bloc « Voir le verdict » de C.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #EFE6EE; color: #4C2944; border: 1.5px solid #CDB7CA">Séance · à inscrire</span></span>
+<span>Construit</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Hors ligne</span>
+<span style="font-size: 14px; color: #4C2944">D-91 · D-54 · L-35</span>
+<span>Verdicts consultés et catalogue transcrit embarqués avec leur identité. Hors réseau, un produit absent du cache n'a aucun chemin et la recherche par nom ne fonctionne pas.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>États dégradés à construire (étapes 3 et 5)</span>
+</div>
+</section>
+<section style="display: flex; flex-direction: column">
+<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700">Vocabulaire et règles de texte <span style="font-size: 15px; font-weight: 400; color: #6E5A6B">· 18</span></h2>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 0 0 8px 0; border-bottom: 1.5px solid #321C31"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Élément</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Référence</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Ce qui est dit</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Statut</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Dans le prototype</span></div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Quatre libellés</span>
+<span style="font-size: 14px; color: #4C2944">D-103</span>
+<span>1 · Composition sans signal identifié — 2 · Composition à signal modéré — 3 · Composition préoccupante — 4 · Composition incompatible.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit, page Étape 1 · sur une ligne, 20,5 px (confirmé le 06/10)</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Libellé du niveau 4</span>
+<span style="font-size: 14px; color: #4C2944">D-63 · O-22 · T-118</span>
+<span>« Composition incompatible » est soumis à la juriste : qualificatif absolu, y compris pour un niveau 4 obtenu par calcul.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px solid #321C31">Provisoire</span></span>
+<span>Utilisé, marqué provisoire</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Phrases de la ligne grossesse</span>
+<span style="font-size: 14px; color: #4C2944">D-104 · T-371</span>
+<span>Quatre phrases arrêtées pour soumission au toxicologue (et à la juriste pour le niveau 4), vraies pour tous les chemins de leur niveau, de 100 à 106 caractères.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px solid #321C31">Provisoire</span></span>
+<span>Construit, page Étape 1 · marquées provisoires</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Phrases de la ligne allaitement</span>
+<span style="font-size: 14px; color: #4C2944">D-105</span>
+<span>Rédigées par la porteuse à la clôture du module allaitement. Ne rien inventer.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px dashed #6E5A6B">Ouvert</span></span>
+<span>Après la clôture du module allaitement (réponse du 01/10)</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Informer, ne pas prescrire</span>
+<span style="font-size: 14px; color: #4C2944">D-24 · D-5</span>
+<span>Une application de consommation à valeur informative : elle informe sur une composition, elle ne prescrit pas ; ce n'est pas un avis médical.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Règle</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Aucune modulation d'usage</span>
+<span style="font-size: 14px; color: #4C2944">T-402</span>
+<span>Ni fréquence, ni quantité, ni durée.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Règle · contrôle automatique (étape 8)</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Aucun appel à l'action</span>
+<span style="font-size: 14px; color: #4C2944">T-117 · T-403 · D-66</span>
+<span>Sur l'écran produit et l'écran de verdict : ni « consultez votre médecin », ni « évitez », ni « vérifiez ».</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Règle · contrôle à l'étape 8</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Neutralité</span>
+<span style="font-size: 14px; color: #4C2944">D-114 (C1) · T-533 (a)</span>
+<span>Aucun texte ne suppose une grossesse en cours, un bébé né, ni même que la lectrice est concernée.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Règle</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Dates</span>
+<span style="font-size: 14px; color: #4C2944">D-52 · D-94 · D-114 (C9) · O-26</span>
+<span>Aucune date, sauf la date de publication d'une source, au panneau. Exception : la date de version des CGU et de la fiche méthode, sous réserve de la juriste.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Règle</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Aucune revendication</span>
+<span style="font-size: 14px; color: #4C2944">T-406 · T-534 · D-109</span>
+<span>Les formules à borner sont listées en T-534, qui reste à arbitrer ; les textes publics ne reprennent pas les définitions de l'étalon (D-109).</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Règle · contrôle à l'étape 8</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Le nom Ficolia, seul</span>
+<span style="font-size: 14px; color: #4C2944">D-108 · D-115</span>
+<span>Aucun autre nom, ancien ou de travail.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Règle</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Rappel général</span>
+<span style="font-size: 14px; color: #4C2944">D-114 (C8) · O-27 · T-555</span>
+<span>« Pour toute question de santé, adressez-vous à un professionnel de santé » : à l'onboarding, dans « À propos » et la fiche méthode, les CGU, la description des stores. Jamais sur l'écran produit ni de verdict.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px solid #321C31">Provisoire</span></span>
+<span>Construit, page Étape 1 : accueil, volet de première alerte, panneau · pages permanentes (étape 6)</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Mots à ne pas écrire</span>
+<span style="font-size: 14px; color: #4C2944">dossier §4.4 · T-421</span>
+<span>« sûr », « sans danger », « vérifié », « Ne pas utiliser », « votre grossesse », « bientôt », « disponible en V2 »… (liste complète au dossier).</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Recherche automatique (étape 8)</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Aucune notion interne à l'écran</span>
+<span style="font-size: 14px; color: #4C2944">dossier §0 · ECARTEE-43</span>
+<span>Aucun NB, calcul, facteur d'exposition, score, décompte d'ingrédients, nom de base ou de procédure interne.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Règle</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Pas de coupable désigné</span>
+<span style="font-size: 14px; color: #4C2944">dossier §0</span>
+<span>L'ingrédient déterminant n'est pas nommé sur l'écran de verdict : l'utilisatrice le trouve en dépliant la liste.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Règle</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Comment les verdicts sont établis</span>
+<span style="font-size: 14px; color: #4C2944">D-116 · T-534 · T-551</span>
+<span>Ne rien en écrire au-delà d'un texte de remplacement : la formulation est une question ouverte.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px dashed #6E5A6B">Ouvert</span></span>
+<span>Texte de remplacement (fiche méthode, étape 6)</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Formule d'interface du toxicologue</span>
+<span style="font-size: 14px; color: #4C2944">T-320</span>
+<span>« Ficolia évalue un niveau de vigilance pour chaque produit… Ce n'est pas un avis médical. » Ajustement soumis au toxicologue ; son emplacement n'a jamais été fixé. Absente du dossier.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px dashed #6E5A6B">Ouvert</span></span>
+<span>Non affichée : la méthode est présentée sans entrer dans le détail (porteuse, 30/10)</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Dire ce qu'on ne sait pas</span>
+<span style="font-size: 14px; color: #4C2944">T-190 · L-49</span>
+<span>« Rien à signaler » n'est pas « prouvé sans risque » : l'absence de signal n'est pas une démonstration d'innocuité.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Règle (fiche méthode, CGU)</span>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1600,&quot;height&quot;:3450}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+
+
+</body></html>

@@ -10,6 +10,10 @@
  },
  "pages": [
   {
+   "id": "etape-0",
+   "name": "Étape 0 — fondations et traçabilité"
+  },
+  {
    "id": "etape-1",
    "name": "Étape 1 — sans animation"
   },
@@ -1014,6 +1018,158 @@
    "h": 844,
    "title": "Ingrédients · type de produit non précisé (29/10)",
    "page": "etape-3a"
+  },
+  "E0-Fondations.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1600,
+   "h": 3500,
+   "title": "Fondations",
+   "page": "etape-0"
+  },
+  "E0-Polices.dc.html": {
+   "x": 1680,
+   "y": 0,
+   "w": 1600,
+   "h": 1900,
+   "title": "Police d'interface — comparaison",
+   "page": "etape-0"
+  },
+  "E0-Trace-1.dc.html": {
+   "x": 0,
+   "y": 3620,
+   "w": 1600,
+   "h": 3020,
+   "title": "Traçabilité 1 — Fondations visuelles",
+   "page": "etape-0"
+  },
+  "E0-Trace-2.dc.html": {
+   "x": 1680,
+   "y": 3620,
+   "w": 1600,
+   "h": 3450,
+   "title": "Traçabilité 2 — Structure et mots",
+   "page": "etape-0"
+  },
+  "E0-Trace-3.dc.html": {
+   "x": 3360,
+   "y": 3620,
+   "w": 1600,
+   "h": 1970,
+   "title": "Traçabilité 3 — Entrée dans l'application",
+   "page": "etape-0"
+  },
+  "E0-Trace-4.dc.html": {
+   "x": 5040,
+   "y": 3620,
+   "w": 1600,
+   "h": 2300,
+   "title": "Traçabilité 4 — Le verdict",
+   "page": "etape-0"
+  },
+  "E0-Trace-5.dc.html": {
+   "x": 6720,
+   "y": 3620,
+   "w": 1600,
+   "h": 1810,
+   "title": "Traçabilité 5 — La composition",
+   "page": "etape-0"
+  },
+  "E0-Trace-6.dc.html": {
+   "x": 8400,
+   "y": 3620,
+   "w": 1600,
+   "h": 2710,
+   "title": "Traçabilité 6 — Sans verdict, contribution, signalement",
+   "page": "etape-0"
+  },
+  "E0-Trace-7.dc.html": {
+   "x": 10080,
+   "y": 3620,
+   "w": 1600,
+   "h": 2420,
+   "title": "Traçabilité 7 — Après le verdict",
+   "page": "etape-0"
+  },
+  "E0-Trace-8.dc.html": {
+   "x": 11760,
+   "y": 3620,
+   "w": 1600,
+   "h": 3280,
+   "title": "Traçabilité 8 — Hors champ et bilan",
+   "page": "etape-0"
+  },
+  "E3-Scan-Avant.dc.html": {
+   "x": 0,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "À SUPPRIMER · caméra, avant la demande (écran abandonné)",
+   "page": "etape-3a"
+  },
+  "E3-Scan-Demande.dc.html": {
+   "x": 470,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Caméra · demande du téléphone",
+   "page": "etape-3a"
+  },
+  "E3-Scan-Refus.dc.html": {
+   "x": 940,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Caméra · refusée",
+   "page": "etape-3a"
+  },
+  "E3-Scan-Reglages.dc.html": {
+   "x": 1410,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Caméra · réglages",
+   "page": "etape-3a"
+  },
+  "E3-Verdict-Incomplet.dc.html": {
+   "x": 0,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Évaluation incomplète (état « verdict incomplet »)",
+   "page": "etape-3a"
+  },
+  "E3-Verdict-Actualiser.dc.html": {
+   "x": 470,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Verdict à actualiser",
+   "page": "etape-3a"
+  },
+  "E3-Verdict-Rappel.dc.html": {
+   "x": 940,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Rappel de lot",
+   "page": "etape-3a"
+  },
+  "E3-Question.dc.html": {
+   "x": 1410,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Question du type · après un scan (option b)",
+   "page": "etape-3a"
+  },
+  "E3-Verdict-ActualiserHorsLigne.dc.html": {
+   "x": 1880,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Verdict à actualiser · sans connexion",
+   "page": "etape-3a"
   }
  },
  "order": [
@@ -1138,7 +1294,26 @@
   "E3-Produit-ActualiserHorsLigne.dc.html",
   "E3-Ingredients-Actualiser.dc.html",
   "E3-Produit-Rappel.dc.html",
-  "E3-Ingredients-TypeNonPrecise.dc.html"
+  "E3-Ingredients-TypeNonPrecise.dc.html",
+  "E0-Fondations.dc.html",
+  "E0-Polices.dc.html",
+  "E0-Trace-1.dc.html",
+  "E0-Trace-2.dc.html",
+  "E0-Trace-3.dc.html",
+  "E0-Trace-4.dc.html",
+  "E0-Trace-5.dc.html",
+  "E0-Trace-6.dc.html",
+  "E0-Trace-7.dc.html",
+  "E0-Trace-8.dc.html",
+  "E3-Scan-Avant.dc.html",
+  "E3-Scan-Demande.dc.html",
+  "E3-Scan-Refus.dc.html",
+  "E3-Scan-Reglages.dc.html",
+  "E3-Verdict-Incomplet.dc.html",
+  "E3-Verdict-Actualiser.dc.html",
+  "E3-Verdict-Rappel.dc.html",
+  "E3-Question.dc.html",
+  "E3-Verdict-ActualiserHorsLigne.dc.html"
  ],
  "notes": {},
  "designSystems": []

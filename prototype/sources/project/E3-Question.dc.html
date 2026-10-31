@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<title>Ficolia — Type de produit</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,sans-serif;background:#FFFFFF;color:#321C31;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+a,button{touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 160ms ease-out}
+a:active,button:active{transform:scale(0.97)}
+a:focus-visible,button:focus-visible{outline:2px solid #4C2944;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){a,button{transition:none}a:active,button:active{transform:none}}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; color: #321C31; font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
+<div style="flex-shrink: 0; padding: 50px 20px 0 20px; display: flex; align-items: center; justify-content: space-between">
+<sc-if value="{{isScan}}" hint-placeholder-val="{{ true }}">
+<a href="E1-Scan.dc.html" aria-label="Retour au scan" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</a>
+</sc-if>
+<sc-if value="{{isRecherche}}" hint-placeholder-val="{{ false }}">
+<a href="E2-Recherche-Resultats.dc.html" aria-label="Retour à la recherche" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</a>
+</sc-if>
+</div>
+<div style="flex-shrink: 0; margin: 12px 20px 0 20px; padding: 12px 14px; border: 1px solid #E7E1DA; border-radius: 20px; background: #FFFFFF; display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="flex-shrink: 0; width: 52px; height: 52px; box-sizing: border-box; border-radius: 12px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="30" height="39" sc-camel-view-box="0 0 200 260"><rect x="86" y="14" width="28" height="12" rx="4" fill="#7E8285"></rect><rect x="112" y="17" width="32" height="6" rx="3" fill="#7E8285"></rect><rect x="95" y="26" width="10" height="14" fill="#9DA1A4"></rect><rect x="80" y="40" width="40" height="22" rx="7" fill="#9DA1A4"></rect><rect x="50" y="62" width="100" height="184" rx="30" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="1.5" vector-effect="non-scaling-stroke"></rect><rect x="64" y="112" width="72" height="84" rx="10" fill="#E6E8E9"></rect><rect x="76" y="130" width="48" height="7" rx="3.5" fill="#AEB1B3"></rect><rect x="76" y="145" width="34" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="76" y="176" width="22" height="5" rx="2.5" fill="#C9CCCE"></rect></svg>
+</span>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 17px; font-weight: 700; line-height: 1.25">Lait corps hydratant</span>
+<span style="font-size: 14px; line-height: 1.3; color: #6E5A6B">Marque essai · 200 ml</span>
+</div>
+</div>
+<div style="flex-shrink: 0; padding: 20px 24px 0 24px; display: flex; flex-direction: column; gap: 8px">
+<h1 style="margin: 0; font-size: 22px; font-weight: 700; line-height: 1.25; text-wrap: balance">De quel type de produit s'agit-il ?</h1>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Texte provisoire</span>
+</sc-if>
+</div>
+<div style="flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 14px 20px 28px 20px">
+<ul aria-label="Types de produit" style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+<li><a href="E3-Produit-Type.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 8px 12px 8px 18px; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-size: 17px; line-height: 1.3; border: 1.5px solid #4C2944; font-weight: 700"><span>Soin anti-vergetures</span><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
+<li><a href="E3-Produit-Type.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 8px 12px 8px 18px; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-size: 17px; line-height: 1.3; border: 1px solid #E7E1DA"><span>Bain de bouche</span><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
+<li><a href="E3-Produit-Type.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 8px 12px 8px 18px; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-size: 17px; line-height: 1.3; border: 1px solid #E7E1DA"><span>Crème après-solaire</span><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
+<li><a href="E3-Produit-Type.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 8px 12px 8px 18px; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-size: 17px; line-height: 1.3; border: 1px solid #E7E1DA"><span>Crème jambes lourdes</span><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
+<li><a href="E3-Produit-Type.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 8px 12px 8px 18px; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-size: 17px; line-height: 1.3; border: 1px solid #E7E1DA"><span>Crème/gel amincissant</span><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
+<li><a href="E3-Produit-Type.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 8px 12px 8px 18px; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-size: 17px; line-height: 1.3; border: 1px solid #E7E1DA"><span>Déodorant spray</span><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
+<li><a href="E3-Produit-Type.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 8px 12px 8px 18px; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-size: 17px; line-height: 1.3; border: 1px solid #E7E1DA"><span>Lait corps</span><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
+<li><a href="E3-Produit-Type.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 8px 12px 8px 18px; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-size: 17px; line-height: 1.3; border: 1px solid #E7E1DA"><span>Produit solaire corps</span><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
+<li><a href="E3-Produit-Type.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 8px 12px 8px 18px; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-size: 17px; line-height: 1.3; border: 1px solid #E7E1DA"><span>Soin des mamelons</span><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
+<li><a href="E3-Produit-Type.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 8px 12px 8px 18px; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-size: 17px; line-height: 1.3; border: 1px solid #E7E1DA"><span>Spray solaire corps</span><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
+<li><a href="E3-Produit-Type.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 8px 12px 8px 18px; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-size: 17px; line-height: 1.3; border: 1px solid #E7E1DA"><span>Spray solaire visage</span><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
+<li><a href="E3-Produit-TypeAutre.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 8px 12px 8px 18px; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-size: 17px; line-height: 1.3; border: 1px solid #E7E1DA"><span>Autre</span><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
+</ul>
+<sc-if value="{{isRecherche}}" hint-placeholder-val="{{ false }}">
+<div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px">
+<a href="E3-Produit-TypeAPreciser.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; text-align: center">Je n'ai pas le produit sous la main</a>
+<p style="margin: 0 8px; font-size: 15px; line-height: 1.4; color: #6E5A6B; text-align: center; text-wrap: pretty">Vous pourrez indiquer le type plus tard, depuis votre historique.</p>
+</div>
+</sc-if>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 12px 4px 0 4px; font-size: 13px; line-height: 1.4; color: #6E5A6B">[Libellés provisoires, repris de la table des paramètres : à ne pas figer avant un test. Dans le prototype, chaque type mène au même écran produit ; le type affiché s'y règle.]</p>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;origine&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Après un scan&quot;,&quot;Après une recherche&quot;],&quot;default&quot;:&quot;Après un scan&quot;,&quot;section&quot;:&quot;Origine (prototype)&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  renderVals() {
+    // Question du type (D-47 : un rattrapage, jamais une étape du scan) ; la réponse ne vaut que pour cette utilisatrice (D-48).
+    // Après une recherche, le produit n'est pas forcément en main (T-444) : « Je n'ai pas le produit sous la main » (décision 156).
+    var rech = this.props.origine === 'Après une recherche';
+    return { showStatus: this.props.statuts !== false, isScan: !rech, isRecherche: rech };
+  }
+}
+</script>
+
+
+</body></html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<title>Traçabilité 5 — La composition</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Atkinson Hyperlegible",system-ui,sans-serif;background:#FFFFFF;color:#321C31}
+a{color:#4C2944}a:hover{color:#321C31}
+</style>
+</helmet>
+<div style="width: 100%; max-width: 1600px; margin: 0 auto; box-sizing: border-box; padding: 56px; background: #FFFFFF; color: #321C31; display: flex; flex-direction: column; gap: 44px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6E5A6B">Traçabilité · étape 0 · 5 sur 8</span>
+<h1 style="margin: 0; font-size: 34px; font-weight: 700; line-height: 1.15">La composition</h1>
+<p style="margin: 0; font-size: 16px; line-height: 1.45; color: #6E5A6B; max-width: 1180px">La liste des ingrédients au premier tap, le panneau d'un ingrédient au second.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 14px"><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px solid #321C31">Provisoire</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px dashed #6E5A6B">Ouvert</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #EFE6EE; color: #4C2944; border: 1.5px solid #CDB7CA">Séance · à inscrire</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #ECEAE6; color: #321C31; border: 1.5px solid #D6CEC6">Module allaitement</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #4C2944; border: 3px double #4C2944">Conflit</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #F3F1EE; color: #6E5A6B; border: 1.5px solid #E7E1DA">Hors lancement</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px dotted #321C31; font-style: italic">Interprétation</span></span><span style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #F3F1EE; color: #321C31; border: 1.5px solid #B9AFA6">Limite</span></span></div>
+<section style="display: flex; flex-direction: column">
+<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700">Liste des ingrédients (1er tap) <span style="font-size: 15px; font-weight: 400; color: #6E5A6B">· 5</span></h2>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 0 0 8px 0; border-bottom: 1.5px solid #321C31"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Élément</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Référence</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Ce qui est dit</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Statut</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Dans le prototype</span></div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Fonction cosmétique</span>
+<span style="font-size: 14px; color: #4C2944">D-69</span>
+<span>Chaque ingrédient porte sa fonction, toutes ses fonctions s'il en a plusieurs.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit, page Étape 1 · fonctions en texte de remplacement, sauf Aqua et Glycerin</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">La liste suit la ligne</span>
+<span style="font-size: 14px; color: #4C2944">D-112 (A10) · T-372</span>
+<span>Marquage et textes de la ligne depuis laquelle on l'ouvre ; ils changent avec l'autre ligne.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit, page Étape 1 · réglage « ligne lue » et planche de la ligne allaitement</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Marquage</span>
+<span style="font-size: 14px; color: #4C2944">D-112 (A1) · T-549 · ECARTEE-43</span>
+<span>Le ou les ingrédients déterminants : couleur du niveau et « détermine ce niveau ». Les autres ingrédients signalés : un repère neutre qui ouvre leur panneau. Aucun décompte. Au niveau 1, aucun ingrédient coloré.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit, page Étape 1 · mention écrite « Signalé » pour les autres ingrédients signalés (06/10) · ordre de l'emballage, sans lien vers l'ingrédient déterminant (retiré le 06/10)</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Présence de parfum</span>
+<span style="font-size: 14px; color: #4C2944">D-112 (A7) · T-387</span>
+<span>Mention « Présence de parfum » en tête de liste quand le produit en contient.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px solid #321C31">Provisoire</span></span>
+<span>Construit, page Étape 1 · provisoire</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Tout ingrédient ouvre un panneau</span>
+<span style="font-size: 14px; color: #4C2944">D-112 (A3)</span>
+<span>Y compris sans signal.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit, page Étape 1</span>
+</div>
+</section>
+<section style="display: flex; flex-direction: column">
+<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700">Panneau d'un ingrédient (2e tap) <span style="font-size: 15px; font-weight: 400; color: #6E5A6B">· 9</span></h2>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 0 0 8px 0; border-bottom: 1.5px solid #321C31"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Élément</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Référence</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Ce qui est dit</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Statut</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5A6B">Dans le prototype</span></div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Quatre champs</span>
+<span style="font-size: 14px; color: #4C2944">D-53 · D-112 (A4) · T-529</span>
+<span>Fonction cosmétique (toutes) · nom courant · ce qui est en cause, ou l'état de l'ingrédient · source de l'évaluation.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit, page Étape 1</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">États d'un ingrédient</span>
+<span style="font-size: 14px; color: #4C2944">D-112 (A3) · T-530</span>
+<span>« Aucun signal identifié », « Données insuffisantes », « Non évalué » : libellés du toxicologue, sans « pour ce profil ».</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit, page Étape 1 · portés par des noms entre crochets</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Source de l'évaluation</span>
+<span style="font-size: 14px; color: #4C2944">D-94 · D-112 (A4)</span>
+<span>Nature, référence et date de publication (« Avis du SCCS, SCCS/1636/21 — décembre 2021 ») ; lien seulement vers une source officielle stable. Sans signal au criblage : « Aucun statut dans les registres consultés », sans date.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit, page Étape 1 · textes de remplacement</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Produit rincé</span>
+<span style="font-size: 14px; color: #4C2944">D-112 (A2) · T-528</span>
+<span>« L'incidence de cet ingrédient sur le verdict reste limitée, car le produit est rincé. » Rien pour un produit non rincé peu exposant (v2).</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit, page Étape 1 · réglage « produit rincé »</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Parfum</span>
+<span style="font-size: 14px; color: #4C2944">D-112 (A7) · T-387 · T-536</span>
+<span>Un court texte : on ne peut pas savoir ce que recouvre ce terme. Le toxicologue doit confirmer que le parfum ne rend pas le verdict incomplet.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px solid #321C31">Provisoire</span></span>
+<span>Construit, page Étape 1 · texte provisoire</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">« Aroma »</span>
+<span style="font-size: 14px; color: #4C2944">D-112 (A7)</span>
+<span>Un arôme, pas un parfum : traitement ouvert.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px dashed #6E5A6B">Ouvert</span></span>
+<span>Ne pas le traiter comme le parfum</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Photosensibilité</span>
+<span style="font-size: 14px; color: #4C2944">D-43 · D-44 · L-15</span>
+<span>Un constat dans le panneau, pas un facteur du verdict.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Construit, page Étape 1 · texte de remplacement, en réglage</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">Textes « ce qui est en cause »</span>
+<span style="font-size: 14px; color: #4C2944">T-545 · T-471 · D-70</span>
+<span>À rédiger ; un texte témoin validé par le toxicologue avant d'engager le volume.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #FFFFFF; color: #321C31; border: 1.5px dashed #6E5A6B">Ouvert</span></span>
+<span>Construit, page Étape 1 · textes de remplacement marqués</span>
+</div>
+<div style="display: grid; grid-template-columns: 230px 150px minmax(0, 1fr) 150px 260px; column-gap: 20px; padding: 12px 0; border-bottom: 1px solid #E7E1DA; font-size: 15px; line-height: 1.45; align-items: start">
+<span style="font-weight: 700">« Dernière validation »</span>
+<span style="font-size: 14px; color: #4C2944">D-53</span>
+<span>Reste en base, hors affichage.</span>
+<span><span style="display: inline-flex; align-items: center; min-height: 26px; box-sizing: border-box; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.2; background: #321C31; color: #FFFFFF; border: 1.5px solid #321C31">Acté</span></span>
+<span>Absent volontairement</span>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1600,&quot;height&quot;:1810}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+
+
+</body></html>

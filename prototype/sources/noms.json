@@ -132,5 +132,26 @@
   "Écran produit · verdict non affiché, sans connexion (29/10)": "E3-Produit-ActualiserHorsLigne",
   "Ingrédients · verdict non affiché (29/10)": "E3-Ingredients-Actualiser",
   "Écran produit · rappel de lot (29/10)": "E3-Produit-Rappel",
-  "Ingrédients · type de produit non précisé (29/10)": "E3-Ingredients-TypeNonPrecise"
+  "Ingrédients · type de produit non précisé (29/10)": "E3-Ingredients-TypeNonPrecise",
+
+  "Fondations": "E0-Fondations",
+  "Police d'interface — comparaison": "E0-Polices",
+  "Traçabilité 1 — Fondations visuelles": "E0-Trace-1",
+  "Traçabilité 2 — Structure et mots": "E0-Trace-2",
+  "Traçabilité 3 — Entrée dans l'application": "E0-Trace-3",
+  "Traçabilité 4 — Le verdict": "E0-Trace-4",
+  "Traçabilité 5 — La composition": "E0-Trace-5",
+  "Traçabilité 6 — Sans verdict, contribution, signalement": "E0-Trace-6",
+  "Traçabilité 7 — Après le verdict": "E0-Trace-7",
+  "Traçabilité 8 — Hors champ et bilan": "E0-Trace-8",
+
+  "À SUPPRIMER · caméra, avant la demande (écran abandonné)": "E3-Scan-Avant",
+  "Caméra · demande du téléphone": "E3-Scan-Demande",
+  "Caméra · refusée": "E3-Scan-Refus",
+  "Caméra · réglages": "E3-Scan-Reglages",
+  "Évaluation incomplète (état « verdict incomplet »)": "E3-Verdict-Incomplet",
+  "Verdict à actualiser": "E3-Verdict-Actualiser",
+  "Rappel de lot": "E3-Verdict-Rappel",
+  "Question du type · après un scan (option b)": "E3-Question",
+  "Verdict à actualiser · sans connexion": "E3-Verdict-ActualiserHorsLigne"
 }

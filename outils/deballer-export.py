@@ -95,6 +95,7 @@ def main():
     ap.add_argument("export")
     ap.add_argument("--page", default=None, help="identifiant court de la page du canevas (ex. etape-2) ; sert au rapport et à canvas.json")
     ap.add_argument("--titre", default=None, help="nom de la page dans le canevas (par défaut : l'identifiant)")
+    ap.add_argument("--ajouter", action="store_true", help="ajouter les planches à la page sans retirer celles qu'elle a déjà (par défaut : la page est remplacée)")
     ap.add_argument("--dest", default=os.path.join(RACINE, "prototype", "sources"))
     a = ap.parse_args()
     dest = os.path.abspath(a.dest)
@@ -120,14 +121,22 @@ def main():
                f"Planches dans l'export : {len(ordre)} (manifeste : {len(manifest)} entrées).", "",
                "| # | Titre dans l'export | Fichier produit | Nom | Taille | support.js | x-dc | dc-script | $preview | trous | liens | ressources extraites | /_blob/ restants | identifiants restants |",
                "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
-    boards, order, ecarts, runtime_ok, fam_txt = OrderedDict(), [], [], False, "—"
+    boards, order, ecarts, runtime_ok, fam_txt, copies = OrderedDict(), [], [], False, "—", 0
     x = y = 0
+    index_path = os.path.join(dest, "project", "canvas.json")
+    index = json.load(open(index_path, encoding="utf-8")) if os.path.exists(index_path) else None
+    if a.ajouter and index:  # sous la dernière rangée de la page
+        bas = [b["y"] + b["h"] for b in index.get("boards", {}).values() if b.get("page") == page_id]
+        y = max(bas) + 120 if bas else 0
     for i, u in enumerate(ordre, 1):
         page = decode(manifest[u]).decode("utf-8")
         man2 = json.loads(bloc("manifest", page))
         ext2 = json.loads(bloc("ext_resources", page) or "[]")
         source = json.loads(bloc("template", page))
         titre = titres.get(u, f"Planche {i}")
+        if titre.endswith(" copy"):  # planche dupliquée sur le canevas pour l'export : le suffixe n'est pas un titre
+            titre = titre[:-5]
+            copies += 1
 
         # 1. le moteur, remis à sa place
         rt = [k for k, v in man2.items() if "javascript" in v["mime"] and decode(v)[:40].decode("utf-8", "replace").startswith(MARQUE_RUNTIME)]
@@ -210,14 +219,12 @@ def main():
         if i % 8 == 0:
             x, y = 0, y + h + 120
 
-    # L'index accumule les pages : une page du canevas par export. Rejouer un export remplace sa page.
-    index_path = os.path.join(dest, "project", "canvas.json")
-    if os.path.exists(index_path):
-        index = json.load(open(index_path, encoding="utf-8"))
-    else:
+    # L'index accumule les pages : une page du canevas par export. Rejouer un export remplace sa page,
+    # sauf avec --ajouter, qui complète la page.
+    if index is None:
         index = {"v": 3, "createdOnFiles": {"v": 1, "at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")},
                  "title": titre_canevas, "launch": {"view": "canvas"}, "pages": [], "boards": {}, "order": [], "notes": {}, "designSystems": []}
-    index["boards"] = {k: v for k, v in index.get("boards", {}).items() if v.get("page") != page_id}
+    index["boards"] = {k: v for k, v in index.get("boards", {}).items() if v.get("page") != page_id or (a.ajouter and k not in boards)}
     index["order"] = [k for k in index.get("order", []) if k in index["boards"]]
     index["boards"].update(boards)
     index["order"] += order
@@ -226,7 +233,7 @@ def main():
     with open(index_path, "w", encoding="utf-8") as f:
         json.dump(index, f, ensure_ascii=False, indent=1)
 
-    rapport += ["", f"Polices reconstituées en `<link>` Google Fonts : {fam_txt}.", "",
+    rapport += ["", f"Polices reconstituées en `<link>` Google Fonts : {fam_txt}.", ""] + ([f"Planches dupliquées pour l'export (titre terminé par « copy », suffixe retiré) : {copies}.", ""] if copies else []) + [
                 "## Écarts et points à vérifier", ""] + ([f"- {e}" for e in ecarts] or ["- Aucun écart relevé."]) + ["",
                 "## Limites", "",
                 f"- Les positions, pages et notes du canevas d'origine ne sont pas dans l'export : `canvas.json` dispose les planches en rangées de 8, dans l'ordre de l'export, sur une page « {page_nom} » (`{page_id}`).",
