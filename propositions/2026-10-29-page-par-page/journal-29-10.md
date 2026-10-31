@@ -974,3 +974,29 @@ Le canevas reste inaccessible (§36). L'analyse ci-dessous repose sur le registr
    - le texte final revient au toxicologue et à la porteuse (`bpE6`), après l'étalon (`D-250`).
 
 PR-1.5 (`O-65`) : `O-65` n'est pas dans le registre v6.7 du dépôt. Il est à lire dans le fichier du 30/10.
+
+## 38. Clôture du volet allaitement au prototype (31/10, décision 217, rien de publié)
+
+Porteuse : « OUI », en réponse à : « « Clore le volet », c'est décider que l'étude est assez avancée pour entrer dans le parcours principal. »
+
+**Décision 217** : la ligne allaitement entre dans le parcours principal du prototype. Elle revient sur la décision 13 (écran d'attente).
+
+**À faire quand l'accès au canevas revient** (note de reprise, §5, « À la clôture du volet ») :
+1. Relever les écrans d'attente allaitement et leurs listes d'ingrédients, aux étapes 1, 2 et 5, avec leurs copies. L'étape 7 n'a plus de ligne allaitement depuis la décision 210.
+2. Les remplacer par le gabarit de l'étude, pour le produit de chaque parcours (le lait corps) :
+   - cases en largeur partagée, arc, renvoi ;
+   - textes marqués provisoires ;
+   - listes à l'écran des ingrédients choisi (idée 5 à plat), avec l'arc.
+3. L'écran d'attente réévalué de l'étape 5 reçoit un vrai verdict.
+4. Liens : écran produit → verdict allaitement → liste. Les retours mènent au parcours principal, non à l'étude.
+5. La page d'étude reste, comme référence de ses réglages.
+
+**Ce que la clôture ne change pas** :
+- Les validations restent dues :
+  - les phrases des niveaux, par la porteuse (`D-105`) ;
+  - le toxicologue, après l'étalon (`D-250`), puis la juriste ;
+  - les tests de formulation (`D-159`) ;
+  - l'état « non évaluable » (`O-31`) ;
+  - la revue du bloc G ;
+  - les points `O-52` à `O-57`.
+- Au registre, à inscrire à l'étape 8 : la révision de la décision 13, et le statut « module non clos » (annexe A.8).
