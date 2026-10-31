@@ -1011,3 +1011,31 @@ Porteuse : « Vérifie que le bouton n'est pas trop collé à la ligne allaiteme
   3. poser le même écart partout, aligné sur l'espacement entre les blocs ;
   4. montrer l'avant et l'après avant de publier.
 - Le fil reste ouvert, à clore par la porteuse.
+
+## 40. Accès vérifié ; complément, écarts et réponses préparés hors canevas (31/10, rien de publié)
+
+Porteuse, dans une nouvelle session : « Avant toute chose, vérifie sans rien modifier que tu peux lire les fichiers du canevas Ficolia — Prototype, et dis-moi ce qu'il en est. » Règles rappelées : « ne rien écraser ni supprimer, lire la version en ligne avant chaque publication et ne publier que les planches modifiées, montrer les rendus avant de publier ».
+
+**Accès, vérifié sans rien modifier** (session ouverte à 12 h 33 UTC) :
+- La fiche du canevas se lit : version **1793448707-c41e**, enregistrée depuis la page le 31/10 à 12 h 11 UTC. Le compte de la session en est le propriétaire.
+- Les fichiers sont refusés par le serveur d'artefacts (liste, lecture d'un fichier, lecture du document) : le canevas a été fait à partir d'un type, et quelqu'un d'extérieur à l'organisation y a écrit. « Ficolia — Prototype (v.6) » est refusé de la même façon.
+- L'outil habituel, « Artifact », est coupé. Dans la session précédente, à 12 h 31 UTC, il a répondu : « Artifact is still listed for this conversation but is switched off in this session right now, so it cannot run. » Dans celle-ci, il n'est plus proposé.
+- Commentaires :
+  - seuls les fils envoyés à Claude se lisent : 78, dont 4 ouverts ;
+  - un fil non envoyé répond « not found », même demandé par son identifiant ;
+  - un message envoyé à Claude rend tout le fil lisible (`6c55f949`).
+- Le premier message du fil `6c55f949` (29/10) dit aussi : « le bouton est trop collé a l'encadré du haut ». À traiter avec le §39.
+
+**Correction** : la première réponse de la séance a omis que la porteuse garde une copie complète du canevas au 22/10 (journal du 22/10, §2).
+
+**Fait sans le canevas** (porteuse : « ok ») :
+- `Ficolia — note de reprise, complément du 31-10.md`, à la racine : décisions 182 à 217, état au 31/10, ce qui reste à faire. La note du 21/10 n'est pas modifiée.
+- `propositions/2026-10-31-hors-canevas/ecarts-au-registre-etape-8.md` : les écarts au registre nés depuis le 21/10, chaque entrée relue dans la v6.7. Quelques écarts sont relevés le 31/10 et restent à confirmer : `D-214`, `T-511`, `D-112` (A3 et A7), `T-549`, décision 4.
+- `propositions/2026-10-31-hors-canevas/reponses-commentaires.md` : les 68 fils ouverts au 29/10 ou depuis, avec leur état au 30/10 et une réponse proposée. Bilan : 42 à clore, 5 à clore après un coup d'œil, 1 où répondre puis clore, 16 à garder ouverts, 4 déjà clos.
+
+Rien n'est publié ; aucun fil n'est touché.
+
+**Limites** :
+- Ces documents sont écrits sans voir le canevas.
+- Les énoncés exacts des décisions 190 à 192 ne sont pas dans ce journal.
+- Le registre n'a été lu que pour les entrées citées.
