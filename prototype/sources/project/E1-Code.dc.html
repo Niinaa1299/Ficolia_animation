@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<title>Ficolia — Saisir le code-barres</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,sans-serif;background:#FFFFFF;color:#321C31;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+a,button{touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 160ms ease-out}
+a:active,button:active{transform:scale(0.97)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #4C2944;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){a,button{transition:none}a:active,button:active{transform:none}}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; color: #321C31; font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
+<div style="padding: 50px 20px 0 20px; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px">
+<a href="E1-Scan.dc.html" aria-label="Retour au scan" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</a>
+<h1 style="margin: 0; text-align: center; font-size: 19px; font-weight: 700">Saisir le code-barres</h1>
+<span></span>
+</div>
+<div style="padding: 32px 24px 0 24px; display: flex; flex-direction: column; gap: 10px">
+<label for="e1-code" style="font-size: 17px; font-weight: 700">Code-barres</label>
+<input id="e1-code" type="text" inputmode="numeric" autocomplete="off" aria-describedby="e1-code-aide" style="box-sizing: border-box; width: 100%; min-height: 56px; padding: 0 16px; border: 1px solid #6E5A6B; border-radius: 16px; background: #FFFFFF; color: #321C31; font-family: inherit; font-size: 22px; letter-spacing: 0.04em">
+<p id="e1-code-aide" style="margin: 0; font-size: 14px; line-height: 1.4; color: #6E5A6B">Les chiffres imprimés sous le code-barres.</p>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Texte provisoire</span>
+</sc-if>
+</div>
+<div style="padding: 24px 24px 0 24px; display: flex; flex-direction: column">
+<a href="E1-Produit.dc.html" style="align-self: stretch; min-height: 56px; border-radius: 999px; background: #4C2944; color: #FFF7F0; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Voir le produit</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showStatus: this.props.statuts !== false };
+  }
+}
+</script>
+
+
+</body></html>

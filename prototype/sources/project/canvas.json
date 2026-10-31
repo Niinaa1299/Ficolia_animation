@@ -1,0 +1,146 @@
+{
+ "v": 3,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-10-31T20:44:53Z"
+ },
+ "title": "Ficolia — Prototype",
+ "launch": {
+  "view": "canvas"
+ },
+ "pages": [],
+ "boards": {
+  "E1-Scan.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Scanner"
+  },
+  "E1-Code.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Saisir le code"
+  },
+  "E1-Produit.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Écran produit"
+  },
+  "E1-Verdict.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Verdict grossesse"
+  },
+  "E1-Ingredients.dc.html": {
+   "x": 1880,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Ingrédients et panneau"
+  },
+  "E1-Allaitement.dc.html": {
+   "x": 2350,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Allaitement · écran d'attente"
+  },
+  "E1-Ingredients-Allaitement.dc.html": {
+   "x": 2820,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Ingrédients · ligne allaitement"
+  },
+  "E1-Aide-Scan.dc.html": {
+   "x": 3290,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Prise en main · premier lancement : chercher par nom (22/10, revu le 29/10)"
+  },
+  "E1-Aide-Info.dc.html": {
+   "x": 0,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Prise en main · premier verdict : le « i » (22/10, revu le 29/10)"
+  },
+  "E1-Aide-Echelle.dc.html": {
+   "x": 470,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Prise en main · deuxième verdict : l'échelle (29/10)"
+  },
+  "E1-Aide-Historique.dc.html": {
+   "x": 940,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Prise en main · premier retour : l'historique (22/10)"
+  },
+  "E1-Aide-Menu.dc.html": {
+   "x": 1410,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Prise en main · deuxième retour : le menu (29/10)"
+  },
+  "E1-Ingredients-Idee1.dc.html": {
+   "x": 1880,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Ingrédients · idée 1 : liste simple, parfum en étiquette (29/10)"
+  },
+  "E1-Ingredients-Idee2.dc.html": {
+   "x": 2350,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Ingrédients · idée 2 : parfum dans la carte du produit (29/10)"
+  },
+  "E1-Ingredients-Idee4.dc.html": {
+   "x": 2820,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Ingrédients · idée 4 : ce qui détermine le niveau, puis la liste (29/10)"
+  },
+  "E1-Ingredients-Idee5.dc.html": {
+   "x": 3290,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Ingrédients · idée 5 : liste de l'idée 1, parfum de l'idée 3 (29/10)"
+  }
+ },
+ "order": [
+  "E1-Scan.dc.html",
+  "E1-Code.dc.html",
+  "E1-Produit.dc.html",
+  "E1-Verdict.dc.html",
+  "E1-Ingredients.dc.html",
+  "E1-Allaitement.dc.html",
+  "E1-Ingredients-Allaitement.dc.html",
+  "E1-Aide-Scan.dc.html",
+  "E1-Aide-Info.dc.html",
+  "E1-Aide-Echelle.dc.html",
+  "E1-Aide-Historique.dc.html",
+  "E1-Aide-Menu.dc.html",
+  "E1-Ingredients-Idee1.dc.html",
+  "E1-Ingredients-Idee2.dc.html",
+  "E1-Ingredients-Idee4.dc.html",
+  "E1-Ingredients-Idee5.dc.html"
+ ],
+ "notes": {},
+ "designSystems": []
+}

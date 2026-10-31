@@ -1,0 +1,23 @@
+{
+  "_commentaire": [
+    "Table titre d'écran (tel qu'écrit dans l'export du canevas) -> nom de fichier d'origine dans le canevas (project/<nom>.dc.html).",
+    "Statut : DÉDUIT par Claude Code le 31/10/2026 à partir des titres, des liens de prototype contenus dans chaque écran et de la liste des fichiers du canevas d'origine. À confirmer par la porteuse sur le canevas (le bandeau de chaque planche affiche son nom de fichier ou son titre).",
+    "Un titre absent de cette table reçoit un nom construit à partir du titre, et le rapport le signale."
+  ],
+  "Scanner": "E1-Scan",
+  "Saisir le code": "E1-Code",
+  "Écran produit": "E1-Produit",
+  "Verdict grossesse": "E1-Verdict",
+  "Ingrédients et panneau": "E1-Ingredients",
+  "Allaitement · écran d'attente": "E1-Allaitement",
+  "Ingrédients · ligne allaitement": "E1-Ingredients-Allaitement",
+  "Prise en main · premier lancement : chercher par nom (22/10, revu le 29/10)": "E1-Aide-Scan",
+  "Prise en main · premier verdict : le « i » (22/10, revu le 29/10)": "E1-Aide-Info",
+  "Prise en main · deuxième verdict : l'échelle (29/10)": "E1-Aide-Echelle",
+  "Prise en main · premier retour : l'historique (22/10)": "E1-Aide-Historique",
+  "Prise en main · deuxième retour : le menu (29/10)": "E1-Aide-Menu",
+  "Ingrédients · idée 1 : liste simple, parfum en étiquette (29/10)": "E1-Ingredients-Idee1",
+  "Ingrédients · idée 2 : parfum dans la carte du produit (29/10)": "E1-Ingredients-Idee2",
+  "Ingrédients · idée 4 : ce qui détermine le niveau, puis la liste (29/10)": "E1-Ingredients-Idee4",
+  "Ingrédients · idée 5 : liste de l'idée 1, parfum de l'idée 3 (29/10)": "E1-Ingredients-Idee5"
+}
