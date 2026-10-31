@@ -926,3 +926,20 @@ Aucune erreur JavaScript. Deux retouches après le premier rendu : la bulle pass
 - Une case seule n'occupe qu'un tiers de la rangée en taille fixe (soin des mamelons, lait corps orange). C'est l'objet du réglage « Cases », à trancher.
 - La bulle du conseil couvre le nom du produit tant qu'elle est ouverte, comme les bulles de la prise en main.
 - Les textes restent provisoires (`T-604`), et l'explication de l'inhalation n'a pas été montrée à la porteuse avant publication.
+
+## 36. Demande du 31/10 : homogénéiser, relier, cases en largeur partagée (bloqué, rien de publié)
+
+Porteuse : « Met à jour tous les écrans de chaque page avec le design choisi pour l'écran ingrédient (en grossesse et en allaitement) + icône verdict allaitement. Tout doit être homogène, et assure toi que toutes les connexions possibles entre écrans soient faites. taille des cases) largeur partagées. reste-il des écrans à modéliser ? ou en sommes-nous ? »
+
+**Blocage** : dans cette session, Claude ne peut ni lire ni publier le canevas.
+- L'outil de publication habituel est désactivé dans cette session.
+- L'autre serveur d'artefacts refuse le canevas : il a été fait à partir d'un type, et quelqu'un d'extérieur à l'organisation y a écrit.
+- Le canevas est passé en version 1793447226-0a4e, enregistrée depuis la page après la version 420 ; Claude ne l'a pas lue.
+- Rien n'est modifié. Le dossier de travail a été reconstitué dans le dépôt (`.travail/`, exclu de git en local).
+
+**À faire dès que l'accès revient**, dans cet ordre :
+1. Cases de la ligne allaitement : « Largeur partagée » par défaut, sur les 9 verdicts vivants.
+2. Idée 5 « à plat » (fond `#FAFAFA`, verdict rappelé en tête, ni ombre ni carte sauf l'encadré du produit, barre d'onglets blanche) sur toutes les listes d'ingrédients vivantes, grossesse et allaitement, y compris les trois listes d'état de l'étape 3. Les planches de comparaison (`E1-Ingredients-Idee1` à `Idee5`) et les traces restent telles quelles.
+3. « Icône verdict allaitement » : lecture à confirmer (voir la question posée à la porteuse).
+4. Vérification de tous les liens (décision 197) : cibles existantes, retours, barre d'onglets, boutons sans action, puis liens manquants à poser.
+5. `E0-Fondations` et `E0-Polices` : l'arc à la place des paliers.
