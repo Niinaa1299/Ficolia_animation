@@ -943,3 +943,34 @@ Porteuse : « Met à jour tous les écrans de chaque page avec le design choisi 
 3. « Icône verdict allaitement » : lecture à confirmer (voir la question posée à la porteuse).
 4. Vérification de tous les liens (décision 197) : cibles existantes, retours, barre d'onglets, boutons sans action, puis liens manquants à poser.
 5. `E0-Fondations` et `E0-Polices` : l'arc à la place des paliers.
+
+## 37. PR-1.6 : lien des nettoyants vers une fiche (31/10, bloqué, rien de publié)
+
+Demande : lire `claude/registre_travail/a_inscrire_registre_30_10_2026.md` (§2.2 et §5.3), puis prototyper PR-1.6 ; quatre points à trancher (couleurs, plafond, place, texte) ; nettoyants de la liste de `D-262` et ses rattachements ; PR-1.5 (déclencheur du renvoi « Crevasses », `O-65`) possible dans la même séance.
+
+**Fichier introuvable** :
+- sur aucune branche du dépôt ;
+- pas dans le Drive : seuls les fichiers d'inscription du 27/10 (session et bloc H) y sont ;
+- aucun dossier d'ordinateur relié à la session.
+
+Le canevas reste inaccessible (§36). L'analyse ci-dessous repose sur le registre v6.7 du dépôt. Elle est à revoir après lecture des §2.2 et §5.3.
+
+**Tension à lever d'abord** : le 17/10, la porteuse a écrit que la condition savon « n'a rien à faire ici […] meme pas en pop up » (décision 168). Un lien posé sur le verdict des nettoyants revient en partie sur ce choix.
+
+**Recommandations de Claude, provisoires** :
+1. **Couleurs** : vert et jaune seulement, jamais sur « Évaluation incomplète », comme les conditions (`D-268`).
+   - Le lien remplace la condition savon, qui est une condition (`D-262`).
+   - Sur l'orange et le rouge, un conseil de geste pourrait se lire comme un geste qui rattrape la couleur (`D-190`).
+   - Le motif du renvoi « Crevasses » (M18 : ne pas pousser à renoncer à un soin) ne vaut pas pour un gel douche.
+2. **Plafond** : la question ne se pose pas pour les nettoyants. Leur profil (`D-266`, groupe 12) ne porte que « savon » : le lien serait seul.
+   - Depuis la décision 214, le prototype n'a plus de plafond, écart à `D-265` déjà noté.
+   - Si le plafond revient au registre, le lien ne devrait pas compter, comme le renvoi « Crevasses ».
+3. **Place** : la même forme que le renvoi « Crevasses », c'est-à-dire le petit rond sur la photo par défaut, avec son panneau et son conseil de première utilisation, et le réglage « Case parmi les mentions ».
+   - Les deux ne se rencontrent jamais : le renvoi « Crevasses » ne vaut que pour les produits à l'attribut, que les nettoyants n'ont pas.
+4. **Texte provisoire, pour le test seulement** :
+   - la fiche reprend la phrase de la condition savon validée le 17/10 : « Selon les recommandations professionnelles, la douche habituelle suffit : nettoyer les mamelons avant ou après une tétée complique inutilement l'allaitement. » ;
+   - source : ANAES, 2002, à vérifier (`T-606`) ;
+   - le rappel général (décision 203) ;
+   - le texte final revient au toxicologue et à la porteuse (`bpE6`), après l'étalon (`D-250`).
+
+PR-1.5 (`O-65`) : `O-65` n'est pas dans le registre v6.7 du dépôt. Il est à lire dans le fichier du 30/10.
