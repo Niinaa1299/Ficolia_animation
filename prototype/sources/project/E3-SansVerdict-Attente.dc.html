@@ -120,7 +120,12 @@ a:focus-visible,button:focus-visible{outline:2px solid #4C2944;outline-offset:3p
 </sc-if>
 </div>
 <div style="flex-shrink: 0; margin: auto 20px 34px 20px; padding-top: 20px; display: flex; flex-direction: column; gap: 10px">
-<button type="button" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 0; border-radius: 999px; background: #4C2944; color: #FFF7F0; display: flex; align-items: center; justify-content: center; font-family: inherit; font-size: 17px; font-weight: 700; cursor: pointer">Réessayer</button>
+<sc-if value="{{retryScan}}" hint-placeholder-val="{{ true }}">
+<a href="E1-Scan.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 0; border-radius: 999px; background: #4C2944; color: #FFF7F0; display: flex; align-items: center; justify-content: center; font-family: inherit; font-size: 17px; font-weight: 700">Réessayer</a>
+</sc-if>
+<sc-if value="{{retrySearch}}" hint-placeholder-val="{{ false }}">
+<a href="E2-Recherche.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 0; border-radius: 999px; background: #4C2944; color: #FFF7F0; display: flex; align-items: center; justify-content: center; font-family: inherit; font-size: 17px; font-weight: 700">Réessayer</a>
+</sc-if>
 <a href="E5-Historique.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Voir l'historique</a>
 </div>
 </div>
@@ -302,7 +307,12 @@ a:focus-visible,button:focus-visible{outline:2px solid #4C2944;outline-offset:3p
 </sc-if>
 <div style="flex-shrink: 0; margin: auto 20px 12px 20px; padding-top: 20px; display: flex; flex-direction: column; gap: 10px">
 <sc-if value="{{showRetry}}" hint-placeholder-val="{{ false }}">
-<button type="button" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-family: inherit; font-size: 17px; font-weight: 700; cursor: pointer">Réessayer</button>
+<sc-if value="{{retryScan}}" hint-placeholder-val="{{ true }}">
+<a href="E1-Scan.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-family: inherit; font-size: 17px; font-weight: 700">Réessayer</a>
+</sc-if>
+<sc-if value="{{retrySearch}}" hint-placeholder-val="{{ false }}">
+<a href="E2-Recherche.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-family: inherit; font-size: 17px; font-weight: 700">Réessayer</a>
+</sc-if>
 </sc-if>
 <sc-if value="{{showScan}}" hint-placeholder-val="{{ false }}">
 <a href="E1-Scan.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-family: inherit; font-size: 17px; font-weight: 700">Scanner un autre produit</a>
@@ -424,6 +434,8 @@ class Component extends DCLogic {
       showFirst: !!this.props.premier && (i === 0 || i === 1 || i === 4),
       showContrib: !!this.props.contribution && (i === 0 || i === 4),
       showRetry: i === 5 || i === 6,
+      // « Réessayer » ramène à l'écran d'où l'on vient (porteuse, 01/11) : la recherche pour « Recherche du produit », le scanner sinon.
+      retryScan: i !== 7, retrySearch: i === 7,
       // La barre d'onglets remplace « Scanner un autre produit » et « Voir l'historique » partout où elle figure (porteuse, 07/10).
       showScan: false,
       showSearch: i === 0
