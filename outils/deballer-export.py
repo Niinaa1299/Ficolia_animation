@@ -111,6 +111,14 @@ def main():
     titres = {u: html.unescape(t) for t, u in re.findall(r'<h2>(.*?)</h2><iframe src="about:blank#([0-9a-f-]+)"', gabarit)}
     m = re.search(r"<title>(.*?)</title>", gabarit)
     titre_canevas = html.unescape(m.group(1)) if m else "Canevas"
+    planche_seule = False
+    if not ordre and "<x-dc>" in gabarit:
+        # Export d'une seule planche : le gabarit est la source elle-même, le manifeste ses ressources.
+        # On le traite comme une page d'une planche ; son titre vient de <title>, sans le préfixe de l'app.
+        planche_seule = True
+        ordre = ["(planche)"]
+        titres = {"(planche)": re.sub(r"^Ficolia\s*[—–-]\s*", "", titre_canevas)}
+        titre_canevas = "Ficolia — Prototype"
 
     os.makedirs(os.path.join(dest, "project"), exist_ok=True)
     runtime_dir = os.path.join(RACINE, "outils", "runtime")
@@ -129,10 +137,13 @@ def main():
         bas = [b["y"] + b["h"] for b in index.get("boards", {}).values() if b.get("page") == page_id]
         y = max(bas) + 120 if bas else 0
     for i, u in enumerate(ordre, 1):
-        page = decode(manifest[u]).decode("utf-8")
-        man2 = json.loads(bloc("manifest", page))
-        ext2 = json.loads(bloc("ext_resources", page) or "[]")
-        source = json.loads(bloc("template", page))
+        if planche_seule:
+            man2, ext2, source = manifest, json.loads(bloc("ext_resources", src) or "[]"), gabarit
+        else:
+            page = decode(manifest[u]).decode("utf-8")
+            man2 = json.loads(bloc("manifest", page))
+            ext2 = json.loads(bloc("ext_resources", page) or "[]")
+            source = json.loads(bloc("template", page))
         titre = titres.get(u, f"Planche {i}")
         if titre.endswith(" copy"):  # planche dupliquée sur le canevas pour l'export : le suffixe n'est pas un titre
             titre = titre[:-5]
@@ -233,7 +244,7 @@ def main():
     with open(index_path, "w", encoding="utf-8") as f:
         json.dump(index, f, ensure_ascii=False, indent=1)
 
-    rapport += ["", f"Polices reconstituées en `<link>` Google Fonts : {fam_txt}.", ""] + ([f"Planches dupliquées pour l'export (titre terminé par « copy », suffixe retiré) : {copies}.", ""] if copies else []) + [
+    rapport += ["", f"Polices reconstituées en `<link>` Google Fonts : {fam_txt}.", ""] + ([f"Planches dupliquées pour l'export (titre terminé par « copy », suffixe retiré) : {copies}.", ""] if copies else []) + (["Export d'une planche seule : son titre est lu dans la balise `<title>` (le titre du bandeau n'est pas dans ce type d'export).", ""] if planche_seule else []) + [
                 "## Écarts et points à vérifier", ""] + ([f"- {e}" for e in ecarts] or ["- Aucun écart relevé."]) + ["",
                 "## Limites", "",
                 f"- Les positions, pages et notes du canevas d'origine ne sont pas dans l'export : `canvas.json` dispose les planches en rangées de 8, dans l'ordre de l'export, sur une page « {page_nom} » (`{page_id}`).",

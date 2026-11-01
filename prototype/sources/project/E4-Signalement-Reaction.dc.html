@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<title>Ficolia — Signalement — réaction à un produit</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,sans-serif;background:#FFFFFF;color:#321C31;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+a,button{touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 160ms ease-out}
+a:active,button:active{transform:scale(0.97)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #4C2944;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){a,button{transition:none}a:active,button:active{transform:none}}
+.fxv-video{display:block}.fxv-fige{display:none}@media (prefers-reduced-motion:reduce){.fxv-video{display:none}.fxv-fige{display:block}}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; color: #321C31; font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
+<sc-if value="{{isMenu}}" hint-placeholder-val="{{ false }}">
+<div style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column">
+<div style="flex-shrink: 0; padding: 50px 20px 0 20px; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px">
+<sc-if value="{{fromVerdict}}" hint-placeholder-val="{{ true }}">
+<a href="E1-Verdict.dc.html" aria-label="Retour au verdict" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</a>
+</sc-if>
+<sc-if value="{{fromProduit}}" hint-placeholder-val="{{ false }}">
+<a href="E1-Produit.dc.html" aria-label="Retour au produit" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</a>
+</sc-if>
+<h1 style="margin: 0; text-align: center; font-size: 19px; font-weight: 700">Signaler une erreur</h1>
+<span></span>
+</div>
+<div style="flex-shrink: 0; margin: 14px 20px 0 20px; display: flex; align-items: center; gap: 12px">
+<sc-if value="{{hasPhoto}}" hint-placeholder-val="{{ true }}">
+<span style="flex-shrink: 0; width: 64px; height: 64px; box-sizing: border-box; border-radius: 14px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg role="img" aria-label="Photo du produit (illustration du prototype)" width="37" height="48" sc-camel-view-box="0 0 200 260"><rect x="86" y="14" width="28" height="12" rx="4" fill="#7E8285"></rect><rect x="112" y="17" width="32" height="6" rx="3" fill="#7E8285"></rect><rect x="95" y="26" width="10" height="14" fill="#9DA1A4"></rect><rect x="80" y="40" width="40" height="22" rx="7" fill="#9DA1A4"></rect><rect x="50" y="62" width="100" height="184" rx="30" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="1.5" vector-effect="non-scaling-stroke"></rect><rect x="64" y="112" width="72" height="84" rx="10" fill="#E6E8E9"></rect><rect x="76" y="130" width="48" height="7" rx="3.5" fill="#AEB1B3"></rect><rect x="76" y="145" width="34" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="76" y="176" width="22" height="5" rx="2.5" fill="#C9CCCE"></rect></svg>
+</span>
+</sc-if>
+<sc-if value="{{noPhoto}}" hint-placeholder-val="{{ false }}">
+<span role="img" aria-label="Photo indisponible" style="flex-shrink: 0; width: 64px; height: 64px; box-sizing: border-box; border-radius: 14px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"></rect><path d="M3.5 16l4.5-4.5 4 4 2.5-2.5 6 6"></path><path d="M3 3l18 18"></path></svg>
+</span>
+</sc-if>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 17px; font-weight: 700; line-height: 1.3">Lait corps nourrissant</span>
+<span style="font-size: 15px; line-height: 1.4; color: #6E5A6B">Marque exemple · 250 ml</span>
+</div>
+</div>
+<div style="margin: 26px 20px 0 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 19px; font-weight: 700; line-height: 1.3">Que voulez-vous signaler ?</h2>
+<div style="border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; display: flex; flex-direction: column; overflow: hidden">
+<button type="button" sc-camel-on-click="{{pickProduit}}" style="width: 100%; box-sizing: border-box; min-height: 60px; padding: 0 12px 0 16px; border: 0; background: transparent; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-family: inherit; text-align: left; cursor: pointer">
+<span style="font-size: 17px; font-weight: 500; line-height: 1.3">Ce n'est pas le bon produit</span>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
+<button type="button" sc-camel-on-click="{{pickListe}}" style="width: 100%; box-sizing: border-box; min-height: 60px; padding: 0 12px 0 16px; border: 0; border-top: 1px solid #E7E1DA; background: transparent; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-family: inherit; text-align: left; cursor: pointer">
+<span style="font-size: 17px; font-weight: 500; line-height: 1.3">La liste d'ingrédients est fausse</span>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
+<button type="button" sc-camel-on-click="{{pickType}}" style="width: 100%; box-sizing: border-box; min-height: 60px; padding: 0 12px 0 16px; border: 0; border-top: 1px solid #E7E1DA; background: transparent; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-family: inherit; text-align: left; cursor: pointer">
+<span style="font-size: 17px; font-weight: 500; line-height: 1.3">Le type de produit est faux</span>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
+<button type="button" sc-camel-on-click="{{pickIngredient}}" style="width: 100%; box-sizing: border-box; min-height: 60px; padding: 0 12px 0 16px; border: 0; border-top: 1px solid #E7E1DA; background: transparent; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-family: inherit; text-align: left; cursor: pointer">
+<span style="font-size: 17px; font-weight: 500; line-height: 1.3">Un ingrédient est mal évalué</span>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
+<button type="button" sc-camel-on-click="{{pickVerdict}}" style="width: 100%; box-sizing: border-box; min-height: 60px; padding: 0 12px 0 16px; border: 0; border-top: 1px solid #E7E1DA; background: transparent; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-family: inherit; text-align: left; cursor: pointer">
+<span style="font-size: 17px; font-weight: 500; line-height: 1.3">Le verdict me semble faux</span>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
+<button type="button" sc-camel-on-click="{{pickReaction}}" style="width: 100%; box-sizing: border-box; min-height: 60px; padding: 0 12px 0 16px; border: 0; border-top: 1px solid #E7E1DA; background: transparent; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-family: inherit; text-align: left; cursor: pointer">
+<span style="font-size: 17px; font-weight: 500; line-height: 1.3">J'ai eu une réaction avec ce produit</span>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
+</div>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Textes provisoires</span>
+</sc-if>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{isDetail}}" hint-placeholder-val="{{ false }}">
+<div style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column">
+<div style="flex-shrink: 0; padding: 50px 20px 0 20px; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px">
+<sc-if value="{{fromVerdict}}" hint-placeholder-val="{{ true }}">
+<button type="button" sc-camel-on-click="{{toMenu}}" aria-label="Retour au choix" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</button>
+</sc-if>
+<sc-if value="{{fromProduit}}" hint-placeholder-val="{{ false }}">
+<a href="E1-Produit.dc.html" aria-label="Retour au produit" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</a>
+</sc-if>
+<h1 style="margin: 0; text-align: center; font-size: 19px; font-weight: 700">Signaler une erreur</h1>
+<span></span>
+</div>
+<div style="flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column">
+<div style="flex-shrink: 0; margin: 14px 20px 0 20px; display: flex; align-items: center; gap: 12px">
+<sc-if value="{{hasPhoto}}" hint-placeholder-val="{{ true }}">
+<span style="flex-shrink: 0; width: 64px; height: 64px; box-sizing: border-box; border-radius: 14px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg role="img" aria-label="Photo du produit (illustration du prototype)" width="37" height="48" sc-camel-view-box="0 0 200 260"><rect x="86" y="14" width="28" height="12" rx="4" fill="#7E8285"></rect><rect x="112" y="17" width="32" height="6" rx="3" fill="#7E8285"></rect><rect x="95" y="26" width="10" height="14" fill="#9DA1A4"></rect><rect x="80" y="40" width="40" height="22" rx="7" fill="#9DA1A4"></rect><rect x="50" y="62" width="100" height="184" rx="30" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="1.5" vector-effect="non-scaling-stroke"></rect><rect x="64" y="112" width="72" height="84" rx="10" fill="#E6E8E9"></rect><rect x="76" y="130" width="48" height="7" rx="3.5" fill="#AEB1B3"></rect><rect x="76" y="145" width="34" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="76" y="176" width="22" height="5" rx="2.5" fill="#C9CCCE"></rect></svg>
+</span>
+</sc-if>
+<sc-if value="{{noPhoto}}" hint-placeholder-val="{{ false }}">
+<span role="img" aria-label="Photo indisponible" style="flex-shrink: 0; width: 64px; height: 64px; box-sizing: border-box; border-radius: 14px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"></rect><path d="M3.5 16l4.5-4.5 4 4 2.5-2.5 6 6"></path><path d="M3 3l18 18"></path></svg>
+</span>
+</sc-if>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 17px; font-weight: 700; line-height: 1.3">Lait corps nourrissant</span>
+<span style="font-size: 15px; line-height: 1.4; color: #6E5A6B">Marque exemple · 250 ml</span>
+</div>
+</div>
+<div style="flex-shrink: 0; margin: 22px 20px 0 20px; display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Votre signalement</h2>
+<div style="min-height: 60px; box-sizing: border-box; padding: 8px 8px 8px 16px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px">
+<sc-if value="{{oProduit}}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 17px; font-weight: 700; line-height: 1.3">Ce n'est pas le bon produit</span>
+</sc-if>
+<sc-if value="{{oListe}}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 17px; font-weight: 700; line-height: 1.3">La liste d'ingrédients est fausse</span>
+</sc-if>
+<sc-if value="{{oType}}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 17px; font-weight: 700; line-height: 1.3">Le type de produit est faux</span>
+</sc-if>
+<sc-if value="{{oIngredient}}" hint-placeholder-val="{{ true }}">
+<span style="font-size: 17px; font-weight: 700; line-height: 1.3">Un ingrédient est mal évalué</span>
+</sc-if>
+<sc-if value="{{oVerdict}}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 17px; font-weight: 700; line-height: 1.3">Le verdict me semble faux</span>
+</sc-if>
+<button type="button" sc-camel-on-click="{{toMenu}}" style="flex-shrink: 0; min-height: 44px; padding: 0 16px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer">Modifier</button>
+</div>
+</div>
+<sc-if value="{{showIngr}}" hint-placeholder-val="{{ true }}">
+<div style="flex-shrink: 0; margin: 18px 20px 0 20px; display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Ingrédient concerné</h2>
+<button type="button" sc-camel-on-click="{{toIngr}}" style="width: 100%; box-sizing: border-box; min-height: 56px; padding: 0 12px 0 16px; border: 1px solid #6E5A6B; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-family: inherit; text-align: left; cursor: pointer">
+<sc-if value="{{ingrNone}}" hint-placeholder-val="{{ true }}">
+<span style="font-size: 17px; line-height: 1.3; color: #80707D">Choisir dans la liste</span>
+</sc-if>
+<sc-if value="{{ingrSet}}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 17px; font-weight: 500; line-height: 1.3">{{ingrName}}</span>
+</sc-if>
+<sc-if value="{{ingrAbsent}}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 17px; font-weight: 500; line-height: 1.3">Absent de notre liste</span>
+</sc-if>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
+<sc-if value="{{ingrAbsent}}" hint-placeholder-val="{{ false }}">
+<div style="min-height: 60px; box-sizing: border-box; padding: 8px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; gap: 12px">
+<span style="flex-shrink: 0; width: 44px; height: 44px; box-sizing: border-box; border-radius: 10px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="26" height="34" sc-camel-view-box="0 0 230 300"><rect x="1" y="1" width="228" height="298" rx="14" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="1.5" vector-effect="non-scaling-stroke"></rect><rect x="22" y="30" width="96" height="10" rx="5" fill="#7E8285"></rect><rect x="22" y="70" width="186" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="92" width="170" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="114" width="186" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="136" width="150" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="158" width="180" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="180" width="186" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="202" width="128" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="224" width="176" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="246" width="96" height="7" rx="3.5" fill="#C9CCCE"></rect></svg>
+</span>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 17px; font-weight: 700; line-height: 1.3">Liste d'ingrédients</span>
+<span style="font-size: 15px; line-height: 1.4; color: #6E5A6B">2 photos jointes</span>
+</div>
+<a href="E4-Photo-SignalementIngredient.dc.html" aria-label="Reprendre les photos" style="flex-shrink: 0; min-height: 44px; box-sizing: border-box; padding: 0 16px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; font-size: 15px; font-weight: 700">Reprendre</a>
+</div>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{oProduit}}" hint-placeholder-val="{{ false }}">
+<div style="flex-shrink: 0; margin: 18px 20px 0 20px; display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Le bon produit</h2>
+<input id="e4-pnom" type="text" maxlength="80" autocomplete="off" value="{{pNom}}" sc-camel-on-change="{{onPNom}}" placeholder="Nom du produit" aria-label="Nom du produit" style="box-sizing: border-box; width: 100%; min-height: 56px; padding: 0 16px; border: 1px solid #6E5A6B; border-radius: 16px; background: #FFFFFF; color: #321C31; font-family: inherit; font-size: 17px">
+<input id="e4-pmarque" type="text" maxlength="80" autocomplete="off" value="{{pMarque}}" sc-camel-on-change="{{onPMarque}}" placeholder="Marque" aria-label="Marque" style="box-sizing: border-box; width: 100%; min-height: 56px; padding: 0 16px; border: 1px solid #6E5A6B; border-radius: 16px; background: #FFFFFF; color: #321C31; font-family: inherit; font-size: 17px">
+<p style="margin: 0; font-size: 14px; line-height: 1.4; color: #6E5A6B">Le nom et la marque sont demandés ; les photos sont facultatives.</p>
+<sc-if value="{{jointesOff}}" hint-placeholder-val="{{ true }}">
+<a href="E4-Photo-SignalementProduit.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Ajouter des photos</a>
+</sc-if>
+<sc-if value="{{jointesOn}}" hint-placeholder-val="{{ false }}">
+<div style="min-height: 60px; box-sizing: border-box; padding: 8px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; gap: 12px">
+<span style="flex-shrink: 0; width: 44px; height: 44px; box-sizing: border-box; border-radius: 10px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="25" height="33" sc-camel-view-box="0 0 200 260"><rect x="86" y="14" width="28" height="12" rx="4" fill="#7E8285"></rect><rect x="112" y="17" width="32" height="6" rx="3" fill="#7E8285"></rect><rect x="95" y="26" width="10" height="14" fill="#9DA1A4"></rect><rect x="80" y="40" width="40" height="22" rx="7" fill="#9DA1A4"></rect><rect x="50" y="62" width="100" height="184" rx="30" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="1.5" vector-effect="non-scaling-stroke"></rect><rect x="64" y="112" width="72" height="84" rx="10" fill="#E6E8E9"></rect><rect x="76" y="130" width="48" height="7" rx="3.5" fill="#AEB1B3"></rect><rect x="76" y="145" width="34" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="76" y="176" width="22" height="5" rx="2.5" fill="#C9CCCE"></rect></svg>
+</span>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 17px; font-weight: 700; line-height: 1.3">Face avant et liste</span>
+<span style="font-size: 15px; line-height: 1.4; color: #6E5A6B">3 photos jointes</span>
+</div>
+<a href="E4-Photo-SignalementProduit.dc.html" aria-label="Reprendre les photos" style="flex-shrink: 0; min-height: 44px; box-sizing: border-box; padding: 0 16px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; font-size: 15px; font-weight: 700">Reprendre</a>
+</div>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{oListe}}" hint-placeholder-val="{{ false }}">
+<div style="flex-shrink: 0; margin: 18px 20px 0 20px; display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">La liste de votre emballage</h2>
+<sc-if value="{{jointesOff}}" hint-placeholder-val="{{ true }}">
+<a href="E4-Photo-Signalement.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Photographier la liste</a>
+</sc-if>
+<sc-if value="{{jointesOn}}" hint-placeholder-val="{{ false }}">
+<div style="min-height: 60px; box-sizing: border-box; padding: 8px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; gap: 12px">
+<span style="flex-shrink: 0; width: 44px; height: 44px; box-sizing: border-box; border-radius: 10px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="26" height="34" sc-camel-view-box="0 0 230 300"><rect x="1" y="1" width="228" height="298" rx="14" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="1.5" vector-effect="non-scaling-stroke"></rect><rect x="22" y="30" width="96" height="10" rx="5" fill="#7E8285"></rect><rect x="22" y="70" width="186" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="92" width="170" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="114" width="186" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="136" width="150" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="158" width="180" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="180" width="186" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="202" width="128" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="224" width="176" height="7" rx="3.5" fill="#C9CCCE"></rect><rect x="22" y="246" width="96" height="7" rx="3.5" fill="#C9CCCE"></rect></svg>
+</span>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 17px; font-weight: 700; line-height: 1.3">Liste d'ingrédients</span>
+<span style="font-size: 15px; line-height: 1.4; color: #6E5A6B">2 photos jointes</span>
+</div>
+<a href="E4-Photo-Signalement.dc.html" aria-label="Reprendre les photos" style="flex-shrink: 0; min-height: 44px; box-sizing: border-box; padding: 0 16px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; font-size: 15px; font-weight: 700">Reprendre</a>
+</div>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{oType}}" hint-placeholder-val="{{ false }}">
+<div style="flex-shrink: 0; margin: 18px 20px 0 20px; display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Le bon type de produit</h2>
+<button type="button" sc-camel-on-click="{{toTypes}}" style="width: 100%; box-sizing: border-box; min-height: 56px; padding: 0 12px 0 16px; border: 1px solid #6E5A6B; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31; font-family: inherit; text-align: left; cursor: pointer">
+<sc-if value="{{typNone}}" hint-placeholder-val="{{ true }}">
+<span style="font-size: 17px; line-height: 1.3; color: #80707D">Choisir dans la liste</span>
+</sc-if>
+<sc-if value="{{typSet}}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 17px; font-weight: 500; line-height: 1.3">{{typName}}</span>
+</sc-if>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
+</div>
+</sc-if>
+<sc-if value="{{oVerdict}}" hint-placeholder-val="{{ false }}">
+<div style="flex-shrink: 0; margin: 18px 20px 0 20px; display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Ce que vous attendiez</h2>
+<sc-for list="{{sens}}" as="item" hint-placeholder-count="2">
+<button type="button" sc-camel-on-click="{{item.pick}}" aria-pressed="{{item.on}}" style="width: 100%; box-sizing: border-box; min-height: 56px; padding: 0 16px; border: {{item.border}}; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; gap: 12px; color: #321C31; font-family: inherit; font-size: 17px; font-weight: 500; text-align: left; cursor: pointer">
+<span aria-hidden="true" style="flex-shrink: 0; width: 22px; height: 22px; box-sizing: border-box; border-radius: 999px; border: 2px solid #6E5A6B; background: {{item.dot}}; box-shadow: inset 0 0 0 4px #FFFFFF"></span>
+<span>{{item.label}}</span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{showMsg}}" hint-placeholder-val="{{ true }}">
+<div style="flex-shrink: 0; margin: 18px 20px 0 20px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+<label for="e4-msg" style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Message (facultatif)</label>
+<span style="font-size: 14px; line-height: 1.3; color: #6E5A6B">{{msgCount}}</span>
+</div>
+<textarea id="e4-msg" rows="2" maxlength="300" value="{{msg}}" sc-camel-on-change="{{onMsg}}" style="box-sizing: border-box; width: 100%; height: 68px; padding: 12px 16px; border: 1px solid #6E5A6B; border-radius: 16px; background: #FFFFFF; color: #321C31; font-family: inherit; font-size: 17px; line-height: 1.4; resize: none"></textarea>
+</div>
+</sc-if>
+<div style="flex-shrink: 0; margin: 18px 20px 0 20px; padding: 12px 14px; border: 1.5px solid #2B5C8F; border-radius: 16px; background: #E3EDF8; display: flex; align-items: flex-start; gap: 10px">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#2B5C8F" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><circle cx="12" cy="12" r="9.5"></circle><path d="M12 11v6"></path><path d="M12 7.5v.01"></path></svg>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-size: 15px; line-height: 1.4">Votre signalement sert à corriger la fiche. Il est conservé [durée à fixer avec la juriste].</p>
+<sc-if value="{{showMsg}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0; font-size: 15px; line-height: 1.4">Vous ne recevrez pas de réponse.</p>
+</sc-if>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Textes provisoires</span>
+</sc-if>
+</div>
+</div>
+</div>
+<div style="flex-shrink: 0; padding: 12px 20px 34px 20px; display: flex; flex-direction: column; gap: 10px">
+<sc-if value="{{failed}}" hint-placeholder-val="{{ false }}">
+<div role="alert" style="padding: 12px 15px; border: 1.5px solid #2B5C8F; border-radius: 16px; background: #E3EDF8; color: #321C31; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 16px; line-height: 1.4">Pas de connexion. Signalement non envoyé.</p>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Texte provisoire</span>
+</sc-if>
+</div>
+<button type="button" sc-camel-on-click="{{send}}" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; background: #4C2944; color: #FFF7F0; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; border: 0; width: 100%; font-family: inherit; cursor: pointer">Réessayer</button>
+</sc-if>
+<sc-if value="{{ready}}" hint-placeholder-val="{{ true }}">
+<button type="button" sc-camel-on-click="{{send}}" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; background: #4C2944; color: #FFF7F0; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; border: 0; width: 100%; font-family: inherit; cursor: pointer">Envoyer</button>
+</sc-if>
+<sc-if value="{{incomplet}}" hint-placeholder-val="{{ false }}">
+<button type="button" aria-disabled="true" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; background: #4C2944; color: #FFF7F0; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; border: 0; width: 100%; font-family: inherit; cursor: pointer; opacity: 0.45">Envoyer</button>
+</sc-if>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{isIngr}}" hint-placeholder-val="{{ false }}">
+<div style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column">
+<div style="flex-shrink: 0; padding: 50px 20px 0 20px; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px">
+<button type="button" sc-camel-on-click="{{toDetail}}" aria-label="Retour au signalement" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</button>
+<h1 style="margin: 0; text-align: center; font-size: 19px; font-weight: 700; font-style: normal; text-decoration-line: none">Ingrédient concerné</h1>
+<span></span>
+</div>
+<p style="flex-shrink: 0; margin: 6px 24px 0 24px; font-size: 15px; line-height: 1.4; color: #6E5A6B; text-align: center">Parcourez la liste INCI de ce produit, dans l'ordre de l'emballage.</p>
+<div style="flex: 0 1 auto; min-height: 0; margin: 18px 20px 34px 20px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; overflow-y: auto; display: flex; flex-direction: column">
+<sc-for list="{{ingredients}}" as="item" hint-placeholder-count="10">
+<button type="button" sc-camel-on-click="{{item.pick}}" style="flex-shrink: 0; width: 100%; box-sizing: border-box; min-height: 52px; padding: 8px 16px; border: 0; border-bottom: 1px solid #E7E1DA; background: transparent; color: #321C31; font-family: inherit; font-size: 17px; line-height: 1.3; text-align: left; cursor: pointer">{{item.inci}}</button>
+</sc-for>
+<button type="button" sc-camel-on-click="{{toAbsent}}" style="flex-shrink: 0; width: 100%; box-sizing: border-box; min-height: 56px; padding: 8px 12px 8px 16px; border: 0; background: transparent; color: #321C31; font-family: inherit; font-size: 17px; font-weight: 700; line-height: 1.3; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 8px">
+<span>Il n'est pas dans cette liste</span>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{isAbsent}}" hint-placeholder-val="{{ false }}">
+<div style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column">
+<div style="flex-shrink: 0; padding: 50px 20px 0 20px; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px">
+<button type="button" sc-camel-on-click="{{toIngr}}" aria-label="Retour à la liste" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</button>
+<h1 style="margin: 0; text-align: center; font-size: 19px; font-weight: 700">Ingrédient absent</h1>
+<span></span>
+</div>
+<p style="flex-shrink: 0; margin: 6px 24px 0 24px; font-size: 15px; line-height: 1.4; color: #6E5A6B; text-align: center">Il est sur votre emballage, mais pas dans notre liste.</p>
+<div style="flex-shrink: 0; margin: 24px 20px 0 20px; display: flex; flex-direction: column; gap: 10px">
+<label for="e4-ingr" style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Son nom, tel qu'il est écrit</label>
+<input id="e4-ingr" type="text" maxlength="80" autocomplete="off" autocorrect="off" spellcheck="false" value="{{typed}}" sc-camel-on-change="{{onTyped}}" placeholder="Exemple : Tocopherol" style="box-sizing: border-box; width: 100%; min-height: 56px; padding: 0 16px; border: 1px solid #6E5A6B; border-radius: 16px; background: #FFFFFF; color: #321C31; font-family: inherit; font-size: 19px">
+<sc-if value="{{canValid}}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{validTyped}}" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; background: #4C2944; color: #FFF7F0; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; border: 0; width: 100%; font-family: inherit; cursor: pointer">Valider</button>
+</sc-if>
+<sc-if value="{{cantValid}}" hint-placeholder-val="{{ true }}">
+<button type="button" aria-disabled="true" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; background: #4C2944; color: #FFF7F0; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; border: 0; width: 100%; font-family: inherit; opacity: 0.45">Valider</button>
+</sc-if>
+</div>
+<div aria-hidden="true" style="flex-shrink: 0; margin: 22px 20px 0 20px; display: flex; align-items: center; gap: 12px; font-size: 15px; color: #6E5A6B">
+<span style="flex: 1 1 auto; height: 1px; background: #E7E1DA"></span>
+<span>ou</span>
+<span style="flex: 1 1 auto; height: 1px; background: #E7E1DA"></span>
+</div>
+<div style="flex-shrink: 0; margin: 22px 20px 0 20px; display: flex; flex-direction: column; gap: 10px">
+<a href="E4-Photo-SignalementIngredient.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Photographier la liste</a>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Textes provisoires</span>
+</sc-if>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{isTypes}}" hint-placeholder-val="{{ false }}">
+<div style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column">
+<div style="flex-shrink: 0; padding: 50px 20px 0 20px; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px">
+<button type="button" sc-camel-on-click="{{toDetail}}" aria-label="Retour au signalement" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</button>
+<h1 style="margin: 0; text-align: center; font-size: 19px; font-weight: 700">Type de produit</h1>
+<span></span>
+</div>
+<p style="flex-shrink: 0; margin: 6px 24px 0 24px; font-size: 15px; line-height: 1.4; color: #6E5A6B; text-align: center">Choisissez la catégorie qui correspond à votre produit.</p>
+<div style="flex: 0 1 auto; min-height: 0; margin: 18px 20px 0 20px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; overflow-y: auto; display: flex; flex-direction: column">
+<sc-for list="{{types}}" as="item" hint-placeholder-count="11">
+<button type="button" sc-camel-on-click="{{item.pick}}" style="flex-shrink: 0; width: 100%; box-sizing: border-box; min-height: 52px; padding: 8px 16px; border: 0; border-bottom: 1px solid #E7E1DA; background: transparent; color: #321C31; font-family: inherit; font-size: 17px; line-height: 1.3; text-align: left; cursor: pointer">{{item.label}}</button>
+</sc-for>
+</div>
+<p style="flex-shrink: 0; margin: 12px 24px 34px 24px; font-size: 13px; line-height: 1.4; color: #6E5A6B">[Libellés provisoires, repris de la question de catégorie : à ne pas figer avant un test.]</p>
+</div>
+</sc-if>
+<sc-if value="{{isReaction}}" hint-placeholder-val="{{ true }}">
+<div style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column">
+<div style="flex-shrink: 0; padding: 50px 20px 0 20px; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px">
+<button type="button" sc-camel-on-click="{{toMenu}}" aria-label="Retour au choix" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</button>
+<h1 style="margin: 0; text-align: center; font-size: 19px; font-weight: 700">Réaction à un produit</h1>
+<span></span>
+</div>
+<section aria-label="Réaction à un produit" style="flex-shrink: 0; margin: 28px 12px 0 12px; padding: 20px 15px 18px 15px; border: 1px solid #6E5A6B; border-radius: 24px; background: #FAF8F4; color: #321C31; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 700; line-height: 1.3; text-wrap: balance">Merci de nous le dire.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty">Nous sommes désolés que cela vous soit arrivé. Votre réaction compte : le ministère de la Santé recueille ces déclarations, sur un portail ouvert à tous.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.4; color: #6E5A6B">Ficolia ne peut pas les recevoir elle-même.</p>
+<a href="https://signalement.social-sante.gouv.fr/" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; background: #4C2944; color: #FFF7F0; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Ouvrir le portail de signalement</a>
+<p style="margin: 0; font-size: 14px; line-height: 1.3; color: #6E5A6B; text-align: center">signalement.social-sante.gouv.fr</p>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Textes provisoires</span>
+</sc-if>
+</section>
+<div style="flex-shrink: 0; margin: auto 20px 34px 20px; padding-top: 32px; display: flex; flex-direction: column; gap: 10px">
+<sc-if value="{{fromVerdict}}" hint-placeholder-val="{{ true }}">
+<a href="E1-Verdict.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Revenir au verdict</a>
+</sc-if>
+<sc-if value="{{fromProduit}}" hint-placeholder-val="{{ false }}">
+<a href="E1-Produit.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Revenir au produit</a>
+</sc-if>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{isSent}}" hint-placeholder-val="{{ false }}">
+<div style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column">
+<div style="flex-shrink: 0; margin: 36px 24px 0 24px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center">
+<div aria-hidden="true" style="flex-shrink: 0; align-self: center; width: 390px; height: 268px">
+<sc-if value="{{animJoue}}" hint-placeholder-val="{{ true }}">
+<video class="fxv-video fxv-e4-signalement-reaction" autoplay="" muted="" playsinline="" preload="auto" loop="{{animBoucle}}" style="width: 390px; height: 268px">
+<source src="assets/c6b0371b9f3b.mp4" type="video/mp4">
+<source src="assets/7338227115ff.webm" type="video/webm">
+</video>
+<img class="fxv-fige" src="assets/758cadc5e7f1.png" alt="" style="width: 390px; height: 268px">
+</sc-if>
+<sc-if value="{{animFige}}" hint-placeholder-val="{{ false }}">
+<img src="assets/758cadc5e7f1.png" alt="" style="display: block; width: 390px; height: 268px">
+</sc-if>
+</div>
+<h1 style="margin: 0; font-size: 30px; font-weight: 700; line-height: 1.15; text-wrap: balance">Signalement envoyé</h1>
+<p style="margin: 0; font-size: 17px; line-height: 1.45">Merci pour votre aide.</p>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Textes provisoires</span>
+</sc-if>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<button type="button" sc-camel-on-click="{{restart}}" style="width: 100%; box-sizing: border-box; margin-top: 10px; padding: 14px 16px; border: 1.5px dashed #6E5A6B; border-radius: 16px; background: transparent; font-family: inherit; font-size: 15px; line-height: 1.4; color: #6E5A6B; cursor: pointer">[Prototype : recommencer le signalement]</button>
+</sc-if>
+</div>
+<div style="flex-shrink: 0; margin-top: auto; padding-top: 32px">
+<nav aria-label="Navigation principale" style="margin: 0 16px 26px 16px; padding: 8px; border-radius: 30px; background: #FAF8F4; border: 1px solid #E7E1DA; box-shadow: 0 8px 24px rgba(50,28,49,0.10); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px">
+<a href="E1-Scan.dc.html" style="min-height: 56px; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #6E5A6B; font-size: 12px">
+<svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16M8 8.5v7M11 8.5v7M13.5 8.5v7M16 8.5v7"></path></svg>
+<span>Scanner</span>
+</a>
+<a href="E2-Recherche.dc.html" style="min-height: 56px; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #6E5A6B; font-size: 12px">
+<svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg>
+<span>Rechercher</span>
+</a>
+<a href="E5-Historique.dc.html" style="min-height: 56px; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #6E5A6B; font-size: 12px">
+<svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 12a8.2 8.2 0 1 0 2.4-5.8"></path><path d="M3.8 4.5V8h3.5"></path><path d="M12 7.5V12l3 2"></path></svg>
+<span>Historique</span>
+</a>
+<a href="E6-Menu.dc.html" style="min-height: 56px; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #6E5A6B; font-size: 12px">
+<svg width="20" height="24" sc-camel-view-box="0 0 212 254" fill="none" aria-hidden="true">
+<path d="M111.285 0.0432112C115.534 -0.249507 122.134 0.907016 124.815 4.67677C127.174 7.99389 123.473 11.378 122.006 14.2308C120.858 16.478 119.99 18.8574 119.42 21.3161C117.903 27.8812 118.283 34.3195 120.121 40.7486C127.197 65.4592 151.515 78.2868 170.015 93.6335C197.757 116.647 217.963 149.626 209.321 186.869C203.902 209.704 189.567 229.419 169.515 241.614C151.975 252.621 130.757 256.147 110.599 251.403C95.0007 247.709 83.8365 241.6 70.9144 232.706C41.1505 212.22 22.2285 187.766 31.4074 149.826C34.4201 139.049 38.9979 132.048 45.1774 123.04C43.6304 127.202 41.6016 132.363 40.4057 136.605C37.4934 146.934 37.5269 159.587 40.1677 169.971C42.127 177.676 46.0147 185.3 50.3768 191.917C55.0172 198.956 60.4392 203.454 66.131 209.485C70.4538 214.067 74.3813 219.159 79.0993 223.405C82.2677 226.243 85.706 228.763 89.3657 230.931C104.963 240.174 123.569 242.909 141.166 238.548C168.009 231.636 190.125 203.985 193.695 176.785C197.198 150.095 181.874 123.1 162.909 105.41C151.36 94.6381 137.696 85.9346 127.276 73.9156C116.111 61.2581 108.242 45.6829 107.511 28.592C107.306 23.797 107.573 18.5658 106.973 13.836C105.956 5.82001 100.168 2.00884 111.285 0.0432112Z" fill="#6E5A6B"></path>
+<path d="M94.5608 37.9777L94.9561 38.6051C87.968 66.34 71.5019 82.1081 51.0493 100.707C33.6913 116.492 20.7468 137.563 18.175 161.219C16.6504 175.304 19.6859 189.506 26.8355 201.737C40.3739 224.463 65.5806 239.666 89.1458 250.28C90.4187 250.853 91.9104 251.633 93.1843 252.09C92.4114 252.535 92.4172 252.511 91.5688 252.717C81.6387 251.86 65.408 246.98 56.0022 243.143C34.519 234.442 13.2769 217.644 4.85606 195.449C-11.0198 153.373 14.3113 112.875 47.8156 88.6966C68.3691 73.8636 84.3587 61.9779 94.5608 37.9777Z" fill="#6E5A6B"></path>
+<path d="M112.284 134.705C112.44 130.899 112.829 125.753 111.138 122.35C109.37 118.789 107.211 116.891 106.427 112.616C105.56 107.895 108.689 104.608 108.702 100.041C108.714 95.6911 106.403 91.6371 105.806 87.487C105.718 86.8697 105.981 86.7655 106.31 86.4792C106.999 86.5881 107.293 86.8654 107.758 87.3935C111.921 92.1285 114.328 99.3933 113.268 105.63C112.78 108.502 110.831 111.919 111.663 114.928C113.213 120.531 117.67 124.878 117.493 131.205C117.244 138.013 113.63 144.094 113.378 150.966C113.247 154.513 113.726 159.794 118.49 159.681C127.421 159.217 125.052 153.413 124.917 147.357C124.697 137.428 137.178 132.64 138.43 122.432C138.768 119.672 139.642 110.294 141.001 108.834L141.466 108.856C144.591 113.361 142.582 124.274 140.365 128.988C138.433 134.397 128.111 143.789 130.4 150.081C134.725 161.971 142.202 145.123 143.484 142.661C144.934 144.166 145.894 145.185 147.796 146.185C146.69 147.987 145.234 150.496 144.007 152.159C158.925 150.018 165.335 141.24 181.302 145.962C173.232 150.023 167.517 147.534 159.781 152.938C162.163 157.393 164.984 159.184 169.741 160.722C171.287 161.222 173.058 161.337 174.398 162.105L174.452 162.474C168.529 168.206 156.552 160.327 150.565 158.547C142.491 156.147 131.243 158.181 125.044 164.069C117.932 170.831 122.917 178.521 126.011 185.601C127.199 188.32 127.359 193.677 130.276 195.444C137.545 199.847 137.878 205.305 142.335 211.398C143.925 213.572 148.271 215.755 150.518 217.498C137.196 219.182 137.074 212.413 131.258 203.549C130.279 202.057 126.563 200.329 124.903 198.693C124.568 198.069 124.277 197.579 123.881 196.99C122.372 192.516 123.296 188.596 121.166 184.794C120.866 184.258 119.753 183.843 119.06 183.879C110.738 184.519 112.483 195.564 111.647 201.538C111.138 205.174 108.573 214.698 103.419 214.711C102.949 214.712 102.19 214.081 102.023 213.597C101.131 211.009 103.384 208.69 104.457 206.548C108.173 198.412 104.898 192.239 108.942 183.65C89.9246 183.887 103.086 208.388 74.6405 204.25C84.2068 200.581 89.1612 197.076 93.3984 187.603C94.3117 185.562 95.1888 183.528 97.063 182.168C101.604 178.873 108.263 180.457 112.635 176.83C113.952 175.737 114.609 174.256 114.733 172.566C114.881 170.547 114.485 168.427 113.057 166.914C111.903 165.69 110.305 165.159 108.656 165.104C104.997 164.983 100.974 166.728 97.701 168.185C78.2594 176.842 87.7778 185.75 79.1338 193.729C75.8969 196.716 71.8005 196.32 67.746 196.196C78.8725 188.828 76.3634 186.752 80.1464 175.191C83.4848 164.989 93.8718 162.331 102.601 158.814C105.286 157.731 107.921 155.13 108.765 152.095C112.837 137.465 100.809 133.001 95.5957 121.557C92.6563 115.309 91.1778 108.465 90.9605 101.574C90.9223 100.353 90.5632 97.0011 91.7818 96.4173C93.4691 97.2742 96.2072 105.113 96.2964 106.867C96.9429 119.557 101.527 126.923 112.284 134.705Z" fill="#6E5A6B"></path>
+<path d="M121.868 96.2223C124.319 97.3687 132.033 106.471 133.734 109.131C137.414 114.882 137.789 121.1 131.297 124.963C128.912 125.872 126.058 125.93 123.75 124.796C119.1 122.513 117.562 116.845 117.383 112.072C117.169 106.354 119.482 101.246 121.868 96.2223Z" fill="#6E5A6B"></path>
+<path d="M76.9154 110.151C87.2089 110.629 86.4417 130.14 89.9793 136.644C92.745 141.729 97.1852 145.179 101.281 149.188C94.9269 147.148 91.3133 143.798 85.4297 141.155C82.4611 139.821 77.7909 140.637 74.3223 139.691C73.9478 139.574 73.5759 139.451 73.2056 139.32C67.2514 137.216 65.6353 130.888 65.9727 125.239C66.097 123.157 66.7876 121.52 68.8122 120.685C71.7213 121.026 70.8203 125.078 70.7661 127.137C70.5159 136.708 77.2941 136.934 84.4671 137.115C82.8207 130.278 82.417 123.194 79.6842 117.138C78.8475 115.284 77.1974 113.41 76.0643 111.661C76.0834 110.738 76.0728 111.037 76.9154 110.151Z" fill="#6E5A6B"></path>
+<path d="M143.484 142.661C147.027 135.969 151.827 129.039 159.386 126.707C164.469 125.139 170.7 125.628 172.154 131.712C169.519 144.014 154.227 137.573 147.97 145.956L147.796 146.185C145.894 145.185 144.934 144.166 143.484 142.661Z" fill="#6E5A6B"></path>
+<path d="M85.1391 158.81C85.214 158.853 85.3728 158.918 85.4148 159.007C85.3256 159.146 85.3558 159.111 85.1694 159.326C81.6127 163.391 78.2918 167.127 76.7762 172.482C75.5049 176.971 73.9318 183.117 68.7962 184.767C66.1873 185.605 64.2132 184.952 61.9038 183.727C52.6914 173.452 78.0793 162.24 85.1391 158.81Z" fill="#6E5A6B"></path>
+<path d="M134.072 176.517C134.167 176.556 134.261 176.595 134.356 176.633C140.598 181.457 157.974 198.619 153.526 206.906C152.378 207.821 151.14 208.404 149.655 207.896C139.545 204.442 138.955 192.168 136.948 183.409C136.432 181.156 135.114 178.536 134.072 176.517Z" fill="#6E5A6B"></path>
+<path d="M123.383 200.888C122.915 203.766 131.61 215.178 124.68 219.806C118.809 223.729 112.354 220.564 113.653 213.118C114.725 206.963 116.908 202.539 120.425 197.411C121.131 196.385 122.435 197.577 122.891 198.187C123.052 199.207 123.248 199.808 123.383 200.888Z" fill="#6E5A6B"></path>
+<path d="M133.886 165.477C139.23 165.29 143.399 168.478 149.01 169.49C155.361 170.634 161.381 169.065 167.246 170.949C171.077 172.252 173.229 175.634 175.031 179.005C175.949 180.721 178.313 182.849 177.523 184.894C176.881 185.592 176.355 185.617 175.429 185.854C171.5 183.727 171.03 179.668 168.002 176.647C164.582 173.234 158.803 175.377 154.144 175.317C149.056 175.439 144.428 173.039 139.915 170.964C137.987 170.078 132.181 168.926 132.158 166.555C132.893 165.681 132.693 165.945 133.886 165.477Z" fill="#6E5A6B"></path>
+<path d="M143.456 182.082C147.875 182.413 152.329 184.136 157.121 184.002C162.327 183.856 170.128 189.553 165.618 195.001C157.669 201.59 147.445 187.417 143.456 182.082Z" fill="#6E5A6B"></path>
+<path d="M55.8672 139.736C59.4595 147.415 65.8818 150.853 74.2315 150.851C82.2162 150.848 88.4711 146.458 95.9676 151.198C95.8241 151.466 95.7025 151.779 95.584 152.06C84.1759 152.602 73.7523 158.175 62.3161 151.138C58.5081 148.795 56.4123 145.82 55.3955 141.492C55.5533 140.811 55.6526 140.399 55.8672 139.736Z" fill="#6E5A6B"></path>
+<path d="M152.415 120.069C160.655 119.824 156.46 124.877 152.912 128.162C150.65 130.256 148.264 132.569 145.935 134.567C144.913 135.422 143.907 136.294 142.915 137.185C143.062 130.59 143.588 122.085 151.551 120.259L152.415 120.069Z" fill="#6E5A6B"></path>
+<path d="M67.61 159.969C71.8499 159.833 73.0638 160.447 76.6481 162.307C72.065 164.719 69.5942 165.815 65.0711 168.601C61.2142 170.804 59.7873 171.404 57.0466 167.949C58.6924 161.698 61.5325 160.644 67.61 159.969Z" fill="#6E5A6B"></path>
+</svg>
+<span>Menu</span>
+</a>
+</nav>
+</div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;etat&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Objet à choisir&quot;,&quot;Détail du signalement&quot;,&quot;Ingrédient à choisir&quot;,&quot;Réaction à un produit&quot;,&quot;Signalement envoyé&quot;,&quot;Envoi impossible&quot;,&quot;Ingrédient absent&quot;,&quot;Type à choisir&quot;],&quot;default&quot;:&quot;Réaction à un produit&quot;,&quot;section&quot;:&quot;État&quot;},&quot;origine&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Écran de verdict&quot;,&quot;Écran produit&quot;],&quot;default&quot;:&quot;Écran de verdict&quot;,&quot;section&quot;:&quot;Écran de départ&quot;},&quot;objet&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Automatique&quot;,&quot;Mauvais produit&quot;,&quot;Liste fausse&quot;,&quot;Type faux&quot;,&quot;Ingrédient mal évalué&quot;,&quot;Verdict contesté&quot;],&quot;default&quot;:&quot;Automatique&quot;,&quot;section&quot;:&quot;Objet du signalement&quot;},&quot;ingredient&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Aucun&quot;,&quot;Choisi dans la liste&quot;,&quot;Écrit à la main&quot;,&quot;Absent, liste photographiée&quot;],&quot;default&quot;:&quot;Aucun&quot;,&quot;section&quot;:&quot;Ingrédient concerné&quot;},&quot;type&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Aucun&quot;,&quot;Choisi dans la liste&quot;],&quot;default&quot;:&quot;Aucun&quot;,&quot;section&quot;:&quot;Type de produit&quot;},&quot;jointes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Photos jointes au signalement&quot;},&quot;message&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Message court (variante)&quot;},&quot;photo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Photo du produit&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;animation&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;En boucle&quot;,&quot;Lue une fois&quot;,&quot;Image fixe (réduire les animations)&quot;],&quot;default&quot;:&quot;En boucle&quot;,&quot;section&quot;:&quot;Animation&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  componentDidMount() { this.fxvJoue(); }
+  // Animations (13/10) : lecture sans son, une fois ; rien n'est lu si le téléphone demande de réduire les animations.
+  fxvJoue() {
+    try {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var vs = document.querySelectorAll('video.fxv-e4-signalement-reaction');
+      for (var k = 0; k < vs.length; k++) {
+        var v = vs[k]; v.muted = true;
+        if (v.paused && !v.ended && v.currentTime === 0) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      }
+    } catch (e) {}
+  }
+  renderVals() {
+    var v = this.__fxvVals();
+    v.animFige = this.props.animation === 'Image fixe (réduire les animations)';
+    v.animJoue = !v.animFige;
+    // Dans le canevas, les animations tournent en boucle (porteuse, 13/10) ; « Lue une fois » reste la règle de l'application (décision 137).
+    v.animBoucle = v.animJoue && this.props.animation !== 'Lue une fois';
+    return v;
+  }
+  componentDidUpdate(prevProps) {
+    this.fxvJoue();
+    if (prevProps && (prevProps.etat !== this.props.etat || prevProps.origine !== this.props.origine || prevProps.objet !== this.props.objet || prevProps.ingredient !== this.props.ingredient || prevProps.type !== this.props.type || prevProps.jointes !== this.props.jointes) && this.state && this.state.touched) {
+      this.setState({ touched: false, view: null, obj: null, ingr: null, failed: null, typed: null, typ: null, sensV: null, pNom: null, pMarque: null, jointes: null });
+    }
+  }
+  __fxvVals() {
+    // Signalement d'une erreur (D-55). Deux temps : l'objet, puis le détail. Aucune adresse demandée (décision 69).
+    var E = ['Objet à choisir', 'Détail du signalement', 'Ingrédient à choisir', 'Réaction à un produit', 'Signalement envoyé', 'Envoi impossible', 'Ingrédient absent', 'Type à choisir'];
+    var O = ['Écran de verdict', 'Écran produit'];
+    // Même liste de démonstration que l'écran des ingrédients (aucun produit réel).
+    var INGR = ['Aqua', 'Glycerin', 'Caprylic/Capric Triglyceride', '[Ingrédient signalé — exemple]', 'Butyrospermum Parkii Butter', '[Ingrédient déterminant — exemple]', 'Parfum', '[Ingrédient — exemple A]', '[Ingrédient — exemple B]', '[Ingrédient — exemple C]'];
+    var ABSENT = '#absent';
+    var st = this.state || {};
+    var self = this;
+    var etat = E.indexOf(this.props.etat) >= 0 ? this.props.etat : E[0];
+    var fromProduit = this.props.origine === O[1];
+    var view0 = etat === E[0] ? 'menu' : (etat === E[2] ? 'ingr' : (etat === E[3] ? 'reaction' : (etat === E[4] ? 'sent' : (etat === E[6] ? 'absent' : (etat === E[7] ? 'types' : 'detail')))));
+    var view = st.view || view0;
+    // Depuis l'écran produit, l'objet est déjà choisi : « Ce n'est pas le bon produit » (décision 68).
+    // Réglage « Objet du signalement » : l'objet affiché au départ sur l'écran de détail.
+    var OB = ['Automatique', 'Mauvais produit', 'Liste fausse', 'Type faux', 'Ingrédient mal évalué', 'Verdict contesté'];
+    var obProp = ['', 'produit', 'liste', 'type', 'ingredient', 'verdict'][OB.indexOf(this.props.objet)] || '';
+    var obj = st.obj || obProp || (fromProduit ? 'produit' : 'ingredient');
+    var failed = typeof st.failed === 'boolean' ? st.failed : etat === E[5];
+    // Réglage « Ingrédient concerné » : rien, un ingrédient de la liste, un nom écrit par l'utilisatrice, ou un ingrédient absent dont elle a photographié la liste.
+    var IG = ['Aucun', 'Choisi dans la liste', 'Écrit à la main', 'Absent, liste photographiée'];
+    var ingr0 = this.props.ingredient === IG[1] ? INGR[1] : (this.props.ingredient === IG[2] ? 'Tocopherol' : (this.props.ingredient === IG[3] ? ABSENT : ''));
+    var typed = typeof st.typed === 'string' ? st.typed : '';
+    var ingr = typeof st.ingr === 'string' ? st.ingr : ingr0;
+    var msg = typeof st.msg === 'string' ? st.msg : '';
+    // Le champ d'ingrédient ne vaut que pour « Un ingrédient est mal évalué » (porteuse, 07/10).
+    var needIngr = obj === 'ingredient';
+    // Type de produit : liste provisoire, reprise de la question de catégorie (étape 3).
+    var TYPES = ['Soin anti-vergetures', 'Bain de bouche', 'Crème après-solaire', 'Crème jambes lourdes', 'Crème/gel amincissant', 'Déodorant spray', 'Lait corps', 'Produit solaire corps', 'Soin des mamelons', 'Spray solaire corps', 'Spray solaire visage', 'Autre'];
+    var typ = typeof st.typ === 'string' ? st.typ : (this.props.type === 'Choisi dans la liste' ? TYPES[2] : '');
+    // « Le verdict me semble faux » : le sens du désaccord, sans texte libre (proposé par Claude, gardé par la porteuse le 08/10, décision 105).
+    var SENS = ['Un verdict plus sévère', 'Un verdict moins sévère'];
+    var sensV = typeof st.sensV === 'string' ? st.sensV : '';
+    // « Ce n'est pas le bon produit » : le bon produit, écrit par l'utilisatrice, avec ou sans photos (porteuse, 07/10).
+    var pNom = typeof st.pNom === 'string' ? st.pNom : '';
+    var pMarque = typeof st.pMarque === 'string' ? st.pMarque : '';
+    // « Le bon produit » : nom et marque obligatoires, photos facultatives (porteuse, 29/10, fil f91c4de6).
+    var complet = obj !== 'produit' || (pNom.trim() !== '' && pMarque.trim() !== '');
+    // Photos jointes (décision 116) : au retour du parcours de photo, la ligne des photos remplace le bouton. Changer d'objet les retire.
+    // Le prototype ne transmet rien d'une planche à l'autre : le nombre de photos affiché est un exemple.
+    var jointes = typeof st.jointes === 'boolean' ? st.jointes : this.props.jointes === true;
+    function go(v, extra) {
+      var s = { view: v, touched: true };
+      if (extra) { for (var k in extra) { s[k] = extra[k]; } }
+      self.setState(s);
+    }
+    function pick(o) { return function () { go('detail', { obj: o, ingr: '', failed: false, jointes: o === obj ? jointes : false }); }; }
+    return {
+      // Prototype : la planche garde son état ; ce bouton ramène au début du signalement (13/10).
+      restart: function () { self.setState({ touched: false, view: fromProduit ? 'detail' : 'menu', obj: null, ingr: null, msg: null, failed: null, typed: null, typ: null, sensV: null, pNom: null, pMarque: null, jointes: null }); },
+      isMenu: view === 'menu',
+      isDetail: view === 'detail',
+      isIngr: view === 'ingr',
+      isReaction: view === 'reaction',
+      isSent: view === 'sent',
+      isAbsent: view === 'absent',
+      isTypes: view === 'types',
+      types: TYPES.map(function (n) { return { label: n, pick: function () { go('detail', { typ: n }); } }; }),
+      typNone: typ === '',
+      typSet: typ !== '',
+      typName: typ,
+      toTypes: function () { go('types'); },
+      sens: SENS.map(function (n) { var on = sensV === n; return { label: n, on: on, border: on ? '2px solid #321C31' : '1px solid #6E5A6B', dot: on ? '#321C31' : '#FFFFFF', pick: function () { self.setState({ sensV: on ? '' : n, touched: true }); } }; }),
+      pNom: pNom,
+      pMarque: pMarque,
+      onPNom: function (e) { self.setState({ pNom: String(e.target.value).slice(0, 80), touched: true }); },
+      onPMarque: function (e) { self.setState({ pMarque: String(e.target.value).slice(0, 80), touched: true }); },
+      typed: typed,
+      canValid: typed.trim() !== '',
+      cantValid: typed.trim() === '',
+      fromVerdict: !fromProduit,
+      fromProduit: fromProduit,
+      oProduit: obj === 'produit',
+      oListe: obj === 'liste',
+      oType: obj === 'type',
+      oIngredient: obj === 'ingredient',
+      oVerdict: obj === 'verdict',
+      showIngr: needIngr,
+      ingrNone: ingr === '',
+      ingrSet: ingr !== '' && ingr !== ABSENT,
+      ingrAbsent: ingr === ABSENT,
+      jointesOn: jointes,
+      jointesOff: !jointes,
+      ingrName: ingr === ABSENT ? '' : ingr,
+      showMsg: this.props.message === true,
+      msg: msg,
+      msgCount: msg.length + '/300',
+      failed: failed,
+      ready: !failed && complet,
+      incomplet: !failed && !complet,
+      // Le rappel d'un produit porte toujours sa photo (décision 71).
+      hasPhoto: this.props.photo !== false,
+      noPhoto: this.props.photo === false,
+      showStatus: this.props.statuts !== false,
+      pickProduit: pick('produit'),
+      pickListe: pick('liste'),
+      pickType: pick('type'),
+      pickIngredient: pick('ingredient'),
+      pickVerdict: pick('verdict'),
+      // « J'ai eu une réaction avec ce produit » : rien n'est envoyé à Ficolia, renvoi vers le portail officiel (décision 70).
+      pickReaction: function () { go('reaction'); },
+      toMenu: function () { go('menu', { failed: false }); },
+      toDetail: function () { go('detail'); },
+      toIngr: function () { go('ingr'); },
+      ingredients: INGR.map(function (n) { return { inci: n, pick: function () { go('detail', { ingr: n }); } }; }),
+      // Ingrédient absent de la liste : l'utilisatrice écrit son nom, ou photographie la liste (porteuse, 07/10).
+      toAbsent: function () { go('absent'); },
+      onTyped: function (e) { self.setState({ typed: String(e.target.value).slice(0, 80), touched: true }); },
+      validTyped: function () { var n = typed.trim(); if (n) { go('detail', { ingr: n }); } },
+      onMsg: function (e) { self.setState({ msg: String(e.target.value).slice(0, 300), touched: true }); },
+      send: function () { go('sent', { failed: false }); }
+    };
+  }
+}
+</script>
+
+
+</body></html>

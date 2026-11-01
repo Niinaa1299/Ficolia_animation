@@ -26,6 +26,10 @@
    "name": "Étape 3 (1) — type et états du verdict"
   },
   {
+   "id": "etape-4",
+   "name": "Étape 4 — contribution photo et signalement"
+  },
+  {
    "id": "etape-5",
    "name": "Étape 5"
   },
@@ -1170,6 +1174,238 @@
    "h": 844,
    "title": "Verdict à actualiser · sans connexion",
    "page": "etape-3a"
+  },
+  "E4-Photo-SignalementProduit.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · avant de commencer, depuis « ce n'est pas le bon produit »",
+   "page": "etape-4"
+  },
+  "E4-Signalement-ProduitJointes.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · depuis l'écran produit, photos jointes",
+   "page": "etape-4"
+  },
+  "E4-Signalement-ListeJointes.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · la liste d'ingrédients est fausse, photos jointes",
+   "page": "etape-4"
+  },
+  "E4-Photo-SignalementIngredient.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · avant de commencer, depuis « ingrédient absent »",
+   "page": "etape-4"
+  },
+  "E4-Signalement-IngredientJointes.dc.html": {
+   "x": 1880,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · ingrédient absent, liste photographiée",
+   "page": "etape-4"
+  },
+  "E4-Photo-CameraRefusee.dc.html": {
+   "x": 2350,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · caméra refusée",
+   "page": "etape-4"
+  },
+  "E4-Photo.dc.html": {
+   "x": 0,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · avant de commencer, produit inconnu",
+   "page": "etape-4"
+  },
+  "E4-Photo-Liste.dc.html": {
+   "x": 470,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · avant de commencer, liste seule",
+   "page": "etape-4"
+  },
+  "E4-Photo-Signalement.dc.html": {
+   "x": 940,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · avant de commencer, depuis « la liste est fausse »",
+   "page": "etape-4"
+  },
+  "E4-Photo-Face.dc.html": {
+   "x": 1410,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · face avant",
+   "page": "etape-4"
+  },
+  "E4-Photo-Ingredients.dc.html": {
+   "x": 1880,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · liste d'ingrédients",
+   "page": "etape-4"
+  },
+  "E4-Photo-Relecture.dc.html": {
+   "x": 2350,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · relecture",
+   "page": "etape-4"
+  },
+  "E4-Photo-Courriel.dc.html": {
+   "x": 2820,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · recevoir un e-mail",
+   "page": "etape-4"
+  },
+  "E4-Photo-Echec.dc.html": {
+   "x": 3290,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · envoi impossible",
+   "page": "etape-4"
+  },
+  "E4-Signalement.dc.html": {
+   "x": 0,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · objet à choisir",
+   "page": "etape-4"
+  },
+  "E4-Signalement-Detail.dc.html": {
+   "x": 470,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "À SUPPRIMER · doublon de « un ingrédient est mal évalué »",
+   "page": "etape-4"
+  },
+  "E4-Signalement-Message.dc.html": {
+   "x": 940,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · un ingrédient est mal évalué",
+   "page": "etape-4"
+  },
+  "E4-Signalement-Produit.dc.html": {
+   "x": 1410,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · depuis l'écran produit",
+   "page": "etape-4"
+  },
+  "E4-Signalement-Ingredient.dc.html": {
+   "x": 1880,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · choix de l'ingrédient",
+   "page": "etape-4"
+  },
+  "E4-Signalement-Reaction.dc.html": {
+   "x": 2350,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · réaction à un produit",
+   "page": "etape-4"
+  },
+  "E4-Signalement-Echec.dc.html": {
+   "x": 2820,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · envoi impossible",
+   "page": "etape-4"
+  },
+  "E4-Signalement-Liste.dc.html": {
+   "x": 0,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · la liste d'ingrédients est fausse",
+   "page": "etape-4"
+  },
+  "E4-Signalement-Type.dc.html": {
+   "x": 470,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · le type de produit est faux",
+   "page": "etape-4"
+  },
+  "E4-Signalement-Verdict.dc.html": {
+   "x": 940,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · le verdict me semble faux",
+   "page": "etape-4"
+  },
+  "E4-Signalement-IngredientChoisi.dc.html": {
+   "x": 1410,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · ingrédient choisi",
+   "page": "etape-4"
+  },
+  "E4-Signalement-IngredientAbsent.dc.html": {
+   "x": 1880,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · ingrédient absent : l'écrire ou le photographier",
+   "page": "etape-4"
+  },
+  "E4-Signalement-IngredientEcrit.dc.html": {
+   "x": 2350,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · ingrédient écrit à la main",
+   "page": "etape-4"
+  },
+  "E4-Signalement-TypeChoisi.dc.html": {
+   "x": 2820,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · type de produit choisi",
+   "page": "etape-4"
+  },
+  "E4-Signalement-Types.dc.html": {
+   "x": 0,
+   "y": 3856,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement — choix du type de produit",
+   "page": "etape-4"
   }
  },
  "order": [
@@ -1313,7 +1549,36 @@
   "E3-Verdict-Actualiser.dc.html",
   "E3-Verdict-Rappel.dc.html",
   "E3-Question.dc.html",
-  "E3-Verdict-ActualiserHorsLigne.dc.html"
+  "E3-Verdict-ActualiserHorsLigne.dc.html",
+  "E4-Photo-SignalementProduit.dc.html",
+  "E4-Signalement-ProduitJointes.dc.html",
+  "E4-Signalement-ListeJointes.dc.html",
+  "E4-Photo-SignalementIngredient.dc.html",
+  "E4-Signalement-IngredientJointes.dc.html",
+  "E4-Photo-CameraRefusee.dc.html",
+  "E4-Photo.dc.html",
+  "E4-Photo-Liste.dc.html",
+  "E4-Photo-Signalement.dc.html",
+  "E4-Photo-Face.dc.html",
+  "E4-Photo-Ingredients.dc.html",
+  "E4-Photo-Relecture.dc.html",
+  "E4-Photo-Courriel.dc.html",
+  "E4-Photo-Echec.dc.html",
+  "E4-Signalement.dc.html",
+  "E4-Signalement-Detail.dc.html",
+  "E4-Signalement-Message.dc.html",
+  "E4-Signalement-Produit.dc.html",
+  "E4-Signalement-Ingredient.dc.html",
+  "E4-Signalement-Reaction.dc.html",
+  "E4-Signalement-Echec.dc.html",
+  "E4-Signalement-Liste.dc.html",
+  "E4-Signalement-Type.dc.html",
+  "E4-Signalement-Verdict.dc.html",
+  "E4-Signalement-IngredientChoisi.dc.html",
+  "E4-Signalement-IngredientAbsent.dc.html",
+  "E4-Signalement-IngredientEcrit.dc.html",
+  "E4-Signalement-TypeChoisi.dc.html",
+  "E4-Signalement-Types.dc.html"
  ],
  "notes": {},
  "designSystems": []
