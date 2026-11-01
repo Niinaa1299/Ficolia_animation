@@ -1,20 +1,17 @@
 # Rapport de déballage — etape-3a
 
-Export : `2026-11-01 (6).html` · déballé le 2026-10-31 · canevas « Ficolia — Prototype »
+Export : `2026-11-01 (20).html` · déballé le 2026-11-01 · canevas « Ficolia — Prototype »
 
-Planches dans l'export : 5 (manifeste : 5 entrées).
+Planches dans l'export : 2 (manifeste : 2 entrées).
 
 | # | Titre dans l'export | Fichier produit | Nom | Taille | support.js | x-dc | dc-script | $preview | trous | liens | ressources extraites | /_blob/ restants | identifiants restants |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Évaluation incomplète (état « verdict incomplet ») | `E3-Verdict-Incomplet.dc.html` | table | 50118 o | oui | oui | oui | 390×844 | 79 | 19 | 0 | 0 | 0 |
-| 2 | Verdict à actualiser | `E3-Verdict-Actualiser.dc.html` | table | 50125 o | oui | oui | oui | 390×844 | 79 | 19 | 0 | 0 | 0 |
-| 3 | Rappel de lot | `E3-Verdict-Rappel.dc.html` | table | 50104 o | oui | oui | oui | 390×844 | 79 | 19 | 0 | 0 | 0 |
-| 4 | Question du type · après un scan (option b) | `E3-Question.dc.html` | table | 13357 o | oui | oui | oui | 390×844 | 5 | 5 | 0 | 0 | 0 |
-| 5 | Verdict à actualiser · sans connexion | `E3-Verdict-ActualiserHorsLigne.dc.html` | table | 50125 o | oui | oui | oui | 390×844 | 79 | 19 | 0 | 0 | 0 |
+| 1 | Mise à jour obligatoire | `E3-MiseAJour.dc.html` | table | 5173 o | oui | oui | oui | 390×844 | 6 | 0 | 3 | 0 | 0 |
+| 2 | Après la mise à jour · premier lancement (hors registre) | `E3-MiseAJour-Faite.dc.html` | table | 5172 o | oui | oui | oui | 390×844 | 6 | 1 | 3 | 0 | 0 |
 
 Polices reconstituées en `<link>` Google Fonts : Atkinson Hyperlegible Next.
 
-Planches dupliquées pour l'export (titre terminé par « copy », suffixe retiré) : 5.
+Planches dupliquées pour l'export (titre terminé par « copy », suffixe retiré) : 2.
 
 ## Écarts et points à vérifier
 

@@ -1,16 +1,18 @@
 # Rapport de déballage — etape-4
 
-Export : `2026-11-01 (11).html` · déballé le 2026-10-31 · canevas « Ficolia — Prototype »
+Export : `2026-11-01 (21).html` · déballé le 2026-11-01 · canevas « Ficolia — Prototype »
 
-Planches dans l'export : 1 (manifeste : 7 entrées).
+Planches dans l'export : 3 (manifeste : 3 entrées).
 
 | # | Titre dans l'export | Fichier produit | Nom | Taille | support.js | x-dc | dc-script | $preview | trous | liens | ressources extraites | /_blob/ restants | identifiants restants |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Signalement — choix du type de produit | `E4-Signalement-Types.dc.html` | table | 67210 o | oui | oui | oui | 390×844 | 70 | 9 | 3 | 0 | 0 |
+| 1 | Signalement · envoyé | `E4-Signalement-Envoye.dc.html` | table | 66918 o | oui | oui | oui | 390×844 | 70 | 9 | 3 | 0 | 0 |
+| 2 | Photo · envoyées | `E4-Photo-Envoyees.dc.html` | table | 66472 o | oui | oui | oui | 390×844 | 55 | 13 | 6 | 0 | 0 |
+| 3 | Photo · e-mail enregistré | `E4-Photo-CourrielOk.dc.html` | table | 66489 o | oui | oui | oui | 390×844 | 55 | 13 | 6 | 0 | 0 |
 
 Polices reconstituées en `<link>` Google Fonts : Atkinson Hyperlegible Next.
 
-Export d'une planche seule : son titre est lu dans la balise `<title>` (le titre du bandeau n'est pas dans ce type d'export).
+Planches dupliquées pour l'export (titre terminé par « copy », suffixe retiré) : 3.
 
 ## Écarts et points à vérifier
 

@@ -96,6 +96,8 @@ def main():
     ap.add_argument("--page", default=None, help="identifiant court de la page du canevas (ex. etape-2) ; sert au rapport et à canvas.json")
     ap.add_argument("--titre", default=None, help="nom de la page dans le canevas (par défaut : l'identifiant)")
     ap.add_argument("--ajouter", action="store_true", help="ajouter les planches à la page sans retirer celles qu'elle a déjà (par défaut : la page est remplacée)")
+    ap.add_argument("--nom", default=None, help="export d'une planche seule : nom de fichier imposé (sans .dc.html), au lieu de noms.json")
+    ap.add_argument("--intitule", default=None, help="export d'une planche seule : titre de la planche sur le canevas, au lieu de la balise <title>")
     ap.add_argument("--dest", default=os.path.join(RACINE, "prototype", "sources"))
     a = ap.parse_args()
     dest = os.path.abspath(a.dest)
@@ -117,7 +119,9 @@ def main():
         # On le traite comme une page d'une planche ; son titre vient de <title>, sans le préfixe de l'app.
         planche_seule = True
         ordre = ["(planche)"]
-        titres = {"(planche)": re.sub(r"^Ficolia\s*[—–-]\s*", "", titre_canevas)}
+        titres = {"(planche)": a.intitule or re.sub(r"^Ficolia\s*[—–-]\s*", "", titre_canevas)}
+        if a.nom:
+            noms[titres["(planche)"]] = a.nom
         titre_canevas = "Ficolia — Prototype"
 
     os.makedirs(os.path.join(dest, "project"), exist_ok=True)

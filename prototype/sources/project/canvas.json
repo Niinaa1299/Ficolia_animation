@@ -1406,6 +1406,134 @@
    "h": 844,
    "title": "Signalement — choix du type de produit",
    "page": "etape-4"
+  },
+  "E3-SansVerdict-NonEvalue.dc.html": {
+   "x": 0,
+   "y": 3856,
+   "w": 390,
+   "h": 844,
+   "title": "Produit reconnu, non évalué",
+   "page": "etape-3a"
+  },
+  "E3-SansVerdict-PasCosmetique.dc.html": {
+   "x": 0,
+   "y": 4820,
+   "w": 390,
+   "h": 844,
+   "title": "Pas un cosmétique",
+   "page": "etape-3a"
+  },
+  "E3-SansVerdict-Frontiere.dc.html": {
+   "x": 0,
+   "y": 5784,
+   "w": 390,
+   "h": 844,
+   "title": "Produit frontière",
+   "page": "etape-3a"
+  },
+  "E3-SansVerdict-ListeAbsente.dc.html": {
+   "x": 0,
+   "y": 6748,
+   "w": 390,
+   "h": 844,
+   "title": "Liste absente",
+   "page": "etape-3a"
+  },
+  "E3-SansVerdict-Attente.dc.html": {
+   "x": 0,
+   "y": 7712,
+   "w": 390,
+   "h": 844,
+   "title": "Scan en attente",
+   "page": "etape-3a"
+  },
+  "E3-SansVerdict-Service.dc.html": {
+   "x": 0,
+   "y": 8676,
+   "w": 390,
+   "h": 844,
+   "title": "Service indisponible",
+   "page": "etape-3a"
+  },
+  "E3-SansVerdict-Inconnu.dc.html": {
+   "x": 0,
+   "y": 9640,
+   "w": 390,
+   "h": 844,
+   "title": "Produit inconnu",
+   "page": "etape-3a"
+  },
+  "E3-SansVerdict-Source.dc.html": {
+   "x": 0,
+   "y": 10604,
+   "w": 390,
+   "h": 844,
+   "title": "Scan en attente",
+   "page": "etape-3a"
+  },
+  "E3-MiseAJour.dc.html": {
+   "x": 0,
+   "y": 11568,
+   "w": 390,
+   "h": 844,
+   "title": "Mise à jour obligatoire",
+   "page": "etape-3a"
+  },
+  "E3-MiseAJour-Faite.dc.html": {
+   "x": 470,
+   "y": 11568,
+   "w": 390,
+   "h": 844,
+   "title": "Après la mise à jour · premier lancement (hors registre)",
+   "page": "etape-3a"
+  },
+  "E4-Signalement-Envoye.dc.html": {
+   "x": 0,
+   "y": 4820,
+   "w": 390,
+   "h": 844,
+   "title": "Signalement · envoyé",
+   "page": "etape-4"
+  },
+  "E4-Photo-Envoyees.dc.html": {
+   "x": 470,
+   "y": 4820,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · envoyées",
+   "page": "etape-4"
+  },
+  "E4-Photo-CourrielOk.dc.html": {
+   "x": 940,
+   "y": 4820,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · e-mail enregistré",
+   "page": "etape-4"
+  },
+  "E5-SansVerdict-Recherche.dc.html": {
+   "x": 0,
+   "y": 4820,
+   "w": 390,
+   "h": 844,
+   "title": "Réseau faible, recherche du produit",
+   "page": "etape-5"
+  },
+  "E5-Recherche-HorsLigne.dc.html": {
+   "x": 0,
+   "y": 5784,
+   "w": 390,
+   "h": 844,
+   "title": "Rechercher, sans connexion",
+   "page": "etape-5"
+  },
+  "E5-SansVerdict-Faible.dc.html": {
+   "x": 0,
+   "y": 6748,
+   "w": 390,
+   "h": 844,
+   "title": "Réseau faible, scan mis en attente",
+   "page": "etape-5"
   }
  },
  "order": [
@@ -1578,7 +1706,23 @@
   "E4-Signalement-IngredientAbsent.dc.html",
   "E4-Signalement-IngredientEcrit.dc.html",
   "E4-Signalement-TypeChoisi.dc.html",
-  "E4-Signalement-Types.dc.html"
+  "E4-Signalement-Types.dc.html",
+  "E3-SansVerdict-NonEvalue.dc.html",
+  "E3-SansVerdict-PasCosmetique.dc.html",
+  "E3-SansVerdict-Frontiere.dc.html",
+  "E3-SansVerdict-ListeAbsente.dc.html",
+  "E3-SansVerdict-Attente.dc.html",
+  "E3-SansVerdict-Service.dc.html",
+  "E3-SansVerdict-Inconnu.dc.html",
+  "E3-SansVerdict-Source.dc.html",
+  "E3-MiseAJour.dc.html",
+  "E3-MiseAJour-Faite.dc.html",
+  "E4-Signalement-Envoye.dc.html",
+  "E4-Photo-Envoyees.dc.html",
+  "E4-Photo-CourrielOk.dc.html",
+  "E5-SansVerdict-Recherche.dc.html",
+  "E5-Recherche-HorsLigne.dc.html",
+  "E5-SansVerdict-Faible.dc.html"
  ],
  "notes": {},
  "designSystems": []

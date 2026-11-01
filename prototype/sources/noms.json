@@ -183,5 +183,23 @@
   "Signalement · type de produit choisi": "E4-Signalement-TypeChoisi",
   "Signalement · le verdict me semble faux": "E4-Signalement-Verdict",
   "Signalement · réaction à un produit": "E4-Signalement-Reaction",
-  "Signalement · envoi impossible": "E4-Signalement-Echec"
+  "Signalement · envoi impossible": "E4-Signalement-Echec",
+
+  "Mise à jour obligatoire": "E3-MiseAJour",
+  "Après la mise à jour · premier lancement (hors registre)": "E3-MiseAJour-Faite",
+  "Signalement · envoyé": "E4-Signalement-Envoye",
+  "Photo · envoyées": "E4-Photo-Envoyees",
+  "Photo · e-mail enregistré": "E4-Photo-CourrielOk",
+
+  "_planches_seules": "Les titres ci-dessous sont ceux de la balise <title> des exports d'une planche seule (le bandeau n'y est pas). Les deux « Scan en attente » se distinguent par la classe de leur vidéo (fxv-e3-sansverdict-attente / -source) ; la seconde est nommée par --nom au déballage.",
+  "Produit reconnu, non évalué": "E3-SansVerdict-NonEvalue",
+  "Pas un cosmétique": "E3-SansVerdict-PasCosmetique",
+  "Produit frontière": "E3-SansVerdict-Frontiere",
+  "Liste absente": "E3-SansVerdict-ListeAbsente",
+  "Scan en attente": "E3-SansVerdict-Attente",
+  "Service indisponible": "E3-SansVerdict-Service",
+  "Produit inconnu": "E3-SansVerdict-Inconnu",
+  "Réseau faible, recherche du produit": "E5-SansVerdict-Recherche",
+  "Rechercher, sans connexion": "E5-Recherche-HorsLigne",
+  "Réseau faible, scan mis en attente": "E5-SansVerdict-Faible"
 }

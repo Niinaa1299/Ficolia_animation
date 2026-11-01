@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<title>Ficolia — Après la mise à jour</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,sans-serif;background:#FFFFFF;color:#321C31;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+a,button{touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 160ms ease-out}
+a:active,button:active{transform:scale(0.97)}
+a:focus-visible,button:focus-visible{outline:2px solid #4C2944;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){a,button{transition:none}a:active,button:active{transform:none}}
+.fxv-video{display:block}.fxv-fige{display:none}@media (prefers-reduced-motion:reduce){.fxv-video{display:none}.fxv-fige{display:block}}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; color: #321C31; font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
+<div style="flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column">
+<div aria-hidden="true" style="flex-shrink: 0; height: 94px"></div>
+<div aria-hidden="true" style="flex-shrink: 0; align-self: center; width: 390px; height: 287px; margin-top: auto">
+<sc-if value="{{animJoue}}" hint-placeholder-val="{{ true }}">
+<video class="fxv-video fxv-e3-miseajour-faite" autoplay="" muted="" playsinline="" preload="auto" loop="{{animBoucle}}" style="width: 390px; height: 287px">
+<source src="assets/7a8550b24c5d.mp4" type="video/mp4">
+<source src="assets/25711c54b426.webm" type="video/webm">
+</video>
+<img class="fxv-fige" src="assets/8b26b7f874e6.png" alt="" style="width: 390px; height: 287px">
+</sc-if>
+<sc-if value="{{animFige}}" hint-placeholder-val="{{ false }}">
+<img src="assets/8b26b7f874e6.png" alt="" style="display: block; width: 390px; height: 287px">
+</sc-if>
+</div>
+<div style="flex-shrink: 0; padding: 14px 24px 0 24px; display: flex; flex-direction: column; gap: 10px">
+<h1 style="margin: 0; font-size: 30px; font-weight: 700; line-height: 1.15; text-wrap: balance; text-align: center">[Titre à écrire]</h1>
+<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty; text-align: center">[Phrase à écrire]</p>
+</div>
+<div style="flex-shrink: 0; margin: auto 20px 34px 20px; padding-top: 20px; display: flex; flex-direction: column; gap: 10px">
+<a href="E1-Scan.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; background: #4C2944; color: #FFF7F0; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">[Libellé à écrire]</a>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0; font-size: 13px; line-height: 1.4; color: #6E5A6B; text-align: center">[Écran affiché une fois, au premier lancement après la mise à jour. Le bouton mène au scanner. Écran hors registre : à inscrire.]</p>
+</sc-if>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Notes du prototype&quot;},&quot;animation&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;En boucle&quot;,&quot;Lue une fois&quot;,&quot;Image fixe (réduire les animations)&quot;],&quot;default&quot;:&quot;En boucle&quot;,&quot;section&quot;:&quot;Animation&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  componentDidMount() { this.fxvJoue(); }
+  componentDidUpdate() { this.fxvJoue(); }
+  // Animations (13/10) : lecture sans son, une fois ; rien n'est lu si le téléphone demande de réduire les animations.
+  fxvJoue() {
+    try {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var vs = document.querySelectorAll('video.fxv-e3-miseajour-faite');
+      for (var k = 0; k < vs.length; k++) {
+        var v = vs[k]; v.muted = true;
+        if (v.paused && !v.ended && v.currentTime === 0) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      }
+    } catch (e) {}
+  }
+  renderVals() {
+    var v = this.__fxvVals();
+    v.animFige = this.props.animation === 'Image fixe (réduire les animations)';
+    v.animJoue = !v.animFige;
+    // Dans le canevas, les animations tournent en boucle (porteuse, 13/10) ; « Lue une fois » reste la règle de l'application (décision 137).
+    v.animBoucle = v.animJoue && this.props.animation !== 'Lue une fois';
+    return v;
+  }
+  __fxvVals() {
+    return { showStatus: this.props.statuts !== false };
+  }
+}
+</script>
+
+
+</body></html>
