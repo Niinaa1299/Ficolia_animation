@@ -53,7 +53,8 @@
    "w": 390,
    "h": 844,
    "title": "Scanner",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Code.dc.html": {
    "x": 470,
@@ -61,7 +62,8 @@
    "w": 390,
    "h": 844,
    "title": "Saisir le code",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Produit.dc.html": {
    "x": 940,
@@ -69,7 +71,8 @@
    "w": 390,
    "h": 844,
    "title": "Écran produit",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Verdict.dc.html": {
    "x": 1410,
@@ -77,7 +80,8 @@
    "w": 390,
    "h": 844,
    "title": "Verdict grossesse",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Ingredients.dc.html": {
    "x": 1880,
@@ -85,7 +89,8 @@
    "w": 390,
    "h": 844,
    "title": "Ingrédients et panneau",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Allaitement.dc.html": {
    "x": 2350,
@@ -93,7 +98,8 @@
    "w": 390,
    "h": 844,
    "title": "Allaitement · écran d'attente",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Ingredients-Allaitement.dc.html": {
    "x": 2820,
@@ -101,7 +107,8 @@
    "w": 390,
    "h": 844,
    "title": "Ingrédients · ligne allaitement",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Aide-Scan.dc.html": {
    "x": 3290,
@@ -109,7 +116,8 @@
    "w": 390,
    "h": 844,
    "title": "Prise en main · premier lancement : chercher par nom (22/10, revu le 29/10)",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Aide-Info.dc.html": {
    "x": 0,
@@ -117,7 +125,8 @@
    "w": 390,
    "h": 844,
    "title": "Prise en main · premier verdict : le « i » (22/10, revu le 29/10)",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Aide-Echelle.dc.html": {
    "x": 470,
@@ -125,7 +134,8 @@
    "w": 390,
    "h": 844,
    "title": "Prise en main · deuxième verdict : l'échelle (29/10)",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Aide-Historique.dc.html": {
    "x": 940,
@@ -133,7 +143,8 @@
    "w": 390,
    "h": 844,
    "title": "Prise en main · premier retour : l'historique (22/10)",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Aide-Menu.dc.html": {
    "x": 1410,
@@ -141,7 +152,8 @@
    "w": 390,
    "h": 844,
    "title": "Prise en main · deuxième retour : le menu (29/10)",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Ingredients-Idee1.dc.html": {
    "x": 1880,
@@ -149,7 +161,8 @@
    "w": 390,
    "h": 844,
    "title": "Ingrédients · idée 1 : liste simple, parfum en étiquette (29/10)",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Ingredients-Idee2.dc.html": {
    "x": 2350,
@@ -157,7 +170,8 @@
    "w": 390,
    "h": 844,
    "title": "Ingrédients · idée 2 : parfum dans la carte du produit (29/10)",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Ingredients-Idee4.dc.html": {
    "x": 2820,
@@ -165,7 +179,8 @@
    "w": 390,
    "h": 844,
    "title": "Ingrédients · idée 4 : ce qui détermine le niveau, puis la liste (29/10)",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E1-Ingredients-Idee5.dc.html": {
    "x": 3290,
@@ -173,7 +188,8 @@
    "w": 390,
    "h": 844,
    "title": "Ingrédients · idée 5 : liste de l'idée 1, parfum de l'idée 3 (29/10)",
-   "page": "etape-1"
+   "page": "etape-1",
+   "is_interactive": true
   },
   "E2-Recherche.dc.html": {
    "x": 0,
@@ -181,7 +197,8 @@
    "w": 390,
    "h": 844,
    "title": "Rechercher · champ vide",
-   "page": "etape-2"
+   "page": "etape-2",
+   "is_interactive": true
   },
   "E2-Recherche-Resultats.dc.html": {
    "x": 470,
@@ -189,7 +206,8 @@
    "w": 390,
    "h": 844,
    "title": "Rechercher · résultats",
-   "page": "etape-2"
+   "page": "etape-2",
+   "is_interactive": true
   },
   "E2-Recherche-Aucun.dc.html": {
    "x": 940,
@@ -197,7 +215,8 @@
    "w": 390,
    "h": 844,
    "title": "Rechercher · aucun résultat",
-   "page": "etape-2"
+   "page": "etape-2",
+   "is_interactive": true
   },
   "E2-Produit.dc.html": {
    "x": 1410,
@@ -205,7 +224,8 @@
    "w": 390,
    "h": 844,
    "title": "Écran produit · après une recherche",
-   "page": "etape-2"
+   "page": "etape-2",
+   "is_interactive": true
   },
   "E2-Verdict.dc.html": {
    "x": 1880,
@@ -213,7 +233,8 @@
    "w": 390,
    "h": 844,
    "title": "Verdict grossesse · après une recherche",
-   "page": "etape-2"
+   "page": "etape-2",
+   "is_interactive": true
   },
   "E2-Ingredients.dc.html": {
    "x": 2350,
@@ -221,7 +242,8 @@
    "w": 390,
    "h": 844,
    "title": "Ingrédients et panneau · après une recherche",
-   "page": "etape-2"
+   "page": "etape-2",
+   "is_interactive": true
   },
   "E2-Allaitement.dc.html": {
    "x": 2820,
@@ -229,7 +251,8 @@
    "w": 390,
    "h": 844,
    "title": "Allaitement · écran d'attente · après une recherche",
-   "page": "etape-2"
+   "page": "etape-2",
+   "is_interactive": true
   },
   "E2-Ingredients-Allaitement.dc.html": {
    "x": 3290,
@@ -237,7 +260,8 @@
    "w": 390,
    "h": 844,
    "title": "Ingrédients · ligne allaitement · après une recherche",
-   "page": "etape-2"
+   "page": "etape-2",
+   "is_interactive": true
   },
   "E2-Verdict-N1.dc.html": {
    "x": 0,
@@ -245,7 +269,8 @@
    "w": 390,
    "h": 844,
    "title": "Verdict grossesse · niveau 1, vert",
-   "page": "etape-2"
+   "page": "etape-2",
+   "is_interactive": true
   },
   "E2-Verdict-N2.dc.html": {
    "x": 470,
@@ -253,7 +278,8 @@
    "w": 390,
    "h": 844,
    "title": "Verdict grossesse · niveau 2, jaune",
-   "page": "etape-2"
+   "page": "etape-2",
+   "is_interactive": true
   },
   "E2-Verdict-N3.dc.html": {
    "x": 940,
@@ -261,7 +287,8 @@
    "w": 390,
    "h": 844,
    "title": "Verdict grossesse · niveau 3, orange",
-   "page": "etape-2"
+   "page": "etape-2",
+   "is_interactive": true
   },
   "E2-Verdict-N4.dc.html": {
    "x": 1410,
@@ -269,7 +296,8 @@
    "w": 390,
    "h": 844,
    "title": "Verdict grossesse · niveau 4, rouge",
-   "page": "etape-2"
+   "page": "etape-2",
+   "is_interactive": true
   },
   "E6-Menu.dc.html": {
    "x": 0,
@@ -277,7 +305,8 @@
    "w": 390,
    "h": 844,
    "title": "Menu · onglet actif : pastille aubergine, figue ivoire",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-BonnesPratiques-Themes.dc.html": {
    "x": 470,
@@ -285,7 +314,8 @@
    "w": 390,
    "h": 844,
    "title": "Bonnes pratiques · fiches rangées par thème (17/10)",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-Fiche-Crevasses.dc.html": {
    "x": 940,
@@ -293,7 +323,8 @@
    "w": 390,
    "h": 844,
    "title": "Fiche « Crevasses » · allaitement (17/10)",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-Methode-Lexique.dc.html": {
    "x": 1410,
@@ -301,7 +332,8 @@
    "w": 390,
    "h": 844,
    "title": "Méthode › lexique, les mots de l'application (17/10)",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-APropos.dc.html": {
    "x": 1880,
@@ -309,7 +341,8 @@
    "w": 390,
    "h": 844,
    "title": "À SUPPRIMER · À propos, fusionnée avec la méthode (30/10)",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-Methode.dc.html": {
    "x": 2350,
@@ -317,7 +350,8 @@
    "w": 390,
    "h": 844,
    "title": "À propos et méthode (pages fusionnées le 30/10)",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-BonnesPratiques.dc.html": {
    "x": 2820,
@@ -325,7 +359,8 @@
    "w": 390,
    "h": 844,
    "title": "À SUPPRIMER · Bonnes pratiques · allaitement, remplacée par les fiches par thème (17/10)",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-CGU.dc.html": {
    "x": 3290,
@@ -333,7 +368,8 @@
    "w": 390,
    "h": 844,
    "title": "Conditions d'utilisation",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-Confidentialite.dc.html": {
    "x": 0,
@@ -341,7 +377,8 @@
    "w": 390,
    "h": 844,
    "title": "Politique de confidentialité",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-MentionsLegales.dc.html": {
    "x": 470,
@@ -349,7 +386,8 @@
    "w": 390,
    "h": 844,
    "title": "Mentions légales",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-Ecrire.dc.html": {
    "x": 940,
@@ -357,7 +395,8 @@
    "w": 390,
    "h": 844,
    "title": "Nous écrire · formulaire",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-Ecrire-Envoye.dc.html": {
    "x": 1410,
@@ -365,7 +404,8 @@
    "w": 390,
    "h": 844,
    "title": "Nous écrire · message envoyé",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-Ecrire-Echec.dc.html": {
    "x": 1880,
@@ -373,7 +413,8 @@
    "w": 390,
    "h": 844,
    "title": "Nous écrire · envoi impossible",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-Ecrire-Limite.dc.html": {
    "x": 2350,
@@ -381,7 +422,8 @@
    "w": 390,
    "h": 844,
    "title": "Nous écrire · message proche de la limite",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-CGU-Accueil.dc.html": {
    "x": 2820,
@@ -389,7 +431,8 @@
    "w": 390,
    "h": 844,
    "title": "Conditions d'utilisation · depuis l'accueil",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E6-Confidentialite-Accueil.dc.html": {
    "x": 3290,
@@ -397,7 +440,8 @@
    "w": 390,
    "h": 844,
    "title": "Politique de confidentialité · depuis l'accueil",
-   "page": "etape-6"
+   "page": "etape-6",
+   "is_interactive": true
   },
   "E7-Produit.dc.html": {
    "x": 0,
@@ -405,7 +449,8 @@
    "w": 390,
    "h": 844,
    "title": "Hors plancher (30/10) · Huile essentielle pure · écran produit",
-   "page": "etape-7"
+   "page": "etape-7",
+   "is_interactive": true
   },
   "E7-Verdict.dc.html": {
    "x": 470,
@@ -413,7 +458,8 @@
    "w": 390,
    "h": 844,
    "title": "Hors plancher (30/10) · Huile essentielle pure · verdict grossesse (niveau 4, par précaution)",
-   "page": "etape-7"
+   "page": "etape-7",
+   "is_interactive": true
   },
   "E7-Allaitement.dc.html": {
    "x": 940,
@@ -421,7 +467,8 @@
    "w": 390,
    "h": 844,
    "title": "Hors plancher (30/10) · Huile essentielle pure · allaitement, écran d'attente",
-   "page": "etape-7"
+   "page": "etape-7",
+   "is_interactive": true
   },
   "E7-Fiche.dc.html": {
    "x": 1410,
@@ -429,7 +476,8 @@
    "w": 390,
    "h": 844,
    "title": "Hors plancher (30/10) · Huile essentielle pure · liste d'ingrédients (17/10)",
-   "page": "etape-7"
+   "page": "etape-7",
+   "is_interactive": true
   },
   "E7-NonEvalue.dc.html": {
    "x": 1880,
@@ -437,7 +485,8 @@
    "w": 390,
    "h": 844,
    "title": "Huile essentielle pure · non évaluée, au plancher (30/10)",
-   "page": "etape-7"
+   "page": "etape-7",
+   "is_interactive": true
   },
   "EA-Produit-Lait.dc.html": {
    "x": 0,
@@ -445,7 +494,8 @@
    "w": 390,
    "h": 844,
    "title": "Lait corps · écran produit (la ligne Allaitement mène à l'étude)",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Lait-Sous.dc.html": {
    "x": 470,
@@ -453,7 +503,8 @@
    "w": 390,
    "h": 844,
    "title": "Lait corps · jaune · cases sous le cadre (30/10)",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Lait-Orange.dc.html": {
    "x": 940,
@@ -461,7 +512,8 @@
    "w": 390,
    "h": 844,
    "title": "Lait corps · orange · forme courte, sans condition",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Ingredients-Lait.dc.html": {
    "x": 1410,
@@ -469,7 +521,8 @@
    "w": 390,
    "h": 844,
    "title": "Lait corps · ingrédients, ligne allaitement",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Produit-Baume.dc.html": {
    "x": 1880,
@@ -477,7 +530,8 @@
    "w": 390,
    "h": 844,
    "title": "Soin des mamelons · écran produit",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Baume-Vert.dc.html": {
    "x": 2350,
@@ -485,7 +539,8 @@
    "w": 390,
    "h": 844,
    "title": "Soin des mamelons · vert · zone de tétée évaluée, sans renvoi",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Baume-Jaune.dc.html": {
    "x": 2820,
@@ -493,7 +548,8 @@
    "w": 390,
    "h": 844,
    "title": "Soin des mamelons · jaune · renvoi « Crevasses » en petit rond sur la photo, avec son conseil (30/10)",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Baume-ZoneIncomplete.dc.html": {
    "x": 3290,
@@ -501,7 +557,8 @@
    "w": 390,
    "h": 844,
    "title": "Soin des mamelons · jaune par le lait · zone de tétée incomplète",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Baume-Incomplet.dc.html": {
    "x": 0,
@@ -509,7 +566,8 @@
    "w": 390,
    "h": 844,
    "title": "Soin des mamelons · évaluation incomplète seule",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Ingredients-Baume.dc.html": {
    "x": 470,
@@ -517,7 +575,8 @@
    "w": 390,
    "h": 844,
    "title": "Soin des mamelons · ingrédients, panneau : un texte par voie",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Produit-Spray.dc.html": {
    "x": 940,
@@ -525,7 +584,8 @@
    "w": 390,
    "h": 844,
    "title": "Spray solaire corps · écran produit",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Spray.dc.html": {
    "x": 1410,
@@ -533,7 +593,8 @@
    "w": 390,
    "h": 844,
    "title": "Spray solaire corps · jaune · trois cases, tout sur le verdict (30/10)",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Ingredients-Spray.dc.html": {
    "x": 1880,
@@ -541,7 +602,8 @@
    "w": 390,
    "h": 844,
    "title": "Spray solaire corps · ingrédients, plus rien en tête de liste (30/10)",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Produit-Gel.dc.html": {
    "x": 2350,
@@ -549,7 +611,8 @@
    "w": 390,
    "h": 844,
    "title": "Gel douche · écran produit",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Gel.dc.html": {
    "x": 2820,
@@ -557,7 +620,8 @@
    "w": 390,
    "h": 844,
    "title": "Gel douche · vert · sans mention : la condition savon part vers une fiche (17/10)",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Gel-Source.dc.html": {
    "x": 3290,
@@ -565,7 +629,8 @@
    "w": 390,
    "h": 844,
    "title": "Lait corps · panneau « source » ouvert (produit parfumé)",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Ingredients-Gel.dc.html": {
    "x": 0,
@@ -573,7 +638,8 @@
    "w": 390,
    "h": 844,
    "title": "Gel douche · ingrédients, ligne allaitement",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Lait-Drapeau.dc.html": {
    "x": 470,
@@ -581,7 +647,8 @@
    "w": 390,
    "h": 844,
    "title": "Trace (17/10) · Lait corps · jaune · forme B, pastilles à ouvrir (retenue le 17/10)",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Spray-Icones.dc.html": {
    "x": 940,
@@ -589,7 +656,8 @@
    "w": 390,
    "h": 844,
    "title": "À SUPPRIMER · forme A écartée le 17/10 (spray)",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Gel-Icones.dc.html": {
    "x": 1410,
@@ -597,7 +665,8 @@
    "w": 390,
    "h": 844,
    "title": "Trace (17/10) · Soin des mamelons · jaune · renvoi : le panneau ouvert (17/10)",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Baume-RenvoiLien.dc.html": {
    "x": 1880,
@@ -605,7 +674,8 @@
    "w": 390,
    "h": 844,
    "title": "Trace (17/10) · Soin des mamelons · jaune · renvoi : petit rond sur la photo (autre idée, 17/10)",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Ingredients-Spray-Mention.dc.html": {
    "x": 2350,
@@ -613,7 +683,8 @@
    "w": 390,
    "h": 844,
    "title": "Trace (17/10) · Spray solaire corps · ingrédients, la mention « contact rapproché » ouverte sur son explication (17/10)",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Renvoi-Rond.dc.html": {
    "x": 2820,
@@ -621,7 +692,8 @@
    "w": 390,
    "h": 844,
    "title": "Trace (22/10) · Soin des mamelons · jaune · renvoi : petit rond en bas à droite (à comparer, 22/10)",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Renvoi-Photo.dc.html": {
    "x": 3290,
@@ -629,7 +701,8 @@
    "w": 390,
    "h": 844,
    "title": "Trace (22/10) · Soin des mamelons · jaune · renvoi : petit rond sur la photo (à comparer, 22/10) — retenu le 30/10",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "EA-Verdict-Renvoi-Panneau.dc.html": {
    "x": 0,
@@ -637,7 +710,8 @@
    "w": 390,
    "h": 844,
    "title": "Trace (22/10) · Soin des mamelons · jaune · renvoi : le panneau, le même pour les trois formes (22/10)",
-   "page": "ligne-allaitement"
+   "page": "ligne-allaitement",
+   "is_interactive": true
   },
   "E5-Historique.dc.html": {
    "x": 0,
@@ -645,7 +719,8 @@
    "w": 390,
    "h": 844,
    "title": "Historique · liste",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Historique-Vide.dc.html": {
    "x": 470,
@@ -653,7 +728,8 @@
    "w": 390,
    "h": 844,
    "title": "Historique · vide",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Historique-Attente.dc.html": {
    "x": 940,
@@ -661,7 +737,8 @@
    "w": 390,
    "h": 844,
    "title": "Historique · scan en attente et produit inconnu",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Produit.dc.html": {
    "x": 1410,
@@ -669,7 +746,8 @@
    "w": 390,
    "h": 844,
    "title": "Écran produit · depuis l'historique",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Verdict.dc.html": {
    "x": 1880,
@@ -677,7 +755,8 @@
    "w": 390,
    "h": 844,
    "title": "Verdict grossesse · depuis l'historique",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Ingredients.dc.html": {
    "x": 2350,
@@ -685,7 +764,8 @@
    "w": 390,
    "h": 844,
    "title": "Ingrédients et panneau · depuis l'historique",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Allaitement.dc.html": {
    "x": 2820,
@@ -693,7 +773,8 @@
    "w": 390,
    "h": 844,
    "title": "Allaitement · écran d'attente · depuis l'historique",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Ingredients-Allaitement.dc.html": {
    "x": 3290,
@@ -701,7 +782,8 @@
    "w": 390,
    "h": 844,
    "title": "Ingrédients · ligne allaitement · depuis l'historique",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Scan-Alerte.dc.html": {
    "x": 0,
@@ -709,7 +791,8 @@
    "w": 390,
    "h": 844,
    "title": "Alerte · à l'ouverture, un produit réévalué",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Scan-Repere.dc.html": {
    "x": 470,
@@ -717,7 +800,8 @@
    "w": 390,
    "h": 844,
    "title": "Alerte · bandeau fermé, le repère reste sur l'onglet",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Historique-Reevalue.dc.html": {
    "x": 940,
@@ -725,7 +809,8 @@
    "w": 390,
    "h": 844,
    "title": "Alerte · dans l'historique, un produit réévalué",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Produit-Reevalue.dc.html": {
    "x": 1410,
@@ -733,7 +818,8 @@
    "w": 390,
    "h": 844,
    "title": "Alerte · sur l'écran produit, repère « Réévalué » à côté de la ligne qui a changé",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Allaitement-Reevalue.dc.html": {
    "x": 1880,
@@ -741,7 +827,8 @@
    "w": 390,
    "h": 844,
    "title": "Alerte · sur la ligne allaitement (écran d'attente), produit réévalué",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Verdict-Reevalue.dc.html": {
    "x": 2350,
@@ -749,7 +836,8 @@
    "w": 390,
    "h": 844,
    "title": "Alerte · sur le verdict grossesse, quand la ligne grossesse a changé (réglage)",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Scan-Alertes.dc.html": {
    "x": 2820,
@@ -757,7 +845,8 @@
    "w": 390,
    "h": 844,
    "title": "Alerte · à l'ouverture, plusieurs verdicts mis à jour",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Historique-Reevalues.dc.html": {
    "x": 3290,
@@ -765,7 +854,8 @@
    "w": 390,
    "h": 844,
    "title": "Alerte · dans l'historique, plusieurs produits réévalués",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Scan-Evalue.dc.html": {
    "x": 0,
@@ -773,7 +863,8 @@
    "w": 390,
    "h": 844,
    "title": "Alerte · à l'ouverture, un produit maintenant évalué",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Historique-Evalue.dc.html": {
    "x": 470,
@@ -781,7 +872,8 @@
    "w": 390,
    "h": 844,
    "title": "Alerte · dans l'historique, un produit maintenant évalué",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Reglages.dc.html": {
    "x": 940,
@@ -789,7 +881,8 @@
    "w": 390,
    "h": 844,
    "title": "Réglages · alertes actives",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Reglages-Arret.dc.html": {
    "x": 1410,
@@ -797,7 +890,8 @@
    "w": 390,
    "h": 844,
    "title": "Réglages · alertes arrêtées",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Reglages-Confirmer.dc.html": {
    "x": 1880,
@@ -805,7 +899,8 @@
    "w": 390,
    "h": 844,
    "title": "Réglages · effacer l'historique, confirmation",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Reglages-Efface.dc.html": {
    "x": 2350,
@@ -813,7 +908,8 @@
    "w": 390,
    "h": 844,
    "title": "Réglages · historique effacé",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Scan-AlertesArretees.dc.html": {
    "x": 2820,
@@ -821,7 +917,8 @@
    "w": 390,
    "h": 844,
    "title": "Alertes arrêtées · à l'ouverture, ni bandeau ni repère",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Echelle-Cercles.dc.html": {
    "x": 3290,
@@ -829,7 +926,8 @@
    "w": 390,
    "h": 844,
    "title": "Échelle · variante A, cercles à côté du nom",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Echelle-Barre.dc.html": {
    "x": 0,
@@ -837,7 +935,8 @@
    "w": 390,
    "h": 844,
    "title": "Échelle · variante B, segments à côté du nom",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Echelle-Paliers.dc.html": {
    "x": 470,
@@ -845,7 +944,8 @@
    "w": 390,
    "h": 844,
    "title": "Échelle · variante C, paliers agrandis à côté du nom",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Echelle-Curseur.dc.html": {
    "x": 940,
@@ -853,7 +953,8 @@
    "w": 390,
    "h": 844,
    "title": "Échelle · variante D, curseur à quatre crans à côté du nom",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Echelle-Jauge.dc.html": {
    "x": 1410,
@@ -861,7 +962,8 @@
    "w": 390,
    "h": 844,
    "title": "Échelle · variante E, jauge à aiguille à côté du nom",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Info-Bas-N1.dc.html": {
    "x": 1880,
@@ -869,7 +971,8 @@
    "w": 390,
    "h": 844,
    "title": "« i » · A, dans le cadre en bas à droite · niveau 1",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Info-Bas-N4.dc.html": {
    "x": 2350,
@@ -877,7 +980,8 @@
    "w": 390,
    "h": 844,
    "title": "« i » · A, dans le cadre en bas à droite · niveau 4, « i » blanc",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Info-Libelle-N1.dc.html": {
    "x": 2820,
@@ -885,7 +989,8 @@
    "w": 390,
    "h": 844,
    "title": "« i » · B (retenue), à côté du libellé · niveau 1 : libellé à 19 px, sur une ligne",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Info-Entete-N3.dc.html": {
    "x": 3290,
@@ -893,7 +998,8 @@
    "w": 390,
    "h": 844,
    "title": "« i » · C, hors du cadre en haut à droite · niveau 3",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Info-Volet-N1.dc.html": {
    "x": 0,
@@ -901,7 +1007,8 @@
    "w": 390,
    "h": 844,
    "title": "« i » · volet rouvert au niveau 1 : la limite",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E3-Question-Recherche.dc.html": {
    "x": 0,
@@ -909,7 +1016,8 @@
    "w": 390,
    "h": 844,
    "title": "Question du type · après une recherche (option b)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Produit-TypeAPreciser.dc.html": {
    "x": 470,
@@ -917,7 +1025,8 @@
    "w": 390,
    "h": 844,
    "title": "Écran produit · type à préciser (pas sous la main)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E5-Historique-TypeAPreciser.dc.html": {
    "x": 940,
@@ -925,7 +1034,8 @@
    "w": 390,
    "h": 844,
    "title": "Historique · un produit dont le type est à préciser",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Produit-Type.dc.html": {
    "x": 1410,
@@ -933,7 +1043,8 @@
    "w": 390,
    "h": 844,
    "title": "Écran produit · type indiqué par l'utilisatrice",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Produit-TypeAutre.dc.html": {
    "x": 1880,
@@ -941,7 +1052,8 @@
    "w": 390,
    "h": 844,
    "title": "Écran produit · type « Autre »",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Verdict-TypeNonPrecise.dc.html": {
    "x": 2350,
@@ -949,7 +1061,8 @@
    "w": 390,
    "h": 844,
    "title": "Évaluation incomplète · type de produit non précisé",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-QuestionSuggeree.dc.html": {
    "x": 2820,
@@ -957,7 +1070,8 @@
    "w": 390,
    "h": 844,
    "title": "Question du type · type suggéré, après un scan (piste a, 22/10)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-QuestionSuggeree-Recherche.dc.html": {
    "x": 3290,
@@ -965,7 +1079,8 @@
    "w": 390,
    "h": 844,
    "title": "Question du type · type suggéré, après une recherche (piste a, 22/10)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Produit-Incomplet.dc.html": {
    "x": 0,
@@ -973,7 +1088,8 @@
    "w": 390,
    "h": 844,
    "title": "Écran produit · évaluation incomplète (29/10)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Ingredients-Incomplet.dc.html": {
    "x": 470,
@@ -981,7 +1097,8 @@
    "w": 390,
    "h": 844,
    "title": "Ingrédients · évaluation incomplète, ingrédient non reconnu (29/10)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Produit-Actualiser.dc.html": {
    "x": 940,
@@ -989,7 +1106,8 @@
    "w": 390,
    "h": 844,
    "title": "Écran produit · verdict non affiché (29/10)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Produit-ActualiserHorsLigne.dc.html": {
    "x": 1410,
@@ -997,7 +1115,8 @@
    "w": 390,
    "h": 844,
    "title": "Écran produit · verdict non affiché, sans connexion (29/10)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Ingredients-Actualiser.dc.html": {
    "x": 1880,
@@ -1005,7 +1124,8 @@
    "w": 390,
    "h": 844,
    "title": "Ingrédients · verdict non affiché (29/10)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Produit-Rappel.dc.html": {
    "x": 2350,
@@ -1013,7 +1133,8 @@
    "w": 390,
    "h": 844,
    "title": "Écran produit · rappel de lot (29/10)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Ingredients-TypeNonPrecise.dc.html": {
    "x": 2820,
@@ -1021,7 +1142,8 @@
    "w": 390,
    "h": 844,
    "title": "Ingrédients · type de produit non précisé (29/10)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E0-Fondations.dc.html": {
    "x": 0,
@@ -1109,7 +1231,8 @@
    "w": 390,
    "h": 844,
    "title": "À SUPPRIMER · caméra, avant la demande (écran abandonné)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Scan-Demande.dc.html": {
    "x": 470,
@@ -1117,7 +1240,8 @@
    "w": 390,
    "h": 844,
    "title": "Caméra · demande du téléphone",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Scan-Refus.dc.html": {
    "x": 940,
@@ -1125,7 +1249,8 @@
    "w": 390,
    "h": 844,
    "title": "Caméra · refusée",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Scan-Reglages.dc.html": {
    "x": 1410,
@@ -1133,7 +1258,8 @@
    "w": 390,
    "h": 844,
    "title": "Caméra · réglages",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Verdict-Incomplet.dc.html": {
    "x": 0,
@@ -1141,7 +1267,8 @@
    "w": 390,
    "h": 844,
    "title": "Évaluation incomplète (état « verdict incomplet »)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Verdict-Actualiser.dc.html": {
    "x": 470,
@@ -1149,7 +1276,8 @@
    "w": 390,
    "h": 844,
    "title": "Verdict à actualiser",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Verdict-Rappel.dc.html": {
    "x": 940,
@@ -1157,7 +1285,8 @@
    "w": 390,
    "h": 844,
    "title": "Rappel de lot",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Question.dc.html": {
    "x": 1410,
@@ -1165,7 +1294,8 @@
    "w": 390,
    "h": 844,
    "title": "Question du type · après un scan (option b)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-Verdict-ActualiserHorsLigne.dc.html": {
    "x": 1880,
@@ -1173,7 +1303,8 @@
    "w": 390,
    "h": 844,
    "title": "Verdict à actualiser · sans connexion",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E4-Photo-SignalementProduit.dc.html": {
    "x": 0,
@@ -1181,7 +1312,8 @@
    "w": 390,
    "h": 844,
    "title": "Photo · avant de commencer, depuis « ce n'est pas le bon produit »",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-ProduitJointes.dc.html": {
    "x": 470,
@@ -1189,7 +1321,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · depuis l'écran produit, photos jointes",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-ListeJointes.dc.html": {
    "x": 940,
@@ -1197,7 +1330,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · la liste d'ingrédients est fausse, photos jointes",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Photo-SignalementIngredient.dc.html": {
    "x": 1410,
@@ -1205,7 +1339,8 @@
    "w": 390,
    "h": 844,
    "title": "Photo · avant de commencer, depuis « ingrédient absent »",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-IngredientJointes.dc.html": {
    "x": 1880,
@@ -1213,7 +1348,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · ingrédient absent, liste photographiée",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Photo-CameraRefusee.dc.html": {
    "x": 2350,
@@ -1221,7 +1357,8 @@
    "w": 390,
    "h": 844,
    "title": "Photo · caméra refusée",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Photo.dc.html": {
    "x": 0,
@@ -1229,7 +1366,8 @@
    "w": 390,
    "h": 844,
    "title": "Photo · avant de commencer, produit inconnu",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Photo-Liste.dc.html": {
    "x": 470,
@@ -1237,7 +1375,8 @@
    "w": 390,
    "h": 844,
    "title": "Photo · avant de commencer, liste seule",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Photo-Signalement.dc.html": {
    "x": 940,
@@ -1245,7 +1384,8 @@
    "w": 390,
    "h": 844,
    "title": "Photo · avant de commencer, depuis « la liste est fausse »",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Photo-Face.dc.html": {
    "x": 1410,
@@ -1253,7 +1393,8 @@
    "w": 390,
    "h": 844,
    "title": "Photo · face avant",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Photo-Ingredients.dc.html": {
    "x": 1880,
@@ -1261,7 +1402,8 @@
    "w": 390,
    "h": 844,
    "title": "Photo · liste d'ingrédients",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Photo-Relecture.dc.html": {
    "x": 2350,
@@ -1269,7 +1411,8 @@
    "w": 390,
    "h": 844,
    "title": "Photo · relecture",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Photo-Courriel.dc.html": {
    "x": 2820,
@@ -1277,7 +1420,8 @@
    "w": 390,
    "h": 844,
    "title": "Photo · recevoir un e-mail",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Photo-Echec.dc.html": {
    "x": 3290,
@@ -1285,7 +1429,8 @@
    "w": 390,
    "h": 844,
    "title": "Photo · envoi impossible",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement.dc.html": {
    "x": 0,
@@ -1293,7 +1438,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · objet à choisir",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-Detail.dc.html": {
    "x": 470,
@@ -1301,7 +1447,8 @@
    "w": 390,
    "h": 844,
    "title": "À SUPPRIMER · doublon de « un ingrédient est mal évalué »",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-Message.dc.html": {
    "x": 940,
@@ -1309,7 +1456,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · un ingrédient est mal évalué",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-Produit.dc.html": {
    "x": 1410,
@@ -1317,7 +1465,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · depuis l'écran produit",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-Ingredient.dc.html": {
    "x": 1880,
@@ -1325,7 +1474,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · choix de l'ingrédient",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-Reaction.dc.html": {
    "x": 2350,
@@ -1333,7 +1483,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · réaction à un produit",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-Echec.dc.html": {
    "x": 2820,
@@ -1341,7 +1492,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · envoi impossible",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-Liste.dc.html": {
    "x": 0,
@@ -1349,7 +1501,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · la liste d'ingrédients est fausse",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-Type.dc.html": {
    "x": 470,
@@ -1357,7 +1510,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · le type de produit est faux",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-Verdict.dc.html": {
    "x": 940,
@@ -1365,7 +1519,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · le verdict me semble faux",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-IngredientChoisi.dc.html": {
    "x": 1410,
@@ -1373,7 +1528,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · ingrédient choisi",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-IngredientAbsent.dc.html": {
    "x": 1880,
@@ -1381,7 +1537,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · ingrédient absent : l'écrire ou le photographier",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-IngredientEcrit.dc.html": {
    "x": 2350,
@@ -1389,7 +1546,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · ingrédient écrit à la main",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-TypeChoisi.dc.html": {
    "x": 2820,
@@ -1397,7 +1555,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · type de produit choisi",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Signalement-Types.dc.html": {
    "x": 0,
@@ -1405,7 +1564,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement — choix du type de produit",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E3-SansVerdict-NonEvalue.dc.html": {
    "x": 0,
@@ -1413,7 +1573,8 @@
    "w": 390,
    "h": 844,
    "title": "Produit reconnu, non évalué",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-SansVerdict-PasCosmetique.dc.html": {
    "x": 0,
@@ -1421,7 +1582,8 @@
    "w": 390,
    "h": 844,
    "title": "Pas un cosmétique",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-SansVerdict-Frontiere.dc.html": {
    "x": 0,
@@ -1429,7 +1591,8 @@
    "w": 390,
    "h": 844,
    "title": "Produit frontière",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-SansVerdict-ListeAbsente.dc.html": {
    "x": 0,
@@ -1437,7 +1600,8 @@
    "w": 390,
    "h": 844,
    "title": "Liste absente",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-SansVerdict-Attente.dc.html": {
    "x": 0,
@@ -1445,7 +1609,8 @@
    "w": 390,
    "h": 844,
    "title": "Scan en attente",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-SansVerdict-Service.dc.html": {
    "x": 0,
@@ -1453,7 +1618,8 @@
    "w": 390,
    "h": 844,
    "title": "Service indisponible",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-SansVerdict-Inconnu.dc.html": {
    "x": 0,
@@ -1461,7 +1627,8 @@
    "w": 390,
    "h": 844,
    "title": "Produit inconnu",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-SansVerdict-Source.dc.html": {
    "x": 0,
@@ -1469,7 +1636,8 @@
    "w": 390,
    "h": 844,
    "title": "Scan en attente",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-MiseAJour.dc.html": {
    "x": 0,
@@ -1485,7 +1653,8 @@
    "w": 390,
    "h": 844,
    "title": "Après la mise à jour · premier lancement (hors registre)",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E4-Signalement-Envoye.dc.html": {
    "x": 0,
@@ -1493,7 +1662,8 @@
    "w": 390,
    "h": 844,
    "title": "Signalement · envoyé",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Photo-Envoyees.dc.html": {
    "x": 470,
@@ -1501,7 +1671,8 @@
    "w": 390,
    "h": 844,
    "title": "Photo · envoyées",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E4-Photo-CourrielOk.dc.html": {
    "x": 940,
@@ -1509,7 +1680,8 @@
    "w": 390,
    "h": 844,
    "title": "Photo · e-mail enregistré",
-   "page": "etape-4"
+   "page": "etape-4",
+   "is_interactive": true
   },
   "E5-SansVerdict-Recherche.dc.html": {
    "x": 0,
@@ -1517,7 +1689,8 @@
    "w": 390,
    "h": 844,
    "title": "Réseau faible, recherche du produit",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-Recherche-HorsLigne.dc.html": {
    "x": 0,
@@ -1525,7 +1698,8 @@
    "w": 390,
    "h": 844,
    "title": "Rechercher, sans connexion",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   },
   "E5-SansVerdict-Faible.dc.html": {
    "x": 0,
@@ -1533,7 +1707,8 @@
    "w": 390,
    "h": 844,
    "title": "Réseau faible, scan mis en attente",
-   "page": "etape-5"
+   "page": "etape-5",
+   "is_interactive": true
   }
  },
  "order": [

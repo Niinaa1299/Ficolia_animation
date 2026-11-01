@@ -229,6 +229,11 @@ def main():
                        f"{w}×{h} | {trous} | {len(liens)} | {nb_ressources} | {blobs} | {len(uuids)} |")
 
         boards[fichier] = {"x": x, "y": y, "w": w, "h": h, "title": titre, "page": page_id}
+        # Une planche qui a des liens vers d'autres planches ou des gestionnaires d'événements est un
+        # prototype : is_interactive lui donne la marque bleue et le bouton Play, qui lance ses vidéos
+        # (en mode édition, le canevas tient une vidéo à sa première image).
+        if liens or "onClick=" in source or "onChange=" in source:
+            boards[fichier]["is_interactive"] = True
         order.append(fichier)
         x += w + 80
         if i % 8 == 0:
