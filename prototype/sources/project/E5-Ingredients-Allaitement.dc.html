@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,sans-serif;background:#FFFFFF;color:#321C31;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,sans-serif;background:#FAFAFA;color:#321C31;-webkit-tap-highlight-color:transparent}
 a{color:inherit;text-decoration:none}
 a,button{touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 160ms cubic-bezier(0.23,1,0.32,1)}
 a:active,button:active{transform:scale(0.97)}
@@ -24,45 +24,55 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 @media (prefers-reduced-motion:reduce){.e1-volet{animation:e1-fondu 200ms ease}}
 </style>
 </helmet>
-<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; color: #321C31; font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
+<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: #FAFAFA; color: #321C31; font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
 <div style="flex-shrink: 0; padding: 50px 20px 0 20px; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px">
-<sc-if value="{{isG}}" hint-placeholder-val="{{ true }}">
-<a href="E5-Verdict.dc.html" aria-label="Retour au verdict" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<sc-if value="{{cLait}}" hint-placeholder-val="{{ true }}">
+<a href="E5-Allaitement.dc.html" aria-label="Retour au verdict" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
 <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
 </a>
 </sc-if>
-<sc-if value="{{isA}}" hint-placeholder-val="{{ false }}">
-<a href="E5-Allaitement.dc.html" aria-label="Retour" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<sc-if value="{{cSpray}}" hint-placeholder-val="{{ false }}">
+<a href="EA-Verdict-Spray.dc.html" aria-label="Retour au verdict" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</a>
+</sc-if>
+<sc-if value="{{cGel}}" hint-placeholder-val="{{ false }}">
+<a href="EA-Verdict-Gel.dc.html" aria-label="Retour au verdict" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</a>
+</sc-if>
+<sc-if value="{{cBaume}}" hint-placeholder-val="{{ false }}">
+<a href="EA-Verdict-Baume-Jaune.dc.html" aria-label="Retour au verdict" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
 <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
 </a>
 </sc-if>
 <div style="display: flex; flex-direction: column; align-items: center; gap: 2px">
 <h1 style="margin: 0; font-size: 19px; font-weight: 700; line-height: 1.2">Ingrédients</h1>
-<span style="font-size: 14px; line-height: 1.3; color: #6E5A6B">{{ligne}}</span>
+<span style="font-size: 14px; line-height: 1.3; color: #6E5A6B">Allaitement</span>
 </div>
 <span></span>
 </div>
-<div style="flex-shrink: 0; margin: 14px 20px 0 20px; padding: 10px 14px 10px 10px; border: 1px solid #E7E1DA; border-radius: 20px; background: #FAF8F4; display: flex; align-items: center; gap: 12px">
-<div style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 14px; background: #FFFFFF; display: flex; align-items: center; justify-content: center">
-<svg width="30" height="39" sc-camel-view-box="0 0 200 260" aria-hidden="true">
-<rect x="86" y="14" width="28" height="12" rx="4" fill="#7E8285"></rect>
-<rect x="95" y="26" width="10" height="14" fill="#9DA1A4"></rect>
-<rect x="80" y="40" width="40" height="22" rx="7" fill="#9DA1A4"></rect>
-<rect x="50" y="62" width="100" height="184" rx="30" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="6"></rect>
-<rect x="64" y="112" width="72" height="84" rx="10" fill="#E6E8E9"></rect>
-</svg>
+<div style="flex-shrink: 0; margin: 14px 20px 0 20px; border: 1px solid #E7E1DA; border-radius: 20px; background: #FFFFFF; overflow: hidden">
+<div style="padding: 10px 14px 10px 10px; display: flex; align-items: center; gap: 12px">
+<div style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 14px; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<sc-if value="{{isPompe}}" hint-placeholder-val="{{ true }}">
+<svg role="img" aria-label="Photo du produit (illustration du prototype)" sc-camel-view-box="0 0 200 260" width="30" height="39" aria-hidden="true"><rect x="86" y="14" width="28" height="12" rx="4" fill="#7E8285"></rect><rect x="112" y="17" width="32" height="6" rx="3" fill="#7E8285"></rect><rect x="95" y="26" width="10" height="14" fill="#9DA1A4"></rect><rect x="80" y="40" width="40" height="22" rx="7" fill="#9DA1A4"></rect><rect x="50" y="62" width="100" height="184" rx="30" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="2"></rect><rect x="64" y="112" width="72" height="84" rx="10" fill="#E6E8E9"></rect><rect x="76" y="130" width="48" height="7" rx="3.5" fill="#AEB1B3"></rect><rect x="76" y="145" width="34" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="76" y="176" width="22" height="5" rx="2.5" fill="#C9CCCE"></rect></svg>
+</sc-if>
+<sc-if value="{{isSpray}}" hint-placeholder-val="{{ false }}">
+<svg role="img" aria-label="Photo du produit (illustration du prototype)" sc-camel-view-box="0 0 200 260" width="30" height="39" aria-hidden="true"><rect x="88" y="10" width="26" height="16" rx="4" fill="#7E8285"></rect><rect x="110" y="14" width="22" height="7" rx="3" fill="#7E8285"></rect><rect x="80" y="26" width="42" height="28" rx="7" fill="#9DA1A4"></rect><rect x="56" y="54" width="90" height="192" rx="28" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="2"></rect><rect x="68" y="108" width="66" height="84" rx="10" fill="#E6E8E9"></rect><rect x="78" y="126" width="46" height="7" rx="3.5" fill="#AEB1B3"></rect><rect x="78" y="141" width="32" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="78" y="172" width="22" height="5" rx="2.5" fill="#C9CCCE"></rect></svg>
+</sc-if>
+<sc-if value="{{isFlacon}}" hint-placeholder-val="{{ false }}">
+<svg role="img" aria-label="Photo du produit (illustration du prototype)" sc-camel-view-box="0 0 200 260" width="30" height="39" aria-hidden="true"><rect x="74" y="16" width="52" height="34" rx="9" fill="#9DA1A4"></rect><rect x="46" y="50" width="108" height="196" rx="24" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="2"></rect><rect x="62" y="108" width="76" height="84" rx="10" fill="#E6E8E9"></rect><rect x="76" y="126" width="48" height="7" rx="3.5" fill="#AEB1B3"></rect><rect x="76" y="141" width="34" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="76" y="172" width="22" height="5" rx="2.5" fill="#C9CCCE"></rect></svg>
+</sc-if>
+<sc-if value="{{isTube}}" hint-placeholder-val="{{ false }}">
+<svg role="img" aria-label="Photo du produit (illustration du prototype)" sc-camel-view-box="0 0 200 260" width="30" height="39" aria-hidden="true"><rect x="52" y="12" width="96" height="12" rx="4" fill="#C9CCCE"></rect><path d="M56 24h88l-12 172H68z" fill="#FFFFFF" stroke-linejoin="round" stroke="#AEB1B3" stroke-width="2"></path><rect x="80" y="70" width="40" height="70" rx="9" fill="#E6E8E9"></rect><rect x="88" y="86" width="24" height="6" rx="3" fill="#AEB1B3"></rect><rect x="88" y="100" width="16" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="72" y="196" width="56" height="50" rx="9" fill="#9DA1A4"></rect></svg>
+</sc-if>
 </div>
 <div style="flex: 1 1 150px; min-width: 0; display: flex; flex-direction: column; gap: 2px">
-<sc-if value="{{notRince}}" hint-placeholder-val="{{ true }}">
-<span style="font-size: 16px; font-weight: 700; line-height: 1.25">Lait corps nourrissant</span>
-</sc-if>
-<sc-if value="{{isRince}}" hint-placeholder-val="{{ false }}">
-<span style="font-size: 16px; font-weight: 700; line-height: 1.25">Shampooing doux</span>
-</sc-if>
-<span style="font-size: 14px; line-height: 1.3; color: #6E5A6B">Marque exemple · 250 ml</span>
+<span style="font-size: 16px; font-weight: 700; line-height: 1.25">{{nom}}</span>
+<span style="font-size: 14px; line-height: 1.3; color: #6E5A6B">{{marque}}</span>
 </div>
-<sc-if value="{{isG}}" hint-placeholder-val="{{ true }}">
-<div role="img" aria-label="Niveau {{rang}} sur 4" style="width: 76px; flex-shrink: 0; display: flex; justify-content: center">
+<div role="img" aria-label="{{rangLabel}}" style="width: 76px; flex-shrink: 0; display: flex; justify-content: center">
 <svg width="76" height="40" sc-camel-view-box="0 0 104 54" aria-hidden="true">
 <path d="{{s.d1}}" fill="{{s.f1}}" stroke="{{s.k1}}" stroke-width="{{s.w1}}" stroke-linejoin="round"></path>
 <path d="{{s.d2}}" fill="{{s.f2}}" stroke="{{s.k2}}" stroke-width="{{s.w2}}" stroke-linejoin="round"></path>
@@ -70,33 +80,42 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 <path d="{{s.d4}}" fill="{{s.f4}}" stroke="{{s.k4}}" stroke-width="{{s.w4}}" stroke-linejoin="round"></path>
 </svg>
 </div>
+</div>
+<sc-if value="{{showBand}}" hint-placeholder-val="{{ true }}">
+<div style="padding: 10px 16px; background: {{verdictBg}}; color: {{verdictFg}}; font-size: 17px; font-weight: 700; line-height: 1.3">{{verdictLabel}}</div>
 </sc-if>
 </div>
 <div style="flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; padding-bottom: 12px">
-<sc-if value="{{isA}}" hint-placeholder-val="{{ false }}">
-<div style="margin: 14px 20px 0 20px; padding: 12px 14px; border: 1.5px dashed #6E5A6B; border-radius: 14px; font-size: 15px; line-height: 1.4; color: #6E5A6B">[Marquage et textes de la ligne allaitement — en attente de la clôture du module allaitement]</div>
+<sc-for list="{{ heads }}" as="h" hint-placeholder-count="0">
+<sc-if value="{{ h.has }}" hint-placeholder-val="{{ true }}">
+<button type="button" sc-camel-on-click="{{ h.open }}" aria-haspopup="dialog" style="flex-shrink: 0; margin: {{ h.mt }} 20px 0 20px; min-height: 52px; padding: 8px 12px 8px 16px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; color: #321C31; display: flex; align-items: center; gap: 10px; text-align: left; font-family: inherit; cursor: pointer">
+<span style="flex: 1 1 auto; font-size: 17px; line-height: 1.3">{{ h.text }}</span>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
 </sc-if>
-<button type="button" sc-camel-on-click="{{openParfum}}" style="flex-shrink: 0; margin: 14px 20px 0 20px; min-height: 52px; padding: 8px 12px 8px 16px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; color: #321C31; display: flex; align-items: center; gap: 10px; text-align: left; font-family: inherit; cursor: pointer">
-<span style="flex: 1 1 auto; font-size: 17px; line-height: 1.3">Présence de parfum</span>
+<sc-if value="{{ h.plain }}" hint-placeholder-val="{{ false }}">
+<div style="flex-shrink: 0; margin: {{ h.mt }} 20px 0 20px; min-height: 52px; box-sizing: border-box; padding: 12px 16px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; font-size: 17px; line-height: 1.3">{{ h.text }}</div>
+</sc-if>
+</sc-for>
+<sc-if value="{{hasParfum}}" hint-placeholder-val="{{ true }}">
+<div style="flex-shrink: 0; margin: {{parfumTop}} 20px 0 20px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+<button type="button" sc-camel-on-click="{{openParfum}}" style="min-height: 44px; margin-left: {{parf.marge}}; padding: {{parf.pad}}; border: {{parf.bord}}; border-radius: 999px; background: {{parf.bg}}; color: {{parf.fg}}; display: inline-flex; align-items: center; gap: 8px; font-family: inherit; cursor: pointer">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><rect x="4" y="10" width="12" height="11" rx="3.5"></rect><rect x="7.5" y="5.5" width="5" height="4.5" rx="1"></rect><path d="M12.5 7.5H15"></path><circle cx="18" cy="5.5" r="1" fill="currentColor" stroke="none"></circle><circle cx="20.5" cy="7.5" r="1" fill="currentColor" stroke="none"></circle><circle cx="18" cy="9.5" r="1" fill="currentColor" stroke="none"></circle></svg>
+<span style="font-size: 16px; font-weight: 700; line-height: 1.3">Contient du parfum</span>
+<svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" stroke="{{parf.chev}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
 <sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
 <span style="flex-shrink: 0; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Provisoire</span>
 </sc-if>
-<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
-</button>
-<div style="flex-shrink: 0; margin: 8px 20px 0 20px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FFFFFF; overflow: hidden; display: flex; flex-direction: column">
-<sc-for list="{{ items }}" as="item" hint-placeholder-count="6">
-<button type="button" sc-camel-on-click="{{ item.open }}" style="position: relative; min-height: 64px; padding: 12px 10px 12px 16px; border: 0; border-top: {{ item.sep }}; background: #FFFFFF; color: #321C31; display: flex; align-items: center; gap: 10px; text-align: left; font-family: inherit; cursor: pointer">
-<sc-if value="{{ item.isDet }}" hint-placeholder-val="{{ false }}">
-<span id="e1-det" style="position: absolute; top: -8px"></span>
+</div>
 </sc-if>
-<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 3px">
-<span style="font-size: 17px; font-weight: 700; line-height: 1.25; overflow-wrap: anywhere">{{ item.inci }}</span>
-<span style="font-size: 14px; line-height: 1.35; color: #6E5A6B">{{ item.fonctions }}</span>
+<div style="flex-shrink: 0; margin: {{listTop}} 20px 0 20px; display: flex; flex-direction: column; border-top: 1px solid #E7E1DA; border-bottom: 1px solid #E7E1DA">
+<sc-for list="{{ items }}" as="item" hint-placeholder-count="5">
+<button type="button" sc-camel-on-click="{{ item.open }}" style="min-height: 56px; padding: 12px 2px 12px 0; border: 0; border-top: {{ item.sep }}; background: transparent; color: #321C31; display: flex; align-items: center; gap: 10px; text-align: left; font-family: inherit; cursor: pointer">
+<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px">
+<span style="font-size: 17px; font-weight: 500; line-height: 1.3; overflow-wrap: anywhere">{{ item.inci }}</span>
 <sc-if value="{{ item.isDet }}" hint-placeholder-val="{{ false }}">
-<span style="margin-top: 4px; padding: 3px 10px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.16); background: {{ item.bg }}; color: {{ item.fg }}; font-size: 14px; font-weight: 700; line-height: 1.3">Détermine ce niveau</span>
-</sc-if>
-<sc-if value="{{ item.isSig }}" hint-placeholder-val="{{ false }}">
-<span style="margin-top: 4px; padding: 3px 10px; border-radius: 999px; border: 1px solid #321C31; background: #FFFFFF; color: #321C31; font-size: 14px; font-weight: 700; line-height: 1.3">Signalé</span>
+<span style="padding: 3px 10px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.16); background: {{ item.bg }}; color: {{ item.fg }}; font-size: 14px; font-weight: 700; line-height: 1.3">Détermine ce niveau</span>
 </sc-if>
 </span>
 <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
@@ -106,7 +125,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 <p style="flex-shrink: 0; margin: 12px 24px 0 24px; font-size: 13px; line-height: 1.4; color: #6E5A6B">[Liste d'exemple du prototype, sans valeur d'évaluation]</p>
 </div>
 <div style="flex-shrink: 0; padding-top: 8px">
-<nav aria-label="Navigation principale" style="margin: 0 16px 26px 16px; padding: 8px; border-radius: 30px; background: #FAF8F4; border: 1px solid #E7E1DA; box-shadow: 0 8px 24px rgba(50,28,49,0.10); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px">
+<nav aria-label="Navigation principale" style="margin: 0 16px 26px 16px; padding: 8px; border-radius: 30px; background: #FFFFFF; border: 1px solid #E7E1DA; box-shadow: 0 8px 24px rgba(50,28,49,0.10); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px">
 <a href="E1-Scan.dc.html" style="min-height: 56px; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #6E5A6B; font-size: 12px">
 <svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16M8 8.5v7M11 8.5v7M13.5 8.5v7M16 8.5v7"></path></svg>
 <span>Scanner</span>
@@ -143,7 +162,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 <sc-if value="{{open}}" hint-placeholder-val="{{ false }}">
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end">
 <button type="button" class="e1-voile" sc-camel-on-click="{{closePanel}}" aria-label="Fermer" style="position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: rgba(30,26,30,0.38); cursor: pointer; transform: none"></button>
-<div role="dialog" aria-modal="true" aria-label="Détail de l'ingrédient" class="e1-volet" style="position: relative; box-sizing: border-box; max-height: 86%; overflow-y: auto; padding: 10px 20px 28px 24px; border-radius: 28px 28px 0 0; background: #FFFFFF; color: #321C31; box-shadow: 0 -8px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; gap: 16px">
+<div role="dialog" aria-modal="true" aria-label="Détail de l'ingrédient" class="e1-volet" style="position: relative; box-sizing: border-box; max-height: 86%; overflow-y: auto; padding: 10px 20px 28px 24px; border-radius: 28px 28px 0 0; background: #FFFFFF; color: #321C31; box-shadow: 0 -8px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; gap: 14px">
 <span aria-hidden="true" style="align-self: center; width: 40px; height: 4px; border-radius: 999px; background: #D6CEC6"></span>
 <div style="display: flex; align-items: flex-start; gap: 12px">
 <div style="flex: 1 1 auto; min-width: 0; padding-top: 8px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px">
@@ -164,27 +183,19 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 <h3 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Nom courant</h3>
 <p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty; color: {{sel.ncColor}}">{{sel.courant}}</p>
 </div>
-<sc-if value="{{sel.isCause}}" hint-placeholder-val="{{ false }}">
-<div style="display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; flex-direction: column; gap: 8px">
 <h3 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Ce qui est en cause</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty; color: #6E5A6B">{{sel.f3}}</p>
+<sc-for list="{{ sel.routes }}" as="r" hint-placeholder-count="1">
+<div style="padding: 12px 14px; border: 1px solid #E7E1DA; border-radius: 14px; background: #FAF8F4; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 15px; font-weight: 700; line-height: 1.3; color: #321C31">{{ r.nom }}</span>
+<span style="font-size: 14px; line-height: 1.4; text-wrap: pretty; color: #6E5A6B">{{ r.explication }}</span>
+<p style="margin: 4px 0 0 0; font-size: 17px; line-height: 1.45; text-wrap: pretty; font-weight: {{ r.fw }}; color: {{ r.color }}">{{ r.texte }}</p>
 </div>
-</sc-if>
-<sc-if value="{{sel.isEtat}}" hint-placeholder-val="{{ false }}">
-<p style="margin: 0; font-size: 17px; font-weight: 700; line-height: 1.35">{{sel.f3}}</p>
-</sc-if>
-<sc-if value="{{sel.isTexte}}" hint-placeholder-val="{{ false }}">
-<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty; color: {{sel.f3Color}}">{{sel.f3}}</p>
-</sc-if>
-<sc-if value="{{sel.showRince}}" hint-placeholder-val="{{ false }}">
-<p style="margin: 0; padding: 12px 14px; border: 1px solid #E7E1DA; border-radius: 14px; background: #FAF8F4; font-size: 16px; line-height: 1.45">L'incidence de cet ingrédient sur le verdict reste limitée, car le produit est rincé.</p>
-</sc-if>
-<sc-if value="{{sel.showPhoto}}" hint-placeholder-val="{{ false }}">
-<div style="padding: 12px 14px; border: 1.5px dashed #6E5A6B; border-radius: 14px; font-size: 15px; line-height: 1.4; color: #6E5A6B">[Constat de photosensibilité, pour les ingrédients concernés — texte de remplacement]</div>
-</sc-if>
+</sc-for>
+</div>
 <div style="display: flex; flex-direction: column; gap: 4px">
 <h3 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Source de l'évaluation</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty; color: {{sel.srcColor}}">{{sel.source}}</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty; color: #6E5A6B">[Source : nature, référence et date de publication, voie par voie]</p>
 </div>
 <sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
 <span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Textes provisoires</span>
@@ -193,30 +204,89 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 </div>
 </div>
 </sc-if>
+<sc-if value="{{mentionOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end">
+<button type="button" class="e1-voile" sc-camel-on-click="{{closeMention}}" aria-label="Fermer" style="position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: rgba(30,26,30,0.38); cursor: pointer; transform: none"></button>
+<div role="dialog" aria-modal="true" aria-labelledby="ea-mention" class="e1-volet" style="position: relative; box-sizing: border-box; max-height: 86%; overflow-y: auto; padding: 10px 20px 28px 24px; border-radius: 28px 28px 0 0; background: #FFFFFF; color: #321C31; box-shadow: 0 -8px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; gap: 14px">
+<span aria-hidden="true" style="align-self: center; width: 40px; height: 4px; border-radius: 999px; background: #D6CEC6"></span>
+<div style="display: flex; align-items: flex-start; gap: 12px">
+<h2 id="ea-mention" style="flex: 1 1 auto; min-width: 0; margin: 0; padding-top: 8px; font-size: 21px; font-weight: 700; line-height: 1.2; text-wrap: balance">{{mention.titre}}</h2>
+<button type="button" sc-camel-on-click="{{closeMention}}" aria-label="Fermer" style="flex-shrink: 0; width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer">
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+</button>
+</div>
+<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty">{{mention.texte}}</p>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Texte provisoire</span>
+</sc-if>
+</div>
+</div>
+</sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;niveau&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;1 · Composition sans signal identifié&quot;,&quot;2 · Composition à signal modéré&quot;,&quot;3 · Composition préoccupante&quot;,&quot;4 · Composition incompatible&quot;],&quot;default&quot;:&quot;2 · Composition à signal modéré&quot;,&quot;section&quot;:&quot;Verdict illustratif&quot;},&quot;ligne&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Grossesse&quot;,&quot;Allaitement&quot;],&quot;default&quot;:&quot;Allaitement&quot;,&quot;section&quot;:&quot;Ligne lue&quot;},&quot;panneau&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Fermé&quot;,&quot;Ingrédient qui détermine le niveau&quot;,&quot;Ingrédient signalé&quot;,&quot;Parfum&quot;,&quot;Aucun signal identifié&quot;,&quot;Données insuffisantes&quot;,&quot;Non évalué&quot;],&quot;default&quot;:&quot;Fermé&quot;,&quot;section&quot;:&quot;Panneau ouvert au départ&quot;},&quot;rince&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Produit rincé&quot;},&quot;photosensibilite&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Mention de photosensibilité (ingrédient signalé)&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;cas&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Lait corps nourrissant&quot;,&quot;Spray solaire corps&quot;,&quot;Gel douche surgras&quot;,&quot;Baume apaisant mamelons&quot;],&quot;default&quot;:&quot;Lait corps nourrissant&quot;,&quot;section&quot;:&quot;Produit d'exemple&quot;},&quot;niveau&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;1 · Composition sans signal identifié&quot;,&quot;2 · Composition à signal modéré&quot;,&quot;3 · Composition préoccupante&quot;,&quot;4 · Composition incompatible&quot;,&quot;Évaluation incomplète&quot;],&quot;default&quot;:&quot;2 · Composition à signal modéré&quot;,&quot;section&quot;:&quot;Verdict illustratif&quot;},&quot;zone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Évaluée&quot;,&quot;Évaluation incomplète&quot;],&quot;default&quot;:&quot;Évaluée&quot;,&quot;section&quot;:&quot;Zone de tétée (soin des mamelons)&quot;},&quot;panneau&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Aucun&quot;,&quot;Ingrédient qui détermine le niveau&quot;,&quot;Présence de parfum&quot;,&quot;Ingrédient C (zone de tétée)&quot;,&quot;Mention en tête de liste&quot;],&quot;default&quot;:&quot;Aucun&quot;,&quot;section&quot;:&quot;Panneau ouvert au départ&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
 class Component extends DCLogic {
   componentDidUpdate(prevProps) {
-    if (prevProps && prevProps.panneau !== this.props.panneau && this.state && (this.state.sel || this.state.closed)) {
-      this.setState({ sel: null, closed: false });
+    var p = this.props, st = this.state;
+    if (prevProps && st && (st.sel || st.closed || st.mention !== undefined) && (prevProps.panneau !== p.panneau || prevProps.cas !== p.cas || prevProps.zone !== p.zone || prevProps.niveau !== p.niveau)) {
+      this.setState({ sel: null, closed: false, mention: undefined });
     }
   }
   renderVals() {
-    var OPTS = ['1 · Composition sans signal identifié', '2 · Composition à signal modéré', '3 · Composition préoccupante', '4 · Composition incompatible'];
+    // Liste des ingrédients ouverte depuis la ligne allaitement : marquage et textes de cette ligne (D-112, A10).
+    // Produits d'exemple, fictifs (T-506). corps : liste « zone de tétée » des soins du corps (G1.1, à retravailler) ;
+    // hors : sprays et terpènes, un seul élément (G1.3) ; contact (« contact rapproché », D-259) : solaires, huiles, amincissant, sans les déodorants (G1.2, porteuse) ;
+    // parfum : déclencheur de G1.4 ; savon : liste de G1.5, en revue ; attribut : « zone de tétée », détecté par le nom (D-187).
+    var CAS = ['Lait corps nourrissant', 'Spray solaire corps', 'Gel douche surgras', 'Baume apaisant mamelons'];
+    var KEYS = ['Lait', 'Spray', 'Gel', 'Baume'];
+    var D = {
+      Lait: { nom: 'Lait corps nourrissant', marque: 'Marque exemple · 250 ml', forme: 'pompe', corps: true, parfum: true },
+      Spray: { nom: 'Spray solaire corps', marque: 'Marque essai · 200 ml', forme: 'spray', corps: true, hors: true, contact: true },
+      Gel: { nom: 'Gel douche surgras', marque: 'Marque essai · 500 ml', forme: 'flacon', savon: true },
+      Baume: { nom: 'Baume apaisant mamelons', marque: 'Marque essai · 15 ml', forme: 'tube', attribut: true }
+    };
+    var N = ['1 · Composition sans signal identifié', '2 · Composition à signal modéré', '3 · Composition préoccupante', '4 · Composition incompatible', 'Évaluation incomplète'];
+    var ci = CAS.indexOf(this.props.cas);
+    if (ci < 0) ci = 0;
+    var key = KEYS[ci], d = D[key];
+    var lvl = N.indexOf(this.props.niveau);
+    if (lvl < 0) lvl = 1;
+    var zoneInc = !!d.attribut && this.props.zone === 'Évaluation incomplète';
+    // L'état incomplet ne s'affiche seul que si rien n'est établi au-dessus du vert ; sinon il devient une mention (D-147 ; D-214, étape 8).
+    var incomplet = lvl === 4 || (zoneInc && lvl === 0);
+    var vj = !incomplet && lvl <= 1;
+    // Éléments sous la couleur (D-214, étape 6 ; bloc G) : les mentions de portée s'affichent sur toutes les couleurs, sans source ;
+    // les conditions, sur le vert et le jaune seulement, avec leur source (G2.1). Rang : ingestion ou inhalation par le nourrisson,
+    // puis contact, puis confort (D-165).
+    var els = [];
+    if (d.attribut) {
+      // Préséance de l'attribut : jamais « zone de tétée non évaluée » ni la consigne d'évitement (D-214, étape 6).
+      if (!incomplet) els.push(zoneInc
+        ? { rang: 1, lead: 'Zone de tétée : évaluation incomplète.', rest: " Au moins un ingrédient n'a pas pu être évalué pour cette zone.", ligne: true, titre: 'Zone de tétée : évaluation incomplète', expl: "Au moins un ingrédient n'a pas pu être évalué pour cette zone." }
+        : { rang: 1, lead: 'Zone de tétée évaluée :', rest: ' cette évaluation tient compte du produit présent au moment de la tétée.', ligne: true, attribut: true, titre: 'Zone de tétée évaluée', expl: 'Cette évaluation tient compte du produit présent au moment de la tétée.' });
+    } else if (d.corps) {
+      // L'évitement est fondu dans la ligne zone de tétée (G2.2) ; le même texte sur toutes les couleurs (D-257).
+      els.push({ rang: 1, lead: 'Zone de tétée non évaluée :', rest: " cette évaluation ne tient pas compte d'une application sur le mamelon ou l'aréole.", ligne: true, titre: 'Zone de tétée non évaluée', expl: "Cette évaluation ne tient pas compte d'une application sur le mamelon ou l'aréole." });
+    }
+    if (d.hors) els.push({ rang: 1, lead: 'Inhalation par le nourrisson non évaluée :', rest: " cette évaluation ne tient pas compte de l'inhalation du produit par le nourrisson.", titre: 'Inhalation par le nourrisson non évaluée', expl: "Cette évaluation ne tient pas compte de l'inhalation du produit par le nourrisson." });
+    if (d.contact) els.push({ rang: 2, lead: 'Contact rapproché non évalué :', rest: ' cette évaluation ne tient pas compte du contact de la peau du nourrisson avec la peau traitée.', titre: 'Contact rapproché non évalué', expl: 'Cette évaluation ne tient pas compte du contact de la peau du nourrisson avec la peau traitée.' });
+    if (vj && d.parfum) els.push({ rang: 3, lead: '', rest: "Le nouveau-né se guide vers le sein à l'odeur.", src: 'parfum', titre: 'Produit parfumé', expl: "Le nouveau-né se guide vers le sein à l'odeur." });
+    // Condition savon retirée (porteuse, 17/10) ; son texte part vers une fiche, à écrire.
+    els = els.map(function (e, k) { e.k = k; return e; }).sort(function (a, b) { return a.rang - b.rang || a.k - b.k; });
+    // Tout sur l'écran du verdict (porteuse, 30/10) : plus rien en tête de la liste des ingrédients (revient sur D-165, D-265 et
+    // G1.7, à inscrire). Les textes ci-dessus ne s'affichent plus ici ; ceux du verdict ont changé le 30/10.
+    var shown = els, over = [];
     var PAL = [
       { bg: '#CADCA4', fg: '#000000', tint: '#ECF3DF' },
       { bg: '#E7B93F', fg: '#000000', tint: '#F7E6BC' },
       { bg: '#E27A46', fg: '#000000', tint: '#F5D0BE' },
       { bg: '#B8192C', fg: '#FFFFFF', tint: '#E6AEB5' }
     ];
-    var i = OPTS.indexOf(this.props.niveau);
-    if (i < 0) i = 1;
-    var c = PAL[i];
+    var c = PAL[incomplet ? 1 : lvl];
     var s = {};
     PAL.forEach(function (l, k) {
-      var on = k === i, n = k + 1;
-      s['f' + n] = on ? l.bg : l.tint;
+      var on = !incomplet && k === lvl, n = k + 1;
+      s['f' + n] = incomplet ? '#F1ECE4' : (on ? l.bg : l.tint);
       s['k' + n] = on ? '#321C31' : '#D6CEC6';
       s['w' + n] = on ? 1.5 : 1;
       // Arc sans aiguille (porteuse, 30/10) : le secteur k du demi-cercle, du niveau 1 à gauche au niveau 4 à droite ;
@@ -227,89 +297,109 @@ class Component extends DCLogic {
           + ' 0 0 0 ' + p(ri, a0) + ' Z';
       })(Math.PI - k * Math.PI / 4 - 0.03, Math.PI - (k + 1) * Math.PI / 4 + 0.03, on ? 48 : 42, on ? 24 : 28);
     });
-    var allait = this.props.ligne === 'Allaitement';
-    var rince = !!this.props.rince;
-    var photosens = !!this.props.photosensibilite;
-    var INK = '#321C31', MUTED = '#6E5A6B';
-    // Textes de remplacement : rien n'est affirmé sur un ingrédient réel.
-    var PH = {
-      fonctions: '[Fonctions cosmétiques — à relever à la source]',
-      courant: '[Nom courant]',
-      cause: '[Texte « ce qui est en cause » — à rédiger, validation du toxicologue]',
-      source: '[Source : nature, référence et date de publication]',
-      etat: "[État de l'ingrédient — non renseigné dans le prototype]",
-      sourceVide: '[Source — non renseignée dans le prototype]',
-      allait: '[Texte de la ligne allaitement — en attente de la clôture du module]'
+    var MUTED = '#6E5A6B', INK = '#321C31';
+    var PH = { fonctions: '[Fonctions cosmétiques — à relever à la source]', courant: '[Nom courant]',
+      cause: '[Texte « ce qui est en cause » pour cette voie — à rédiger, validation de la toxicologue]', etat: '[État pour cette voie — non renseigné dans le prototype]' };
+    // Listes d'exemple, dans l'ordre de l'emballage ; aucun ingrédient réel n'est noté.
+    var ex = function (k, inci, type) { return { key: k, inci: inci, fonctions: PH.fonctions, courant: PH.courant, type: type }; };
+    var L = {
+      Lait: [
+        { key: 'aqua', inci: 'Aqua', fonctions: 'Solvant', courant: 'Eau', type: 'reel' },
+        { key: 'glycerin', inci: 'Glycerin', fonctions: "Agent d'entretien de la peau, agent de contrôle de la viscosité, conditionneur capillaire, fonction parfumante, humectant, solvant", courant: 'Glycérine, glycérol', type: 'reel' },
+        ex('sig', '[Ingrédient signalé — exemple]', 'sig'), ex('det', '[Ingrédient déterminant — exemple]', 'det'),
+        { key: 'parfum', inci: 'Parfum', fonctions: PH.fonctions, courant: 'Parfum', type: 'parfum' },
+        ex('a', '[Ingrédient — exemple A]', 'a'), ex('b', '[Ingrédient — exemple B]', 'a')
+      ],
+      Spray: [
+        { key: 'aqua', inci: 'Aqua', fonctions: 'Solvant', courant: 'Eau', type: 'reel' },
+        ex('d', '[Ingrédient — exemple D]', 'a'), ex('det', '[Ingrédient déterminant — exemple]', 'det'),
+        ex('a', '[Ingrédient — exemple A]', 'a'), ex('b', '[Ingrédient — exemple B]', 'a')
+      ],
+      Gel: [
+        { key: 'aqua', inci: 'Aqua', fonctions: 'Solvant', courant: 'Eau', type: 'reel' },
+        ex('t', '[Tensioactif — exemple]', 'a'), ex('det', '[Ingrédient déterminant — exemple]', 'det'),
+        ex('a', '[Ingrédient — exemple A]', 'a'), ex('b', '[Ingrédient — exemple B]', 'a')
+      ],
+      Baume: [
+        ex('det', '[Ingrédient déterminant — exemple]', 'det'), ex('a', '[Ingrédient — exemple A]', 'a'),
+        ex('b', '[Ingrédient — exemple B]', 'a'), ex('c', '[Ingrédient — exemple C]', 'c')
+      ]
     };
-    // Liste d'exemple, dans l'ordre de l'emballage. Seules les fonctions d'Aqua et de Glycerin sont relevées (Glycerin : COSMILE Europe).
-    var base = [
-      { key: 'aqua', inci: 'Aqua', fonctions: 'Solvant', courant: 'Eau', type: 'reel' },
-      { key: 'glycerin', inci: 'Glycerin', fonctions: "Agent d'entretien de la peau, agent de contrôle de la viscosité, conditionneur capillaire, fonction parfumante, humectant, solvant", courant: 'Glycérine, glycérol', type: 'reel' },
-      { key: 'cct', inci: 'Caprylic/Capric Triglyceride', fonctions: PH.fonctions, courant: PH.courant, type: 'reel' },
-      { key: 'sig', inci: '[Ingrédient signalé — exemple]', fonctions: PH.fonctions, courant: PH.courant, type: 'sig' },
-      { key: 'karite', inci: 'Butyrospermum Parkii Butter', fonctions: PH.fonctions, courant: 'Beurre de karité', type: 'reel' },
-      { key: 'det', inci: '[Ingrédient déterminant — exemple]', fonctions: PH.fonctions, courant: PH.courant, type: 'det' },
-      { key: 'parfum', inci: 'Parfum', fonctions: PH.fonctions, courant: 'Parfum', type: 'parfum' },
-      { key: 'a', inci: '[Ingrédient — exemple A]', fonctions: PH.fonctions, courant: PH.courant, type: 'a' },
-      { key: 'b', inci: '[Ingrédient — exemple B]', fonctions: PH.fonctions, courant: PH.courant, type: 'b' },
-      { key: 'c', inci: '[Ingrédient — exemple C]', fonctions: PH.fonctions, courant: PH.courant, type: 'c' }
-    ];
-    // Un produit au niveau 1 n'a aucun ingrédient qui détermine le niveau ; la ligne allaitement n'a pas encore de marquage.
-    var hasDet = !allait && i >= 1;
-    var list = base.filter(function (it) { return it.type !== 'det' || hasDet; });
+    // Un niveau 1 n'a aucun ingrédient coloré (D-112, A1) ; l'état incomplet non plus.
+    var hasDet = !incomplet && lvl >= 1;
+    var list = L[key].filter(function (it) { return it.type !== 'det' || hasDet; });
     var self = this;
     var items = list.map(function (it, k) {
       return {
-        inci: it.inci, fonctions: it.fonctions,
-        isDet: it.type === 'det' && hasDet,
-        isSig: it.type === 'sig' && !allait,
-        bg: c.bg, fg: c.fg,
-        sep: k === 0 ? 'none' : '1px solid #E7E1DA',
-        open: function () { self.setState({ sel: it.key, closed: false }); }
+        inci: it.inci, fonctions: it.fonctions, isDet: it.type === 'det', isSig: it.type === 'sig' && !incomplet,
+        bg: c.bg, fg: c.fg, sep: k === 0 ? 'none' : '1px solid #E7E1DA',
+        open: function () { self.setState({ sel: it.key, closed: false, mention: null }); }
       };
     });
-    var MAP = { 'Ingrédient qui détermine le niveau': 'det', 'Ingrédient signalé': 'sig', 'Parfum': 'parfum', 'Aucun signal identifié': 'a', 'Données insuffisantes': 'b', 'Non évalué': 'c' };
-    var st = this.state || {};
-    var key = st.closed ? null : (st.sel || MAP[this.props.panneau] || null);
-    var it = null;
-    list.forEach(function (x) { if (x.key === key) it = x; });
-    var sel = { inci: '', fonctions: '', courant: '', f3: '', source: '', isDet: false, isCause: false, isEtat: false, isTexte: false, showRince: false, showPhoto: false, bg: c.bg, fg: c.fg, fnColor: INK, ncColor: INK, f3Color: INK, srcColor: INK };
-    if (it) {
-      sel.inci = it.inci; sel.fonctions = it.fonctions; sel.courant = it.courant;
-      sel.fnColor = it.fonctions.charAt(0) === '[' ? MUTED : INK;
-      sel.ncColor = it.courant.charAt(0) === '[' ? MUTED : INK;
-      var t = it.type;
-      if (allait) {
-        sel.isTexte = true; sel.f3 = PH.allait; sel.f3Color = MUTED; sel.source = PH.allait;
-      } else if (t === 'det' || t === 'sig') {
-        sel.isDet = t === 'det'; sel.isCause = true; sel.f3 = PH.cause; sel.source = PH.source;
-        // Mention « produit rincé » : ingrédient signalé d'un produit rincé, hors signal majeur (D-112, A2).
-        sel.showRince = rince && (t === 'sig' || i === 1 || i === 2);
-        sel.showPhoto = photosens && t === 'sig';
-      } else if (t === 'parfum') {
-        sel.isTexte = true; sel.f3 = 'On ne peut pas savoir ce que recouvre ce terme.'; sel.source = '[Source — à définir pour Parfum]';
-      } else if (t === 'a') {
-        sel.isEtat = true; sel.f3 = 'Aucun signal identifié'; sel.source = 'Aucun statut dans les registres consultés';
-      } else if (t === 'b') {
-        sel.isEtat = true; sel.f3 = 'Données insuffisantes'; sel.source = PH.source;
-      } else if (t === 'c') {
-        sel.isEtat = true; sel.f3 = 'Non évalué'; sel.source = '[Source — à définir pour cet état]';
-      } else {
-        sel.isTexte = true; sel.f3 = PH.etat; sel.f3Color = MUTED; sel.source = PH.sourceVide;
-      }
-      sel.srcColor = sel.source.charAt(0) === '[' ? MUTED : INK;
-    }
-    return {
-      isG: !allait, isA: allait, ligne: allait ? 'Allaitement' : 'Grossesse',
-      isRince: rince, notRince: !rince,
-      rang: String(i + 1), s: s,
-      showDetLink: hasDet,
-      items: items,
-      open: !!it, sel: sel,
-      showStatus: this.props.statuts !== false,
-      openParfum: function () { self.setState({ sel: 'parfum', closed: false }); },
-      closePanel: function () { self.setState({ sel: null, closed: true }); }
+    // Un texte par voie où l'ingrédient est signalé, avec l'état de chaque voie (G7.2 ; D-112, A3).
+    // Chaque voie a sa ligne d'explication, pour qui découvre la méthode (porteuse, 16/10). Textes provisoires :
+    // jamais « passe dans le lait » quand la chaîne est rompue (T-533 l), à faire relire à la toxicologue.
+    var VOIES = {
+      lait: { nom: 'Par le lait maternel', explication: 'Ce que le nourrisson pourrait recevoir via le lait maternel.' },
+      bouche: { nom: 'Par la bouche, pendant la tétée', explication: "Ce que le nourrisson pourrait avaler du produit présent sur la zone de tétée : le mamelon et l'aréole." }
     };
+    function route(v, texte, etat) {
+      return { nom: VOIES[v].nom, explication: VOIES[v].explication, texte: texte, fw: etat ? '700' : '400', color: texte.charAt(0) === '[' ? MUTED : INK };
+    }
+    function routes(it) {
+      var t = it.type, lait, bouche;
+      if (t === 'det') lait = d.attribut ? route('lait', 'Aucun signal identifié', true) : route('lait', PH.cause, false);
+      else if (t === 'sig') lait = route('lait', PH.cause, false);
+      else if (t === 'parfum') lait = route('lait', 'On ne peut pas savoir ce que recouvre ce terme.', false);
+      else if (t === 'reel') lait = route('lait', PH.etat, false);
+      else lait = route('lait', 'Aucun signal identifié', true);
+      if (!d.attribut) return [lait];
+      // Zone de tétée : un ingrédient « Non évalué » la rend incomplète (D-215).
+      if (t === 'det') bouche = route('bouche', PH.cause, false);
+      else if (t === 'c' && zoneInc) bouche = route('bouche', 'Non évalué', true);
+      else bouche = route('bouche', 'Aucun signal identifié', true);
+      return [lait, bouche];
+    }
+    var MAP = { 'Ingrédient qui détermine le niveau': 'det', 'Présence de parfum': 'parfum', 'Ingrédient C (zone de tétée)': 'c' };
+    var st = this.state || {};
+    // Panneau d'une mention en tête de liste (porteuse, 17/10 : « où se trouve l'explication ? ») : il prend le pas sur
+    // celui d'un ingrédient. Une mention sans explication reste un simple encadré.
+    var mk = st.mention !== undefined ? st.mention : (st.closed ? null : (this.props.panneau === 'Mention en tête de liste' ? 0 : null));
+    var mention = mk != null && over[mk] && over[mk].expl ? over[mk] : null;
+    var want = (st.closed || mention) ? null : (st.sel || MAP[this.props.panneau] || null);
+    var it = null;
+    L[key].forEach(function (x) { if (x.key === want && (x.type !== 'det' || hasDet)) it = x; });
+    var sel = { inci: '', fonctions: '', courant: '', isDet: false, bg: c.bg, fg: c.fg, fnColor: INK, ncColor: INK, routes: [] };
+    if (it) {
+      sel = { inci: it.inci, fonctions: it.fonctions, courant: it.courant, isDet: it.type === 'det', bg: c.bg, fg: c.fg,
+        fnColor: it.fonctions.charAt(0) === '[' ? MUTED : INK, ncColor: it.courant.charAt(0) === '[' ? MUTED : INK, routes: routes(it) };
+    }
+    // L'explication d'une mention de portée est la même à toutes les couleurs : elle dit ce que l'évaluation ne couvre pas.
+    var heads = over.map(function (e, k) {
+      return { text: e.titre, mt: k === 0 ? '14px' : '8px', has: !!e.expl, plain: !e.expl,
+        open: function () { self.setState({ mention: k, sel: null, closed: false }); } };
+    });
+    var hasParfum = !!d.parfum;
+    var vals = {
+      nom: d.nom, marque: d.marque, s: s,
+      rangLabel: incomplet ? 'Niveau non établi' : 'Niveau ' + (lvl + 1) + ' sur 4',
+      heads: heads, hasParfum: hasParfum, parfumTop: heads.length ? '8px' : '10px',
+      listTop: (heads.length || hasParfum) ? '10px' : '10px',
+      // Idée 5 à plat (porteuse, 30/10 et 01/11) : le verdict rappelé sous le produit, sur la couleur du niveau ;
+      // évaluation incomplète : un bandeau grisé, avec son motif (porteuse, 01/11).
+      showBand: true, verdictLabel: !incomplet ? N[lvl].replace(/^\d · /, '') : (lvl === 4 ? 'Évaluation incomplète' : 'Évaluation incomplète pour la tétée'),
+      verdictBg: incomplet ? '#F1ECE4' : c.bg, verdictFg: incomplet ? '#321C31' : c.fg,
+      parf: { bg: 'transparent', fg: '#321C31', bord: '0', pad: '0 4px', marge: '-4px', chev: '#6E5A6B' },
+      items: items, open: !!it, sel: sel,
+      openParfum: function () { self.setState({ sel: 'parfum', closed: false, mention: null }); },
+      closePanel: function () { self.setState({ sel: null, closed: true }); },
+      mentionOpen: !!mention, mention: { titre: mention ? mention.titre : '', texte: mention ? mention.expl : '' },
+      closeMention: function () { self.setState({ mention: null, closed: true }); },
+      showStatus: this.props.statuts !== false
+    };
+    KEYS.forEach(function (k) { vals['c' + k] = k === key; });
+    ['pompe', 'spray', 'flacon', 'tube'].forEach(function (f) { vals['is' + f.charAt(0).toUpperCase() + f.slice(1)] = d.forme === f; });
+    return vals;
   }
 }
 </script>

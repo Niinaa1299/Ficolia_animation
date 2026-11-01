@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
 <meta charset="utf-8">
-<title>Ficolia — Allaitement (écran d'attente)</title>
+<title>Ficolia — Verdict allaitement</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -17,40 +17,361 @@ a,button{touch-action:manipulation;-webkit-user-select:none;user-select:none;tra
 a:active,button:active{transform:scale(0.97)}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C31;outline-offset:3px}
 @media (prefers-reduced-motion:reduce){a,button{transition:none}a:active,button:active{transform:none}}
+@keyframes e1-monte{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@keyframes e1-fondu{from{opacity:0}to{opacity:1}}
+.e1-volet{animation:e1-monte 280ms cubic-bezier(0.32,0.72,0,1)}
+.e1-voile{animation:e1-fondu 200ms cubic-bezier(0.23,1,0.32,1)}
+@media (prefers-reduced-motion:reduce){.e1-volet{animation:e1-fondu 200ms ease}}
 </style>
 </helmet>
 <div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; color: #321C31; font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
-<div style="padding: 50px 20px 0 20px; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px">
+<div style="flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; padding-bottom: 12px">
+<div style="flex-shrink: 0; padding: 50px 20px 0 20px; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px">
+<sc-if value="{{cLait}}" hint-placeholder-val="{{ true }}">
 <a href="E2-Produit.dc.html" aria-label="Retour au produit" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
 <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
 </a>
-<h1 style="margin: 0; text-align: center; font-size: 19px; font-weight: 700; line-height: 1.2">Allaitement</h1>
-<span></span>
+</sc-if>
+<sc-if value="{{cSpray}}" hint-placeholder-val="{{ false }}">
+<a href="EA-Produit-Spray.dc.html" aria-label="Retour au produit" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</a>
+</sc-if>
+<sc-if value="{{cGel}}" hint-placeholder-val="{{ false }}">
+<a href="EA-Produit-Gel.dc.html" aria-label="Retour au produit" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</a>
+</sc-if>
+<sc-if value="{{cBaume}}" hint-placeholder-val="{{ false }}">
+<a href="EA-Produit-Baume.dc.html" aria-label="Retour au produit" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</a>
+</sc-if>
+<h1 style="margin: 0; text-align: center; font-size: {{fs.title}}; font-weight: 700; line-height: 1.2">Allaitement</h1>
+<span style="display: flex; justify-content: flex-end">
+<sc-if value="{{infoEntete}}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{openInfo}}" aria-label="Information sur ce niveau" aria-haspopup="dialog" style="width: 44px; height: 44px; box-sizing: border-box; padding: 0; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></button>
+</sc-if>
+</span>
 </div>
-<div style="margin: 14px 20px 0 20px; padding: 10px 14px 10px 10px; border: 1px solid #E7E1DA; border-radius: 20px; background: #FAF8F4; display: flex; align-items: center; gap: 12px">
-<div style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 14px; background: #FFFFFF; display: flex; align-items: center; justify-content: center">
-<svg width="30" height="39" sc-camel-view-box="0 0 200 260" aria-hidden="true">
-<rect x="86" y="14" width="28" height="12" rx="4" fill="#7E8285"></rect>
-<rect x="95" y="26" width="10" height="14" fill="#9DA1A4"></rect>
-<rect x="80" y="40" width="40" height="22" rx="7" fill="#9DA1A4"></rect>
-<rect x="50" y="62" width="100" height="184" rx="30" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="6"></rect>
-<rect x="64" y="112" width="72" height="84" rx="10" fill="#E6E8E9"></rect>
+<div style="margin: 12px 20px 0 20px; flex: {{card.flex}}; min-height: {{card.minH}}; max-height: {{card.maxH}}; border: 1px solid #E7E1DA; border-radius: 24px; background: #FAF8F4; overflow: hidden; display: flex; flex-direction: column">
+<div style="position: relative; flex: 1 1 auto; min-height: 0; display: {{card.photo}}">
+<sc-if value="{{showRenvoiPhoto}}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{openRenvoi}}" aria-haspopup="dialog" aria-label="Crevasses : fiche de bonnes pratiques" style="position: absolute; top: 10px; right: 10px; z-index: 1; width: 44px; height: 44px; box-sizing: border-box; padding: 0; border: 1px solid #E7E1DA; border-radius: 999px; background: #FFFFFF; box-shadow: 0 2px 8px rgba(50,28,49,0.12); display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg></button>
+</sc-if>
+<sc-if value="{{conseilRond}}" hint-placeholder-val="{{ false }}">
+<div role="note" aria-label="Conseil" style="position: absolute; z-index: 2; top: 64px; right: 8px; width: 260px; box-sizing: border-box; padding: 14px 14px 12px 16px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FFFFFF; box-shadow: 0 8px 24px rgba(30,26,30,0.22); color: #321C31; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 16px; line-height: 1.4; text-wrap: pretty">Touchez ce rond pour lire la fiche « Crevasses ».</p>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Texte provisoire</span>
+</sc-if>
+<button type="button" sc-camel-on-click="{{fermerConseil}}" style="margin-left: auto; min-height: 44px; padding: 0 18px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer">Compris</button>
+</div>
+<span aria-hidden="true" style="position: absolute; right: 17px; top: -8px; width: 14px; height: 14px; box-sizing: border-box; background: #FFFFFF; border-left: 1px solid #E7E1DA; border-top: 1px solid #E7E1DA; transform: rotate(45deg)"></span>
+</div>
+</sc-if>
+<div style="position: absolute; top: 7%; bottom: 7%; left: 50%; aspect-ratio: 1 / 1; transform: translateX(-50%); border-radius: 999px; background: #FFFFFF"></div>
+<sc-if value="{{isPompe}}" hint-placeholder-val="{{ true }}">
+<svg role="img" aria-label="Photo du produit (illustration du prototype)" sc-camel-view-box="0 0 200 260" width="160" height="208" style="position: absolute; top: 14%; left: 50%; height: 72%; width: auto; transform: translateX(-50%)"><rect x="86" y="14" width="28" height="12" rx="4" fill="#7E8285"></rect><rect x="112" y="17" width="32" height="6" rx="3" fill="#7E8285"></rect><rect x="95" y="26" width="10" height="14" fill="#9DA1A4"></rect><rect x="80" y="40" width="40" height="22" rx="7" fill="#9DA1A4"></rect><rect x="50" y="62" width="100" height="184" rx="30" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="2"></rect><rect x="64" y="112" width="72" height="84" rx="10" fill="#E6E8E9"></rect><rect x="76" y="130" width="48" height="7" rx="3.5" fill="#AEB1B3"></rect><rect x="76" y="145" width="34" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="76" y="176" width="22" height="5" rx="2.5" fill="#C9CCCE"></rect></svg>
+</sc-if>
+<sc-if value="{{isSpray}}" hint-placeholder-val="{{ false }}">
+<svg role="img" aria-label="Photo du produit (illustration du prototype)" sc-camel-view-box="0 0 200 260" width="160" height="208" style="position: absolute; top: 14%; left: 50%; height: 72%; width: auto; transform: translateX(-50%)"><rect x="88" y="10" width="26" height="16" rx="4" fill="#7E8285"></rect><rect x="110" y="14" width="22" height="7" rx="3" fill="#7E8285"></rect><rect x="80" y="26" width="42" height="28" rx="7" fill="#9DA1A4"></rect><rect x="56" y="54" width="90" height="192" rx="28" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="2"></rect><rect x="68" y="108" width="66" height="84" rx="10" fill="#E6E8E9"></rect><rect x="78" y="126" width="46" height="7" rx="3.5" fill="#AEB1B3"></rect><rect x="78" y="141" width="32" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="78" y="172" width="22" height="5" rx="2.5" fill="#C9CCCE"></rect></svg>
+</sc-if>
+<sc-if value="{{isFlacon}}" hint-placeholder-val="{{ false }}">
+<svg role="img" aria-label="Photo du produit (illustration du prototype)" sc-camel-view-box="0 0 200 260" width="160" height="208" style="position: absolute; top: 14%; left: 50%; height: 72%; width: auto; transform: translateX(-50%)"><rect x="74" y="16" width="52" height="34" rx="9" fill="#9DA1A4"></rect><rect x="46" y="50" width="108" height="196" rx="24" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="2"></rect><rect x="62" y="108" width="76" height="84" rx="10" fill="#E6E8E9"></rect><rect x="76" y="126" width="48" height="7" rx="3.5" fill="#AEB1B3"></rect><rect x="76" y="141" width="34" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="76" y="172" width="22" height="5" rx="2.5" fill="#C9CCCE"></rect></svg>
+</sc-if>
+<sc-if value="{{isTube}}" hint-placeholder-val="{{ false }}">
+<svg role="img" aria-label="Photo du produit (illustration du prototype)" sc-camel-view-box="0 0 200 260" width="160" height="208" style="position: absolute; top: 14%; left: 50%; height: 72%; width: auto; transform: translateX(-50%)"><rect x="52" y="12" width="96" height="12" rx="4" fill="#C9CCCE"></rect><path d="M56 24h88l-12 172H68z" fill="#FFFFFF" stroke-linejoin="round" stroke="#AEB1B3" stroke-width="2"></path><rect x="80" y="70" width="40" height="70" rx="9" fill="#E6E8E9"></rect><rect x="88" y="86" width="24" height="6" rx="3" fill="#AEB1B3"></rect><rect x="88" y="100" width="16" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="72" y="196" width="56" height="50" rx="9" fill="#9DA1A4"></rect></svg>
+</sc-if>
+</div>
+<div style="flex-shrink: 0; padding: 12px 14px 12px 18px; border-top: {{card.sep}}; background: #FFFFFF; display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+<div style="flex: 1 1 150px; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: {{fs.row}}; font-weight: 700; line-height: 1.25">{{nom}}</span>
+<span style="font-size: {{fs.small}}; line-height: 1.3; color: #6E5A6B">{{marque}}</span>
+</div>
+<div role="img" aria-label="{{rangLabel}}" style="width: 76px; flex-shrink: 0; display: flex; justify-content: center">
+<svg width="76" height="40" sc-camel-view-box="0 0 104 54" aria-hidden="true">
+<path d="{{s.d1}}" fill="{{s.f1}}" stroke="{{s.k1}}" stroke-width="{{s.w1}}" stroke-linejoin="round"></path>
+<path d="{{s.d2}}" fill="{{s.f2}}" stroke="{{s.k2}}" stroke-width="{{s.w2}}" stroke-linejoin="round"></path>
+<path d="{{s.d3}}" fill="{{s.f3}}" stroke="{{s.k3}}" stroke-width="{{s.w3}}" stroke-linejoin="round"></path>
+<path d="{{s.d4}}" fill="{{s.f4}}" stroke="{{s.k4}}" stroke-width="{{s.w4}}" stroke-linejoin="round"></path>
 </svg>
 </div>
-<div style="flex: 1 1 150px; min-width: 0; display: flex; flex-direction: column; gap: 2px">
-<span style="font-size: 16px; font-weight: 700; line-height: 1.25">Lait corps nourrissant</span>
-<span style="font-size: 14px; line-height: 1.3; color: #6E5A6B">Marque exemple · 250 ml</span>
 </div>
 </div>
-<section aria-label="Verdict" style="margin: 14px 20px 0 20px; padding: 22px; border: 1.5px dashed #6E5A6B; border-radius: 24px; font-size: 16px; line-height: 1.4; color: #6E5A6B">[Verdict allaitement — en attente de la clôture du module allaitement]</section>
-<div style="margin: 24px 20px 0 20px; display: flex; flex-direction: column; gap: 8px">
-<h2 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Composition</h2>
+<sc-if value="{{isLevel}}" hint-placeholder-val="{{ true }}">
+<section aria-label="Verdict" style="flex-shrink: 0; margin: {{vTop}} 12px 0 12px; padding: 20px 15px 18px 15px; border-radius: {{vRadius}}; border: 1px solid rgba(0,0,0,0.16); background: {{bg}}; color: {{fg}}; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: flex-start; gap: 4px">
+<h2 style="flex: 1 1 auto; min-width: 0; margin: 0; font-size: {{fs.label}}; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em">{{label}}</h2>
+<sc-if value="{{infoLibelle}}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{openInfo}}" aria-label="Information sur ce niveau" aria-haspopup="dialog" style="flex-shrink: 0; width: 44px; height: 44px; margin: -10px -14px -10px 0; box-sizing: border-box; padding: 0; border: 0; border-radius: 999px; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="{{fg}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></button>
+</sc-if>
+</div>
+<p style="margin: 0; font-size: {{fs.body}}; line-height: 1.45; text-wrap: pretty">{{phrase}}</p>
+<sc-if value="{{rangeeBas}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 22px">
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="padding: 3px 10px; border: 1px dashed {{fg}}; border-radius: 999px; font-size: 13px; line-height: 1.3; color: {{fg}}">{{statusText}}</span>
+</sc-if>
+<sc-if value="{{infoBas}}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{openInfo}}" aria-label="Information sur ce niveau" aria-haspopup="dialog" style="flex-shrink: 0; width: 44px; height: 44px; margin: -11px -11px -11px auto; box-sizing: border-box; padding: 0; border: 0; border-radius: 999px; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="{{fg}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></button>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{elsIn}}" hint-placeholder-val="{{ false }}">
+<div style="margin-top: 4px; padding-top: 12px; border-top: 1px solid {{rule}}; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{ inList }}" as="el" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px">
+<span style="font-size: {{ el.fsTitre }}; font-weight: 700; line-height: 1.3; color: {{ el.color }}">{{ el.titre }}</span>
+<sc-if value="{{ el.hasTexte }}" hint-placeholder-val="{{ true }}">
+<span style="font-size: {{ el.fsTexte }}; line-height: 1.4; text-wrap: pretty; color: {{ el.colorTexte }}">{{ el.texte }}</span>
+</sc-if>
+<sc-if value="{{ el.hasSrc }}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{ el.openSrc }}" style="min-height: 44px; margin-bottom: -10px; padding: 0; border: 0; background: transparent; color: {{ el.colorTexte }}; font-family: inherit; font-size: {{ el.fsSmall }}; text-align: left; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Source : {{ el.srcName }}</button>
+</sc-if>
+</div>
+</sc-for>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed {{fg}}; border-radius: 999px; font-size: 13px; line-height: 1.3; color: {{fg}}">Formes à éprouver (D-159)</span>
+</sc-if>
+</div>
+</sc-if>
+</section>
+</sc-if>
+<sc-if value="{{isIncomplet}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Verdict" style="flex-shrink: 0; margin: {{vTop}} 12px 0 12px; padding: 20px 15px 18px 15px; border: 1px solid #6E5A6B; border-radius: {{vRadius}}; background: #FAF8F4; color: #321C31; display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-size: {{fs.label}}; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em">Évaluation incomplète</h2>
+<p style="margin: 0; font-size: {{fs.body}}; line-height: 1.45; text-wrap: pretty; color: #6E5A6B">{{raison}}</p>
+<sc-if value="{{elsIn}}" hint-placeholder-val="{{ false }}">
+<div style="margin-top: 4px; padding-top: 12px; border-top: 1px solid #D6CEC6; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{ inList }}" as="el" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px">
+<span style="font-size: {{ el.fsTitre }}; font-weight: 700; line-height: 1.3; color: {{ el.color }}">{{ el.titre }}</span>
+<sc-if value="{{ el.hasTexte }}" hint-placeholder-val="{{ true }}">
+<span style="font-size: {{ el.fsTexte }}; line-height: 1.4; text-wrap: pretty; color: {{ el.colorTexte }}">{{ el.texte }}</span>
+</sc-if>
+<sc-if value="{{ el.hasSrc }}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{ el.openSrc }}" style="min-height: 44px; margin-bottom: -10px; padding: 0; border: 0; background: transparent; color: {{ el.colorTexte }}; font-family: inherit; font-size: {{ el.fsSmall }}; text-align: left; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Source : {{ el.srcName }}</button>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Raison à rédiger (G5.1)</span>
+</sc-if>
+</section>
+</sc-if>
+<sc-if value="{{elsBelow}}" hint-placeholder-val="{{ true }}">
+<div style="flex-shrink: 0; margin: 10px 12px 0 12px; padding: 14px 15px; border: 1px solid #E7E1DA; border-radius: 20px; background: #FAF8F4; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{ belowList }}" as="el" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px">
+<span style="font-size: {{ el.fsTitre }}; font-weight: 700; line-height: 1.3; color: {{ el.color }}">{{ el.titre }}</span>
+<sc-if value="{{ el.hasTexte }}" hint-placeholder-val="{{ true }}">
+<span style="font-size: {{ el.fsTexte }}; line-height: 1.4; text-wrap: pretty; color: {{ el.colorTexte }}">{{ el.texte }}</span>
+</sc-if>
+<sc-if value="{{ el.hasSrc }}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{ el.openSrc }}" style="min-height: 44px; margin-bottom: -10px; padding: 0; border: 0; background: transparent; color: {{ el.colorTexte }}; font-family: inherit; font-size: {{ el.fsSmall }}; text-align: left; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Source : {{ el.srcName }}</button>
+</sc-if>
+</div>
+</sc-for>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Formes à éprouver (D-159)</span>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{elsCarte}}" hint-placeholder-val="{{ false }}">
+<div style="flex-shrink: 0; margin: 0 12px 0 12px; padding: 0 15px; border: 1px solid {{panelBorder}}; border-top: 0; border-radius: 0 0 24px 24px; background: #FFFFFF; display: flex; flex-direction: column">
+<sc-for list="{{ belowList }}" as="el" hint-placeholder-count="2">
+<div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 0 14px 0; border-top: {{ el.sep }}">
+<span aria-hidden="true" style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 11px; background: #F1ECE4; display: flex; align-items: center; justify-content: center">
+<sc-if value="{{ el.icZone }}" hint-placeholder-val="{{ true }}"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12h.01"></path><path d="M15 12h.01"></path><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"></path><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"></path></svg></sc-if>
+<sc-if value="{{ el.icAir }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"></path><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"></path><path d="M9.8 4.4A2 2 0 1 1 11 8H2"></path></svg></sc-if>
+<sc-if value="{{ el.icContact }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"></path><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"></path><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"></path><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path></svg></sc-if>
+<sc-if value="{{ el.icParfum }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"></path><circle cx="12" cy="8" r="2"></circle><path d="M12 10v12"></path><path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"></path><path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"></path></svg></sc-if>
+<sc-if value="{{ el.icSavon }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 4 2.5 2.5"></path><path d="M13.5 6.5a4.95 4.95 0 0 0-7 7"></path><path d="M15 5 5 15"></path><path d="M14 17v.01"></path><path d="M10 16v.01"></path><path d="M13 13v.01"></path><path d="M16 10v.01"></path><path d="M11 20v.01"></path><path d="M17 14v.01"></path><path d="M20 11v.01"></path></svg></sc-if>
+</span>
+<div style="flex: 1 1 auto; min-width: 0; padding-top: 1px; display: flex; flex-direction: column; align-items: flex-start; gap: 3px">
+<span style="font-size: {{ el.fsTitre }}; font-weight: 700; line-height: 1.3; color: {{ el.color }}">{{ el.titre }}</span>
+<sc-if value="{{ el.hasTexte }}" hint-placeholder-val="{{ true }}">
+<span style="font-size: {{ el.fsTexte }}; line-height: 1.4; text-wrap: pretty; color: {{ el.colorTexte }}">{{ el.texte }}</span>
+</sc-if>
+<sc-if value="{{ el.hasSrc }}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{ el.openSrc }}" style="min-height: 44px; margin-bottom: -10px; padding: 0; border: 0; background: transparent; color: {{ el.colorTexte }}; font-family: inherit; font-size: {{ el.fsSmall }}; text-align: left; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Source : {{ el.srcName }}</button>
+</sc-if>
+</div>
+</div>
+</sc-for>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; margin: -2px 0 16px 48px; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Formes à éprouver (D-159)</span>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{elsPuces}}" hint-placeholder-val="{{ false }}">
+<div style="flex-shrink: 0; margin: 12px 12px 0 12px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{ belowList }}" as="el" hint-placeholder-count="2">
+<button type="button" sc-camel-on-click="{{ el.openPuce }}" aria-haspopup="dialog" style="min-height: 44px; box-sizing: border-box; padding: 6px 12px 6px 7px; border: 1px solid #D6CEC6; border-radius: 999px; background: #FFFFFF; color: #321C31; display: inline-flex; align-items: center; gap: 9px; font-family: inherit; font-size: {{ el.fsPuce }}; font-weight: 700; line-height: 1.25; text-align: left; cursor: pointer; box-shadow: 0 1px 3px rgba(50,28,49,0.08)">
+<span aria-hidden="true" style="width: 30px; height: 30px; flex-shrink: 0; border-radius: 999px; background: #F1ECE4; display: flex; align-items: center; justify-content: center">
+<sc-if value="{{ el.icZone }}" hint-placeholder-val="{{ true }}"><svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12h.01"></path><path d="M15 12h.01"></path><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"></path><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"></path></svg></sc-if>
+<sc-if value="{{ el.icAir }}" hint-placeholder-val="{{ false }}"><svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"></path><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"></path><path d="M9.8 4.4A2 2 0 1 1 11 8H2"></path></svg></sc-if>
+<sc-if value="{{ el.icContact }}" hint-placeholder-val="{{ false }}"><svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"></path><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"></path><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"></path><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path></svg></sc-if>
+<sc-if value="{{ el.icParfum }}" hint-placeholder-val="{{ false }}"><svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"></path><circle cx="12" cy="8" r="2"></circle><path d="M12 10v12"></path><path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"></path><path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"></path></svg></sc-if>
+<sc-if value="{{ el.icSavon }}" hint-placeholder-val="{{ false }}"><svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 4 2.5 2.5"></path><path d="M13.5 6.5a4.95 4.95 0 0 0-7 7"></path><path d="M15 5 5 15"></path><path d="M14 17v.01"></path><path d="M10 16v.01"></path><path d="M13 13v.01"></path><path d="M16 10v.01"></path><path d="M11 20v.01"></path><path d="M17 14v.01"></path><path d="M20 11v.01"></path></svg></sc-if>
+</span>
+<span>{{ el.court }}</span>
+<svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+</button>
+</sc-for>
+<sc-if value="{{showRenvoiPuce}}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{openRenvoi}}" aria-haspopup="dialog" style="min-height: 44px; box-sizing: border-box; padding: 6px 12px 6px 7px; border: 1px solid #D6CEC6; border-radius: 999px; background: #FFFFFF; color: #321C31; display: inline-flex; align-items: center; gap: 9px; font-family: inherit; font-size: {{fs.puce}}; font-weight: 700; line-height: 1.25; text-align: left; cursor: pointer; box-shadow: 0 1px 3px rgba(50,28,49,0.08)">
+<span aria-hidden="true" style="width: 30px; height: 30px; flex-shrink: 0; border-radius: 999px; background: #321C31; display: flex; align-items: center; justify-content: center"><svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg></span>
+<span>Crevasses</span>
+<svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
+</sc-if>
+</div>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Formes à éprouver (D-159)</span>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{elsListe}}" hint-placeholder-val="{{ false }}">
+<div style="flex-shrink: 0; margin: 22px 20px 0 20px; display: flex; flex-direction: column">
+<h2 style="margin: 0 0 2px 0; font-size: {{fs.small}}; font-weight: 700; line-height: 1.3; color: #6E5A6B">À savoir</h2>
+<sc-for list="{{ belowList }}" as="el" hint-placeholder-count="2">
+<div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-top: {{ el.sep }}">
+<span aria-hidden="true" style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 11px; background: #F1ECE4; display: flex; align-items: center; justify-content: center">
+<sc-if value="{{ el.icZone }}" hint-placeholder-val="{{ true }}"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12h.01"></path><path d="M15 12h.01"></path><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"></path><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"></path></svg></sc-if>
+<sc-if value="{{ el.icAir }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"></path><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"></path><path d="M9.8 4.4A2 2 0 1 1 11 8H2"></path></svg></sc-if>
+<sc-if value="{{ el.icContact }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"></path><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"></path><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"></path><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path></svg></sc-if>
+<sc-if value="{{ el.icParfum }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"></path><circle cx="12" cy="8" r="2"></circle><path d="M12 10v12"></path><path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"></path><path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"></path></svg></sc-if>
+<sc-if value="{{ el.icSavon }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 4 2.5 2.5"></path><path d="M13.5 6.5a4.95 4.95 0 0 0-7 7"></path><path d="M15 5 5 15"></path><path d="M14 17v.01"></path><path d="M10 16v.01"></path><path d="M13 13v.01"></path><path d="M16 10v.01"></path><path d="M11 20v.01"></path><path d="M17 14v.01"></path><path d="M20 11v.01"></path></svg></sc-if>
+</span>
+<div style="flex: 1 1 auto; min-width: 0; padding-top: 1px; display: flex; flex-direction: column; align-items: flex-start; gap: 3px">
+<span style="font-size: {{ el.fsTitre }}; font-weight: 700; line-height: 1.3; color: {{ el.color }}">{{ el.titre }}</span>
+<sc-if value="{{ el.hasTexte }}" hint-placeholder-val="{{ true }}">
+<span style="font-size: {{ el.fsTexte }}; line-height: 1.4; text-wrap: pretty; color: {{ el.colorTexte }}">{{ el.texte }}</span>
+</sc-if>
+<sc-if value="{{ el.hasSrc }}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{ el.openSrc }}" style="min-height: 44px; margin-bottom: -10px; padding: 0; border: 0; background: transparent; color: {{ el.colorTexte }}; font-family: inherit; font-size: {{ el.fsSmall }}; text-align: left; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Source : {{ el.srcName }}</button>
+</sc-if>
+</div>
+</div>
+</sc-for>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Formes à éprouver (D-159)</span>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{elsCases}}" hint-placeholder-val="{{ true }}">
+<div style="flex-shrink: 0; margin: 16px 12px 0 12px; display: flex; flex-direction: column">
+<h2 style="margin: 0 0 8px 8px; font-size: {{fs.small}}; font-weight: 700; line-height: 1.3; color: #6E5A6B">À savoir sur ce verdict</h2>
+<div style="display: grid; grid-template-columns: {{casesCols}}; gap: 8px">
+<sc-for list="{{ belowList }}" as="el" hint-placeholder-count="2">
+<button type="button" sc-camel-on-click="{{ el.openPuce }}" aria-haspopup="dialog" aria-label="{{ el.titre }}" style="min-height: 116px; box-sizing: border-box; padding: 12px 8px; border: 1px solid #E7E1DA; border-radius: 18px; background: #FFFFFF; color: #321C31; font-family: inherit; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 8px; text-align: center; cursor: pointer">
+<span aria-hidden="true" style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 999px; background: #F1ECE4; display: flex; align-items: center; justify-content: center">
+<sc-if value="{{ el.icZone }}" hint-placeholder-val="{{ true }}"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12h.01"></path><path d="M15 12h.01"></path><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"></path><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"></path></svg></sc-if>
+<sc-if value="{{ el.icAir }}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"></path><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"></path><path d="M9.8 4.4A2 2 0 1 1 11 8H2"></path></svg></sc-if>
+<sc-if value="{{ el.icContact }}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"></path><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"></path><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"></path><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path></svg></sc-if>
+<sc-if value="{{ el.icParfum }}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"></path><circle cx="12" cy="8" r="2"></circle><path d="M12 10v12"></path><path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"></path><path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"></path></svg></sc-if>
+<sc-if value="{{ el.icSavon }}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 4 2.5 2.5"></path><path d="M13.5 6.5a4.95 4.95 0 0 0-7 7"></path><path d="M15 5 5 15"></path><path d="M14 17v.01"></path><path d="M10 16v.01"></path><path d="M13 13v.01"></path><path d="M16 10v.01"></path><path d="M11 20v.01"></path><path d="M17 14v.01"></path><path d="M20 11v.01"></path></svg></sc-if>
+</span>
+<span style="font-size: {{ el.fsSujet }}; font-weight: 700; line-height: 1.25; overflow-wrap: anywhere">{{ el.sujet }}</span>
+<span style="margin-top: auto; font-size: {{ el.fsEtat }}; line-height: 1.3; color: #6E5A6B">{{ el.etat }}</span>
+</button>
+</sc-for>
+<sc-if value="{{showRenvoiCase}}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{openRenvoi}}" aria-haspopup="dialog" aria-label="Crevasses : fiche de bonnes pratiques" style="min-height: 116px; box-sizing: border-box; padding: 12px 8px; border: 1px solid #E7E1DA; border-radius: 18px; background: #FFFFFF; color: #321C31; font-family: inherit; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 8px; text-align: center; cursor: pointer">
+<span aria-hidden="true" style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 999px; background: #321C31; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg></span>
+<span style="font-size: {{fs.sujet}}; font-weight: 700; line-height: 1.25">Crevasses</span>
+<span style="margin-top: auto; font-size: {{fs.etat}}; line-height: 1.3; color: #6E5A6B">bonnes pratiques</span>
+</button>
+</sc-if>
+</div>
+<p style="margin: 8px 0 0 8px; font-size: {{fs.aide}}; line-height: 1.35; color: #6E5A6B">Touchez une case pour lire son explication.</p>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; margin-top: 8px; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Textes provisoires · forme à éprouver (D-159)</span>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{showRenvoiPuceSeule}}" hint-placeholder-val="{{ false }}">
+<div style="flex-shrink: 0; margin: 12px 12px 0 12px; display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" sc-camel-on-click="{{openRenvoi}}" aria-haspopup="dialog" style="min-height: 44px; box-sizing: border-box; padding: 6px 12px 6px 7px; border: 1px solid #D6CEC6; border-radius: 999px; background: #FFFFFF; color: #321C31; display: inline-flex; align-items: center; gap: 9px; font-family: inherit; font-size: {{fs.puce}}; font-weight: 700; line-height: 1.25; text-align: left; cursor: pointer; box-shadow: 0 1px 3px rgba(50,28,49,0.08)">
+<span aria-hidden="true" style="width: 30px; height: 30px; flex-shrink: 0; border-radius: 999px; background: #321C31; display: flex; align-items: center; justify-content: center"><svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg></span>
+<span>Crevasses</span>
+<svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
+</div>
+</sc-if>
+<sc-if value="{{showOver}}" hint-placeholder-val="{{ false }}">
+<p style="flex-shrink: 0; margin: 8px 24px 0 24px; font-size: 13px; line-height: 1.4; color: #6E5A6B">[Prototype : deux mentions au plus à cet endroit ; « {{overText}} » s’affiche en tête de la liste des ingrédients]</p>
+</sc-if>
+<sc-if value="{{showRenvoiBox}}" hint-placeholder-val="{{ false }}">
+<a href="E6-Fiche-Crevasses.dc.html" style="flex-shrink: 0; margin: 12px 20px 0 20px; min-height: 60px; padding: 8px 12px 8px 18px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31">
+<span style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: {{fs.row}}; font-weight: 700; line-height: 1.3">Crevasses</span>
+<span style="font-size: {{fs.small}}; line-height: 1.3; color: #6E5A6B">Bonnes pratiques</span>
+</span>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</a>
+</sc-if>
+<sc-if value="{{showRenvoiLien}}" hint-placeholder-val="{{ false }}">
+<a href="E6-Fiche-Crevasses.dc.html" style="flex-shrink: 0; margin: 16px 20px 0 20px; min-height: 52px; display: flex; align-items: center; gap: 12px; color: #321C31">
+<span aria-hidden="true" style="width: 40px; height: 40px; flex-shrink: 0; border-radius: 12px; background: #321C31; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg></span>
+<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 1px">
+<span style="font-size: {{fs.row}}; font-weight: 700; line-height: 1.3; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px">Crevasses</span>
+<span style="font-size: {{fs.small}}; line-height: 1.3; color: #6E5A6B">Bonnes pratiques</span>
+</span>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</a>
+</sc-if>
+<sc-if value="{{showProtect}}" hint-placeholder-val="{{ false }}">
+<div style="margin: 12px 20px 0 20px; padding: 12px 14px; border: 1.5px dashed #6E5A6B; border-radius: 14px; font-size: {{fs.small}}; line-height: 1.4; color: #6E5A6B">[Emplacement réservé aux catégories protectrices, soins des crevasses compris — texte en attente de la juriste et de la toxicologue]</div>
+</sc-if>
+<div style="flex-shrink: 0; margin: auto 20px 0 20px; padding-top: 24px; display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: {{fs.small}}; font-weight: 700; line-height: 1.3; color: #6E5A6B">Composition</h2>
+<sc-if value="{{cLait}}" hint-placeholder-val="{{ true }}">
 <a href="E2-Ingredients-Allaitement.dc.html" style="min-height: 60px; padding: 8px 12px 8px 18px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31">
-<span style="font-size: 17px; font-weight: 700; line-height: 1.3">Ingrédients et rôle de chacun</span>
+<span style="font-size: {{fs.row}}; font-weight: 700; line-height: 1.3">Ingrédients et rôle de chacun</span>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</a>
+</sc-if>
+<sc-if value="{{cSpray}}" hint-placeholder-val="{{ false }}">
+<a href="EA-Ingredients-Spray.dc.html" style="min-height: 60px; padding: 8px 12px 8px 18px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31">
+<span style="font-size: {{fs.row}}; font-weight: 700; line-height: 1.3">Ingrédients et rôle de chacun</span>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</a>
+</sc-if>
+<sc-if value="{{cGel}}" hint-placeholder-val="{{ false }}">
+<a href="EA-Ingredients-Gel.dc.html" style="min-height: 60px; padding: 8px 12px 8px 18px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31">
+<span style="font-size: {{fs.row}}; font-weight: 700; line-height: 1.3">Ingrédients et rôle de chacun</span>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</a>
+</sc-if>
+<sc-if value="{{cBaume}}" hint-placeholder-val="{{ false }}">
+<a href="EA-Ingredients-Baume.dc.html" style="min-height: 60px; padding: 8px 12px 8px 18px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31">
+<span style="font-size: {{fs.row}}; font-weight: 700; line-height: 1.3">Ingrédients et rôle de chacun</span>
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</a>
+</sc-if>
+<sc-if value="{{showRenvoiCompo}}" hint-placeholder-val="{{ false }}">
+<div style="margin-top: 8px; display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: {{fs.small}}; font-weight: 700; line-height: 1.3; color: #6E5A6B">Bonnes pratiques</h2>
+<a href="E6-Fiche-Crevasses.dc.html" style="min-height: 60px; padding: 8px 12px 8px 18px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #321C31">
+<span style="font-size: {{fs.row}}; font-weight: 700; line-height: 1.3">Crevasses</span>
 <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
 </a>
 </div>
-<div style="flex-shrink: 0; margin-top: auto; padding-top: 8px">
+</sc-if>
+</div>
+<a href="E4-Signalement.dc.html" style="align-self: flex-start; flex-shrink: 0; margin: 10px 16px 0 16px; min-height: 44px; padding: 0 6px; display: flex; align-items: center; gap: 8px; font-size: {{fs.small}}; color: #6E5A6B">
+<svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M5 21V4"></path><path d="M5 4h12l-2.5 4.5L17 13H5"></path></svg>
+<span>Signaler une erreur</span>
+</a>
+</div>
+<div style="flex-shrink: 0; padding-top: 8px">
 <nav aria-label="Navigation principale" style="margin: 0 16px 26px 16px; padding: 8px; border-radius: 30px; background: #FAF8F4; border: 1px solid #E7E1DA; box-shadow: 0 8px 24px rgba(50,28,49,0.10); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px">
 <a href="E1-Scan.dc.html" style="min-height: 56px; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #6E5A6B; font-size: 12px">
 <svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16M8 8.5v7M11 8.5v7M13.5 8.5v7M16 8.5v7"></path></svg>
@@ -85,12 +406,336 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 </a>
 </nav>
 </div>
+<sc-if value="{{showRenvoiRond}}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{openRenvoi}}" aria-haspopup="dialog" aria-label="Crevasses : fiche de bonnes pratiques" style="position: absolute; right: 18px; bottom: 116px; width: 56px; height: 56px; box-sizing: border-box; padding: 0; border: 1px solid #E7E1DA; border-radius: 999px; background: #FAF8F4; box-shadow: 0 6px 18px rgba(50,28,49,0.18); display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg></button>
+</sc-if>
+<sc-if value="{{renvoiOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end">
+<button type="button" class="e1-voile" sc-camel-on-click="{{closeRenvoi}}" aria-label="Fermer" style="position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: rgba(30,26,30,0.38); cursor: pointer; transform: none"></button>
+<div role="dialog" aria-modal="true" aria-labelledby="ea-renvoi" class="e1-volet" style="position: relative; box-sizing: border-box; max-height: 82%; overflow-y: auto; padding: 10px 20px 28px 24px; border-radius: 28px 28px 0 0; background: #FFFFFF; color: #321C31; box-shadow: 0 -8px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; gap: 14px">
+<span aria-hidden="true" style="align-self: center; width: 40px; height: 4px; border-radius: 999px; background: #D6CEC6"></span>
+<div style="display: flex; align-items: flex-start; gap: 12px">
+<div style="flex: 1 1 auto; min-width: 0; padding-top: 8px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 13px; font-weight: 700; line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase; color: #6E5A6B">Bonnes pratiques · Allaitement</span>
+<h2 id="ea-renvoi" style="margin: 0; font-size: 21px; font-weight: 700; line-height: 1.25">Crevasses</h2>
+</div>
+<button type="button" sc-camel-on-click="{{closeRenvoi}}" aria-label="Fermer" style="flex-shrink: 0; width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer">
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+</button>
+</div>
+<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty; color: #6E5A6B">[Ce que la fiche apporte, en une phrase — à rédiger]</p>
+<a href="E6-Fiche-Crevasses.dc.html" style="min-height: 52px; box-sizing: border-box; padding: 8px 16px 8px 20px; border: 1px solid #E7E1DA; border-radius: 999px; background: #FAF8F4; color: #321C31; display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 17px; font-weight: 700">Lire la fiche<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{showAlert}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end">
+<button type="button" class="e1-voile" sc-camel-on-click="{{closeAlert}}" aria-label="Fermer" style="position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: rgba(30,26,30,0.38); cursor: pointer; transform: none"></button>
+<div role="dialog" aria-modal="true" aria-label="Information sur ce niveau" class="e1-volet" style="position: relative; box-sizing: border-box; max-height: 82%; overflow-y: auto; padding: 10px 24px 28px 24px; border-radius: 28px 28px 0 0; background: #FFFFFF; color: #321C31; box-shadow: 0 -8px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; gap: 12px">
+<span aria-hidden="true" style="align-self: center; width: 40px; height: 4px; border-radius: 999px; background: #D6CEC6"></span>
+<h2 style="margin: 8px 0 0 0; font-size: {{fs.label}}; font-weight: 700; line-height: 1.25">{{volet.titre}}</h2>
+<p style="margin: 0; font-size: {{fs.row}}; line-height: 1.45; text-wrap: pretty">Ce niveau porte sur la composition, dans ce type de produit.</p>
+<p style="margin: 0; font-size: {{fs.row}}; line-height: 1.45; text-wrap: pretty; color: {{volet.couleur}}">{{volet.niveau}}</p>
+<sc-if value="{{volet.liste}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0; font-size: {{fs.row}}; line-height: 1.45; text-wrap: pretty">La liste des ingrédients indique ce qui est en cause, avec la source de l'évaluation.</p>
+</sc-if>
+<p style="margin: 0; font-size: {{fs.row}}; line-height: 1.45; text-wrap: pretty">Ce n'est pas un avis médical. Pour toute question de santé, adressez-vous à un professionnel de santé.</p>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Texte provisoire</span>
+</sc-if>
+<a href="E6-Methode.dc.html" style="align-self: flex-start; min-height: 44px; display: flex; align-items: center; font-size: {{fs.row}}; color: #321C31; text-decoration: underline; text-underline-offset: 3px">Méthode</a>
+<button type="button" sc-camel-on-click="{{closeAlert}}" style="min-height: 52px; padding: 8px 20px; border: 1px solid #E7E1DA; border-radius: 999px; background: #FAF8F4; color: #321C31; font-family: inherit; font-size: {{fs.row}}; font-weight: 700; cursor: pointer">Fermer</button>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{puceOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end">
+<button type="button" class="e1-voile" sc-camel-on-click="{{closePuce}}" aria-label="Fermer" style="position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: rgba(30,26,30,0.38); cursor: pointer; transform: none"></button>
+<div role="dialog" aria-modal="true" aria-label="{{puce.titre}}" class="e1-volet" style="position: relative; box-sizing: border-box; max-height: 82%; overflow-y: auto; padding: 10px 20px 28px 24px; border-radius: 28px 28px 0 0; background: #FFFFFF; color: #321C31; box-shadow: 0 -8px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; gap: 14px">
+<span aria-hidden="true" style="align-self: center; width: 40px; height: 4px; border-radius: 999px; background: #D6CEC6"></span>
+<div style="display: flex; align-items: flex-start; gap: 12px">
+<span aria-hidden="true" style="width: 40px; height: 40px; flex-shrink: 0; border-radius: 12px; background: #F1ECE4; display: flex; align-items: center; justify-content: center">
+<sc-if value="{{ puce.icZone }}" hint-placeholder-val="{{ true }}"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12h.01"></path><path d="M15 12h.01"></path><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"></path><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"></path></svg></sc-if>
+<sc-if value="{{ puce.icAir }}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"></path><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"></path><path d="M9.8 4.4A2 2 0 1 1 11 8H2"></path></svg></sc-if>
+<sc-if value="{{ puce.icContact }}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"></path><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"></path><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"></path><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path></svg></sc-if>
+<sc-if value="{{ puce.icParfum }}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"></path><circle cx="12" cy="8" r="2"></circle><path d="M12 10v12"></path><path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"></path><path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"></path></svg></sc-if>
+<sc-if value="{{ puce.icSavon }}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 4 2.5 2.5"></path><path d="M13.5 6.5a4.95 4.95 0 0 0-7 7"></path><path d="M15 5 5 15"></path><path d="M14 17v.01"></path><path d="M10 16v.01"></path><path d="M13 13v.01"></path><path d="M16 10v.01"></path><path d="M11 20v.01"></path><path d="M17 14v.01"></path><path d="M20 11v.01"></path></svg></sc-if>
+</span>
+<h2 style="flex: 1 1 auto; min-width: 0; margin: 0; padding-top: 8px; font-size: 21px; font-weight: 700; line-height: 1.25">{{puce.titre}}</h2>
+<button type="button" sc-camel-on-click="{{closePuce}}" aria-label="Fermer" style="flex-shrink: 0; width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer">
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+</button>
+</div>
+<sc-if value="{{puce.hasTexte}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty">{{puce.texte}}</p>
+</sc-if>
+<sc-if value="{{puce.hasSrc}}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{puce.openSrc}}" style="align-self: flex-start; min-height: 44px; padding: 0; border: 0; background: transparent; color: #321C31; font-family: inherit; font-size: 16px; text-align: left; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Source : {{puce.srcName}}</button>
+</sc-if>
+<button type="button" sc-camel-on-click="{{closePuce}}" style="min-height: 52px; padding: 8px 20px; border: 1px solid #E7E1DA; border-radius: 999px; background: #FAF8F4; color: #321C31; font-family: inherit; font-size: 17px; font-weight: 700; cursor: pointer">Fermer</button>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{srcOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end">
+<button type="button" class="e1-voile" sc-camel-on-click="{{closeSrc}}" aria-label="Fermer" style="position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: rgba(30,26,30,0.38); cursor: pointer; transform: none"></button>
+<div role="dialog" aria-modal="true" aria-label="Source" class="e1-volet" style="position: relative; box-sizing: border-box; max-height: 86%; overflow-y: auto; padding: 10px 20px 28px 24px; border-radius: 28px 28px 0 0; background: #FFFFFF; color: #321C31; box-shadow: 0 -8px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; gap: 14px">
+<span aria-hidden="true" style="align-self: center; width: 40px; height: 4px; border-radius: 999px; background: #D6CEC6"></span>
+<div style="display: flex; align-items: flex-start; gap: 12px">
+<div style="flex: 1 1 auto; min-width: 0; padding-top: 8px; display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-size: 21px; font-weight: 700; line-height: 1.2">Source</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.4; color: #6E5A6B; text-wrap: pretty">« {{src.about}} »</p>
+</div>
+<button type="button" sc-camel-on-click="{{closeSrc}}" aria-label="Fermer" style="flex-shrink: 0; width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer">
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+</button>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h3 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Nature</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty">{{src.nature}}</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h3 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Référence</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty; color: {{src.refColor}}">{{src.ref}}</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h3 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Date de publication</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty; color: {{src.dateColor}}">{{src.date}}</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h3 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Lien</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty; color: #6E5A6B">[Lien vers une source officielle stable]</p>
+</div>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Textes provisoires</span>
+</sc-if>
+</div>
+</div>
+</sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;cas&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Lait corps nourrissant&quot;,&quot;Spray solaire corps&quot;,&quot;Gel douche surgras&quot;,&quot;Baume apaisant mamelons&quot;],&quot;default&quot;:&quot;Lait corps nourrissant&quot;,&quot;section&quot;:&quot;Produit d'exemple&quot;},&quot;niveau&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;1 · Composition sans signal identifié&quot;,&quot;2 · Composition à signal modéré&quot;,&quot;3 · Composition préoccupante&quot;,&quot;4 · Composition incompatible&quot;,&quot;Évaluation incomplète&quot;],&quot;default&quot;:&quot;2 · Composition à signal modéré&quot;,&quot;section&quot;:&quot;Verdict illustratif&quot;},&quot;zone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Évaluée&quot;,&quot;Évaluation incomplète&quot;],&quot;default&quot;:&quot;Évaluée&quot;,&quot;section&quot;:&quot;Zone de tétée (soin des mamelons)&quot;},&quot;place&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Dans le cadre du verdict&quot;,&quot;Sous le cadre&quot;],&quot;default&quot;:&quot;Sous le cadre&quot;,&quot;section&quot;:&quot;Mentions et conditions : place (à juger)&quot;},&quot;cases&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Taille fixe (trois par rangée)&quot;,&quot;Largeur partagée&quot;],&quot;default&quot;:&quot;Largeur partagée&quot;,&quot;section&quot;:&quot;Cases : taille (largeur partagée par défaut, 31/10)&quot;},&quot;renvoiForme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Petit rond&quot;,&quot;Petit rond sur la photo&quot;,&quot;Case parmi les mentions&quot;,&quot;Lien sous les mentions&quot;],&quot;default&quot;:&quot;Petit rond sur la photo&quot;,&quot;section&quot;:&quot;Renvoi « Crevasses » : forme (30/10 : petit rond sur la photo, avec son conseil)&quot;},&quot;renvoiOuvert&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Renvoi : panneau ouvert (aperçu)&quot;},&quot;conseilRond&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Conseil du petit rond sur la photo (première utilisation)&quot;},&quot;source&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Panneau « source » ouvert&quot;},&quot;texte&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Standard&quot;,&quot;Grand (130 %)&quot;,&quot;Très grand (200 %)&quot;],&quot;default&quot;:&quot;Standard&quot;,&quot;section&quot;:&quot;Taille du texte&quot;},&quot;photo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Photo du produit&quot;},&quot;alerte&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Volet de première alerte : premier verdict de niveau 3 ou 4, il s’ouvre de lui-même (une seule fois)&quot;},&quot;infoNiveaux&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Les quatre niveaux&quot;,&quot;Niveaux 3 et 4 seulement&quot;],&quot;default&quot;:&quot;Les quatre niveaux&quot;,&quot;section&quot;:&quot;« i » du verdict : niveaux (les quatre, retenus le 17/10)&quot;},&quot;infoPlace&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Dans le cadre, en bas à droite&quot;,&quot;Dans le cadre, à côté du libellé&quot;,&quot;Hors du cadre, en haut à droite&quot;],&quot;default&quot;:&quot;Dans le cadre, à côté du libellé&quot;,&quot;section&quot;:&quot;« i » du verdict : place (B, retenue le 17/10)&quot;},&quot;voletOuvert&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Volet rouvert par le « i » (aperçu)&quot;},&quot;protectrice&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Emplacement « catégorie protectrice » (niveaux 3 et 4)&quot;},&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Retenue&quot;,&quot;Ajustée — référence&quot;],&quot;default&quot;:&quot;Retenue&quot;,&quot;section&quot;:&quot;Palette de verdict&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
 class Component extends DCLogic {
+  componentDidUpdate(prevProps) {
+    var p = this.props, st = this.state;
+    if (prevProps && st && (st.src || st.srcClosed || st.closed || st.puce != null || st.info || st.renvoi !== undefined || st.conseilVu) && (prevProps.cas !== p.cas || prevProps.niveau !== p.niveau || prevProps.zone !== p.zone || prevProps.source !== p.source || prevProps.alerte !== p.alerte || prevProps.renvoiForme !== p.renvoiForme || prevProps.renvoiOuvert !== p.renvoiOuvert || prevProps.voletOuvert !== p.voletOuvert || prevProps.conseilRond !== p.conseilRond)) {
+      this.setState({ src: null, srcClosed: false, closed: false, puce: null, info: false, renvoi: undefined, conseilVu: false });
+    }
+  }
   renderVals() {
-    return {};
+    // Verdict de la ligne allaitement, en étude : le volet n'est pas clos ; le parcours principal garde l'écran d'attente (décision 13).
+    // Produits d'exemple, fictifs (T-506). corps : liste « zone de tétée » des soins du corps (G1.1, à retravailler) ;
+    // hors : sprays et terpènes, un seul élément (G1.3) ; contact : solaires, huiles, amincissant, sans les déodorants (G1.2, porteuse) ;
+    // parfum : déclencheur de G1.4 ; savon : liste de G1.5, en revue ; attribut : « zone de tétée », détecté par le nom (D-187).
+    var CAS = ['Lait corps nourrissant', 'Spray solaire corps', 'Gel douche surgras', 'Baume apaisant mamelons'];
+    var KEYS = ['Lait', 'Spray', 'Gel', 'Baume'];
+    var D = {
+      Lait: { nom: 'Lait corps nourrissant', marque: 'Marque exemple · 250 ml', forme: 'pompe', corps: true, parfum: true },
+      Spray: { nom: 'Spray solaire corps', marque: 'Marque essai · 200 ml', forme: 'spray', corps: true, hors: true, contact: true },
+      Gel: { nom: 'Gel douche surgras', marque: 'Marque essai · 500 ml', forme: 'flacon', savon: true },
+      Baume: { nom: 'Baume apaisant mamelons', marque: 'Marque essai · 15 ml', forme: 'tube', attribut: true }
+    };
+    var N = ['1 · Composition sans signal identifié', '2 · Composition à signal modéré', '3 · Composition préoccupante', '4 · Composition incompatible', 'Évaluation incomplète'];
+    var ci = CAS.indexOf(this.props.cas);
+    if (ci < 0) ci = 0;
+    var key = KEYS[ci], d = D[key];
+    var lvl = N.indexOf(this.props.niveau);
+    if (lvl < 0) lvl = 1;
+    var zoneInc = !!d.attribut && this.props.zone === 'Évaluation incomplète';
+    // L'état incomplet ne s'affiche seul que si rien n'est établi au-dessus du vert ; sinon il devient une mention (D-147 ; D-214, étape 8).
+    var incomplet = lvl === 4 || (zoneInc && lvl === 0);
+    var vj = !incomplet && lvl <= 1;
+    // Éléments sous la couleur (D-214, étape 6 ; bloc G) : les mentions de portée s'affichent sur toutes les couleurs, sans source ;
+    // les conditions, sur le vert et le jaune seulement, avec leur source (G2.1). Rang : ingestion ou inhalation par le nourrisson,
+    // puis contact, puis confort (D-165).
+    var els = [];
+    // Chaque élément : une étiquette, puis une courte explication (D-256 à D-260, D-275). 30/10 : mots simples (« bébé »,
+    // « mamelon et aréole », « ce verdict ») ; la case porte un sujet et son état, le volet l'étiquette entière et
+    // l'explication : écart à D-256 (un seul texte par élément), à inscrire. Provisoires : textes finaux par la porteuse (T-604).
+    if (d.attribut) {
+      // Préséance de l'attribut : jamais « mamelon et aréole non évalués » ni la consigne d'évitement (D-214, étape 6).
+      if (!incomplet) els.push(zoneInc
+        ? { rang: 1, titre: 'Tétée : évaluation incomplète', sujet: 'Tétée', etat: 'évaluation incomplète', texte: "Au moins un ingrédient n'a pas pu être évalué pour la tétée.", ligne: true, ic: 'Zone' }
+        : { rang: 1, titre: 'Tétée évaluée', sujet: 'Tétée', etat: 'évaluée', texte: 'Ce verdict tient compte du produit présent au moment de la tétée.', ligne: true, ic: 'Zone', attribut: true });
+    } else if (d.corps) {
+      // L'évitement est fondu dans la ligne zone de tétée (G2.2) ; le même texte sur toutes les couleurs (D-257).
+      els.push({ rang: 1, titre: 'Mamelon et aréole non évalués', sujet: 'Mamelon et aréole', etat: 'non évalués', ligne: true, ic: 'Zone',
+        texte: "Ce verdict ne vaut pas si le produit est appliqué sur le mamelon ou l'aréole." });
+    }
+    // « Inhalation du produit par le bébé non évaluée » (porteuse, 30/10) ; au registre : « Inhalation par le nourrisson non
+    // évaluée » (D-260), qui remplaçait « Évaluation établie hors présence du nourrisson » (D-161).
+    if (d.hors) els.push({ rang: 1, titre: 'Inhalation du produit par le bébé non évaluée', sujet: 'Inhalation du produit par le bébé', etat: 'non évaluée', texte: "Ce verdict ne tient pas compte de l'inhalation du produit par le bébé.", ic: 'Air' });
+    // « Contact avec la peau du bébé non évalué » (porteuse, 30/10) ; au registre : « Contact rapproché non évalué » (D-259) ;
+    // même champ, M3 : le produit resté sur la peau de la mère passe sur celle du bébé.
+    if (d.contact) els.push({ rang: 2, titre: 'Contact avec la peau du bébé non évalué', sujet: 'Contact avec la peau du bébé', etat: 'non évalué', ic: 'Contact',
+      texte: 'Ce verdict ne tient pas compte du produit qui peut passer sur la peau du bébé quand il est porté contre la peau traitée.' });
+    if (vj && d.parfum) els.push({ rang: 3, titre: 'Produit parfumé', sujet: 'Parfum', etat: 'produit parfumé', texte: "Le nouveau-né se guide vers le sein à l'odeur.", src: 'parfum', ic: 'Parfum' });
+    // Condition savon retirée du verdict (porteuse, 17/10 : « n'a rien à faire ici ») ; son texte part vers une fiche, à écrire.
+    // La pastille (forme B, gardée dans le code) porte l'étiquette entière.
+    els = els.map(function (e, k) { e.k = k; e.court = e.titre; return e; }).sort(function (a, b) { return a.rang - b.rang || a.k - b.k; });
+    // Tout sur l'écran du verdict (porteuse, 30/10) : plus de plafond de deux, plus rien en tête de la liste des ingrédients ;
+    // revient sur D-165, D-265 et G1.7, à inscrire au registre. L'ordre des rangs reste (D-165) ; une seule ligne « zone de tétée ».
+    var shown = els, over = [];
+    var PAL = {
+      'Retenue': [
+        { bg: '#CADCA4', fg: '#000000', tint: '#ECF3DF' },
+        { bg: '#E7B93F', fg: '#000000', tint: '#F7E6BC' },
+        { bg: '#E27A46', fg: '#000000', tint: '#F5D0BE' },
+        { bg: '#B8192C', fg: '#FFFFFF', tint: '#E6AEB5' }
+      ],
+      'Ajustée — référence': [
+        { bg: '#CADCA4', fg: '#000000', tint: '#ECF3DF' },
+        { bg: '#CB9A19', fg: '#000000', tint: '#EDDCAE' },
+        { bg: '#A6491A', fg: '#FFFFFF', tint: '#E0BFAF' },
+        { bg: '#71262F', fg: '#FFFFFF', tint: '#CDB3B6' }
+      ]
+    };
+    var pal = PAL[this.props.palette] || PAL['Retenue'];
+    var c = pal[incomplet ? 1 : lvl];
+    var s = {};
+    // Évaluation incomplète : aucun palier allumé, l'échelle reste neutre (comme à l'étape 3).
+    pal.forEach(function (l, k) {
+      var on = !incomplet && k === lvl, n = k + 1;
+      s['f' + n] = incomplet ? '#F1ECE4' : (on ? l.bg : l.tint);
+      s['k' + n] = on ? '#321C31' : '#D6CEC6';
+      s['w' + n] = on ? 1.5 : 1;
+      // Arc sans aiguille (porteuse, 30/10) : le secteur k du demi-cercle, du niveau 1 à gauche au niveau 4 à droite ;
+      // celui du niveau déborde vers l'extérieur et l'intérieur (rayons 24 à 48 au lieu de 28 à 42).
+      s['d' + n] = (function (a0, a1, ro, ri) {
+        var p = function (r, a) { return (52 + r * Math.cos(a)).toFixed(2) + ',' + (50 - r * Math.sin(a)).toFixed(2); };
+        return 'M' + p(ro, a0) + ' A' + ro + ',' + ro + ' 0 0 1 ' + p(ro, a1) + ' L' + p(ri, a1) + ' A' + ri + ',' + ri
+          + ' 0 0 0 ' + p(ri, a0) + ' Z';
+      })(Math.PI - k * Math.PI / 4 - 0.03, Math.PI - (k + 1) * Math.PI / 4 + 0.03, on ? 48 : 42, on ? 24 : 28);
+    });
+    var T = { 'Standard': [1, 1, 1], 'Grand (130 %)': [1.3, 1.25, 1.27], 'Très grand (200 %)': [2, 1.8, 1.85] };
+    var t = T[this.props.texte] || T['Standard'];
+    function px(v) { return (Math.round(v * 10) / 10) + 'px'; }
+    // Libellé : 19 px depuis le 17/10 (20,5 avant), pour tenir sur une ligne avec le « i » à côté (porteuse).
+    var fs = { small: px(14 * t[0]), body: px(16 * t[0]), row: px(17 * t[0]), title: px(19 * t[1]), label: px(19 * t[2]),
+      el: px(16 * t[0]), elText: px(15 * t[0]), puce: px(15 * t[0]), sujet: px(15 * t[0]), etat: px(13 * t[0]), aide: px(13 * t[0]) };
+    var LABELS = ['Composition sans signal identifié', 'Composition à signal modéré', 'Composition préoccupante', 'Composition incompatible'];
+    // Panneau « source » d'une condition (G2.5) : la source est nommée sous la condition, sans date ; la date n'est qu'ici (D-52).
+    var SRC = {
+      anaes: { name: 'ANAES', about: "Selon les recommandations professionnelles, la douche habituelle suffit : nettoyer les mamelons avant ou après une tétée complique inutilement l'allaitement.",
+        nature: 'Recommandation professionnelle, accord professionnel (niveau de preuve P3)', ref: "ANAES (Agence nationale d'accréditation et d'évaluation en santé) — [titre exact à vérifier]",
+        date: "2002 [vérifier qu'aucune version plus récente ne la remplace]" },
+      parfum: { name: 'Schaal et Marlier', about: "Le nouveau-né se guide vers le sein à l'odeur.",
+        nature: 'Études, mécanisme documenté', ref: '[Travaux de Schaal et Marlier — références à préciser (annexe B du document de reprise)]',
+        date: '[Date de publication]' }
+    };
+    var st = this.state || {};
+    var self = this;
+    var inFrame = this.props.place !== 'Sous le cadre';
+    // Forme des éléments sous le cadre, à juger (porteuse, 17/10 : encadré, icônes et drapeau « se perdent dans l'écran »).
+    // Carte : les éléments font partie de la carte du verdict, sur fond blanc, sous la couleur. Pastilles : l'intitulé seul,
+    // l'explication dans un volet. Liste : une rubrique « À savoir », comme « Composition ». Le pictogramme repère, le texte
+    // porte le sens (T-220). Ni aubergine ni couleur de verdict hors du cadre (D-115).
+    var FORMES = ['Encadré', 'Carte à deux étages', 'Pastilles à ouvrir', 'Liste « À savoir »', 'Cases'];
+    // Forme B retenue le 17/10 (choisie par une personne extérieure, confirmée par la porteuse) : pastilles à ouvrir ;
+    // A, C et l'encadré sont retirés. 30/10 : la forme B ne plaît plus (porteuse : « pas beau, pas homogène, pas bien
+    // proportionné ») ; des cases égales la remplacent, sous un titre neutre, « À savoir sur ce verdict » : un sujet, puis
+    // son état ; l'explication et la source s'ouvrent au toucher, dans le volet de la forme B.
+    var forme = FORMES[4];
+    var below = !inFrame && shown.length > 0;
+    var carte = below && forme === FORMES[1];
+    var ink = incomplet ? '#321C31' : (inFrame ? c.fg : '#321C31');
+    function icons(o, e) {
+      ['Zone', 'Air', 'Contact', 'Parfum', 'Savon'].forEach(function (k) { o['ic' + k] = !!e && e.ic === k; });
+      return o;
+    }
+    function view(list, color, soft) {
+      return list.map(function (e, k) {
+        return icons({
+          titre: e.titre, texte: e.texte, hasTexte: !!e.texte, court: e.court, color: color, colorTexte: soft,
+          fsTitre: fs.el, fsTexte: fs.elText, fsSmall: fs.small, fsPuce: fs.puce, sep: k === 0 ? 'none' : '1px solid #E7E1DA',
+          hasSrc: !!e.src, srcName: e.src ? SRC[e.src].name : '',
+          openSrc: function () { self.setState({ src: e.src, srcClosed: false, puce: null }); },
+          openPuce: function () { self.setState({ puce: k, renvoi: false }); },
+          sujet: e.sujet || e.titre, etat: e.etat || '', fsSujet: fs.sujet, fsEtat: fs.etat
+        }, e);
+      });
+    }
+    var pk = (below && (forme === FORMES[2] || forme === FORMES[4]) && st.puce != null && shown[st.puce]) ? shown[st.puce] : null;
+    var puce = icons({ titre: pk ? pk.titre : '', texte: pk ? pk.texte : '', hasTexte: !!(pk && pk.texte), hasSrc: !!(pk && pk.src),
+      srcName: pk && pk.src ? SRC[pk.src].name : '',
+      openSrc: function () { self.setState({ src: pk ? pk.src : null, srcClosed: false, puce: null }); } }, pk);
+    var firstSrc = null;
+    shown.forEach(function (e) { if (e.src && !firstSrc) firstSrc = e.src; });
+    var srcKey = st.srcClosed ? null : (st.src || (this.props.source ? firstSrc : null));
+    var src = srcKey ? SRC[srcKey] : { about: '', nature: '', ref: '', date: '' };
+    function muted(x) { return x.charAt(0) === '[' ? '#6E5A6B' : '#321C31'; }
+    // Renvoi vers la section « crevasses » : produit à l'attribut qui n'est pas vert, est incomplet ou porte une mention (D-214, étape 7) ;
+    // la ligne « zone de tétée évaluée » ne compte pas comme mention (G3.2). Une condition y compte (confirmé par la porteuse, 17/10).
+    var renvoi = !!d.attribut && (incomplet || lvl >= 1 || els.some(function (e) { return !e.attribut; }));
+    // Forme du renvoi (porteuse, 17/10 : « mode pop-up », un « petit rond » qui ne prend pas de place, et d'autres idées
+    // dans le même esprit). Chaque forme ouvre le même panneau, qui mène à la fiche. Le lien du 16/10 reste à comparer.
+    // 30/10 : le petit rond sur la photo devient la forme par défaut, avec un conseil à la première utilisation (porteuse) ;
+    // la pastille devient une case parmi les autres.
+    var RFORMES = ["Petit rond", "Petit rond sur la photo", "Case parmi les mentions", "Lien sous les mentions"];
+    var rForme = RFORMES.indexOf(this.props.renvoiForme) >= 0 ? this.props.renvoiForme : RFORMES[0];
+    var photo = this.props.photo !== false;
+    // « i » du verdict (porteuse, 17/10) : le volet de première alerte s'ouvre de lui-même une seule fois, au premier verdict de
+    // niveau 3 ou 4 ; le « i » le rouvre à tout moment. Niveaux et place à trancher. Hors du cadre : neutre (D-115, D2) ; dans le
+    // cadre : la couleur du texte. Cible de 44 px, libellé pour les lecteurs d'écran (D-58, T-388). Un texte par niveau, à valider
+    // par la toxicologue ; au niveau 1, la limite proposée par la porteuse.
+    var PLACES = ["Dans le cadre, en bas à droite", "Dans le cadre, à côté du libellé", "Hors du cadre, en haut à droite"];
+    var place = PLACES.indexOf(this.props.infoPlace);
+    if (place < 0) place = 0;
+    var infoOn = (!incomplet) && (this.props.infoNiveaux !== 'Niveaux 3 et 4 seulement' || lvl >= 2);
+    // Cases : « Largeur partagée » par défaut (porteuse, 31/10) : la rangée se répartit entre les cases présentes, au plus
+    // trois en texte standard, deux en texte grand, une en très grand. « Taille fixe » reste au réglage.
+    var nCases = shown.length + (renvoi && rForme === RFORMES[2] && below ? 1 : 0);
+    var nCol = t[0] >= 2 ? 1 : (t[0] > 1 ? 2 : 3);
+    if (this.props.cases !== 'Taille fixe (trois par rangée)') nCol = Math.max(1, Math.min(nCol, nCases));
+    var renvoiOpen = renvoi && (st.renvoi !== undefined ? !!st.renvoi : !!this.props.renvoiOuvert);
+    var NIV = ["Une absence de signal n'est pas une preuve d'innocuité.", '[Texte propre au niveau 2 — à rédiger avec la toxicologue]', '[Texte propre au niveau 3 — à rédiger avec la toxicologue]', '[Texte propre au niveau 4 — à rédiger avec la toxicologue]'];
+    var vals = {
+      isLevel: !incomplet, isIncomplet: incomplet,
+      label: incomplet ? '' : LABELS[lvl],
+      phrase: incomplet ? '' : '[Phrase du niveau ' + (lvl + 1) + ' de la ligne allaitement — à rédiger par la porteuse (D-105)]',
+      raison: zoneInc ? '[Raison propre à la zone de tétée — à rédiger (G5.1)]' : '[Raison — à rédiger]',
+      statusText: lvl === 3 ? 'Libellé provisoire · phrase à rédiger' : 'Phrase à rédiger (D-105)',
+      bg: c.bg, fg: c.fg, rule: c.fg === '#FFFFFF' ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.22)',
+      rangLabel: incomplet ? 'Niveau non établi' : 'Niveau ' + (lvl + 1) + ' sur 4',
+      s: s, fs: fs, nom: d.nom, marque: d.marque,
+      elsIn: inFrame && shown.length > 0, elsBelow: below && forme === FORMES[0], elsCarte: carte,
+      elsPuces: below && forme === FORMES[2], elsListe: below && forme === FORMES[3],
+      elsCases: below && forme === FORMES[4], casesCols: 'repeat(' + nCol + ', minmax(0, 1fr))',
+      vRadius: carte ? '24px 24px 0 0' : '24px', panelBorder: incomplet ? '#6E5A6B' : 'rgba(0,0,0,0.16)',
+      inList: inFrame ? view(shown, ink, ink) : [], belowList: inFrame ? [] : view(shown, '#321C31', '#6E5A6B'),
+      puceOpen: !!pk, puce: puce, closePuce: function () { self.setState({ puce: null }); },
+      // Aide du prototype : elle s'efface avec les statuts des textes, comme les autres.
+      showOver: over.length > 0 && this.props.statuts !== false, overText: over.map(function (e) { return e.titre; }).join(' » et « '),
+      showRenvoiBox: false, showRenvoiCompo: false, showRenvoiLien: renvoi && rForme === RFORMES[3],
+      showRenvoiRond: renvoi && rForme === RFORMES[0], showRenvoiPhoto: renvoi && rForme === RFORMES[1] && photo,
+      showRenvoiPuce: renvoi && rForme === RFORMES[2] && below && forme === FORMES[2],
+      showRenvoiCase: renvoi && rForme === RFORMES[2] && below && forme === FORMES[4],
+      showRenvoiPuceSeule: renvoi && rForme === RFORMES[2] && !below,
+      renvoiOpen: renvoiOpen,
+      // Conseil du petit rond sur la photo : à la première utilisation ; « Compris » ou le rond le ferment (porteuse, 30/10).
+      conseilRond: renvoi && rForme === RFORMES[1] && photo && !!this.props.conseilRond && !st.conseilVu && !renvoiOpen && st.puce == null,
+      fermerConseil: function () { self.setState({ conseilVu: true }); },
+      openRenvoi: function () { self.setState({ renvoi: true, puce: null, conseilVu: true }); },
+      closeRenvoi: function () { self.setState({ renvoi: false }); },
+      showProtect: !incomplet && lvl >= 2 && !!this.props.protectrice,
+      showAlert: !incomplet && ((lvl >= 2 && !!this.props.alerte && !st.closed) || !!st.info || (infoOn && !!this.props.voletOuvert && !st.closed)),
+      closeAlert: function () { self.setState({ closed: true, info: false }); },
+      infoBas: infoOn && place === 0, infoLibelle: infoOn && place === 1, infoEntete: infoOn && place === 2,
+      rangeeBas: this.props.statuts !== false || (infoOn && place === 0),
+      openInfo: function () { self.setState({ info: true, closed: false }); },
+      volet: { titre: incomplet ? '' : LABELS[lvl], niveau: NIV[lvl] || '', couleur: (NIV[lvl] || '').charAt(0) === '[' ? '#6E5A6B' : '#321C31', liste: lvl >= 1 },
+      srcOpen: !!srcKey,
+      src: { about: src.about, nature: src.nature, ref: src.ref, date: src.date, refColor: muted(src.ref), dateColor: muted(src.date) },
+      closeSrc: function () { self.setState({ src: null, srcClosed: true }); },
+      card: photo
+        ? { flex: '1 1 auto', minH: '190px', maxH: '300px', photo: 'block', sep: '1px solid #E7E1DA' }
+        : { flex: '0 0 auto', minH: '0px', maxH: 'none', photo: 'none', sep: 'none' },
+      vTop: photo ? '12px' : 'auto',
+      showStatus: this.props.statuts !== false
+    };
+    KEYS.forEach(function (k) { vals['c' + k] = k === key; });
+    ['pompe', 'spray', 'flacon', 'tube'].forEach(function (f) { vals['is' + f.charAt(0).toUpperCase() + f.slice(1)] = d.forme === f; });
+    return vals;
   }
 }
 </script>
