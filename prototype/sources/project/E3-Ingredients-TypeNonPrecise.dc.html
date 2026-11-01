@@ -336,7 +336,9 @@ class Component extends DCLogic {
     }
     return {
       isG: !allait, isA: allait, ligne: allait ? 'Allaitement' : 'Grossesse',
-      verdictLabel: OPTS[i].replace(/^\d · /, ''), verdictBg: c.bg, verdictFg: c.fg, showBand: !allait && !sansNiveau,
+      // Sans verdict établi, un bandeau grisé dit pourquoi (porteuse, 01/11) ; les mots sont ceux de l'écran de verdict.
+      verdictLabel: !sansNiveau ? OPTS[i].replace(/^\d · /, '') : ['', 'Évaluation incomplète · ingrédient non reconnu', 'Évaluation incomplète · type de produit non précisé', "Verdict non affiché pour l'instant"][ev],
+      verdictBg: sansNiveau ? '#F1ECE4' : c.bg, verdictFg: sansNiveau ? '#321C31' : c.fg, showBand: !allait,
       isRince: rince, notRince: !rince,
       rang: String(i + 1), s: s,
       showDetLink: hasDet,

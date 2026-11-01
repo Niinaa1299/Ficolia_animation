@@ -385,8 +385,10 @@ class Component extends DCLogic {
       rangLabel: incomplet ? 'Niveau non établi' : 'Niveau ' + (lvl + 1) + ' sur 4',
       heads: heads, hasParfum: hasParfum, parfumTop: heads.length ? '8px' : '10px',
       listTop: (heads.length || hasParfum) ? '10px' : '10px',
-      // Idée 5 à plat (porteuse, 30/10 et 01/11) : le verdict rappelé sous le produit, sur la couleur du niveau ; rien quand l'évaluation est incomplète.
-      showBand: !incomplet, verdictLabel: incomplet ? '' : N[lvl].replace(/^\d · /, ''), verdictBg: c.bg, verdictFg: c.fg,
+      // Idée 5 à plat (porteuse, 30/10 et 01/11) : le verdict rappelé sous le produit, sur la couleur du niveau ;
+      // évaluation incomplète : un bandeau grisé, avec son motif (porteuse, 01/11).
+      showBand: true, verdictLabel: !incomplet ? N[lvl].replace(/^\d · /, '') : (lvl === 4 ? 'Évaluation incomplète' : 'Évaluation incomplète pour la tétée'),
+      verdictBg: incomplet ? '#F1ECE4' : c.bg, verdictFg: incomplet ? '#321C31' : c.fg,
       parf: { bg: 'transparent', fg: '#321C31', bord: '0', pad: '0 4px', marge: '-4px', chev: '#6E5A6B' },
       items: items, open: !!it, sel: sel,
       openParfum: function () { self.setState({ sel: 'parfum', closed: false, mention: null }); },
