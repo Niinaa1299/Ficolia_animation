@@ -52,4 +52,4 @@ Publier une planche nouvelle ou une refonte (une proposition se montre d'abord e
 
 ## Reprise
 
-La note de reprise du 21/10 (`Ficolia — note de reprise.md`, racine) et son complément du 31/10 (branche `claude/relaxed-noether-g2fdj1`, avec les journaux des 22 et 29/10) disent l'état des décisions (1 à 217), des commentaires et de ce qui reste à faire. Les planches qui manquent encore au dépôt sont listées dans `prototype/LISEZ-MOI.md`.
+La note de reprise du 21/10 (`Ficolia — note de reprise.md`, racine) et son complément du 31/10 (`Ficolia — note de reprise, complément du 31-10.md`, racine ; journaux des 22 et 29/10 dans `propositions/`) disent l'état des décisions (1 à 217), des commentaires et de ce qui reste à faire. Les planches qui manquent encore au dépôt sont listées dans `prototype/LISEZ-MOI.md`.
