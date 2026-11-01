@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,sans-serif;background:#FFFFFF;color:#321C31;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,sans-serif;background:#FAFAFA;color:#321C31;-webkit-tap-highlight-color:transparent}
 a{color:inherit;text-decoration:none}
 a,button{touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 160ms cubic-bezier(0.23,1,0.32,1)}
 a:active,button:active{transform:scale(0.97)}
@@ -24,7 +24,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 @media (prefers-reduced-motion:reduce){.e1-volet{animation:e1-fondu 200ms ease}}
 </style>
 </helmet>
-<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; color: #321C31; font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
+<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: #FAFAFA; color: #321C31; font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
 <div style="flex-shrink: 0; padding: 50px 20px 0 20px; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px">
 <sc-if value="{{isG}}" hint-placeholder-val="{{ true }}">
 <a href="E1-Verdict.dc.html" aria-label="Retour au verdict" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
@@ -42,8 +42,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 </div>
 <span></span>
 </div>
-<div style="flex-shrink: 0; margin: 14px 20px 0 20px; padding: 10px 14px 10px 10px; border: 1px solid #E7E1DA; border-radius: 20px; background: #FAF8F4; display: flex; align-items: center; gap: 12px">
-<div style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 14px; background: #FFFFFF; display: flex; align-items: center; justify-content: center">
+<div style="flex-shrink: 0; margin: 14px 20px 0 20px; border: 1px solid #E7E1DA; border-radius: 20px; background: #FFFFFF; overflow: hidden">
+<div style="padding: 10px 14px 10px 10px; display: flex; align-items: center; gap: 12px">
+<div style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 14px; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
 <svg width="30" height="39" sc-camel-view-box="0 0 200 260" aria-hidden="true">
 <rect x="86" y="14" width="28" height="12" rx="4" fill="#7E8285"></rect>
 <rect x="95" y="26" width="10" height="14" fill="#9DA1A4"></rect>
@@ -72,35 +73,31 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 </div>
 </sc-if>
 </div>
+<sc-if value="{{showBand}}" hint-placeholder-val="{{ true }}">
+<div style="padding: 10px 16px; background: {{verdictBg}}; color: {{verdictFg}}; font-size: 17px; font-weight: 700; line-height: 1.3">{{verdictLabel}}</div>
+</sc-if>
+</div>
 <div style="flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; padding-bottom: 12px">
 <sc-if value="{{isA}}" hint-placeholder-val="{{ false }}">
 <div style="margin: 14px 20px 0 20px; padding: 12px 14px; border: 1.5px dashed #6E5A6B; border-radius: 14px; font-size: 15px; line-height: 1.4; color: #6E5A6B">[Marquage et textes de la ligne allaitement — en attente de la clôture du module allaitement]</div>
 </sc-if>
-<button type="button" sc-camel-on-click="{{openParfum}}" style="flex-shrink: 0; margin: 14px 20px 0 20px; min-height: 52px; padding: 8px 12px 8px 16px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; color: #321C31; display: flex; align-items: center; gap: 10px; text-align: left; font-family: inherit; cursor: pointer">
-<span style="flex: 1 1 auto; font-size: 17px; line-height: 1.3">Présence de parfum</span>
+<div style="flex-shrink: 0; margin: 10px 20px 0 20px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+<button type="button" sc-camel-on-click="{{openParfum}}" style="min-height: 44px; margin-left: {{parf.marge}}; padding: {{parf.pad}}; border: {{parf.bord}}; border-radius: 999px; background: {{parf.bg}}; color: {{parf.fg}}; display: inline-flex; align-items: center; gap: 8px; font-family: inherit; cursor: pointer">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><rect x="4" y="10" width="12" height="11" rx="3.5"></rect><rect x="7.5" y="5.5" width="5" height="4.5" rx="1"></rect><path d="M12.5 7.5H15"></path><circle cx="18" cy="5.5" r="1" fill="currentColor" stroke="none"></circle><circle cx="20.5" cy="7.5" r="1" fill="currentColor" stroke="none"></circle><circle cx="18" cy="9.5" r="1" fill="currentColor" stroke="none"></circle></svg>
+<span style="font-size: 16px; font-weight: 700; line-height: 1.3">Contient du parfum</span>
+<svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" stroke="{{parf.chev}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
 <sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
 <span style="flex-shrink: 0; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Provisoire</span>
 </sc-if>
-<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
-</button>
-<sc-if value="{{showDetLink}}" hint-placeholder-val="{{ true }}">
-
-</sc-if>
-
-<div style="flex-shrink: 0; margin: 8px 20px 0 20px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FFFFFF; overflow: hidden; display: flex; flex-direction: column">
+</div>
+<div style="flex-shrink: 0; margin: 10px 20px 0 20px; display: flex; flex-direction: column; border-top: 1px solid #E7E1DA; border-bottom: 1px solid #E7E1DA">
 <sc-for list="{{ items }}" as="item" hint-placeholder-count="6">
-<button type="button" sc-camel-on-click="{{ item.open }}" style="position: relative; min-height: 64px; padding: 12px 10px 12px 16px; border: 0; border-top: {{ item.sep }}; background: #FFFFFF; color: #321C31; display: flex; align-items: center; gap: 10px; text-align: left; font-family: inherit; cursor: pointer">
+<button type="button" sc-camel-on-click="{{ item.open }}" style="min-height: 56px; padding: 12px 2px 12px 0; border: 0; border-top: {{ item.sep }}; background: transparent; color: #321C31; display: flex; align-items: center; gap: 10px; text-align: left; font-family: inherit; cursor: pointer">
+<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px">
+<span style="font-size: 17px; font-weight: 500; line-height: 1.3; overflow-wrap: anywhere">{{ item.inci }}</span>
 <sc-if value="{{ item.isDet }}" hint-placeholder-val="{{ false }}">
-<span id="e1-det" style="position: absolute; top: -8px"></span>
-</sc-if>
-<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 3px">
-<span style="font-size: 17px; font-weight: 700; line-height: 1.25; overflow-wrap: anywhere">{{ item.inci }}</span>
-<span style="font-size: 14px; line-height: 1.35; color: #6E5A6B">{{ item.fonctions }}</span>
-<sc-if value="{{ item.isDet }}" hint-placeholder-val="{{ false }}">
-<span style="margin-top: 4px; padding: 3px 10px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.16); background: {{ item.bg }}; color: {{ item.fg }}; font-size: 14px; font-weight: 700; line-height: 1.3">Détermine ce niveau</span>
-</sc-if>
-<sc-if value="{{ item.isSig }}" hint-placeholder-val="{{ false }}">
-<span style="margin-top: 4px; padding: 3px 10px; border-radius: 999px; border: 1px solid #321C31; background: #FFFFFF; color: #321C31; font-size: 14px; font-weight: 700; line-height: 1.3">Signalé</span>
+<span style="padding: 3px 10px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.16); background: {{ item.bg }}; color: {{ item.fg }}; font-size: 14px; font-weight: 700; line-height: 1.3">Détermine ce niveau</span>
 </sc-if>
 </span>
 <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"></path></svg>
@@ -110,7 +107,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 <p style="flex-shrink: 0; margin: 12px 24px 0 24px; font-size: 13px; line-height: 1.4; color: #6E5A6B">[Liste d'exemple du prototype, sans valeur d'évaluation]</p>
 </div>
 <div style="flex-shrink: 0; padding-top: 8px">
-<nav aria-label="Navigation principale" style="margin: 0 16px 26px 16px; padding: 8px; border-radius: 30px; background: #FAF8F4; border: 1px solid #E7E1DA; box-shadow: 0 8px 24px rgba(50,28,49,0.10); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px">
+<nav aria-label="Navigation principale" style="margin: 0 16px 26px 16px; padding: 8px; border-radius: 30px; background: #FFFFFF; border: 1px solid #E7E1DA; box-shadow: 0 8px 24px rgba(50,28,49,0.10); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px">
 <a href="E1-Scan.dc.html" aria-current="true" style="min-height: 56px; border-radius: 22px; background: #4C2944; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #FFF7F0; font-size: 12px; font-weight: 700">
 <svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="#FFF7F0" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16M8 8.5v7M11 8.5v7M13.5 8.5v7M16 8.5v7"></path></svg>
 <span>Scanner</span>
@@ -199,7 +196,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;niveau&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;1 · Composition sans signal identifié&quot;,&quot;2 · Composition à signal modéré&quot;,&quot;3 · Composition préoccupante&quot;,&quot;4 · Composition incompatible&quot;],&quot;default&quot;:&quot;2 · Composition à signal modéré&quot;,&quot;section&quot;:&quot;Verdict illustratif&quot;},&quot;ligne&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Grossesse&quot;,&quot;Allaitement&quot;],&quot;default&quot;:&quot;Grossesse&quot;,&quot;section&quot;:&quot;Ligne lue&quot;},&quot;panneau&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Fermé&quot;,&quot;Ingrédient qui détermine le niveau&quot;,&quot;Ingrédient signalé&quot;,&quot;Parfum&quot;,&quot;Aucun signal identifié&quot;,&quot;Données insuffisantes&quot;,&quot;Non évalué&quot;],&quot;default&quot;:&quot;Fermé&quot;,&quot;section&quot;:&quot;Panneau ouvert au départ&quot;},&quot;rince&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Produit rincé&quot;},&quot;photosensibilite&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Mention de photosensibilité (ingrédient signalé)&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;niveau&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;1 · Composition sans signal identifié&quot;,&quot;2 · Composition à signal modéré&quot;,&quot;3 · Composition préoccupante&quot;,&quot;4 · Composition incompatible&quot;],&quot;default&quot;:&quot;2 · Composition à signal modéré&quot;,&quot;section&quot;:&quot;Verdict illustratif&quot;},&quot;ligne&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Grossesse&quot;,&quot;Allaitement&quot;],&quot;default&quot;:&quot;Grossesse&quot;,&quot;section&quot;:&quot;Ligne lue&quot;},&quot;panneau&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Fermé&quot;,&quot;Ingrédient qui détermine le niveau&quot;,&quot;Ingrédient signalé&quot;,&quot;Parfum&quot;,&quot;Aucun signal identifié&quot;,&quot;Données insuffisantes&quot;,&quot;Non évalué&quot;],&quot;default&quot;:&quot;Fermé&quot;,&quot;section&quot;:&quot;Panneau ouvert au départ&quot;},&quot;rince&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Produit rincé&quot;},&quot;photosensibilite&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Mention de photosensibilité (ingrédient signalé)&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;reperParfum&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Encre (comme l'idée 3)&quot;,&quot;Pastille foncée (encre)&quot;,&quot;Couleur d'information (bleu ardoise, nouvelle)&quot;],&quot;default&quot;:&quot;Encre (comme l'idée 3)&quot;,&quot;section&quot;:&quot;Repère du parfum (29/10, à comparer)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
 class Component extends DCLogic {
   componentDidUpdate(prevProps) {
     if (prevProps && prevProps.panneau !== this.props.panneau && this.state && (this.state.sel || this.state.closed)) {
@@ -256,7 +253,9 @@ class Component extends DCLogic {
       { key: 'parfum', inci: 'Parfum', fonctions: PH.fonctions, courant: 'Parfum', type: 'parfum' },
       { key: 'a', inci: '[Ingrédient — exemple A]', fonctions: PH.fonctions, courant: PH.courant, type: 'a' },
       { key: 'b', inci: '[Ingrédient — exemple B]', fonctions: PH.fonctions, courant: PH.courant, type: 'b' },
-      { key: 'c', inci: '[Ingrédient — exemple C]', fonctions: PH.fonctions, courant: PH.courant, type: 'c' }
+      { key: 'c', inci: '[Ingrédient — exemple C]', fonctions: PH.fonctions, courant: PH.courant, type: 'c' },
+      // Second déterminant (29/10) : « le ou les ingrédients déterminants » (D-112 A1, décision 189).
+      { key: 'det2', inci: '[Ingrédient déterminant — exemple 2]', fonctions: PH.fonctions, courant: PH.courant, type: 'det' }
     ];
     // Un produit au niveau 1 n'a aucun ingrédient qui détermine le niveau ; la ligne allaitement n'a pas encore de marquage.
     var hasDet = !allait && i >= 1;
@@ -266,11 +265,19 @@ class Component extends DCLogic {
       return {
         inci: it.inci, fonctions: it.fonctions,
         isDet: it.type === 'det' && hasDet,
-        isSig: it.type === 'sig' && !allait,
+        // « Signalé » retiré (29/10, décision 188) : seul l'ingrédient qui détermine le niveau porte un repère.
+        aria: it.inci + (it.type === 'det' && hasDet ? ', détermine ce niveau' : ''),
+        chipBg: it.type === 'det' && hasDet ? c.bg : '#FAF8F4',
+        chipFg: it.type === 'det' && hasDet ? c.fg : '#321C31',
+        chipBord: it.type === 'det' && hasDet ? 'rgba(0,0,0,0.25)' : '#E7E1DA',
+        chipPoids: it.type === 'det' && hasDet ? 700 : 500,
         bg: c.bg, fg: c.fg,
         sep: k === 0 ? 'none' : '1px solid #E7E1DA',
         open: function () { self.setState({ sel: it.key, closed: false }); }
       };
+    });
+    var dets = items.filter(function (x) { return x.isDet; }).map(function (x, k) {
+      return Object.assign({}, x, { sep: k === 0 ? 'none' : '1px solid #E7E1DA' });
     });
     var MAP = { 'Ingrédient qui détermine le niveau': 'det', 'Ingrédient signalé': 'sig', 'Parfum': 'parfum', 'Aucun signal identifié': 'a', 'Données insuffisantes': 'b', 'Non évalué': 'c' };
     var st = this.state || {};
@@ -305,10 +312,15 @@ class Component extends DCLogic {
     }
     return {
       isG: !allait, isA: allait, ligne: allait ? 'Allaitement' : 'Grossesse',
+      verdictLabel: OPTS[i].replace(/^\d · /, ''), verdictBg: c.bg, verdictFg: c.fg, showBand: !allait,
       isRince: rince, notRince: !rince,
       rang: String(i + 1), s: s,
       showDetLink: hasDet,
-      items: items,
+      items: items, dets: dets, detBg: c.bg,
+      parf: ({
+        "Pastille foncée (encre)": { bg: '#321C31', fg: '#FFFFFF', bord: '0', pad: '6px 12px 6px 10px', marge: '0', chev: '#FFFFFF' },
+        "Couleur d'information (bleu ardoise, nouvelle)": { bg: '#E9EFF4', fg: '#2F4A62', bord: '1px solid #C9D6E2', pad: '6px 12px 6px 10px', marge: '0', chev: '#2F4A62' }
+      })[this.props.reperParfum] || { bg: 'transparent', fg: '#321C31', bord: '0', pad: '0 4px', marge: '-4px', chev: '#6E5A6B' },
       open: !!it, sel: sel,
       showStatus: this.props.statuts !== false,
       openParfum: function () { self.setState({ sel: 'parfum', closed: false }); },
