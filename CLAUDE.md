@@ -6,7 +6,7 @@ Ce dépôt porte le prototype de Ficolia (les écrans du canevas de conception, 
 
 ## Le canevas de travail
 
-- **Un seul canevas de travail** : « Ficolia — Prototype », https://claude.ai/artifact/FB6cC6xawyir9Y1QwCYosb (identifiant `72c8d58f-8aa6-4090-b17c-fc9e3f77fcf6`), créé le 31/10/2026 depuis le dépôt. L'ancien canevas (https://claude.ai/artifact/EuTtpHhP8LubH91j4wpsVw) est une archive : ses fichiers sont illisibles depuis Claude Code, on n'y travaille plus, on ne le supprime pas (il garde l'historique et les commentaires).
+- **Un seul canevas de travail** : « ficolia - prototype_vTravail », https://claude.ai/artifact/FB6cC6xawyir9Y1QwCYosb (identifiant `72c8d58f-8aa6-4090-b17c-fc9e3f77fcf6`), créé le 31/10/2026 depuis le dépôt. L'ancien canevas (https://claude.ai/artifact/EuTtpHhP8LubH91j4wpsVw) est une archive : ses fichiers sont illisibles depuis Claude Code, on n'y travaille plus, on ne le supprime pas (il garde l'historique et les commentaires).
 - **Les sources font foi** : `prototype/sources/project/` (planches, index `canvas.json`, ressources `assets/`), `prototype/sources/noms.json`, `prototype/sources/blobs.json`. Mode d'emploi et limites : `prototype/LISEZ-MOI.md`. Outils : `outils/deballer-export.py`, `outils/rendre.mjs`, `outils/preparer-publication.py`.
 - **Branche de travail du prototype** : `claude/magical-mendel-cwpmji`. Une seule session à la fois sur le canevas et sur cette branche.
 
