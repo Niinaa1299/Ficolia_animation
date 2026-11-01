@@ -1,0 +1,46 @@
+{
+  "videos": [
+    {
+      "nom": "ouverture",
+      "maquette": "maquettes/ouverture-arbre.html?place=b&bas=pale-bis&descente=a&decor=a&transition=recul3&notes=off&ecran=1&mouvement=normal",
+      "duree_ms": 10000,
+      "images_par_seconde": 60,
+      "largeur_pt": 390,
+      "hauteur_pt": 844,
+      "pixels_par_point": 2,
+      "mp4": "3.04 Mo",
+      "webm": "3.29 Mo"
+    },
+    {
+      "nom": "accueil-2_piste-a",
+      "maquette": "maquettes/ouverture-arbre.html?place=b&bas=pale-bis&descente=a&decor=a&transition=recul3&notes=off&ecran=2&piste2=a&mouvement=normal",
+      "duree_ms": 4400,
+      "images_par_seconde": 60,
+      "largeur_pt": 390,
+      "hauteur_pt": 844,
+      "pixels_par_point": 2,
+      "mp4": "0.57 Mo",
+      "webm": "0.65 Mo"
+    }
+  ],
+  "images": [
+    {
+      "nom": "revelation_derniere-image.png",
+      "largeur_pt": 390,
+      "hauteur_pt": 844,
+      "pixels_par_point": 2
+    },
+    {
+      "nom": "accueil-1_derniere-image.png",
+      "largeur_pt": 390,
+      "hauteur_pt": 844,
+      "pixels_par_point": 2
+    },
+    {
+      "nom": "accueil-2_piste-a_derniere-image.png",
+      "largeur_pt": 390,
+      "hauteur_pt": 844,
+      "pixels_par_point": 2
+    }
+  ]
+}

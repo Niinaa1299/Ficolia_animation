@@ -1,0 +1,122 @@
+[
+  {
+    "nom": "formulaire-envoye_signalement_tampon-bis",
+    "maquette": "maquettes/formulaire-envoye.html?formulaire=signalement&piste=tamponbis",
+    "duree_ms": 3500,
+    "images_par_seconde": 60,
+    "largeur_pt": 390,
+    "hauteur_pt": 268,
+    "haut_depuis_le_haut_de_l_ecran_pt": 36,
+    "pixels_par_point": 2
+  },
+  {
+    "nom": "formulaire-envoye_contribution-photo_photomaton-bis",
+    "maquette": "maquettes/formulaire-envoye.html?formulaire=photo&piste=photomatonbis",
+    "duree_ms": 3800,
+    "images_par_seconde": 60,
+    "largeur_pt": 390,
+    "hauteur_pt": 251,
+    "haut_depuis_le_haut_de_l_ecran_pt": 68,
+    "pixels_par_point": 2
+  },
+  {
+    "nom": "formulaire-envoye_support",
+    "maquette": "maquettes/formulaire-envoye.html?formulaire=support",
+    "duree_ms": 1500,
+    "images_par_seconde": 60,
+    "largeur_pt": 390,
+    "hauteur_pt": 181,
+    "haut_depuis_le_haut_de_l_ecran_pt": 120,
+    "pixels_par_point": 2
+  },
+  {
+    "nom": "connexion-insuffisante_couleurs",
+    "maquette": "maquettes/connexion-insuffisante.html?cause=faible&couleurs=couleurs",
+    "duree_ms": 2700,
+    "images_par_seconde": 60,
+    "largeur_pt": 390,
+    "hauteur_pt": 245,
+    "haut_depuis_le_haut_de_l_ecran_pt": 75,
+    "pixels_par_point": 2
+  },
+  {
+    "nom": "connexion-insuffisante_gris",
+    "maquette": "maquettes/connexion-insuffisante.html?cause=faible&couleurs=gris",
+    "duree_ms": 2700,
+    "images_par_seconde": 60,
+    "largeur_pt": 390,
+    "hauteur_pt": 245,
+    "haut_depuis_le_haut_de_l_ecran_pt": 75,
+    "pixels_par_point": 2
+  },
+  {
+    "nom": "pas-de-connexion_couleurs",
+    "maquette": "maquettes/connexion-insuffisante.html?cause=aucune&couleurs=couleurs",
+    "duree_ms": 2700,
+    "images_par_seconde": 60,
+    "largeur_pt": 390,
+    "hauteur_pt": 232,
+    "haut_depuis_le_haut_de_l_ecran_pt": 88,
+    "pixels_par_point": 2
+  },
+  {
+    "nom": "pas-de-connexion_gris",
+    "maquette": "maquettes/connexion-insuffisante.html?cause=aucune&couleurs=gris",
+    "duree_ms": 2700,
+    "images_par_seconde": 60,
+    "largeur_pt": 390,
+    "hauteur_pt": 232,
+    "haut_depuis_le_haut_de_l_ecran_pt": 88,
+    "pixels_par_point": 2
+  },
+  {
+    "nom": "mise-a-jour-obligatoire_ancienne-version",
+    "maquette": "maquettes/mise-a-jour-obligatoire.html?ecran=ancienne",
+    "duree_ms": 2500,
+    "images_par_seconde": 60,
+    "largeur_pt": 390,
+    "hauteur_pt": 236,
+    "haut_depuis_le_haut_de_l_ecran_pt": 222,
+    "pixels_par_point": 2
+  },
+  {
+    "nom": "mise-a-jour-obligatoire_nouvelle-version",
+    "maquette": "maquettes/mise-a-jour-obligatoire.html?ecran=nouvelle",
+    "duree_ms": 1900,
+    "images_par_seconde": 60,
+    "largeur_pt": 390,
+    "hauteur_pt": 287,
+    "haut_depuis_le_haut_de_l_ecran_pt": 201,
+    "pixels_par_point": 2
+  },
+  {
+    "nom": "delai-de-connexion_cent-pas",
+    "maquette": "maquettes/delai-connexion.html?piste=centpas&couleurs=couleurs",
+    "duree_ms": 4300,
+    "images_par_seconde": 60,
+    "largeur_pt": 390,
+    "hauteur_pt": 189,
+    "haut_depuis_le_haut_de_l_ecran_pt": 129,
+    "pixels_par_point": 2
+  },
+  {
+    "nom": "produit-inconnu_cagette-vide",
+    "maquette": "maquettes/produit-inconnu.html?piste=cagette&couleurs=couleurs",
+    "duree_ms": 3000,
+    "images_par_seconde": 60,
+    "largeur_pt": 390,
+    "hauteur_pt": 265,
+    "haut_depuis_le_haut_de_l_ecran_pt": 37,
+    "pixels_par_point": 2
+  },
+  {
+    "nom": "service-indisponible_store-de-l-etal",
+    "maquette": "maquettes/service-indisponible.html?piste=store&couleurs=couleurs",
+    "duree_ms": 3000,
+    "images_par_seconde": 60,
+    "largeur_pt": 390,
+    "hauteur_pt": 207,
+    "haut_depuis_le_haut_de_l_ecran_pt": 104,
+    "pixels_par_point": 2
+  }
+]

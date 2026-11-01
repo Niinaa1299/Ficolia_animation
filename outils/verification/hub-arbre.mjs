@@ -1,0 +1,45 @@
+// Vérifie « l'arbre et la figue » dans l'aperçu : écran par défaut, réglages du panneau, « Passer », passage à l'accueil, erreurs.
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const { chromium } = require('/opt/node22/lib/node_modules/playwright');
+const [,, file, out] = process.argv;
+const browser = await chromium.launch();
+const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+const errs = [];
+page.on('pageerror', e => errs.push(String(e)));
+page.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
+await page.goto('file://' + file);
+await page.waitForTimeout(400);
+console.log('visible au départ :', await page.evaluate(() => [...document.querySelectorAll('.hote')].filter(h => !h.hidden).map(h => h.id)));
+const host = page.locator('#hote-arbre');
+const etat = async () => page.evaluate(() => {
+  const r = document.getElementById('hote-arbre').shadowRoot;
+  const on = k => [...r.querySelectorAll(`.seg[data-key="${k}"] button`)].filter(b => b.getAttribute('aria-pressed') === 'true').map(b => b.dataset.val).join();
+  return { place: on('place'), descente: on('descente'), decor: on('decor'), t: r.getElementById('scrubOut').textContent, max: r.getElementById('scrub').max,
+    passer: !r.getElementById('passer').hidden, accueil: !r.getElementById('accueil').hidden, beats: r.querySelectorAll('#beats li').length };
+});
+await page.waitForTimeout(2600);
+await host.locator('#screen').screenshot({ path: `${out}-c-3s.png` });
+console.log('c, à 3 s', JSON.stringify(await etat()));
+await host.locator('#passer').click(); await page.waitForTimeout(300);
+console.log('« Passer » →', JSON.stringify(await etat()));
+await host.locator('#screen').screenshot({ path: `${out}-c-fin.png` });
+await host.locator('.seg[data-key="place"] button[data-val="b"]').click(); await page.waitForTimeout(1500);
+await host.locator('#toucher').click({ force: true }); await page.waitForTimeout(200);
+console.log('b, toucher pendant la révélation →', JSON.stringify(await etat()));
+await page.waitForTimeout(4200);
+await host.locator('#screen').screenshot({ path: `${out}-b-fin.png` });
+console.log('b, fin', JSON.stringify(await etat()));
+await host.locator('.seg[data-key="decor"] button[data-val="c"]').click(); await page.waitForTimeout(100);
+await host.locator('.seg[data-key="descente"] button[data-val="d"]').click(); await page.waitForTimeout(200);
+console.log('b, branche, cagette', JSON.stringify(await etat()));
+await host.locator('.seg[data-key="place"] button[data-val="c"]').click(); await page.waitForTimeout(3600);
+await host.locator('#screen').screenshot({ path: `${out}-c-branche-cagette.png` });
+console.log('c, branche, cagette', JSON.stringify(await etat()));
+await host.locator('.seg[data-key="motion"] button[data-val="reduit"]').click(); await page.waitForTimeout(3700);
+await host.locator('#screen').screenshot({ path: `${out}-c-reduit.png` });
+console.log('c, réduit', JSON.stringify(await etat()));
+await page.evaluate(() => { location.hash = 'accueil'; }); await page.waitForTimeout(4400);
+console.log('accueil :', await page.evaluate(() => { const r = document.getElementById('hote-accueil').shadowRoot; return r ? r.getElementById('titre').textContent : 'non monté'; }));
+console.log(errs.length ? 'ERRORS\n' + errs.join('\n') : 'no errors');
+await browser.close();

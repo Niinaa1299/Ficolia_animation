@@ -4,6 +4,14 @@ Ce dépôt porte le prototype de Ficolia (les écrans du canevas de conception, 
 
 @FICOLIA_DESIGN.md
 
+## Le récit de la figue (animations, ouverture, accueil)
+
+Les maquettes sont dans `maquettes/` ; `outils/apercu.py` les réunit en un seul aperçu ; les exports validés (vidéos et images sans texte, page de référence des textes) sont dans `exports/` (index : `exports/LISEZMOI.md`) ; les sources des artéfacts et leur mode d'emploi dans `outils/sources/LISEZ-MOI.md`. Le cap de l'accueil et la note de passation du 22/10 (où est chaque artéfact, ce qui est décidé, ce qui attend la porteuse) sont importés ci-dessous.
+
+@cap-onboarding.md
+
+@PASSATION.md
+
 ## Le canevas de travail
 
 - **Un seul canevas de travail** : « ficolia - prototype_vTravail », https://claude.ai/artifact/FB6cC6xawyir9Y1QwCYosb (identifiant `72c8d58f-8aa6-4090-b17c-fc9e3f77fcf6`), créé le 31/10/2026 depuis le dépôt. L'ancien canevas (https://claude.ai/artifact/EuTtpHhP8LubH91j4wpsVw) est une archive : ses fichiers sont illisibles depuis Claude Code, on n'y travaille plus, on ne le supprime pas (il garde l'historique et les commentaires).

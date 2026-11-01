@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ficolia · Ouverture et accueil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&amp;display=swap" rel="stylesheet">
+<!--
+  Ficolia — l'ouverture et l'accueil, tels que validés (porteuse, 29/10), prêts à intégrer au prototype.
+  Les vidéos et les images ne portent aucun texte : tous les textes sont ici, en HTML, posés par-dessus et modifiables
+  (bloc « LES TEXTES », plus bas). Ils paraissent aux mêmes instants que dans la maquette (maquettes/ouverture-arbre.html).
+  - ouverture.mp4 (10 s) : la révélation, puis l'arbre et la figue, jusqu'à l'accueil 1/2.
+  - accueil-2_piste-a.mp4 (4,4 s) : après « Continuer », l'accueil 2/2, piste A ; sa première image est la dernière du 1/2.
+  - Les images fixes servent au mouvement réduit (des fondus, sans déplacement) et à « Retour ».
+  Réglages par l'adresse : ?mouvement=reduit (ou normal), ?statuts=off (masque les étiquettes de statut),
+  ?ecran=2 (ouvre le 2/2), ?t=… (un instant figé, en millisecondes, pour une capture). Mode d'emploi : LISEZMOI.md.
+-->
+<style>
+:root{
+  /* Palette de marque, actée (D-115, T-548) ; interface (séance 27-28/09) */
+  --aubergine:#4C2944; --ivoire-rose:#FFF7F0; --texte:#321C31; --texte-2:#6E5A6B;
+  --fond:#FFFFFF; --cadre:#FAF8F4; --bordure:#E7E1DA;
+  /* Courbes de la maquette */
+  --doux:cubic-bezier(.37,0,.63,1);        /* sinusoïdale : les textes de l'accueil */
+  --revelation:cubic-bezier(.25,.6,.35,1); /* l'accroche de la révélation */
+}
+html,body{margin:0}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px 16px;box-sizing:border-box;background:#F3F0EB;color:var(--texte);font-family:'Atkinson Hyperlegible Next','Atkinson Hyperlegible',system-ui,sans-serif}
+
+/* ---------- L'écran : 390 × 844 ---------- */
+.ecran{position:relative;flex:none;width:390px;height:844px;overflow:hidden;background:var(--fond);color:var(--texte);border-radius:44px;box-shadow:0 0 0 1px rgba(50,28,49,.08),0 30px 60px -24px rgba(50,28,49,.28)}
+.ecran video,.ecran .fixe{position:absolute;left:0;top:0;width:390px;height:844px;display:block;object-fit:cover}
+.ecran .fixe,.ecran .video2{visibility:hidden}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* L'accroche, sous le logo de la révélation */
+.accroche{position:absolute;left:0;top:377.7px;width:390px;display:flex;flex-direction:column;align-items:center;pointer-events:none}
+.accroche p{margin:0;font-size:18.8px;line-height:1.4;letter-spacing:.01em;text-align:center}
+/* L'accueil : le haut laisse voir le paysage ; le texte, posé sur le vert pâle, défile s'il est agrandi ; les boutons restent en bas */
+.accueil{position:absolute;inset:0;display:flex;flex-direction:column;pointer-events:none}
+.accueil .haut{flex:none;height:476px}
+.accueil.deux .haut{height:396px}
+.corps{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;padding-bottom:8px;pointer-events:auto}
+.corps::-webkit-scrollbar{display:none}
+.copy{padding:12px 24px 0;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.copy h1{margin:0;font-size:28px;font-weight:700;line-height:1.15;text-wrap:balance}
+.copy h1:focus{outline:none}
+.copy p{margin:0;font-size:17px;line-height:1.45;text-wrap:pretty}
+.copy p.rappel{font-size:15px;color:var(--texte-2)}
+.copy .liens{display:flex;flex-direction:column;align-items:center}
+.copy .liens a{min-height:44px;display:inline-flex;align-items:center;font-size:16px;font-weight:700;color:var(--aubergine);text-decoration:underline;text-underline-offset:3px}
+.copy .version{font-size:13px;line-height:1.3;color:var(--texte-2)}
+.statut{padding:3px 10px;border:1px dashed var(--texte-2);border-radius:999px;font-size:13px;line-height:1.3;color:var(--texte-2)}
+.accroche .statut{margin-top:8px}
+.sans-statuts .statut{display:none}
+.actions{flex:none;margin:0 20px 32px;padding-top:12px;display:flex;flex-direction:column;align-items:stretch;gap:14px;pointer-events:auto}
+.points{display:flex;justify-content:center;gap:8px}
+.points span{display:block;width:8px;height:8px;border-radius:999px;background:rgba(76,41,68,.22)}
+.points span.on{width:22px;background:var(--aubergine)}
+.plein{min-height:56px;border:0;border-radius:999px;background:var(--aubergine);color:var(--ivoire-rose);font:inherit;font-size:17px;font-weight:700;cursor:pointer;touch-action:manipulation;transition:transform 160ms cubic-bezier(.23,1,.32,1)}
+.plein:active{transform:scale(.97)}
+.retour{position:absolute;left:20px;top:64px;width:44px;height:44px;border-radius:999px;border:1px solid var(--bordure);background:var(--cadre);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;pointer-events:auto}
+.ecran button:focus-visible,.ecran a:focus-visible{outline:2px solid var(--aubergine);outline-offset:3px}
+
+/* ---------- Les instants : ceux de la maquette, en millisecondes depuis le début de chaque vidéo ---------- */
+@keyframes monte{from{opacity:0;transform:translateY(var(--monte,8px));visibility:hidden}to{opacity:1;transform:none;visibility:visible}}
+@keyframes parait{from{opacity:0;visibility:hidden}to{opacity:1;visibility:visible}}
+@keyframes part{from{opacity:1;visibility:visible}to{opacity:0;visibility:hidden}}
+@keyframes descend{from{transform:none}to{transform:translateY(40px)}}
+/* Tant que la vidéo ne joue pas (chargement, attente du réseau), les textes l'attendent. */
+.ecran.attente *{animation-play-state:paused!important}
+/* Hors de son tour, chaque écran est caché. */
+.ecran:not(.deux) .accueil.deux,.ecran.deux .accroche,.ecran.un .accroche{visibility:hidden}
+
+/* L'ouverture : la révélation, l'arbre et la figue, l'accueil 1/2 */
+.ecran.ouverture .accroche p:nth-of-type(2){--monte:7.94px;animation:monte 550ms var(--revelation) 3500ms both}
+.ecran.ouverture .accroche p:nth-of-type(3){--monte:7.94px;animation:monte 550ms var(--revelation) 3800ms both}
+.ecran.ouverture .accroche .statut{animation:parait 550ms var(--revelation) 3800ms both}
+.ecran.ouverture .accroche{animation:descend 900ms var(--doux) 4550ms both,part 450ms var(--doux) 4600ms both}
+.ecran.ouverture .accueil.un .copy{animation:monte 500ms var(--doux) 7950ms both}
+.ecran.ouverture .accueil.un .actions{animation:parait 450ms var(--doux) 8000ms both}
+/* Après « Continuer » : le texte du 1/2 s'efface, la vidéo du 2/2 joue, puis le texte des conditions et « Accepter » */
+.ecran.deux .video2{visibility:visible}
+.ecran.deux .accueil.un{animation:part 300ms var(--doux) both}
+.ecran.deux .accueil.deux .copy{animation:monte 500ms var(--doux) 1500ms both}
+.ecran.deux .accueil.deux .actions,.ecran.deux .accueil.deux .retour{animation:parait 450ms var(--doux) 1550ms both}
+/* « Retour » : l'image fixe du 1/2, son texte en place */
+.ecran.un .fixe.un{visibility:visible}
+
+/* Mouvement réduit : des fondus, sans aucun déplacement (comme la maquette) */
+.ecran.reduit video{visibility:hidden!important}
+.ecran.reduit.ouverture .fixe.revelation{visibility:visible;animation:parait 600ms linear both,part 300ms linear 1500ms forwards}
+.ecran.reduit.ouverture .accroche{animation:parait 600ms linear both,part 300ms linear 1500ms forwards}
+.ecran.reduit.ouverture .accroche p,.ecran.reduit.ouverture .accroche .statut{animation:none}
+.ecran.reduit.ouverture .fixe.un{visibility:visible;animation:parait 600ms linear 1500ms both}
+.ecran.reduit.ouverture .accueil.un .copy,.ecran.reduit.ouverture .accueil.un .actions{animation:parait 300ms linear 1800ms both}
+.ecran.reduit.deux .accueil.un{animation:part 300ms linear both}
+.ecran.reduit.deux .fixe.un{visibility:visible;animation:part 300ms linear 300ms forwards}
+.ecran.reduit.deux .fixe.deux{visibility:visible;animation:parait 300ms linear 600ms both}
+.ecran.reduit.deux .accueil.deux .copy,.ecran.reduit.deux .accueil.deux .actions,.ecran.reduit.deux .accueil.deux .retour{animation:parait 300ms linear 900ms both}
+@media (prefers-reduced-motion:reduce){.plein{transition:none}.plein:active{transform:none}}
+
+/* ---------- Autour de l'écran : de quoi relire ---------- */
+.commandes{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.commandes button{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid #E2DCD4;background:#FFFFFF;color:#321C31;font:inherit;font-size:15px;cursor:pointer}
+.commandes button:focus-visible{outline:2px solid #4C2944;outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="ecran ouverture attente" id="ecran">
+  <video class="video1" id="video1" muted playsinline preload="auto" aria-hidden="true">
+    <source src="ouverture.mp4" type="video/mp4">
+    <source src="ouverture.webm" type="video/webm">
+  </video>
+  <!-- Son image d'attente est sa première image (la dernière du 1/2) : rien ne clignote si elle tarde à démarrer. -->
+  <video class="video2" id="video2" muted playsinline preload="auto" poster="accueil-1_derniere-image.png" aria-hidden="true">
+    <source src="accueil-2_piste-a.mp4" type="video/mp4">
+    <source src="accueil-2_piste-a.webm" type="video/webm">
+  </video>
+  <img class="fixe revelation" src="revelation_derniere-image.png" alt="">
+  <img class="fixe un" src="accueil-1_derniere-image.png" alt="">
+  <img class="fixe deux" src="accueil-2_piste-a_derniere-image.png" alt="">
+
+  <!-- ==================== LES TEXTES : à modifier ici ==================== -->
+
+  <!-- L'accroche, sous le logo : une ligne par paragraphe (la seconde paraît 0,3 s après la première). Décision 132 du prototype. -->
+  <div class="accroche" id="accroche">
+    <p class="vh">Ficolia</p>
+    <p>Continuer à prendre soin de soi,</p>
+    <p>sans vérifier ses flacons dix fois.</p>
+    <span class="statut">Texte provisoire</span>
+  </div>
+
+  <!-- L'accueil 1/2 -->
+  <section class="accueil un" aria-labelledby="titre1">
+    <div class="haut"></div>
+    <div class="corps">
+      <div class="copy">
+        <h1 id="titre1">Bienvenue sur Ficolia</h1>
+        <p>[L’objectif de Ficolia, en une phrase : à écrire]</p>
+        <p class="rappel">Ce n’est pas un avis médical. Pour toute question de santé, adressez-vous à un professionnel de santé.</p>
+        <span class="statut">Titre : proposition · objectif : à écrire · rappel : texte du prototype</span>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="points" role="img" aria-label="Écran 1 sur 2"><span class="on"></span><span></span></div>
+      <button type="button" class="plein" id="continuer">Continuer</button>
+    </div>
+  </section>
+
+  <!-- L'accueil 2/2 : les conditions -->
+  <section class="accueil deux" aria-labelledby="titre2">
+    <div class="haut"></div>
+    <div class="corps">
+      <div class="copy">
+        <h1 id="titre2" tabindex="-1">Conditions d’utilisation</h1>
+        <p>Pour utiliser Ficolia, il faut en accepter les conditions d’utilisation.</p>
+        <p>[Limites essentielles, en mots simples — en attente de la juriste]</p>
+        <div class="liens">
+          <a href="#">Lire les conditions d'utilisation</a>
+          <a href="#">Politique de confidentialité</a>
+        </div>
+        <p class="version">Conditions d'utilisation — version du [date]</p>
+        <span class="statut">Textes provisoires</span>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="points" role="img" aria-label="Écran 2 sur 2"><span></span><span class="on"></span></div>
+      <!-- « Accepter » ouvre le scanner : dans le prototype, le lien vers la planche du scanner. -->
+      <button type="button" class="plein" id="accepter">Accepter</button>
+    </div>
+    <button type="button" class="retour" id="retour" aria-label="Retour">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+    </button>
+  </section>
+
+  <!-- ==================== fin des textes ==================== -->
+</div>
+
+<div class="commandes" aria-label="Relecture">
+  <button type="button" id="rejouer">Rejouer l’ouverture</button>
+  <button type="button" id="mouvement" aria-pressed="false">Mouvement réduit</button>
+</div>
+
+<script>
+// L'enchaînement : l'ouverture (vidéo 1) ; « Continuer » : le 2/2 (vidéo 2) ; « Retour » : l'image fixe du 1/2.
+// Les textes suivent la vidéo : leurs animations CSS attendent qu'elle joue, et s'arrêtent avec elle.
+const ecran = document.getElementById('ecran');
+const v1 = document.getElementById('video1'), v2 = document.getElementById('video2');
+const params = new URLSearchParams(location.search);
+const prefere = matchMedia('(prefers-reduced-motion: reduce)');
+let reduit = params.get('mouvement') === 'reduit' || (params.get('mouvement') !== 'normal' && prefere.matches);
+if (params.get('statuts') === 'off') ecran.classList.add('sans-statuts');
+
+function etat(nom) {
+  ecran.classList.remove('ouverture', 'deux', 'un', 'attente');
+  void ecran.offsetWidth;                       // relance les animations CSS
+  ecran.classList.add(nom);
+  ecran.classList.toggle('reduit', reduit);
+}
+let enCours = null;                             // la vidéo que les textes suivent
+function suivre(v) {                            // les textes attendent la vidéo
+  enCours = v;
+  ecran.classList.add('attente');
+  v.onplaying = () => ecran.classList.remove('attente');
+  v.onwaiting = () => ecran.classList.add('attente');
+}
+// Et restent calés sur son horloge, à 30 ms près.
+(function caler() {
+  if (enCours && !enCours.paused && !enCours.ended) {
+    const t = enCours.currentTime * 1000;
+    for (const a of ecran.getAnimations({ subtree: true })) if (a.playState === 'running' && Math.abs(a.currentTime - t) > 30) a.currentTime = t;
+  }
+  requestAnimationFrame(caler);
+})();
+async function jouer(v) {
+  v.currentTime = 0;
+  suivre(v);
+  try { await v.play(); } catch (e) { ecran.classList.remove('attente'); }   // lecture refusée : les textes jouent seuls
+}
+function ouverture() {
+  etat('ouverture');
+  enCours = null;
+  v1.pause(); v2.pause(); v2.currentTime = 0;
+  if (!reduit) jouer(v1);
+}
+function deux() {
+  etat('deux');
+  enCours = null;
+  if (!reduit) jouer(v2);
+}
+// Le focus passe au titre des conditions une fois le texte paru : caché, il ne peut pas le recevoir.
+const copie2 = document.querySelector('.accueil.deux .copy');
+copie2.addEventListener('animationend', e => {
+  if (e.target === copie2 && ecran.classList.contains('deux')) document.getElementById('titre2').focus({ preventScroll: true });
+});
+function retour() {
+  v2.pause();
+  enCours = null;
+  etat('un');
+  document.getElementById('continuer').focus({ preventScroll: true });
+}
+document.getElementById('continuer').addEventListener('click', deux);
+document.getElementById('retour').addEventListener('click', retour);
+document.getElementById('rejouer').addEventListener('click', ouverture);
+const boutonMouvement = document.getElementById('mouvement');
+boutonMouvement.addEventListener('click', () => { reduit = !reduit; boutonMouvement.setAttribute('aria-pressed', String(reduit)); ouverture(); });
+boutonMouvement.setAttribute('aria-pressed', String(reduit));
+
+// Un instant figé (?t=…, en ms) : la vidéo et les textes à cet instant, pour une capture.
+async function figer(t) {
+  const v = params.get('ecran') === '2' ? v2 : v1;
+  etat(params.get('ecran') === '2' ? 'deux' : 'ouverture');
+  if (!reduit) {
+    await new Promise(ok => { if (v.readyState >= 1) ok(); else v.addEventListener('loadedmetadata', ok, { once: true }); });
+    v.pause();
+    // L'image présentée, pas seulement décodée (une seconde au plus). Dans un navigateur sans écran, la toute première
+    // image d'une vidéo peut tarder davantage : faire une première capture pour rien (LISEZMOI.md, Limites).
+    const presentee = Promise.race([new Promise(ok => (v.requestVideoFrameCallback ? v.requestVideoFrameCallback(() => ok()) : setTimeout(ok, 200))), new Promise(ok => setTimeout(ok, 1000))]);
+    v.currentTime = Math.min(t / 1000, v.duration);
+    await new Promise(ok => v.addEventListener('seeked', ok, { once: true }));
+    await presentee;
+  }
+  for (const a of document.getAnimations()) { a.pause(); a.currentTime = t; }
+  ecran.classList.remove('attente');
+  document.documentElement.dataset.pret = '1';
+}
+if (params.has('t')) figer(+params.get('t'));
+else if (params.get('ecran') === '2') { etat('deux'); if (!reduit) jouer(v2); }
+else ouverture();
+</script>
+</body>
+</html>
