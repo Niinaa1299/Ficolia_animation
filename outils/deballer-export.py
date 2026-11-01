@@ -232,7 +232,7 @@ def main():
         # Une planche qui a des liens vers d'autres planches ou des gestionnaires d'événements est un
         # prototype : is_interactive lui donne la marque bleue et le bouton Play, qui lance ses vidéos
         # (en mode édition, le canevas tient une vidéo à sa première image).
-        if liens or "onClick=" in source or "onChange=" in source:
+        if liens or "onClick=" in source or "onChange=" in source or "<video" in source:
             boards[fichier]["is_interactive"] = True
         order.append(fichier)
         x += w + 80

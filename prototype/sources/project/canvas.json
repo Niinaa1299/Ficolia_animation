@@ -1645,7 +1645,8 @@
    "w": 390,
    "h": 844,
    "title": "Mise à jour obligatoire",
-   "page": "etape-3a"
+   "page": "etape-3a",
+   "is_interactive": true
   },
   "E3-MiseAJour-Faite.dc.html": {
    "x": 470,
