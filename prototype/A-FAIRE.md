@@ -12,7 +12,6 @@ Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin d'après-mid
 - les mentions de la ligne allaitement, piste A ou B, et leurs explications (2.5a ; fils `111f9ffa`, `8b340b1d`) ;
 - « Les données » du verdict à actualiser, A ou B (3.6a ; fil `a5b20715`) ;
 - le report du message centré et du logo en filigrane sur les quatre autres planches de recherche (3.6 ; fil `99641baa`) ;
-- la tenue du slogan sur les trois autres planches (1.5 ; fil `b2bd2428`) ;
 - les chemins critiques de la version de test, et ton accord pour la construire (2.8 ; `propositions/2026-11-02-version-de-test/proposition.md`) ;
 - les autres questions du §3.1.
 
@@ -57,7 +56,7 @@ Régler tout de suite les quelques points qui bloquent ou qui pressent (§1). Pu
 | 1.2 | **Mettre le planning à jour.** Le canevas de référence de PR-1 est maintenant le canevas de travail (depuis le 01/11). La question « Canevas refusé à Claude » est réglée. Coches proposées au §7. | toi (Claude prépare le message, §7) | 0,25 h | — | message prêt |
 | 1.3 | **Fermer les fils réglés de l'ancien canevas** (`PR-1.2`). Inventaire : `propositions/2026-11-02-commentaires-ancien-canevas/fils-ancien-canevas.md`. 26 fils ouverts non envoyés à Claude : c'est toi qui les fermes, sur la page. 4 fils envoyés à Claude : `6c55f949` (réglé le 01/11) et `778d3ee5` (réglé le 02/11, tenue de 2 s), Claude y répond puis les ferme si tu le demandes ; `2c39b9fd` (police 29LT Riwaya) : capture ou abandon ; `3355a2cf` (question de la personne extérieure du 17/10) : y répondre ou non. | toi, Claude | 4 h | 1.1 pour `3355a2cf` | à faire |
 | 1.4 | **Supprimer les trois planches marquées « À SUPPRIMER »** : `E3-Scan-Avant`, `E6-APropos`, `E6-BonnesPratiques`. Tu les supprimes sur la page, ou tu me le dis (R6). | toi | 0,1 h | — | à trancher |
-| 1.5 | **Tenue du slogan sur les trois autres planches** au même réglage (`E1-Ouverture-Arbre-Reduit`, `E1-Accueil-Bienvenue`, `E1-Accueil-Conditions`) : 2 s aussi ? Question posée dans le fil du 02/11. | toi | — | — | à trancher |
+| 1.5 | **Tenue du slogan sur les trois autres planches** au même réglage (`E1-Ouverture-Arbre-Reduit`, `E1-Accueil-Bienvenue`, `E1-Accueil-Conditions`) : 2 s aussi ? Question posée dans le fil du 02/11. | toi | — | — | **fait le 02/11** : « oui passe les à 2s » |
 | 1.6 | **Numéroter les décisions des 01 et 02/11** (218 et suivantes) dans la note de reprise, d'après le journal. L'étape 8 en a besoin (§4). | Claude, sur ton accord | 0,5 h | — | à trancher |
 
 ---
