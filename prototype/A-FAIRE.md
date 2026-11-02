@@ -82,7 +82,7 @@ Régler tout de suite les quelques points qui bloquent ou qui pressent (§1). Pu
 
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
-| 2.7 | Valider le lien vers la fiche « Toilette des seins » (`PR-1.7`). Il est publié depuis le 02/11, sur le verdict du gel douche et dans « Bonnes pratiques ». Coche-le si ton « ok » du 02/11 valait validation. | toi | 0,5 h | — | à confirmer |
+| 2.7 | Valider le lien vers la fiche « Toilette des seins » (`PR-1.7`). Il est publié depuis le 02/11, sur le verdict du gel douche et dans « Bonnes pratiques ». Coche-le si ton « ok » du 02/11 valait validation. | toi | 0,5 h | — | **validé le 02/11, à éprouver au test** : « oui vaut validation à éprouver lors de tests » ; la coche de `PR-1.7` est à toi (planning) ; le test hors cible le met à l'épreuve (2.10 : une tâche sur ce lien) |
 | 2.8 | **Nouveau. La version de test.** Forme choisie le 02/11 : « un lien à envoyer avec le prototype comme s'ils avaient téléchargé l'application. navigation libre + menu ou on peut séléctionner des chemins critiques qu'on veut tester absolument » ; puis « une page hmtl plein écran » « + possibilité de mettre des commentaires » ; le menu des chemins est visible des testeurs (« oui »). Proposition de Claude : une page web plein écran publiée sur claude.ai (pas un canevas), construite par un script à partir des sources du dépôt, sans étiquettes de prototype, avec le menu des chemins et un bouton « Commenter cet écran » qui ouvre la boîte de commentaires de claude.ai, rattachée à l'écran affiché. À trancher : la liste des chemins (tu y réfléchis), l'écran de départ, le partage (qui peut ouvrir et commenter : à vérifier dans le menu « Partager » sur une première version privée). Captures avant toute publication partagée (R6). | toi, puis Claude | ? | 2.6 (les phrases) | forme choisie ; chemins en réflexion |
 
 ### 2.3 Le test lui-même, du 16/11 au 18/01
@@ -90,7 +90,7 @@ Régler tout de suite les quelques points qui bloquent ou qui pressent (§1). Pu
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
 | 2.9 | Recruter cinq personnes hors cible (`PR-2.2`) | toi | 1 h | — | **fait le 02/11** : 2 hommes, 3 femmes |
-| 2.10 | Préparer les tâches et les critères, selon le protocole du 20/10, dont une tâche sur le lien de la troisième voie du savon (`PR-2.1`) | Claude | 1 h | 2.5 | à faire |
+| 2.10 | Préparer les tâches et les critères, selon le protocole du 20/10, dont une tâche sur le lien de la troisième voie du savon (`PR-2.1`) ; ce lien est celui de la fiche « Toilette des seins », validé le 02/11 sous réserve du test (2.7) | Claude | 1 h | 2.5 | à faire |
 | 2.11 | Valider la préparation (`PR-2.3`) | toi | 2 h | 2.8, 2.10 | à faire |
 | 2.12 | Passer les cinq tests (`PR-2.4`) | toi | 5 h | 2.9, 2.11 | à faire |
 | 2.13 | Analyser les résultats (`PR-2.5`) | Claude | 1 h | 2.12 | à faire |
