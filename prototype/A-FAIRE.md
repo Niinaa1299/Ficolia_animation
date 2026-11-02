@@ -52,6 +52,7 @@ Régler tout de suite les quelques points qui bloquent ou qui pressent (§1). Pu
 | 2.3 | Vérifier la phrase du niveau 2 sur le chemin du seul parfum (`CT-1.3`) | Claude | 0,5 h | 2.2 | à faire |
 | 2.4 | Spécifier la mention « ce que ça change » (`CT-1.4`, `T-528`) | Claude | 1 h | 2.2 | à faire |
 | 2.5 | Relire l'ensemble et le figer pour le test (`CT-1.5`) | toi | 2 h | 2.3, 2.4 | à faire |
+| 2.5a | **Nouveau. Reformuler les mentions de la ligne allaitement et leurs explications** (« ne sont toujours pas clair pour un user tiers », fils `111f9ffa` et `8b340b1d`, 02/11). Deux pistes pour les cases (A : « sujet · état » en mots courants ; B : une phrase par case) et des explications nouvelles (la situation concrète, puis ce que le verdict en fait), proposées dans les fils le 02/11. Ensuite : Claude les pose sur les 13 planches de verdict et dans les listes d'ingrédients, captures avant publication. Textes « Proposition », provisoires jusqu'à `T-604`, à relire par la toxicologue. | toi, puis Claude | ? | — | **à choisir** |
 | 2.6 | **Nouveau.** Reporter les phrases figées dans les planches de verdict, grossesse et allaitement, et leurs copies (règle R2) | Claude | ? | 2.5 | à faire |
 
 ### 2.2 Ce que le prototype doit offrir pour le test
@@ -91,7 +92,7 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 | 3.7 | Fil `0bf17029` (« la phrase est mal formulée », `EA-Verdict-Lait-Sous`) : de quelle phrase s'agit-il ? | inventaire du 02/11 | à préciser |
 | 3.8 | Panneau « source » du verdict (« pas intuitif, pas joli », fil `b89f1c0b`) : veux-tu des idées de disposition ? Claude les décrit d'abord, sans rien construire. | inventaire du 02/11 | à trancher |
 | 3.9 | Le signal poitrine : `D-273` contre le cap de l'accueil (§2) | journal du 22/10 | à trancher |
-| 3.10 | La police du logo : nom, source, licence (`T-558`) | fil `2c39b9fd` | tu cherchais |
+| 3.10 | La police du logo : nom, source, licence (`T-558`, `T-636`) | fil `2c39b9fd` ; ta réponse du 02/11 (fil `0940e8c9`) | **répondu le 02/11** : 29LT Riwaya Informal, sous licence ; gardée pour le prototype ; une police gratuite à trouver pour le lancement (§6) |
 | 3.11 | **Le plan de l'audit du 18/10.** À trier : ses huit actions P1 « avant les tests ». (1) nommer sur le verdict ce qui détermine le niveau ; (2) les textes des niveaux 2 à 4 (toxicologue, juriste) ; (3) le moment « je l'ai déjà utilisé » ; (4) un écran « Réaction » ; (5) « À propos » et « Méthode » ; (6) le langage courant ; (7) supprimer les impasses de l'étape 3 ; (8) la version de test (tâche 2.8). Certaines ont avancé depuis (par exemple la fusion d'« À propos » et de « Méthode », décisions 206 et 207), mais leur état n'a pas été vérifié une à une. | note du 21/10, plan de l'audit | sans réponse depuis le 21/10 |
 
 ### 3.2 Valider les étapes 5 à 7
@@ -170,6 +171,7 @@ Scénario central du planning : juillet à septembre 2027.
 
 ## 6. Hors du prototype, à garder en tête
 
+- **La police du logo** (02/11) : 29LT Riwaya Informal, sous licence, gardée pour le prototype ; une police gratuite à trouver pour le lancement, ou une licence à acheter (`T-636`). Changer de police, c'est changer le lettrage du logo : la révélation, les vidéos d'ouverture exportées et les maquettes du récit et du site seraient à refaire. Aucun fichier de la police n'est dans le dépôt ni sur le canevas (vérifié le 02/11).
 - **Le récit de la figue** (`PASSATION.md`) : l'écran de chargement court des lancements suivants, à proposer ; la chair de la figue jusqu'à la queue, à étendre ou non ; les choix des 22 et 29/10, à inscrire dans le cap de l'accueil.
 - **Le site vitrine** : il attend tes réponses et ton feu vert.
 - **Les relectures** : la toxicologue (calendrier `D-310`, premier envoi le 23/11), la juriste, les phrases des niveaux (`D-105`).
@@ -186,7 +188,7 @@ Scénario central du planning : juillet à septembre 2027.
 >    - PR-1.6 (troisième voie du savon publiée le 02/11) ;
 >    - PR-1.7 (si mon « ok » vaut validation) ;
 >    - PR-3.5 (échelle : décision 213, 30/10).
-> 3. Tranché : tenue du slogan à 2 s (02/11).
+> 3. Tranché : tenue du slogan à 2 s (02/11). Police du logo : 29LT Riwaya Informal, sous licence, gardée pour le prototype ; une gratuite à trouver pour le lancement (T-636, T-558). Mentions de la ligne allaitement et leurs explications : à reformuler (propositions du 02/11, choix attendu).
 > 4. Sous-tâches à ajouter :
 >    - en CT-1 ou PR-2, reporter les phrases figées dans les planches (Claude) ;
 >    - en PR-2, une version de test sans étiquettes de prototype ;
