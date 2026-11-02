@@ -28,7 +28,7 @@ Régler tout de suite les quelques points qui bloquent ou qui pressent (§1). Pu
 
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | **Données d'un tiers dans le dépôt public.** Le dépôt GitHub est public. L'identifiant de compte de la personne extérieure (ses propres commentaires des 14 au 17/10 ; ses retours des 23 et 24/10 ont été rapportés depuis ton compte) y figure en clair : 22 fois dans `propositions/2026-10-22-reprise/fils-ouverts.md`, une fois dans `propositions/2026-10-31-hors-canevas/reponses-commentaires.md`, et dans l'historique (commits `fa0c968`, `cd81eea`). Plusieurs fichiers citent aussi ses commentaires, sans son identifiant, dont l'inventaire du 02/11 (ajouté par Claude, qui aurait dû te le signaler avant). Le planning posait la question dès le 31/10 (RGPD, art. 33) : « à apprécier sans attendre le rendez-vous de la juriste ». **À trancher par toi** : passer le dépôt en privé (réglage GitHub, que toi seule peux changer) ; retirer l'identifiant et les citations des fichiers actuels (Claude, sur ton accord ; l'historique les garde) ; demander l'avis de la juriste. | toi | ? | — | à trancher |
+| 1.1 | **Données d'un tiers dans le dépôt public** : réglé le 02/11. La porteuse a eu l'autorisation (« on s'en fiche. j'ai eu l'autorisation. ») ; rien à retirer. | toi | — | — | **réglé** |
 | 1.2 | **Mettre le planning à jour.** Le canevas de référence de PR-1 est maintenant le canevas de travail (depuis le 01/11). La question « Canevas refusé à Claude » est réglée. Coches proposées au §7. | toi (Claude prépare le message, §7) | 0,25 h | — | message prêt |
 | 1.3 | **Fermer les fils réglés de l'ancien canevas** (`PR-1.2`). Inventaire : `propositions/2026-11-02-commentaires-ancien-canevas/fils-ancien-canevas.md`. 26 fils ouverts non envoyés à Claude : c'est toi qui les fermes, sur la page. 4 fils envoyés à Claude : `6c55f949` (réglé le 01/11) et `778d3ee5` (réglé le 02/11, tenue de 2 s), Claude y répond puis les ferme si tu le demandes ; `2c39b9fd` (police 29LT Riwaya) : capture ou abandon ; `3355a2cf` (question de la personne extérieure du 17/10) : y répondre ou non. | toi, Claude | 4 h | 1.1 pour `3355a2cf` | à faire |
 | 1.4 | **Supprimer les trois planches marquées « À SUPPRIMER »** : `E3-Scan-Avant`, `E6-APropos`, `E6-BonnesPratiques`. Tu les supprimes sur la page, ou tu me le dis (R6). | toi | 0,1 h | — | à trancher |
@@ -60,13 +60,13 @@ Régler tout de suite les quelques points qui bloquent ou qui pressent (§1). Pu
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
 | 2.7 | Valider le lien vers la fiche « Toilette des seins » (`PR-1.7`). Il est publié depuis le 02/11, sur le verdict du gel douche et dans « Bonnes pratiques ». Coche-le si ton « ok » du 02/11 valait validation. | toi | 0,5 h | — | à confirmer |
-| 2.8 | **Nouveau. Une version de test**, sans étiquettes de prototype et avec un parcours réaliste (audit du 18/10, action P1). Aujourd'hui, 169 planches sur 191 ont un réglage qui masque les statuts de texte, et 93 contiennent des mentions « [Prototype : … ] », dont une partie n'est peut-être pas couverte par ce réglage (non vérifié une à une). À trancher : comment les cinq personnes verront le prototype (sur ton appareil, en mode lecture du canevas ; ou un lien en lecture seule, sans droit d'écriture hors de l'organisation, R4), et sous quelle forme (une page « Test » faite de copies réglées, ou les réglages des planches existantes changés avant chaque séance). Une proposition se montre d'abord en captures (R6). | toi, puis Claude | ? | 2.6 | à trancher |
+| 2.8 | **Nouveau. La version de test.** Forme choisie le 02/11 : « un lien à envoyer avec le prototype comme s'ils avaient téléchargé l'application. navigation libre + menu ou on peut séléctionner des chemins critiques qu'on veut tester absolument ». Proposition de Claude (02/11, à valider) : un artefact à part, privé tant que tu ne le partages pas, construit par un script à partir des sources du dépôt (donc refait après chaque changement), sans étiquettes de prototype, avec le menu des chemins critiques. À trancher : la liste des chemins, qui voit le menu, l'écran de départ, le mode de partage. Captures avant toute publication (R6). | toi, puis Claude | ? | 2.6 (les phrases) | forme choisie ; proposition à valider |
 
 ### 2.3 Le test lui-même, du 16/11 au 18/01
 
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
-| 2.9 | Recruter cinq personnes hors cible (`PR-2.2`). Planning : semaine du 16/11. | toi | 1 h | — | **peut commencer** |
+| 2.9 | Recruter cinq personnes hors cible (`PR-2.2`) | toi | 1 h | — | **fait le 02/11** : 2 hommes, 3 femmes |
 | 2.10 | Préparer les tâches et les critères, selon le protocole du 20/10, dont une tâche sur le lien de la troisième voie du savon (`PR-2.1`) | Claude | 1 h | 2.5 | à faire |
 | 2.11 | Valider la préparation (`PR-2.3`) | toi | 2 h | 2.8, 2.10 | à faire |
 | 2.12 | Passer les cinq tests (`PR-2.4`) | toi | 5 h | 2.9, 2.11 | à faire |
@@ -182,18 +182,24 @@ Scénario central du planning : juillet à septembre 2027.
 ## 7. Message à coller dans la conversation du planning
 
 > Mise à jour du 02/11 (session du prototype) :
-> 1. Canevas de référence (PR-1) : depuis le 01/11, le travail se fait sur un canevas neuf, « ficolia - prototype_vTravail », https://claude.ai/artifact/FB6cC6xawyir9Y1QwCYosb, reconstruit depuis les exports. Claude le lit et le modifie. L'original, « Ficolia — Prototype », est gardé comme archive, avec ses commentaires. La question « Canevas refusé à Claude » est réglée ; `D-312` est à annoter de nouveau.
-> 2. Faits, à cocher si je les accepte :
->    - PR-1.3 (réponses préparées le 31/10, inventaire des 139 fils le 02/11) ;
->    - PR-1.5 (« Crevasses » : première lecture, 02/11) ;
->    - PR-1.6 (troisième voie du savon publiée le 02/11) ;
->    - PR-1.7 (si mon « ok » vaut validation) ;
->    - PR-3.5 (échelle : décision 213, 30/10).
-> 3. Tranché : tenue du slogan à 2 s (02/11). Police du logo : 29LT Riwaya Informal, sous licence, gardée pour le prototype ; une gratuite à trouver pour le lancement (T-636, T-558). Mentions de la ligne allaitement et leurs explications : à reformuler (propositions du 02/11, choix attendu).
+> 1. Canevas de référence (PR-1) : depuis le 01/11, le travail se fait sur un canevas neuf, « ficolia - prototype_vTravail » (https://claude.ai/artifact/FB6cC6xawyir9Y1QwCYosb), reconstruit depuis les exports. Claude le lit et le modifie. L'original, « Ficolia — Prototype », reste en archive avec ses commentaires (139 fils, dont 30 ouverts, inventoriés le 02/11). La question « Canevas refusé à Claude » est réglée ; D-312 est à annoter de nouveau.
+> 2. Faits, à cocher :
+>    - PR-1.3 : réponses aux commentaires préparées (31/10), inventaire des 139 fils de l'original (02/11) ;
+>    - PR-1.5 : déclencheur du renvoi « Crevasses », première lecture (02/11) ;
+>    - PR-1.6 : troisième voie du savon prototypée et publiée (02/11) ;
+>    - PR-1.7 : le lien de la troisième voie, si mon « ok » du 02/11 vaut validation ;
+>    - PR-2.2 : cinq personnes hors cible recrutées, 2 hommes et 3 femmes (02/11) ;
+>    - PR-3.5 : échelle choisie, l'arc sans aiguille (décision 213, 30/10 ; reste sa taille).
+> 3. Tranché le 02/11 :
+>    - tenue du slogan à 2 s ;
+>    - police du logo : 29LT Riwaya Informal, sous licence, gardée pour le prototype ; une police gratuite à trouver pour le lancement (T-636, T-558) ;
+>    - dépôt public et données de la personne extérieure : j'ai eu l'autorisation ; la question du 31/10 est close ;
+>    - forme du test hors cible (PR-2) : un lien à envoyer, qui ouvre le prototype comme une application téléchargée, en navigation libre, avec un menu pour lancer les chemins critiques à tester.
 > 4. Sous-tâches à ajouter :
->    - en CT-1 ou PR-2, reporter les phrases figées dans les planches (Claude) ;
->    - en PR-2, une version de test sans étiquettes de prototype ;
->    - en PI, la question des données d'un tiers dans le dépôt public (à trancher sans attendre).
+>    - CT-1 ou PR-2 : reporter les phrases figées dans les planches (Claude) ;
+>    - PR-2 : construire la version de test (Claude), puis la valider (moi) ;
+>    - CT ou PR-2 : reformuler les mentions de la ligne allaitement et leurs explications (propositions du 02/11, choix attendu) ;
+>    - PR-3 : choisir la formulation du verdict « à actualiser » et la durée de l'encadré « réévalué » (propositions du 02/11).
 
 ---
 

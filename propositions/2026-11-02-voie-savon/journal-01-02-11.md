@@ -65,6 +65,9 @@ Les commits `23c0a20` et `a3c25f0` sont datés à tort « 03/11 » dans leur mes
 | « Rechercher · aucun résultat » : la figue de l'état « produit inconnu » (la cagette vide, image fixe validée le 12/10) en filigrane sous le message, décorative, sans animation ; réglage « ton chaud » (par défaut), « couleurs atténuées », « aucun » ; seule `E2-Recherche-Aucun` (version 37) | « image en arrière plan en filigrane de la figue : soit celle décidée en image fixe de la figue qui n'a pas trouvé le produit ou (en attendant) le logo en filigrane » (fil `99641baa`) | `f8ffb55` |
 | Verdict « à actualiser » : « les données » expliqué (le verdict enregistré sur le téléphone, `D-91`, `T-511`), deux formulations proposées ; choix attendu | « "Les données" c'est à dire ? la liste INCI ou les études scientifique ? » (fil `a5b20715`) | — |
 | Encadré « réévalué » : durée non fixée au registre (`D-282`) ; trois possibilités proposées, la première recommandée ; choix attendu | « Durée d'afficage de cet encadré ? apparaît seulement une fois à la première consultation ? » (fil `19560b13`) | — |
+| Dépôt public et données de la personne extérieure : sans objet, la porteuse a eu l'autorisation | « on s'en fiche. j'ai eu l'autorisation. » | — |
+| Forme du test hors cible : un lien à envoyer, le prototype comme une application téléchargée, navigation libre et un menu des chemins critiques à tester | « j'avais imaginé un lien à envoyer avec le prototype comme s'ils avaient téléchargé l'application. navigation libre + menu ou on peut séléctionner des chemins critiques qu'on veut tester absolument. » | — |
+| Recrutement du test hors cible fait : cinq personnes, 2 hommes et 3 femmes (`PR-2.2`) | « C'est fait : 2 hommes, 3 femmes hors cible » | — |
 | La porteuse vérifie elle-même que les commentaires de l'ancien canevas sont tous traités | « je dois aussi vérifier les commentaires sur l'original si tout a été traité » | — |
 
 **Limites** :
