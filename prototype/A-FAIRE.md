@@ -11,7 +11,6 @@ Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin d'après-mid
 **Ce qui attend tes réponses** (rien n'est posé avant ton choix). Le texte exact de chaque proposition est dans `propositions/2026-11-02-fils-canevas-travail/propositions.md` :
 - les mentions de la ligne allaitement, piste A ou B, et leurs explications (2.5a ; fils `111f9ffa`, `8b340b1d`) ;
 - « Les données » du verdict à actualiser, A ou B (3.6a ; fil `a5b20715`) ;
-- la durée de l'encadré « réévalué », 1, 2 ou 3 (3.2 ; fil `19560b13`) ;
 - le filigrane « aucun résultat » : la version à garder, et son report sur les autres planches de recherche (3.6 ; fil `99641baa`) ;
 - la tenue du slogan sur les trois autres planches (1.5 ; fil `b2bd2428`) ;
 - les chemins critiques de la version de test, et ton accord pour la construire (2.8 ; `propositions/2026-11-02-version-de-test/proposition.md`) ;
@@ -110,7 +109,7 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 | N° | Question | D'où elle vient | État |
 | --- | --- | --- | --- |
 | 3.1 | « Icône verdict allaitement » (31/10) : qu'est-ce qui doit changer ? | note du 31/10, §5.2 | à trancher |
-| 3.2 | L'encadré « réévalué » : combien de temps ? Trois possibilités proposées le 02/11 (fil `19560b13`) : (1) à la première ouverture seulement, recommandée ; (2) jusqu'à ce qu'on le ferme ; (3) un nombre de jours, déconseillé. | fil `907c529c` ; décision 200 ; `D-282` | à choisir |
+| 3.2 | L'encadré « réévalué » : combien de temps ? Trois possibilités proposées le 02/11 (fil `19560b13`) : (1) à la première ouverture seulement, recommandée ; (2) jusqu'à ce qu'on le ferme ; (3) un nombre de jours, déconseillé. | fil `907c529c` ; décision 200 ; `D-282` | **tranché le 02/11** : possibilité 1 (« on garde la 1 », fil `19560b13`) |
 | 3.3 | La phrase de la bulle de l'échelle : trois propositions, au réglage de `E1-Aide-Echelle` | fil `8192aeeb` | à choisir |
 | 3.4 | La taille de l'arc (76 × 40 px) : assez grande ? Plus grand, il faut accepter que le nom du produit passe à la ligne, ou déplacer l'arc | fils `92b44169`, `d9867524` | à trancher |
 | 3.5 | Décisions 206 à 209 : ton « ok, go etape 7 » valait-il accord ? | note du 31/10, §5.2 | à confirmer |
@@ -225,7 +224,7 @@ Scénario central du planning : juillet à septembre 2027.
 >    - CT-1 ou PR-2 : reporter les phrases figées dans les planches (Claude) ;
 >    - PR-2 : construire la version de test (Claude), puis la valider (moi) ;
 >    - CT ou PR-2 : reformuler les mentions de la ligne allaitement et leurs explications (propositions du 02/11, choix attendu) ;
->    - PR-3 : choisir la formulation du verdict « à actualiser » et la durée de l'encadré « réévalué » (propositions du 02/11).
+>    - PR-3 : choisir la formulation du verdict « à actualiser » (proposition du 02/11) ; la durée de l'encadré « réévalué » est tranchée (possibilité 1, 02/11).
 
 ---
 

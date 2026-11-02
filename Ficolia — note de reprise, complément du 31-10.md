@@ -106,7 +106,7 @@ Le détail des effets sur le registre est dans `propositions/2026-10-31-hors-can
 | 197 | Vérification globale des liens, en fin de revue | 29/10 | à faire | demandée de nouveau le 31/10 (§36) |
 | 198 | Signalement « Ce n'est pas le bon produit » : nom et marque du bon produit obligatoires, photos facultatives | 29/10 | version 402 | nouveau. Limite : qui ne peut lire ni le nom ni la marque ne peut plus signaler cette erreur |
 | 199 | « C'est noté » (e-mail enregistré) reçoit l'animation « La figue s'incline » | 29/10 | version 402 | nouveau ; la même figue sert à deux confirmations |
-| 200 | L'encadré « Ce produit a été réévalué. » passe sur une ligne, à la même place | 30/10 | version 403 | conforme à `D-282`. Durée, première ouverture seulement : proposition de Claude, à confirmer |
+| 200 | L'encadré « Ce produit a été réévalué. » passe sur une ligne, à la même place | 30/10 | version 403 | conforme à `D-282`. Durée, première ouverture seulement : proposition de Claude, **confirmée par la porteuse le 02/11** (« on garde la 1 », fil `19560b13`) |
 | 201 | Recherche sans connexion : « En attendant, vous pouvez scanner : si le produit ne s'affiche pas, votre scan est gardé. Le résultat s'affichera dans l'historique au retour de la connexion. » | 30/10 | version 403 | — |
 | 202 | Les quatre choix de construction du 08/10 (étape 5) sont confirmés | 30/10 | version 403, note `etatE5` | — |
 | 203 | Chaque fiche « Bonnes pratiques » porte le rappel général, là où son texte en a besoin | 30/10 | version 406, sur la fiche « Crevasses » | cinquième endroit pour `D-114` (C8), que permet `O-27` ; revient sur la construction de la décision 155 |
@@ -212,7 +212,7 @@ Dans cet ordre, d'après le journal (§34 à §39), avec les règles de la porte
 ### 5.2 Questions qui attendent la porteuse
 
 1. **« Icône verdict allaitement »** (31/10) : que faut-il changer ? (§36)
-2. **Durée de l'encadré « réévalué »** (200) : la marque ne paraîtrait qu'à la première ouverture du verdict après le changement. Proposition de Claude, à confirmer (§24).
+2. **Durée de l'encadré « réévalué »** (200) : la marque ne paraîtrait qu'à la première ouverture du verdict après le changement. Proposition de Claude, **confirmée le 02/11** (« on garde la 1 », fil `19560b13`).
 3. **Phrase de la bulle de l'échelle** : trois propositions (§14). L'image des niveaux étant arrêtée (213), il reste à choisir.
 4. **Taille de l'arc** : 76 × 40 px, la plus grande qui ne déplace rien à l'écran. Pour un arc plus grand, il faut accepter le retour à la ligne du nom, ou déplacer l'arc. À trancher si c'est trop petit, notamment au regard du « rapport de taille » du fil `92b44169` (§34).
 5. **Décisions 206 à 209** : « ok, go etape 7 » a été lu comme un accord. La lecture a été signalée à la porteuse ; sa réponse n'est pas connue (§27).

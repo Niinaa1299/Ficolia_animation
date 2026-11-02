@@ -14,7 +14,7 @@ Tous les textes nouveaux ci-dessous sont des **propositions** (`FICOLIA_DESIGN.m
 | `8b340b1d` | `EA-Ingredients-Spray-Mention` (trace du 17/10) | « Les explications aux mentions sont aussi à reformuler car pas comprise du premier coup par un user tiers. » | **choix attendu** : explications du §2, et deux points à trancher |
 | `99641baa` | `E2-Recherche-Aucun` | « image en arrière plan en filigrane de la figue : soit celle décidée en image fixe de la figue qui n'a pas trouvé le produit ou (en attendant) le logo en filigrane » | **fait** : version 37, commit `f8ffb55`. Choix attendu : la version de l'image ; le report sur les quatre autres planches de recherche (§3) |
 | `a5b20715` | `E3-Verdict-ActualiserHorsLigne` | « "Les données" c'est à dire ? la liste INCI ou les études scientifique ? » | **choix attendu** : formulation A ou B (§4) |
-| `19560b13` | `E5-Verdict-Reevalue` | « Durée d'afficage de cet encadré ? apparaît seulement une fois à la première consultation ? » | **choix attendu** : possibilité 1, 2 ou 3 (§5) |
+| `19560b13` | `E5-Verdict-Reevalue` | « Durée d'afficage de cet encadré ? apparaît seulement une fois à la première consultation ? » | **tranché le 02/11** : possibilité 1, « on garde la 1 » (§5) |
 
 ## 1. Les mentions de la ligne allaitement (fil `111f9ffa`)
 
