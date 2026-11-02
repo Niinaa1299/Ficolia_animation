@@ -22,7 +22,7 @@ Les maquettes sont dans `maquettes/` ; `outils/apercu.py` les réunit en un seul
 
 ### R1. Au début de chaque séance, vérifier l'accès au canevas, sans rien modifier
 
-Avant tout travail, lire la liste des fichiers du canevas de travail (`list_files` sur son identifiant) et dire à la porteuse, en une ligne, si la lecture passe. Si elle est refusée : ne rien publier, continuer dans le dépôt seul, et le dire clairement. Ce contrôle existe parce que l'ancien canevas est devenu illisible sans prévenir.
+Avant tout travail, lire la liste des fichiers du canevas de travail (outil « Artifact » : `action: list`, `scope: files`, sur son adresse) et dire à la porteuse, en une ligne, si la lecture passe. Si elle est refusée : ne rien publier, continuer dans le dépôt seul, et le dire clairement. Ce contrôle existe parce que l'ancien canevas est devenu illisible sans prévenir.
 
 ### R2. Toute modification d'une planche passe par le dépôt avant le canevas
 
@@ -36,7 +36,7 @@ Rien n'est publié qui ne soit pas d'abord dans le dépôt. Une nouvelle planche
 
 ### R3. Les modifications faites à la main sur la page reviennent dans le dépôt
 
-La porteuse modifie des planches directement sur la page du canevas. Au début de chaque séance, après R1, comparer les empreintes (`sha256`) des fichiers du canevas à celles du dépôt ; pour chaque fichier différent, lire la version du canevas et l'enregistrer dans le dépôt avant toute autre chose. Une publication refusée pour conflit signifie la même chose : relire d'abord, publier ensuite. On n'écrase jamais une modification de la porteuse.
+La porteuse modifie des planches directement sur la page du canevas. Au début de chaque séance, après R1, comparer les fichiers du canevas à ceux du dépôt (la liste donne les tailles ; pour les planches à ressources, comparer aux copies de `outils/preparer-publication.py`) ; pour chaque fichier différent, lire la version du canevas et l'enregistrer dans le dépôt avant toute autre chose. Une publication refusée pour conflit signifie la même chose : relire d'abord, publier ensuite. Une taille identique ne prouve pas l'absence de retouche : avant de remplacer une planche, lire sa version en ligne et la comparer à celle du dépôt. On n'écrase jamais une modification de la porteuse.
 
 ### R4. Qui écrit dans le canevas
 
@@ -52,4 +52,4 @@ Publier une planche nouvelle ou une refonte (une proposition se montre d'abord e
 
 ## Reprise
 
-La note de reprise du 21/10 (`Ficolia — note de reprise.md`, racine) et son complément du 31/10 (`Ficolia — note de reprise, complément du 31-10.md`, racine ; journaux des 22 et 29/10 dans `propositions/`) disent l'état des décisions (1 à 217), des commentaires et de ce qui reste à faire. Les planches qui manquent encore au dépôt sont listées dans `prototype/LISEZ-MOI.md`.
+La note de reprise du 21/10 (`Ficolia — note de reprise.md`, racine) et son complément du 31/10 (`Ficolia — note de reprise, complément du 31-10.md`, racine ; journaux des 22 et 29/10 dans `propositions/`) disent l'état des décisions (1 à 217), des commentaires et de ce qui reste à faire. Depuis le 02/11, il ne manque plus aucune planche au dépôt ; l'état du prototype, l'usage de l'outil « Artifact » et la portée du contrôle R3 sont en tête de `prototype/LISEZ-MOI.md`. Les choix des 01 et 02/11 : `propositions/2026-11-02-voie-savon/journal-01-02-11.md`.

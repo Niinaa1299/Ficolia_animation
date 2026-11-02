@@ -132,7 +132,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #4C29
 <script type="text/x-dc" data-dc-script="" data-props="{&quot;cas&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Lait corps nourrissant&quot;,&quot;Spray solaire corps&quot;,&quot;Gel douche surgras&quot;,&quot;Baume apaisant mamelons&quot;],&quot;default&quot;:&quot;Spray solaire corps&quot;,&quot;section&quot;:&quot;Produit d'exemple&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
 class Component extends DCLogic {
   renderVals() {
-    // Écran produit de l'étude de la ligne allaitement : la ligne Allaitement mène au verdict d'étude (le parcours principal garde l'écran d'attente).
+    // Écran produit de l'étude de la ligne allaitement : la ligne Allaitement mène au verdict d'étude. Le parcours principal a le sien depuis la décision 217 (31/10).
     var CAS = ['Lait corps nourrissant', 'Spray solaire corps', 'Gel douche surgras', 'Baume apaisant mamelons'];
     var KEYS = ['Lait', 'Spray', 'Gel', 'Baume'];
     var D = {

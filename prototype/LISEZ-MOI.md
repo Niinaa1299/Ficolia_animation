@@ -2,6 +2,20 @@
 
 Note du 31/10/2026. Ce dossier reconstitue, dans le dépôt, les sources des écrans du canevas « Ficolia — Prototype » (claude.ai, type Design), à partir des exports « HTML modifiable, page par page » que la porteuse fait depuis la page du canevas.
 
+## État au 02/11 (à lire d'abord ; la suite décrit la reconstitution du 31/10)
+
+- **Le canevas de travail** est « ficolia - prototype_vTravail », https://claude.ai/artifact/FB6cC6xawyir9Y1QwCYosb (voir `CLAUDE.md`, règles R1 à R6). L'ancien canevas est une archive.
+- **Toutes les planches sont reprises** : 190 sur le canevas comme dans `sources/project/`. Il n'en manque aucune, sauf celles que la porteuse a décidé de ne pas reprendre (les 8 anciennes de l'étape 1, et Main, A à D).
+- **L'index `sources/project/canvas.json` est celui du canevas.** Il a été relu en ligne et enregistré à l'octet près le 02/11 (R3). Ce n'est plus une recomposition : dispositions, titres et noms de pages sont ceux de la page.
+- **Le lien cassé vers `EA-Verdict-Lait`** est réparé depuis le 01/11 (`ec3ac5d`). Le 02/11, aucun lien de planche ne pointe vers une planche absente.
+- **Les ressources** (vidéos, images) sont dans la réserve du canevas. `sources/blobs.json` donne leurs adresses, et `../outils/preparer-publication.py` réécrit les chemins `assets/…` en `/_blob/…` pour la publication.
+- **Lire et publier depuis Claude Code** passe par l'outil intégré « Artifact » (l'ancien serveur `claude-artifacts` n'est plus branché) :
+  - lister les fichiers : `action: list`, `scope: files`, `url` du canevas. La liste donne les **tailles**, pas les empreintes ;
+  - lire un ou plusieurs fichiers : `action: read`, `url`, `path` ou `paths`, `out_dir` dans le dossier de travail. La lecture donne l'empreinte sha256 ;
+  - publier : `url`, `root: <dépôt>/prototype/sources` (ou le dossier de `preparer-publication.py`), `file_path` (chemin **absolu** d'un des fichiers), `files: {"project/X": "project/X"}`. L'outil refuse de publier sur une version qu'on n'a pas lue : faire d'abord un `read`.
+- **Ce que vaut le contrôle R3** : comparer les tailles de la liste repère les retouches de la porteuse, sauf celles qui ne changent pas la longueur d'un fichier. Avant de remplacer une planche, lire sa version en ligne et comparer son contenu (fait depuis le 02/11, après une publication du 02/11 qui ne l'avait pas fait : voir `propositions/2026-11-02-voie-savon/journal-01-02-11.md`).
+- **Les commentaires** restent sur l'ancien canevas, illisible depuis Claude Code. Le canevas de travail n'en a pas hérité.
+
 ## Pourquoi
 
 Depuis le 31/10, aucune session Claude Code ne peut lire ni modifier les fichiers du canevas : le serveur d'artefacts refuse tout canevas « dans lequel quelqu'un hors de l'organisation a écrit », et c'est le cas ici depuis la passation du 22/10 (un compte d'une autre organisation a publié les versions 280 à 342 ; voir `Ficolia — note de reprise, complément du 31-10.md`, branche `claude/relaxed-noether-g2fdj1`, §1). Dupliquer le canevas depuis sa page hérite de ce refus (vérifié le 31/10). L'outil « Artifact » qui passait outre est coupé depuis le 31/10.
@@ -51,16 +65,16 @@ node outils/rendre.mjs prototype/captures/<nom-court> prototype/sources/project/
 
 - Pages déballées : étape 1 sans animation (16), étape 2 (12), étape 6 (16), étape 7 (5), ligne allaitement (25). Sans écart : chaque source a sa ligne `support.js`, son `<x-dc>` et son bloc `data-dc-script` ; aucun identifiant d'export restant ; 3 ressources extraites (la vidéo « la figue s'incline », mp4 et webm, et sa dernière image, partagées par les quatre écrans « Nous écrire »).
 - Rendu local des 74 sources reconstituées sans erreur de page. Pour l'étape 1, comparé pixel à pixel aux captures de l'export (même moteur, échelle 2) : 0 % de pixels franchement différents (écart > 128/255) sur chaque écran ; 1 à 3 % d'écarts faibles (> 40/255), dus à l'anticrénelage, la capture de l'export passant par une iframe décalée d'un demi-pixel.
-- Un lien cassé constaté dans les sources (donc sur le canevas) : les écrans produit et ingrédients de la ligne allaitement pointent vers `EA-Verdict-Lait`, planche écartée et retirée depuis ; la vérification globale des liens (décision 197) est encore à faire.
+- Un lien cassé constaté dans les sources (donc sur le canevas) : les écrans produit et ingrédients de la ligne allaitement pointent vers `EA-Verdict-Lait`, planche écartée et retirée depuis (réparé le 01/11) ; la vérification globale des liens (décision 197) est encore à faire.
 
 ## Limites, à ne pas perdre de vue
 
 - **Les noms de fichiers sont déduits** des titres et des liens entre planches. Le bandeau de chaque planche, sur le canevas, permet de les confirmer.
-- **La disposition, les pages et les notes du canevas** ne sont pas dans l'export : `canvas.json` est une recomposition. L'archive du 22/10 (remise à la porteuse, hors dépôt) porte l'index d'alors.
+- **La disposition, les pages et les notes du canevas** ne sont pas dans l'export : `canvas.json` était une recomposition (31/10). Depuis le 02/11, c'est l'index relu sur le canevas de travail. L'archive du 22/10 (remise à la porteuse, hors dépôt) porte l'index d'alors.
 - **Le `<link>` Google Fonts** est reconstitué à partir des `@font-face` ; l'original n'est pas dans l'export.
 - **Les ressources téléversées** sont dans l'export et extraites, mais sous un nouveau nom (empreinte) et en chemin relatif : l'identifiant `/_blob/` du canevas d'origine n'est pas récupérable.
 - **Les commentaires et l'historique des versions** restent sur le canevas.
-- **Aucune comparaison octet par octet avec le canevas** n'est possible.
+- **Aucune comparaison octet par octet avec le canevas** n'était possible le 31/10. Depuis le 01/11, l'outil « Artifact » lit les fichiers du canevas de travail (voir « État au 02/11 »).
 - Le rendu local est une reconstitution : il sert à vérifier une modification, pas à remplacer le canevas.
 
 ## Rapporter dans un canevas
