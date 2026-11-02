@@ -12,7 +12,7 @@ Ce que le rapport donne :
    comparaisons ou des traces, à regarder une à une avant de conclure à un chaînon manquant ;
 4. les planches sans aucun lien sortant ;
 5. la barre d'onglets : les planches dont les cibles diffèrent des quatre onglets attendus ;
-6. les boutons sans action (sans sc-camel-on-click), hors boutons grisés (aria-disabled), par libellé ;
+6. les boutons sans action (sans sc-camel-on-click ni onClick), hors boutons grisés (aria-disabled), par libellé ;
 7. les gestionnaires appelés par un bouton mais absents du code de la planche (hors boucles item.*, h.*).
 
 Écrit le 02/11/2026 à partir de la vérification des liens faite ce jour-là (décision 197).
@@ -57,11 +57,13 @@ def main():
                 absents[c].add(n)
         for m in re.finditer(r"(<button\b[^>]*>)(.*?)</button>", s, re.S):
             tag, contenu = m.group(1), m.group(2)
-            if "sc-camel-on-click" not in tag:
+            # Deux écritures du gestionnaire : celle de l'export (sc-camel-on-click) et celle de l'éditeur de la page,
+            # qui réécrit la planche quand la porteuse la retouche à la main (onClick ; constaté le 02/11 sur E2-Recherche-Aucun).
+            if "sc-camel-on-click" not in tag and "onClick=" not in tag:
                 if 'aria-disabled="true"' not in tag:
                     sans_action[libelle(tag, contenu)].add(n[:-8])
             else:
-                h = re.search(r'sc-camel-on-click="\{\{\s*([A-Za-z_$][\w$]*)', tag)
+                h = re.search(r'(?:sc-camel-on-click|onClick)="\{\{\s*([A-Za-z_$][\w$]*)', tag)
                 if h and h.group(1) not in ("item", "h") and not re.search(r"\b" + re.escape(h.group(1)) + r"\b", script):
                     gest_absents[(libelle(tag, contenu), h.group(1))].add(n[:-8])
         nav = re.search(r'<nav aria-label="Navigation principale".*?</nav>', s, re.S)

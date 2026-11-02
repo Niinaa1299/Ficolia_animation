@@ -54,7 +54,7 @@ Régler tout de suite les quelques points qui bloquent ou qui pressent (§1). Pu
 | 1.1 | **Données d'un tiers dans le dépôt public** : réglé le 02/11. La porteuse a eu l'autorisation (« on s'en fiche. j'ai eu l'autorisation. ») ; rien à retirer. | toi | — | — | **réglé** |
 | 1.2 | **Mettre le planning à jour.** Le canevas de référence de PR-1 est maintenant le canevas de travail (depuis le 01/11). La question « Canevas refusé à Claude » est réglée. Coches proposées au §7. | toi (Claude prépare le message, §7) | 0,25 h | — | message prêt |
 | 1.3 | **Fermer les fils réglés de l'ancien canevas** (`PR-1.2`). Inventaire : `propositions/2026-11-02-commentaires-ancien-canevas/fils-ancien-canevas.md`. 26 fils ouverts non envoyés à Claude : c'est toi qui les fermes, sur la page. 4 fils envoyés à Claude : `6c55f949` (réglé le 01/11) et `778d3ee5` (réglé le 02/11, tenue de 2 s), Claude y répond puis les ferme si tu le demandes ; `2c39b9fd` (police 29LT Riwaya) : capture ou abandon ; `3355a2cf` (question de la personne extérieure du 17/10) : y répondre ou non. | toi, Claude | 4 h | 1.1 pour `3355a2cf` | à faire |
-| 1.4 | **Supprimer les trois planches marquées « À SUPPRIMER »** : `E3-Scan-Avant`, `E6-APropos`, `E6-BonnesPratiques`. Tu les supprimes sur la page, ou tu me le dis (R6). | toi | 0,1 h | — | à trancher |
+| 1.4 | **Supprimer les trois planches marquées « À SUPPRIMER »** : `E3-Scan-Avant`, `E6-APropos`, `E6-BonnesPratiques`. Tu les supprimes sur la page, ou tu me le dis (R6). | toi | 0,1 h | — | **fait le 02/11** par toi sur la page ; rapatrié dans le dépôt (R3) |
 | 1.5 | **Tenue du slogan sur les trois autres planches** au même réglage (`E1-Ouverture-Arbre-Reduit`, `E1-Accueil-Bienvenue`, `E1-Accueil-Conditions`) : 2 s aussi ? Question posée dans le fil du 02/11. | toi | — | — | **fait le 02/11** : « oui passe les à 2s » |
 | 1.6 | **Numéroter les décisions des 01 et 02/11** (218 et suivantes) dans la note de reprise, d'après le journal. L'étape 8 en a besoin (§4). | Claude, sur ton accord | 0,5 h | — | à trancher |
 
@@ -146,7 +146,7 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
 | 3.24 | La séance de design dédiée (`PR-3.6`, `T-373` : « le design est jugé moche, une session dédiée est prévue ») | toi | 4 h | 3.13 à 3.15 | à faire |
-| 3.25 | Le contrôle final (`PR-3.7`) : mots interdits, contrastes (4,5:1), cibles de 44 px, texte agrandi, mouvement réduit, liens et boutons, cohérence entre les copies d'un même gabarit, sur les 191 planches | Claude | 2 h | 3.24 | à faire |
+| 3.25 | Le contrôle final (`PR-3.7`) : mots interdits, contrastes (4,5:1), cibles de 44 px, texte agrandi, mouvement réduit, liens et boutons, cohérence entre les copies d'un même gabarit, sur les 188 planches | Claude | 2 h | 3.24 | à faire |
 | 3.26 | Valider le contrôle final (`PR-3.8`) | toi | 2 h | 3.25 | à faire |
 
 ---

@@ -586,15 +586,6 @@
       "x": 2820,
       "y": 4820
     },
-    "E3-Scan-Avant.dc.html": {
-      "h": 844,
-      "is_interactive": true,
-      "page": "etape-3a",
-      "title": "À SUPPRIMER · caméra, avant la demande (écran abandonné)",
-      "w": 390,
-      "x": 0,
-      "y": 1928
-    },
     "E3-Scan-Demande.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -1288,15 +1279,6 @@
       "x": 1880,
       "y": 0
     },
-    "E6-APropos.dc.html": {
-      "h": 844,
-      "is_interactive": true,
-      "page": "etape-6",
-      "title": "À SUPPRIMER · À propos, fusionnée avec la méthode (30/10)",
-      "w": 390,
-      "x": 1880,
-      "y": 0
-    },
     "E6-BonnesPratiques-Themes.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -1304,15 +1286,6 @@
       "title": "Bonnes pratiques · fiches rangées par thème (17/10)",
       "w": 390,
       "x": 470,
-      "y": 0
-    },
-    "E6-BonnesPratiques.dc.html": {
-      "h": 844,
-      "is_interactive": true,
-      "page": "etape-6",
-      "title": "À SUPPRIMER · Bonnes pratiques · allaitement, remplacée par les fiches par thème (17/10)",
-      "w": 390,
-      "x": 2820,
       "y": 0
     },
     "E6-CGU-Accueil.dc.html": {
@@ -1755,9 +1728,7 @@
     "E6-Fiche-Crevasses.dc.html",
     "E6-Fiche-ToiletteSeins.dc.html",
     "E6-Methode-Lexique.dc.html",
-    "E6-APropos.dc.html",
     "E6-Methode.dc.html",
-    "E6-BonnesPratiques.dc.html",
     "E6-CGU.dc.html",
     "E6-Confidentialite.dc.html",
     "E6-MentionsLegales.dc.html",
@@ -1890,7 +1861,6 @@
     "E3-Ingredients-Actualiser.dc.html",
     "E3-Produit-Rappel.dc.html",
     "E3-Ingredients-TypeNonPrecise.dc.html",
-    "E3-Scan-Avant.dc.html",
     "E3-Scan-Demande.dc.html",
     "E3-Scan-Refus.dc.html",
     "E3-Scan-Reglages.dc.html",
