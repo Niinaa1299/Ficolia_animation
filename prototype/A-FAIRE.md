@@ -2,6 +2,32 @@
 
 Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin d'après-midi**. On la met à jour à chaque séance : une tâche faite reçoit sa date et son commit, une tâche tranchée reçoit les mots de la porteuse.
 
+## 0. Reprendre ici (fin de la séance du 02/11)
+
+**État à la fin de la séance**
+- Le canevas de travail est en version 37 (`1793629912-68bf`), identique au dépôt (vérifié en fin de séance, R3). La seule retouche faite sur la page, la tenue du slogan à 2 s, est rapatriée.
+- La branche `claude/magical-mendel-cwpmji` est à jour sur GitHub.
+
+**Ce qui attend tes réponses** (rien n'est posé avant ton choix). Le texte exact de chaque proposition est dans `propositions/2026-11-02-fils-canevas-travail/propositions.md` :
+- les mentions de la ligne allaitement, piste A ou B, et leurs explications (2.5a ; fils `111f9ffa`, `8b340b1d`) ;
+- « Les données » du verdict à actualiser, A ou B (3.6a ; fil `a5b20715`) ;
+- la durée de l'encadré « réévalué », 1, 2 ou 3 (3.2 ; fil `19560b13`) ;
+- le filigrane « aucun résultat » : la version à garder, et son report sur les autres planches de recherche (3.6 ; fil `99641baa`) ;
+- la tenue du slogan sur les trois autres planches (1.5 ; fil `b2bd2428`) ;
+- les chemins critiques de la version de test, et ton accord pour la construire (2.8 ; `propositions/2026-11-02-version-de-test/proposition.md`) ;
+- les autres questions du §3.1.
+
+**Ce que la prochaine session fait d'abord**
+1. R1 et R3 : l'accès au canevas, puis les retouches faites sur la page.
+2. Lire les fils du canevas de travail (outil `ArtifactComments`, `action: read`). Si tu as répondu, appliquer tes choix (R2, captures avant publication).
+3. Sinon, ce qui ne dépend que de Claude : l'inventaire des causes (2.1, `CT-1.1`) et la préparation de l'étape 8 sur le registre v6.8 (4.1, 4.2). Puis la base technique de la version de test, si tu as donné ton accord (2.8).
+
+**Où trouver ce qui sert**
+- **Le registre v6.8** est sur `main`, pas sur la branche de travail. Pour le lire sans fusionner (une fusion demande ton accord, R6) : `git show "origin/main:mamaCARE_Registre_Projet_29_10_26_v6-8.md"`.
+- **Le planning** : page « Planning Ficolia », https://claude.ai/artifact/6LnGHNHjsMJELgzBKjCojR. Le plan est dans son fichier `plan.json` (outil « Artifact », `action: read`, `path: plan.json`). Les coches sont dans sa base (outil `ArtifactData`, `action: list`, `collection: coches`), à lire seulement : seule la porteuse coche (`D-309`).
+- **Les commentaires de l'ancien canevas** : l'inventaire du 02/11, `propositions/2026-11-02-commentaires-ancien-canevas/fils-ancien-canevas.md`.
+- **Les outils** : `outils/rendre.mjs` (rendu) ; `outils/rendre-reglage.mjs` (rendu avec un réglage imposé, et les liens présents à l'écran) ; `outils/verifier-liens.py` (audit des liens et des boutons, pour le contrôle final) ; `outils/preparer-publication.py`.
+
 ## Sur quoi elle s'appuie
 
 - **Le registre v6.8** (29/10, sur `main`), en attendant la v6.9.
