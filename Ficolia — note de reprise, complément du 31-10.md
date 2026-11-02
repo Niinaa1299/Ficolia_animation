@@ -133,7 +133,7 @@ Le détail des effets sur le registre est dans `propositions/2026-10-31-hors-can
 
 ---
 
-## 2 bis. Décisions 218 à 250 (01 et 02/11)
+## 2 bis. Décisions 218 à 251 (01 et 02/11)
 
 Numérotées le 02/11 au soir, avec l'accord de la porteuse (« oui d'accord », A-FAIRE 1.6), d'après le journal des 01 et 02/11 (`propositions/2026-11-02-voie-savon/journal-01-02-11.md`), qui garde ses mots et le détail. Ordre : par date, puis par sujet (l'heure exacte n'est pas toujours connue).
 
@@ -174,6 +174,7 @@ Ne sont pas numérotés : ce qui attend encore son choix (présentation des case
 | 248 | Ancien canevas : ne plus en tenir compte, même si des fils y restent ouverts | 02/11 | — | `PR-1.2` |
 | 249 | Taille de l'arc : 76 × 40 px, gardée (« laisse comme ça ») | 02/11 | — | précise la décision 213 |
 | 250 | Étapes 5, 6 et 7, et l'échelle : validées (« ok fait ») | 02/11 | — | `PR-3.1`, `PR-3.2`, `PR-3.3`, `PR-3.5` (coches de la porteuse) |
+| 251 | Recherche sans connexion : le champ est actif (on peut taper), et l'écran ne montre qu'un message de connexion (« Pas de connexion. Réessayez quand le téléphone sera de nouveau connecté. », Proposition), jamais « Aucun produit ne correspond… » ni l'invitation à scanner ; bouton « Effacer » quand on a tapé ; sur les cinq copies du gabarit | 02/11 | `d2e92f9` | remplace le champ grisé de la 246 ; retire par défaut le paragraphe de la décision 201 (gardé au réglage), à confirmer |
 
 ## 3. Décisions révisées ou remplacées depuis le 21/10
 

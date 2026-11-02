@@ -7,20 +7,20 @@ Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin de soirée**
 **État à la fin de la séance**
 - Le canevas de travail est en version `1793658254-4b79`, identique au dépôt (vérifié en fin de séance, R3, par les tailles des 188 planches et de l'index). La dernière retouche faite sur la page, le champ « Actif » par défaut sur `E2-Recherche-Aucun`, est rapatriée.
 - 188 planches : les trois « À SUPPRIMER » sont supprimées (1.4).
-- Décisions numérotées jusqu'à 250 (§2 bis du complément de la note de reprise).
+- Décisions numérotées jusqu'à 251 (§2 bis du complément de la note de reprise).
 - La branche `claude/magical-mendel-cwpmji` est à jour sur GitHub.
 
 **Ce qui attend tes réponses** (rien n'est posé avant ton choix ; propositions dans les fils du canevas) :
 - **les cases de la ligne allaitement** : présentation « 1 + 2 » ou « 1 + 2 + 3 », visibles au réglage « Cases : présentation » de `EA-Verdict-Baume-Jaune` (2.5a ; fil `111f9ffa`) ;
 - **les explications du volet** 3, 4, 5 et 6, nouvelles versions (2.5a ; fil `8b340b1d`) ;
 - **« Les données » du verdict à actualiser** : une formulation parmi A à F, préférence de Claude : D (3.6a ; fil `a5b20715`) ;
-- **la recherche sans connexion** : champ grisé ou actif, et l'étendre aux quatre autres copies (3.6b ; fil `99641baa`) ;
-- les autres questions encore ouvertes du §3.1 (3.7, 3.8, 3.9, 3.11) et du §3.3.
+- **la recherche sans connexion** : la formulation du message, et le retrait du paragraphe « En attendant, vous pouvez scanner… » (décision 201) à confirmer (3.6b ; réglages des 5 planches de recherche) ;
+- les autres questions encore ouvertes du §3.1 (3.8, 3.9, 3.11) et du §3.3.
 
 **Ce que la prochaine session fait d'abord**
 1. R1 et R3 : l'accès au canevas, puis les retouches faites sur la page.
 2. Lire les fils du canevas de travail (outil `ArtifactComments`, `action: read`). Si tu as répondu, appliquer tes choix (R2, captures avant publication).
-3. Sinon, ce qui ne dépend que de Claude : l'inventaire des causes (2.1, `CT-1.1`), puis le relevé des écarts au registre avec les décisions 218 à 250 (4.1) et la confrontation de l'annexe A (4.2).
+3. Sinon, ce qui ne dépend que de Claude : l'inventaire des causes (2.1, `CT-1.1`), puis le relevé des écarts au registre avec les décisions 218 à 251 (4.1) et la confrontation de l'annexe A (4.2).
 4. La version de test (2.8) attend la fin des retouches du prototype : ne pas la construire avant ton signal.
 
 **Où trouver ce qui sert**
@@ -117,10 +117,10 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 | 3.5 | Décisions 206 à 209 : ton « ok, go etape 7 » valait-il accord ? | note du 31/10, §5.2 | **confirmé le 02/11** (« oui ») |
 | 3.6 | Ta retouche de `E2-Recherche-Aucun` (29/10) : la garder ? la reporter sur les quatre autres copies ? Le filigrane est tranché le 02/11 au soir : le symbole de Ficolia, au milieu de l'espace blanc (« non juste le logo simple », version 39, commit `eac7321`) ; reste son report sur les quatre autres copies. | journal du 29/10, §18 ; fil `99641baa` | **fait le 02/11** : report sur les quatre copies (« a ») |
 | 3.6a | Le verdict « à actualiser » : « Les données de ce verdict… » est flou. Formulations A et B (02/11), puis, après ton idée InciBeauty, C à F (fil `a5b20715`). L'idée InciBeauty (drapeau orange, appareil photo, reprendre la liste en photo) répond à une liste changée, pas à un verdict trop vieux sur le téléphone, et touche quatre règles (orange = niveau 3, `D-115` D2 ; alerte, `T-512` ; placement B, `D-66`, `T-192` ; appel à l'action, `T-117`). Préférence de Claude : D, « Une mise à jour est nécessaire pour afficher un verdict pour ce produit. », sans promesse d'affichage, avec une ligne « sans connexion » qui ne promet pas de mise à jour automatique. 9 planches, et la ligne « Pas de connexion » sur 6. | fil `a5b20715` ; `D-91`, `T-511`, `T-242` | à choisir |
-| 3.6b | **Nouveau.** La recherche sans connexion (5 copies du gabarit) : la barre de recherche reste, les messages en bas (décision 246, version 64). Champ grisé et inactif par défaut (proposition de Claude) ou actif ? Tu as mis « Actif » par défaut sur `E2-Recherche-Aucun` le 02/11 au soir (rapatrié) : est-ce ton choix, à étendre aux quatre autres copies ? Si le champ est actif, que doit-il se passer quand on tape sans connexion ? | fil `99641baa` | à choisir |
-| 3.6c | **Nouveau.** « Rechercher · aucun résultat » : l'étiquette « Texte provisoire », seule en haut depuis ta retouche, vaut pour quel texte ? Une étiquette sous chaque texte, comme ailleurs ? | fil `99641baa` | à trancher (mineur) |
-| 3.6d | **Nouveau.** En texte très grand (200 %), la bulle de l'échelle (`E1-Aide-Echelle`, `E1-Aide-Info`) ne grandit pas et couvre l'arc et le nom du produit. Défaut antérieur au 02/11, relevé en vérifiant 3.3 (`T-220`, `T-559`). La corriger maintenant, ou au contrôle final (3.25) ? | captures du 02/11 | à trancher |
-| 3.7 | Fil `0bf17029` (« la phrase est mal formulée », `EA-Verdict-Lait-Sous`) : de quelle phrase s'agit-il ? | inventaire du 02/11 | à préciser |
+| 3.6b | **Nouveau.** La recherche sans connexion (5 copies du gabarit) : la barre de recherche reste, les messages en bas (décision 246). | fil `99641baa` | **tranché le 02/11** (décision 251) : « on peut taper dans la barre de recherche, mais avec juste le message "pas de connexion, réessayer dès que la connexion est de retour" (un truc dans le genre mieux formulé) pas "aucun produit ne correspond à cette recherche" car c'est factuellement faux ni le message scannez le code-barres » ; champ actif sur les 5 copies, un seul message, bouton « Effacer » quand on a tapé. **Reste à choisir** la formulation, au réglage « Sans connexion : le message » : « Pas de connexion. Réessayez quand le téléphone sera de nouveau connecté. » (par défaut) ou « La recherche par nom demande une connexion. Réessayez quand le téléphone sera de nouveau connecté. » (Propositions) ; l'ancien texte reste au réglage. Le paragraphe de la décision 201 (« En attendant, vous pouvez scanner… ») est retiré par défaut et reste au réglage « Sans connexion : messages affichés » : il revient sur la 201, à confirmer |
+| 3.6c | **Nouveau.** « Rechercher · aucun résultat » : l'étiquette « Texte provisoire », seule en haut depuis ta retouche, vaut pour quel texte ? | fil `99641baa` | **sans objet** (« on s'en fout en haut en bas rien ne change », 02/11) |
+| 3.6d | **Nouveau.** En texte très grand (200 %), la bulle de l'échelle (`E1-Aide-Echelle`, `E1-Aide-Info`) ne grandit pas et couvre l'arc et le nom du produit. Défaut antérieur au 02/11, relevé en vérifiant 3.3 (`T-220`, `T-559`). | captures du 02/11 | **au contrôle final** (« contrôle final », 02/11) : ajouté à 3.25 |
+| 3.7 | Fil `0bf17029` de l'**ancien** canevas (`EA-Verdict-Lait-Sous`, 24/10) : « la phrase est mal formulée », sans dire laquelle. | inventaire du 02/11 | **sans objet** : tu ne vois pas de quel écran il s'agit (02/11), l'ancien canevas n'est plus suivi (décision 248), et les textes de la ligne allaitement sont reformulés de toute façon (2.5a) |
 | 3.8 | Panneau « source » du verdict (« pas intuitif, pas joli », fil `b89f1c0b`) : veux-tu des idées de disposition ? Claude les décrit d'abord, sans rien construire. | inventaire du 02/11 | à trancher |
 | 3.9 | Le signal poitrine : `D-273` contre le cap de l'accueil (§2) | journal du 22/10 | à trancher |
 | 3.10 | La police du logo : nom, source, licence (`T-558`, `T-636`) | fil `2c39b9fd` ; ta réponse du 02/11 (fil `0940e8c9`) | **répondu le 02/11** : 29LT Riwaya Informal, sous licence ; gardée pour le prototype ; une police gratuite à trouver pour le lancement (§6) |
@@ -153,7 +153,7 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
 | 3.24 | La séance de design dédiée (`PR-3.6`, `T-373` : « le design est jugé moche, une session dédiée est prévue ») | toi | 4 h | 3.13 à 3.15 | à faire |
-| 3.25 | Le contrôle final (`PR-3.7`) : mots interdits, contrastes (4,5:1), cibles de 44 px, texte agrandi, mouvement réduit, liens et boutons, cohérence entre les copies d'un même gabarit, sur les 188 planches | Claude | 2 h | 3.24 | à faire |
+| 3.25 | Le contrôle final (`PR-3.7`) : mots interdits, contrastes (4,5:1), cibles de 44 px, texte agrandi, mouvement réduit, liens et boutons, cohérence entre les copies d'un même gabarit, sur les 188 planches ; dont la bulle de l'échelle en texte agrandi (3.6d) | Claude | 2 h | 3.24 | à faire |
 | 3.26 | Valider le contrôle final (`PR-3.8`) | toi | 2 h | 3.25 | à faire |
 
 ---
@@ -164,7 +164,7 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
-| 4.1 | Compléter le relevé des écarts au registre (`propositions/2026-10-31-hors-canevas/ecarts-au-registre-etape-8.md`, décisions 182 à 217) avec les décisions 218 à 250 (01 et 02/11 ; §2 bis du complément de la note de reprise) : savon, « Crevasses », bandeau grisé, idée 5, boutons, piste (a), « Accepter », tenue du slogan, encadré « réévalué » (`D-282`), police du logo (`T-636`, `T-558`)… | Claude | ? | 1.6 (fait) | **peut commencer** |
+| 4.1 | Compléter le relevé des écarts au registre (`propositions/2026-10-31-hors-canevas/ecarts-au-registre-etape-8.md`, décisions 182 à 217) avec les décisions 218 à 251 (01 et 02/11 ; §2 bis du complément de la note de reprise) : savon, « Crevasses », bandeau grisé, idée 5, boutons, piste (a), « Accepter », tenue du slogan, encadré « réévalué » (`D-282`), police du logo (`T-636`, `T-558`)… | Claude | ? | 1.6 (fait) | **peut commencer** |
 | 4.2 | Confronter l'annexe A de la note du 21/10 (177 lignes) au registre v6.8, ligne à ligne | Claude | ? (le planning ne compte que 2 h pour tout `PR-3.9`, ce qui semble court ; à réestimer après les 20 premières lignes) | — | **peut commencer** |
 | 4.3 | Rédiger la note d'inscription : les décisions de séance, la correction de la palette de verdict de `D-107`, et la mise à jour de `D-312` (le canevas de référence est maintenant le canevas de travail) | Claude | 2 h | 4.1, 4.2, et le §3 | à faire, en dernier |
 | 4.4 | Valider l'inscription (`PR-3.10`) | toi | 2 h | 4.3 | à faire |
