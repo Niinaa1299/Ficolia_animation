@@ -1,4 +1,4 @@
-# Journal des 01 et 02/11 : ce que la porteuse a tranché
+# Journal des 01 au 03/11 : ce que la porteuse a tranché
 
 Séance de reprise sur le canevas de travail « ficolia - prototype_vTravail » (https://claude.ai/artifact/FB6cC6xawyir9Y1QwCYosb). Ce journal reprend les choix de la porteuse, avec le commit qui les applique. Les numéros de décision (218 et suivants) restent à attribuer dans la note de reprise : ce journal n'en donne pas.
 
@@ -48,6 +48,21 @@ Le renvoi s'affiche sur un soin des mamelons (produit à l'attribut) qui n'est p
 - **La fiche s'ouvre aussi depuis le menu** (porteuse, 02/11 : « OUI », à « J'en fais un lien ? »). Dans « Bonnes pratiques par thème », la ligne « Toilette des seins » était marquée « à écrire » sans être un lien ; elle mène désormais à la fiche, comme « Crevasses ». La fiche reste un texte provisoire, et c'est la fiche elle-même qui le dit.
 - **Source à vérifier** : l'ANAES 2002 est ancienne, sans grade et au conditionnel (`L-77`). Il faut vérifier, avant toute publication publique, qu'aucun texte plus récent de la HAS ne la remplace (`T-606`, `T-581`).
 - **Le texte final** revient au toxicologue et à la porteuse.
+
+## 03/11
+
+| Choix | Ses mots | Commit |
+| --- | --- | --- |
+| Piste (a) de la question du type reliée (décision 184) : 12 scanners (résultat simulé « Produit reconnu, type suggéré (piste a) ») et 5 écrans de recherche (lien de prototype sous celui de l'option (b)) ; l'option (b) reste | « ok pour tout » | `23c0a20` |
+| « Mettre à jour » mène à « Après la mise à jour », pour le prototype ; la note dit que le vrai bouton ouvre le magasin d'applications | « ok pour tout » | `23c0a20` |
+| « Accepter » (ouverture et accueil, 4 planches) mène à la demande de caméra (`T-232`) | « ok pour tout » | `23c0a20` |
+| Étape 8 : lancée dès que le registre v6.9 est dans le dépôt | « on le lance des que le regstre v6.9 est dans le dépot » | — |
+| La porteuse vérifie elle-même que les commentaires de l'ancien canevas sont tous traités | « je dois aussi vérifier les commentaires sur l'original si tout a été traité » | — |
+
+**Limites** :
+- Dans la recherche, la piste (a) ne paraît que si le réglage « catalogue » est sur « … option (b) » : c'est ce réglage qui montre les produits reconnus avec la question du type. Le nom du réglage ne le dit pas.
+- Les 3 planches marquées « À SUPPRIMER » (`E3-Scan-Avant`, `E6-APropos`, `E6-BonnesPratiques`) restent : leur suppression attend un accord explicite.
+- Contrôle des liens du 02/11 : il lit les liens écrits dans les sources. Il ne dit pas si un retour mène au bon écran.
 
 ## Contrôle R3 du 02/11 : ce qu'il vérifie, et ce qu'il ne vérifie pas
 

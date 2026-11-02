@@ -14,7 +14,7 @@ Note du 31/10/2026. Ce dossier reconstitue, dans le dépôt, les sources des éc
   - lire un ou plusieurs fichiers : `action: read`, `url`, `path` ou `paths`, `out_dir` dans le dossier de travail. La lecture donne l'empreinte sha256 ;
   - publier : `url`, `root: <dépôt>/prototype/sources` (ou le dossier de `preparer-publication.py`), `file_path` (chemin **absolu** d'un des fichiers), `files: {"project/X": "project/X"}`. L'outil refuse de publier sur une version qu'on n'a pas lue : faire d'abord un `read`.
 - **Ce que vaut le contrôle R3** : comparer les tailles de la liste repère les retouches de la porteuse, sauf celles qui ne changent pas la longueur d'un fichier. Avant de remplacer une planche, lire sa version en ligne et comparer son contenu (fait depuis le 02/11, après une publication du 02/11 qui ne l'avait pas fait : voir `propositions/2026-11-02-voie-savon/journal-01-02-11.md`).
-- **Les commentaires** restent sur l'ancien canevas, illisible depuis Claude Code. Le canevas de travail n'en a pas hérité.
+- **Les commentaires** restent sur l'ancien canevas ; le canevas de travail n'en a pas hérité. Ses fichiers sont illisibles depuis Claude Code, mais ses fils de commentaires se lisent (outil « ArtifactComments », `action: read`, vérifié le 03/11 : 139 fils, dont 30 ouverts). Répondre ou fermer un fil demande l'accord de la porteuse (R6).
 
 ## Pourquoi
 
