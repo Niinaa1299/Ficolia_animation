@@ -59,6 +59,7 @@ Les commits `23c0a20` et `a3c25f0` sont datés à tort « 03/11 » dans leur mes
 | « Mettre à jour » mène à « Après la mise à jour », pour le prototype ; la note dit que le vrai bouton ouvre le magasin d'applications | « ok pour tout » | `23c0a20` |
 | « Accepter » (ouverture et accueil, 4 planches) mène à la demande de caméra (`T-232`) | « ok pour tout » | `23c0a20` |
 | Étape 8 : lancée dès que le registre v6.9 est dans le dépôt | « on le lance des que le regstre v6.9 est dans le dépot » | — |
+| Tenue du slogan : **2 s**, validée (« 3s c'est trop long ») ; la porteuse a changé le réglage par défaut de `E1-Ouverture-Arbre` sur la page, rapatrié dans le dépôt (R3). Les trois autres planches au même réglage (`-Reduit`, `E1-Accueil-Bienvenue`, `-Conditions`) restent à 3 s : question posée. Règle la question 10 du 31/10 et le fil `778d3ee5` de l'ancien canevas | « slogan 2s c'est validé, 3s c'est trop long. changement fait manuellemnt » (commentaire sur la page, 02/11) | voir le commit de ce rapatriement |
 | La porteuse vérifie elle-même que les commentaires de l'ancien canevas sont tous traités | « je dois aussi vérifier les commentaires sur l'original si tout a été traité » | — |
 
 **Limites** :
