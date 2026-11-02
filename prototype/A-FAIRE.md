@@ -11,7 +11,7 @@ Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin d'après-mid
 **Ce qui attend tes réponses** (rien n'est posé avant ton choix). Le texte exact de chaque proposition est dans `propositions/2026-11-02-fils-canevas-travail/propositions.md` :
 - les mentions de la ligne allaitement, piste A ou B, et leurs explications (2.5a ; fils `111f9ffa`, `8b340b1d`) ;
 - « Les données » du verdict à actualiser, A ou B (3.6a ; fil `a5b20715`) ;
-- le filigrane « aucun résultat » : la version à garder, et son report sur les autres planches de recherche (3.6 ; fil `99641baa`) ;
+- le report du message centré et du logo en filigrane sur les quatre autres planches de recherche (3.6 ; fil `99641baa`) ;
 - la tenue du slogan sur les trois autres planches (1.5 ; fil `b2bd2428`) ;
 - les chemins critiques de la version de test, et ton accord pour la construire (2.8 ; `propositions/2026-11-02-version-de-test/proposition.md`) ;
 - les autres questions du §3.1.
@@ -113,7 +113,7 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 | 3.3 | La phrase de la bulle de l'échelle : trois propositions, au réglage de `E1-Aide-Echelle` | fil `8192aeeb` | à choisir |
 | 3.4 | La taille de l'arc (76 × 40 px) : assez grande ? Plus grand, il faut accepter que le nom du produit passe à la ligne, ou déplacer l'arc | fils `92b44169`, `d9867524` | à trancher |
 | 3.5 | Décisions 206 à 209 : ton « ok, go etape 7 » valait-il accord ? | note du 31/10, §5.2 | à confirmer |
-| 3.6 | Ta retouche de `E2-Recherche-Aucun` (29/10) : la garder ? la reporter sur les quatre autres copies ? Même question pour le filigrane posé le 02/11 (version 37 ; réglage « ton chaud », « couleurs atténuées » ou « aucun », à choisir aussi). | journal du 29/10, §18 ; fil `99641baa` | à trancher |
+| 3.6 | Ta retouche de `E2-Recherche-Aucun` (29/10) : la garder ? la reporter sur les quatre autres copies ? Le filigrane est tranché le 02/11 au soir : le symbole de Ficolia, au milieu de l'espace blanc (« non juste le logo simple », version 39, commit `eac7321`) ; reste son report sur les quatre autres copies. | journal du 29/10, §18 ; fil `99641baa` | à trancher |
 | 3.6a | Le verdict « à actualiser » : « Les données de ce verdict… » est flou. Deux formulations proposées le 02/11 (fil `a5b20715`), A (la cause) ou B (ce qui a pu changer), sur 9 planches, et la ligne « Pas de connexion » sur 6. | fil `a5b20715` ; `D-91`, `T-511`, `T-242` | à choisir |
 | 3.7 | Fil `0bf17029` (« la phrase est mal formulée », `EA-Verdict-Lait-Sous`) : de quelle phrase s'agit-il ? | inventaire du 02/11 | à préciser |
 | 3.8 | Panneau « source » du verdict (« pas intuitif, pas joli », fil `b89f1c0b`) : veux-tu des idées de disposition ? Claude les décrit d'abord, sans rien construire. | inventaire du 02/11 | à trancher |
