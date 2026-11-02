@@ -1,4 +1,4 @@
-# Journal des 01 au 03/11 : ce que la porteuse a tranché
+# Journal des 01 et 02/11 : ce que la porteuse a tranché
 
 Séance de reprise sur le canevas de travail « ficolia - prototype_vTravail » (https://claude.ai/artifact/FB6cC6xawyir9Y1QwCYosb). Ce journal reprend les choix de la porteuse, avec le commit qui les applique. Les numéros de décision (218 et suivants) restent à attribuer dans la note de reprise : ce journal n'en donne pas.
 
@@ -49,7 +49,9 @@ Le renvoi s'affiche sur un soin des mamelons (produit à l'attribut) qui n'est p
 - **Source à vérifier** : l'ANAES 2002 est ancienne, sans grade et au conditionnel (`L-77`). Il faut vérifier, avant toute publication publique, qu'aucun texte plus récent de la HAS ne la remplace (`T-606`, `T-581`).
 - **Le texte final** revient au toxicologue et à la porteuse.
 
-## 03/11
+## 02/11, fin de matinée
+
+Les commits `23c0a20` et `a3c25f0` sont datés à tort « 03/11 » dans leur message : c'était le 02/11.
 
 | Choix | Ses mots | Commit |
 | --- | --- | --- |

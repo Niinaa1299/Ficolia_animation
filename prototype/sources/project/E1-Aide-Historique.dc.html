@@ -320,7 +320,7 @@ class Component extends DCLogic {
     var self = this;
     // Prototype : écran sur lequel débouche le scan simulé. « Produit évalué » garde le lien d'origine vers l'écran produit.
     var R = ['Produit évalué', 'Produit inconnu', 'Produit reconnu, non évalué', 'Pas un cosmétique', 'Produit frontière', 'Liste absente', 'Service indisponible', 'Pas de connexion', 'Réseau faible', 'Produit reconnu, question du type (option b)', 'Produit reconnu, type suggéré (piste a)'];
-    // Piste (a) de la question du type (décision 184, 22/10) : un type suggéré à confirmer, la liste en secours. Ajoutée à la fin de R pour ne décaler aucun index ; reliée le 03/11.
+    // Piste (a) de la question du type (décision 184, 22/10) : un type suggéré à confirmer, la liste en secours. Ajoutée à la fin de R pour ne décaler aucun index ; reliée le 02/11.
     // Option (b) des produits reconnus (D-113, B1) : la question du type, rattrapage quand la catégorie manque (D-47).
     var res = R.indexOf(this.props.resultat) >= 0 ? this.props.resultat : R[0];
     // Alerte de révision (étape 5) : vérifiée à l'ouverture, par comparaison sur le téléphone (D-54, T-452). Un seul bandeau, sans date (D-52), qui ne bloque pas le scan.
