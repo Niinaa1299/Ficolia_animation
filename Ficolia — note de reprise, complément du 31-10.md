@@ -125,13 +125,55 @@ Le détail des effets sur le registre est dans `propositions/2026-10-31-hors-can
 | 216 | Renvoi « Crevasses » : le petit rond sur la photo par défaut ; une bulle à la première utilisation ; l'ancienne pastille devient une case parmi les autres | 30/10 | version 420 | aucun écart relevé par le journal |
 | 217 | Clôture du volet allaitement au prototype : la ligne allaitement entre dans le parcours principal | 31/10 | non appliquée : canevas inaccessible | revient sur la décision 13 ; statut « module non clos » de l'annexe A.8 à revoir ; ne clôt pas le module au registre (§5.4) |
 
-**Choix de la porteuse sans numéro**, à numéroter quand ils seront posés sur le canevas :
+**Choix de la porteuse sans numéro**, à numéroter quand ils seront posés sur le canevas : *(numérotés le 02/11 : l'idée 5 est la décision 221, la largeur partagée la 220, la tenue du slogan la 236 ; voir §2 bis)*
 
 - **30/10, écran des ingrédients** : l'idée 5 « à plat », sur fond `#FAFAFA` (journal, §33 et §34 : « oui »). Non appliqué.
 - **31/10, cases de la ligne allaitement** : « Largeur partagée » par défaut (§36 : « taille des cases) largeur partagées »). Non appliqué.
 - **29/10, tenue du slogan** : 3 s par défaut, au réglage (§15). C'est une proposition de Claude, publiée en 377 ; le fil `778d3ee5` reste ouvert.
 
 ---
+
+## 2 bis. Décisions 218 à 250 (01 et 02/11)
+
+Numérotées le 02/11 au soir, avec l'accord de la porteuse (« oui d'accord », A-FAIRE 1.6), d'après le journal des 01 et 02/11 (`propositions/2026-11-02-voie-savon/journal-01-02-11.md`), qui garde ses mots et le détail. Ordre : par date, puis par sujet (l'heure exacte n'est pas toujours connue).
+
+Ne sont pas numérotés : ce qui attend encore son choix (présentation des cases, explications 3 à 6, verdict « à actualiser », formulaire et hébergement à mettre en place) ; les faits sans décision (recrutement du test hors cible, 5 personnes, `PR-2.2`) ; les applications de décisions déjà numérotées : la 217 (la ligne allaitement dans le parcours principal) est appliquée le 01/11 (`092aafd`), et l'accord sur les décisions 206 à 209 est confirmé le 02/11 (« oui »). La question « Icône verdict allaitement » du 31/10 est close : « rien oublié ça a été traité » (02/11).
+
+| # | Décision | Date | Sur le canevas | Effet sur le registre ou le dossier |
+| --- | --- | --- | --- | --- |
+| 218 | Le canevas neuf « ficolia - prototype_vTravail » devient le canevas de travail ; l'ancien reste une archive, ni modifiée ni supprimée | 01/11 | `e70aa19`, `e50b70a` | PR-1 : le canevas de référence change (planning mis à jour par la porteuse le 02/11) |
+| 219 | Planches non reprises dans le canevas de travail : les 8 anciennes planches de l'étape 1, et Main, A à D | 01/11 | — | — |
+| 220 | Cases de la ligne allaitement : « Largeur partagée » par défaut (choix du 31/10, posé le 01/11) | 31/10 | `217fea9` | — |
+| 221 | L'idée 5 « à plat » sur les 10 listes d'ingrédients vivantes (choix du 30/10, posé le 01/11 : « parfait ») | 30/10 | `6caac47` | — |
+| 222 | « Réessayer » ramène à l'écran d'où l'on vient ; « Accès à la caméra » marqué comme une action du téléphone | 01/11 | `f77b5fa` | — |
+| 223 | Verdict non établi : un bandeau grisé qui dit son motif (« évaluation incomplète », ou le bon motif pour les autres évaluations partielles) | 01/11 | `478bd19` | `T-512` (chaque écran dit sa cause) |
+| 224 | Écart minimal de 24 px avant « Ce n'est pas ce produit » ; l'arc dans les planches Fondations et Polices | 01/11 | `79a1011`, `8e237e3` | — |
+| 225 | L'ouverture et l'accueil en deux écrans (4 planches) | 02/11 | `47089e6` | — |
+| 226 | Écrans produit : en texte agrandi, le contenu défile et la barre d'onglets reste fixe en bas | 02/11 | `0cfec0c` | `T-220` |
+| 227 | Renvoi « Crevasses », première lecture : une condition compte comme une mention (décision 170), donc un soin des mamelons vert et parfumé reçoit le renvoi | 02/11 | aucun changement (comportement du prototype) | à tracer dans la discussion de méthodologie ; l'autre lecture s'appuie sur `D-272` ; `O-65` introuvable dans le registre du dépôt |
+| 228 | Troisième voie du savon, pour le test hors cible : fiche `E6-Fiche-ToiletteSeins` (phrase de la condition savon du 17/10, source ANAES 2002 à vérifier) ; sur `EA-Verdict-Gel`, un nettoyant vert ou jaune y renvoie, comme le renvoi « Crevasses » | 02/11 | versions 30 et 31 ; `4259d83`, `78a5c92` | tension avec la décision 168 (maintenue par la 183), à trancher après le test ; écart à `D-262`, `D-265`, `D-266` (`T-605`) ; source à vérifier (`L-77`, `T-606`, `T-581`) |
+| 229 | La fiche « Toilette des seins » s'ouvre aussi depuis « Bonnes pratiques par thème » | 02/11 | publiée le 02/11 (journal, « La troisième voie du savon ») | — |
+| 230 | « Palette Ficolia — contrôle-html.zip » reste dans le dépôt, hors des sources, et n'est pas affichée sur le canevas | 02/11 | — | — |
+| 231 | La page « Étape 1 — sans animation » s'appelle « Étape 1 » (retouche de la porteuse sur la page) | 02/11 | `37a99a1` (rapatrié) | — |
+| 232 | Piste (a) de la question du type reliée (décision 184) : 12 scanners (résultat simulé « Produit reconnu, type suggéré (piste a) ») et 5 écrans de recherche ; l'option (b) reste | 02/11 | `23c0a20` | — |
+| 233 | « Mettre à jour » mène à « Après la mise à jour » dans le prototype ; la note dit que le vrai bouton ouvre le magasin d'applications | 02/11 | `23c0a20` | — |
+| 234 | « Accepter » (ouverture et accueil, 4 planches) mène à la demande d'accès à la caméra | 02/11 | `23c0a20` | `T-232` |
+| 235 | L'étape 8 (mise à jour du registre) est lancée dès que le registre v6.9 est dans le dépôt | 02/11 | — | — |
+| 236 | Tenue du slogan de l'ouverture : 2 s (« 3s c'est trop long »), sur les quatre planches qui ont ce réglage | 02/11 | `10ac429` (rapatrié), `cfd8ebe`, version 40 | remplace la proposition de 3 s du 29/10 |
+| 237 | Police du logo : 29LT Riwaya Informal, sous licence, gardée pour le prototype ; une police gratuite à trouver pour le lancement | 02/11 | — | complète `T-636` et `T-558` |
+| 238 | Données d'un tiers dans le dépôt public : rien à retirer, la porteuse a l'autorisation | 02/11 | — | — |
+| 239 | « Rechercher · aucun résultat » : le symbole de Ficolia en filigrane au milieu de l'espace blanc ; « Scannez… s'il nous est toujours inconnu… » sous le logo, centré (retouche de la porteuse) ; reporté sur les quatre autres copies du gabarit | 02/11 | versions 39 et 49 ; `eac7321`, `efb3d54`, `725880c` | le symbole seul, hors de l'accueil : conforme à la séance du 28/09 |
+| 240 | Encadré « Ce produit a été réévalué. » : à la première ouverture du verdict après la réévaluation, puis plus jamais | 02/11 | `d070e78` (rien à changer sur la planche, figée) | confirme la proposition de la décision 200 ; complète `D-282` |
+| 241 | Mentions de la ligne allaitement : la forme « sujet · état » (piste A), pas de phrases entières | 02/11 | — (présentations 1 + 2 et 1 + 2 + 3 au réglage de `EA-Verdict-Baume-Jaune`, version 41, choix attendu) | textes provisoires (`T-604`) |
+| 242 | Explications du volet de la ligne allaitement : 1 « Ce produit s'applique aussi sur le mamelon. Ce verdict tient compte de ce qui peut en rester au moment de la tétée. » ; 2 « Ce produit s'applique aussi sur le mamelon. Pour au moins un de ses ingrédients, ce verdict ne peut pas dire ce qu'il en est au moment de la tétée. » | 02/11 | non posées (3 à 6 en attente) | textes provisoires, à relire par la toxicologue (`T-604`) |
+| 243 | Le lien vers la fiche « Toilette des seins » est validé, à éprouver lors des tests | 02/11 | — | `PR-1.7` |
+| 244 | Les trois planches marquées « À SUPPRIMER » (`E3-Scan-Avant`, `E6-APropos`, `E6-BonnesPratiques`) sont supprimées (par la porteuse, sur la page) | 02/11 | version 1793655937-3183 ; `819c606` (rapatrié) | — |
+| 245 | Version de test : un fichier HTML hors de claude.ai, avec un menu des chemins critiques visible des testeurs ; commentaires reçus par un formulaire Google ; diffusion par un lien en ligne ; construction reportée à la fin des retouches du prototype | 02/11 | rien de construit | le formulaire fait passer les commentaires par Google : à dire aux testeurs (protocole) |
+| 246 | Recherche, état « Sans connexion » : la barre de recherche reste, les messages passent en bas (champ grisé et inactif par défaut : proposition de Claude, à valider) | 02/11 | version 64 ; `268d0d6` | — |
+| 247 | Conseil de l'échelle : la phrase dit que l'échelle se lit de gauche à droite (« Ce repère se lit de gauche à droite : quatre niveaux, de « sans signal identifié » à « incompatible ». », Proposition) | 02/11 | version 65 ; `c80256c` | texte provisoire |
+| 248 | Ancien canevas : ne plus en tenir compte, même si des fils y restent ouverts | 02/11 | — | `PR-1.2` |
+| 249 | Taille de l'arc : 76 × 40 px, gardée (« laisse comme ça ») | 02/11 | — | précise la décision 213 |
+| 250 | Étapes 5, 6 et 7, et l'échelle : validées (« ok fait ») | 02/11 | — | `PR-3.1`, `PR-3.2`, `PR-3.3`, `PR-3.5` (coches de la porteuse) |
 
 ## 3. Décisions révisées ou remplacées depuis le 21/10
 
