@@ -4,7 +4,10 @@
     "Les sources du dépôt gardent leurs chemins relatifs (assets/<empreinte>.<ext>), qui servent au rendu local. Le canevas, lui, n'affiche pas un chemin relatif (note de reprise du 21/10, §6, confirmé le 01/11) : à la publication, outils/preparer-publication.py remplace chaque chemin par l'adresse ci-dessous.",
     "Ces adresses ne valent que pour ce canevas. Pour un autre canevas, re-téléverser les ressources et refaire cette table."
   ],
-  "canevas": {"slug": "72c8d58f-8aa6-4090-b17c-fc9e3f77fcf6", "url": "https://claude.ai/artifact/FB6cC6xawyir9Y1QwCYosb"},
+  "canevas": {
+    "slug": "72c8d58f-8aa6-4090-b17c-fc9e3f77fcf6",
+    "url": "https://claude.ai/artifact/FB6cC6xawyir9Y1QwCYosb"
+  },
   "ressources": {
     "3b3ec09332ef.mp4": "/_blob/b59ed0eae0ee51ef2c4acec600e93cca",
     "5fdf04e960c2.webm": "/_blob/bc4b68628e074dcdf755dd3ed097f12d",
@@ -42,6 +45,13 @@
     "e82596a7f9b7.png": "/_blob/2e841ff3b145ce395ef524bcb9dae3fe",
     "eb8e2e06607c.png": "/_blob/9f739a71b6856273843f4e306de1258a",
     "ec6a45270dc6.png": "/_blob/5bb251c0a6d29ea3751836760696f9df",
-    "fdc9c14f1986.mp4": "/_blob/9fca7ab1746a2f4d3d1f1eaf9a5a45fc"
+    "fdc9c14f1986.mp4": "/_blob/9fca7ab1746a2f4d3d1f1eaf9a5a45fc",
+    "0cc97c0fad9f.mp4": "/_blob/f46013937ec7615eeeaed2d94352eccb",
+    "5be57fe72a62.png": "/_blob/7baba7a11bf9d2d013a5d97cb92d81cc",
+    "936b61c905b7.png": "/_blob/31b3bc4b44b1a42454ec71444c7d3f57",
+    "9b0de7c50f04.webm": "/_blob/f31ebd75d2f7d09ef59a257fa47c1d76",
+    "c75203b214e2.mp4": "/_blob/0f5afa9adf19b0ddd4abf8d754b2fe38",
+    "d9e1befe0fe0.png": "/_blob/2390b7f05fe8a220a4eac7149a86011b",
+    "eb07a87737b2.webm": "/_blob/30da9ab12aa9a554797a300691e339c3"
   }
 }

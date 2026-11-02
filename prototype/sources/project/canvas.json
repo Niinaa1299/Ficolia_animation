@@ -1665,6 +1665,42 @@
    "w": 390,
    "x": 1410,
    "y": 964
+  },
+  "E1-Ouverture-Arbre.dc.html": {
+   "x": 0,
+   "y": 1928,
+   "w": 390,
+   "h": 844,
+   "title": "Ouverture et accueil · l'enchaînement (29/10)",
+   "page": "etape-1",
+   "is_interactive": true
+  },
+  "E1-Ouverture-Arbre-Reduit.dc.html": {
+   "x": 0,
+   "y": 2892,
+   "w": 390,
+   "h": 844,
+   "title": "Ouverture et accueil · mouvement réduit (29/10)",
+   "page": "etape-1",
+   "is_interactive": true
+  },
+  "E1-Accueil-Bienvenue.dc.html": {
+   "x": 0,
+   "y": 3856,
+   "w": 390,
+   "h": 844,
+   "title": "Accueil 1/2 · bienvenue (29/10)",
+   "page": "etape-1",
+   "is_interactive": true
+  },
+  "E1-Accueil-Conditions.dc.html": {
+   "x": 0,
+   "y": 4820,
+   "w": 390,
+   "h": 844,
+   "title": "Accueil 2/2 · conditions d'utilisation (29/10)",
+   "page": "etape-1",
+   "is_interactive": true
   }
  },
  "createdOnFiles": {
@@ -1862,7 +1898,11 @@
   "E3-SansVerdict-Inconnu.dc.html",
   "E3-SansVerdict-Source.dc.html",
   "E3-MiseAJour.dc.html",
-  "E3-MiseAJour-Faite.dc.html"
+  "E3-MiseAJour-Faite.dc.html",
+  "E1-Ouverture-Arbre.dc.html",
+  "E1-Ouverture-Arbre-Reduit.dc.html",
+  "E1-Accueil-Bienvenue.dc.html",
+  "E1-Accueil-Conditions.dc.html"
  ],
  "pages": [
   {

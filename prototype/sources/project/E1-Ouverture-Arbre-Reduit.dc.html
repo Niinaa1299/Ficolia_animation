@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<title>Ficolia — Ouverture et accueil, mouvement réduit (29/10)</title>
+<script src="./support.js"></script>
+<meta name="hz:slide-selector" content="[data-canvas-width]"><meta name="hz:canvas-width" content="390"><meta name="hz:canvas-height" content="844"></head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,sans-serif;background:#FFFFFF;color:#321C31;-webkit-tap-highlight-color:transparent}
+a,button{touch-action:manipulation;-webkit-user-select:none;user-select:none}
+.fxo-ecran{position:relative;width:390px;height:844px;overflow:hidden;background:#FFFFFF;color:#321C31;font-family:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,sans-serif}
+.fxo-ecran video,.fxo-ecran .fxo-fixe{position:absolute;left:0;top:0;width:390px;height:844px;display:block;object-fit:cover}
+.fxo-ecran .fxo-fixe,.fxo-ecran .fxo-v2{visibility:hidden}
+.fxo-vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.fxo-accroche{position:absolute;left:0;top:377.7px;width:390px;display:flex;flex-direction:column;align-items:center;pointer-events:none}
+.fxo-accroche p{margin:0;font-size:18.8px;line-height:1.4;letter-spacing:.01em;text-align:center}
+.fxo-acc{position:absolute;inset:0;display:flex;flex-direction:column;pointer-events:none}
+.fxo-acc .fxo-haut{flex:none;height:476px}
+.fxo-acc2 .fxo-haut{height:396px}
+.fxo-corps{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;padding-bottom:8px;pointer-events:auto}
+.fxo-corps::-webkit-scrollbar{display:none}
+.fxo-copy{padding:12px 24px 0;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.fxo-copy h1{margin:0;font-size:28px;font-weight:700;line-height:1.15;text-wrap:balance}
+.fxo-copy h1:focus{outline:none}
+.fxo-copy p{margin:0;font-size:17px;line-height:1.45;text-wrap:pretty}
+.fxo-copy p.fxo-rappel{font-size:15px;color:#6E5A6B}
+.fxo-liens{display:flex;flex-direction:column;align-items:center}
+.fxo-liens a{min-height:44px;display:inline-flex;align-items:center;font-size:16px;font-weight:700;color:#4C2944;text-decoration:underline;text-underline-offset:3px}
+.fxo-copy p.fxo-version{font-size:13px;line-height:1.3;color:#6E5A6B}
+.fxo-statut{padding:3px 10px;border:1px dashed #6E5A6B;border-radius:999px;font-size:13px;line-height:1.3;color:#6E5A6B}
+.fxo-accroche .fxo-statut{margin-top:8px}
+.fxo-secours-note{position:absolute;z-index:1;top:24px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#FFFFFF}
+.fxo-actions{flex:none;margin:0 20px 32px;padding-top:12px;display:flex;flex-direction:column;align-items:stretch;gap:14px;pointer-events:auto}
+.fxo-points{display:flex;justify-content:center;gap:8px}
+.fxo-points span{display:block;width:8px;height:8px;border-radius:999px;background:rgba(76,41,68,.22)}
+.fxo-points span.fxo-on{width:22px;background:#4C2944}
+.fxo-plein{min-height:56px;box-sizing:border-box;border:0;border-radius:999px;background:#4C2944;color:#FFF7F0;font:inherit;font-size:17px;font-weight:700;display:flex;align-items:center;justify-content:center;text-decoration:none;cursor:pointer;transition:transform 160ms cubic-bezier(.23,1,.32,1)}
+.fxo-plein:active{transform:scale(.97)}
+.fxo-retour{position:absolute;left:20px;top:64px;width:44px;height:44px;box-sizing:border-box;border-radius:999px;border:1px solid #E7E1DA;background:#FAF8F4;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;pointer-events:auto}
+.fxo-ecran button:focus-visible,.fxo-ecran a:focus-visible{outline:2px solid #4C2944;outline-offset:3px}
+@keyframes fxo-monte{from{opacity:0;transform:translateY(var(--fxo-monte,8px));visibility:hidden}to{opacity:1;transform:none;visibility:visible}}
+@keyframes fxo-parait{from{opacity:0;visibility:hidden}to{opacity:1;visibility:visible}}
+@keyframes fxo-part{from{opacity:1;visibility:visible}to{opacity:0;visibility:hidden}}
+@keyframes fxo-descend{from{transform:none}to{transform:translateY(40px)}}
+.fxo-ecran.fxo-attente *{animation-play-state:paused!important}
+.fxo-e-rien .fxo-acc,.fxo-e-rien .fxo-accroche{visibility:hidden}
+.fxo-ecran:not(.fxo-e-deux):not(.fxo-e-deuxfixe) .fxo-acc2,.fxo-e-deux .fxo-accroche,.fxo-e-deuxfixe .fxo-accroche,.fxo-e-un .fxo-accroche{visibility:hidden}
+.fxo-e-ouverture .fxo-accroche p:nth-of-type(2){--fxo-monte:7.94px;animation:fxo-monte 550ms cubic-bezier(.25,.6,.35,1) 3500ms both}
+.fxo-e-ouverture .fxo-accroche p:nth-of-type(3){--fxo-monte:7.94px;animation:fxo-monte 550ms cubic-bezier(.25,.6,.35,1) 3800ms both}
+.fxo-e-ouverture .fxo-accroche .fxo-statut{animation:fxo-parait 550ms cubic-bezier(.25,.6,.35,1) 3800ms both}
+.fxo-e-ouverture .fxo-accroche{animation:fxo-descend 900ms cubic-bezier(.37,0,.63,1) 4550ms both,fxo-part 450ms cubic-bezier(.37,0,.63,1) 4600ms both}
+.fxo-e-ouverture .fxo-acc1 .fxo-copy{animation:fxo-monte 500ms cubic-bezier(.37,0,.63,1) 7950ms both}
+.fxo-e-ouverture .fxo-acc1 .fxo-actions{animation:fxo-parait 450ms cubic-bezier(.37,0,.63,1) 8000ms both}
+.fxo-e-deux .fxo-v2{visibility:visible}
+.fxo-e-deux .fxo-acc1{animation:fxo-part 300ms cubic-bezier(.37,0,.63,1) both}
+.fxo-e-deux .fxo-acc2 .fxo-copy{animation:fxo-monte 500ms cubic-bezier(.37,0,.63,1) 1500ms both}
+.fxo-e-deux .fxo-acc2 .fxo-actions,.fxo-e-deux .fxo-acc2 .fxo-retour{animation:fxo-parait 450ms cubic-bezier(.37,0,.63,1) 1550ms both}
+.fxo-e-un .fxo-f-un{visibility:visible}
+.fxo-e-deuxfixe .fxo-f-deux{visibility:visible}
+.fxo-e-deuxfixe .fxo-acc1{visibility:hidden}
+.fxo-reduit video{visibility:hidden!important}
+.fxo-ecran{--fxo-tenue:0ms}
+.fxo-t3000{--fxo-tenue:3000ms}.fxo-t2000{--fxo-tenue:2000ms}.fxo-t4000{--fxo-tenue:4000ms}
+.fxo-reduit.fxo-e-ouverture .fxo-f-rev{visibility:visible;animation:fxo-parait 600ms linear both,fxo-part 300ms linear calc(1500ms + var(--fxo-tenue)) forwards}
+.fxo-reduit.fxo-e-ouverture .fxo-accroche{animation:fxo-parait 600ms linear both,fxo-part 300ms linear calc(1500ms + var(--fxo-tenue)) forwards}
+.fxo-reduit.fxo-e-ouverture .fxo-accroche p,.fxo-reduit.fxo-e-ouverture .fxo-accroche .fxo-statut{animation:none}
+.fxo-reduit.fxo-e-ouverture .fxo-f-un{visibility:visible;animation:fxo-parait 600ms linear calc(1500ms + var(--fxo-tenue)) both}
+.fxo-reduit.fxo-e-ouverture .fxo-acc1 .fxo-copy,.fxo-reduit.fxo-e-ouverture .fxo-acc1 .fxo-actions{animation:fxo-parait 300ms linear calc(1800ms + var(--fxo-tenue)) both}
+.fxo-reduit.fxo-e-deux .fxo-acc1{animation:fxo-part 300ms linear both}
+.fxo-reduit.fxo-e-deux .fxo-f-un{visibility:visible;animation:fxo-part 300ms linear 300ms forwards}
+.fxo-reduit.fxo-e-deux .fxo-f-deux{visibility:visible;animation:fxo-parait 300ms linear 600ms both}
+.fxo-reduit.fxo-e-deux .fxo-acc2 .fxo-copy,.fxo-reduit.fxo-e-deux .fxo-acc2 .fxo-actions,.fxo-reduit.fxo-e-deux .fxo-acc2 .fxo-retour{animation:fxo-parait 300ms linear 900ms both}
+@media (prefers-reduced-motion:reduce){.fxo-plein{transition:none}.fxo-plein:active{transform:none}}
+</style>
+</helmet>
+<div class="fxo-ecran fxo-oar {{cls}}" data-canvas-width="390" data-canvas-height="844" data-document-role="page" data-label="Ouverture et accueil · mouvement réduit (29/10) copy">
+<video class="fxo-v1" muted="" playsinline="" preload="{{preload1}}" aria-hidden="true">
+<source src="assets/c75203b214e2.mp4" type="video/mp4">
+<source src="assets/9b0de7c50f04.webm" type="video/webm">
+</video>
+<video class="fxo-v2" muted="" playsinline="" preload="auto" poster="assets/936b61c905b7.png" aria-hidden="true">
+<source src="assets/0cc97c0fad9f.mp4" type="video/mp4">
+<source src="assets/eb07a87737b2.webm" type="video/webm">
+</video>
+<img class="fxo-fixe fxo-f-rev" src="assets/d9e1befe0fe0.png" alt="">
+<img class="fxo-fixe fxo-f-un" src="assets/936b61c905b7.png" alt="">
+<img class="fxo-fixe fxo-f-deux" src="assets/5be57fe72a62.png" alt="">
+<sc-if value="{{secours}}" hint-placeholder-val="{{ false }}">
+<span class="fxo-statut fxo-secours-note">Vidéo non lue ici : version sans vidéo</span>
+</sc-if>
+<div class="fxo-accroche">
+<p class="fxo-vh">Ficolia</p>
+<p>Continuer à prendre soin de soi,</p>
+<p>sans vérifier ses flacons dix fois.</p>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span class="fxo-statut">Texte provisoire</span>
+</sc-if>
+</div>
+<section class="fxo-acc fxo-acc1" aria-labelledby="fxo-titre1-oar">
+<div class="fxo-haut"></div>
+<div class="fxo-corps">
+<div class="fxo-copy">
+<h1 id="fxo-titre1-oar">Bienvenue sur Ficolia</h1>
+<p>Ficolia informe sur la composition des cosmétiques au regard de la grossesse et de l'allaitement.</p>
+<p class="fxo-rappel">Ce n'est pas un avis médical. Pour toute question de santé, adressez-vous à un professionnel de santé.</p>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span class="fxo-statut">Titre et objectif : propositions · rappel : texte du prototype</span>
+</sc-if>
+</div>
+</div>
+<div class="fxo-actions">
+<div class="fxo-points" role="img" aria-label="Écran 1 sur 2"><span class="fxo-on"></span><span></span></div>
+<button type="button" class="fxo-plein fxo-continuer" sc-camel-on-click="{{continuer}}">Continuer</button>
+</div>
+</section>
+<section class="fxo-acc fxo-acc2" aria-labelledby="fxo-titre2-oar">
+<div class="fxo-haut"></div>
+<div class="fxo-corps">
+<div class="fxo-copy">
+<h1 id="fxo-titre2-oar" tabindex="-1">Conditions d'utilisation</h1>
+<p>Pour utiliser Ficolia, il faut en accepter les conditions d'utilisation.</p>
+<p>Les verdicts sont établis pour une grossesse physiologique.</p>
+<div class="fxo-liens">
+<a href="E6-CGU-Accueil.dc.html">Lire les conditions d'utilisation</a>
+<a href="E6-Confidentialite-Accueil.dc.html">Politique de confidentialité</a>
+</div>
+<p class="fxo-version">Conditions d'utilisation — version du [date]</p>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span class="fxo-statut">Textes provisoires (juriste)</span>
+</sc-if>
+</div>
+</div>
+<div class="fxo-actions">
+<div class="fxo-points" role="img" aria-label="Écran 2 sur 2"><span></span><span class="fxo-on"></span></div>
+<a href="E1-Scan.dc.html" class="fxo-plein">Accepter</a>
+</div>
+<button type="button" class="fxo-retour" sc-camel-on-click="{{retour}}" aria-label="Retour">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</button>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;depart&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Ouverture (premier lancement)&quot;,&quot;Accueil 1/2&quot;,&quot;Accueil 2/2&quot;],&quot;default&quot;:&quot;Ouverture (premier lancement)&quot;,&quot;section&quot;:&quot;Écran de départ (changer de réglage rejoue)&quot;},&quot;mouvement&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Selon le téléphone&quot;,&quot;Normal&quot;,&quot;Réduit&quot;],&quot;default&quot;:&quot;Réduit&quot;,&quot;section&quot;:&quot;Animations&quot;},&quot;lecture&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;En boucle sur le canevas, jusqu'à « Continuer »&quot;,&quot;Une seule fois, comme dans l'application&quot;],&quot;default&quot;:&quot;En boucle sur le canevas, jusqu'à « Continuer »&quot;,&quot;section&quot;:&quot;Lecture de l'ouverture (29/10)&quot;},&quot;tenue&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;3 s (proposition, 29/10)&quot;,&quot;2 s&quot;,&quot;4 s&quot;,&quot;Aucune, comme l'export&quot;],&quot;default&quot;:&quot;3 s (proposition, 29/10)&quot;,&quot;section&quot;:&quot;Tenue du slogan (29/10 au soir)&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  // L'enchaînement : l'ouverture (vidéo 1) ; « Continuer » : le 2/2 (vidéo 2) ; « Retour » : l'image fixe du 1/2.
+  // Les textes suivent la vidéo : leurs animations CSS attendent qu'elle joue, et se recalent sur son horloge.
+  // Comme exports/ouverture/ouverture.html (branche claude/happy-mccarthy-5akhfh, 29/10).
+  // Sur le canevas, l'ouverture se rejoue 6000 ms après sa fin, tant qu'on n'a touché ni « Continuer » ni
+  // « Retour » (réglage « Lecture ») : la planche ne dépend plus du canevas pour être vue (29/10, fil b29469a3).
+  racine() { return document.querySelector('.fxo-ecran.fxo-oar'); }
+  depart() { return ({ 'Accueil 1/2': 'un', 'Accueil 2/2': 'deuxfixe' })[this.props.depart] || 'ouverture'; }
+  reduit() {
+    if (this.props.mouvement === 'Réduit') return true;
+    if (this.props.mouvement === 'Normal') return false;
+    return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }
+  boucle() { return this.props.lecture !== "Une seule fois, comme dans l'application"; }
+  // Tenue du slogan, en ms (réglage) : la vidéo s'arrête sur l'image immobile du logo, slogan entier (29/10, fil 778d3ee5).
+  tenueMs() { var t = {"3 s (proposition, 29/10)": 3000, "2 s": 2000, "4 s": 4000, "Aucune, comme l'export": 0}[this.props.tenue]; return t === undefined ? 3000 : t; }
+  lancer() {
+    var e = this.depart(), r = this.reduit();
+    this.setState({ etat: e, attente: e === 'ouverture' && !r, jouer: e === 'ouverture' ? 'v1' : null });
+  }
+  componentDidMount() {
+    var self = this, racine = this.racine();
+    // Le focus passe au titre des conditions une fois le texte paru : caché, il ne peut pas le recevoir.
+    if (racine) racine.addEventListener('animationend', function (ev) {
+      var st = self.state || {};
+      if (st.etat === 'deux' && ev.target.classList && ev.target.classList.contains('fxo-copy') && ev.target.closest('.fxo-acc2')) {
+        var t = racine.querySelector('.fxo-acc2 h1'); if (t) t.focus({ preventScroll: true });
+      }
+    });
+    // Les textes restent calés sur l'horloge de la vidéo, à 30 ms près, même quand elle est en pause ou ramenée au
+    // début (bouton de lecture du canevas, boucle de la planche).
+    var pas = function () {
+      if (self.fini) return;
+      var v = self.enCours, r = self.racine();
+      if (v && r && r.getAnimations) {
+        // Tenue du slogan : arrêt sur l'image immobile du logo, puis reprise ; les textes, calés sur la vidéo, attendent.
+        var h = self.tenir;
+        if (h && h.v === v && !h.fait && !v.paused && v.currentTime * 1000 >= 4360) {
+          h.fait = true;
+          v.pause();
+          self.minuteTenue = setTimeout(function () {
+            if (self.enCours !== v) return;
+            var q = v.play();
+            if (q && q.catch) q.catch(function (e) { if (!e || e.name !== 'AbortError') self.secours(v); });
+          }, h.ms);
+        }
+        // En pause (hors fin) ou en attente de données : les textes attendent aussi.
+        var att = (v.paused && !v.ended) || (!v.paused && v.readyState < 3);
+        if (att !== !!(self.state || {}).attente) self.setState({ attente: att });
+        var t = v.currentTime * 1000;
+        r.getAnimations({ subtree: true }).forEach(function (a) {
+          if (a.animationName && Math.abs((a.currentTime || 0) - t) > 30) a.currentTime = t;
+        });
+      }
+      self.raf = requestAnimationFrame(pas);
+    };
+    this.raf = requestAnimationFrame(pas);
+    this.lancer();
+  }
+  componentWillUnmount() { this.fini = true; if (this.raf) cancelAnimationFrame(this.raf); clearTimeout(this.minuteur); clearTimeout(this.garde); clearTimeout(this.minuteTenue); }
+  componentDidUpdate(prev) {
+    if (prev && (prev.depart !== this.props.depart || prev.mouvement !== this.props.mouvement || prev.lecture !== this.props.lecture || prev.tenue !== this.props.tenue)) {
+      // Un réglage changé rejoue depuis l'écran de départ.
+      this.rejouer();
+      return;
+    }
+    var st = this.state || {};
+    if (st.jouer) { this.setState({ jouer: null }); this.jouer(st.jouer); }
+    if (st.focusContinuer) {
+      this.setState({ focusContinuer: false });
+      var r = this.racine(), b = r && r.querySelector('.fxo-continuer'); if (b) b.focus({ preventScroll: true });
+    }
+  }
+  rejouer() {
+    // Depuis l'écran de départ : « rien » d'abord, pour relancer les animations CSS.
+    var self = this;
+    this.arreter();
+    this.setState({ etat: 'rien', attente: false, jouer: null, secours: false });
+    requestAnimationFrame(function () { if (!self.fini) self.lancer(); });
+  }
+  boucler(delai) {
+    // L'ouverture se rejoue si l'écran est toujours le sien : « Continuer » et « Retour » changent d'écran et arrêtent.
+    var self = this;
+    clearTimeout(this.minuteur);
+    if (!this.boucle()) return;
+    this.minuteur = setTimeout(function () {
+      if (!self.fini && (self.state || {}).etat === 'ouverture') self.rejouer();
+    }, delai);
+  }
+  arreter() {
+    var r = this.racine(); this.enCours = null; this.tenir = null;
+    clearTimeout(this.minuteur); clearTimeout(this.garde); clearTimeout(this.minuteTenue);
+    if (!r) return;
+    r.querySelectorAll('video').forEach(function (v) { v.pause(); });
+  }
+  secours(v) {
+    // Vidéo refusée, introuvable ou pas partie après 8000 ms : l'enchaînement sans vidéo, signalé à l'écran.
+    // Au tour suivant de la boucle, la vidéo est réessayée.
+    if (this.enCours !== v) return;
+    this.arreter();
+    this.setState({ secours: true, attente: false });
+    if ((this.state || {}).etat === 'ouverture') this.boucler(2100 + this.tenueMs() + 6000);
+  }
+  jouer(nom) {
+    var self = this, r = this.racine();
+    this.arreter();
+    if (!r || this.reduit()) {
+      this.setState({ attente: false });
+      if (nom === 'v1') this.boucler(2100 + this.tenueMs() + 6000);
+      return;
+    }
+    var v = r.querySelector(nom === 'v1' ? 'video.fxo-v1' : 'video.fxo-v2');
+    if (!v) { this.setState({ attente: false }); return; }
+    v.muted = true;
+    // Après un échec de toutes les sources, rien ne se recharge de soi-même : on recharge pour réessayer.
+    if (v.networkState === 3) v.load();
+    try { v.currentTime = 0; } catch (e) {}
+    this.enCours = v;
+    this.tenir = nom === 'v1' && this.tenueMs() > 0 ? { v: v, ms: this.tenueMs(), fait: false } : null;
+    var partie = false;
+    v.onplaying = function () { partie = true; if (self.enCours === v) self.setState({ attente: false }); };
+    v.onwaiting = function () { if (self.enCours === v) self.setState({ attente: true }); };
+    v.onpause = function () { if (self.enCours === v && !v.ended) self.setState({ attente: true }); };
+    v.onended = function () { if (self.enCours === v && nom === 'v1') self.boucler(6000); };
+    // La dernière source en erreur : aucune ne se lit.
+    var der = v.querySelector('source:last-of-type');
+    if (der) der.onerror = function () { self.secours(v); };
+    this.garde = setTimeout(function () { if (!partie) self.secours(v); }, 8000);
+    var p = v.play();
+    // Lecture refusée (hors interruption par une autre commande) : l'enchaînement sans vidéo.
+    if (p && p.catch) p.catch(function (e) { if (!e || e.name !== 'AbortError') self.secours(v); });
+  }
+  renderVals() {
+    var st = this.state || {}, self = this, red = this.reduit() || !!st.secours;
+    var etat = st.etat || 'rien';
+    return {
+      cls: 'fxo-e-' + etat + (red ? ' fxo-reduit' : '') + (st.attente ? ' fxo-attente' : '') + ' fxo-t' + this.tenueMs(),
+      preload1: this.depart() === 'ouverture' ? 'auto' : 'none',
+      showStatus: this.props.statuts !== false,
+      secours: !!st.secours,
+      continuer: function () { var r = self.reduit(); self.setState({ etat: 'deux', attente: !r, jouer: 'v2', secours: false }); },
+      retour: function () { self.arreter(); self.setState({ etat: 'un', attente: false, jouer: null, focusContinuer: true, secours: false }); }
+    };
+  }
+}
+</script>
+
+
+</body></html>
