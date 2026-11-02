@@ -1,23 +1,27 @@
 # Ce qui reste à faire pour clore le prototype et lancer les tests
 
-Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin d'après-midi**. On la met à jour à chaque séance : une tâche faite reçoit sa date et son commit, une tâche tranchée reçoit les mots de la porteuse.
+Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin de soirée**. On la met à jour à chaque séance : une tâche faite reçoit sa date et son commit, une tâche tranchée reçoit les mots de la porteuse.
 
-## 0. Reprendre ici (fin de la séance du 02/11)
+## 0. Reprendre ici (fin de la séance du 02/11, soir)
 
 **État à la fin de la séance**
-- Le canevas de travail est en version 37 (`1793629912-68bf`), identique au dépôt (vérifié en fin de séance, R3). La seule retouche faite sur la page, la tenue du slogan à 2 s, est rapatriée.
+- Le canevas de travail est en version `1793658254-4b79`, identique au dépôt (vérifié en fin de séance, R3, par les tailles des 188 planches et de l'index). La dernière retouche faite sur la page, le champ « Actif » par défaut sur `E2-Recherche-Aucun`, est rapatriée.
+- 188 planches : les trois « À SUPPRIMER » sont supprimées (1.4).
+- Décisions numérotées jusqu'à 250 (§2 bis du complément de la note de reprise).
 - La branche `claude/magical-mendel-cwpmji` est à jour sur GitHub.
 
-**Ce qui attend tes réponses** (rien n'est posé avant ton choix). Le texte exact de chaque proposition est dans `propositions/2026-11-02-fils-canevas-travail/propositions.md` :
-- les mentions de la ligne allaitement, piste A ou B, et leurs explications (2.5a ; fils `111f9ffa`, `8b340b1d`) ;
-- « Les données » du verdict à actualiser, A ou B (3.6a ; fil `a5b20715`) ;
-- les chemins critiques de la version de test, et ton accord pour la construire (2.8 ; `propositions/2026-11-02-version-de-test/proposition.md`) ;
-- les autres questions du §3.1.
+**Ce qui attend tes réponses** (rien n'est posé avant ton choix ; propositions dans les fils du canevas) :
+- **les cases de la ligne allaitement** : présentation « 1 + 2 » ou « 1 + 2 + 3 », visibles au réglage « Cases : présentation » de `EA-Verdict-Baume-Jaune` (2.5a ; fil `111f9ffa`) ;
+- **les explications du volet** 3, 4, 5 et 6, nouvelles versions (2.5a ; fil `8b340b1d`) ;
+- **« Les données » du verdict à actualiser** : une formulation parmi A à F, préférence de Claude : D (3.6a ; fil `a5b20715`) ;
+- **la recherche sans connexion** : champ grisé ou actif, et l'étendre aux quatre autres copies (3.6b ; fil `99641baa`) ;
+- les autres questions encore ouvertes du §3.1 (3.7, 3.8, 3.9, 3.11) et du §3.3.
 
 **Ce que la prochaine session fait d'abord**
 1. R1 et R3 : l'accès au canevas, puis les retouches faites sur la page.
 2. Lire les fils du canevas de travail (outil `ArtifactComments`, `action: read`). Si tu as répondu, appliquer tes choix (R2, captures avant publication).
-3. Sinon, ce qui ne dépend que de Claude : l'inventaire des causes (2.1, `CT-1.1`) et la préparation de l'étape 8 sur le registre v6.8 (4.1, 4.2). Puis la base technique de la version de test, si tu as donné ton accord (2.8).
+3. Sinon, ce qui ne dépend que de Claude : l'inventaire des causes (2.1, `CT-1.1`), puis le relevé des écarts au registre avec les décisions 218 à 250 (4.1) et la confrontation de l'annexe A (4.2).
+4. La version de test (2.8) attend la fin des retouches du prototype : ne pas la construire avant ton signal.
 
 **Où trouver ce qui sert**
 - **Le registre v6.8** est sur `main`, pas sur la branche de travail. Pour le lire sans fusionner (une fusion demande ton accord, R6) : `git show "origin/main:mamaCARE_Registre_Projet_29_10_26_v6-8.md"`.
@@ -29,9 +33,9 @@ Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin d'après-mid
 
 - **Le registre v6.8** (29/10, sur `main`), en attendant la v6.9.
 - **Le planning**, page « Planning Ficolia » : état au 31/10, 20 h 40. Ses coches ont été relues le 02/11.
-- **La note de reprise du 31/10** (§5) et les journaux des 22 et 29/10, puis des 01 et 02/11.
+- **La note de reprise du 31/10** (§5, et §2 bis pour les décisions 218 à 250) et les journaux des 22 et 29/10, puis des 01 et 02/11.
 - **L'inventaire des commentaires de l'ancien canevas** (02/11).
-- **L'état du dépôt et du canevas de travail** au 02/11.
+- **L'état du dépôt et du canevas de travail** au 02/11 au soir.
 
 ## Comment la lire
 
@@ -75,7 +79,7 @@ Régler tout de suite les quelques points qui bloquent ou qui pressent (§1). Pu
 | 2.3 | Vérifier la phrase du niveau 2 sur le chemin du seul parfum (`CT-1.3`) | Claude | 0,5 h | 2.2 | à faire |
 | 2.4 | Spécifier la mention « ce que ça change » (`CT-1.4`, `T-528`) | Claude | 1 h | 2.2 | à faire |
 | 2.5 | Relire l'ensemble et le figer pour le test (`CT-1.5`) | toi | 2 h | 2.3, 2.4 | à faire |
-| 2.5a | **Nouveau. Reformuler les mentions de la ligne allaitement et leurs explications** (« ne sont toujours pas clair pour un user tiers », fils `111f9ffa` et `8b340b1d`, 02/11). Deux pistes pour les cases (A : « sujet · état » en mots courants ; B : une phrase par case) et des explications nouvelles (la situation concrète, puis ce que le verdict en fait), proposées dans les fils le 02/11. Ensuite : Claude les pose sur les 13 planches de verdict et dans les listes d'ingrédients, captures avant publication. Textes « Proposition », provisoires jusqu'à `T-604`, à relire par la toxicologue. | toi, puis Claude | ? | — | **à choisir** |
+| 2.5a | **Nouveau. Reformuler les mentions de la ligne allaitement et leurs explications** (« ne sont toujours pas clair pour un user tiers », fils `111f9ffa` et `8b340b1d`, 02/11). **Tranché le 02/11** : la forme « sujet · état » (piste A), pas de phrases entières (décision 241) ; explications 1 et 2 retenues (décision 242). **Reste à choisir** : la présentation des cases, « 1 + 2 » (l'état d'abord, en gras ; un thème sans verbe pour sujet) ou « 1 + 2 + 3 » (plus une étiquette d'état doublée d'une forme), au réglage « Cases : présentation » de `EA-Verdict-Baume-Jaune` (version 41) ; les explications 3 (« trop alambiqué »), 4 et 5 (à commencer par « Ce verdict ne tient pas compte… ») et 6 (le parfum : version conforme à `D-261` ou version explicite, à faire valider), nouvelles versions dans le fil `8b340b1d`. Ensuite : Claude les pose sur les 13 planches de verdict et dans les listes d'ingrédients, captures avant publication. Textes « Proposition », provisoires jusqu'à `T-604`, à relire par la toxicologue. | toi, puis Claude | ? | — | **à choisir** (présentation, explications 3 à 6) |
 | 2.6 | **Nouveau.** Reporter les phrases figées dans les planches de verdict, grossesse et allaitement, et leurs copies (règle R2) | Claude | ? | 2.5 | à faire |
 
 ### 2.2 Ce que le prototype doit offrir pour le test
@@ -83,7 +87,7 @@ Régler tout de suite les quelques points qui bloquent ou qui pressent (§1). Pu
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
 | 2.7 | Valider le lien vers la fiche « Toilette des seins » (`PR-1.7`). Il est publié depuis le 02/11, sur le verdict du gel douche et dans « Bonnes pratiques ». Coche-le si ton « ok » du 02/11 valait validation. | toi | 0,5 h | — | **validé le 02/11, à éprouver au test** : « oui vaut validation à éprouver lors de tests » ; la coche de `PR-1.7` est à toi (planning) ; le test hors cible le met à l'épreuve (2.10 : une tâche sur ce lien) |
-| 2.8 | **Nouveau. La version de test.** Forme choisie le 02/11 : « un lien à envoyer avec le prototype comme s'ils avaient téléchargé l'application. navigation libre + menu ou on peut séléctionner des chemins critiques qu'on veut tester absolument » ; puis « une page hmtl plein écran » « + possibilité de mettre des commentaires » ; le menu des chemins est visible des testeurs (« oui »). **Précision du 02/11 au soir : « je veux un fichier hmtl avec la possibilité de mettre des commentaires sans que l'user passe par claude.ai ».** La proposition qui suit (claude.ai) est donc écartée pour les testeurs. Choisi le même soir : **les commentaires par un formulaire Google** (« oui ») et **un lien en ligne** (« oui » ; GitHub Pages proposé, à activer par toi). **Rien n'est construit** : « non lance pas maintenant on a pas fini de peaufinner le prototype ». Ancienne proposition de Claude : une page web plein écran publiée sur claude.ai (pas un canevas), construite par un script à partir des sources du dépôt, sans étiquettes de prototype, avec le menu des chemins et un bouton « Commenter cet écran » qui ouvre la boîte de commentaires de claude.ai, rattachée à l'écran affiché. À trancher : la liste des chemins (tu y réfléchis), l'écran de départ, le partage (qui peut ouvrir et commenter : à vérifier dans le menu « Partager » sur une première version privée). Captures avant toute publication partagée (R6). | toi, puis Claude | ? | 2.6 (les phrases) | **traité le 02/11** (« c'était 2.8 ») : forme choisie (fichier HTML hors claude.ai, formulaire Google, lien en ligne) ; construction reportée à la fin des retouches du prototype ; liste des chemins à venir |
+| 2.8 | **Nouveau. La version de test.** Forme choisie le 02/11 (décision 245) : **un fichier HTML hors de claude.ai** (« je veux un fichier hmtl avec la possibilité de mettre des commentaires sans que l'user passe par claude.ai »), qui ouvre le prototype comme une application téléchargée, en navigation libre, avec **un menu des chemins critiques visible des testeurs** ; **les commentaires reçus par un formulaire Google** ; **diffusion par un lien en ligne** (GitHub Pages proposé, à activer par toi dans les réglages du dépôt). **Construction reportée** : « non lance pas maintenant on a pas fini de peaufinner le prototype ». À fournir le moment venu : la liste des chemins (dix chemins provisoires dans `propositions/2026-11-02-version-de-test/proposition.md`), le formulaire (Claude donne les questions, tu le crées, tu envoies son lien prérempli). Notes techniques pour la construction : journal des 01 et 02/11. Captures avant toute diffusion (R6). Limite : les commentaires passent par Google, à dire aux testeurs. | toi, puis Claude | ? | 2.6 (les phrases) ; fin des retouches | **traité le 02/11** (« c'était 2.8 ») : forme choisie ; construction en attente de ton signal |
 
 ### 2.3 Le test lui-même, du 16/11 au 18/01
 
@@ -112,7 +116,10 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 | 3.4 | La taille de l'arc (76 × 40 px) : assez grande ? Plus grand, il faut accepter que le nom du produit passe à la ligne, ou déplacer l'arc | fils `92b44169`, `d9867524` | **tranché le 02/11** : « laisse comme ça » (76 × 40 px) |
 | 3.5 | Décisions 206 à 209 : ton « ok, go etape 7 » valait-il accord ? | note du 31/10, §5.2 | **confirmé le 02/11** (« oui ») |
 | 3.6 | Ta retouche de `E2-Recherche-Aucun` (29/10) : la garder ? la reporter sur les quatre autres copies ? Le filigrane est tranché le 02/11 au soir : le symbole de Ficolia, au milieu de l'espace blanc (« non juste le logo simple », version 39, commit `eac7321`) ; reste son report sur les quatre autres copies. | journal du 29/10, §18 ; fil `99641baa` | **fait le 02/11** : report sur les quatre copies (« a ») |
-| 3.6a | Le verdict « à actualiser » : « Les données de ce verdict… » est flou. Deux formulations proposées le 02/11 (fil `a5b20715`), A (la cause) ou B (ce qui a pu changer), sur 9 planches, et la ligne « Pas de connexion » sur 6. | fil `a5b20715` ; `D-91`, `T-511`, `T-242` | à choisir |
+| 3.6a | Le verdict « à actualiser » : « Les données de ce verdict… » est flou. Formulations A et B (02/11), puis, après ton idée InciBeauty, C à F (fil `a5b20715`). L'idée InciBeauty (drapeau orange, appareil photo, reprendre la liste en photo) répond à une liste changée, pas à un verdict trop vieux sur le téléphone, et touche quatre règles (orange = niveau 3, `D-115` D2 ; alerte, `T-512` ; placement B, `D-66`, `T-192` ; appel à l'action, `T-117`). Préférence de Claude : D, « Une mise à jour est nécessaire pour afficher un verdict pour ce produit. », sans promesse d'affichage, avec une ligne « sans connexion » qui ne promet pas de mise à jour automatique. 9 planches, et la ligne « Pas de connexion » sur 6. | fil `a5b20715` ; `D-91`, `T-511`, `T-242` | à choisir |
+| 3.6b | **Nouveau.** La recherche sans connexion (5 copies du gabarit) : la barre de recherche reste, les messages en bas (décision 246, version 64). Champ grisé et inactif par défaut (proposition de Claude) ou actif ? Tu as mis « Actif » par défaut sur `E2-Recherche-Aucun` le 02/11 au soir (rapatrié) : est-ce ton choix, à étendre aux quatre autres copies ? Si le champ est actif, que doit-il se passer quand on tape sans connexion ? | fil `99641baa` | à choisir |
+| 3.6c | **Nouveau.** « Rechercher · aucun résultat » : l'étiquette « Texte provisoire », seule en haut depuis ta retouche, vaut pour quel texte ? Une étiquette sous chaque texte, comme ailleurs ? | fil `99641baa` | à trancher (mineur) |
+| 3.6d | **Nouveau.** En texte très grand (200 %), la bulle de l'échelle (`E1-Aide-Echelle`, `E1-Aide-Info`) ne grandit pas et couvre l'arc et le nom du produit. Défaut antérieur au 02/11, relevé en vérifiant 3.3 (`T-220`, `T-559`). La corriger maintenant, ou au contrôle final (3.25) ? | captures du 02/11 | à trancher |
 | 3.7 | Fil `0bf17029` (« la phrase est mal formulée », `EA-Verdict-Lait-Sous`) : de quelle phrase s'agit-il ? | inventaire du 02/11 | à préciser |
 | 3.8 | Panneau « source » du verdict (« pas intuitif, pas joli », fil `b89f1c0b`) : veux-tu des idées de disposition ? Claude les décrit d'abord, sans rien construire. | inventaire du 02/11 | à trancher |
 | 3.9 | Le signal poitrine : `D-273` contre le cap de l'accueil (§2) | journal du 22/10 | à trancher |
@@ -157,7 +164,7 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
-| 4.1 | Compléter le relevé des écarts au registre (`propositions/2026-10-31-hors-canevas/ecarts-au-registre-etape-8.md`, décisions 182 à 217) avec les choix des 01 et 02/11 : savon, « Crevasses », bandeau grisé, idée 5, boutons, piste (a), « Accepter », tenue du slogan… | Claude | ? | 1.6 | **peut commencer** |
+| 4.1 | Compléter le relevé des écarts au registre (`propositions/2026-10-31-hors-canevas/ecarts-au-registre-etape-8.md`, décisions 182 à 217) avec les décisions 218 à 250 (01 et 02/11 ; §2 bis du complément de la note de reprise) : savon, « Crevasses », bandeau grisé, idée 5, boutons, piste (a), « Accepter », tenue du slogan, encadré « réévalué » (`D-282`), police du logo (`T-636`, `T-558`)… | Claude | ? | 1.6 (fait) | **peut commencer** |
 | 4.2 | Confronter l'annexe A de la note du 21/10 (177 lignes) au registre v6.8, ligne à ligne | Claude | ? (le planning ne compte que 2 h pour tout `PR-3.9`, ce qui semble court ; à réestimer après les 20 premières lignes) | — | **peut commencer** |
 | 4.3 | Rédiger la note d'inscription : les décisions de séance, la correction de la palette de verdict de `D-107`, et la mise à jour de `D-312` (le canevas de référence est maintenant le canevas de travail) | Claude | 2 h | 4.1, 4.2, et le §3 | à faire, en dernier |
 | 4.4 | Valider l'inscription (`PR-3.10`) | toi | 2 h | 4.3 | à faire |
@@ -204,25 +211,12 @@ Scénario central du planning : juillet à septembre 2027.
 
 ## 7. Message à coller dans la conversation du planning
 
-> Mise à jour du 02/11 (session du prototype) :
-> 1. Canevas de référence (PR-1) : depuis le 01/11, le travail se fait sur un canevas neuf, « ficolia - prototype_vTravail » (https://claude.ai/artifact/FB6cC6xawyir9Y1QwCYosb), reconstruit depuis les exports. Claude le lit et le modifie. L'original, « Ficolia — Prototype », reste en archive avec ses commentaires (139 fils, dont 30 ouverts, inventoriés le 02/11). La question « Canevas refusé à Claude » est réglée ; D-312 est à annoter de nouveau.
-> 2. Faits, à cocher :
->    - PR-1.3 : réponses aux commentaires préparées (31/10), inventaire des 139 fils de l'original (02/11) ;
->    - PR-1.5 : déclencheur du renvoi « Crevasses », première lecture (02/11) ;
->    - PR-1.6 : troisième voie du savon prototypée et publiée (02/11) ;
->    - PR-1.7 : le lien de la troisième voie, si mon « ok » du 02/11 vaut validation ;
->    - PR-2.2 : cinq personnes hors cible recrutées, 2 hommes et 3 femmes (02/11) ;
->    - PR-3.5 : échelle choisie, l'arc sans aiguille (décision 213, 30/10 ; reste sa taille).
-> 3. Tranché le 02/11 :
->    - tenue du slogan à 2 s ;
->    - police du logo : 29LT Riwaya Informal, sous licence, gardée pour le prototype ; une police gratuite à trouver pour le lancement (T-636, T-558) ;
->    - dépôt public et données de la personne extérieure : j'ai eu l'autorisation ; la question du 31/10 est close ;
->    - forme du test hors cible (PR-2) : un lien à envoyer, qui ouvre le prototype comme une application téléchargée, en navigation libre, avec un menu pour lancer les chemins critiques à tester.
-> 4. Sous-tâches à ajouter :
->    - CT-1 ou PR-2 : reporter les phrases figées dans les planches (Claude) ;
->    - PR-2 : construire la version de test (Claude), puis la valider (moi) ;
->    - CT ou PR-2 : reformuler les mentions de la ligne allaitement et leurs explications (propositions du 02/11, choix attendu) ;
->    - PR-3 : choisir la formulation du verdict « à actualiser » (proposition du 02/11) ; la durée de l'encadré « réévalué » est tranchée (possibilité 1, 02/11).
+Le message du 02/11 après-midi est passé (1.2, « c'est fait »). Complément du soir :
+
+> Mise à jour du 02/11 au soir (session du prototype) :
+> 1. Faits, à cocher si tu le juges : PR-1.2 (ancien canevas : on n'en tient plus compte, même si des fils y restent ouverts) ; PR-1.7 (lien « Toilette des seins » validé, à éprouver lors des tests) ; PR-3.1, PR-3.2, PR-3.3 (étapes 5, 6 et 7 validées) ; PR-3.5 (l'échelle, arc de 76 × 40 px gardé).
+> 2. Tranché : décisions 218 à 250 numérotées (01 et 02/11) ; encadré « réévalué » à la première ouverture seulement ; forme de la version de test : un fichier HTML hors claude.ai, commentaires par un formulaire Google, diffusion par un lien en ligne, construction après les retouches du prototype.
+> 3. Sous-tâches à ajouter, si ce n'est pas déjà fait : PR-2, construire la version de test (Claude), créer le formulaire Google et activer l'hébergement (moi), la valider (moi) ; PR-3, choisir le champ de la recherche sans connexion (grisé ou actif).
 
 ---
 
@@ -231,5 +225,6 @@ Scénario central du planning : juillet à septembre 2027.
 - **Le registre** : elle repose sur la v6.8. La v6.9 peut avoir inscrit ou changé des entrées citées ici.
 - **Le planning** : c'est l'état du 31/10 au soir. Ses dates supposaient le canevas débloqué avant la semaine du 14/12 ; il l'est depuis le 01/11, ce qui devrait permettre d'avancer `PR-1`, donc `PR-2`. Ce n'est pas recalculé ici.
 - **Le fichier du 30/10** (`a_inscrire_registre_30_10_2026.md`, qui porte `O-65`) et le fichier de travail du PI-4 restent introuvables. Les définitions de `PI4-D4`, `D6` et `D7` ne viennent que du planning.
-- **Les actions de l'audit** (3.11) et les questions du 31/10 (3.1 à 3.10) n'ont pas été revérifiées une à une sur les planches. Tu as pu en trancher sur la page depuis.
+- **Les actions de l'audit** (3.11) n'ont pas été revérifiées une à une sur les planches. Tu as pu en trancher sur la page depuis.
+- **Le contrôle R3 de fin de séance** compare les tailles : une retouche de même longueur lui échapperait. Avant de remplacer une planche, la relire en ligne.
 - **Les durées marquées « ? »** ne sont pas estimées. Les autres sont celles du planning.
