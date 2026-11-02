@@ -1396,6 +1396,15 @@
       "x": 940,
       "y": 0
     },
+    "E6-Fiche-ToiletteSeins.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-6",
+      "title": "Fiche « Toilette des seins » · proposition pour le test hors cible (02/11)",
+      "w": 390,
+      "x": 0,
+      "y": 1928
+    },
     "E6-MentionsLegales.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -1744,6 +1753,7 @@
     "E6-Menu.dc.html",
     "E6-BonnesPratiques-Themes.dc.html",
     "E6-Fiche-Crevasses.dc.html",
+    "E6-Fiche-ToiletteSeins.dc.html",
     "E6-Methode-Lexique.dc.html",
     "E6-APropos.dc.html",
     "E6-Methode.dc.html",
