@@ -68,6 +68,7 @@ Les commits `23c0a20` et `a3c25f0` sont datés à tort « 03/11 » dans leur mes
 | Dépôt public et données de la personne extérieure : sans objet, la porteuse a eu l'autorisation | « on s'en fiche. j'ai eu l'autorisation. » | — |
 | Forme du test hors cible : un lien à envoyer, le prototype comme une application téléchargée, navigation libre et un menu des chemins critiques à tester | « j'avais imaginé un lien à envoyer avec le prototype comme s'ils avaient téléchargé l'application. navigation libre + menu ou on peut séléctionner des chemins critiques qu'on veut tester absolument. » | — |
 | Recrutement du test hors cible fait : cinq personnes, 2 hommes et 3 femmes (`PR-2.2`) | « C'est fait : 2 hommes, 3 femmes hors cible » | — |
+| Version de test : une page HTML plein écran, avec la possibilité de laisser des commentaires ; le menu des chemins critiques est visible des testeurs ; la liste des chemins est en réflexion | « non pas un artéfact à part, une page hmtl plein écran c'est possible ? + possibilité de mettre des commentaires » ; « oui » (menu visible) ; « je réflechis » (chemins) | — |
 | La porteuse vérifie elle-même que les commentaires de l'ancien canevas sont tous traités | « je dois aussi vérifier les commentaires sur l'original si tout a été traité » | — |
 
 **Limites** :
