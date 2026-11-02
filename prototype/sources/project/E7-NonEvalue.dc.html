@@ -19,7 +19,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #4C29
 @media (prefers-reduced-motion:reduce){a,button{transition:none}a:active,button:active{transform:none}}
 </style>
 </helmet>
-<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; color: #321C31; font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
+<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; color: #321C31; font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif; display: flex; flex-direction: column; overflow-x: hidden; overflow-y: auto">
 <div style="padding: 50px 20px 0 20px; display: flex; align-items: center; justify-content: space-between">
 <a href="E1-Scan.dc.html" aria-label="Retour au scan" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
 <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
@@ -48,7 +48,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #4C29
 <!-- Écart minimal entre la dernière ligne et « Ce n'est pas ce produit » (fil 6c55f949, 01/11) : la marge auto s'écrasait en texte agrandi. -->
 <div aria-hidden="true" style="flex-shrink: 0; height: 24px"></div>
 <a href="E4-Signalement-Produit.dc.html" style="flex-shrink: 0; margin: auto 20px 12px 20px; min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Ce n'est pas ce produit</a>
-<div style="flex-shrink: 0; padding-top: 4px">
+<div style="flex-shrink: 0; padding-top: 4px; position: sticky; bottom: 0; z-index: 2; background: #FFFFFF">
 <nav aria-label="Navigation principale" style="margin: 0 16px 26px 16px; padding: 8px; border-radius: 30px; background: #FAF8F4; border: 1px solid #E7E1DA; box-shadow: 0 8px 24px rgba(50,28,49,0.10); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px">
 <a href="E1-Scan.dc.html" aria-current="true" style="min-height: 56px; border-radius: 22px; background: #4C2944; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #FFF7F0; font-size: 12px; font-weight: 700">
 <svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="#FFF7F0" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16M8 8.5v7M11 8.5v7M13.5 8.5v7M16 8.5v7"></path></svg>
