@@ -52,11 +52,11 @@ Régler tout de suite les quelques points qui bloquent ou qui pressent (§1). Pu
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
 | 1.1 | **Données d'un tiers dans le dépôt public** : réglé le 02/11. La porteuse a eu l'autorisation (« on s'en fiche. j'ai eu l'autorisation. ») ; rien à retirer. | toi | — | — | **réglé** |
-| 1.2 | **Mettre le planning à jour.** Le canevas de référence de PR-1 est maintenant le canevas de travail (depuis le 01/11). La question « Canevas refusé à Claude » est réglée. Coches proposées au §7. | toi (Claude prépare le message, §7) | 0,25 h | — | message prêt |
-| 1.3 | **Fermer les fils réglés de l'ancien canevas** (`PR-1.2`). Inventaire : `propositions/2026-11-02-commentaires-ancien-canevas/fils-ancien-canevas.md`. 26 fils ouverts non envoyés à Claude : c'est toi qui les fermes, sur la page. 4 fils envoyés à Claude : `6c55f949` (réglé le 01/11) et `778d3ee5` (réglé le 02/11, tenue de 2 s), Claude y répond puis les ferme si tu le demandes ; `2c39b9fd` (police 29LT Riwaya) : capture ou abandon ; `3355a2cf` (question de la personne extérieure du 17/10) : y répondre ou non. | toi, Claude | 4 h | 1.1 pour `3355a2cf` | à faire |
+| 1.2 | **Mettre le planning à jour.** Le canevas de référence de PR-1 est maintenant le canevas de travail (depuis le 01/11). La question « Canevas refusé à Claude » est réglée. Coches proposées au §7. | toi (Claude prépare le message, §7) | 0,25 h | — | **fait le 02/11** (« c'est fait ») |
+| 1.3 | **Fermer les fils réglés de l'ancien canevas** (`PR-1.2`). Inventaire : `propositions/2026-11-02-commentaires-ancien-canevas/fils-ancien-canevas.md`. 26 fils ouverts non envoyés à Claude : c'est toi qui les fermes, sur la page. 4 fils envoyés à Claude : `6c55f949` (réglé le 01/11) et `778d3ee5` (réglé le 02/11, tenue de 2 s), Claude y répond puis les ferme si tu le demandes ; `2c39b9fd` (police 29LT Riwaya) : capture ou abandon ; `3355a2cf` (question de la personne extérieure du 17/10) : y répondre ou non. | toi, Claude | 4 h | 1.1 pour `3355a2cf` | **réglé le 02/11** : « c'est bon ne plus tenir compte de l'ancien canevas même si des fils y restent ouverts » |
 | 1.4 | **Supprimer les trois planches marquées « À SUPPRIMER »** : `E3-Scan-Avant`, `E6-APropos`, `E6-BonnesPratiques`. Tu les supprimes sur la page, ou tu me le dis (R6). | toi | 0,1 h | — | **fait le 02/11** par toi sur la page ; rapatrié dans le dépôt (R3) |
 | 1.5 | **Tenue du slogan sur les trois autres planches** au même réglage (`E1-Ouverture-Arbre-Reduit`, `E1-Accueil-Bienvenue`, `E1-Accueil-Conditions`) : 2 s aussi ? Question posée dans le fil du 02/11. | toi | — | — | **fait le 02/11** : « oui passe les à 2s » |
-| 1.6 | **Numéroter les décisions des 01 et 02/11** (218 et suivantes) dans la note de reprise, d'après le journal. L'étape 8 en a besoin (§4). | Claude, sur ton accord | 0,5 h | — | à trancher |
+| 1.6 | **Numéroter les décisions des 01 et 02/11** (218 et suivantes) dans la note de reprise, d'après le journal. L'étape 8 en a besoin (§4). | Claude, sur ton accord | 0,5 h | — | **accord le 02/11** (« oui d'accord ») : Claude numérote |
 
 ---
 
@@ -76,7 +76,7 @@ Régler tout de suite les quelques points qui bloquent ou qui pressent (§1). Pu
 | 2.4 | Spécifier la mention « ce que ça change » (`CT-1.4`, `T-528`) | Claude | 1 h | 2.2 | à faire |
 | 2.5 | Relire l'ensemble et le figer pour le test (`CT-1.5`) | toi | 2 h | 2.3, 2.4 | à faire |
 | 2.5a | **Nouveau. Reformuler les mentions de la ligne allaitement et leurs explications** (« ne sont toujours pas clair pour un user tiers », fils `111f9ffa` et `8b340b1d`, 02/11). Deux pistes pour les cases (A : « sujet · état » en mots courants ; B : une phrase par case) et des explications nouvelles (la situation concrète, puis ce que le verdict en fait), proposées dans les fils le 02/11. Ensuite : Claude les pose sur les 13 planches de verdict et dans les listes d'ingrédients, captures avant publication. Textes « Proposition », provisoires jusqu'à `T-604`, à relire par la toxicologue. | toi, puis Claude | ? | — | **à choisir** |
-| 2.6 | **Nouveau.** Reporter les phrases figées dans les planches de verdict, grossesse et allaitement, et leurs copies (règle R2) | Claude | ? | 2.5 | à faire |
+| 2.6 | **Nouveau.** Reporter les phrases figées dans les planches de verdict, grossesse et allaitement, et leurs copies (règle R2) | Claude | ? | 2.5 | « traité » (02/11) : à préciser, les phrases sous le verdict (2.2) ne sont pas encore dans le dépôt |
 
 ### 2.2 Ce que le prototype doit offrir pour le test
 
@@ -106,11 +106,11 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 
 | N° | Question | D'où elle vient | État |
 | --- | --- | --- | --- |
-| 3.1 | « Icône verdict allaitement » (31/10) : qu'est-ce qui doit changer ? | note du 31/10, §5.2 | à trancher |
+| 3.1 | « Icône verdict allaitement » (31/10) : qu'est-ce qui doit changer ? | note du 31/10, §5.2 | **traité** (« rien oublié ça a été traité », 02/11) |
 | 3.2 | L'encadré « réévalué » : combien de temps ? Trois possibilités proposées le 02/11 (fil `19560b13`) : (1) à la première ouverture seulement, recommandée ; (2) jusqu'à ce qu'on le ferme ; (3) un nombre de jours, déconseillé. | fil `907c529c` ; décision 200 ; `D-282` | **tranché le 02/11** : possibilité 1 (« on garde la 1 », fil `19560b13`) |
-| 3.3 | La phrase de la bulle de l'échelle : trois propositions, au réglage de `E1-Aide-Echelle` | fil `8192aeeb` | à choisir |
-| 3.4 | La taille de l'arc (76 × 40 px) : assez grande ? Plus grand, il faut accepter que le nom du produit passe à la ligne, ou déplacer l'arc | fils `92b44169`, `d9867524` | à trancher |
-| 3.5 | Décisions 206 à 209 : ton « ok, go etape 7 » valait-il accord ? | note du 31/10, §5.2 | à confirmer |
+| 3.3 | La phrase de la bulle de l'échelle : trois propositions, au réglage de `E1-Aide-Echelle` | fil `8192aeeb` | **fait le 02/11** : « inclure le fait que l'échelle se lit de gauche à droite » ; phrase par défaut sur `E1-Aide-Echelle` et `E1-Aide-Info` : « Ce repère se lit de gauche à droite : quatre niveaux, de « sans signal identifié » à « incompatible ». » (Proposition) |
+| 3.4 | La taille de l'arc (76 × 40 px) : assez grande ? Plus grand, il faut accepter que le nom du produit passe à la ligne, ou déplacer l'arc | fils `92b44169`, `d9867524` | **tranché le 02/11** : « laisse comme ça » (76 × 40 px) |
+| 3.5 | Décisions 206 à 209 : ton « ok, go etape 7 » valait-il accord ? | note du 31/10, §5.2 | **confirmé le 02/11** (« oui ») |
 | 3.6 | Ta retouche de `E2-Recherche-Aucun` (29/10) : la garder ? la reporter sur les quatre autres copies ? Le filigrane est tranché le 02/11 au soir : le symbole de Ficolia, au milieu de l'espace blanc (« non juste le logo simple », version 39, commit `eac7321`) ; reste son report sur les quatre autres copies. | journal du 29/10, §18 ; fil `99641baa` | **fait le 02/11** : report sur les quatre copies (« a ») |
 | 3.6a | Le verdict « à actualiser » : « Les données de ce verdict… » est flou. Deux formulations proposées le 02/11 (fil `a5b20715`), A (la cause) ou B (ce qui a pu changer), sur 9 planches, et la ligne « Pas de connexion » sur 6. | fil `a5b20715` ; `D-91`, `T-511`, `T-242` | à choisir |
 | 3.7 | Fil `0bf17029` (« la phrase est mal formulée », `EA-Verdict-Lait-Sous`) : de quelle phrase s'agit-il ? | inventaire du 02/11 | à préciser |
@@ -124,10 +124,10 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
 | 3.12 | Préparer chaque étape et tenir la note de reprise (`PR-3.4`) | Claude | 3 h | — | à faire |
-| 3.13 | Valider l'étape 5 : historique, réévaluation, réglages, échelle (`PR-3.1`) | toi | 4 h | 3.12 | à faire |
-| 3.14 | Valider l'étape 6 : menu, pages, fiches, « Nous écrire » (`PR-3.2`) | toi | 4 h | 3.12 | à faire |
-| 3.15 | Valider l'étape 7 : l'écran de refus des flacons d'huile essentielle pure, construit le 30/10 (`E7-NonEvalue`, décision 211) (`PR-3.3`) | toi | 1 h | — | à faire |
-| 3.16 | L'échelle (`PR-3.5`) : tranchée le 30/10, l'arc sans aiguille (décision 213), sous réserve de sa taille (3.4). Coche proposée. | toi | — | 3.4 | à cocher |
+| 3.13 | Valider l'étape 5 : historique, réévaluation, réglages, échelle (`PR-3.1`) | toi | 4 h | 3.12 | **fait le 02/11** (« ok fait ») ; la coche est à toi, dans le planning |
+| 3.14 | Valider l'étape 6 : menu, pages, fiches, « Nous écrire » (`PR-3.2`) | toi | 4 h | 3.12 | **fait le 02/11** (« ok fait ») ; la coche est à toi, dans le planning |
+| 3.15 | Valider l'étape 7 : l'écran de refus des flacons d'huile essentielle pure, construit le 30/10 (`E7-NonEvalue`, décision 211) (`PR-3.3`) | toi | 1 h | — | **fait le 02/11** (« ok fait ») ; la coche est à toi, dans le planning |
+| 3.16 | L'échelle (`PR-3.5`) : tranchée le 30/10, l'arc sans aiguille (décision 213), sous réserve de sa taille (3.4). Coche proposée. | toi | — | 3.4 | **fait le 02/11** (« ok fait ») ; la coche est à toi, dans le planning |
 
 ### 3.3 Ce qui reste à modéliser
 
