@@ -19,6 +19,8 @@ Séance de reprise sur le canevas de travail « ficolia - prototype_vTravail » 
 | Renvoi « Crevasses » : **première lecture** (voir ci-dessous) | « ok » | 02/11 | aucun : c'est le comportement du prototype |
 | Troisième voie du savon publiée, pour le test hors cible (voir ci-dessous) | « ok » | 02/11 | `4259d83`, `78a5c92` |
 
+« Palette Ficolia — contrôle-html.zip » (racine du dépôt, déposé le 01/11 ; une seule planche, `D-Accent.dc.html`) : « Garde là dans le dépot mais ne l'affiche pas sur l'artefact » (02/11). Il reste dans le dépôt, hors de `prototype/sources/`, et n'est pas publié sur le canevas.
+
 Modification faite par la porteuse sur la page, rapatriée (R3) : la page « Étape 1 — sans animation » s'appelle « Étape 1 » (`37a99a1`, 02/11).
 
 ## Le renvoi « Crevasses » : première lecture
@@ -43,7 +45,7 @@ Le renvoi s'affiche sur un soin des mamelons (produit à l'attribut) qui n'est p
 - **Tension avec la décision 168**, maintenue par la 183. Le 17/10, la porteuse a écrit que la condition savon « n'a rien à faire ici […] meme pas en pop up ». Un lien sur le verdict revient en partie sur ce choix. Son « ok » du 02/11 porte sur la publication pour le test hors cible, et la 168 n'est pas annulée pour autant. À trancher après le test.
 - **Écart au registre** : `D-262`, `D-265` et `D-266` gardent la condition savon sur le verdict, alors que le prototype l'a remplacée par un lien vers une fiche. À réviser dans la discussion de méthodologie, avec `T-605`.
 - **Le lien ne vit que sur `EA-Verdict-Gel`.** Les autres planches du même gabarit (`EA-Verdict-Gel-Source`, `EA-Verdict-Lait-*`, `EA-Verdict-Baume-*`, `E*-Allaitement`…) n'ont pas reçu la logique. Si l'on y choisit « Gel douche surgras » dans les réglages, le renvoi n'y paraît pas. Rien de faux ne s'affiche, mais c'est incomplet. À étendre si le test le retient.
-- **La fiche ne s'ouvre pas depuis le menu.** Dans « Bonnes pratiques par thème », la ligne « Toilette des seins » existe, marquée « à écrire », mais ce n'est pas un lien. La flèche de retour de la fiche ramène pourtant à cette liste. Faut-il faire de cette ligne un lien ? Question posée à la porteuse.
+- **La fiche s'ouvre aussi depuis le menu** (porteuse, 02/11 : « OUI », à « J'en fais un lien ? »). Dans « Bonnes pratiques par thème », la ligne « Toilette des seins » était marquée « à écrire » sans être un lien ; elle mène désormais à la fiche, comme « Crevasses ». La fiche reste un texte provisoire, et c'est la fiche elle-même qui le dit.
 - **Source à vérifier** : l'ANAES 2002 est ancienne, sans grade et au conditionnel (`L-77`). Il faut vérifier, avant toute publication publique, qu'aucun texte plus récent de la HAS ne la remplace (`T-606`, `T-581`).
 - **Le texte final** revient au toxicologue et à la porteuse.
 
