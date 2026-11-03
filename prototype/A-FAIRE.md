@@ -6,21 +6,22 @@ Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin de soirée**
 
 **État à la fin de la séance**
 - Le canevas de travail est en version `1793658254-4b79`, identique au dépôt (vérifié en fin de séance, R3, par les tailles des 188 planches et de l'index). La dernière retouche faite sur la page, le champ « Actif » par défaut sur `E2-Recherche-Aucun`, est rapatriée.
-- 189 planches : les trois « À SUPPRIMER » sont supprimées (1.4) ; `E2-Recherche-HorsLigne` est ajoutée le 03/11.
-- Décisions numérotées jusqu'à 252 (§2 bis du complément de la note de reprise).
+- 190 planches : les trois « À SUPPRIMER » sont supprimées (1.4) ; `E2-Recherche-HorsLigne` et `E3-Verdict-TypeNonPrisEnCharge` sont ajoutées le 03/11.
+- Décisions numérotées jusqu'à 256 (§2 bis du complément de la note de reprise).
 - La branche `claude/magical-mendel-cwpmji` est à jour sur GitHub.
 
 **Ce qui attend tes réponses** (rien n'est posé avant ton choix ; propositions dans les fils du canevas) :
 - **les cases de la ligne allaitement** : présentation « 1 + 2 » ou « 1 + 2 + 3 », visibles au réglage « Cases : présentation » de `EA-Verdict-Baume-Jaune` (2.5a ; fil `111f9ffa`) ;
 - **les explications du volet** 3, 4, 5 et 6, nouvelles versions (2.5a ; fil `8b340b1d`) ;
 - **« Les données » du verdict à actualiser** : une formulation parmi A à F, préférence de Claude : D (3.6a ; fil `a5b20715`) ;
-- **la recherche sans connexion** : animation ou image fixe, et le retrait du paragraphe « En attendant, vous pouvez scanner… » (décision 201) à confirmer (3.6b ; réglages de `E2-Recherche-HorsLigne` et des 5 autres planches de recherche) ;
-- les autres questions encore ouvertes du §3.1 (3.8, 3.9, 3.11) et du §3.3.
+- **la recherche sans connexion** : le retrait du paragraphe « En attendant, vous pouvez scanner… » (décision 201) à confirmer (3.6b) ;
+- **`EA-Verdict-Spray-Icones`**, marquée « À SUPPRIMER » : à supprimer sur la page (3.22a) ;
+- les autres questions encore ouvertes du §3.1 (3.8, 3.9, 3.11) et du §3.3 (3.17, 3.18, 3.20, 3.23).
 
 **Ce que la prochaine session fait d'abord**
 1. R1 et R3 : l'accès au canevas, puis les retouches faites sur la page.
 2. Lire les fils du canevas de travail (outil `ArtifactComments`, `action: read`). Si tu as répondu, appliquer tes choix (R2, captures avant publication).
-3. Sinon, ce qui ne dépend que de Claude : l'inventaire des causes (2.1, `CT-1.1`), puis le relevé des écarts au registre avec les décisions 218 à 252 (4.1) et la confrontation de l'annexe A (4.2).
+3. Sinon, ce qui ne dépend que de Claude : l'inventaire des causes (2.1, `CT-1.1`), puis le relevé des écarts au registre avec les décisions 218 à 256 (4.1) et la confrontation de l'annexe A (4.2).
 4. La version de test (2.8) attend la fin des retouches du prototype : ne pas la construire avant ton signal.
 
 **Où trouver ce qui sert**
@@ -117,7 +118,7 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 | 3.5 | Décisions 206 à 209 : ton « ok, go etape 7 » valait-il accord ? | note du 31/10, §5.2 | **confirmé le 02/11** (« oui ») |
 | 3.6 | Ta retouche de `E2-Recherche-Aucun` (29/10) : la garder ? la reporter sur les quatre autres copies ? Le filigrane est tranché le 02/11 au soir : le symbole de Ficolia, au milieu de l'espace blanc (« non juste le logo simple », version 39, commit `eac7321`) ; reste son report sur les quatre autres copies. | journal du 29/10, §18 ; fil `99641baa` | **fait le 02/11** : report sur les quatre copies (« a ») |
 | 3.6a | Le verdict « à actualiser » : « Les données de ce verdict… » est flou. Formulations A et B (02/11), puis, après ton idée InciBeauty, C à F (fil `a5b20715`). L'idée InciBeauty (drapeau orange, appareil photo, reprendre la liste en photo) répond à une liste changée, pas à un verdict trop vieux sur le téléphone, et touche quatre règles (orange = niveau 3, `D-115` D2 ; alerte, `T-512` ; placement B, `D-66`, `T-192` ; appel à l'action, `T-117`). Préférence de Claude : D, « Une mise à jour est nécessaire pour afficher un verdict pour ce produit. », sans promesse d'affichage, avec une ligne « sans connexion » qui ne promet pas de mise à jour automatique. 9 planches, et la ligne « Pas de connexion » sur 6. | fil `a5b20715` ; `D-91`, `T-511`, `T-242` | à choisir |
-| 3.6b | **Nouveau.** La recherche sans connexion (5 copies du gabarit) : la barre de recherche reste, les messages en bas (décision 246). | fil `99641baa` | **tranché le 02 et le 03/11** (décisions 251 et 252) : champ actif, un seul message de connexion (« Pas de connexion. Réessayez quand le téléphone sera de nouveau connecté. », Proposition ; l'autre formulation reste au réglage) ; « on garde actif avec une planche dédiée + animation pas de connexion // en image fixe à décider plus tard » : planche `E2-Recherche-HorsLigne` (« Rechercher · sans connexion », étape 2, troisième rangée) et l'animation « pas de connexion » du récit sur les 6 planches de recherche. **Reste à décider** : animation ou image fixe (réglage « Sans connexion : animation ») ; le retrait du paragraphe de la décision 201 (réglage « Sans connexion : messages affichés ») |
+| 3.6b | **Nouveau.** La recherche sans connexion (5 copies du gabarit) : la barre de recherche reste, les messages en bas (décision 246). | fil `99641baa` | **tranché le 02 et le 03/11** (décisions 251 et 252) : champ actif, un seul message de connexion (« Pas de connexion. Réessayez quand le téléphone sera de nouveau connecté. », Proposition ; l'autre formulation reste au réglage) ; « on garde actif avec une planche dédiée + animation pas de connexion // en image fixe à décider plus tard » : planche `E2-Recherche-HorsLigne` (« Rechercher · sans connexion », étape 2, troisième rangée) et l'animation « pas de connexion » du récit sur les 6 planches de recherche. 03/11 : « Version grise du filigrane avec la queue tombante c'est mieux » (décision 253) : par défaut, la version grise en image fixe (la queue retombe) ; l'animation reste au réglage. **Reste à confirmer** : le retrait du paragraphe de la décision 201 (réglage « Sans connexion : messages affichés ») |
 | 3.6c | **Nouveau.** « Rechercher · aucun résultat » : l'étiquette « Texte provisoire », seule en haut depuis ta retouche, vaut pour quel texte ? | fil `99641baa` | **sans objet** (« on s'en fout en haut en bas rien ne change », 02/11) |
 | 3.6d | **Nouveau.** En texte très grand (200 %), la bulle de l'échelle (`E1-Aide-Echelle`, `E1-Aide-Info`) ne grandit pas et couvre l'arc et le nom du produit. Défaut antérieur au 02/11, relevé en vérifiant 3.3 (`T-220`, `T-559`). | captures du 02/11 | **au contrôle final** (« contrôle final », 02/11) : ajouté à 3.25 |
 | 3.7 | Fil `0bf17029` de l'**ancien** canevas (`EA-Verdict-Lait-Sous`, 24/10) : « la phrase est mal formulée », sans dire laquelle. | inventaire du 02/11 | **sans objet** : tu ne vois pas de quel écran il s'agit (02/11), l'ancien canevas n'est plus suivi (décision 248), et les textes de la ligne allaitement sont reformulés de toute façon (2.5a) |
@@ -142,10 +143,12 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 | --- | --- | --- | --- | --- | --- |
 | 3.17 | Le produit déjà utilisé qui passe au niveau 3 ou 4 : premier verdict de niveau 3 ou 4, ou réévaluation d'un produit de l'historique (`T-404` ; audit, action 3) | toi, puis Claude ; toxicologue et juriste pour les textes | ? | 3.11 | à décider |
 | 3.18 | Les ajouts du 30/10 (`PR-3.11`) : la limite déterminante au panneau de détail et la version des règles sur la fiche méthode (`PI4-D4`) ; la liste fournie par l'utilisatrice (`PI4-D6`) ; le choix entre les variantes d'un même code (`PI4-D7`). Le fichier de travail du 30/10 qui les définit n'est pas dans le dépôt : seules les définitions du planning sont connues. | Claude, toi | 3,5 h | les définitions | à faire |
-| 3.19 | « Type de produit non pris en charge » : on ne l'obtient que par le réglage « Raison » des écrans d'évaluation incomplète. Une planche dédiée, ou le réglage suffit ? | toi | 0,1 h | — | à trancher |
+| 3.19 | « Type de produit non pris en charge » : on ne l'obtient que par le réglage « Raison » des écrans d'évaluation incomplète. Une planche dédiée, ou le réglage suffit ? | toi | 0,1 h | — | **fait le 03/11** (« oui planche dédiée », décision 254) : `E3-Verdict-TypeNonPrisEnCharge`, « Évaluation incomplète · type de produit non pris en charge », étape 3, à côté des planches du type ; texte existant : « Ficolia ne sait pas évaluer ce type de produit. » |
 | 3.20 | L'écran « Réaction » (audit, action 4), à décider avec 3.11 | toi, juriste | ? | 3.11 | à décider |
-| 3.21 | Les « deux retours manquants » relevés le 21/10 : la note ne dit pas lesquels. À retrouver ou à abandonner. | toi | — | — | à préciser |
-| 3.22 | Si le test (§2) retient la voie du savon : poser le renvoi sur les autres planches du même modèle de verdict | Claude | ? | 2.13 | plus tard |
+| 3.21 | Les « deux retours manquants » relevés le 21/10 : la note ne dit pas lesquels. À retrouver ou à abandonner. | toi | — | — | **abandonné le 03/11** (décision 255) : « on vérifiera une fois que tous les écrans seront modélisés et que tu auras tout relié. je ferai un test » ; d'où 3.21a |
+| 3.22 | La voie du savon, c'est le renvoi d'un nettoyant (gel douche…) vert ou jaune vers la fiche « Toilette des seins » des bonnes pratiques, sous la même forme que le renvoi « Crevasses » (décision 228) ; il n'était que sur `EA-Verdict-Gel`. | Claude | ? | — | **fait le 03/11** (« oui pose le renvoi sur les autres planches du même modèle de verdict », décision 256) : sur les 12 autres planches vivantes du modèle ; les 6 traces datées et la planche « À SUPPRIMER » du même modèle ne sont pas touchées ; états par défaut inchangés au pixel près |
+| 3.21a | **Nouveau.** Relier tous les écrans, une fois tous modélisés (décision 197, vérification globale des liens, demandée de nouveau le 31/10), avant ton test de navigation (3.21) | Claude, puis toi | ? | fin de la modélisation | à faire |
+| 3.22a | **Nouveau.** `EA-Verdict-Spray-Icones` est marquée « À SUPPRIMER · forme A écartée le 17/10 (spray) » et existe toujours : la supprimes-tu sur la page, comme les trois autres le 02/11 ? | toi | 0,1 h | — | à trancher |
 | 3.23 | Plus tard, selon toi : les produits reconnus de la recherche, l'écran de pause, les fiches grossesse (`D-66` à rouvrir) | toi | — | — | plus tard |
 
 ### 3.4 Finir
@@ -153,7 +156,7 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
 | 3.24 | La séance de design dédiée (`PR-3.6`, `T-373` : « le design est jugé moche, une session dédiée est prévue ») | toi | 4 h | 3.13 à 3.15 | à faire |
-| 3.25 | Le contrôle final (`PR-3.7`) : mots interdits, contrastes (4,5:1), cibles de 44 px, texte agrandi, mouvement réduit, liens et boutons, cohérence entre les copies d'un même gabarit, sur les 189 planches ; dont la bulle de l'échelle en texte agrandi (3.6d) | Claude | 2 h | 3.24 | à faire |
+| 3.25 | Le contrôle final (`PR-3.7`) : mots interdits, contrastes (4,5:1), cibles de 44 px, texte agrandi, mouvement réduit, liens et boutons, cohérence entre les copies d'un même gabarit, sur les 190 planches ; dont la bulle de l'échelle en texte agrandi (3.6d) | Claude | 2 h | 3.24 | à faire |
 | 3.26 | Valider le contrôle final (`PR-3.8`) | toi | 2 h | 3.25 | à faire |
 
 ---
@@ -164,7 +167,7 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
-| 4.1 | Compléter le relevé des écarts au registre (`propositions/2026-10-31-hors-canevas/ecarts-au-registre-etape-8.md`, décisions 182 à 217) avec les décisions 218 à 252 (01 au 03/11 ; §2 bis du complément de la note de reprise) : savon, « Crevasses », bandeau grisé, idée 5, boutons, piste (a), « Accepter », tenue du slogan, encadré « réévalué » (`D-282`), police du logo (`T-636`, `T-558`)… | Claude | ? | 1.6 (fait) | **peut commencer** |
+| 4.1 | Compléter le relevé des écarts au registre (`propositions/2026-10-31-hors-canevas/ecarts-au-registre-etape-8.md`, décisions 182 à 217) avec les décisions 218 à 256 (01 au 03/11 ; §2 bis du complément de la note de reprise) : savon, « Crevasses », bandeau grisé, idée 5, boutons, piste (a), « Accepter », tenue du slogan, encadré « réévalué » (`D-282`), police du logo (`T-636`, `T-558`)… | Claude | ? | 1.6 (fait) | **peut commencer** |
 | 4.2 | Confronter l'annexe A de la note du 21/10 (177 lignes) au registre v6.8, ligne à ligne | Claude | ? (le planning ne compte que 2 h pour tout `PR-3.9`, ce qui semble court ; à réestimer après les 20 premières lignes) | — | **peut commencer** |
 | 4.3 | Rédiger la note d'inscription : les décisions de séance, la correction de la palette de verdict de `D-107`, et la mise à jour de `D-312` (le canevas de référence est maintenant le canevas de travail) | Claude | 2 h | 4.1, 4.2, et le §3 | à faire, en dernier |
 | 4.4 | Valider l'inscription (`PR-3.10`) | toi | 2 h | 4.3 | à faire |

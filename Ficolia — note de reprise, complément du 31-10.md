@@ -133,7 +133,7 @@ Le détail des effets sur le registre est dans `propositions/2026-10-31-hors-can
 
 ---
 
-## 2 bis. Décisions 218 à 252 (01 au 03/11)
+## 2 bis. Décisions 218 à 256 (01 au 03/11)
 
 Numérotées le 02/11 au soir, avec l'accord de la porteuse (« oui d'accord », A-FAIRE 1.6), d'après le journal des 01 et 02/11 (`propositions/2026-11-02-voie-savon/journal-01-02-11.md`), qui garde ses mots et le détail. Ordre : par date, puis par sujet (l'heure exacte n'est pas toujours connue).
 
@@ -176,6 +176,10 @@ Ne sont pas numérotés : ce qui attend encore son choix (présentation des case
 | 250 | Étapes 5, 6 et 7, et l'échelle : validées (« ok fait ») | 02/11 | — | `PR-3.1`, `PR-3.2`, `PR-3.3`, `PR-3.5` (coches de la porteuse) |
 | 251 | Recherche sans connexion : le champ est actif (on peut taper), et l'écran ne montre qu'un message de connexion (« Pas de connexion. Réessayez quand le téléphone sera de nouveau connecté. », Proposition), jamais « Aucun produit ne correspond… » ni l'invitation à scanner ; bouton « Effacer » quand on a tapé ; sur les cinq copies du gabarit | 02/11 | `d2e92f9` | remplace le champ grisé de la 246 ; retire par défaut le paragraphe de la décision 201 (gardé au réglage), à confirmer |
 | 252 | Recherche sans connexion : une planche dédiée à l'étape 2, `E2-Recherche-HorsLigne` (« Rechercher · sans connexion ») ; l'animation « pas de connexion » du récit de la figue (validée le 12/10) entre la barre et le message, sur les six planches de recherche ; animation ou image fixe, à décider (réglage) | 03/11 | voir le journal des 01 et 02/11 | le récit de la figue reste dans ses six états (brief §2) : cet écran est l'état « connexion insuffisante ou absente » |
+| 253 | Recherche sans connexion : par défaut, la version grise de l'animation « pas de connexion », en image fixe (la queue retombe) ; l'animation et la version en couleurs restent au réglage | 03/11 | voir le journal | — |
+| 254 | Planche dédiée à l'évaluation incomplète « type de produit non pris en charge » : `E3-Verdict-TypeNonPrisEnCharge` (étape 3) | 03/11 | voir le journal | — |
+| 255 | Les « deux retours manquants » du 21/10 sont abandonnés : la porteuse testera la navigation une fois tous les écrans modélisés et reliés | 03/11 | — | rejoint la décision 197 (vérification globale des liens) |
+| 256 | Le renvoi d'un nettoyant vert ou jaune vers la fiche « Toilette des seins » (décision 228) passe sur les 12 autres planches vivantes du même modèle de verdict ; les traces datées restent telles quelles | 03/11 | voir le journal | revient en partie sur la décision 168 avant le test hors cible (la 228 prévoyait de trancher après) ; écart à `D-262`, `D-265`, `D-266` (`T-605`) |
 
 ## 3. Décisions révisées ou remplacées depuis le 21/10
 

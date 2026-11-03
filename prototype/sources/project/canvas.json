@@ -667,6 +667,15 @@
       "x": 2350,
       "y": 0
     },
+    "E3-Verdict-TypeNonPrisEnCharge.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-3a",
+      "title": "Évaluation incomplète · type de produit non pris en charge",
+      "w": 390,
+      "x": 3290,
+      "y": 964
+    },
     "E4-Photo-CameraRefusee.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -1892,7 +1901,8 @@
     "E1-Ouverture-Arbre-Reduit.dc.html",
     "E1-Accueil-Bienvenue.dc.html",
     "E1-Accueil-Conditions.dc.html",
-    "E2-Recherche-HorsLigne.dc.html"
+    "E2-Recherche-HorsLigne.dc.html",
+    "E3-Verdict-TypeNonPrisEnCharge.dc.html"
   ],
   "pages": [
     {
