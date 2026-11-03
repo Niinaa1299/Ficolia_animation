@@ -307,6 +307,15 @@
       "x": 940,
       "y": 0
     },
+    "E2-Recherche-HorsLigne.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-2",
+      "title": "Rechercher · sans connexion",
+      "w": 390,
+      "x": 0,
+      "y": 1928
+    },
     "E2-Recherche-Resultats.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -1882,7 +1891,8 @@
     "E1-Ouverture-Arbre.dc.html",
     "E1-Ouverture-Arbre-Reduit.dc.html",
     "E1-Accueil-Bienvenue.dc.html",
-    "E1-Accueil-Conditions.dc.html"
+    "E1-Accueil-Conditions.dc.html",
+    "E2-Recherche-HorsLigne.dc.html"
   ],
   "pages": [
     {
