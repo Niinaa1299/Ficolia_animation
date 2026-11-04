@@ -1378,6 +1378,15 @@
       "x": 470,
       "y": 964
     },
+    "E5-Verdict-Reevalue-N3.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-5",
+      "title": "Verdict réévalué au niveau 3 · lien « J'ai déjà utilisé ce produit » (3.17 B)",
+      "w": 390,
+      "x": 3760,
+      "y": 964
+    },
     "E5-Verdict-Reevalue.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -1485,6 +1494,15 @@
       "w": 390,
       "x": 940,
       "y": 0
+    },
+    "E6-Fiche-DejaUtilise.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-6",
+      "title": "Fiche « J'ai déjà utilisé ce produit » · bonnes pratiques (3.17 C)",
+      "w": 390,
+      "x": 470,
+      "y": 1928
     },
     "E6-Fiche-ToiletteSeins.dc.html": {
       "h": 844,
@@ -1845,6 +1863,7 @@
     "E6-BonnesPratiques-Themes.dc.html",
     "E6-Fiche-Crevasses.dc.html",
     "E6-Fiche-ToiletteSeins.dc.html",
+    "E6-Fiche-DejaUtilise.dc.html",
     "E6-Methode-Lexique.dc.html",
     "E6-Methode.dc.html",
     "E6-CGU.dc.html",
@@ -1899,6 +1918,7 @@
     "E5-Produit-Reevalue.dc.html",
     "E5-Allaitement-Reevalue.dc.html",
     "E5-Verdict-Reevalue.dc.html",
+    "E5-Verdict-Reevalue-N3.dc.html",
     "E5-Scan-Alertes.dc.html",
     "E5-Historique-Reevalues.dc.html",
     "E5-Scan-Evalue.dc.html",

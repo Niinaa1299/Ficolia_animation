@@ -121,6 +121,10 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 <sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
 <span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #321C31; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #321C31">Texte provisoire</span>
 </sc-if>
+<!-- 3.17 B (décision 270) : aux niveaux 3 et 4, l'encadré mène à la page « J'ai déjà utilisé ce produit ». Proposition. -->
+<sc-if value="{{reevalHaut}}" hint-placeholder-val="{{ false }}">
+<a href="E6-Fiche-DejaUtilise.dc.html" style="flex-basis: 100%; min-height: 44px; display: flex; align-items: center; font-size: {{fs.note}}; line-height: 1.35; color: #321C31; text-decoration: underline; text-underline-offset: 3px">J'ai déjà utilisé ce produit</a>
+</sc-if>
 </div>
 </div>
 </sc-if>
@@ -387,7 +391,7 @@ class Component extends DCLogic {
     var infoOn = (level) && (this.props.infoNiveaux !== 'Niveaux 3 et 4 seulement' || i >= 2);
     var NIV = ["Une absence de signal n'est pas une preuve d'innocuité.", '[Texte propre au niveau 2 — à rédiger avec la toxicologue]', '[Texte propre au niveau 3 — à rédiger avec la toxicologue]', '[Texte propre au niveau 4 — à rédiger avec la toxicologue]'];
     return {
-      isLevel: level, isRappel: e === 2, isIncomplet: e === 0, isStale: e === 1 && !fresh, isReeval: e === 3,
+      isLevel: level, isRappel: e === 2, isIncomplet: e === 0, isStale: e === 1 && !fresh, isReeval: e === 3, reevalHaut: e === 3 && i >= 2,
       // Sorties propres à chaque état (29/10, fil 0d38b1c8) : « Retour » et « Ingrédients » restent dans l'état affiché.
       retNormal: e === 1 && fresh, retInc: e === 0 && r === 0, retTypeNP: e === 0 && r === 1, retTypeAutre: e === 0 && r === 2,
       retAct: e === 1 && !fresh && this.props.connexion !== 'Sans connexion',
