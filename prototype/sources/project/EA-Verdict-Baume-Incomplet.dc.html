@@ -270,7 +270,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 <h2 style="margin: 0 0 8px 8px; font-size: {{fs.small}}; font-weight: 700; line-height: 1.3; color: #6E5A6B">À savoir sur ce verdict</h2>
 <div style="display: grid; grid-template-columns: {{casesCols}}; gap: 8px">
 <sc-for list="{{ belowList }}" as="el" hint-placeholder-count="2">
-<button type="button" sc-camel-on-click="{{ el.openPuce }}" aria-haspopup="dialog" aria-label="{{ el.label }}" style="min-height: 44px; box-sizing: border-box; padding: 12px 8px; border: 1px solid #E7E1DA; border-radius: 18px; background: #FFFFFF; color: #321C31; font-family: inherit; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 8px; text-align: center; cursor: pointer">
+<button type="button" sc-camel-on-click="{{ el.openPuce }}" aria-haspopup="dialog" aria-label="{{ el.ariaA }}" style="min-height: 44px; box-sizing: border-box; padding: 12px 8px; border: 1px solid #E7E1DA; border-radius: 18px; background: #FFFFFF; color: #321C31; font-family: inherit; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 8px; text-align: center; cursor: pointer">
 <span aria-hidden="true" style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 999px; background: #F1ECE4; display: flex; align-items: center; justify-content: center">
 <sc-if value="{{ el.icZone }}" hint-placeholder-val="{{ true }}"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12h.01"></path><path d="M15 12h.01"></path><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"></path><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"></path></svg></sc-if>
 <sc-if value="{{ el.icAir }}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"></path><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"></path><path d="M9.8 4.4A2 2 0 1 1 11 8H2"></path></svg></sc-if>
@@ -278,7 +278,12 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 <sc-if value="{{ el.icParfum }}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"></path><circle cx="12" cy="8" r="2"></circle><path d="M12 10v12"></path><path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"></path><path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"></path></svg></sc-if>
 <sc-if value="{{ el.icSavon }}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#321C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 4 2.5 2.5"></path><path d="M13.5 6.5a4.95 4.95 0 0 0-7 7"></path><path d="M15 5 5 15"></path><path d="M14 17v.01"></path><path d="M10 16v.01"></path><path d="M13 13v.01"></path><path d="M16 10v.01"></path><path d="M11 20v.01"></path><path d="M17 14v.01"></path><path d="M20 11v.01"></path></svg></sc-if>
 </span>
-<span style="font-size: {{ el.fsSujet }}; font-weight: 700; line-height: 1.25; overflow-wrap: anywhere">{{ el.label }}</span>
+<span style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: {{ el.fsSujet }}; line-height: 1.25; overflow-wrap: anywhere">{{ el.sujetA }}</span>
+<sc-if value="{{ el.hasEtatA }}" hint-placeholder-val="{{ true }}">
+<span style="font-size: {{ el.fsSujet }}; font-weight: 700; line-height: 1.25; overflow-wrap: anywhere">{{ el.etatA }}</span>
+</sc-if>
+</span>
 </button>
 </sc-for>
 <sc-if value="{{showRenvoiCase}}" hint-placeholder-val="{{ false }}">
@@ -558,24 +563,26 @@ class Component extends DCLogic {
     if (d.attribut) {
       // Préséance de l'attribut : jamais « mamelon et aréole non évalués » ni la consigne d'évitement (D-214, étape 6).
       if (!incomplet) els.push(zoneInc
-        ? { rang: 1, titre: 'Tétée : évaluation incomplète', sujet: 'Tétée', etat: 'évaluation incomplète', texte: "Au moins un ingrédient n'a pas pu être évalué pour la tétée.", ligne: true, ic: 'Zone' }
-        : { rang: 1, titre: 'Tétée évaluée', sujet: 'Tétée', etat: 'évaluée', texte: 'Ce verdict tient compte du produit présent au moment de la tétée.', ligne: true, ic: 'Zone', attribut: true });
+        ? { rang: 1, titre: 'Tétée : évaluation incomplète', sujet: 'Tétée', etat: 'évaluation incomplète', sujetA: 'Produit présent à la tétée', etatA: 'évaluation incomplète', texte: "Au moins un ingrédient n'a pas pu être évalué pour la tétée.", ligne: true, ic: 'Zone' }
+        : { rang: 1, titre: 'Tétée évaluée', sujet: 'Tétée', etat: 'évaluée', sujetA: 'Produit présent à la tétée', etatA: 'pris en compte', texte: 'Ce verdict tient compte du produit présent au moment de la tétée.', ligne: true, ic: 'Zone', attribut: true });
     } else if (d.corps) {
       // L'évitement est fondu dans la ligne zone de tétée (G2.2) ; le même texte sur toutes les couleurs (D-257).
-      // Une seule étiquette par case, tout en gras, au même niveau de lecture (porteuse, 04/11, fil 1c156675 : « on laisse la
+      // Piste A, sujet · état, l'état en gras, à la même taille (porteuse, 04/11, 14:52, fil 111f9ffa : sujetA et etatA, ses mots ;
+      // le parfum sans état). Avant, le même jour :
+      // une seule étiquette par case, tout en gras, au même niveau de lecture (porteuse, 04/11, fil 1c156675 : « on laisse la
       // carte comme ca tout en gras au même niveau = même niveau de lecture », puis « oui » pour toutes les cases) ; pour cette
       // case, ses mots, « du mamelon et de l'aréole » (« oui ») ; le titre du volet ne change pas (« garde le titre actuel »).
-      els.push({ rang: 1, titre: 'Mamelon et aréole non évalués', label: "Zone du mamelon et de l'aréole non évaluée", sujet: 'Mamelon et aréole', etat: 'non évalués', ligne: true, ic: 'Zone',
+      els.push({ rang: 1, titre: 'Mamelon et aréole non évalués', label: "Zone du mamelon et de l'aréole non évaluée", sujet: 'Mamelon et aréole', etat: 'non évalués', sujetA: "Si le produit est appliqué sur le mamelon ou l'aréole", etatA: 'pas pris en compte', ligne: true, ic: 'Zone',
         texte: "Ce verdict ne vaut pas si le produit est appliqué sur le mamelon ou l'aréole." });
     }
     // « Inhalation du produit par le bébé non évaluée » (porteuse, 30/10) ; au registre : « Inhalation par le nourrisson non
     // évaluée » (D-260), qui remplaçait « Évaluation établie hors présence du nourrisson » (D-161).
-    if (d.hors) els.push({ rang: 1, titre: 'Inhalation du produit par le bébé non évaluée', sujet: 'Inhalation du produit par le bébé', etat: 'non évaluée', texte: "Ce verdict ne tient pas compte de l'inhalation du produit par le bébé.", ic: 'Air' });
+    if (d.hors) els.push({ rang: 1, titre: 'Inhalation du produit par le bébé non évaluée', sujet: 'Inhalation du produit par le bébé', etat: 'non évaluée', sujetA: 'Inhalation du produit par le bébé', etatA: 'pas pris en compte', texte: "Ce verdict ne tient pas compte de l'inhalation du produit par le bébé.", ic: 'Air' });
     // « Contact avec la peau du bébé non évalué » (porteuse, 30/10) ; au registre : « Contact rapproché non évalué » (D-259) ;
     // même champ, M3 : le produit resté sur la peau de la mère passe sur celle du bébé.
-    if (d.contact) els.push({ rang: 2, titre: 'Contact avec la peau du bébé non évalué', sujet: 'Contact avec la peau du bébé', etat: 'non évalué', ic: 'Contact',
+    if (d.contact) els.push({ rang: 2, titre: 'Contact avec la peau du bébé non évalué', sujet: 'Contact avec la peau du bébé', etat: 'non évalué', sujetA: "Ce qui se dépose sur la peau d'un bébé", etatA: 'pas pris en compte', ic: 'Contact',
       texte: 'Ce verdict ne tient pas compte du produit qui peut passer sur la peau du bébé quand il est porté contre la peau traitée.' });
-    if (vj && d.parfum) els.push({ rang: 3, titre: 'Produit parfumé', sujet: 'Parfum', etat: 'produit parfumé',
+    if (vj && d.parfum) els.push({ rang: 3, titre: 'Produit parfumé', sujet: 'Parfum', etat: 'produit parfumé', sujetA: 'Produit parfumé', etatA: '',
       // Forme de la porteuse (04/11 : « Des études sur les nouveaux-nés montrent que ... c'est pour cela que ... » ; « ma forme
       // dans le volet fait foi ») ; la première moitié s'en tient au fait établi (D-261), la seconde dit pourquoi la case paraît :
       // proposition, à faire relire (toxicologue). La source est nommée sans date, la date au panneau (D-52, D-270 ; porteuse,
@@ -662,7 +669,9 @@ class Component extends DCLogic {
           hasSrc: !!e.src, srcName: e.src ? SRC[e.src].name : '',
           openSrc: function () { self.setState({ src: e.src, srcClosed: false, puce: null }); },
           openPuce: function () { self.setState({ puce: k, renvoi: false }); },
-          sujet: e.sujet || e.titre, etat: e.etat || '', fsSujet: fs.sujet, fsEtat: fs.etat, label: e.label || e.titre
+          sujet: e.sujet || e.titre, etat: e.etat || '', fsSujet: fs.sujet, fsEtat: fs.etat, label: e.label || e.titre,
+          sujetA: e.sujetA || e.sujet || e.titre, etatA: e.etatA || '', hasEtatA: !!e.etatA,
+          ariaA: (e.sujetA || e.sujet || e.titre) + (e.etatA ? ', ' + e.etatA : '')
         }, e);
       });
     }

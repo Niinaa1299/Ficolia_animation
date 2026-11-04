@@ -6,20 +6,21 @@ Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin de soirée**
 
 **État à la fin de la séance**
 - Le canevas de travail est en version `1793658254-4b79`, identique au dépôt (vérifié en fin de séance, R3, par les tailles des 188 planches et de l'index). La dernière retouche faite sur la page, le champ « Actif » par défaut sur `E2-Recherche-Aucun`, est rapatriée.
-- **04/11, après-midi** : le canevas est en version 92 (`1793803287-6af3`), publiée depuis le dépôt (commit `e5ee288`) ; la version 91 (`1793802410-8817`, commit `270bc4b`) était la mienne, sans retouche sur la page entre les deux. Tes retouches de la version `1793801431-64b5` (`EA-Verdict-Lait-Sous`, `EA-Verdict-Lait-Orange`) sont rapatriées à l'octet (commit `db8dbe4`). Les trois fils du 04/11 (`478d884c`, `1c156675`, `9d5fb425`) sont appliqués et résolus (décisions 257, 260, 261).
+- **04/11, après-midi** : le canevas est en version 92 (`1793803287-6af3`), publiée depuis le dépôt (commit `e5ee288`) ; la version 91 (`1793802410-8817`, commit `270bc4b`) était la mienne, sans retouche sur la page entre les deux. Tes retouches de la version `1793801431-64b5` (`EA-Verdict-Lait-Sous`, `EA-Verdict-Lait-Orange`) sont rapatriées à l'octet (commit `db8dbe4`). Les trois fils du 04/11 (`478d884c`, `1c156675`, `9d5fb425`) sont appliqués et résolus (décisions 257, 260, 261). Puis, à 14:52, le fil `111f9ffa` : la piste A avec tes mots (décision 262), publiée en version 93 ; le fil reste ouvert, à toi de le résoudre.
 - 189 planches : les quatre « À SUPPRIMER » sont supprimées (1.4, 3.22a) ; `E2-Recherche-HorsLigne` et `E3-Verdict-TypeNonPrisEnCharge` sont ajoutées le 03/11.
-- Décisions numérotées jusqu'à 261 (§2 bis du complément de la note de reprise).
+- Décisions numérotées jusqu'à 262 (§2 bis du complément de la note de reprise).
 - La branche `claude/magical-mendel-cwpmji` est à jour sur GitHub.
 
 **Ce qui attend tes réponses** (rien n'est posé avant ton choix ; propositions dans les fils du canevas) :
-- **les explications du volet** 3, 4 et 5, nouvelles versions (2.5a ; fil `8b340b1d`) ; la 6, le parfum, est tranchée le 04/11 (décision 260) ;
+- **les explications du volet** 3, 4 et 5, nouvelles versions (2.5a ; fil `8b340b1d`) ;
+- **« par le bébé »** dans la case de l'inhalation, quand la case du contact dit « d'un bébé » (`D-114` C1) ; et « Produit parfumé », seule case sans gras : à garder ainsi ? (2.5a, décision 262 ; fil `111f9ffa`) ; la 6, le parfum, est tranchée le 04/11 (décision 260) ;
 - **« Les données » du verdict à actualiser** : une formulation parmi A à F, préférence de Claude : D (3.6a ; fil `a5b20715`) ;
 - les autres questions encore ouvertes : 3.11 (le plan de l'audit), 3.23 ; et, après les écrans existants, les écrans nouveaux (3.17 C, 3.18).
 
 **Ce que la prochaine session fait d'abord**
 1. R1 et R3 : l'accès au canevas, puis les retouches faites sur la page.
 2. Lire les fils du canevas de travail (outil `ArtifactComments`, `action: read`). Si tu as répondu, appliquer tes choix (R2, captures avant publication).
-3. Sinon, ce qui ne dépend que de Claude : l'inventaire des causes (2.1, `CT-1.1`), puis le relevé des écarts au registre avec les décisions 218 à 261 (4.1) et la confrontation de l'annexe A (4.2).
+3. Sinon, ce qui ne dépend que de Claude : l'inventaire des causes (2.1, `CT-1.1`), puis le relevé des écarts au registre avec les décisions 218 à 262 (4.1) et la confrontation de l'annexe A (4.2).
 4. La version de test (2.8) attend la fin des retouches du prototype : ne pas la construire avant ton signal.
 
 **Où trouver ce qui sert**
@@ -78,7 +79,7 @@ Régler tout de suite les quelques points qui bloquent ou qui pressent (§1). Pu
 | 2.3 | Vérifier la phrase du niveau 2 sur le chemin du seul parfum (`CT-1.3`) | Claude | 0,5 h | 2.2 | à faire |
 | 2.4 | Spécifier la mention « ce que ça change » (`CT-1.4`, `T-528`) | Claude | 1 h | 2.2 | à faire |
 | 2.5 | Relire l'ensemble et le figer pour le test (`CT-1.5`) | toi | 2 h | 2.3, 2.4 | à faire |
-| 2.5a | **Nouveau. Reformuler les mentions de la ligne allaitement et leurs explications** (« ne sont toujours pas clair pour un user tiers », fils `111f9ffa` et `8b340b1d`, 02/11). **Tranché le 02/11** : pas de phrases entières (décision 241) ; explications 1 et 2 retenues (décision 242). **Tranché le 04/11** : la présentation des cases, une seule étiquette, tout en gras, au même niveau de lecture (décision 261, fil `1c156675` ; revient sur la forme « sujet · état ») ; l'explication 6, le parfum, dans ta forme (décision 260). Posé sur les 13 planches vivantes du verdict allaitement le 04/11. **Reste à choisir** : les explications 3 (« trop alambiqué »), 4 et 5 (à commencer par « Ce verdict ne tient pas compte… »), nouvelles versions dans le fil `8b340b1d`. Textes « Proposition », provisoires jusqu'à `T-604`, à relire par la toxicologue. Les listes d'ingrédients n'affichent plus ces textes depuis le 30/10 : rien à y reporter. | toi, puis Claude | ? | — | **à choisir** (explications 3 à 5) |
+| 2.5a | **Nouveau. Reformuler les mentions de la ligne allaitement et leurs explications** (« ne sont toujours pas clair pour un user tiers », fils `111f9ffa` et `8b340b1d`, 02/11). **Tranché le 02/11** : pas de phrases entières (décision 241) ; explications 1 et 2 retenues (décision 242). **Tranché le 04/11** : la présentation des cases, d'abord une seule étiquette tout en gras (décision 261, fil `1c156675`), puis, le même jour, la forme « sujet · état » de la piste A avec tes mots, l'état en gras à la même taille que le sujet (décision 262, fil `111f9ffa`) ; l'explication 6, le parfum, dans ta forme (décision 260). Posé sur les 13 planches vivantes du verdict allaitement le 04/11. **Reste à choisir** : les explications 3 (« trop alambiqué »), 4 et 5 (à commencer par « Ce verdict ne tient pas compte… »), nouvelles versions dans le fil `8b340b1d`. Textes « Proposition », provisoires jusqu'à `T-604`, à relire par la toxicologue. Les listes d'ingrédients n'affichent plus ces textes depuis le 30/10 : rien à y reporter. | toi, puis Claude | ? | — | **à choisir** (explications 3 à 5) |
 | 2.6 | **Nouveau.** Reporter les phrases figées dans les planches de verdict, grossesse et allaitement, et leurs copies (règle R2) | Claude | ? | 2.5 | à faire |
 
 ### 2.2 Ce que le prototype doit offrir pour le test
