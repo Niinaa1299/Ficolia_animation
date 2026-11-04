@@ -13,13 +13,14 @@ Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin de soirée**
 - La branche `claude/magical-mendel-cwpmji` est à jour sur GitHub.
 
 **Ce qui attend tes réponses** (rien n'est posé avant ton choix ; propositions dans les fils du canevas) :
+- **les phrases sous le verdict** (2.2, `CT-1.2`) : les six choix du §2 de `propositions/2026-11-04-phrases-sous-le-verdict/CT-1.2-preparation.md`, puis les phrases ;
 - **« Les données » du verdict à actualiser** : une formulation parmi A à F, préférence de Claude : D (3.6a ; fil `a5b20715`) ;
 - les autres questions encore ouvertes : 3.11 (le plan de l'audit), 3.23 ; et, après les écrans existants, les écrans nouveaux (3.17 C, 3.18).
 
 **Ce que la prochaine session fait d'abord**
 1. R1 et R3 : l'accès au canevas, puis les retouches faites sur la page.
 2. Lire les fils du canevas de travail (outil `ArtifactComments`, `action: read`). Si tu as répondu, appliquer tes choix (R2, captures avant publication).
-3. Sinon, ce qui ne dépend que de Claude : l'inventaire des causes (2.1, `CT-1.1`), puis le relevé des écarts au registre avec les décisions 218 à 265, contre le registre v6.9 (4.1) et la confrontation de l'annexe A (4.2).
+3. Sinon, ce qui ne dépend que de Claude : l'inventaire des causes (2.1, `CT-1.1`) est fait le 04/11 ; puis le relevé des écarts au registre avec les décisions 218 à 265, contre le registre v6.9 (4.1) et la confrontation de l'annexe A (4.2).
 4. La version de test (2.8) attend la fin des retouches du prototype : ne pas la construire avant ton signal.
 
 **Où trouver ce qui sert**
@@ -73,8 +74,8 @@ Régler tout de suite les quelques points qui bloquent ou qui pressent (§1). Pu
 
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
-| 2.1 | Inventaire des causes par niveau et par ligne, avec les chemins du moteur (`CT-1.1`) | Claude | 1 h | — | **peut commencer** |
-| 2.2 | Écrire les phrases par cause, pour les deux lignes, en une passe, à partir des séries candidates du 24 au 27/10 (`CT-1.2` ; `D-302`, `T-604`, `T-609`) | toi | 4 h | 2.1 | à faire |
+| 2.1 | Inventaire des causes par niveau et par ligne, avec les chemins du moteur (`CT-1.1`) | Claude | 1 h | — | **fait le 04/11** : `propositions/2026-11-04-phrases-sous-le-verdict/CT-1.1-inventaire-des-causes.md` (registre v6.9 ; chemins reconstitués du registre, le moteur n'étant pas au dépôt) ; trois trous en allaitement (les chemins du calcul), cinq candidates fausses sur une partie de leur chemin, une règle d'ordre manquante |
+| 2.2 | Écrire les phrases par cause, pour les deux lignes, en une passe, à partir des séries candidates du 24 au 27/10 (`CT-1.2` ; `D-302`, `T-604`, `T-609`) | toi | 4 h | 2.1 | **matière prête le 04/11** : `propositions/2026-11-04-phrases-sous-le-verdict/CT-1.2-preparation.md` (six choix à faire d'abord, puis une proposition par cause) ; **à toi** |
 | 2.3 | Vérifier la phrase du niveau 2 sur le chemin du seul parfum (`CT-1.3`) | Claude | 0,5 h | 2.2 | à faire |
 | 2.4 | Spécifier la mention « ce que ça change » (`CT-1.4`, `T-528`) | Claude | 1 h | 2.2 | à faire |
 | 2.5 | Relire l'ensemble et le figer pour le test (`CT-1.5`) | toi | 2 h | 2.3, 2.4 | à faire |
