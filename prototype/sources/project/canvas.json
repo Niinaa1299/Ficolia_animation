@@ -145,6 +145,15 @@
       "x": 3290,
       "y": 0
     },
+    "E1-Allaitement-Gel.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-1",
+      "title": "Gel douche · verdict allaitement (renvoi « Toilette des seins »)",
+      "w": 390,
+      "x": 5170,
+      "y": 0
+    },
     "E1-Allaitement.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -163,6 +172,15 @@
       "x": 470,
       "y": 0
     },
+    "E1-Ingredients-Allaitement-Gel.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-1",
+      "title": "Gel douche · ingrédients · ligne allaitement",
+      "w": 390,
+      "x": 5640,
+      "y": 0
+    },
     "E1-Ingredients-Allaitement.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -170,6 +188,15 @@
       "title": "Ingrédients · ligne allaitement",
       "w": 390,
       "x": 2820,
+      "y": 0
+    },
+    "E1-Ingredients-Gel.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-1",
+      "title": "Gel douche · ingrédients et panneau",
+      "w": 390,
+      "x": 4700,
       "y": 0
     },
     "E1-Ingredients-Idee1.dc.html": {
@@ -235,6 +262,15 @@
       "x": 0,
       "y": 1928
     },
+    "E1-Produit-Gel.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-1",
+      "title": "Gel douche · écran produit (parcours principal, D-354)",
+      "w": 390,
+      "x": 3760,
+      "y": 0
+    },
     "E1-Produit.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -253,6 +289,15 @@
       "x": 0,
       "y": 0
     },
+    "E1-Verdict-Gel.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-1",
+      "title": "Gel douche · verdict grossesse",
+      "w": 390,
+      "x": 4230,
+      "y": 0
+    },
     "E1-Verdict.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -260,6 +305,15 @@
       "title": "Verdict grossesse",
       "w": 390,
       "x": 1410,
+      "y": 0
+    },
+    "E2-Allaitement-Gel.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-2",
+      "title": "Gel douche · verdict allaitement · après une recherche",
+      "w": 390,
+      "x": 5170,
       "y": 0
     },
     "E2-Allaitement.dc.html": {
@@ -271,6 +325,15 @@
       "x": 2820,
       "y": 0
     },
+    "E2-Ingredients-Allaitement-Gel.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-2",
+      "title": "Gel douche · ingrédients · ligne allaitement · après une recherche",
+      "w": 390,
+      "x": 5640,
+      "y": 0
+    },
     "E2-Ingredients-Allaitement.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -280,6 +343,15 @@
       "x": 3290,
       "y": 0
     },
+    "E2-Ingredients-Gel.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-2",
+      "title": "Gel douche · ingrédients et panneau · après une recherche",
+      "w": 390,
+      "x": 4700,
+      "y": 0
+    },
     "E2-Ingredients.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -287,6 +359,15 @@
       "title": "Ingrédients et panneau · après une recherche",
       "w": 390,
       "x": 2350,
+      "y": 0
+    },
+    "E2-Produit-Gel.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-2",
+      "title": "Gel douche · écran produit · après une recherche (D-354)",
+      "w": 390,
+      "x": 3760,
       "y": 0
     },
     "E2-Produit.dc.html": {
@@ -332,6 +413,15 @@
       "title": "Rechercher · champ vide",
       "w": 390,
       "x": 0,
+      "y": 0
+    },
+    "E2-Verdict-Gel.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-2",
+      "title": "Gel douche · verdict grossesse · après une recherche",
+      "w": 390,
+      "x": 4230,
       "y": 0
     },
     "E2-Verdict-N1.dc.html": {
@@ -1712,6 +1802,11 @@
     "E1-Allaitement.dc.html",
     "E1-Ingredients-Allaitement.dc.html",
     "E1-Aide-Scan.dc.html",
+    "E1-Produit-Gel.dc.html",
+    "E1-Verdict-Gel.dc.html",
+    "E1-Ingredients-Gel.dc.html",
+    "E1-Allaitement-Gel.dc.html",
+    "E1-Ingredients-Allaitement-Gel.dc.html",
     "E1-Aide-Info.dc.html",
     "E1-Aide-Echelle.dc.html",
     "E1-Aide-Historique.dc.html",
@@ -1728,6 +1823,11 @@
     "E2-Ingredients.dc.html",
     "E2-Allaitement.dc.html",
     "E2-Ingredients-Allaitement.dc.html",
+    "E2-Produit-Gel.dc.html",
+    "E2-Verdict-Gel.dc.html",
+    "E2-Ingredients-Gel.dc.html",
+    "E2-Allaitement-Gel.dc.html",
+    "E2-Ingredients-Allaitement-Gel.dc.html",
     "E2-Verdict-N1.dc.html",
     "E2-Verdict-N2.dc.html",
     "E2-Verdict-N3.dc.html",

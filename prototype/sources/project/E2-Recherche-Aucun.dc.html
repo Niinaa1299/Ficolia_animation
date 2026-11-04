@@ -223,6 +223,7 @@ input::placeholder{color:#80707D;opacity:1}
 <div style="margin: 24px 20px 0 20px; display: flex; flex-direction: column; gap: 8px">
 <h2 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Voir le verdict</h2>
 <div style="border: 1px solid #E7E1DA; border-radius: 6px; background: #FAF8F4; display: flex; flex-direction: column">
+<sc-if value="{{selLait}}" hint-placeholder-val="{{ true }}">
 <a href="E2-Verdict.dc.html" style="min-height: 60px; padding: 0 12px 0 16px; display: flex; align-items: center; justify-content: space-between; color: #321C31">
 <span style="font-size: 19px; font-weight: 500">Grossesse</span>
 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
@@ -231,6 +232,17 @@ input::placeholder{color:#80707D;opacity:1}
 <span style="font-size: 19px; font-weight: 500">Allaitement</span>
 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
 </a>
+</sc-if>
+<sc-if value="{{selGel}}" hint-placeholder-val="{{ false }}">
+<a href="E2-Verdict-Gel.dc.html" style="min-height: 60px; padding: 0 12px 0 16px; display: flex; align-items: center; justify-content: space-between; color: #321C31">
+<span style="font-size: 19px; font-weight: 500">Grossesse</span>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
+</a>
+<a href="E2-Allaitement-Gel.dc.html" style="min-height: 60px; padding: 0 12px 0 16px; display: flex; align-items: center; justify-content: space-between; color: #321C31; border-top: 1px solid #E7E1DA">
+<span style="font-size: 19px; font-weight: 500">Allaitement</span>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
+</a>
+</sc-if>
 </div>
 </div>
 </sc-if>
@@ -248,7 +260,7 @@ input::placeholder{color:#80707D;opacity:1}
 </button>
 </div>
 <sc-if value="{{noteOn}}" hint-placeholder-val="{{ false }}">
-<p role="status" style="margin: 4px 0 0 0; font-size: 13px; line-height: 1.4; color: #6E5A6B">[Dans le prototype, seul « Lait corps nourrissant, Marque exemple, 250 ml » mène à un écran de verdict.]</p>
+<p role="status" style="margin: 4px 0 0 0; font-size: 13px; line-height: 1.4; color: #6E5A6B">[Dans le prototype, seuls « Lait corps nourrissant, Marque exemple, 250 ml » et « Gel douche surgras, Marque essai, 500 ml » mènent à un écran de verdict.]</p>
 </sc-if>
 </div>
 </sc-if>
@@ -394,7 +406,7 @@ input::placeholder{color:#80707D;opacity:1}
 </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;depart&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Champ vide&quot;,&quot;Résultats&quot;,&quot;Aucun résultat&quot;,&quot;Écran produit&quot;,&quot;Sans connexion&quot;],&quot;default&quot;:&quot;Aucun résultat&quot;,&quot;section&quot;:&quot;État de départ&quot;},&quot;photos&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Photos des produits&quot;},&quot;catalogue&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Catalogue évalué&quot;,&quot;Catalogue évalué et produits reconnus&quot;,&quot;Catalogue évalué et produits reconnus, option (b)&quot;],&quot;default&quot;:&quot;Catalogue évalué&quot;,&quot;section&quot;:&quot;Contenu de l'index&quot;},&quot;contribution&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Invitation à photographier la liste (option)&quot;},&quot;filigrane&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Logo (porteuse, 02/11)&quot;,&quot;Ton chaud (proposition, 02/11)&quot;,&quot;Couleurs atténuées&quot;,&quot;Aucun&quot;],&quot;default&quot;:&quot;Logo (porteuse, 02/11)&quot;,&quot;section&quot;:&quot;Aucun résultat : filigrane (porteuse, 02/11)&quot;},&quot;animation&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;En boucle&quot;,&quot;Lue une fois&quot;,&quot;Image fixe (réduire les animations)&quot;],&quot;default&quot;:&quot;Image fixe (réduire les animations)&quot;,&quot;section&quot;:&quot;Sans connexion : animation « pas de connexion » (porteuse, 03/11 : la version grise, queue tombante, en image fixe)&quot;},&quot;connexion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Couleurs&quot;,&quot;Gris&quot;],&quot;default&quot;:&quot;Gris&quot;,&quot;section&quot;:&quot;Animation des écrans de connexion&quot;},&quot;horsLigneTexte&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Pas de connexion. Réessayez quand le téléphone sera de nouveau connecté.&quot;,&quot;La recherche par nom demande une connexion. Réessayez quand le téléphone sera de nouveau connecté.&quot;,&quot;Pas de connexion. La recherche par nom reprendra dès son retour.&quot;],&quot;default&quot;:&quot;Pas de connexion. Réessayez quand le téléphone sera de nouveau connecté.&quot;,&quot;section&quot;:&quot;Sans connexion : le message (propositions, 02/11 ; le dernier est l'ancien)&quot;},&quot;horsLigneScan&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Ce seul message (porteuse, 02/11)&quot;,&quot;Avec « En attendant, vous pouvez scanner… » (décision 201)&quot;],&quot;default&quot;:&quot;Ce seul message (porteuse, 02/11)&quot;,&quot;section&quot;:&quot;Sans connexion : messages affichés (porteuse, 02/11)&quot;},&quot;horsLigneChamp&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Grisé, inactif (proposition, 02/11)&quot;,&quot;Actif&quot;],&quot;default&quot;:&quot;Actif&quot;,&quot;section&quot;:&quot;Sans connexion : champ de recherche (porteuse, 02/11 : garder la barre)&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;depart&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Champ vide&quot;,&quot;Résultats&quot;,&quot;Aucun résultat&quot;,&quot;Écran produit&quot;,&quot;Sans connexion&quot;],&quot;default&quot;:&quot;Aucun résultat&quot;,&quot;section&quot;:&quot;État de départ&quot;},&quot;produit&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Lait corps nourrissant&quot;,&quot;Gel douche surgras&quot;],&quot;default&quot;:&quot;Lait corps nourrissant&quot;,&quot;section&quot;:&quot;Écran produit : produit affiché (gel douche, D-354)&quot;},&quot;photos&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Photos des produits&quot;},&quot;catalogue&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Catalogue évalué&quot;,&quot;Catalogue évalué et produits reconnus&quot;,&quot;Catalogue évalué et produits reconnus, option (b)&quot;],&quot;default&quot;:&quot;Catalogue évalué&quot;,&quot;section&quot;:&quot;Contenu de l'index&quot;},&quot;contribution&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Invitation à photographier la liste (option)&quot;},&quot;filigrane&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Logo (porteuse, 02/11)&quot;,&quot;Ton chaud (proposition, 02/11)&quot;,&quot;Couleurs atténuées&quot;,&quot;Aucun&quot;],&quot;default&quot;:&quot;Logo (porteuse, 02/11)&quot;,&quot;section&quot;:&quot;Aucun résultat : filigrane (porteuse, 02/11)&quot;},&quot;animation&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;En boucle&quot;,&quot;Lue une fois&quot;,&quot;Image fixe (réduire les animations)&quot;],&quot;default&quot;:&quot;Image fixe (réduire les animations)&quot;,&quot;section&quot;:&quot;Sans connexion : animation « pas de connexion » (porteuse, 03/11 : la version grise, queue tombante, en image fixe)&quot;},&quot;connexion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Couleurs&quot;,&quot;Gris&quot;],&quot;default&quot;:&quot;Gris&quot;,&quot;section&quot;:&quot;Animation des écrans de connexion&quot;},&quot;horsLigneTexte&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Pas de connexion. Réessayez quand le téléphone sera de nouveau connecté.&quot;,&quot;La recherche par nom demande une connexion. Réessayez quand le téléphone sera de nouveau connecté.&quot;,&quot;Pas de connexion. La recherche par nom reprendra dès son retour.&quot;],&quot;default&quot;:&quot;Pas de connexion. Réessayez quand le téléphone sera de nouveau connecté.&quot;,&quot;section&quot;:&quot;Sans connexion : le message (propositions, 02/11 ; le dernier est l'ancien)&quot;},&quot;horsLigneScan&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Ce seul message (porteuse, 02/11)&quot;,&quot;Avec « En attendant, vous pouvez scanner… » (décision 201)&quot;],&quot;default&quot;:&quot;Ce seul message (porteuse, 02/11)&quot;,&quot;section&quot;:&quot;Sans connexion : messages affichés (porteuse, 02/11)&quot;},&quot;horsLigneChamp&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Grisé, inactif (proposition, 02/11)&quot;,&quot;Actif&quot;],&quot;default&quot;:&quot;Actif&quot;,&quot;section&quot;:&quot;Sans connexion : champ de recherche (porteuse, 02/11 : garder la barre)&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
 class Component extends DCLogic {
   componentDidMount() { this.fxvJoue(); }
   // Animation « pas de connexion » (03/11) : lecture sans son ; rien n'est lu si le téléphone demande de réduire les animations.
@@ -421,13 +433,15 @@ class Component extends DCLogic {
     // Option (b) (D-113, B1) : un produit reconnu ouvre la question du type, avec « Je n'ai pas le produit sous la main » (décision 156).
     var LARGE_B = 'Catalogue évalué et produits reconnus, option (b)';
     var LINKED = 'p1';
+    // Gel douche du parcours principal (D-354 ; porteuse, 04/11) : p9 mène aussi à un verdict, par ses propres planches.
+    var GEL = 'p9';
     var CAT = [
       { id: 'p5', nom: 'Baume lèvres', marque: 'Marque essai', contenance: '4,8 g', forme: 'tube', photo: true, ev: true },
       { id: 'p6', nom: 'Crème mains nourrissante', marque: 'Marque exemple', contenance: '75 ml', forme: 'tube', photo: true, ev: true },
       { id: 'r2', nom: 'Crème mains réparatrice', marque: 'Marque essai', contenance: '50 ml', forme: 'tube', photo: true, ev: false },
       { id: 'p7', nom: 'Crème visage hydratante', marque: 'Marque témoin', contenance: '50 ml', forme: 'pot', photo: true, ev: true },
       { id: 'p8', nom: 'Déodorant bille', marque: 'Marque essai', contenance: '50 ml', forme: 'flacon', photo: true, ev: true },
-      { id: 'p9', nom: 'Gel douche surgras', marque: 'Marque essai', contenance: '500 ml', forme: 'flacon', photo: false, ev: true },
+      { id: 'p9', nom: 'Gel douche surgras', marque: 'Marque essai', contenance: '500 ml', forme: 'flacon', photo: true, ev: true },
       { id: 'p10', nom: 'Huile corps nourrissante', marque: 'Marque exemple', contenance: '100 ml', forme: 'flacon', photo: true, ev: true },
       { id: 'r3', nom: 'Lait corps hydratant', marque: 'Marque essai', contenance: '200 ml', forme: 'pompe', photo: true, ev: false },
       { id: 'p1', nom: 'Lait corps nourrissant', marque: 'Marque exemple', contenance: '250 ml', forme: 'pompe', photo: true, ev: true },
@@ -436,7 +450,7 @@ class Component extends DCLogic {
       { id: 'p3', nom: 'Lait corps nourrissant peaux très sèches', marque: 'Marque exemple', contenance: '250 ml', forme: 'pompe', photo: true, ev: true },
       { id: 'r1', nom: 'Lait démaquillant doux', marque: 'Marque témoin', contenance: '200 ml', forme: 'flacon', photo: true, ev: false },
       { id: 'p11', nom: 'Shampooing doux', marque: 'Marque exemple', contenance: '250 ml', forme: 'flacon', photo: true, ev: true },
-      { id: 'p12', nom: 'Shampooing doux cheveux fins', marque: 'Marque témoin', contenance: '400 ml', forme: 'flacon', photo: true, ev: true }
+      { id: 'p12', nom: 'Shampooing doux cheveux fins', marque: 'Marque témoin', contenance: '400 ml', forme: 'flacon', photo: false, ev: true }
     ];
     function norm(s) {
       return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').replace(/^ +| +$/g, '');
@@ -450,7 +464,7 @@ class Component extends DCLogic {
     var st = this.state || {};
     var self = this;
     var depart = D.indexOf(this.props.depart) >= 0 ? this.props.depart : D[0];
-    var q0 = (depart === D[1] || depart === D[3]) ? 'lait corps' : (depart === D[2] ? 'sérum' : '');
+    var q0 = (depart === D[1] || depart === D[3]) ? (this.props.produit === 'Gel douche surgras' ? 'gel douche' : 'lait corps') : (depart === D[2] ? 'sérum' : '');
     var q = typeof st.q === 'string' ? st.q : q0;
     var view = st.view || (depart === D[3] ? 'product' : 'search');
     var photos = this.props.photos !== false;
@@ -495,7 +509,7 @@ class Component extends DCLogic {
     });
     var n = results.length;
     var sel = CAT[0];
-    var selId = st.sel || LINKED;
+    var selId = st.sel || (this.props.produit === 'Gel douche surgras' ? GEL : LINKED);
     for (var k = 0; k < CAT.length; k++) {
       if (CAT[k].id === selId) sel = CAT[k];
     }
@@ -555,8 +569,9 @@ class Component extends DCLogic {
       selFlacon: selPhoto && sel.forme === 'flacon',
       selTube: selPhoto && sel.forme === 'tube',
       selPot: selPhoto && sel.forme === 'pot',
-      selLinked: sel.ev && sel.id === LINKED,
-      selUnlinked: sel.ev && sel.id !== LINKED,
+      selLinked: sel.ev && (sel.id === LINKED || sel.id === GEL),
+      selUnlinked: sel.ev && sel.id !== LINKED && sel.id !== GEL,
+      selLait: sel.id === LINKED, selGel: sel.id === GEL,
       selReconnu: !sel.ev && !optB,
       selQuestion: !sel.ev && optB,
       noteOn: !!st.note,
