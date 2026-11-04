@@ -133,7 +133,7 @@ Le détail des effets sur le registre est dans `propositions/2026-10-31-hors-can
 
 ---
 
-## 2 bis. Décisions 218 à 268 (01 au 04/11)
+## 2 bis. Décisions 218 à 269 (01 au 04/11)
 
 Numérotées le 02/11 au soir, avec l'accord de la porteuse (« oui d'accord », A-FAIRE 1.6), d'après le journal des 01 et 02/11 (`propositions/2026-11-02-voie-savon/journal-01-02-11.md`), qui garde ses mots et le détail. Ordre : par date, puis par sujet (l'heure exacte n'est pas toujours connue).
 
@@ -192,6 +192,7 @@ Ne sont pas numérotés : ce qui attend encore son choix (présentation des case
 | 266 | Le gel douche du parcours principal (`D-354`) : par le scan **et** par la recherche, le même produit (« C. Les deux, pour le même produit. » : « oui », puis « go ») ; verdicts verts (proposition de Claude, la seule couleur que le registre prévoit d'éprouver) | 04/11 | dix planches nouvelles, cinq par chemin (`E1-…-Gel`, `E2-…-Gel`) ; le scan simulé : réglage « Résultat » (10 copies du gabarit) ; la recherche : le gel douche mène à ses verdicts (6 copies du gabarit) ; publiées en version 98 (« ok publie ») | applique `D-354` ; points ouverts de `D-354` : ce que mesure le test et ses critères (PR-2.1) |
 | 267 | Plusieurs versions connues pour un même code-barres (`D-347`) : la mention va sur l'écran produit (« je préfère sur l'écran produit »), sous l'identité du produit : « Ce produit existe en plusieurs versions : les verdicts ci-dessous portent sur la plus récente que nous connaissons. » (reformulation choisie par la porteuse, « celle ci » ; Proposition, à soumettre à la juriste, `O-67`), dans un encadré bleu (« mettre en encadré bleu » : le bleu ardoise d'information, fond `#E9EFF4`, texte `#2F4A62`, contraste 7,96:1, hors des couleurs de verdict) | 04/11 | `E3-Produit-AutreVersion` (lait corps), étape 3 ; le scan simulé y mène par le réglage « Résultat » (10 copies) ; publiée en version 100 (« go ») | **écart à la règle de l'écran produit dépouillé** (dossier §3.1, brief §4) ; « que nous connaissons » ne dit pas « pour le marché français » (`D-347`) ; les verdicts eux-mêmes ne portent pas la mention |
 | 268 | `D-342` : la limite déterminante n'ajoute rien au panneau de détail, ses textes actuels la disent déjà (parfum, produit rincé, « Données insuffisantes », « Non évalué ») (« limite B ») ; la version des règles va sur la fiche méthode seulement, « Règles d'évaluation : version [numéro] », sous « Version du [date] » (« version A ») ; un numéro, jamais une date (`D-52`) | 04/11 | `E6-Methode` et le même gabarit des cinq autres pages juridiques | applique `D-342` ; le test avec la cible (PR-4) n'a plus à trancher la place de la version ; reste du chantier 3.18 : la liste fournie (`D-344`) |
+| 269 | La limite de la présomption européenne (`D-353`, `L-147`) va dans les conditions d'utilisation (« ici »), sous « Ce que Ficolia présume des produits » : le texte du registre du 02/11, adapté pour un texte public (« la femme tient » → « celle du produit en main », `D-114` C1 ; « sans que l'écran du produit le signale » et « La part des produits concernés n'est pas mesurée » retirés) ; Proposition, à relire par la juriste | 04/11 | gabarit des six pages juridiques (visible sur `E6-CGU` et `E6-CGU-Accueil`) | applique `D-353` ; les trois adaptations sont à valider |
 
 ## 3. Décisions révisées ou remplacées depuis le 21/10
 
