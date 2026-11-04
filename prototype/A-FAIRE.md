@@ -6,7 +6,7 @@ Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin de soirée**
 
 **État à la fin de la séance**
 - Le canevas de travail est en version `1793658254-4b79`, identique au dépôt (vérifié en fin de séance, R3, par les tailles des 188 planches et de l'index). La dernière retouche faite sur la page, le champ « Actif » par défaut sur `E2-Recherche-Aucun`, est rapatriée.
-- 190 planches : les trois « À SUPPRIMER » sont supprimées (1.4) ; `E2-Recherche-HorsLigne` et `E3-Verdict-TypeNonPrisEnCharge` sont ajoutées le 03/11.
+- 189 planches : les quatre « À SUPPRIMER » sont supprimées (1.4, 3.22a) ; `E2-Recherche-HorsLigne` et `E3-Verdict-TypeNonPrisEnCharge` sont ajoutées le 03/11.
 - Décisions numérotées jusqu'à 256 (§2 bis du complément de la note de reprise).
 - La branche `claude/magical-mendel-cwpmji` est à jour sur GitHub.
 
@@ -146,7 +146,7 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 | 3.21 | Les « deux retours manquants » relevés le 21/10 : la note ne dit pas lesquels. À retrouver ou à abandonner. | toi | — | — | **abandonné le 03/11** (décision 255) : « on vérifiera une fois que tous les écrans seront modélisés et que tu auras tout relié. je ferai un test » ; d'où 3.21a |
 | 3.22 | La voie du savon, c'est le renvoi d'un nettoyant (gel douche…) vert ou jaune vers la fiche « Toilette des seins » des bonnes pratiques, sous la même forme que le renvoi « Crevasses » (décision 228) ; il n'était que sur `EA-Verdict-Gel`. | Claude | ? | — | **fait le 03/11** (« oui pose le renvoi sur les autres planches du même modèle de verdict », décision 256) : sur les 12 autres planches vivantes du modèle ; les 6 traces datées et la planche « À SUPPRIMER » du même modèle ne sont pas touchées ; états par défaut inchangés au pixel près |
 | 3.21a | **Nouveau.** Relier tous les écrans, une fois tous modélisés (décision 197, vérification globale des liens, demandée de nouveau le 31/10), avant ton test de navigation (3.21) | Claude, puis toi | ? | fin de la modélisation | à faire |
-| 3.22a | **Nouveau.** `EA-Verdict-Spray-Icones` est marquée « À SUPPRIMER · forme A écartée le 17/10 (spray) » et existe toujours : la supprimes-tu sur la page, comme les trois autres le 02/11 ? | toi | 0,1 h | — | **laissée telle quelle** (« on laisse », 03/11, lu ainsi : rien n'est supprimé) |
+| 3.22a | **Nouveau.** `EA-Verdict-Spray-Icones` est marquée « À SUPPRIMER · forme A écartée le 17/10 (spray) » et existe toujours : la supprimes-tu sur la page, comme les trois autres le 02/11 ? | toi | 0,1 h | — | **supprimée par toi sur la page** (vue le 04/11, version 1793786681-7685) ; rapatrié (R3) |
 | 3.23 | Plus tard, selon toi : les produits reconnus de la recherche, l'écran de pause, les fiches grossesse (`D-66` à rouvrir) | toi | — | — | plus tard |
 
 ### 3.4 Finir
@@ -154,7 +154,7 @@ Elles débloquent des modifications de planches. Pour chacune, tu peux répondre
 | N° | Tâche | Qui | Durée | Dépend de | État |
 | --- | --- | --- | --- | --- | --- |
 | 3.24 | La séance de design dédiée (`PR-3.6`, `T-373` : « le design est jugé moche, une session dédiée est prévue ») | toi | 4 h | 3.13 à 3.15 | à faire |
-| 3.25 | Le contrôle final (`PR-3.7`) : mots interdits, contrastes (4,5:1), cibles de 44 px, texte agrandi, mouvement réduit, liens et boutons, cohérence entre les copies d'un même gabarit, sur les 190 planches ; dont la bulle de l'échelle en texte agrandi (3.6d) | Claude | 2 h | 3.24 | à faire |
+| 3.25 | Le contrôle final (`PR-3.7`) : mots interdits, contrastes (4,5:1), cibles de 44 px, texte agrandi, mouvement réduit, liens et boutons, cohérence entre les copies d'un même gabarit, sur les 189 planches ; dont la bulle de l'échelle en texte agrandi (3.6d) | Claude | 2 h | 3.24 | à faire |
 | 3.26 | Valider le contrôle final (`PR-3.8`) | toi | 2 h | 3.25 | à faire |
 
 ---

@@ -1684,15 +1684,6 @@
       "x": 2820,
       "y": 1928
     },
-    "EA-Verdict-Spray-Icones.dc.html": {
-      "h": 844,
-      "is_interactive": true,
-      "page": "ligne-allaitement",
-      "title": "À SUPPRIMER · forme A écartée le 17/10 (spray)",
-      "w": 390,
-      "x": 940,
-      "y": 1928
-    },
     "EA-Verdict-Spray.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -1779,7 +1770,6 @@
     "EA-Verdict-Gel-Source.dc.html",
     "EA-Ingredients-Gel.dc.html",
     "EA-Verdict-Lait-Drapeau.dc.html",
-    "EA-Verdict-Spray-Icones.dc.html",
     "EA-Verdict-Gel-Icones.dc.html",
     "EA-Verdict-Baume-RenvoiLien.dc.html",
     "EA-Ingredients-Spray-Mention.dc.html",
