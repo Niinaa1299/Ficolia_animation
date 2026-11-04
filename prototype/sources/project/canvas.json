@@ -442,15 +442,6 @@
       "x": 470,
       "y": 964
     },
-    "E2-Verdict-N3-Lien.dc.html": {
-      "h": 844,
-      "is_interactive": true,
-      "page": "etape-2",
-      "title": "Verdict grossesse · niveau 3 · volet de première alerte avec le lien « J'ai déjà utilisé ce produit » (pour comparer)",
-      "w": 390,
-      "x": 1880,
-      "y": 964
-    },
     "E2-Verdict-N3.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -1867,7 +1858,6 @@
     "E2-Verdict-N1.dc.html",
     "E2-Verdict-N2.dc.html",
     "E2-Verdict-N3.dc.html",
-    "E2-Verdict-N3-Lien.dc.html",
     "E2-Verdict-N4.dc.html",
     "E6-Menu.dc.html",
     "E6-BonnesPratiques-Themes.dc.html",
