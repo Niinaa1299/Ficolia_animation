@@ -532,6 +532,15 @@
       "x": 1410,
       "y": 964
     },
+    "E3-Produit-AutreVersion.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-3a",
+      "title": "Écran produit · plusieurs versions connues pour ce code (D-347)",
+      "w": 390,
+      "x": 3760,
+      "y": 964
+    },
     "E3-Produit-Incomplet.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -1968,6 +1977,7 @@
     "E3-Produit-ActualiserHorsLigne.dc.html",
     "E3-Ingredients-Actualiser.dc.html",
     "E3-Produit-Rappel.dc.html",
+    "E3-Produit-AutreVersion.dc.html",
     "E3-Ingredients-TypeNonPrecise.dc.html",
     "E3-Scan-Demande.dc.html",
     "E3-Scan-Refus.dc.html",
