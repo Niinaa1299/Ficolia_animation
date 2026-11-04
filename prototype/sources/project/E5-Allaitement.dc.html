@@ -559,14 +559,15 @@ class Component extends DCLogic {
     var els = [];
     // Explications du volet (porteuse, 04/11, 15:00, fil 8b340b1d : « 1. ok 2. reformule la fin de la phrase est trop alambiquée
     // 3. reformule 4. ok 5. … utilise « produit déposé sur la peau de bébé » 6. Le parfum peut couvrir votre odeur… ») : 1, 4, 5 et 6
-    // sont les siennes ou validées (« Texte provisoire », jusqu'à la toxicologue, T-604) ; 2 et 3, reformulées par Claude (« Proposition »).
+    // sont les siennes ou validées ; 2 et 3, reformulées par Claude, validées à 15:31 (« OUI 2 ET 3 OK ») : toutes « Texte provisoire »,
+    // jusqu'à la toxicologue (T-604).
     // Chaque élément : une étiquette, puis une courte explication (D-256 à D-260, D-275). 30/10 : mots simples (« bébé »,
     // « mamelon et aréole », « ce verdict ») ; la case porte un sujet et son état, le volet l'étiquette entière et
     // l'explication : écart à D-256 (un seul texte par élément), à inscrire. Provisoires : textes finaux par la porteuse (T-604).
     if (d.attribut) {
       // Préséance de l'attribut : jamais « mamelon et aréole non évalués » ni la consigne d'évitement (D-214, étape 6).
       if (!incomplet) els.push(zoneInc
-        ? { rang: 1, titre: 'Tétée : évaluation incomplète', sujet: 'Tétée', etat: 'évaluation incomplète', sujetA: 'Produit présent à la tétée', etatA: 'évaluation incomplète', texte: "Ce produit s'applique aussi sur le mamelon. Au moins un de ses ingrédients n'a pas pu être évalué pour la tétée.", prop: true, ligne: true, ic: 'Zone' }
+        ? { rang: 1, titre: 'Tétée : évaluation incomplète', sujet: 'Tétée', etat: 'évaluation incomplète', sujetA: 'Produit présent à la tétée', etatA: 'évaluation incomplète', texte: "Ce produit s'applique aussi sur le mamelon. Au moins un de ses ingrédients n'a pas pu être évalué pour la tétée.", ligne: true, ic: 'Zone' }
         : { rang: 1, titre: 'Tétée évaluée', sujet: 'Tétée', etat: 'évaluée', sujetA: 'Produit présent à la tétée', etatA: 'pris en compte', texte: "Ce produit s'applique aussi sur le mamelon. Ce verdict tient compte de ce qui peut en rester au moment de la tétée.", ligne: true, ic: 'Zone', attribut: true });
     } else if (d.corps) {
       // L'évitement est fondu dans la ligne zone de tétée (G2.2) ; le même texte sur toutes les couleurs (D-257).
@@ -576,8 +577,8 @@ class Component extends DCLogic {
       // une seule étiquette par case, tout en gras, au même niveau de lecture (porteuse, 04/11, fil 1c156675 : « on laisse la
       // carte comme ca tout en gras au même niveau = même niveau de lecture », puis « oui » pour toutes les cases) ; pour cette
       // case, ses mots, « du mamelon et de l'aréole » (« oui ») ; le titre du volet ne change pas (« garde le titre actuel »).
-      els.push({ rang: 1, titre: 'Mamelon et aréole non évalués', label: "Zone du mamelon et de l'aréole non évaluée", sujet: 'Mamelon et aréole', etat: 'non évalués', sujetA: 'Application du produit sur le sein', etatA: 'pas pris en compte', ligne: true, ic: 'Zone',
-        texte: "Ce verdict vaut pour l'usage prévu du produit. Il ne tient pas compte d'une application sur le mamelon ou l'aréole.", prop: true });
+      els.push({ rang: 1, titre: 'Mamelon et aréole non évalués', label: "Zone du mamelon et de l'aréole non évaluée", sujet: 'Mamelon et aréole', etat: 'non évalués', sujetA: 'Application du produit sur le mamelon', etatA: 'pas pris en compte', ligne: true, ic: 'Zone',
+        texte: "Ce verdict vaut pour l'usage prévu du produit. Il ne tient pas compte d'une application sur le mamelon ou l'aréole." });
     }
     // « Inhalation du produit par le bébé non évaluée » (porteuse, 30/10) ; au registre : « Inhalation par le nourrisson non
     // évaluée » (D-260), qui remplaçait « Évaluation établie hors présence du nourrisson » (D-161).
@@ -587,11 +588,11 @@ class Component extends DCLogic {
     if (d.contact) els.push({ rang: 2, titre: 'Contact avec la peau du bébé non évalué', sujet: 'Contact avec la peau du bébé', etat: 'non évalué', sujetA: 'Dépôt du produit sur la peau de bébé', etatA: 'pas pris en compte', ic: 'Contact',
       texte: 'Ce verdict ne tient pas compte du produit déposé sur la peau de bébé.' });
     if (vj && d.parfum) els.push({ rang: 3, titre: 'Produit parfumé', sujet: 'Parfum', etat: 'produit parfumé', sujetA: 'Produit parfumé', etatA: '',
-      // Texte de la porteuse (04/11, 15:00, fil 8b340b1d), mot pour mot ; il remplace sa forme de 14:11 (« Des études sur les
-      // nouveau-nés montrent que… c'est pour cela que… »). À relire : « votre odeur » et « bébé » sans article supposent que la
-      // lectrice allaite (D-114 C1) ; que le parfum « couvre » l'odeur n'est pas établi par la source nommée dessous (D-261).
+      // Texte de la porteuse (04/11, 15:00, fil 8b340b1d), en version neutre (15:31 : « OK ») ; il remplace sa forme de 14:11
+      // (« Des études sur les nouveau-nés montrent que… c'est pour cela que… »). Reste à relire : que le parfum « couvre »
+      // l'odeur n'est pas établi par la source nommée dessous (D-261) ; source ou accord de la toxicologue (T-604).
       // La source est nommée sans date, la date au panneau (D-52, D-270).
-      texte: "Le parfum peut couvrir votre odeur par laquelle bébé se repère pour trouver le sein.", src: 'parfum', ic: 'Parfum' });
+      texte: "Le parfum peut couvrir l'odeur par laquelle un bébé se repère pour trouver le sein.", src: 'parfum', ic: 'Parfum' });
     // Condition savon retirée du verdict (porteuse, 17/10 : « n'a rien à faire ici ») ; son texte part vers une fiche, à écrire.
     // La pastille (forme B, gardée dans le code) porte l'étiquette entière.
     els = els.map(function (e, k) { e.k = k; e.court = e.titre; return e; }).sort(function (a, b) { return a.rang - b.rang || a.k - b.k; });
@@ -680,7 +681,9 @@ class Component extends DCLogic {
       });
     }
     var pk = (below && (forme === FORMES[2] || forme === FORMES[4]) && st.puce != null && shown[st.puce]) ? shown[st.puce] : null;
-    var puce = icons({ titre: pk ? pk.titre : '', texte: pk ? pk.texte : '', hasTexte: !!(pk && pk.texte), hasSrc: !!(pk && pk.src),
+    // Titre du volet aligné sur la case, « sujet : état » (porteuse, 04/11, 15:32, fil 111f9ffa : « aligne les ») ; le champ titre
+    // garde l'ancien libellé, qui sert aux autres présentations de Baume-Jaune.
+    var puce = icons({ titre: pk ? (pk.sujetA ? pk.sujetA + (pk.etatA ? ' : ' + pk.etatA : '') : pk.titre) : '', texte: pk ? pk.texte : '', hasTexte: !!(pk && pk.texte), hasSrc: !!(pk && pk.src),
       srcName: pk && pk.src ? SRC[pk.src].name : '',
       showStatut: !!pk && this.props.statuts !== false, statut: pk && pk.prop ? 'Proposition' : 'Texte provisoire',
       openSrc: function () { self.setState({ src: pk ? pk.src : null, srcClosed: false, puce: null }); } }, pk);
