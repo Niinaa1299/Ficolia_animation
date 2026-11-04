@@ -560,7 +560,9 @@ class Component extends DCLogic {
         : { rang: 1, titre: 'Tétée évaluée', sujet: 'Tétée', etat: 'évaluée', texte: 'Ce verdict tient compte du produit présent au moment de la tétée.', ligne: true, ic: 'Zone', attribut: true });
     } else if (d.corps) {
       // L'évitement est fondu dans la ligne zone de tétée (G2.2) ; le même texte sur toutes les couleurs (D-257).
-      els.push({ rang: 1, titre: 'Mamelon et aréole non évalués', sujet: 'Zone du mamelon et aréole non évaluée', etat: 'non évalués', ligne: true, ic: 'Zone',
+      // Une seule étiquette, tout en gras (porteuse, 04/11 : « supprime non évalués en bas. on laisse la carte comme ca tout en
+      // gras au même niveau = même niveau de lecture ») ; les autres cases gardent leur sujet et leur état.
+      els.push({ rang: 1, titre: 'Mamelon et aréole non évalués', sujet: 'Zone du mamelon et aréole non évaluée', etat: '', ligne: true, ic: 'Zone',
         texte: "Ce verdict ne vaut pas si le produit est appliqué sur le mamelon ou l'aréole." });
     }
     // « Inhalation du produit par le bébé non évaluée » (porteuse, 30/10) ; au registre : « Inhalation par le nourrisson non

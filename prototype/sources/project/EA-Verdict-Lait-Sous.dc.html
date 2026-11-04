@@ -467,10 +467,17 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 </button>
 </div>
 <sc-if value="{{puce.hasTexte}}" hint-placeholder-val="{{ true }}">
-<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty">Des études sur les nouveaux-nés montrent que ... c'est pour cela que ...</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty">{{puce.texte}}</p>
 </sc-if>
 <sc-if value="{{puce.hasSrc}}" hint-placeholder-val="{{ false }}">
-<button type="button" onClick="{{puce.openSrc}}" style="align-self: flex-start; min-height: 44px; padding: 0; border: 0; background: transparent; color: #321C31; font-family: inherit; font-size: 16px; text-align: left; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Source : {{puce.srcName}}</button>
+<!-- La date de la source entre parenthèses, à côté du lien (porteuse, 04/11) : écart à D-52 et D-270 (la condition nomme sa source sans date, la date au panneau), à trancher. -->
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 6px">
+<button type="button" onClick="{{puce.openSrc}}" style="min-height: 44px; padding: 0; border: 0; background: transparent; color: #321C31; font-family: inherit; font-size: 16px; text-align: left; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Source : {{puce.srcName}}</button>
+<span style="font-size: 16px; line-height: 1.4; color: {{puce.srcAnneeColor}}">({{puce.srcAnnee}})</span>
+</div>
+</sc-if>
+<sc-if value="{{puce.showProp}}" hint-placeholder-val="{{ false }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Proposition</span>
 </sc-if>
 <button type="button" onClick="{{closePuce}}" style="min-height: 52px; padding: 8px 20px; border: 1px solid #E7E1DA; border-radius: 999px; background: #FAF8F4; color: #321C31; font-family: inherit; font-size: 17px; font-weight: 700; cursor: pointer">Fermer</button>
 </div>
@@ -570,7 +577,10 @@ class Component extends DCLogic {
     // même champ, M3 : le produit resté sur la peau de la mère passe sur celle du bébé.
     if (d.contact) els.push({ rang: 2, titre: 'Contact avec la peau du bébé non évalué', sujet: 'Contact avec la peau du bébé', etat: 'non évalué', ic: 'Contact',
       texte: 'Ce verdict ne tient pas compte du produit qui peut passer sur la peau du bébé quand il est porté contre la peau traitée.' });
-    if (vj && d.parfum) els.push({ rang: 3, titre: 'Produit parfumé', sujet: 'Parfum', etat: 'produit parfumé', texte: "Le nouveau-né se guide vers le sein à l'odeur.", src: 'parfum', ic: 'Parfum' });
+    if (vj && d.parfum) els.push({ rang: 3, titre: 'Produit parfumé', sujet: 'Parfum', etat: 'produit parfumé',
+      // Forme de la porteuse (04/11 : « Des études sur les nouveaux-nés montrent que ... c'est pour cela que ... ») ; la première
+      // moitié s'en tient au fait établi (D-261), la seconde dit pourquoi la case paraît : proposition, à faire relire (toxicologue).
+      texte: "Des études sur les nouveau-nés montrent qu'ils se guident vers le sein à son odeur, c'est pour cela que Ficolia signale un produit parfumé.", prop: true, src: 'parfum', ic: 'Parfum' });
     // Condition savon retirée du verdict (porteuse, 17/10 : « n'a rien à faire ici ») ; son texte part vers une fiche, à écrire.
     // La pastille (forme B, gardée dans le code) porte l'étiquette entière.
     els = els.map(function (e, k) { e.k = k; e.court = e.titre; return e; }).sort(function (a, b) { return a.rang - b.rang || a.k - b.k; });
@@ -619,10 +629,10 @@ class Component extends DCLogic {
     var SRC = {
       anaes: { name: 'ANAES', about: "Selon les recommandations professionnelles, la douche habituelle suffit : nettoyer les mamelons avant ou après une tétée complique inutilement l'allaitement.",
         nature: 'Recommandation professionnelle, accord professionnel (niveau de preuve P3)', ref: "ANAES (Agence nationale d'accréditation et d'évaluation en santé) — [titre exact à vérifier]",
-        date: "2002 [vérifier qu'aucune version plus récente ne la remplace]" },
+        date: "2002 [vérifier qu'aucune version plus récente ne la remplace]", annee: '2002' },
       parfum: { name: 'Schaal et Marlier', about: "Le nouveau-né se guide vers le sein à l'odeur.",
         nature: 'Études, mécanisme documenté', ref: '[Travaux de Schaal et Marlier — références à préciser (annexe B du document de reprise)]',
-        date: '[Date de publication]' }
+        date: '[Date de publication]', annee: '[année à préciser]' }
     };
     var st = this.state || {};
     var self = this;
@@ -659,6 +669,8 @@ class Component extends DCLogic {
     var pk = (below && (forme === FORMES[2] || forme === FORMES[4]) && st.puce != null && shown[st.puce]) ? shown[st.puce] : null;
     var puce = icons({ titre: pk ? pk.titre : '', texte: pk ? pk.texte : '', hasTexte: !!(pk && pk.texte), hasSrc: !!(pk && pk.src),
       srcName: pk && pk.src ? SRC[pk.src].name : '',
+      srcAnnee: pk && pk.src ? SRC[pk.src].annee : '', srcAnneeColor: pk && pk.src && SRC[pk.src].annee.charAt(0) === '[' ? '#6E5A6B' : '#321C31',
+      showProp: !!(pk && pk.prop) && this.props.statuts !== false,
       openSrc: function () { self.setState({ src: pk ? pk.src : null, srcClosed: false, puce: null }); } }, pk);
     var firstSrc = null;
     shown.forEach(function (e) { if (e.src && !firstSrc) firstSrc = e.src; });
