@@ -360,7 +360,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <h1 style="margin: 0; text-align: center; font-size: 19px; font-weight: 700">Réaction à un produit</h1>
 <span></span>
 </div>
-<section aria-label="Réaction à un produit" style="flex-shrink: 0; margin: 28px 12px 0 12px; padding: 20px 15px 18px 15px; border: 1px solid #6E5A6B; border-radius: 24px; background: #FAF8F4; color: #321C31; display: flex; flex-direction: column; gap: 12px">
+<!-- Avant le portail, orienter vers un professionnel de santé ou les urgences (audit du 18/10, P1 ; porteuse, 04/11 : « professionnel de santé »). Texte à valider par la juriste (T-457). -->
+<div role="note" style="flex-shrink: 0; margin: 28px 12px 0 12px; padding: 14px 15px; border: 1.5px solid #2B5C8F; border-radius: 16px; background: #E3EDF8; color: #321C31; display: flex; align-items: flex-start; gap: 10px">
+<svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="#2B5C8F" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6"></path><path d="M12 7.5v.01"></path></svg>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty">Si la réaction est forte ou ne passe pas, appelez le <a href="tel:15" style="font-weight: 700; text-decoration: underline; text-underline-offset: 3px">15</a> ou le <a href="tel:112" style="font-weight: 700; text-decoration: underline; text-underline-offset: 3px">112</a>.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty">Pour toute question, parlez-en à un professionnel de santé.</p>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #321C31; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #321C31">Texte provisoire</span>
+</sc-if>
+</div>
+</div>
+<section aria-label="Réaction à un produit" style="flex-shrink: 0; margin: 12px 12px 0 12px; padding: 20px 15px 18px 15px; border: 1px solid #6E5A6B; border-radius: 24px; background: #FAF8F4; color: #321C31; display: flex; flex-direction: column; gap: 12px">
 <h2 style="margin: 0; font-size: 17px; font-weight: 700; line-height: 1.3; text-wrap: balance">Merci de nous le dire.</h2>
 <p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty">Nous sommes désolés que cela vous soit arrivé. Votre réaction compte : le ministère de la Santé recueille ces déclarations, sur un portail ouvert à tous.</p>
 <p style="margin: 0; font-size: 15px; line-height: 1.4; color: #6E5A6B">Ficolia ne peut pas les recevoir elle-même.</p>

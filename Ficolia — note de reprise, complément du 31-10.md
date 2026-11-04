@@ -133,7 +133,7 @@ Le détail des effets sur le registre est dans `propositions/2026-10-31-hors-can
 
 ---
 
-## 2 bis. Décisions 218 à 256 (01 au 03/11)
+## 2 bis. Décisions 218 à 259 (01 au 04/11)
 
 Numérotées le 02/11 au soir, avec l'accord de la porteuse (« oui d'accord », A-FAIRE 1.6), d'après le journal des 01 et 02/11 (`propositions/2026-11-02-voie-savon/journal-01-02-11.md`), qui garde ses mots et le détail. Ordre : par date, puis par sujet (l'heure exacte n'est pas toujours connue).
 
@@ -180,6 +180,9 @@ Ne sont pas numérotés : ce qui attend encore son choix (présentation des case
 | 254 | Planche dédiée à l'évaluation incomplète « type de produit non pris en charge » : `E3-Verdict-TypeNonPrisEnCharge` (étape 3) | 03/11 | voir le journal | — |
 | 255 | Les « deux retours manquants » du 21/10 sont abandonnés : la porteuse testera la navigation une fois tous les écrans modélisés et reliés | 03/11 | — | rejoint la décision 197 (vérification globale des liens) |
 | 256 | Le renvoi d'un nettoyant vert ou jaune vers la fiche « Toilette des seins » (décision 228) passe sur les 12 autres planches vivantes du même modèle de verdict ; les traces datées restent telles quelles | 03/11 | voir le journal | revient en partie sur la décision 168 avant le test hors cible (la 228 prévoyait de trancher après) ; écart à `D-262`, `D-265`, `D-266` (`T-605`) |
+| 257 | Le signal poitrine n'est pas à l'accueil : il est sur le verdict (case « Mamelon et aréole · pas pris en compte »), dans la fiche « Crevasses » et, à écrire, dans les conditions d'utilisation et la fiche méthode | 04/11 | fiche « Crevasses » : voir le journal | écart à `D-273` (l'item de l'onboarding disparaît, conforme à `cap-onboarding.md` §2) ; `T-605` à réviser |
+| 258 | Le moment « je l'ai déjà utilisé » : le volet de première alerte reste tel quel ; un lien « J'ai déjà utilisé ce produit » mènera à une page des bonnes pratiques, à écrire avec la toxicologue et la juriste | 04/11 | non construit : écran nouveau, après les écrans existants | `T-404` ; audit du 18/10, action 3 |
+| 259 | Écran « Réaction » : avant le portail, « Si la réaction est forte ou ne passe pas, appelez le 15 ou le 112. » et « Pour toute question, parlez-en à un professionnel de santé. » | 04/11 | voir le journal | `T-457` (juriste) ; audit du 18/10, action 4 |
 
 ## 3. Décisions révisées ou remplacées depuis le 21/10
 
