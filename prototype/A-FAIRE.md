@@ -6,6 +6,7 @@ Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin de soirée**
 
 **État à la fin de la séance**
 - Le canevas de travail est en version `1793658254-4b79`, identique au dépôt (vérifié en fin de séance, R3, par les tailles des 188 planches et de l'index). La dernière retouche faite sur la page, le champ « Actif » par défaut sur `E2-Recherche-Aucun`, est rapatriée.
+- **04/11, après-midi** : le canevas est en version 91 (`1793802410-8817`), publiée depuis le dépôt (commit `270bc4b`) ; les neuf planches remplacées avaient en ligne les tailles du dépôt, et la version précédente (`1793801431-64b5`, tes retouches sur `EA-Verdict-Lait-Sous` et `EA-Verdict-Lait-Orange`) était rapatriée à l'octet (commit `db8dbe4`). Les trois fils du 04/11 (`478d884c`, `1c156675`, `9d5fb425`) ont leur réponse et restent ouverts : chacun pose une question.
 - 189 planches : les quatre « À SUPPRIMER » sont supprimées (1.4, 3.22a) ; `E2-Recherche-HorsLigne` et `E3-Verdict-TypeNonPrisEnCharge` sont ajoutées le 03/11.
 - Décisions numérotées jusqu'à 261 (§2 bis du complément de la note de reprise).
 - La branche `claude/magical-mendel-cwpmji` est à jour sur GitHub.
