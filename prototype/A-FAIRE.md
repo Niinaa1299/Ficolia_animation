@@ -9,6 +9,7 @@ Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin de soirée**
 - **04/11, après-midi** : le canevas est en version 92 (`1793803287-6af3`), publiée depuis le dépôt (commit `e5ee288`) ; la version 91 (`1793802410-8817`, commit `270bc4b`) était la mienne, sans retouche sur la page entre les deux. Tes retouches de la version `1793801431-64b5` (`EA-Verdict-Lait-Sous`, `EA-Verdict-Lait-Orange`) sont rapatriées à l'octet (commit `db8dbe4`). Les trois fils du 04/11 (`478d884c`, `1c156675`, `9d5fb425`) sont appliqués et résolus (décisions 257, 260, 261). Puis, à 14:52, le fil `111f9ffa` : la piste A avec tes mots (décision 262), publiée en version 93 ; puis, à 15:00, le fil `8b340b1d` : les explications des volets (décision 263), publiées en version 94 avec ta réponse de 15:04 dans `111f9ffa` (décision 264). Puis tes réponses de 15:31 et 15:32 (décision 265), version 95. Ces deux fils restent ouverts, à toi de les résoudre.
 - 189 planches : les quatre « À SUPPRIMER » sont supprimées (1.4, 3.22a) ; `E2-Recherche-HorsLigne` et `E3-Verdict-TypeNonPrisEnCharge` sont ajoutées le 03/11.
 - Décisions numérotées jusqu'à 265 (§2 bis du complément de la note de reprise).
+- **Registre v6.9** (02/11, `mamaCARE_Registre_Projet_02_11_26_v6-9.md`, déposé sur `main` le 04/11, copié dans la branche de travail le même jour ; la v6.7 reste à côté, la v6.8 est sur `main`) : il fait foi désormais. Trois points touchent le prototype, relevés le 04/11 : (1) `D-259`, annoté le 30/10 : la porteuse y confirme « Contact rapproché non évalué » ; la case du canevas dit « Dépôt du produit sur la peau de bébé » (décision 264) : écart à trancher ; (2) `D-354` (02/11) : un gel douche dans le parcours principal du canevas, pour éprouver le lien de la troisième voie ; **non appliqué** (le parcours principal montre le lait corps) ; (3) `D-353` : la limite de la présomption européenne (`L-147`) va dans les conditions d'utilisation ou la fiche méthode : texte à poser. `D-342` est déjà la tâche 3.18. Les décisions 218 à 265 du prototype sont à confronter au v6.9, et non plus au v6.7 (4.1).
 - La branche `claude/magical-mendel-cwpmji` est à jour sur GitHub.
 
 **Ce qui attend tes réponses** (rien n'est posé avant ton choix ; propositions dans les fils du canevas) :
@@ -18,7 +19,7 @@ Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin de soirée**
 **Ce que la prochaine session fait d'abord**
 1. R1 et R3 : l'accès au canevas, puis les retouches faites sur la page.
 2. Lire les fils du canevas de travail (outil `ArtifactComments`, `action: read`). Si tu as répondu, appliquer tes choix (R2, captures avant publication).
-3. Sinon, ce qui ne dépend que de Claude : l'inventaire des causes (2.1, `CT-1.1`), puis le relevé des écarts au registre avec les décisions 218 à 265 (4.1) et la confrontation de l'annexe A (4.2).
+3. Sinon, ce qui ne dépend que de Claude : l'inventaire des causes (2.1, `CT-1.1`), puis le relevé des écarts au registre avec les décisions 218 à 265, contre le registre v6.9 (4.1) et la confrontation de l'annexe A (4.2).
 4. La version de test (2.8) attend la fin des retouches du prototype : ne pas la construire avant ton signal.
 
 **Où trouver ce qui sert**
