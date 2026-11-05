@@ -10,6 +10,15 @@
       "x": 0,
       "y": 0
     },
+    "E0-Plan.dc.html": {
+      "h": 4640,
+      "is_interactive": true,
+      "page": "etape-0",
+      "title": "Plan du prototype · point de départ du test de navigation",
+      "w": 1600,
+      "x": 3360,
+      "y": 0
+    },
     "E0-Polices.dc.html": {
       "h": 1900,
       "page": "etape-0",
@@ -955,6 +964,15 @@
       "x": 0,
       "y": 964
     },
+    "E4-Signalement-Allaitement.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-4",
+      "title": "Signalement · depuis un verdict allaitement (le retour y ramène)",
+      "w": 390,
+      "x": 3290,
+      "y": 1928
+    },
     "E4-Signalement-Detail.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -1897,6 +1915,7 @@
     }
   },
   "order": [
+    "E0-Plan.dc.html",
     "E1-Scan.dc.html",
     "E1-Code.dc.html",
     "E1-Produit.dc.html",
@@ -2015,6 +2034,7 @@
     "E4-Photo-Courriel.dc.html",
     "E4-Photo-Echec.dc.html",
     "E4-Signalement.dc.html",
+    "E4-Signalement-Allaitement.dc.html",
     "E4-Signalement-Detail.dc.html",
     "E4-Signalement-Message.dc.html",
     "E4-Signalement-Produit.dc.html",
