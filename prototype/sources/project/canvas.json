@@ -361,6 +361,51 @@
       "x": 2350,
       "y": 0
     },
+    "E2-Liste-Allaitement.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-2",
+      "title": "Liste collée · verdict allaitement marqué (D-344)",
+      "w": 390,
+      "x": 2820,
+      "y": 2892
+    },
+    "E2-Liste-Coller.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-2",
+      "title": "Liste collée · coller la liste (D-344)",
+      "w": 390,
+      "x": 940,
+      "y": 2892
+    },
+    "E2-Liste-Produit.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-2",
+      "title": "Liste collée · écran produit, verdicts marqués (D-344)",
+      "w": 390,
+      "x": 1880,
+      "y": 2892
+    },
+    "E2-Liste-Type.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-2",
+      "title": "Liste collée · contrôle et type de produit (D-344)",
+      "w": 390,
+      "x": 1410,
+      "y": 2892
+    },
+    "E2-Liste-Verdict.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-2",
+      "title": "Liste collée · verdict grossesse marqué (D-344)",
+      "w": 390,
+      "x": 2350,
+      "y": 2892
+    },
     "E2-Produit-Gel.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -396,6 +441,24 @@
       "w": 390,
       "x": 0,
       "y": 1928
+    },
+    "E2-Recherche-ListeA.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-2",
+      "title": "Rechercher · aucun résultat · « Coller la liste des ingrédients » (D-344, piste A)",
+      "w": 390,
+      "x": 0,
+      "y": 2892
+    },
+    "E2-Recherche-ListeC.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "etape-2",
+      "title": "Rechercher · « ou collez une liste d'ingrédients » en permanence (D-344, piste C)",
+      "w": 390,
+      "x": 470,
+      "y": 2892
     },
     "E2-Recherche-Resultats.dc.html": {
       "h": 844,
@@ -2022,7 +2085,14 @@
     "E1-Accueil-Bienvenue.dc.html",
     "E1-Accueil-Conditions.dc.html",
     "E2-Recherche-HorsLigne.dc.html",
-    "E3-Verdict-TypeNonPrisEnCharge.dc.html"
+    "E3-Verdict-TypeNonPrisEnCharge.dc.html",
+    "E2-Recherche-ListeA.dc.html",
+    "E2-Recherche-ListeC.dc.html",
+    "E2-Liste-Coller.dc.html",
+    "E2-Liste-Type.dc.html",
+    "E2-Liste-Produit.dc.html",
+    "E2-Liste-Verdict.dc.html",
+    "E2-Liste-Allaitement.dc.html"
   ],
   "pages": [
     {

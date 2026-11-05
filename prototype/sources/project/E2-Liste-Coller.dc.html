@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<title>Ficolia — Coller une liste d'ingrédients (D-344)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,sans-serif;background:#FFFFFF;color:#321C31;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+a,button{touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 160ms ease-out}
+a:active,button:active{transform:scale(0.97)}
+a:focus-visible,button:focus-visible{outline:2px solid #4C2944;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){a,button{transition:none}a:active,button:active{transform:none}}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; color: #321C31; font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
+<div style="flex-shrink: 0; padding: 50px 20px 0 20px; display: flex; align-items: center; justify-content: space-between">
+<sc-if value="{{isScan}}" hint-placeholder-val="{{ true }}">
+<a href="E1-Scan.dc.html" aria-label="Retour au scan" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</a>
+</sc-if>
+<sc-if value="{{isRecherche}}" hint-placeholder-val="{{ false }}">
+<a href="E2-Recherche-ListeA.dc.html" aria-label="Retour à la recherche" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+</a>
+</sc-if>
+</div>
+<!-- Liste d'ingrédients collée (D-344 ; porteuse, 05/11 : « oui modélise A et C ») : modélisée à côté des options de T-517, son inclusion au lancement se tranche au thème catalogue (CA-6.2, T-640). Textes : Proposition. -->
+<div style="flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 8px 20px 20px 20px; display: flex; flex-direction: column; gap: 14px">
+<h1 style="margin: 0; font-size: 24px; font-weight: 700; line-height: 1.2; text-wrap: balance">Coller la liste des ingrédients</h1>
+<p style="margin: 0; font-size: 17px; line-height: 1.45; text-wrap: pretty">Copiez la liste sur le site du produit, puis collez-la ici.</p>
+<label for="liste" style="font-size: 15px; font-weight: 700; color: #6E5A6B">Liste des ingrédients</label>
+<textarea id="liste" rows="6" readonly style="box-sizing: border-box; width: 100%; padding: 12px 14px; border: 1px solid #E7E1DA; border-radius: 14px; background: #FAF8F4; font-family: inherit; font-size: 16px; line-height: 1.45; color: #321C31; resize: none">Aqua, Glycerin, Caprylic/Capric Triglyceride, Cetearyl Alcohol, Butyrospermum Parkii Butter, Glyceryl Stearate, Parfum</textarea>
+<a href="E2-Liste-Type.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; background: #4C2944; color: #FFF7F0; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Analyser cette liste</a>
+<p style="margin: 0; font-size: 15px; line-height: 1.45; color: #6E5A6B; text-wrap: pretty">Le verdict portera sur la liste telle que vous l'avez collée. Elle n'est pas conservée. Pour un verdict vérifié sur l'emballage, scannez le produit quand vous l'aurez en main.</p>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Proposition · [Prototype : liste d'exemple déjà collée ; rien n'est lu dans le presse-papiers sans un geste]</span>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;origine&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Après un scan&quot;,&quot;Après une recherche&quot;],&quot;default&quot;:&quot;Après une recherche&quot;,&quot;section&quot;:&quot;Origine (prototype)&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  renderVals() {
+    // Question du type (D-47 : un rattrapage, jamais une étape du scan) ; la réponse ne vaut que pour cette utilisatrice (D-48).
+    // Après une recherche, le produit n'est pas forcément en main (T-444) : « Je n'ai pas le produit sous la main » (décision 156).
+    var rech = this.props.origine === 'Après une recherche';
+    return { showStatus: this.props.statuts !== false, isScan: !rech, isRecherche: rech };
+  }
+}
+</script>
+
+
+</body></html>
