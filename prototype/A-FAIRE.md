@@ -1,30 +1,34 @@
 # Ce qui reste à faire pour clore le prototype et lancer les tests
 
-Liste de suivi, tenue tâche par tâche. État au **02/11/2026, fin de soirée**. On la met à jour à chaque séance : une tâche faite reçoit sa date et son commit, une tâche tranchée reçoit les mots de la porteuse.
+Liste de suivi, tenue tâche par tâche. État au **05/11/2026**. On la met à jour à chaque séance : une tâche faite reçoit sa date et son commit, une tâche tranchée reçoit les mots de la porteuse.
 
-## 0. Reprendre ici (fin de la séance du 02/11, soir)
+## 0. Reprendre ici (note de passation, fin de la séance du 04-05/11)
 
 **État à la fin de la séance**
-- Le canevas de travail est en version `1793658254-4b79`, identique au dépôt (vérifié en fin de séance, R3, par les tailles des 188 planches et de l'index). La dernière retouche faite sur la page, le champ « Actif » par défaut sur `E2-Recherche-Aucun`, est rapatriée.
-- **04/11, après-midi** : le canevas est en version 92 (`1793803287-6af3`), publiée depuis le dépôt (commit `e5ee288`) ; la version 91 (`1793802410-8817`, commit `270bc4b`) était la mienne, sans retouche sur la page entre les deux. Tes retouches de la version `1793801431-64b5` (`EA-Verdict-Lait-Sous`, `EA-Verdict-Lait-Orange`) sont rapatriées à l'octet (commit `db8dbe4`). Les trois fils du 04/11 (`478d884c`, `1c156675`, `9d5fb425`) sont appliqués et résolus (décisions 257, 260, 261). Puis, à 14:52, le fil `111f9ffa` : la piste A avec tes mots (décision 262), publiée en version 93 ; puis, à 15:00, le fil `8b340b1d` : les explications des volets (décision 263), publiées en version 94 avec ta réponse de 15:04 dans `111f9ffa` (décision 264). Puis tes réponses de 15:31 et 15:32 (décision 265), version 95. Ces deux fils restent ouverts, à toi de les résoudre.
-- 189 planches : les quatre « À SUPPRIMER » sont supprimées (1.4, 3.22a) ; `E2-Recherche-HorsLigne` et `E3-Verdict-TypeNonPrisEnCharge` sont ajoutées le 03/11.
-- Décisions numérotées jusqu'à 272 (§2 bis du complément de la note de reprise).
-- **Registre v6.9** (02/11, `mamaCARE_Registre_Projet_02_11_26_v6-9.md`, déposé sur `main` le 04/11, copié dans la branche de travail le même jour ; la v6.7 reste à côté, la v6.8 est sur `main`) : il fait foi désormais. Trois points touchent le prototype, relevés le 04/11 : (1) `D-259`, annoté le 30/10 : la porteuse y confirme « Contact rapproché non évalué » ; la case du canevas dit « Dépôt du produit sur la peau de bébé » (décision 264) : écart à trancher ; (2) `D-354` (02/11) : un gel douche dans le parcours principal du canevas, pour éprouver le lien de la troisième voie ; **fait le 04/11** (décision 266 : par le scan et par la recherche, en vert ; dix planches `E1-…-Gel` et `E2-…-Gel`), publié en version 98 (`1793833494-ca9f`, « ok publie ») après relecture octet par octet des 17 fichiers remplacés ; reste pour le test : par où la testeuse entre (la recherche, ou un départ sur le scan réglé au gel), et les critères de PR-2.1 ; (3) `D-353` : la limite de la présomption européenne (`L-147`) : **posée le 04/11** dans les conditions d'utilisation (décision 269, « ici »), texte adapté du registre, à relire par la juriste. `D-342` est déjà la tâche 3.18. Les décisions 218 à 265 du prototype sont à confronter au v6.9, et non plus au v6.7 (4.1).
-- La branche `claude/magical-mendel-cwpmji` est à jour sur GitHub.
+- Le canevas de travail est en **version 108** (`1793861127-82dd`), publiée depuis le dépôt (commit `4fac683`, suivi `f7aae0a`). Avant chaque publication, les fichiers remplacés ont été relus en ligne et comparés octet par octet : aucune retouche de la porteuse n'a été écrasée. Les numéros de version montent aussi seuls quand le moteur du canevas est mis à jour (`app.js`, `index.html`) : ce n'est pas une retouche.
+- **209 planches** au dépôt et dans `canvas.json`. Ajoutées les 04 et 05/11 : le gel douche du parcours principal (`E1-…-Gel`, `E2-…-Gel`, décision 266) ; « plusieurs versions connues » (`E3-Produit-AutreVersion`, 267) ; « J'ai déjà utilisé ce produit » (`E6-Fiche-DejaUtilise`, `E5-Verdict-Reevalue-N3`, 270) ; la liste d'ingrédients collée (`E2-Recherche-ListeA`, `E2-Recherche-ListeC`, `E2-Liste-…`, 271 et 272).
+- Décisions numérotées jusqu'à **272** (§2 bis du complément de la note de reprise ; détail et mots de la porteuse dans `propositions/2026-11-02-voie-savon/journal-01-02-11.md`).
+- **Registre v6.9** (02/11, `mamaCARE_Registre_Projet_02_11_26_v6-9.md`, copié de `main` dans la branche de travail le 04/11) : il fait foi. `D-354` (gel douche), `D-353` (présomption européenne, décision 269), `D-342` (268), `D-347` (267), `D-344` (271, 272) sont appliqués au prototype. `D-259` (« Contact rapproché non évalué ») reste en écart avec la case du canevas (« Dépôt du produit sur la peau de bébé », 264) : à trancher.
+- **Tous les écrans nouveaux prévus sont modélisés.**
+- La branche `claude/magical-mendel-cwpmji` est à jour sur GitHub. Une seule session à la fois (R5) : fermer l'ancienne avant d'ouvrir la nouvelle.
 
-**Ce qui attend tes réponses** (rien n'est posé avant ton choix ; propositions dans les fils du canevas) :
-- **les phrases sous le verdict** (2.2, `CT-1.2`) : les six choix du §2 de `propositions/2026-11-04-phrases-sous-le-verdict/CT-1.2-preparation.md`, puis les phrases ;
-- **« Les données » du verdict à actualiser** : une formulation parmi A à F, préférence de Claude : D (3.6a ; fil `a5b20715`) ;
-- les autres questions encore ouvertes : 3.11 (le plan de l'audit), 3.23 ; et, après les écrans existants, les écrans nouveaux (3.17 C, 3.18).
+**Ce qui attend la porteuse**
+- **Les phrases sous le verdict** (2.2, `CT-1.2`) : les six choix du §2 de `propositions/2026-11-04-phrases-sous-le-verdict/CT-1.2-preparation.md`, puis les phrases (`CT-1.1`, l'inventaire, est fait).
+- **« Les données » du verdict à actualiser** : une formulation parmi A à F, préférence de Claude : D (3.6a ; fil `a5b20715`).
+- **`D-259`** : « Contact rapproché non évalué » (registre) ou « Dépôt du produit sur la peau de bébé » (canevas) ?
+- **Pour la juriste** (à réunir) : la date à côté du lien (abandonnée, rien à faire) ; la mention « plusieurs versions » (`O-67`) ; le texte de la présomption européenne (269) ; le signal poitrine dans les CGU (257) ; l'envoi du nom et de la marque d'une liste collée (272) ; « Nom indiqué » et le risque pour une marque nommée (`D-206`).
+- Les autres questions encore ouvertes : 3.11 (le plan de l'audit), 3.23.
 
 **Ce que la prochaine session fait d'abord**
-1. R1 et R3 : l'accès au canevas, puis les retouches faites sur la page.
-2. Lire les fils du canevas de travail (outil `ArtifactComments`, `action: read`). Si tu as répondu, appliquer tes choix (R2, captures avant publication).
-3. Sinon, ce qui ne dépend que de Claude : l'inventaire des causes (2.1, `CT-1.1`) est fait le 04/11 ; puis le relevé des écarts au registre avec les décisions 218 à 272, contre le registre v6.9 (4.1) et la confrontation de l'annexe A (4.2).
-4. La version de test (2.8) attend la fin des retouches du prototype : ne pas la construire avant ton signal.
+1. R1 et R3 : l'accès au canevas, puis les retouches faites sur la page (comparer à la version 108).
+2. Lire les fils du canevas de travail (outil `ArtifactComments`, `action: read`) ; répondre à ceux que la porteuse a envoyés à Claude, sans les résoudre.
+3. Proposé à la porteuse à la fin de la séance, sans réponse : **relier tous les écrans** (3.21a) avant son test de navigation ; puis les phrases sous le verdict (`CT-1.2`) ; puis la version de test (2.8), à ne pas construire avant son signal.
+4. Ce qui ne dépend que de Claude : le relevé des écarts au registre avec les décisions 218 à 272, contre le registre v6.9 (4.1), et la confrontation de l'annexe A (4.2).
+
+**Méthode tenue pendant la séance** (à garder) : pistes décrites d'abord, rien construit avant le choix ; une planche nouvelle se montre en captures avant publication ; une retouche d'un gabarit partagé est portée à toutes ses copies, et l'état par défaut de chaque copie est vérifié au pixel près (les planches animées, sur plusieurs rendus : le rendu est parfois instable) ; une variante écartée n'est pas supprimée, elle est rangée dans `propositions/`.
 
 **Où trouver ce qui sert**
-- **Le registre v6.8** est sur `main`, pas sur la branche de travail. Pour le lire sans fusionner (une fusion demande ton accord, R6) : `git show "origin/main:mamaCARE_Registre_Projet_29_10_26_v6-8.md"`.
+- **Le registre v6.9** est dans la branche de travail ; la v6.8 est sur `main` seulement (lecture sans fusion : `git show "origin/main:mamaCARE_Registre_Projet_29_10_26_v6-8.md"`).
 - **Le planning** : page « Planning Ficolia », https://claude.ai/artifact/6LnGHNHjsMJELgzBKjCojR. Le plan est dans son fichier `plan.json` (outil « Artifact », `action: read`, `path: plan.json`). Les coches sont dans sa base (outil `ArtifactData`, `action: list`, `collection: coches`), à lire seulement : seule la porteuse coche (`D-309`).
 - **Les commentaires de l'ancien canevas** : l'inventaire du 02/11, `propositions/2026-11-02-commentaires-ancien-canevas/fils-ancien-canevas.md`.
 - **Les outils** : `outils/rendre.mjs` (rendu) ; `outils/rendre-reglage.mjs` (rendu avec un réglage imposé, et les liens présents à l'écran) ; `outils/verifier-liens.py` (audit des liens et des boutons, pour le contrôle final) ; `outils/preparer-publication.py`.
