@@ -201,6 +201,12 @@ class Component extends DCLogic {
     }
   }
   renderVals() {
+    // Retour exact du signalement (décision 275) : le verdict touché en dernier se note dans la mémoire de session ;
+    // le signalement la relit pour « Retour au verdict ». Sans mémoire, le retour par défaut reste.
+    try { if (!window.__ficoliaOrigine) { window.__ficoliaOrigine = 1; var fxoNom = 'E5-Echelle-Barre.dc.html';
+      var fxoNote = function () { try { sessionStorage.setItem('ficolia-verdict', fxoNom); } catch (e) {} };
+      window.addEventListener('pointerdown', fxoNote, true); window.addEventListener('keydown', fxoNote, true); } } catch (e) {}
+
     var OPTS = ['1 · Composition sans signal identifié', '2 · Composition à signal modéré', '3 · Composition préoccupante', '4 · Composition incompatible'];
     var P = {
       'Retenue': [

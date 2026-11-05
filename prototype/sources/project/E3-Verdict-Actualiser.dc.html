@@ -331,6 +331,12 @@ class Component extends DCLogic {
     }
   }
   renderVals() {
+    // Retour exact du signalement (décision 275) : le verdict touché en dernier se note dans la mémoire de session ;
+    // le signalement la relit pour « Retour au verdict ». Sans mémoire, le retour par défaut reste.
+    try { if (!window.__ficoliaOrigine) { window.__ficoliaOrigine = 1; var fxoNom = 'E3-Verdict-Actualiser.dc.html';
+      var fxoNote = function () { try { sessionStorage.setItem('ficolia-verdict', fxoNom); } catch (e) {} };
+      window.addEventListener('pointerdown', fxoNote, true); window.addEventListener('keydown', fxoNote, true); } } catch (e) {}
+
     // « Produit réévalué » (étape 5) : le niveau affiché a changé depuis la dernière consultation ; ni l'ancien niveau ni une date ne sont montrés (D-52).
     var E = ['Verdict incomplet', 'Verdict à actualiser', 'Rappel de lot', 'Produit réévalué'];
     var R = ['Ingrédient non reconnu', 'Type de produit non précisé', 'Type de produit non pris en charge'];

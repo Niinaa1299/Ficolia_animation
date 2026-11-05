@@ -25,7 +25,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <div style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column">
 <div style="flex-shrink: 0; padding: 50px 20px 0 20px; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px">
 <sc-if value="{{fromVerdict}}" hint-placeholder-val="{{ false }}">
-<a href="E1-Verdict.dc.html" aria-label="Retour au verdict" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<a href="{{retourVerdict}}" data-retour-verdict="" aria-label="Retour au verdict" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
 <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
 </a>
 </sc-if>
@@ -375,7 +375,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </section>
 <div style="flex-shrink: 0; margin: auto 20px 34px 20px; padding-top: 32px; display: flex; flex-direction: column; gap: 10px">
 <sc-if value="{{fromVerdict}}" hint-placeholder-val="{{ false }}">
-<a href="E1-Verdict.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Revenir au verdict</a>
+<a href="{{retourVerdict}}" data-retour-verdict="" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Revenir au verdict</a>
 </sc-if>
 <sc-if value="{{fromProduit}}" hint-placeholder-val="{{ true }}">
 <a href="E1-Produit.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Revenir au produit</a>
@@ -462,6 +462,13 @@ class Component extends DCLogic {
   }
   renderVals() {
     var v = this.__fxvVals();
+    // Retour exact (décision 275) : le dernier verdict touché, noté par lui dans la mémoire de session ; sinon E1-Verdict.
+    // Le lien est aussi remis à jour au moment du geste, si le canevas réutilise la planche sans la recalculer.
+    var fxoLire = function () { try { var o = sessionStorage.getItem('ficolia-verdict'); if (o && /^E[0-9A]-[A-Za-z0-9-]+\.dc\.html$/.test(o)) return o; } catch (e) {} return 'E1-Verdict.dc.html'; };
+    v.retourVerdict = fxoLire();
+    try { if (!window.__ficoliaRetour) { window.__ficoliaRetour = 1; var fxoMaj = function () { try { var h = fxoLire(), as = document.querySelectorAll('a[data-retour-verdict]'); for (var i = 0; i < as.length; i++) as[i].setAttribute('href', h); } catch (e) {} };
+      window.addEventListener('pointerdown', fxoMaj, true); window.addEventListener('keydown', fxoMaj, true); window.addEventListener('focusin', fxoMaj, true); } } catch (e) {}
+
     v.animFige = this.props.animation === 'Image fixe (réduire les animations)';
     v.animJoue = !v.animFige;
     // Dans le canevas, les animations tournent en boucle (porteuse, 13/10) ; « Lue une fois » reste la règle de l'application (décision 137).

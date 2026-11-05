@@ -287,6 +287,12 @@ class Component extends DCLogic {
     };
   }
   renderVals() {
+    // Retour exact du signalement (décision 275) : le verdict touché en dernier se note dans la mémoire de session ;
+    // le signalement la relit pour « Retour au verdict ». Sans mémoire, le retour par défaut reste.
+    try { if (!window.__ficoliaOrigine) { window.__ficoliaOrigine = 1; var fxoNom = 'E1-Aide-Info.dc.html';
+      var fxoNote = function () { try { sessionStorage.setItem('ficolia-verdict', fxoNom); } catch (e) {} };
+      window.addEventListener('pointerdown', fxoNote, true); window.addEventListener('keydown', fxoNote, true); } } catch (e) {}
+
     // Conseil de prise en main (22/10, revu le 29/10) : montré une seule fois ; « Compris » le ferme (décisions 181, 187).
     // Premier verdict : la bulle pointe vers le « i » (position du 22/10). Deuxième verdict : une bulle sur l'échelle
     // (porteuse, 29/10 ; fil a7c8daac), posée sur la photo (échelle x 291–355, haut à 307, mesurés pour le texte

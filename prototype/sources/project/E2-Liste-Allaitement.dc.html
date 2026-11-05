@@ -534,6 +534,12 @@ class Component extends DCLogic {
     }
   }
   renderVals() {
+    // Retour exact du signalement (décision 275) : le verdict touché en dernier se note dans la mémoire de session ;
+    // le signalement la relit pour « Retour au verdict ». Sans mémoire, le retour par défaut reste.
+    try { if (!window.__ficoliaOrigine) { window.__ficoliaOrigine = 1; var fxoNom = 'E2-Liste-Allaitement.dc.html';
+      var fxoNote = function () { try { sessionStorage.setItem('ficolia-verdict', fxoNom); } catch (e) {} };
+      window.addEventListener('pointerdown', fxoNote, true); window.addEventListener('keydown', fxoNote, true); } } catch (e) {}
+
     // Verdict de la ligne allaitement. Depuis la décision 217 (31/10, appliquée le 01/11), ce gabarit sert aussi au parcours principal (étapes 1, 2, 5) ;
     // les textes restent provisoires, et le module reste « non clos » au registre (D-105).
     // Produits d'exemple, fictifs (T-506). corps : liste « zone de tétée » des soins du corps (G1.1, à retravailler) ;
