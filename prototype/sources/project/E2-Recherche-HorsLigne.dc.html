@@ -438,6 +438,12 @@ class Component extends DCLogic {
     }
   }
   renderVals() {
+    // Retour exact de « Ce n'est pas ce produit » (décision 276) : l'écran produit touché en dernier se note dans la mémoire
+    // de session ; le signalement la relit pour « Retour au produit ». Sans mémoire, le retour par défaut reste.
+    try { if (!window.__ficoliaProduit) { window.__ficoliaProduit = 1; var fxpNom = 'E2-Recherche-HorsLigne.dc.html';
+      var fxpNote = function () { try { sessionStorage.setItem('ficolia-produit', window.__fxpProduit || fxpNom); } catch (e) {} };
+      window.addEventListener('pointerdown', fxpNote, true); window.addEventListener('keydown', fxpNote, true); } } catch (e) {}
+
     // « Sans connexion » (étape 5) : hors réseau, la recherche par nom ne fonctionne pas (L-35) ; l'écran renvoie vers le code-barres.
     var D = ['Champ vide', 'Résultats', 'Aucun résultat', 'Écran produit', 'Sans connexion'];
     var LARGE = 'Catalogue évalué et produits reconnus';
@@ -525,6 +531,10 @@ class Component extends DCLogic {
       if (CAT[k].id === selId) sel = CAT[k];
     }
     var selPhoto = photos && sel.photo;
+    // L'écran produit de la recherche est un état de la planche : la planche qui l'affiche d'emblée (lait corps, gel douche) ;
+    // pour un autre produit, la planche elle-même (ses résultats).
+    window.__fxpProduit = view === 'product' ? (sel.id === GEL ? 'E2-Produit-Gel.dc.html' : (sel.id === LINKED ? 'E2-Produit.dc.html' : null)) : null;
+
     var fav = !!st.fav;
     return {
       isSearch: view !== 'product' && depart !== D[4],

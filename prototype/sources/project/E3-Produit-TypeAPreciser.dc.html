@@ -128,6 +128,12 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #4C29
 <script type="text/x-dc" data-dc-script="" data-props="{&quot;type&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Soin anti-vergetures&quot;,&quot;Bain de bouche&quot;,&quot;Crème après-solaire&quot;,&quot;Crème jambes lourdes&quot;,&quot;Crème/gel amincissant&quot;,&quot;Déodorant spray&quot;,&quot;Lait corps&quot;,&quot;Produit solaire corps&quot;,&quot;Soin des mamelons&quot;,&quot;Spray solaire corps&quot;,&quot;Spray solaire visage&quot;,&quot;Autre&quot;,&quot;À préciser (pas sous la main)&quot;],&quot;default&quot;:&quot;À préciser (pas sous la main)&quot;,&quot;section&quot;:&quot;Type de produit (réponse à la question)&quot;},&quot;photo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Photo du produit&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
 class Component extends DCLogic {
   renderVals() {
+    // Retour exact de « Ce n'est pas ce produit » (décision 276) : l'écran produit touché en dernier se note dans la mémoire
+    // de session ; le signalement la relit pour « Retour au produit ». Sans mémoire, le retour par défaut reste.
+    try { if (!window.__ficoliaProduit) { window.__ficoliaProduit = 1; var fxpNom = 'E3-Produit-TypeAPreciser.dc.html';
+      var fxpNote = function () { try { sessionStorage.setItem('ficolia-produit', window.__fxpProduit || fxpNom); } catch (e) {} };
+      window.addEventListener('pointerdown', fxpNote, true); window.addEventListener('keydown', fxpNote, true); } } catch (e) {}
+
     var saved = (this.state && typeof this.state.fav === 'boolean') ? this.state.fav : !!this.props.favori;
     var photo = this.props.photo !== false;
     var self = this;

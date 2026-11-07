@@ -30,7 +30,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </a>
 </sc-if>
 <sc-if value="{{fromProduit}}" hint-placeholder-val="{{ true }}">
-<a href="E1-Produit.dc.html" aria-label="Retour au produit" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<a href="{{retourProduit}}" data-retour-produit="" aria-label="Retour au produit" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
 <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
 </a>
 </sc-if>
@@ -96,7 +96,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </button>
 </sc-if>
 <sc-if value="{{fromProduit}}" hint-placeholder-val="{{ true }}">
-<a href="E1-Produit.dc.html" aria-label="Retour au produit" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<a href="{{retourProduit}}" data-retour-produit="" aria-label="Retour au produit" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 999px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
 <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4C2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
 </a>
 </sc-if>
@@ -378,7 +378,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <a href="{{retourVerdict}}" data-retour-verdict="" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Revenir au verdict</a>
 </sc-if>
 <sc-if value="{{fromProduit}}" hint-placeholder-val="{{ true }}">
-<a href="E1-Produit.dc.html" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Revenir au produit</a>
+<a href="{{retourProduit}}" data-retour-produit="" style="min-height: 56px; box-sizing: border-box; padding: 0 20px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #321C31; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Revenir au produit</a>
 </sc-if>
 </div>
 </div>
@@ -466,6 +466,11 @@ class Component extends DCLogic {
     // Le lien est aussi remis à jour au moment du geste, si le canevas réutilise la planche sans la recalculer.
     var fxoLire = function () { try { var o = sessionStorage.getItem('ficolia-verdict'); if (o && /^E[0-9A]-[A-Za-z0-9-]+\.dc\.html$/.test(o)) return o; } catch (e) {} return 'E1-Verdict.dc.html'; };
     v.retourVerdict = fxoLire();
+    // Retour exact de « Ce n'est pas ce produit » (décision 276) : le dernier écran produit touché ; sinon E1-Produit.
+    var fxpLire = function () { try { var o = sessionStorage.getItem('ficolia-produit'); if (o && /^E[0-9A]-[A-Za-z0-9-]+\.dc\.html$/.test(o)) return o; } catch (e) {} return 'E1-Produit.dc.html'; };
+    v.retourProduit = fxpLire();
+    try { if (!window.__ficoliaRetourProduit) { window.__ficoliaRetourProduit = 1; var fxpMaj = function () { try { var h = fxpLire(), as = document.querySelectorAll('a[data-retour-produit]'); for (var i = 0; i < as.length; i++) as[i].setAttribute('href', h); } catch (e) {} };
+      window.addEventListener('pointerdown', fxpMaj, true); window.addEventListener('keydown', fxpMaj, true); window.addEventListener('focusin', fxpMaj, true); } } catch (e) {}
     try { if (!window.__ficoliaRetour) { window.__ficoliaRetour = 1; var fxoMaj = function () { try { var h = fxoLire(), as = document.querySelectorAll('a[data-retour-verdict]'); for (var i = 0; i < as.length; i++) as[i].setAttribute('href', h); } catch (e) {} };
       window.addEventListener('pointerdown', fxoMaj, true); window.addEventListener('keydown', fxoMaj, true); window.addEventListener('focusin', fxoMaj, true); } } catch (e) {}
 

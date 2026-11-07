@@ -356,6 +356,12 @@ class Component extends DCLogic {
     }
   }
   renderVals() {
+    // Retour exact de « Ce n'est pas ce produit » (décision 276) : l'écran produit touché en dernier se note dans la mémoire
+    // de session ; le signalement la relit pour « Retour au produit ». Sans mémoire, le retour par défaut reste.
+    try { if (!window.__ficoliaProduit) { window.__ficoliaProduit = 1; var fxpNom = 'E5-Produit-Reevalue.dc.html';
+      var fxpNote = function () { try { sessionStorage.setItem('ficolia-produit', window.__fxpProduit || fxpNom); } catch (e) {} };
+      window.addEventListener('pointerdown', fxpNote, true); window.addEventListener('keydown', fxpNote, true); } } catch (e) {}
+
     // Historique local (D-54) : les produits ouverts après un scan, une saisie du code-barres ou une recherche, du plus récent au plus ancien.
     // Une ligne ne montre que l'identité du produit, jamais un verdict : le verdict se lit après le tap (porteuse, 08/10). Aucune date (D-52).
     var D = ['Liste', 'Vide', 'Un produit réévalué', 'Plusieurs produits réévalués', 'Un produit maintenant évalué', 'Scan en attente et produit inconnu', 'Écran produit', 'Écran produit réévalué', 'Un produit dont le type est à préciser'];
@@ -418,6 +424,10 @@ class Component extends DCLogic {
     }
     var selEv = sel.ev || has(NOWEVAL, sel.id);
     var selPhoto = photos && sel.photo;
+    // L'écran produit de l'historique est un état de la planche : le lait corps a ses planches (réévalué ou non) ;
+    // pour un autre produit, la planche elle-même (sa liste).
+    window.__fxpProduit = view === 'product' && sel.id === LINKED ? (has(REEVAL, sel.id) ? 'E5-Produit-Reevalue.dc.html' : 'E5-Produit.dc.html') : null;
+
     var selReeval = has(REEVAL, sel.id) && sel.id === LINKED;
     // Ligne qui a changé, dans l'exemple : allaitement par défaut (porteuse, 14/10) ; grossesse au réglage.
     var chgG = this.props.ligne === 'Grossesse';
