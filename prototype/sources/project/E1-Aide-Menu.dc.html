@@ -381,6 +381,10 @@ class Component extends DCLogic {
     };
   }
   renderVals() {
+    // Décision 279 : toucher cette bulle la marque comme vue ; l'onglet mène ensuite à son écran.
+    try { if (!window.__ficoliaBulle) { window.__ficoliaBulle = 1; var fxbVu = function () { try { if (sessionStorage.getItem('ficolia-tuto')) sessionStorage.setItem('ficolia-tuto-menu', '1'); } catch (e) {} };
+      window.addEventListener('pointerdown', fxbVu, true); window.addEventListener('keydown', fxbVu, true); } } catch (e) {}
+
     // Conseil de prise en main (22/10, revu le 29/10) : montré une seule fois ; « Compris » le ferme (décisions 181, 187).
     var v = this.valsDeBase(), st = this.state || {}, self = this;
     var on = !st.aideVue && this.props.etat === 'Caméra active';

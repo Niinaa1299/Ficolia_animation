@@ -128,11 +128,35 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #4C29
 <script type="text/x-dc" data-dc-script="" data-props="{&quot;type&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Soin anti-vergetures&quot;,&quot;Bain de bouche&quot;,&quot;Crème après-solaire&quot;,&quot;Crème jambes lourdes&quot;,&quot;Crème/gel amincissant&quot;,&quot;Déodorant spray&quot;,&quot;Lait corps&quot;,&quot;Produit solaire corps&quot;,&quot;Soin des mamelons&quot;,&quot;Spray solaire corps&quot;,&quot;Spray solaire visage&quot;,&quot;Autre&quot;,&quot;À préciser (pas sous la main)&quot;],&quot;default&quot;:&quot;Lait corps&quot;,&quot;section&quot;:&quot;Type de produit (réponse à la question)&quot;},&quot;photo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Photo du produit&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
 class Component extends DCLogic {
   renderVals() {
+    // Décision 279 : pendant la première utilisation (tutoriel ouvert), le premier toucher des onglets Historique et Menu
+    // ouvre leur bulle de prise en main ; ensuite, les onglets mènent à leur écran.
+    try { if (!window.__ficoliaOnglets) { window.__ficoliaOnglets = 1; var fxbMaj = function () { try {
+      var t = sessionStorage.getItem('ficolia-tuto');
+      [['E5-Historique.dc.html', 'E1-Aide-Historique.dc.html', 'ficolia-tuto-historique'], ['E6-Menu.dc.html', 'E1-Aide-Menu.dc.html', 'ficolia-tuto-menu']].forEach(function (o) {
+        var as = document.querySelectorAll('nav[aria-label="Navigation principale"] a[data-fxb="' + o[0] + '"], nav[aria-label="Navigation principale"] a[href="' + o[0] + '"]');
+        for (var i = 0; i < as.length; i++) { as[i].setAttribute('data-fxb', o[0]); as[i].setAttribute('href', t && !sessionStorage.getItem(o[2]) ? o[1] : o[0]); } });
+    } catch (e) {} };
+      window.addEventListener('pointerdown', fxbMaj, true); window.addEventListener('keydown', fxbMaj, true); window.addEventListener('focusin', fxbMaj, true); } } catch (e) {}
+
     // Retour exact de « Ce n'est pas ce produit » (décision 276) : l'écran produit touché en dernier se note dans la mémoire
     // de session ; le signalement la relit pour « Retour au produit ». Sans mémoire, le retour par défaut reste.
     try { if (!window.__ficoliaProduit) { window.__ficoliaProduit = 1; var fxpNom = 'E3-Produit-Type.dc.html';
       var fxpNote = function () { try { sessionStorage.setItem('ficolia-produit', window.__fxpProduit || fxpNom); } catch (e) {} };
       window.addEventListener('pointerdown', fxpNote, true); window.addEventListener('keydown', fxpNote, true); } } catch (e) {}
+    // Décision 278 : au moment du geste, l'écran note aussi le produit affiché (nom, ligne, forme de la photo), lu à l'écran.
+    try { if (!window.__ficoliaIdentite) { window.__ficoliaIdentite = 1; var fxiNote = function () { try {
+      if (window.__fxpVue === false) return;
+      var vis = function (e) { var r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
+      var h = [].slice.call(document.querySelectorAll('h1')).filter(function (e) { return vis(e) && getComputedStyle(e).fontSize === '26px'; })[0];
+      if (!h) return;
+      var p = h.nextElementSibling, lignes = p ? p.innerText.split('\n').filter(function (x) { return x.trim(); }) : [];
+      var forme = 'aucune', sv = [].slice.call(document.querySelectorAll('svg[aria-label^="Photo du produit"]')).filter(vis)[0];
+      if (sv && sv.firstElementChild) { var c = sv.firstElementChild, xy = c.getAttribute('x') + ',' + c.getAttribute('y');
+        forme = { '86,14': 'pompe', '74,16': 'flacon', '52,12': 'tube', '32,86': 'pot', '88,10': 'gouttes' }[xy] || 'pompe'; }
+      sessionStorage.setItem('ficolia-produit-id', JSON.stringify({ nom: h.innerText.trim(), ligne: lignes.length ? lignes[lignes.length - 1].trim() : '', forme: forme }));
+      if (window.__fxpSel) sessionStorage.setItem('ficolia-produit-sel', window.__fxpSel); else sessionStorage.removeItem('ficolia-produit-sel');
+    } catch (e) {} };
+      window.addEventListener('pointerdown', fxiNote, true); window.addEventListener('keydown', fxiNote, true); } } catch (e) {}
 
     var saved = (this.state && typeof this.state.fav === 'boolean') ? this.state.fav : !!this.props.favori;
     var photo = this.props.photo !== false;

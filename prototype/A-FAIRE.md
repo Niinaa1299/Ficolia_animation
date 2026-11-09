@@ -23,7 +23,7 @@ Liste de suivi, tenue tâche par tâche. État au **05/11/2026** (après-midi). 
 **Ce que la prochaine session fait d'abord**
 1. R1 et R3 : l'accès au canevas, puis les retouches faites sur la page (comparer à la version 108).
 2. Lire les fils du canevas de travail (outil `ArtifactComments`, `action: read`) ; répondre à ceux que la porteuse a envoyés à Claude, sans les résoudre.
-3. **Prise en main au premier lancement** reliée et publiée le 09/11, version 122 (décision 277, « j'ai pas le tuto en première utilisation ») : « Autoriser » mène à la bulle du scanner, puis les bulles du « i » et de l'échelle aux deux premiers verdicts depuis `E1-Produit`.
+3. **Prise en main au premier lancement** reliée et publiée le 09/11, version 122 (décision 277, « j'ai pas le tuto en première utilisation ») : « Autoriser » mène à la bulle du scanner, puis les bulles du « i » et de l'échelle aux deux premiers verdicts depuis `E1-Produit`. Le même jour : bulles Historique et Menu au premier toucher des onglets (279) ; « Ce n'est pas ce produit » affiche et rouvre le bon produit (278).
 4. **Relier tous les écrans** (3.21a) : fait et **publié le 07/11, version 119** (`1794041171-965e`, décisions 273 à 276 : le plan `E0-Plan`, la copie `E4-Signalement-Allaitement`, le retour exact du signalement et de « Ce n'est pas ce produit »). Le canevas est en version 122 depuis le 09/11 : la prochaine séance compare à celle-là. Ensuite : le test de navigation de la porteuse ; puis les phrases sous le verdict (`CT-1.2`) ; puis la version de test (2.8), à ne pas construire avant son signal.
 4. Ce qui ne dépend que de Claude : le relevé des écarts au registre avec les décisions 218 à 272, contre le registre v6.9 (4.1), et la confrontation de l'annexe A (4.2).
 

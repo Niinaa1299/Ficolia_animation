@@ -356,11 +356,39 @@ class Component extends DCLogic {
     }
   }
   renderVals() {
+    // Décision 279 : pendant la première utilisation (tutoriel ouvert), le premier toucher des onglets Historique et Menu
+    // ouvre leur bulle de prise en main ; ensuite, les onglets mènent à leur écran.
+    try { if (!window.__ficoliaOnglets) { window.__ficoliaOnglets = 1; var fxbMaj = function () { try {
+      var t = sessionStorage.getItem('ficolia-tuto');
+      [['E5-Historique.dc.html', 'E1-Aide-Historique.dc.html', 'ficolia-tuto-historique'], ['E6-Menu.dc.html', 'E1-Aide-Menu.dc.html', 'ficolia-tuto-menu']].forEach(function (o) {
+        var as = document.querySelectorAll('nav[aria-label="Navigation principale"] a[data-fxb="' + o[0] + '"], nav[aria-label="Navigation principale"] a[href="' + o[0] + '"]');
+        for (var i = 0; i < as.length; i++) { as[i].setAttribute('data-fxb', o[0]); as[i].setAttribute('href', t && !sessionStorage.getItem(o[2]) ? o[1] : o[0]); } });
+    } catch (e) {} };
+      window.addEventListener('pointerdown', fxbMaj, true); window.addEventListener('keydown', fxbMaj, true); window.addEventListener('focusin', fxbMaj, true); } } catch (e) {}
+
+    try { if (!window.__ficoliaOuvrir) { window.__ficoliaOuvrir = 1; var fxoSoi = this, fxoNom2 = 'E5-Historique-Evalue.dc.html';
+      var fxoOuvre = function () { try { var o = JSON.parse(sessionStorage.getItem('ficolia-ouvrir') || 'null');
+        if (o && o.board === fxoNom2 && o.sel && Date.now() - o.t < 15000) fxoSoi.setState({ view: 'product', sel: o.sel, note: false, fav: false, touched: true }); } catch (e) {} };
+      window.addEventListener('storage', fxoOuvre); window.addEventListener('focus', fxoOuvre); setTimeout(fxoOuvre, 0); } } catch (e) {}
     // Retour exact de « Ce n'est pas ce produit » (décision 276) : l'écran produit touché en dernier se note dans la mémoire
     // de session ; le signalement la relit pour « Retour au produit ». Sans mémoire, le retour par défaut reste.
     try { if (!window.__ficoliaProduit) { window.__ficoliaProduit = 1; var fxpNom = 'E5-Historique-Evalue.dc.html';
       var fxpNote = function () { try { sessionStorage.setItem('ficolia-produit', window.__fxpProduit || fxpNom); } catch (e) {} };
       window.addEventListener('pointerdown', fxpNote, true); window.addEventListener('keydown', fxpNote, true); } } catch (e) {}
+    // Décision 278 : au moment du geste, l'écran note aussi le produit affiché (nom, ligne, forme de la photo), lu à l'écran.
+    try { if (!window.__ficoliaIdentite) { window.__ficoliaIdentite = 1; var fxiNote = function () { try {
+      if (window.__fxpVue === false) return;
+      var vis = function (e) { var r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
+      var h = [].slice.call(document.querySelectorAll('h1')).filter(function (e) { return vis(e) && getComputedStyle(e).fontSize === '26px'; })[0];
+      if (!h) return;
+      var p = h.nextElementSibling, lignes = p ? p.innerText.split('\n').filter(function (x) { return x.trim(); }) : [];
+      var forme = 'aucune', sv = [].slice.call(document.querySelectorAll('svg[aria-label^="Photo du produit"]')).filter(vis)[0];
+      if (sv && sv.firstElementChild) { var c = sv.firstElementChild, xy = c.getAttribute('x') + ',' + c.getAttribute('y');
+        forme = { '86,14': 'pompe', '74,16': 'flacon', '52,12': 'tube', '32,86': 'pot', '88,10': 'gouttes' }[xy] || 'pompe'; }
+      sessionStorage.setItem('ficolia-produit-id', JSON.stringify({ nom: h.innerText.trim(), ligne: lignes.length ? lignes[lignes.length - 1].trim() : '', forme: forme }));
+      if (window.__fxpSel) sessionStorage.setItem('ficolia-produit-sel', window.__fxpSel); else sessionStorage.removeItem('ficolia-produit-sel');
+    } catch (e) {} };
+      window.addEventListener('pointerdown', fxiNote, true); window.addEventListener('keydown', fxiNote, true); } } catch (e) {}
 
     // Historique local (D-54) : les produits ouverts après un scan, une saisie du code-barres ou une recherche, du plus récent au plus ancien.
     // Une ligne ne montre que l'identité du produit, jamais un verdict : le verdict se lit après le tap (porteuse, 08/10). Aucune date (D-52).
@@ -426,7 +454,8 @@ class Component extends DCLogic {
     var selPhoto = photos && sel.photo;
     // L'écran produit de l'historique est un état de la planche : le lait corps a ses planches (réévalué ou non) ;
     // pour un autre produit, la planche elle-même (sa liste).
-    window.__fxpProduit = view === 'product' && sel.id === LINKED ? (has(REEVAL, sel.id) ? 'E5-Produit-Reevalue.dc.html' : 'E5-Produit.dc.html') : null;
+    // Décision 278 : le retour revient à cette planche, rouverte sur le produit qui était affiché (sel).
+    window.__fxpProduit = null; window.__fxpVue = view === 'product'; window.__fxpSel = view === 'product' ? sel.id : null;
 
     var selReeval = has(REEVAL, sel.id) && sel.id === LINKED;
     // Ligne qui a changé, dans l'exemple : allaitement par défaut (porteuse, 14/10) ; grossesse au réglage.

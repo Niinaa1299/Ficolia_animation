@@ -176,6 +176,16 @@ class Component extends DCLogic {
     }
   }
   renderVals() {
+    // Décision 279 : pendant la première utilisation (tutoriel ouvert), le premier toucher des onglets Historique et Menu
+    // ouvre leur bulle de prise en main ; ensuite, les onglets mènent à leur écran.
+    try { if (!window.__ficoliaOnglets) { window.__ficoliaOnglets = 1; var fxbMaj = function () { try {
+      var t = sessionStorage.getItem('ficolia-tuto');
+      [['E5-Historique.dc.html', 'E1-Aide-Historique.dc.html', 'ficolia-tuto-historique'], ['E6-Menu.dc.html', 'E1-Aide-Menu.dc.html', 'ficolia-tuto-menu']].forEach(function (o) {
+        var as = document.querySelectorAll('nav[aria-label="Navigation principale"] a[data-fxb="' + o[0] + '"], nav[aria-label="Navigation principale"] a[href="' + o[0] + '"]');
+        for (var i = 0; i < as.length; i++) { as[i].setAttribute('data-fxb', o[0]); as[i].setAttribute('href', t && !sessionStorage.getItem(o[2]) ? o[1] : o[0]); } });
+    } catch (e) {} };
+      window.addEventListener('pointerdown', fxbMaj, true); window.addEventListener('keydown', fxbMaj, true); window.addEventListener('focusin', fxbMaj, true); } } catch (e) {}
+
     // Réglages de l'historique (D-114, C1 ; T-424) : arrêter les alertes et effacer l'historique, à tout moment,
     // sans justification demandée ni écran compatissant. Aucun texte ne suppose une situation (neutralité).
     var D = ['Alertes actives', 'Alertes arrêtées', 'Confirmation', 'Historique effacé'];

@@ -226,6 +226,16 @@ class Component extends DCLogic {
     }
   }
   renderVals() {
+    // Décision 279 : pendant la première utilisation (tutoriel ouvert), le premier toucher des onglets Historique et Menu
+    // ouvre leur bulle de prise en main ; ensuite, les onglets mènent à leur écran.
+    try { if (!window.__ficoliaOnglets) { window.__ficoliaOnglets = 1; var fxbMaj = function () { try {
+      var t = sessionStorage.getItem('ficolia-tuto');
+      [['E5-Historique.dc.html', 'E1-Aide-Historique.dc.html', 'ficolia-tuto-historique'], ['E6-Menu.dc.html', 'E1-Aide-Menu.dc.html', 'ficolia-tuto-menu']].forEach(function (o) {
+        var as = document.querySelectorAll('nav[aria-label="Navigation principale"] a[data-fxb="' + o[0] + '"], nav[aria-label="Navigation principale"] a[href="' + o[0] + '"]');
+        for (var i = 0; i < as.length; i++) { as[i].setAttribute('data-fxb', o[0]); as[i].setAttribute('href', t && !sessionStorage.getItem(o[2]) ? o[1] : o[0]); } });
+    } catch (e) {} };
+      window.addEventListener('pointerdown', fxbMaj, true); window.addEventListener('keydown', fxbMaj, true); window.addEventListener('focusin', fxbMaj, true); } } catch (e) {}
+
     // Liste des ingrédients ouverte depuis la ligne allaitement : marquage et textes de cette ligne (D-112, A10).
     // Produits d'exemple, fictifs (T-506). corps : liste « zone de tétée » des soins du corps (G1.1, à retravailler) ;
     // hors : sprays et terpènes, un seul élément (G1.3) ; contact (« contact rapproché », D-259) : solaires, huiles, amincissant, sans les déodorants (G1.2, porteuse) ;

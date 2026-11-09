@@ -155,6 +155,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <script type="text/x-dc" data-dc-script="" data-props="{&quot;page&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;À propos&quot;,&quot;Méthode&quot;,&quot;Conditions d'utilisation&quot;,&quot;Politique de confidentialité&quot;,&quot;Mentions légales&quot;],&quot;default&quot;:&quot;Conditions d'utilisation&quot;,&quot;section&quot;:&quot;Page&quot;},&quot;origine&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Menu&quot;,&quot;Accueil&quot;],&quot;default&quot;:&quot;Accueil&quot;,&quot;section&quot;:&quot;Écran de départ&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
 class Component extends DCLogic {
   renderVals() {
+    // Décision 279 : pendant la première utilisation (tutoriel ouvert), le premier toucher des onglets Historique et Menu
+    // ouvre leur bulle de prise en main ; ensuite, les onglets mènent à leur écran.
+    try { if (!window.__ficoliaOnglets) { window.__ficoliaOnglets = 1; var fxbMaj = function () { try {
+      var t = sessionStorage.getItem('ficolia-tuto');
+      [['E5-Historique.dc.html', 'E1-Aide-Historique.dc.html', 'ficolia-tuto-historique'], ['E6-Menu.dc.html', 'E1-Aide-Menu.dc.html', 'ficolia-tuto-menu']].forEach(function (o) {
+        var as = document.querySelectorAll('nav[aria-label="Navigation principale"] a[data-fxb="' + o[0] + '"], nav[aria-label="Navigation principale"] a[href="' + o[0] + '"]');
+        for (var i = 0; i < as.length; i++) { as[i].setAttribute('data-fxb', o[0]); as[i].setAttribute('href', t && !sessionStorage.getItem(o[2]) ? o[1] : o[0]); } });
+    } catch (e) {} };
+      window.addEventListener('pointerdown', fxbMaj, true); window.addEventListener('keydown', fxbMaj, true); window.addEventListener('focusin', fxbMaj, true); } } catch (e) {}
+
     // Pages du menu (dossier §5.13) : un même gabarit de lecture. Aucun contenu n'est écrit ici : les textes à rédiger sont entre crochets (décision 125).
     // « Version du [date] » ne figure que sur la méthode et les conditions d'utilisation (D-114, C9). Le rappel général figure dans « À propos »,
     // la méthode et les conditions d'utilisation (D-114, C8).
