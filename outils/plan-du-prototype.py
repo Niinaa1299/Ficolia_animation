@@ -124,8 +124,8 @@ PIED = """</x-dc>
 <script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:%d,&quot;height&quot;:%d}}">
 class Component extends DCLogic {
   renderVals() {
-    // Décisions 275 et 276 : toucher le plan efface le dernier verdict et le dernier produit notés ; un signalement ouvert d'ici garde ses retours par défaut.
-    try { if (!window.__ficoliaPlan) { window.__ficoliaPlan = 1; var fxoEfface = function () { try { sessionStorage.removeItem('ficolia-verdict'); sessionStorage.removeItem('ficolia-produit'); } catch (e) {} };
+    // Décisions 275 à 277 : toucher le plan efface le dernier verdict et le dernier produit notés, et l'avancée de la prise en main.
+    try { if (!window.__ficoliaPlan) { window.__ficoliaPlan = 1; var fxoEfface = function () { try { sessionStorage.removeItem('ficolia-verdict'); sessionStorage.removeItem('ficolia-produit'); sessionStorage.removeItem('ficolia-tuto'); } catch (e) {} };
       window.addEventListener('pointerdown', fxoEfface, true); window.addEventListener('keydown', fxoEfface, true); } } catch (e) {}
     return {};
   }

@@ -287,6 +287,10 @@ class Component extends DCLogic {
     };
   }
   renderVals() {
+    // Prise en main au premier lancement (décision 277) : toucher cette bulle fait avancer le tutoriel, noté dans la mémoire de session.
+    try { if (!window.__ficoliaTuto) { window.__ficoliaTuto = 1; var fxtNote = function () { try { if (sessionStorage.getItem('ficolia-tuto') === 'verdict2') sessionStorage.setItem('ficolia-tuto', 'fini'); } catch (e) {} };
+      window.addEventListener('pointerdown', fxtNote, true); window.addEventListener('keydown', fxtNote, true); } } catch (e) {}
+
     // Retour exact du signalement (décision 275) : le verdict touché en dernier se note dans la mémoire de session ;
     // le signalement la relit pour « Retour au verdict ». Sans mémoire, le retour par défaut reste.
     try { if (!window.__ficoliaOrigine) { window.__ficoliaOrigine = 1; var fxoNom = 'E1-Aide-Echelle.dc.html';

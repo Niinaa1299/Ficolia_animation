@@ -55,7 +55,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #4C29
 <div style="margin: 24px 20px 0 20px; display: flex; flex-direction: column; gap: 8px">
 <h2 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Voir le verdict</h2>
 <div style="border: 1px solid #E7E1DA; border-radius: 6px; background: #FAF8F4; display: flex; flex-direction: column">
-<a href="E1-Verdict.dc.html" style="min-height: 60px; padding: 0 12px 0 16px; display: flex; align-items: center; justify-content: space-between; color: #321C31">
+<a href="{{lienGrossesse}}" data-tuto-grossesse="" style="min-height: 60px; padding: 0 12px 0 16px; display: flex; align-items: center; justify-content: space-between; color: #321C31">
 <span style="font-size: 19px; font-weight: 500">Grossesse</span>
 <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
 </a>
@@ -114,10 +114,17 @@ class Component extends DCLogic {
       var fxpNote = function () { try { sessionStorage.setItem('ficolia-produit', window.__fxpProduit || fxpNom); } catch (e) {} };
       window.addEventListener('pointerdown', fxpNote, true); window.addEventListener('keydown', fxpNote, true); } } catch (e) {}
 
+    // Prise en main (décision 277) : premier verdict grossesse, la bulle du « i » ; deuxième, celle de l'échelle ; ensuite, le verdict ordinaire.
+    // Le lien est aussi remis à jour au moment du geste, si le canevas réutilise la planche sans la recalculer.
+    var fxtLien = function () { var t = null; try { t = sessionStorage.getItem('ficolia-tuto'); } catch (e) {}
+      return t === 'verdict1' ? 'E1-Aide-Info.dc.html' : (t === 'verdict2' ? 'E1-Aide-Echelle.dc.html' : 'E1-Verdict.dc.html'); };
+    try { if (!window.__ficoliaTutoLien) { window.__ficoliaTutoLien = 1; var fxtMaj = function () { try { var h = fxtLien(), as = document.querySelectorAll('a[data-tuto-grossesse]'); for (var i = 0; i < as.length; i++) as[i].setAttribute('href', h); } catch (e) {} };
+      window.addEventListener('pointerdown', fxtMaj, true); window.addEventListener('keydown', fxtMaj, true); window.addEventListener('focusin', fxtMaj, true); } } catch (e) {}
     var saved = (this.state && typeof this.state.fav === 'boolean') ? this.state.fav : !!this.props.favori;
     var photo = this.props.photo !== false;
     var self = this;
     return {
+      lienGrossesse: fxtLien(),
       hasPhoto: photo,
       noPhoto: !photo,
       heartFill: saved ? '#4C2944' : 'none',
