@@ -93,8 +93,9 @@ RUBRIQUES = [
     ("Traces datées · « CADUC »", "Gardées pour mémoire, sous le titre « CADUC » de la page Ligne allaitement.",
      "EA-Verdict-Lait-Drapeau EA-Verdict-Gel-Icones EA-Verdict-Baume-RenvoiLien EA-Verdict-Renvoi-Panneau "
      "EA-Verdict-Renvoi-Rond EA-Verdict-Renvoi-Photo EA-Ingredients-Spray-Mention"),
-    ("Marquées « À supprimer »", "Doublons ; leur suppression attend ta décision.",
-     "E4-Signalement-Detail E3-SansVerdict-Source"),
+    ("Marquée « À supprimer »", "Doublon ; sa suppression attend ta décision. "
+     "(E4-Signalement-Detail, l'autre doublon, a été supprimé sur la page avant le 10/11.)",
+     "E3-SansVerdict-Source"),
     ("Fondations et traçabilité", "Étape 0.",
      "E0-Fondations E0-Polices E0-Trace-1 E0-Trace-2 E0-Trace-3 E0-Trace-4 E0-Trace-5 E0-Trace-6 E0-Trace-7 "
      "E0-Trace-8"),

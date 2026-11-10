@@ -973,15 +973,6 @@
       "x": 3290,
       "y": 1928
     },
-    "E4-Signalement-Detail.dc.html": {
-      "h": 844,
-      "is_interactive": true,
-      "page": "etape-4",
-      "title": "À SUPPRIMER · doublon de « un ingrédient est mal évalué »",
-      "w": 390,
-      "x": 470,
-      "y": 1928
-    },
     "E4-Signalement-Echec.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -2035,7 +2026,6 @@
     "E4-Photo-Echec.dc.html",
     "E4-Signalement.dc.html",
     "E4-Signalement-Allaitement.dc.html",
-    "E4-Signalement-Detail.dc.html",
     "E4-Signalement-Message.dc.html",
     "E4-Signalement-Produit.dc.html",
     "E4-Signalement-Ingredient.dc.html",
