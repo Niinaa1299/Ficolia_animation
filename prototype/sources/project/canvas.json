@@ -757,15 +757,6 @@
       "x": 2820,
       "y": 2892
     },
-    "E3-SansVerdict-Source.dc.html": {
-      "h": 844,
-      "is_interactive": true,
-      "page": "etape-3a",
-      "title": "À SUPPRIMER · doublon de « Scan en attente »",
-      "w": 390,
-      "x": 2820,
-      "y": 4820
-    },
     "E3-Scan-Demande.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -2076,7 +2067,6 @@
     "E3-SansVerdict-Attente.dc.html",
     "E3-SansVerdict-Service.dc.html",
     "E3-SansVerdict-Inconnu.dc.html",
-    "E3-SansVerdict-Source.dc.html",
     "E3-MiseAJour.dc.html",
     "E3-MiseAJour-Faite.dc.html",
     "E1-Ouverture-Arbre.dc.html",
