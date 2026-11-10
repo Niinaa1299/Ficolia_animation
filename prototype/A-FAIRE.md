@@ -21,7 +21,7 @@ Liste de suivi, tenue tâche par tâche. État au **05/11/2026** (après-midi). 
 - Les autres questions encore ouvertes : 3.11 (le plan de l'audit), 3.23.
 
 **Ce que la prochaine session fait d'abord**
-1. R1 et R3 : l'accès au canevas, puis les retouches faites sur la page (comparer à la version publiée le 10/11, qui retire `E4-Signalement-Detail` du plan ; 209 planches au canevas et au dépôt).
+1. R1 et R3 : l'accès au canevas, puis les retouches faites sur la page (comparer à la version 125, `1794269021-7733`, publiée le 10/11, qui retire `E4-Signalement-Detail` du plan ; 209 planches au canevas et au dépôt).
    - **10/11** : la porteuse a supprimé `E4-Signalement-Detail` sur la page (la planche et son entrée de `canvas.json`, rien d'autre ; constaté au contrôle R3, version `1794268580-458a`). Enregistré dans le dépôt ; le plan régénéré (209 écrans) ne mène plus à elle. Il reste une planche marquée « À SUPPRIMER » : `E3-SansVerdict-Source`, page « Étape 3 », titre « Scan en attente » (le même que `E3-SansVerdict-Attente`, la planche vivante), sous celle-ci, à x 2820, y 4820.
 2. Lire les fils du canevas de travail (outil `ArtifactComments`, `action: read`) ; répondre à ceux que la porteuse a envoyés à Claude, sans les résoudre.
 3. **Prise en main au premier lancement** reliée et publiée le 09/11, version 122 (décision 277, « j'ai pas le tuto en première utilisation ») : « Autoriser » mène à la bulle du scanner, puis les bulles du « i » et de l'échelle aux deux premiers verdicts depuis `E1-Produit`. Le même jour : bulles Historique et Menu au premier toucher des onglets (279) ; « Ce n'est pas ce produit » affiche et rouvre le bon produit (278).
