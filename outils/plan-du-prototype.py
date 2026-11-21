@@ -39,7 +39,7 @@ RUBRIQUES = [
     ("Parcours principal · gel douche", "Le nettoyant du parcours principal (D-354).",
      "E1-Produit-Gel E1-Verdict-Gel E1-Ingredients-Gel E1-Allaitement-Gel E1-Ingredients-Allaitement-Gel"),
     ("Après un scan · le produit a un écran", "Plusieurs versions, évaluation incomplète, verdict à actualiser, rappel de lot.",
-     "E3-Produit-AutreVersion E3-Produit-Incomplet E3-Verdict-Incomplet E3-Ingredients-Incomplet "
+     "E3-Produit-AutreVersion E3-Produit-Coffret E3-Produit-Incomplet E3-Verdict-Incomplet E3-Ingredients-Incomplet "
      "E3-Produit-Actualiser E3-Verdict-Actualiser E3-Ingredients-Actualiser E3-Produit-ActualiserHorsLigne "
      "E3-Verdict-ActualiserHorsLigne E3-Produit-Rappel E3-Verdict-Rappel"),
     ("Après un scan · le type de produit", "La question du type, et ce qu'elle change sur le produit et le verdict.",

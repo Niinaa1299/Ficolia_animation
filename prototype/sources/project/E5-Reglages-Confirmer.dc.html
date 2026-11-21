@@ -60,6 +60,24 @@ a:focus-visible,button:focus-visible{outline:2px solid #4C2944;outline-offset:3p
 </div>
 </sc-if>
 </div>
+<!-- Compteurs du niveau 2 et rapport d'erreur (D-438, D-439 ; porteuse, 21/11 : « à faire ») : troisième ligne des réglages (D-114, C1), qui coupe le comptage et l'envoi ; actif par défaut sous réserve des avocats ; libellé sans « anonymes » tant que l'adresse IP n'est pas tranchée. Textes : Proposition. Ce qui est dit est vrai de la liste fermée : des totaux (scans, niveaux affichés, erreurs), et pour une erreur sa description technique avec la version du système et le modèle du téléphone ; jamais un code, une marque, un texte ni l'historique. -->
+<div style="flex-shrink: 0; margin: 28px 20px 0 20px; display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Statistiques</h2>
+<div style="padding: 14px 10px 14px 16px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; gap: 10px">
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<span id="e5-stats-nom" style="font-size: 17px; font-weight: 700; line-height: 1.3">Envoyer des statistiques d'utilisation</span>
+<span id="e5-stats-aide" style="font-size: 15px; line-height: 1.4; color: #6E5A6B">Ficolia reçoit des totaux : nombre de scans, niveaux affichés, erreurs de l'application. Pour une erreur, s'y ajoutent sa description technique, la version du système et le modèle du téléphone. Jamais le nom d'un produit, ce que vous écrivez ni votre historique.</span>
+</div>
+<button type="button" role="switch" aria-checked="{{statsChecked}}" aria-labelledby="e5-stats-nom" aria-describedby="e5-stats-aide" sc-camel-on-click="{{toggleStats}}" style="flex-shrink: 0; width: 60px; height: 44px; box-sizing: border-box; padding: 0; border: 0; border-radius: 999px; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<span aria-hidden="true" class="e5-piste" style="position: relative; width: 52px; height: 32px; box-sizing: border-box; border: 1.5px solid {{ssBorder}}; border-radius: 999px; background: {{ssBg}}">
+<span class="e5-pouce" style="position: absolute; top: 3px; left: 3px; width: 23px; height: 23px; border-radius: 999px; background: {{ssThumb}}; transform: translateX({{ssX}})"></span>
+</span>
+</button>
+</div>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Proposition · actif par défaut, à confirmer avec les avocats</span>
+</sc-if>
+</div>
 <div style="flex-shrink: 0; margin: 28px 20px 0 20px; display: flex; flex-direction: column; gap: 8px">
 <h2 style="margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; color: #6E5A6B">Caméra</h2>
 <button type="button" aria-label="Accès à la caméra : {{camTexte}}. Ouvre les réglages du téléphone." style="padding: 14px 12px 14px 16px; border: 1px solid #E7E1DA; border-radius: 16px; background: #FAF8F4; display: flex; align-items: center; gap: 10px; color: #321C31; font-family: inherit; text-align: left; cursor: pointer">
@@ -168,11 +186,12 @@ a:focus-visible,button:focus-visible{outline:2px solid #4C2944;outline-offset:3p
 </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;depart&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Alertes actives&quot;,&quot;Alertes arrêtées&quot;,&quot;Confirmation&quot;,&quot;Historique effacé&quot;],&quot;default&quot;:&quot;Confirmation&quot;,&quot;section&quot;:&quot;État de départ&quot;},&quot;camera&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Autorisé&quot;,&quot;Refusé&quot;],&quot;default&quot;:&quot;Autorisé&quot;,&quot;section&quot;:&quot;Accès à la caméra (prototype)&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;depart&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Alertes actives&quot;,&quot;Alertes arrêtées&quot;,&quot;Confirmation&quot;,&quot;Historique effacé&quot;],&quot;default&quot;:&quot;Confirmation&quot;,&quot;section&quot;:&quot;État de départ&quot;},&quot;statistiques&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Activées&quot;,&quot;Désactivées&quot;],&quot;default&quot;:&quot;Activées&quot;,&quot;section&quot;:&quot;Statistiques d'utilisation (prototype)&quot;},&quot;camera&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Autorisé&quot;,&quot;Refusé&quot;],&quot;default&quot;:&quot;Autorisé&quot;,&quot;section&quot;:&quot;Accès à la caméra (prototype)&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
 class Component extends DCLogic {
   componentDidUpdate(prevProps) {
+    if (prevProps && prevProps.statistiques !== this.props.statistiques && this.state && typeof this.state.stats === 'boolean') { this.setState({ stats: null }); }
     if (prevProps && prevProps.depart !== this.props.depart && this.state && this.state.touched) {
-      this.setState({ touched: false, alertes: null, confirm: null, erased: null });
+      this.setState({ touched: false, alertes: null, confirm: null, erased: null, stats: null });
     }
   }
   renderVals() {
@@ -194,6 +213,7 @@ class Component extends DCLogic {
     var d = D.indexOf(this.props.depart);
     if (d < 0) d = 0;
     var alertes = typeof st.alertes === 'boolean' ? st.alertes : d !== 1;
+    var stats = typeof st.stats === 'boolean' ? st.stats : this.props.statistiques !== 'Désactivées';
     var confirm = typeof st.confirm === 'boolean' ? st.confirm : d === 2;
     var erased = (typeof st.erased === 'boolean' ? st.erased : d === 3) && !confirm;
     return {
@@ -210,6 +230,13 @@ class Component extends DCLogic {
       askErase: function () { self.setState({ confirm: true, touched: true }); },
       cancelErase: function () { self.setState({ confirm: false, touched: true }); },
       doErase: function () { self.setState({ confirm: false, erased: true, touched: true }); },
+      // Statistiques (D-438) : actif par défaut, sous réserve des avocats ; même interrupteur que les alertes.
+      statsChecked: stats ? 'true' : 'false',
+      ssBg: stats ? '#4C2944' : '#FFFFFF',
+      ssBorder: stats ? '#4C2944' : '#6E5A6B',
+      ssThumb: stats ? '#FFFFFF' : '#6E5A6B',
+      ssX: stats ? '20px' : '0px',
+      toggleStats: function () { self.setState({ stats: !stats, touched: true }); },
       // Caméra (porteuse, 30/10) : l'état de l'autorisation ; elle ne se change que dans les réglages du téléphone.
       camTexte: this.props.camera === 'Refusé' ? 'refusé' : 'autorisé',
       showStatus: this.props.statuts !== false
