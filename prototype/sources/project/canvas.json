@@ -635,7 +635,7 @@
       "h": 844,
       "is_interactive": true,
       "page": "etape-3a",
-      "title": "Écran produit · rappel de lot (29/10)",
+      "title": "Écran produit · rappel de lot (29/10), bandeau déplacé du verdict le 25/11 (D-367)",
       "w": 390,
       "x": 2350,
       "y": 964
@@ -824,7 +824,7 @@
       "h": 844,
       "is_interactive": true,
       "page": "etape-3a",
-      "title": "Rappel de lot",
+      "title": "Verdict d'un produit rappelé · le rappel est sur l'écran produit depuis le 25/11 (D-367)",
       "w": 390,
       "x": 940,
       "y": 2892
@@ -1571,7 +1571,7 @@
       "h": 844,
       "is_interactive": true,
       "page": "etape-6",
-      "title": "Fiche « J'ai déjà utilisé ce produit » · bonnes pratiques (3.17 C)",
+      "title": "Fiche « J'ai déjà utilisé ce produit » · sections grossesse et allaitement (3.17 C, décision 288)",
       "w": 390,
       "x": 470,
       "y": 1928

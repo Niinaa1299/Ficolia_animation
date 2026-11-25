@@ -282,6 +282,50 @@ class Component extends DCLogic {
     }
   }
   renderVals() {
+    // Décision 288 (porteuse, 25/11) : « quand tu retournes, on doit atterir d'où l'on vient […] valable pour tout ». Chaque lien vers
+    // une autre planche se note au moment du geste dans la mémoire de session (ficolia-pile : planche de départ, planche d'arrivée,
+    // produit et recherche affichés) ; la flèche « Retour » mène à la planche d'où l'on est venu, rouverte sur le même produit et la
+    // même recherche, et son libellé suit. Une planche qui s'ouvre sur une sous-étape (signalement, photo…) : sur cet écran d'arrivée,
+    // son bouton « Retour » mène aussi là d'où l'on vient ; après un pas dans la planche, il reprend son rôle. Sans note (planche
+    // ouverte directement sur le canevas), tout garde sa destination par défaut. La barre d'onglets et les planches E0 (plan,
+    // fondations) commencent un parcours neuf.
+    try { if (!window.__ficoliaPile) { window.__ficoliaPile = 1; var fxrNom = 'E3-Scan-Reglages.dc.html';
+      var fxrLire = function () { try { var p = JSON.parse(sessionStorage.getItem('ficolia-pile') || '[]'); return Array.isArray(p) ? p : []; } catch (e) { return []; } };
+      var fxrCible = function () { var p = fxrLire(); for (var i = p.length - 1; i >= 0; i--) if (p[i] && p[i].vers === fxrNom && p[i].de) return { i: i, e: p[i] }; return null; };
+      var fxrNomme = function (b, e) { var s = !!e.sel;
+        if (/^E4-Signalement/.test(b)) return 'Retour au signalement'; if (/Ingredients/.test(b)) return 'Retour aux ingrédients';
+        if (/Verdict|^E[0-9A]-Allaitement/.test(b)) return 'Retour au verdict'; if (/Produit/.test(b)) return 'Retour au produit';
+        if (/^E[25]-Recherche/.test(b)) return s ? 'Retour au produit' : 'Retour à la recherche'; if (/^E5-Historique/.test(b)) return s ? 'Retour au produit' : "Retour à l'historique";
+        if (/Scan/.test(b)) return 'Retour au scan'; if (/^E6-Menu/.test(b)) return 'Retour au menu'; if (/^E6-BonnesPratiques/.test(b)) return 'Retour aux bonnes pratiques';
+        if (/^E6-Methode/.test(b)) return 'Retour à la méthode'; if (/^E2-Liste/.test(b)) return 'Retour à la liste'; return 'Retour'; };
+      var fxrVu = function (x) { var r = x.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
+      var fxrTitre = function () { var h = [].slice.call(document.querySelectorAll('h1')).filter(fxrVu)[0]; return h ? h.innerText.trim() : ''; };
+      var fxrEntree = function () { return typeof window.__fxrH1 === 'string' && fxrTitre() === window.__fxrH1; };
+      var fxrFige = function () { try { if (typeof window.__fxrH1 !== 'string') { var t0 = fxrTitre(); if (t0) window.__fxrH1 = t0; }
+        var as = document.querySelectorAll('[aria-label^="Retour"]:not([data-fxr-label])'); for (var k = 0; k < as.length; k++) { as[k].setAttribute('data-fxr-label', as[k].getAttribute('aria-label')); if (as[k].tagName === 'A') as[k].setAttribute('data-fxr-href', as[k].getAttribute('href') || ''); } } catch (e) {} };
+      var fxrMaj = function () { try { fxrFige(); var c = fxrCible(), as = document.querySelectorAll('[data-fxr-label]');
+        for (var k = 0; k < as.length; k++) { var a = as[k], vise = c && (a.tagName === 'A' || fxrEntree());
+          if (vise && a.tagName === 'A') a.setAttribute('href', c.e.de);
+          a.setAttribute('aria-label', vise && c.e.de !== a.getAttribute('data-fxr-href') ? fxrNomme(c.e.de, c.e) : a.getAttribute('data-fxr-label')); } } catch (e) {} };
+      var fxrPart = function (c) { sessionStorage.setItem('ficolia-pile', JSON.stringify(fxrLire().slice(0, c.i)));
+        if (c.e.sel || typeof c.e.q === 'string') sessionStorage.setItem('ficolia-ouvrir', JSON.stringify({ board: c.e.de, sel: c.e.sel || null, q: c.e.q, t: Date.now() })); };
+      var fxrGeste = function (ev) { try { var t = ev.target && ev.target.closest ? ev.target : null; if (!t) return;
+        var b = t.closest('button[aria-label^="Retour"]');
+        if (b) { fxrMaj(); var cb = fxrCible(); if (ev.type === 'click' && cb && fxrEntree()) { ev.preventDefault(); ev.stopPropagation(); fxrPart(cb);
+            var l = document.createElement('a'); l.setAttribute('href', cb.e.de); l.setAttribute('data-fxr-synth', ''); l.style.display = 'none'; document.body.appendChild(l); l.click(); } return; }
+        var a = t.closest('a[href]'); if (!a || a.hasAttribute('data-fxr-synth')) return;
+        if (/^Retour/.test(a.getAttribute('aria-label') || '')) { fxrMaj(); var c = fxrCible(); if (ev.type === 'click' && c) fxrPart(c); return; }
+        var h = a.getAttribute('href') || ''; if (!/^E[0-9A]-[A-Za-z0-9-]+\.dc\.html$/.test(h)) return;
+        var nav = a.closest('nav[aria-label="Navigation principale"]');
+        if (/^E0-/.test(fxrNom) || nav) { if (ev.type === 'click') sessionStorage.removeItem('ficolia-pile'); return; }
+        var p = fxrLire(), d = p[p.length - 1];
+        if (d && d.de === fxrNom && d.vers === h && Date.now() - d.t < 3000) return;
+        p.push({ de: fxrNom, vers: h, sel: (window.__fxpVue !== false && window.__fxpSel) || null, q: typeof window.__fxrQ === 'string' ? window.__fxrQ : undefined, t: Date.now() });
+        sessionStorage.setItem('ficolia-pile', JSON.stringify(p.slice(-50))); } catch (e) {} };
+      window.addEventListener('pointerdown', fxrGeste, true); window.addEventListener('pointerup', fxrGeste, true); window.addEventListener('click', fxrGeste, true);
+      window.addEventListener('keydown', fxrMaj, true); window.addEventListener('focusin', fxrMaj, true);
+      setTimeout(fxrMaj, 0); setTimeout(fxrMaj, 600); } } catch (e) {}
+
     // Décision 279 : pendant la première utilisation (tutoriel ouvert), le premier toucher des onglets Historique et Menu
     // ouvre leur bulle de prise en main ; ensuite, les onglets mènent à leur écran.
     try { if (!window.__ficoliaOnglets) { window.__ficoliaOnglets = 1; var fxbMaj = function () { try {

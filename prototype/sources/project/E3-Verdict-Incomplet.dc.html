@@ -104,15 +104,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 </div>
 </div>
 </div>
-<sc-if value="{{isRappel}}" hint-placeholder-val="{{ false }}">
-<div role="note" style="flex-shrink: 0; margin: 12px 12px 0 12px; padding: 12px 15px 4px 13px; border: {{rap.border}}; border-radius: 16px; background: {{rap.bg}}; color: {{rap.fg}}; display: flex; gap: 10px">
-<svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="{{rap.icon}}" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6"></path><path d="M12 7.5v.01"></path></svg>
-<div style="min-width: 0; display: flex; flex-direction: column; gap: 2px">
-<p style="margin: 0; font-size: {{fs.body}}; font-weight: 700; line-height: 1.45; text-wrap: pretty">Un rappel officiel concerne certains lots de ce produit.</p>
-<a href="#" style="align-self: flex-start; min-height: 44px; display: flex; align-items: center; font-size: {{fs.body}}; color: {{rap.fg}}; text-decoration: underline; text-underline-offset: 3px">Voir l'avis officiel</a>
-</div>
-</div>
-</sc-if>
+<!-- Rappel d'un lot : le bandeau est sur l'écran du produit (D-367 ; O-73), déplacé le 25/11 (porteuse : « à déplacer seulement »). L'état « Rappel de lot » garde le verdict du produit rappelé et son retour vers E3-Produit-Rappel. -->
 <sc-if value="{{isReeval}}" hint-placeholder-val="{{ false }}">
 <div role="note" style="flex-shrink: 0; margin: 12px 12px 0 12px; padding: 8px 12px; border: 1.5px solid #2B5C8F; border-radius: 16px; background: #E3EDF8; color: #321C31; display: flex; align-items: center; gap: 8px">
 <svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#2B5C8F" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6"></path><path d="M12 7.5v.01"></path></svg>
@@ -323,7 +315,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #321C
 </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;etat&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Verdict incomplet&quot;,&quot;Verdict à actualiser&quot;,&quot;Rappel de lot&quot;,&quot;Produit réévalué&quot;],&quot;default&quot;:&quot;Verdict incomplet&quot;,&quot;section&quot;:&quot;État&quot;},&quot;raison&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Ingrédient non reconnu&quot;,&quot;Type de produit non précisé&quot;,&quot;Type de produit non pris en charge&quot;],&quot;default&quot;:&quot;Ingrédient non reconnu&quot;,&quot;section&quot;:&quot;Raison du verdict incomplet&quot;},&quot;niveau&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;1 · Composition sans signal identifié&quot;,&quot;2 · Composition à signal modéré&quot;,&quot;3 · Composition préoccupante&quot;,&quot;4 · Composition incompatible&quot;],&quot;default&quot;:&quot;2 · Composition à signal modéré&quot;,&quot;section&quot;:&quot;Verdict affiché (sous le rappel, ou après actualisation)&quot;},&quot;infoNiveaux&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Les quatre niveaux&quot;,&quot;Niveaux 3 et 4 seulement&quot;],&quot;default&quot;:&quot;Les quatre niveaux&quot;,&quot;section&quot;:&quot;« i » du verdict : niveaux (les quatre, retenus le 17/10)&quot;},&quot;infoPlace&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Dans le cadre, en bas à droite&quot;,&quot;Dans le cadre, à côté du libellé&quot;,&quot;Hors du cadre, en haut à droite&quot;],&quot;default&quot;:&quot;Dans le cadre, à côté du libellé&quot;,&quot;section&quot;:&quot;« i » du verdict : place (B, retenue le 17/10)&quot;},&quot;voletOuvert&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Volet rouvert par le « i » (aperçu)&quot;},&quot;bandeau&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Bleu information&quot;,&quot;Encre&quot;,&quot;Neutre&quot;],&quot;default&quot;:&quot;Bleu information&quot;,&quot;section&quot;:&quot;Bandeau du rappel de lot&quot;},&quot;texte&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Standard&quot;,&quot;Grand (130 %)&quot;,&quot;Très grand (200 %)&quot;],&quot;default&quot;:&quot;Standard&quot;,&quot;section&quot;:&quot;Taille du texte&quot;},&quot;photo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Photo du produit&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;connexion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Avec connexion&quot;,&quot;Sans connexion&quot;],&quot;default&quot;:&quot;Avec connexion&quot;,&quot;section&quot;:&quot;Connexion (prototype)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;etat&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Verdict incomplet&quot;,&quot;Verdict à actualiser&quot;,&quot;Rappel de lot&quot;,&quot;Produit réévalué&quot;],&quot;default&quot;:&quot;Verdict incomplet&quot;,&quot;section&quot;:&quot;État&quot;},&quot;raison&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Ingrédient non reconnu&quot;,&quot;Type de produit non précisé&quot;,&quot;Type de produit non pris en charge&quot;],&quot;default&quot;:&quot;Ingrédient non reconnu&quot;,&quot;section&quot;:&quot;Raison du verdict incomplet&quot;},&quot;niveau&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;1 · Composition sans signal identifié&quot;,&quot;2 · Composition à signal modéré&quot;,&quot;3 · Composition préoccupante&quot;,&quot;4 · Composition incompatible&quot;],&quot;default&quot;:&quot;2 · Composition à signal modéré&quot;,&quot;section&quot;:&quot;Verdict affiché (sous le rappel, ou après actualisation)&quot;},&quot;infoNiveaux&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Les quatre niveaux&quot;,&quot;Niveaux 3 et 4 seulement&quot;],&quot;default&quot;:&quot;Les quatre niveaux&quot;,&quot;section&quot;:&quot;« i » du verdict : niveaux (les quatre, retenus le 17/10)&quot;},&quot;infoPlace&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Dans le cadre, en bas à droite&quot;,&quot;Dans le cadre, à côté du libellé&quot;,&quot;Hors du cadre, en haut à droite&quot;],&quot;default&quot;:&quot;Dans le cadre, à côté du libellé&quot;,&quot;section&quot;:&quot;« i » du verdict : place (B, retenue le 17/10)&quot;},&quot;voletOuvert&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;section&quot;:&quot;Volet rouvert par le « i » (aperçu)&quot;},&quot;texte&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Standard&quot;,&quot;Grand (130 %)&quot;,&quot;Très grand (200 %)&quot;],&quot;default&quot;:&quot;Standard&quot;,&quot;section&quot;:&quot;Taille du texte&quot;},&quot;photo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Photo du produit&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;connexion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Avec connexion&quot;,&quot;Sans connexion&quot;],&quot;default&quot;:&quot;Avec connexion&quot;,&quot;section&quot;:&quot;Connexion (prototype)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
 class Component extends DCLogic {
   componentDidUpdate(prevProps) {
     if (prevProps && (prevProps.etat !== this.props.etat || prevProps.niveau !== this.props.niveau || prevProps.voletOuvert !== this.props.voletOuvert) && this.state && (this.state.fresh || this.state.info || this.state.closed)) {
@@ -331,6 +323,50 @@ class Component extends DCLogic {
     }
   }
   renderVals() {
+    // Décision 288 (porteuse, 25/11) : « quand tu retournes, on doit atterir d'où l'on vient […] valable pour tout ». Chaque lien vers
+    // une autre planche se note au moment du geste dans la mémoire de session (ficolia-pile : planche de départ, planche d'arrivée,
+    // produit et recherche affichés) ; la flèche « Retour » mène à la planche d'où l'on est venu, rouverte sur le même produit et la
+    // même recherche, et son libellé suit. Une planche qui s'ouvre sur une sous-étape (signalement, photo…) : sur cet écran d'arrivée,
+    // son bouton « Retour » mène aussi là d'où l'on vient ; après un pas dans la planche, il reprend son rôle. Sans note (planche
+    // ouverte directement sur le canevas), tout garde sa destination par défaut. La barre d'onglets et les planches E0 (plan,
+    // fondations) commencent un parcours neuf.
+    try { if (!window.__ficoliaPile) { window.__ficoliaPile = 1; var fxrNom = 'E3-Verdict-Incomplet.dc.html';
+      var fxrLire = function () { try { var p = JSON.parse(sessionStorage.getItem('ficolia-pile') || '[]'); return Array.isArray(p) ? p : []; } catch (e) { return []; } };
+      var fxrCible = function () { var p = fxrLire(); for (var i = p.length - 1; i >= 0; i--) if (p[i] && p[i].vers === fxrNom && p[i].de) return { i: i, e: p[i] }; return null; };
+      var fxrNomme = function (b, e) { var s = !!e.sel;
+        if (/^E4-Signalement/.test(b)) return 'Retour au signalement'; if (/Ingredients/.test(b)) return 'Retour aux ingrédients';
+        if (/Verdict|^E[0-9A]-Allaitement/.test(b)) return 'Retour au verdict'; if (/Produit/.test(b)) return 'Retour au produit';
+        if (/^E[25]-Recherche/.test(b)) return s ? 'Retour au produit' : 'Retour à la recherche'; if (/^E5-Historique/.test(b)) return s ? 'Retour au produit' : "Retour à l'historique";
+        if (/Scan/.test(b)) return 'Retour au scan'; if (/^E6-Menu/.test(b)) return 'Retour au menu'; if (/^E6-BonnesPratiques/.test(b)) return 'Retour aux bonnes pratiques';
+        if (/^E6-Methode/.test(b)) return 'Retour à la méthode'; if (/^E2-Liste/.test(b)) return 'Retour à la liste'; return 'Retour'; };
+      var fxrVu = function (x) { var r = x.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
+      var fxrTitre = function () { var h = [].slice.call(document.querySelectorAll('h1')).filter(fxrVu)[0]; return h ? h.innerText.trim() : ''; };
+      var fxrEntree = function () { return typeof window.__fxrH1 === 'string' && fxrTitre() === window.__fxrH1; };
+      var fxrFige = function () { try { if (typeof window.__fxrH1 !== 'string') { var t0 = fxrTitre(); if (t0) window.__fxrH1 = t0; }
+        var as = document.querySelectorAll('[aria-label^="Retour"]:not([data-fxr-label])'); for (var k = 0; k < as.length; k++) { as[k].setAttribute('data-fxr-label', as[k].getAttribute('aria-label')); if (as[k].tagName === 'A') as[k].setAttribute('data-fxr-href', as[k].getAttribute('href') || ''); } } catch (e) {} };
+      var fxrMaj = function () { try { fxrFige(); var c = fxrCible(), as = document.querySelectorAll('[data-fxr-label]');
+        for (var k = 0; k < as.length; k++) { var a = as[k], vise = c && (a.tagName === 'A' || fxrEntree());
+          if (vise && a.tagName === 'A') a.setAttribute('href', c.e.de);
+          a.setAttribute('aria-label', vise && c.e.de !== a.getAttribute('data-fxr-href') ? fxrNomme(c.e.de, c.e) : a.getAttribute('data-fxr-label')); } } catch (e) {} };
+      var fxrPart = function (c) { sessionStorage.setItem('ficolia-pile', JSON.stringify(fxrLire().slice(0, c.i)));
+        if (c.e.sel || typeof c.e.q === 'string') sessionStorage.setItem('ficolia-ouvrir', JSON.stringify({ board: c.e.de, sel: c.e.sel || null, q: c.e.q, t: Date.now() })); };
+      var fxrGeste = function (ev) { try { var t = ev.target && ev.target.closest ? ev.target : null; if (!t) return;
+        var b = t.closest('button[aria-label^="Retour"]');
+        if (b) { fxrMaj(); var cb = fxrCible(); if (ev.type === 'click' && cb && fxrEntree()) { ev.preventDefault(); ev.stopPropagation(); fxrPart(cb);
+            var l = document.createElement('a'); l.setAttribute('href', cb.e.de); l.setAttribute('data-fxr-synth', ''); l.style.display = 'none'; document.body.appendChild(l); l.click(); } return; }
+        var a = t.closest('a[href]'); if (!a || a.hasAttribute('data-fxr-synth')) return;
+        if (/^Retour/.test(a.getAttribute('aria-label') || '')) { fxrMaj(); var c = fxrCible(); if (ev.type === 'click' && c) fxrPart(c); return; }
+        var h = a.getAttribute('href') || ''; if (!/^E[0-9A]-[A-Za-z0-9-]+\.dc\.html$/.test(h)) return;
+        var nav = a.closest('nav[aria-label="Navigation principale"]');
+        if (/^E0-/.test(fxrNom) || nav) { if (ev.type === 'click') sessionStorage.removeItem('ficolia-pile'); return; }
+        var p = fxrLire(), d = p[p.length - 1];
+        if (d && d.de === fxrNom && d.vers === h && Date.now() - d.t < 3000) return;
+        p.push({ de: fxrNom, vers: h, sel: (window.__fxpVue !== false && window.__fxpSel) || null, q: typeof window.__fxrQ === 'string' ? window.__fxrQ : undefined, t: Date.now() });
+        sessionStorage.setItem('ficolia-pile', JSON.stringify(p.slice(-50))); } catch (e) {} };
+      window.addEventListener('pointerdown', fxrGeste, true); window.addEventListener('pointerup', fxrGeste, true); window.addEventListener('click', fxrGeste, true);
+      window.addEventListener('keydown', fxrMaj, true); window.addEventListener('focusin', fxrMaj, true);
+      setTimeout(fxrMaj, 0); setTimeout(fxrMaj, 600); } } catch (e) {}
+
     // Décision 279 : pendant la première utilisation (tutoriel ouvert), le premier toucher des onglets Historique et Menu
     // ouvre leur bulle de prise en main ; ensuite, les onglets mènent à leur écran.
     try { if (!window.__ficoliaOnglets) { window.__ficoliaOnglets = 1; var fxbMaj = function () { try {
@@ -388,12 +424,6 @@ class Component extends DCLogic {
     function px(x) { return (Math.round(x * 10) / 10) + 'px'; }
     // Libellé : 19 px depuis le 17/10 (20,5 avant), pour tenir sur une ligne avec le « i » à côté (porteuse).
     var fs = { small: px(14 * t[0]), body: px(16 * t[0]), row: px(17 * t[0]), title: px(19 * t[1]), label: px(19 * t[2]), note: px(15 * t[0]) };
-    // Bandeau du rappel : jamais une couleur de verdict ni une couleur de marque.
-    var RAP = {
-      'Bleu information': { border: '1.5px solid #2B5C8F', bg: '#E3EDF8', fg: '#321C31', icon: '#2B5C8F' },
-      'Encre': { border: '1.5px solid #321C31', bg: '#321C31', fg: '#FFFFFF', icon: '#FFFFFF' },
-      'Neutre': { border: '1px solid #6E5A6B', bg: '#FFFFFF', fg: '#321C31', icon: '#6E5A6B' }
-    };
     var photo = this.props.photo !== false;
     var st = this.state || {};
     var LIB = ["Composition sans signal identifié", "Composition à signal modéré", "Composition préoccupante", "Composition incompatible"];
@@ -426,7 +456,6 @@ class Component extends DCLogic {
       bg: c.bg, fg: c.fg, rang: String(i + 1),
       rangLabel: level ? ('Niveau ' + (i + 1) + ' sur 4') : 'Niveau non établi',
       s: s, fs: fs,
-      rap: RAP[this.props.bandeau] || RAP['Bleu information'],
       card: photo
         ? { flex: '1 1 auto', minH: '210px', maxH: level ? '300px' : 'none', photo: 'block', sep: '1px solid #E7E1DA' }
         : { flex: '0 0 auto', minH: '0px', maxH: 'none', photo: 'none', sep: 'none' },

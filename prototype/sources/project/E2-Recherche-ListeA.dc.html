@@ -77,6 +77,22 @@ input::placeholder{color:#80707D;opacity:1}
 <ul aria-label="Produits trouvés" style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
 <sc-for list="{{results}}" as="item" hint-placeholder-count="4">
 <li style="border-bottom: 1px solid #E7E1DA">
+<!-- Produits à plusieurs éléments (D-410 ; porteuse, 25/11 : « rend les disponibles lors de la recherche par nom ») : la ligne mène à l'écran à plusieurs éléments, ouvert sur le bon exemple (coffret ou coloration). -->
+<sc-if value="{{item.isLink}}" hint-placeholder-val="{{ false }}">
+<a href="{{item.href}}" class="e2-row" data-ouvrir-exemple="{{item.exemple}}" style="width: 100%; box-sizing: border-box; min-height: 76px; padding: 12px 8px; border: 0; border-radius: 12px; color: #321C31; font-family: inherit; text-align: left; display: flex; align-items: flex-start; gap: 12px; cursor: pointer">
+<sc-if value="{{item.thumbCoffret}}" hint-placeholder-val="{{ false }}">
+<span aria-hidden="true" style="flex-shrink: 0; width: 52px; height: 52px; box-sizing: border-box; border-radius: 12px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="34" height="39" viewBox="0 0 228 260"><rect x="40" y="20" width="24" height="10" rx="4" fill="#7E8285"></rect><rect x="47" y="30" width="9" height="12" fill="#9DA1A4"></rect><rect x="34" y="42" width="36" height="18" rx="6" fill="#9DA1A4"></rect><rect x="16" y="60" width="72" height="130" rx="22" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="6"></rect><rect x="142" y="52" width="40" height="22" rx="6" fill="#7E8285"></rect><rect x="122" y="74" width="80" height="116" rx="16" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="6"></rect><rect x="6" y="140" width="216" height="104" rx="16" fill="#E6E8E9" stroke="#AEB1B3" stroke-width="6"></rect><rect x="74" y="184" width="80" height="10" rx="5" fill="#AEB1B3"></rect></svg>
+</span>
+</sc-if>
+<span style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 3px">
+<span style="font-size: 17px; font-weight: 700; line-height: 1.3; overflow-wrap: anywhere">{{item.nom}}</span>
+<span style="font-size: 15px; line-height: 1.3; color: #6E5A6B">{{item.marque}}</span>
+</span>
+<span style="flex-shrink: 0; font-size: 17px; font-weight: 700; line-height: 1.3; white-space: nowrap">{{item.contenance}}</span>
+</a>
+</sc-if>
+<sc-if value="{{item.isButton}}" hint-placeholder-val="{{ true }}">
 <button type="button" class="e2-row" onClick="{{item.pick}}" style="width: 100%; box-sizing: border-box; min-height: 76px; padding: 12px 8px; border: 0; border-radius: 12px; color: #321C31; font-family: inherit; text-align: left; display: flex; align-items: flex-start; gap: 12px; cursor: pointer">
 <sc-if value="{{item.thumbPhoto}}" hint-placeholder-val="{{ true }}">
 <span aria-hidden="true" style="flex-shrink: 0; width: 52px; height: 52px; box-sizing: border-box; border-radius: 12px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
@@ -105,6 +121,7 @@ input::placeholder{color:#80707D;opacity:1}
 </span>
 <span style="flex-shrink: 0; font-size: 17px; font-weight: 700; line-height: 1.3; white-space: nowrap">{{item.contenance}}</span>
 </button>
+</sc-if>
 </li>
 </sc-for>
 </ul>
@@ -438,6 +455,50 @@ class Component extends DCLogic {
     }
   }
   renderVals() {
+    // Décision 288 (porteuse, 25/11) : « quand tu retournes, on doit atterir d'où l'on vient […] valable pour tout ». Chaque lien vers
+    // une autre planche se note au moment du geste dans la mémoire de session (ficolia-pile : planche de départ, planche d'arrivée,
+    // produit et recherche affichés) ; la flèche « Retour » mène à la planche d'où l'on est venu, rouverte sur le même produit et la
+    // même recherche, et son libellé suit. Une planche qui s'ouvre sur une sous-étape (signalement, photo…) : sur cet écran d'arrivée,
+    // son bouton « Retour » mène aussi là d'où l'on vient ; après un pas dans la planche, il reprend son rôle. Sans note (planche
+    // ouverte directement sur le canevas), tout garde sa destination par défaut. La barre d'onglets et les planches E0 (plan,
+    // fondations) commencent un parcours neuf.
+    try { if (!window.__ficoliaPile) { window.__ficoliaPile = 1; var fxrNom = 'E2-Recherche-ListeA.dc.html';
+      var fxrLire = function () { try { var p = JSON.parse(sessionStorage.getItem('ficolia-pile') || '[]'); return Array.isArray(p) ? p : []; } catch (e) { return []; } };
+      var fxrCible = function () { var p = fxrLire(); for (var i = p.length - 1; i >= 0; i--) if (p[i] && p[i].vers === fxrNom && p[i].de) return { i: i, e: p[i] }; return null; };
+      var fxrNomme = function (b, e) { var s = !!e.sel;
+        if (/^E4-Signalement/.test(b)) return 'Retour au signalement'; if (/Ingredients/.test(b)) return 'Retour aux ingrédients';
+        if (/Verdict|^E[0-9A]-Allaitement/.test(b)) return 'Retour au verdict'; if (/Produit/.test(b)) return 'Retour au produit';
+        if (/^E[25]-Recherche/.test(b)) return s ? 'Retour au produit' : 'Retour à la recherche'; if (/^E5-Historique/.test(b)) return s ? 'Retour au produit' : "Retour à l'historique";
+        if (/Scan/.test(b)) return 'Retour au scan'; if (/^E6-Menu/.test(b)) return 'Retour au menu'; if (/^E6-BonnesPratiques/.test(b)) return 'Retour aux bonnes pratiques';
+        if (/^E6-Methode/.test(b)) return 'Retour à la méthode'; if (/^E2-Liste/.test(b)) return 'Retour à la liste'; return 'Retour'; };
+      var fxrVu = function (x) { var r = x.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
+      var fxrTitre = function () { var h = [].slice.call(document.querySelectorAll('h1')).filter(fxrVu)[0]; return h ? h.innerText.trim() : ''; };
+      var fxrEntree = function () { return typeof window.__fxrH1 === 'string' && fxrTitre() === window.__fxrH1; };
+      var fxrFige = function () { try { if (typeof window.__fxrH1 !== 'string') { var t0 = fxrTitre(); if (t0) window.__fxrH1 = t0; }
+        var as = document.querySelectorAll('[aria-label^="Retour"]:not([data-fxr-label])'); for (var k = 0; k < as.length; k++) { as[k].setAttribute('data-fxr-label', as[k].getAttribute('aria-label')); if (as[k].tagName === 'A') as[k].setAttribute('data-fxr-href', as[k].getAttribute('href') || ''); } } catch (e) {} };
+      var fxrMaj = function () { try { fxrFige(); var c = fxrCible(), as = document.querySelectorAll('[data-fxr-label]');
+        for (var k = 0; k < as.length; k++) { var a = as[k], vise = c && (a.tagName === 'A' || fxrEntree());
+          if (vise && a.tagName === 'A') a.setAttribute('href', c.e.de);
+          a.setAttribute('aria-label', vise && c.e.de !== a.getAttribute('data-fxr-href') ? fxrNomme(c.e.de, c.e) : a.getAttribute('data-fxr-label')); } } catch (e) {} };
+      var fxrPart = function (c) { sessionStorage.setItem('ficolia-pile', JSON.stringify(fxrLire().slice(0, c.i)));
+        if (c.e.sel || typeof c.e.q === 'string') sessionStorage.setItem('ficolia-ouvrir', JSON.stringify({ board: c.e.de, sel: c.e.sel || null, q: c.e.q, t: Date.now() })); };
+      var fxrGeste = function (ev) { try { var t = ev.target && ev.target.closest ? ev.target : null; if (!t) return;
+        var b = t.closest('button[aria-label^="Retour"]');
+        if (b) { fxrMaj(); var cb = fxrCible(); if (ev.type === 'click' && cb && fxrEntree()) { ev.preventDefault(); ev.stopPropagation(); fxrPart(cb);
+            var l = document.createElement('a'); l.setAttribute('href', cb.e.de); l.setAttribute('data-fxr-synth', ''); l.style.display = 'none'; document.body.appendChild(l); l.click(); } return; }
+        var a = t.closest('a[href]'); if (!a || a.hasAttribute('data-fxr-synth')) return;
+        if (/^Retour/.test(a.getAttribute('aria-label') || '')) { fxrMaj(); var c = fxrCible(); if (ev.type === 'click' && c) fxrPart(c); return; }
+        var h = a.getAttribute('href') || ''; if (!/^E[0-9A]-[A-Za-z0-9-]+\.dc\.html$/.test(h)) return;
+        var nav = a.closest('nav[aria-label="Navigation principale"]');
+        if (/^E0-/.test(fxrNom) || nav) { if (ev.type === 'click') sessionStorage.removeItem('ficolia-pile'); return; }
+        var p = fxrLire(), d = p[p.length - 1];
+        if (d && d.de === fxrNom && d.vers === h && Date.now() - d.t < 3000) return;
+        p.push({ de: fxrNom, vers: h, sel: (window.__fxpVue !== false && window.__fxpSel) || null, q: typeof window.__fxrQ === 'string' ? window.__fxrQ : undefined, t: Date.now() });
+        sessionStorage.setItem('ficolia-pile', JSON.stringify(p.slice(-50))); } catch (e) {} };
+      window.addEventListener('pointerdown', fxrGeste, true); window.addEventListener('pointerup', fxrGeste, true); window.addEventListener('click', fxrGeste, true);
+      window.addEventListener('keydown', fxrMaj, true); window.addEventListener('focusin', fxrMaj, true);
+      setTimeout(fxrMaj, 0); setTimeout(fxrMaj, 600); } } catch (e) {}
+
     // Décision 279 : pendant la première utilisation (tutoriel ouvert), le premier toucher des onglets Historique et Menu
     // ouvre leur bulle de prise en main ; ensuite, les onglets mènent à leur écran.
     try { if (!window.__ficoliaOnglets) { window.__ficoliaOnglets = 1; var fxbMaj = function () { try {
@@ -448,9 +509,13 @@ class Component extends DCLogic {
     } catch (e) {} };
       window.addEventListener('pointerdown', fxbMaj, true); window.addEventListener('keydown', fxbMaj, true); window.addEventListener('focusin', fxbMaj, true); } } catch (e) {}
 
+    // Une ligne à plusieurs éléments note, au moment du geste, l'exemple à ouvrir (lu par E3-Produit-Coffret).
+    try { if (!window.__ficoliaExemple) { window.__ficoliaExemple = 1; var fxeNote = function (ev) { try { var a = ev.target && ev.target.closest && ev.target.closest('a[data-ouvrir-exemple]');
+      if (a && a.getAttribute('data-ouvrir-exemple')) sessionStorage.setItem('ficolia-ouvrir', JSON.stringify({ board: a.getAttribute('href'), sel: a.getAttribute('data-ouvrir-exemple'), t: Date.now() })); } catch (e) {} };
+      window.addEventListener('pointerdown', fxeNote, true); window.addEventListener('click', fxeNote, true); } } catch (e) {}
     try { if (!window.__ficoliaOuvrir) { window.__ficoliaOuvrir = 1; var fxoSoi = this, fxoNom2 = 'E2-Recherche-ListeA.dc.html';
       var fxoOuvre = function () { try { var o = JSON.parse(sessionStorage.getItem('ficolia-ouvrir') || 'null');
-        if (o && o.board === fxoNom2 && o.sel && Date.now() - o.t < 15000) fxoSoi.setState({ view: 'product', sel: o.sel, note: false, fav: false, touched: true }); } catch (e) {} };
+        if (o && o.board === fxoNom2 && (o.sel || typeof o.q === 'string') && Date.now() - o.t < 15000) { var fxo2 = o.sel ? { view: 'product', sel: o.sel, note: false, fav: false, touched: true } : { view: 'search' }; if (typeof o.q === 'string') fxo2.q = o.q; fxoSoi.setState(fxo2); } } catch (e) {} };
       window.addEventListener('storage', fxoOuvre); window.addEventListener('focus', fxoOuvre); setTimeout(fxoOuvre, 0); } } catch (e) {}
     // Retour exact de « Ce n'est pas ce produit » (décision 276) : l'écran produit touché en dernier se note dans la mémoire
     // de session ; le signalement la relit pour « Retour au produit ». Sans mémoire, le retour par défaut reste.
@@ -485,6 +550,9 @@ class Component extends DCLogic {
       { id: 'p6', nom: 'Crème mains nourrissante', marque: 'Marque exemple', contenance: '75 ml', forme: 'tube', photo: true, ev: true },
       { id: 'r2', nom: 'Crème mains réparatrice', marque: 'Marque essai', contenance: '50 ml', forme: 'tube', photo: true, ev: false },
       { id: 'p7', nom: 'Crème visage hydratante', marque: 'Marque témoin', contenance: '50 ml', forme: 'pot', photo: true, ev: true },
+      // Produits à plusieurs éléments (D-410 ; porteuse, 25/11) : ils mènent à E3-Produit-Coffret, ouvert sur leur exemple.
+      { id: 'c1', nom: 'Coffret découverte', marque: 'Marque exemple', contenance: '2 produits', forme: 'coffret', photo: true, ev: true, href: 'E3-Produit-Coffret.dc.html', exemple: 'Coffret (2 produits)' },
+      { id: 'c2', nom: 'Coloration crème · nuance 5', marque: 'Marque exemple', contenance: '3 éléments', forme: 'coffret', photo: true, ev: true, href: 'E3-Produit-Coffret.dc.html', exemple: 'Boîte de coloration (3 éléments)' },
       { id: 'p8', nom: 'Déodorant bille', marque: 'Marque essai', contenance: '50 ml', forme: 'flacon', photo: true, ev: true },
       { id: 'p9', nom: 'Gel douche surgras', marque: 'Marque essai', contenance: '500 ml', forme: 'flacon', photo: true, ev: true },
       { id: 'p10', nom: 'Huile corps nourrissante', marque: 'Marque exemple', contenance: '100 ml', forme: 'flacon', photo: true, ev: true },
@@ -549,6 +617,7 @@ class Component extends DCLogic {
         isFlacon: hasPhoto && p.forme === 'flacon',
         isTube: hasPhoto && p.forme === 'tube',
         isPot: hasPhoto && p.forme === 'pot',
+        isLink: !!p.href, isButton: !p.href, href: p.href || '', exemple: p.exemple || '', thumbCoffret: !!p.href,
         pick: function () { self.setState({ view: 'product', sel: p.id, note: false, fav: false, touched: true }); }
       };
     });
@@ -562,7 +631,7 @@ class Component extends DCLogic {
     // L'écran produit de la recherche est un état de la planche : la planche qui l'affiche d'emblée (lait corps, gel douche) ;
     // pour un autre produit, la planche elle-même (ses résultats).
     // Décision 278 : le retour revient à cette planche, rouverte sur le produit qui était affiché (sel).
-    window.__fxpProduit = null; window.__fxpVue = view === 'product'; window.__fxpSel = view === 'product' ? sel.id : null;
+    window.__fxpProduit = null; window.__fxpVue = view === 'product'; window.__fxpSel = view === 'product' ? sel.id : null; window.__fxrQ = q;
 
     var fav = !!st.fav;
     return {
