@@ -230,3 +230,12 @@ Une modification de même longueur, par exemple un mot remplacé par un autre de
 - L'écran d'arrivée d'une planche se reconnaît à son titre `h1` : une sous-étape qui aurait le même titre serait prise pour l'écran d'arrivée.
 - Le bouton interne redirigé ouvre la planche de départ par un lien créé au moment du geste : à éprouver sur le canevas.
 - Un geste commencé sur un lien puis abandonné (défilement) laisse une note ; elle ne compte que si l'on arrive ensuite sur la même planche sans autre note.
+
+**Sa réponse suivante, 25/11, mot pour mot** (décisions 290 à 294) :
+- > Ton idée de supprimer la phrase reste en suspens — « non on ne supprime pas. »
+- > Pour les autres exemples, je te proposerais d'abord une table produit → chemin — « ok »
+- > bébé — « on met bébé partout »
+- > puis CT-1.3 (le parfum) — « à traiter : c'est quoi le sujet ? »
+- > La recherche sans connexion — « ce n'est pas en accord avec la DA de l'app : le message est dans un encadré bleu normalement car c'est une information »
+- > 5. L'écran caméra Android… — « ok »
+- Aux onze questions de l'étape 8 : « 1. on les laisses retirées. dans tous les cas un travail sera fait à part entière sur ces textes 2. pas compris 3. rappelle moi les intitulés 4. oui 5. non c'est bon 6. oui 7. b et c 8. oui 9. non 10. non 11. décision 46 ? c'est quoi l-47 ? »

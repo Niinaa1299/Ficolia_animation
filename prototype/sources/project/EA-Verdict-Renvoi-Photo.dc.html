@@ -574,10 +574,10 @@ class Component extends DCLogic {
         texte: "Cette évaluation ne tient pas compte d'une application sur le mamelon ou l'aréole." });
     }
     // « Inhalation par le nourrisson non évaluée » remplace « Évaluation établie hors présence du nourrisson » (D-161, D-260).
-    if (d.hors) els.push({ rang: 1, titre: 'Inhalation par le nourrisson non évaluée', court: 'Inhalation par le nourrisson non évaluée', texte: "Cette évaluation ne tient pas compte de l'inhalation du produit par le nourrisson.", ic: 'Air' });
+    if (d.hors) els.push({ rang: 1, titre: 'Inhalation par le bébé non évaluée', court: 'Inhalation par le bébé non évaluée', texte: "Cette évaluation ne tient pas compte de l'inhalation du produit par le bébé.", ic: 'Air' });
     // Étiquette du registre, « Contact rapproché non évalué » (D-259), à la place de « contact peau à peau » (17/10).
     if (d.contact) els.push({ rang: 2, titre: 'Contact rapproché non évalué', court: 'Contact rapproché non évalué', ic: 'Contact',
-      texte: 'Cette évaluation ne tient pas compte du contact de la peau du nourrisson avec la peau traitée.' });
+      texte: 'Cette évaluation ne tient pas compte du contact de la peau du bébé avec la peau traitée.' });
     if (vj && d.parfum) els.push({ rang: 3, titre: 'Produit parfumé', court: 'Produit parfumé', texte: "Le nouveau-né se guide vers le sein à l'odeur.", src: 'parfum', ic: 'Parfum' });
     // Condition savon retirée du verdict (porteuse, 17/10 : « n'a rien à faire ici ») ; son texte part vers une fiche, à écrire.
     els = els.map(function (e, k) { e.k = k; return e; }).sort(function (a, b) { return a.rang - b.rang || a.k - b.k; });

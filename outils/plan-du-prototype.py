@@ -29,7 +29,7 @@ LARGEUR, HAUTEUR = 1600, 4640
 RUBRIQUES = [
     ("Premier lancement", "Ouverture, accueil, caméra, puis les aides de prise en main au moment du geste.",
      "E1-Ouverture-Arbre E1-Ouverture-Arbre-Reduit E1-Accueil-Bienvenue E1-Accueil-Conditions E6-CGU-Accueil "
-     "E6-Confidentialite-Accueil E3-Scan-Demande E3-Scan-Refus E3-Scan-Reglages E1-Aide-Scan E1-Aide-Info "
+     "E6-Confidentialite-Accueil E3-Scan-InfoAndroid E3-Scan-Demande E3-Scan-Refus E3-Scan-Reglages E1-Aide-Scan E1-Aide-Info "
      "E1-Aide-Echelle E1-Aide-Historique E1-Aide-Menu"),
     ("Lancements suivants", "Le scanner, les alertes à l'ouverture et la mise à jour obligatoire.",
      "E1-Scan E1-Code E5-Scan-Alerte E5-Scan-Repere E5-Scan-Alertes E5-Scan-Evalue E5-Scan-AlertesArretees "

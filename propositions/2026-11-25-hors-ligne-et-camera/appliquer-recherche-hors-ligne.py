@@ -5,7 +5,7 @@
 Ajoute aux neuf copies du gabarit de la recherche un réglage « Sans connexion : recherche » (D-368, décision 287), à deux
 valeurs : « Indisponible (02/11) », l'état actuel, par défaut ; « Catalogue embarqué (proposition, 25/11) ». Dans ce second
 mode, sans connexion : le champ reste actif ; seuls les produits évalués, enregistrés dans l'application, sont cherchés ;
-une note le dit sous le champ ; sans résultat, le texte dit « Aucun produit enregistré dans l'application ne correspond à
+un encadré bleu d'information le dit en tête des résultats ; sans résultat, le texte dit « Aucun produit enregistré dans l'application ne correspond à
 cette recherche. » et « Réessayez une fois le téléphone connecté. » ; ni liste collée, ni invitation à contribuer (elles
 demandent le réseau). Tous les textes nouveaux : Proposition.
 
@@ -27,23 +27,26 @@ SCAN = ("Scannez le code-barres du produit avec l'onglet « Scanner » : s'il no
         "vous pourrez nous aider à l'ajouter.")
 
 
-def note(vb):
-    return ("<!-- Recherche sans connexion dans le catalogue embarqué (D-91, D-368 ; décision 287 : « à modéliser » ; "
-            "porteuse, 25/11 : captures d'abord). Réglage « Sans connexion : recherche ». Textes : Proposition. -->\n"
+ZONE = ('<div style="flex-grow: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 16px 16px 12px 16px; '
+        'background: #FFFFFF; border-radius: 28px 28px 0 0">')
+
+
+def note():
+    # Encadré bleu d'information du prototype (porteuse, 25/11 : « le message est dans un encadré bleu normalement car c'est une
+    # information ») : celui de « plusieurs versions » et de la liste collée, en tête de la zone blanche.
+    return (ZONE + "\n<!-- Recherche sans connexion dans le catalogue embarqué (D-91, D-368 ; décision 287 : « à modéliser » ; "
+            "porteuse, 25/11 : captures d'abord, puis l'encadré bleu d'information). Réglage « Sans connexion : recherche ». "
+            "Texte : Proposition. -->\n"
             '<sc-if value="{{hlCatalogue}}" hint-placeholder-val="{{ false }}">\n'
-            '<p role="note" style="margin: 0; display: flex; align-items: flex-start; gap: 8px; font-size: 15px; '
-            'line-height: 1.4; color: #FFFFFF"><svg width="20" height="20" ' + vb + '="0 0 24 24" fill="none" '
-            'stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" '
-            'style="flex-shrink: 0; margin-top: 1px"><path d="M2 8.5a15 15 0 0 1 20 0"></path><path d="M5.5 12a10 10 0 0 1 '
-            '13 0"></path><path d="M9 15.5a5 5 0 0 1 6 0"></path><path d="M12 19h.01"></path><path d="M3 3l18 18"></path>'
-            "</svg><span>Sans connexion : la recherche porte sur les produits enregistrés dans l'application.</span></p>\n"
-            '</sc-if>\n' + STATUS)
+            '<p role="note" style="margin: 0 0 12px 0; padding: 12px 14px; border: 1px solid #C9D6E2; border-radius: 14px; '
+            'background: #E9EFF4; font-size: 16px; line-height: 1.45; color: #2F4A62; text-wrap: pretty">Sans connexion : la '
+            "recherche porte sur les produits enregistrés dans l'application.</p>\n"
+            '</sc-if>')
 
 
 def remplacements(s):
-    vb = 'sc-camel-view-box' if 'sc-camel-view-box' in s.split('<sc-if value="{{isSearch}}"')[1][:3000] else 'viewBox'
     return [
-        (STATUS, note(vb)),
+        (ZONE, note()),
         ('>Aucun produit ne correspond à cette recherche.</p>', '>{{aucunTexte}}</p>'),
         ('>' + SCAN + '</p>', '>{{fgTexte}}</p>'),
         ("    var depart = D.indexOf(this.props.depart) >= 0 ? this.props.depart : D[0];\n",

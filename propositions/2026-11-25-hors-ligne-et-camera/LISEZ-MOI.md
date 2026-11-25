@@ -8,10 +8,10 @@ La porteuse a demandé, le 25/11 : « 4. La recherche sans connexion avec le cat
 
 **Ce que le registre dit.** `D-91` : hors ligne, les verdicts consultés et les verdicts du catalogue transcrit sont embarqués avec leur identité (nom, marque, contenance). `D-368` (11/11) : un produit du catalogue embarqué s'affiche sans rien envoyer au serveur ; « s'en servir pour chercher un produit par son nom reste à l'étude ». Décision de séance 287 (25/11) : « à modéliser ».
 
-**Ce que la proposition fait** (captures : `captures-recherche-hors-ligne.png`, `captures-en-ligne-et-hors-ligne.png`) :
+**Ce que la proposition fait** (captures : `captures-recherche-hors-ligne.png`, refaite avec l'encadré bleu : champ vide, « lait », « lait » en ligne puis sans connexion avec l'index élargi, aucun résultat ; `captures-en-ligne-et-hors-ligne.png`, première version) :
 - sans connexion, le champ de recherche reste actif ;
 - seuls les produits évalués, enregistrés dans l'application, sont cherchés ; un produit reconnu mais non évalué n'apparaît pas (comparaison en ligne et hors ligne, avec l'index élargi : à gauche « Lait corps hydratant » et « Lait démaquillant doux » apparaissent, à droite non) ;
-- une note, sous le champ : « Sans connexion : la recherche porte sur les produits enregistrés dans l'application. » (Proposition) ;
+- en tête de la zone des résultats, dans l'encadré bleu d'information du prototype (celui de « plusieurs versions » et de la liste collée) : « Sans connexion : la recherche porte sur les produits enregistrés dans l'application. » (Proposition). Première version du 25/11 : une note blanche sous le champ, refusée le même jour (porteuse : « ce n'est pas en accord avec la DA de l'app : le message est dans un encadré bleu normalement car c'est une information ») ;
 - sans résultat : « Aucun produit enregistré dans l'application ne correspond à cette recherche. » et, sous le symbole, « Réessayez une fois le téléphone connecté. » (Proposition). Le 02/11, la porteuse avait écarté « Aucun produit ne correspond… » hors ligne, parce que c'était « factuellement faux » : la nouvelle phrase ne parle que des produits enregistrés ;
 - ni « Coller la liste des ingrédients », ni invitation à photographier la liste : les deux demandent le réseau ;
 - un résultat ouvre l'écran du produit comme en ligne.
@@ -23,6 +23,8 @@ La porteuse a demandé, le 25/11 : « 4. La recherche sans connexion avec le cat
 - Le catalogue embarqué contient aussi les verdicts déjà consultés (`D-91`) : le prototype ne distingue pas les deux.
 
 ## 2. L'écran d'information caméra, sur Android
+
+**Accepté le 25/11** (porteuse : « ok », décision 293) : la planche est passée dans `prototype/sources/project/`, avec le retour de la décision 288 et son entrée dans `canvas.json` (page « Étape 3 », à gauche de la demande). Le texte ci-dessous décrit la proposition telle qu'elle a été montrée.
 
 **Ce que le registre dit.** `O-71`, option A, proposée par Claude : « un écran d'information propre à Android, juste avant la première demande ». `C-322` : l'obligation de Google sur la permission de la caméra ne dépend pas d'un usage de santé ; « l'écran d'avertissement que prévoyait la porteuse était juste pour Android ». Réponse de la porteuse le 25/11 (décision 287) : « ok ».
 

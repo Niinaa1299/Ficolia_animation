@@ -345,7 +345,7 @@ class Component extends DCLogic {
         sel.showRince = rince && (t === 'sig' || i === 1 || i === 2);
         sel.showPhoto = photosens && t === 'sig';
       } else if (t === 'parfum') {
-        sel.isTexte = true; sel.f3 = 'On ne peut pas savoir ce que recouvre ce terme.'; sel.source = '[Source — à définir pour Parfum]';
+        sel.isTexte = true; sel.f3 = '[Ce qui est en cause pour le parfum (noté 1, D-306, D-307) — texte à rédiger avec la toxicologue (D-68)]'; sel.f3Color = '#6E5A6B'; sel.source = '[Source — à définir pour Parfum]';
       } else if (t === 'a') {
         sel.isEtat = true; sel.f3 = 'Aucun signal identifié'; sel.source = 'Aucun statut dans les registres consultés';
       } else if (t === 'b') {
