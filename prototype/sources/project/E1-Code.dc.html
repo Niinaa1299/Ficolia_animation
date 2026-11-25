@@ -27,23 +27,73 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #4C29
 <h1 style="margin: 0; text-align: center; font-size: 19px; font-weight: 700">Saisir le code-barres</h1>
 <span></span>
 </div>
+<!-- Saisie guidée (porteuse, 25/11, fil 68e27871 : « si code pas reconnu ou typologie pas respectée du code barre à mentionner. guider l'inscription ») : le nombre de chiffres attendus, le compte en direct, un message si la longueur ou la clé de contrôle ne va pas ; un code valide mais inconnu mène à « Nous ne connaissons pas ce produit ». Textes : Proposition. -->
 <div style="padding: 32px 24px 0 24px; display: flex; flex-direction: column; gap: 10px">
 <label for="e1-code" style="font-size: 17px; font-weight: 700">Code-barres</label>
-<input id="e1-code" type="text" inputmode="numeric" autocomplete="off" aria-describedby="e1-code-aide" style="box-sizing: border-box; width: 100%; min-height: 56px; padding: 0 16px; border: 1px solid #6E5A6B; border-radius: 16px; background: #FFFFFF; color: #321C31; font-family: inherit; font-size: 22px; letter-spacing: 0.04em">
-<p id="e1-code-aide" style="margin: 0; font-size: 14px; line-height: 1.4; color: #6E5A6B">Les chiffres imprimés sous le code-barres.</p>
+<input id="e1-code" type="text" inputmode="numeric" autocomplete="off" maxlength="20" value="{{code}}" sc-camel-on-change="{{onCode}}" aria-describedby="e1-code-aide e1-code-erreur" aria-invalid="{{invalide}}" style="box-sizing: border-box; width: 100%; min-height: 56px; padding: 0 16px; border: {{bord}}; border-radius: 16px; background: #FFFFFF; color: #321C31; font-family: inherit; font-size: 22px; letter-spacing: 0.04em">
+<p id="e1-code-aide" style="margin: 0; font-size: 14px; line-height: 1.4; color: #6E5A6B">Les 8, 12 ou 13 chiffres imprimés sous le code-barres.{{compte}}</p>
+<sc-if value="{{erreur}}" hint-placeholder-val="{{ false }}">
+<p id="e1-code-erreur" role="alert" style="margin: 0; padding: 12px 14px; border: 1.5px solid #6E5A6B; border-radius: 14px; background: #FAF8F4; font-size: 16px; line-height: 1.45">{{message}}</p>
+</sc-if>
 <sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
-<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Texte provisoire</span>
+<span style="align-self: flex-start; padding: 3px 10px; border: 1px dashed #6E5A6B; border-radius: 999px; font-size: 13px; line-height: 1.3; color: #6E5A6B">Proposition</span>
 </sc-if>
 </div>
 <div style="padding: 24px 24px 0 24px; display: flex; flex-direction: column">
+<sc-if value="{{connu}}" hint-placeholder-val="{{ false }}">
 <a href="E1-Produit.dc.html" style="align-self: stretch; min-height: 56px; border-radius: 999px; background: #4C2944; color: #FFF7F0; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Voir le produit</a>
+</sc-if>
+<sc-if value="{{inconnu}}" hint-placeholder-val="{{ false }}">
+<a href="E3-SansVerdict-Inconnu.dc.html" style="align-self: stretch; min-height: 56px; border-radius: 999px; background: #4C2944; color: #FFF7F0; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Voir le produit</a>
+</sc-if>
+<sc-if value="{{aVerifier}}" hint-placeholder-val="{{ true }}">
+<button type="button" sc-camel-on-click="{{verifier}}" style="align-self: stretch; min-height: 56px; border: 0; border-radius: 999px; background: #4C2944; color: #FFF7F0; font-family: inherit; font-size: 17px; font-weight: 700; cursor: pointer">Voir le produit</button>
+</sc-if>
+<sc-if value="{{showStatus}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 12px 0 0 0; font-size: 13px; line-height: 1.4; color: #6E5A6B">[Prototype : 3600000000016 est le lait corps ; un autre code valide mène à « produit inconnu »]</p>
+</sc-if>
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;exemple&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Vide&quot;,&quot;Code reconnu&quot;,&quot;Code inconnu&quot;,&quot;Trop court&quot;,&quot;Chiffre erroné&quot;],&quot;default&quot;:&quot;Vide&quot;,&quot;section&quot;:&quot;Exemple saisi&quot;},&quot;statuts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Statuts des textes (provisoire)&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
 class Component extends DCLogic {
+  componentDidUpdate(prevProps) {
+    if (prevProps && prevProps.exemple !== this.props.exemple && this.state && typeof this.state.code === 'string') { this.setState({ code: null, vu: null }); }
+  }
   renderVals() {
-    return { showStatus: this.props.statuts !== false };
+    // Codes-barres des produits : EAN-8, UPC-A (12) et EAN-13 ; le dernier chiffre est une clé de contrôle.
+    var EX = { 'Vide': ['', false], 'Code reconnu': ['3600000000016', false], 'Code inconnu': ['3760000000024', false], 'Trop court': ['36000000016', true], 'Chiffre erroné': ['3600000000019', true] };
+    var ex = EX[this.props.exemple] || EX['Vide'];
+    var st = this.state || {};
+    var self = this;
+    var code = typeof st.code === 'string' ? st.code : ex[0];
+    var vu = typeof st.vu === 'boolean' ? st.vu : ex[1];
+    var brut = code.replace(/[\s-]/g, '');
+    var chiffres = /^[0-9]*$/.test(brut);
+    var n = brut.length;
+    var cle = function (d) { var t = 0; for (var k = d.length - 2, w = 3; k >= 0; k--, w = 4 - w) t += +d[k] * w; return (10 - t % 10) % 10 === +d[d.length - 1]; };
+    var bonneLongueur = n === 8 || n === 12 || n === 13;
+    var valide = chiffres && bonneLongueur && cle(brut);
+    var msg = '';
+    if (!chiffres) msg = 'Un code-barres ne contient que des chiffres.';
+    else if (n === 0) msg = 'Saisissez les chiffres imprimés sous le code-barres.';
+    else if (!bonneLongueur) msg = 'Un code-barres compte 8, 12 ou 13 chiffres. Vous en avez saisi ' + n + '.';
+    else if (!valide) msg = 'Ce code ne correspond à aucun code-barres valide. Vérifiez chaque chiffre.';
+    var montrer = vu && !valide;
+    return {
+      code: code,
+      onCode: function (ev) { self.setState({ code: String(ev.target.value).slice(0, 20), vu: false }); },
+      compte: n > 0 && chiffres ? ' ' + n + (n > 1 ? ' chiffres saisis.' : ' chiffre saisi.') : '',
+      erreur: montrer,
+      message: msg,
+      invalide: montrer ? 'true' : 'false',
+      bord: montrer ? '2px solid #4C2944' : '1px solid #6E5A6B',
+      connu: valide && brut === '3600000000016',
+      inconnu: valide && brut !== '3600000000016',
+      aVerifier: !valide,
+      verifier: function () { self.setState({ code: code, vu: true }); },
+      showStatus: this.props.statuts !== false
+    };
   }
 }
 </script>

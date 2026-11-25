@@ -112,6 +112,50 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #4C29
 </sc-if>
 <sc-for list="{{rows}}" as="item" hint-placeholder-count="5">
 <li style="border-bottom: 1px solid #E7E1DA">
+<!-- Ligne « Pas encore évalué » (porteuse, 25/11, fil 47b39099 : « relier à l'écran directement du produit non évalué ») -->
+<sc-if value="{{item.isNonEval}}" hint-placeholder-val="{{ false }}">
+<a href="E3-SansVerdict-NonEvalue.dc.html" class="e2-row" style="width: 100%; box-sizing: border-box; min-height: 76px; padding: 12px 8px; border: 0; border-radius: 12px; color: #321C31; font-family: inherit; text-align: left; display: flex; align-items: flex-start; gap: 12px; cursor: pointer">
+<sc-if value="{{item.thumbPhoto}}" hint-placeholder-val="{{ true }}">
+<span aria-hidden="true" style="flex-shrink: 0; width: 52px; height: 52px; box-sizing: border-box; border-radius: 12px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<sc-if value="{{item.isPompe}}" hint-placeholder-val="{{ true }}">
+<svg width="30" height="39" sc-camel-view-box="0 0 200 260"><rect x="86" y="14" width="28" height="12" rx="4" fill="#7E8285"></rect><rect x="112" y="17" width="32" height="6" rx="3" fill="#7E8285"></rect><rect x="95" y="26" width="10" height="14" fill="#9DA1A4"></rect><rect x="80" y="40" width="40" height="22" rx="7" fill="#9DA1A4"></rect><rect x="50" y="62" width="100" height="184" rx="30" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="1.5" vector-effect="non-scaling-stroke"></rect><rect x="64" y="112" width="72" height="84" rx="10" fill="#E6E8E9"></rect><rect x="76" y="130" width="48" height="7" rx="3.5" fill="#AEB1B3"></rect><rect x="76" y="145" width="34" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="76" y="176" width="22" height="5" rx="2.5" fill="#C9CCCE"></rect></svg>
+</sc-if>
+<sc-if value="{{item.isFlacon}}" hint-placeholder-val="{{ false }}">
+<svg width="30" height="39" sc-camel-view-box="0 0 200 260"><rect x="74" y="16" width="52" height="34" rx="9" fill="#9DA1A4"></rect><rect x="46" y="50" width="108" height="196" rx="24" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="1.5" vector-effect="non-scaling-stroke"></rect><rect x="62" y="108" width="76" height="84" rx="10" fill="#E6E8E9"></rect><rect x="76" y="126" width="48" height="7" rx="3.5" fill="#AEB1B3"></rect><rect x="76" y="141" width="34" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="76" y="172" width="22" height="5" rx="2.5" fill="#C9CCCE"></rect></svg>
+</sc-if>
+<sc-if value="{{item.isTube}}" hint-placeholder-val="{{ false }}">
+<svg width="30" height="39" sc-camel-view-box="0 0 200 260"><rect x="52" y="12" width="96" height="12" rx="4" fill="#C9CCCE"></rect><path d="M56 24h88l-12 172H68z" fill="#FFFFFF" stroke-linejoin="round" stroke="#AEB1B3" stroke-width="1.5" vector-effect="non-scaling-stroke"></path><rect x="80" y="70" width="40" height="70" rx="9" fill="#E6E8E9"></rect><rect x="88" y="86" width="24" height="6" rx="3" fill="#AEB1B3"></rect><rect x="88" y="100" width="16" height="5" rx="2.5" fill="#C9CCCE"></rect><rect x="72" y="196" width="56" height="50" rx="9" fill="#9DA1A4"></rect></svg>
+</sc-if>
+<sc-if value="{{item.isPot}}" hint-placeholder-val="{{ false }}">
+<svg width="30" height="39" sc-camel-view-box="0 0 200 260"><rect x="32" y="86" width="136" height="44" rx="11" fill="#9DA1A4"></rect><rect x="40" y="130" width="120" height="104" rx="22" fill="#FFFFFF" stroke="#AEB1B3" stroke-width="1.5" vector-effect="non-scaling-stroke"></rect><rect x="64" y="154" width="72" height="54" rx="10" fill="#E6E8E9"></rect><rect x="76" y="168" width="48" height="7" rx="3.5" fill="#AEB1B3"></rect><rect x="76" y="183" width="34" height="5" rx="2.5" fill="#C9CCCE"></rect></svg>
+</sc-if>
+</span>
+</sc-if>
+<sc-if value="{{item.thumbAbsent}}" hint-placeholder-val="{{ false }}">
+<span aria-hidden="true" style="flex-shrink: 0; width: 52px; height: 52px; box-sizing: border-box; border-radius: 12px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
+<svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E5A6B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2.5"></rect><path d="M3.5 16l4.5-4.5 4 4 2.5-2.5 6 6"></path><path d="M3 3l18 18"></path></svg>
+</span>
+</sc-if>
+<span style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 3px">
+<span style="font-size: 17px; font-weight: 700; line-height: 1.3; overflow-wrap: anywhere">{{item.nom}}</span>
+<span style="font-size: 15px; line-height: 1.3; color: #6E5A6B">{{item.marque}}</span>
+<sc-if value="{{item.isReeval}}" hint-placeholder-val="{{ false }}">
+<span style="align-self: flex-start; margin-top: 3px; padding: 2px 10px; border: 1.5px solid #2B5C8F; border-radius: 999px; background: #E3EDF8; color: #321C31; font-size: 14px; font-weight: 700; line-height: 1.3">Réévalué</span>
+</sc-if>
+<sc-if value="{{item.isNowEval}}" hint-placeholder-val="{{ false }}">
+<span style="align-self: flex-start; margin-top: 3px; padding: 2px 10px; border: 1.5px solid #2B5C8F; border-radius: 999px; background: #E3EDF8; color: #321C31; font-size: 14px; font-weight: 700; line-height: 1.3">Maintenant évalué</span>
+</sc-if>
+<sc-if value="{{item.isNonEval}}" hint-placeholder-val="{{ false }}">
+<span style="align-self: flex-start; margin-top: 3px; padding: 2px 10px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #6E5A6B; font-size: 14px; line-height: 1.3">Pas encore évalué</span>
+</sc-if>
+<sc-if value="{{item.isTypeAP}}" hint-placeholder-val="{{ false }}">
+<span style="align-self: flex-start; margin-top: 3px; padding: 2px 10px; border: 1px solid #6E5A6B; border-radius: 999px; background: #FFFFFF; color: #6E5A6B; font-size: 14px; line-height: 1.3">Type à préciser</span>
+</sc-if>
+</span>
+<span style="flex-shrink: 0; font-size: 17px; font-weight: 700; line-height: 1.3; white-space: nowrap">{{item.contenance}}</span>
+</a>
+</sc-if>
+<sc-if value="{{item.notNonEval}}" hint-placeholder-val="{{ true }}">
 <button type="button" class="e2-row" sc-camel-on-click="{{item.pick}}" style="width: 100%; box-sizing: border-box; min-height: 76px; padding: 12px 8px; border: 0; border-radius: 12px; color: #321C31; font-family: inherit; text-align: left; display: flex; align-items: flex-start; gap: 12px; cursor: pointer">
 <sc-if value="{{item.thumbPhoto}}" hint-placeholder-val="{{ true }}">
 <span aria-hidden="true" style="flex-shrink: 0; width: 52px; height: 52px; box-sizing: border-box; border-radius: 12px; border: 1px solid #E7E1DA; background: #FAF8F4; display: flex; align-items: center; justify-content: center">
@@ -152,6 +196,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #4C29
 </span>
 <span style="flex-shrink: 0; font-size: 17px; font-weight: 700; line-height: 1.3; white-space: nowrap">{{item.contenance}}</span>
 </button>
+</sc-if>
 </li>
 </sc-for>
 </ul>
@@ -441,6 +486,7 @@ class Component extends DCLogic {
         // Un produit sans évaluation le dit dans la liste ; ce n'est pas un verdict.
         isNonEval: !p.ev && !has(NOWEVAL, p.id) && !has(TYPEAP, p.id),
         isTypeAP: has(TYPEAP, p.id),
+        notNonEval: !(!p.ev && !has(NOWEVAL, p.id) && !has(TYPEAP, p.id)),
         pick: function () { self.setState({ view: 'product', sel: p.id, note: false, fav: false, seen: seen.concat([p.id]), touched: true }); }
       };
     });
